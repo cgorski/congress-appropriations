@@ -352,12 +352,17 @@ fn parse_dollar_amount(
     let obj = value?.as_object()?;
 
     // Check for AmountValue kind — handle "such_sums" and "none" before reading dollars
-    let kind = obj.get("kind")
+    let kind = obj
+        .get("kind")
         .or_else(|| obj.get("value").and_then(|v| v.get("kind")))
         .and_then(|k| k.as_str());
 
     if kind == Some("such_sums") {
-        let semantics = match obj.get("semantics").and_then(|v| v.as_str()).unwrap_or("other") {
+        let semantics = match obj
+            .get("semantics")
+            .and_then(|v| v.as_str())
+            .unwrap_or("other")
+        {
             "new_budget_authority" => AmountSemantics::NewBudgetAuthority,
             "transfer_ceiling" => AmountSemantics::TransferCeiling,
             "rescission" => AmountSemantics::Rescission,
@@ -366,7 +371,11 @@ fn parse_dollar_amount(
             "mandatory_spending" => AmountSemantics::MandatorySpending,
             other => AmountSemantics::Other(other.to_string()),
         };
-        let text = obj.get("text_as_written").and_then(|v| v.as_str()).unwrap_or("").to_string();
+        let text = obj
+            .get("text_as_written")
+            .and_then(|v| v.as_str())
+            .unwrap_or("")
+            .to_string();
         return Some(DollarAmount::such_sums(semantics, text));
     }
     if kind == Some("none") {

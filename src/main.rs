@@ -13,9 +13,12 @@ use std::time::Instant;
 use tracing_subscriber::EnvFilter;
 
 #[derive(Parser)]
-#[command(name = "congress-approp")]
-#[command(about = "Download and analyze U.S. appropriations bills")]
-#[command(version)]
+#[command(
+    name = "congress-approp",
+    version,
+    about = "Download and analyze U.S. appropriations bills",
+    after_help = "Quick start: congress-approp summary --dir examples\nExplore included FY2024 bill data without any API keys."
+)]
 struct Cli {
     #[command(subcommand)]
     command: Commands,
@@ -32,12 +35,12 @@ enum Commands {
         #[command(subcommand)]
         action: ApiCommands,
     },
-    /// Download bill XML from Congress.gov
+    /// Download appropriations bill XML from Congress.gov
     Download {
-        /// Congress number (e.g., 118)
+        /// Congress number (e.g., 118 for 2023-2024, 119 for 2025-2026)
         #[arg(long)]
         congress: u32,
-        /// Bill type for single-bill download (e.g., hr, s, hjres)
+        /// Bill type: hr (House), s (Senate), hjres (House joint resolution)
         #[arg(long)]
         r#type: Option<String>,
         /// Bill number for single-bill download (used with --type)
@@ -46,34 +49,34 @@ enum Commands {
         /// Output directory
         #[arg(long, default_value = "./data")]
         output_dir: String,
-        /// Only download enacted bills (ignored when --type and --number are set)
+        /// Only download bills signed into law (filters out introduced/committee versions)
         #[arg(long)]
         enacted_only: bool,
-        /// Formats to download (comma-separated: pdf,xml)
+        /// Download format: xml (for extraction), pdf (for reading) [comma-separated]
         #[arg(long, default_value = "xml")]
         format: String,
-        /// Only download specific versions (comma-separated: enr,ih,eh)
+        /// Bill text version: enr (enrolled/final), ih (introduced), eh (engrossed)
         #[arg(long)]
         version: Option<String>,
         /// Show what would be downloaded without fetching
         #[arg(long)]
         dry_run: bool,
     },
-    /// Extract structured data from bill text using LLM
+    /// Extract spending provisions from bill text using Claude (requires ANTHROPIC_API_KEY)
     Extract {
-        /// Data directory
+        /// Data directory containing downloaded bill XML
         #[arg(long, default_value = "./data")]
         dir: String,
         /// Show what would be extracted without calling LLM
         #[arg(long)]
         dry_run: bool,
-        /// Max parallel LLM calls for multi-pass extraction (omnibus bills)
+        /// Parallel LLM calls — higher is faster but uses more API quota
         #[arg(long, default_value = "5")]
         parallel: usize,
     },
     /// Search provisions across all extracted bills
     Search {
-        /// Data directory to search
+        /// Data directory (try 'examples' for included FY2024 data)
         #[arg(long, default_value = "./data")]
         dir: String,
         /// Filter by agency name (case-insensitive substring)
@@ -97,7 +100,7 @@ enum Commands {
     },
     /// Show summary of all extracted bills
     Summary {
-        /// Data directory
+        /// Data directory (try 'examples' for included FY2024 data)
         #[arg(long, default_value = "./data")]
         dir: String,
         /// Output format: table, json
@@ -106,10 +109,10 @@ enum Commands {
     },
     /// Compare provisions between two sets of bills (e.g. two fiscal years)
     Compare {
-        /// Base directory (e.g. prior year)
+        /// Base directory for comparison (e.g., data from prior fiscal year)
         #[arg(long)]
         base: String,
-        /// Current directory (e.g. current year)
+        /// Current directory for comparison (e.g., data from current fiscal year)
         #[arg(long)]
         current: String,
         /// Filter by agency name (case-insensitive substring)
@@ -122,7 +125,7 @@ enum Commands {
     /// Audit data quality across all extracted bills
     #[command(alias = "report")]
     Audit {
-        /// Data directory to report on
+        /// Data directory to audit (try 'examples' for included FY2024 data)
         #[arg(long, default_value = "./data")]
         dir: String,
         /// Show individual problematic provisions
@@ -153,7 +156,7 @@ enum ApiCommands {
 
 #[derive(Subcommand)]
 enum BillCommands {
-    /// List bills for a congress
+    /// List appropriations bills for a given Congress session
     List {
         #[arg(long)]
         congress: u32,
@@ -266,15 +269,15 @@ async fn handle_api(action: ApiCommands) -> Result<()> {
     match action {
         ApiCommands::Test => {
             tracing::info!("Testing Congress.gov API...");
-            let congress_client =
-                CongressClient::from_env().context("Set CONGRESS_API_KEY environment variable")?;
+            let congress_client = CongressClient::from_env()
+                .context("Set CONGRESS_API_KEY — free key at https://api.congress.gov/sign-up/")?;
             let bill = congress_client.test_api().await?;
             tracing::info!("✓ Congress.gov API: {} - {}", bill.number, bill.title);
 
             tracing::info!("Testing Anthropic API...");
             let anthropic_client =
                 congress_appropriations::api::anthropic::AnthropicClient::from_env()
-                    .context("Set ANTHROPIC_API_KEY environment variable")?;
+                    .context("Set ANTHROPIC_API_KEY — sign up at https://console.anthropic.com/")?;
             let msg = anthropic_client.test_connection().await?;
             tracing::info!(
                 "✓ Anthropic API: model={}, tokens={}",
@@ -289,7 +292,8 @@ async fn handle_api(action: ApiCommands) -> Result<()> {
 }
 
 async fn handle_bill(action: BillCommands) -> Result<()> {
-    let client = CongressClient::from_env().context("Set CONGRESS_API_KEY environment variable")?;
+    let client = CongressClient::from_env()
+        .context("Set CONGRESS_API_KEY — free key at https://api.congress.gov/sign-up/")?;
 
     match action {
         BillCommands::List {
@@ -384,8 +388,8 @@ async fn handle_extract(dir: &str, dry_run: bool, max_parallel: usize) -> Result
         return Ok(());
     }
 
-    let anthropic =
-        AnthropicClient::from_env().context("Set ANTHROPIC_API_KEY environment variable")?;
+    let anthropic = AnthropicClient::from_env()
+        .context("Set ANTHROPIC_API_KEY — sign up at https://console.anthropic.com/")?;
 
     // Set up pipeline
     let mut pipeline = ExtractionPipeline::new(anthropic);
@@ -651,17 +655,25 @@ fn handle_search(
     }
 
     const KNOWN_PROVISION_TYPES: &[&str] = &[
-        "appropriation", "rescission", "transfer_authority", "limitation",
-        "directed_spending", "cr_substitution", "mandatory_spending_extension",
-        "directive", "rider", "continuing_resolution_baseline", "other",
+        "appropriation",
+        "rescission",
+        "transfer_authority",
+        "limitation",
+        "directed_spending",
+        "cr_substitution",
+        "mandatory_spending_extension",
+        "directive",
+        "rider",
+        "continuing_resolution_baseline",
+        "other",
     ];
 
-    if let Some(t) = provision_type {
-        if !KNOWN_PROVISION_TYPES.contains(&t) {
-            eprintln!("Warning: unknown provision type '{t}'.");
-            eprintln!("Known types: {}", KNOWN_PROVISION_TYPES.join(", "));
-            eprintln!();
-        }
+    if let Some(t) = provision_type
+        && !KNOWN_PROVISION_TYPES.contains(&t)
+    {
+        eprintln!("Warning: unknown provision type '{t}'.");
+        eprintln!("Known types: {}", KNOWN_PROVISION_TYPES.join(", "));
+        eprintln!();
     }
 
     // Build verification lookup: (bill_identifier, provision_index) -> (verified, match_tier)
@@ -811,10 +823,7 @@ fn handle_search(
                     &m.semantics,
                     &m.section,
                     &m.division,
-                    &m.verified
-                        .as_ref()
-                        .map(|s| s.clone())
-                        .unwrap_or_else(|| "n/a".to_string()),
+                    &m.verified.clone().unwrap_or_else(|| "n/a".to_string()),
                     &m.raw_text,
                 ])?;
             }
@@ -1030,7 +1039,9 @@ fn handle_search(
             println!("{table}");
             println!("{} provisions found", matches.len());
             println!();
-            println!("$ = Amount status: ✓ found (unique), ≈ found (multiple matches), ✗ not found");
+            println!(
+                "$ = Amount status: ✓ found (unique), ≈ found (multiple matches), ✗ not found"
+            );
 
             // Warn about incomplete source bills
             let incomplete: Vec<String> = bills
@@ -1210,7 +1221,10 @@ fn handle_compare(
     let base_class = &base_bills[0].extraction.bill.classification;
     let current_class = &current_bills[0].extraction.bill.classification;
     if std::mem::discriminant(base_class) != std::mem::discriminant(current_class) {
-        eprintln!("⚠  Comparing {} to {}. Accounts in one but not the other may be expected — this does not necessarily indicate policy changes.", base_class, current_class);
+        eprintln!(
+            "⚠  Comparing {} to {}. Accounts in one but not the other may be expected — this does not necessarily indicate policy changes.",
+            base_class, current_class
+        );
         eprintln!();
     }
 
@@ -1389,7 +1403,10 @@ fn handle_compare(
                 "{} accounts compared ({} changed, {} only in current, {} only in base, {} unchanged)",
                 deltas.len(),
                 deltas.iter().filter(|d| d.status == "changed").count(),
-                deltas.iter().filter(|d| d.status == "only in current").count(),
+                deltas
+                    .iter()
+                    .filter(|d| d.status == "only in current")
+                    .count(),
                 deltas.iter().filter(|d| d.status == "only in base").count(),
                 deltas.iter().filter(|d| d.status == "unchanged").count(),
             );
@@ -1564,12 +1581,12 @@ fn handle_audit(dir: &str, verbose: bool) -> Result<()> {
         "  Ambig      Dollar amounts found multiple times in source — correct but position uncertain"
     );
     println!("  Exact      raw_text is byte-identical substring of source — verbatim copy");
-    println!("  NormText  raw_text matches after whitespace/quote/dash normalization — content correct");
+    println!(
+        "  NormText  raw_text matches after whitespace/quote/dash normalization — content correct"
+    );
     println!("  Spaceless raw_text matches only after removing all spaces — PDF artifact, review");
     println!("  TextMiss raw_text not found at any tier — may be paraphrased, review manually");
-    println!(
-        "  Coverage  Percentage of dollar strings in source text matched to a provision"
-    );
+    println!("  Coverage  Percentage of dollar strings in source text matched to a provision");
     println!();
     println!("Key:");
     println!("  NotFound = 0 and Coverage = 100%   →  All amounts captured and found in source");
@@ -1584,7 +1601,7 @@ fn handle_audit(dir: &str, verbose: bool) -> Result<()> {
 // ─── Upgrade Handler ─────────────────────────────────────────────────────────
 
 fn handle_upgrade(dir: &str, dry_run: bool) -> Result<()> {
-    use congress_appropriations::approp::text_index::{build_text_index, TextIndex};
+    use congress_appropriations::approp::text_index::{TextIndex, build_text_index};
     use congress_appropriations::approp::verification;
     use congress_appropriations::approp::xml;
 
@@ -1592,7 +1609,10 @@ fn handle_upgrade(dir: &str, dry_run: bool) -> Result<()> {
 
     // Find all extraction.json files
     let mut ext_files = Vec::new();
-    for entry in walkdir::WalkDir::new(dir_path).into_iter().filter_map(|e| e.ok()) {
+    for entry in walkdir::WalkDir::new(dir_path)
+        .into_iter()
+        .filter_map(|e| e.ok())
+    {
         if entry.file_name() == "extraction.json" {
             ext_files.push(entry.into_path());
         }
@@ -1609,13 +1629,17 @@ fn handle_upgrade(dir: &str, dry_run: bool) -> Result<()> {
 
     for ext_path in &ext_files {
         let bill_dir = ext_path.parent().unwrap_or(std::path::Path::new("."));
-        let bill_name = bill_dir.file_name().map(|n| n.to_string_lossy().to_string()).unwrap_or_default();
+        let bill_name = bill_dir
+            .file_name()
+            .map(|n| n.to_string_lossy().to_string())
+            .unwrap_or_default();
 
         // Load raw JSON for patching
         let ext_text = std::fs::read_to_string(ext_path)?;
         let mut ext_json: serde_json::Value = serde_json::from_str(&ext_text)?;
 
-        let current_version = ext_json.get("schema_version")
+        let current_version = ext_json
+            .get("schema_version")
             .and_then(|v| v.as_str())
             .unwrap_or("0");
 
@@ -1634,18 +1658,18 @@ fn handle_upgrade(dir: &str, dry_run: bool) -> Result<()> {
         if let Some(provisions) = ext_json["provisions"].as_array_mut() {
             for prov in provisions.iter_mut() {
                 for field in &["amount", "new_amount", "old_amount"] {
-                    if let Some(amount) = prov.get_mut(*field) {
-                        if fix_such_sums_amount(amount) {
-                            fixed_count += 1;
-                        }
+                    if let Some(amount) = prov.get_mut(*field)
+                        && fix_such_sums_amount(amount)
+                    {
+                        fixed_count += 1;
                     }
                 }
-                if let Some(amounts) = prov.get_mut("amounts") {
-                    if let Some(arr) = amounts.as_array_mut() {
-                        for amt in arr.iter_mut() {
-                            if fix_such_sums_amount(amt) {
-                                fixed_count += 1;
-                            }
+                if let Some(amounts) = prov.get_mut("amounts")
+                    && let Some(arr) = amounts.as_array_mut()
+                {
+                    for amt in arr.iter_mut() {
+                        if fix_such_sums_amount(amt) {
+                            fixed_count += 1;
                         }
                     }
                 }
@@ -1669,7 +1693,8 @@ fn handle_upgrade(dir: &str, dry_run: bool) -> Result<()> {
             .filter(|e| {
                 let p = e.path();
                 p.extension().is_some_and(|x| x == "xml")
-                    && p.file_stem().is_some_and(|n| n.to_string_lossy().starts_with("BILLS-"))
+                    && p.file_stem()
+                        .is_some_and(|n| n.to_string_lossy().starts_with("BILLS-"))
             })
             .map(|e| e.path())
             .collect();
@@ -1683,11 +1708,8 @@ fn handle_upgrade(dir: &str, dry_run: bool) -> Result<()> {
             let extraction: congress_appropriations::approp::ontology::BillExtraction =
                 serde_json::from_str(&ext_text)?;
 
-            let mut report = verification::verify_provisions(
-                &extraction.provisions,
-                &parsed.full_text,
-                &index,
-            );
+            let mut report =
+                verification::verify_provisions(&extraction.provisions, &parsed.full_text, &index);
             report.schema_version = Some("1.0".to_string());
 
             let ver_path = bill_dir.join("verification.json");
@@ -1731,7 +1753,8 @@ fn fix_such_sums_amount(amount: &mut serde_json::Value) -> bool {
         return false;
     }
 
-    let semantics_is_missing = amount.get("semantics")
+    let semantics_is_missing = amount
+        .get("semantics")
         .and_then(|v| v.as_str())
         .is_some_and(|s| s == "missing");
 
@@ -1748,7 +1771,8 @@ fn fix_such_sums_amount(amount: &mut serde_json::Value) -> bool {
         .and_then(|v| v.get("dollars"))
         .and_then(|v| v.as_i64())
         .is_some_and(|d| d == 0);
-    let text_is_empty = amount.get("text_as_written")
+    let text_is_empty = amount
+        .get("text_as_written")
         .and_then(|v| v.as_str())
         .is_some_and(|s| s.is_empty());
 
@@ -1776,7 +1800,8 @@ struct DownloadOptions<'a> {
 async fn handle_download(opts: DownloadOptions<'_>) -> Result<()> {
     let total_start = Instant::now();
 
-    let client = CongressClient::from_env().context("Set CONGRESS_API_KEY environment variable")?;
+    let client = CongressClient::from_env()
+        .context("Set CONGRESS_API_KEY — free key at https://api.congress.gov/sign-up/")?;
     let c = Congress::new(opts.congress).map_err(|e| anyhow::anyhow!("{e}"))?;
 
     let formats: Vec<&str> = opts.format.split(',').map(|s| s.trim()).collect();

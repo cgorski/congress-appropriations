@@ -4,7 +4,93 @@ A command-line tool that downloads U.S. federal appropriations bills from Congre
 
 The goal: make the ~1,500 pages of annual appropriations bills searchable, sortable, and machine-readable — so you can quickly answer questions like "how much did Congress appropriate for VA Compensation and Pensions?" or "which programs got cut in the continuing resolution?"
 
-**Pre-processed data available:** The [`examples/`](examples/) directory includes completed extractions for three 118th Congress bills — a [supplemental](examples/hr9468/), a [continuing resolution](examples/hr5860/), and the [FY2024 omnibus](examples/hr4366/) (2,364 provisions, 94.2% coverage). No API keys required to query these. See [Try It Without API Keys](#try-it-without-api-keys) below.
+**Pre-processed data available:** The [`examples/`](examples/) directory includes completed extractions for three 118th Congress bills — a [supplemental](examples/hr9468/), a [continuing resolution](examples/hr5860/), and the [FY2024 omnibus](examples/hr4366/) (2,364 provisions, 94.2% coverage). No API keys required to query these.
+
+## Quick Start — Try It Now
+
+### Install
+
+```bash
+git clone https://github.com/cgorski/congress-appropriations.git
+cd congress-appropriations
+cargo install --path .
+```
+
+This places the `congress-approp` binary on your PATH. You need **Rust 1.93+** ([install via rustup](https://rustup.rs/)). After modifying the source, run `cargo install --path .` again to rebuild.
+
+### Explore the Example Data (No API Keys Required)
+
+The `examples/` directory contains pre-extracted data from three bills. Try these commands right away:
+
+```bash
+# See what bills are available and their budget authority totals
+congress-approp summary --dir examples
+
+# Find all appropriations across every bill
+congress-approp search --dir examples --type appropriation
+
+# What programs got funding changes in the continuing resolution?
+congress-approp search --dir examples/hr5860 --type cr_substitution
+
+# Find all FEMA-related provisions
+congress-approp search --dir examples --keyword "Federal Emergency Management"
+
+# Export everything to CSV for Excel
+congress-approp search --dir examples --type appropriation --format csv > appropriations.csv
+```
+
+### Included Bills
+
+| Directory | Bill | Description | Provisions | Coverage |
+|-----------|------|-------------|------------|----------|
+| `examples/hr9468/` | H.R. 9468 | Veterans Benefits Supplemental Appropriations Act, 2024 — additional funding for VA compensation, pensions, and readjustment benefits | 7 | 100% |
+| `examples/hr5860/` | H.R. 5860 | Continuing Appropriations Act, 2024 — temporary funding at prior-year rates with 13 CR substitutions (anomalies) and mandatory spending extensions | 130 | 61.1% |
+| `examples/hr4366/` | H.R. 4366 | Consolidated Appropriations Act, 2024 — the FY2024 omnibus covering MilCon-VA, Agriculture, CJS, Energy-Water, Interior, THUD, and other matters | 2,364 | 94.2% |
+
+Each directory contains the source XML, extracted provisions, and verification report. All query commands (`search`, `summary`, `compare`, `audit`) work against these directories. The goal is to eventually include all enacted appropriations bills so users can query without running the LLM extraction themselves.
+
+## How Federal Appropriations Work
+
+Congress funds the federal government through **annual appropriations bills** — legislation that grants agencies the legal authority to spend money. This tool extracts and structures those bills.
+
+### The Fiscal Year
+
+The federal fiscal year runs **October 1 to September 30**. FY2024 = October 2023 – September 2024. Bills are typically labeled by the fiscal year they fund, not the calendar year they're enacted in.
+
+### Bill Types
+
+| Classification | What It Is |
+|----------------|------------|
+| `regular` | One of the 12 annual appropriations bills (Defense, Labor-HHS, etc.) |
+| `omnibus` | Multiple regular bills combined into one package |
+| `minibus` | A few regular bills combined (smaller than an omnibus) |
+| `continuing_resolution` | Temporary funding at prior-year rates, with specific anomalies |
+| `supplemental` | Additional funding outside the regular cycle (disaster relief, wartime, etc.) |
+| `rescissions` | A bill primarily canceling previously enacted budget authority |
+
+### Scope: What This Covers (and Doesn't)
+
+This tool extracts **discretionary appropriations** — the spending Congress votes on each year through the twelve annual appropriations bills (plus supplementals and continuing resolutions). That's roughly **26% of total federal spending**. It does **not** cover mandatory spending (Social Security, Medicare, Medicaid — about 63%) or net interest on the debt (about 11%).
+
+The amounts represent **budget authority** (what Congress authorizes agencies to obligate), not **outlays** (what the Treasury actually disburses). This is why the numbers you'll see — around $1.7–1.9 trillion — don't match the ~$6–7 trillion headline federal budget figure.
+
+### Congress Numbers
+
+Each Congress lasts two years. The **118th Congress** covered **2023–2024**. The **119th Congress** covers **2025–2026**. Bills are identified by Congress number — for example, H.R. 4366 from the 118th Congress is a different bill than H.R. 4366 from any other Congress.
+
+### Glossary
+
+> **Enacted** — Signed into law by the President (or veto overridden).
+>
+> **Enrolled** — The final version of a bill passed by both chambers, sent to the President. This is the version the tool downloads.
+>
+> **Omnibus** — A single bill packaging multiple (often all twelve) annual appropriations bills together. Congress frequently uses omnibuses when individual bills stall.
+>
+> **Continuing Resolution (CR)** — Temporary legislation that funds the government at prior-year rates, usually with specific exceptions called "anomalies" that raise or lower particular accounts.
+>
+> **Supplemental** — Additional appropriations enacted outside the normal cycle, typically for emergencies (disaster relief, wartime funding, pandemic response).
+>
+> **Budget Authority** — The legal authority Congress grants to agencies to enter into obligations (contracts, grants, salaries). Distinct from outlays, which are the actual cash disbursements.
 
 ## How It Works
 
@@ -25,65 +111,76 @@ Congress.gov   XML Parser    Claude Opus 4.6   Verification      Query
 4. **Verify** — Deterministically check every dollar amount and text excerpt against the source. No LLM involved. Pure string matching with tiered fallback (exact → normalized → spaceless).
 5. **Query** — Search, summarize, compare, and verify across all extracted bills using built-in subcommands.
 
-## Scope
-
-This tool extracts **discretionary appropriations** — the spending Congress votes on each year through the twelve annual appropriations bills (plus supplementals and continuing resolutions). That's roughly **26% of total federal spending**. It does **not** cover mandatory spending (Social Security, Medicare, Medicaid — about 63%) or net interest on the debt (about 11%).
-
-The amounts represent **budget authority** (what Congress authorizes agencies to obligate), not **outlays** (what the Treasury actually disburses). This is why the numbers you'll see — around $1.7–1.9 trillion — don't match the ~$6–7 trillion headline federal budget figure.
-
-## Quick Start
+## Download and Extract Your Own Bills
 
 ### Prerequisites
 
-- **Rust 1.93+** — [Install via rustup](https://rustup.rs/)
-- **Congress.gov API key** — Free, [sign up here](https://api.congress.gov/sign-up/)
-- **Anthropic API key** — Required for LLM extraction, [sign up here](https://console.anthropic.com/)
+| Requirement | Description | Where to Get It |
+|-------------|-------------|-----------------|
+| **Rust 1.93+** | Build toolchain | [Install via rustup](https://rustup.rs/) |
+| **Congress.gov API key** | Access to bill metadata and XML | Free — [sign up here](https://api.congress.gov/sign-up/) |
+| **Anthropic API key** | LLM extraction of provisions | [Sign up here](https://console.anthropic.com/) |
 
-### Install
-
-```bash
-git clone https://github.com/cgorski/congress-appropriations.git
-cd congress-appropriations
-cargo install --path .
-```
-
-This places the `congress-approp` binary on your PATH. After modifying the source, run `cargo install --path .` again to rebuild.
-
-### Extract a Single Bill
+> **Note:** The Anthropic key is only needed for extraction — exploring pre-extracted data (the `examples/` directory or any previously extracted bills) is completely free.
 
 ```bash
 # Set your API keys
 export CONGRESS_API_KEY="your-key"
 export ANTHROPIC_API_KEY="your-key"
-
-# Download one bill (enrolled version XML from Congress.gov)
-congress-approp download --congress 118 --type hr --number 9468 --output-dir data
-
-# Extract provisions and verify against source text
-congress-approp extract --dir data/118/hr/9468
 ```
 
-The `download` command fetches the enrolled XML and creates the directory structure. The `extract` command parses the XML, sends text to the LLM, and runs deterministic verification.
+### Discover Available Bills
 
-### Download All Appropriations Bills for a Congress
+Use `api bill list` to see what appropriations bills exist for a given Congress:
+
+```bash
+# List all appropriations bills for the 118th Congress
+congress-approp api bill list --congress 118
+
+# List only enacted appropriations bills
+congress-approp api bill list --congress 118 --enacted-only
+```
+
+### Bill Type Codes
+
+When downloading specific bills, you need the bill type code:
+
+| Code | Meaning |
+|------|---------|
+| `hr` | House bill (e.g., H.R. 4366) |
+| `s` | Senate bill |
+| `hjres` | House joint resolution |
+| `sjres` | Senate joint resolution |
+
+Most enacted appropriations bills originate in the House (`hr`), since the Constitution requires revenue and spending bills to originate there.
+
+### Download a Single Bill
+
+```bash
+# Download one bill (enrolled version XML from Congress.gov)
+congress-approp download --congress 118 --type hr --number 9468 --output-dir data
+```
+
+The `download` command fetches the enrolled XML and creates the directory structure.
+
+### Download All Enacted Bills for a Congress
 
 ```bash
 # Scan for all enacted appropriations bills and download XML
 congress-approp download --congress 118 --enacted-only --output-dir data
+```
 
-# Extract all bills with parallel chunk processing
+### Extract Provisions
+
+```bash
+# Extract provisions from a single bill
+congress-approp extract --dir data/118/hr/9468
+
+# Extract all downloaded bills with parallel chunk processing
 congress-approp extract --dir data --parallel 6
 ```
 
-## Try It Without API Keys
-
-The `examples/` directory contains pre-extracted data from three bills. No API keys are required to explore the results:
-
-- **`examples/hr9468/`** — Veterans Benefits Supplemental Appropriations Act, 2024 (7 provisions, 100% coverage)
-- **`examples/hr5860/`** — Continuing Appropriations Act, 2024 (130 provisions, 61% coverage, includes CR substitutions and mandatory spending extensions)
-- **`examples/hr4366/`** — Consolidated Appropriations Act, 2024 — the FY2024 omnibus (2,364 provisions across 7 divisions, 94.2% coverage). Covers MilCon-VA, Agriculture, CJS, Energy-Water, Interior, THUD, and other matters.
-
-Each directory contains the source XML, extracted provisions, and verification report. All query commands (`search`, `summary`, `compare`, `audit`) work against these directories. The goal is to eventually include all enacted appropriations bills so users can query without running the LLM extraction themselves.
+The `extract` command parses the XML, sends text to the LLM, and runs deterministic verification. Large bills (omnibus, continuing resolutions) are automatically split into chunks at division and title boundaries. Use `--parallel N` to control concurrent LLM calls (default 5). Use `--dry-run` to preview without making API calls.
 
 ## Querying Extracted Bills
 
@@ -277,17 +374,6 @@ Use `--verbose` to see each individual problematic provision.
 
 **The key metric: across 2,501 provisions from three bills, every extracted dollar amount was found in the source bill text** (NotFound = 0 for every bill). Verification confirms amounts exist in the bill, not that they are attributed to the correct provision — for 95.6% of provisions, the raw text excerpt also matches verbatim, providing strong attribution confidence. The tool may be incomplete on large bills (Coverage < 100%), but what it does extract checks out against the source.
 
-## Bill Types
-
-| Classification | What It Is |
-|----------------|------------|
-| `regular` | One of the 12 annual appropriations bills (Defense, Labor-HHS, etc.) |
-| `omnibus` | Multiple regular bills combined into one package |
-| `minibus` | A few regular bills combined (smaller than an omnibus) |
-| `continuing_resolution` | Temporary funding at prior-year rates, with specific anomalies |
-| `supplemental` | Additional funding outside the regular cycle (disaster relief, wartime, etc.) |
-| `rescissions` | A bill primarily canceling previously enacted budget authority |
-
 ## CLI Reference
 
 | Subcommand | Description |
@@ -298,6 +384,7 @@ Use `--verbose` to see each individual problematic provision.
 | `summary` | Show summary of all extracted bills |
 | `compare` | Compare provisions between two sets of bills |
 | `audit` | Show verification and quality report |
+| `upgrade` | Upgrade extraction data to the latest schema version (re-verifies, no LLM needed) |
 | `api test` | Test API connectivity (Congress.gov + Anthropic) |
 | `api bill list` | List appropriations bills for a Congress |
 | `api bill get` | Get metadata for a specific bill |
@@ -306,7 +393,7 @@ Use `--verbose` to see each individual problematic provision.
 **Common flags:**
 - `--parallel N` on `extract` controls concurrent LLM calls (default 5)
 - `--format table|json|csv` on `search` and `summary` controls output format
-- `--dry-run` on `download` and `extract` previews without making API calls
+- `--dry-run` on `download`, `extract`, and `upgrade` previews without making changes
 - `-v` enables verbose (debug-level) logging
 
 ### Output Files

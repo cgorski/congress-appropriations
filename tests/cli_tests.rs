@@ -89,10 +89,7 @@ fn audit_shows_zero_not_found() {
         .stdout(predicates::str::contains("Coverage"));
 
     // Parse the table output and verify NotFound column is 0 for all rows
-    let output = cmd()
-        .args(["audit", "--dir", "examples"])
-        .output()
-        .unwrap();
+    let output = cmd().args(["audit", "--dir", "examples"]).output().unwrap();
     let _stdout = str::from_utf8(&output.stdout).unwrap();
 
     // The TOTAL row should show 0 in the NotFound column
@@ -127,8 +124,8 @@ fn search_appropriations_returns_results() {
         .args(["search", "--dir", "examples", "--type", "appropriation"])
         .assert()
         .success()
-        .stdout(predicates::str::contains("$"))  // column header
-        .stdout(predicates::str::contains("Amount status"));  // legend
+        .stdout(predicates::str::contains("$")) // column header
+        .stdout(predicates::str::contains("Amount status")); // legend
 }
 
 #[test]
@@ -154,10 +151,22 @@ fn search_json_has_correct_fields() {
 
     let first = &data[0];
     // Verify new field names are present
-    assert!(first.get("amount_status").is_some(), "Missing amount_status field");
-    assert!(first.get("verified").is_none(), "Old 'verified' field should not exist");
-    assert!(first.get("match_tier").is_some(), "Missing match_tier field");
-    assert!(first.get("provision_type").is_some(), "Missing provision_type field");
+    assert!(
+        first.get("amount_status").is_some(),
+        "Missing amount_status field"
+    );
+    assert!(
+        first.get("verified").is_none(),
+        "Old 'verified' field should not exist"
+    );
+    assert!(
+        first.get("match_tier").is_some(),
+        "Missing match_tier field"
+    );
+    assert!(
+        first.get("provision_type").is_some(),
+        "Missing provision_type field"
+    );
 
     // Verify the actual values
     assert_eq!(first["amount_status"].as_str().unwrap(), "found");
@@ -184,9 +193,18 @@ fn search_csv_has_correct_headers() {
     let stdout = str::from_utf8(&output.stdout).unwrap();
     let first_line = stdout.lines().next().unwrap();
 
-    assert!(first_line.contains("amount_status"), "CSV should have amount_status column");
-    assert!(!first_line.contains(",verified,"), "CSV should NOT have old 'verified' column");
-    assert!(first_line.contains("provision_type"), "CSV should have provision_type column");
+    assert!(
+        first_line.contains("amount_status"),
+        "CSV should have amount_status column"
+    );
+    assert!(
+        !first_line.contains(",verified,"),
+        "CSV should NOT have old 'verified' column"
+    );
+    assert!(
+        first_line.contains("provision_type"),
+        "CSV should have provision_type column"
+    );
 }
 
 #[test]
@@ -209,8 +227,14 @@ fn search_shows_ambiguous_marker() {
     let stdout = str::from_utf8(&output.stdout).unwrap();
 
     // Should have both ✓ (found unique) and ≈ (found multiple)
-    assert!(stdout.contains('✓'), "Should contain ✓ for uniquely found amounts");
-    assert!(stdout.contains('≈'), "Should contain ≈ for multiply-found amounts");
+    assert!(
+        stdout.contains('✓'),
+        "Should contain ✓ for uniquely found amounts"
+    );
+    assert!(
+        stdout.contains('≈'),
+        "Should contain ≈ for multiply-found amounts"
+    );
 }
 
 #[test]
@@ -234,13 +258,7 @@ fn search_cr_substitution_table_format() {
 #[test]
 fn search_empty_result_no_error() {
     cmd()
-        .args([
-            "search",
-            "--dir",
-            "examples",
-            "--keyword",
-            "XYZNONEXISTENT",
-        ])
+        .args(["search", "--dir", "examples", "--keyword", "XYZNONEXISTENT"])
         .assert()
         .success()
         .stdout(predicates::str::contains("No matching provisions found"));
@@ -251,13 +269,7 @@ fn search_empty_result_no_error() {
 #[test]
 fn search_unknown_type_warns() {
     let output = cmd()
-        .args([
-            "search",
-            "--dir",
-            "examples",
-            "--type",
-            "apppropriation",
-        ])
+        .args(["search", "--dir", "examples", "--type", "apppropriation"])
         .output()
         .unwrap();
 
@@ -267,10 +279,7 @@ fn search_unknown_type_warns() {
         stderr.contains("unknown provision type"),
         "Should warn about unknown type"
     );
-    assert!(
-        stderr.contains("appropriation"),
-        "Should list valid types"
-    );
+    assert!(stderr.contains("appropriation"), "Should list valid types");
 }
 
 // ─── Compare Command ─────────────────────────────────────────────────────────
