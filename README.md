@@ -2,7 +2,7 @@
 
 A command-line tool that downloads U.S. federal appropriations bills from Congress.gov, extracts every spending provision into structured JSON using Claude Opus 4.6, and verifies each dollar amount against the source text.
 
-The goal: make the ~1,500 pages of annual appropriations bills searchable, sortable, and machine-readable — so you can answer questions like "how much did Congress appropriate for VA Compensation and Pensions?" or "which programs got cut in the continuing resolution?" in seconds instead of hours.
+The goal: make the ~1,500 pages of annual appropriations bills searchable, sortable, and machine-readable — so you can quickly answer questions like "how much did Congress appropriate for VA Compensation and Pensions?" or "which programs got cut in the continuing resolution?"
 
 **Pre-processed data available:** The [`examples/`](examples/) directory includes completed extractions for three 118th Congress bills — a [supplemental](examples/hr9468/), a [continuing resolution](examples/hr5860/), and the [FY2024 omnibus](examples/hr4366/) (2,364 provisions, 94.2% completeness). No API keys required to query these. See [Try It Without API Keys](#try-it-without-api-keys) below.
 
