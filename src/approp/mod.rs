@@ -1,5 +1,6 @@
 pub mod extraction;
 pub mod ontology;
+pub mod query;
 
 pub mod from_value;
 pub mod loading;

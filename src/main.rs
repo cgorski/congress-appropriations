@@ -121,6 +121,9 @@ enum Commands {
         /// Output format: table, json, jsonl, csv
         #[arg(long, default_value = "table")]
         format: String,
+        /// Show budget authority totals by parent department
+        #[arg(long)]
+        by_agency: bool,
     },
     /// Compare provisions between two sets of bills (e.g. two fiscal years)
     Compare {
@@ -275,7 +278,11 @@ async fn main() -> Result<()> {
             &format,
             list_types,
         ),
-        Commands::Summary { dir, format } => handle_summary(&dir, &format),
+        Commands::Summary {
+            dir,
+            format,
+            by_agency,
+        } => handle_summary(&dir, &format, by_agency),
         Commands::Compare {
             base,
             current,
@@ -1212,7 +1219,7 @@ fn handle_search(
 
 // ─── Summary Handler ─────────────────────────────────────────────────────────
 
-fn handle_summary(dir: &str, format: &str) -> Result<()> {
+fn handle_summary(dir: &str, format: &str, by_agency: bool) -> Result<()> {
     let dir_path = std::path::Path::new(dir);
     let bills = loading::load_bills(dir_path)?;
 
@@ -1340,6 +1347,34 @@ fn handle_summary(dir: &str, format: &str) -> Result<()> {
                     "\n{} dollar amounts not found in source text across {} bill(s). Run `congress-approp audit` for details.",
                     total_not_found, bills_with_not_found
                 );
+            }
+
+            if by_agency {
+                use congress_appropriations::approp::query;
+                let rollups = query::rollup_by_department(&bills);
+                if !rollups.is_empty() {
+                    println!();
+                    let mut agency_table = Table::new();
+                    agency_table.load_preset(UTF8_FULL_CONDENSED);
+                    agency_table.set_header(vec![
+                        Cell::new("Department"),
+                        Cell::new("Budget Auth ($)").set_alignment(CellAlignment::Right),
+                        Cell::new("Rescissions ($)").set_alignment(CellAlignment::Right),
+                        Cell::new("Provisions").set_alignment(CellAlignment::Right),
+                    ]);
+                    for r in &rollups {
+                        agency_table.add_row(vec![
+                            Cell::new(&r.department),
+                            Cell::new(format_dollars(r.budget_authority))
+                                .set_alignment(CellAlignment::Right),
+                            Cell::new(format_dollars(r.rescissions))
+                                .set_alignment(CellAlignment::Right),
+                            Cell::new(r.provision_count.to_string())
+                                .set_alignment(CellAlignment::Right),
+                        ]);
+                    }
+                    println!("{agency_table}");
+                }
             }
         }
     }
