@@ -120,6 +120,42 @@ pub fn save(
     Ok(())
 }
 
+/// Normalize a vector in place (L2 norm).
+pub fn normalize(vec: &mut [f32]) {
+    let norm: f32 = vec.iter().map(|x| x * x).sum::<f32>().sqrt();
+    if norm > 0.0 {
+        vec.iter_mut().for_each(|x| *x /= norm);
+    }
+}
+
+/// Cosine similarity between two vectors (assumes both are L2-normalized).
+pub fn cosine_similarity(a: &[f32], b: &[f32]) -> f32 {
+    a.iter().zip(b.iter()).map(|(x, y)| x * y).sum()
+}
+
+/// Find top-N most similar vectors to query.
+/// `vectors` is a flat array of `count` vectors, each of size `dimensions`.
+/// Returns (original_index, similarity) pairs, sorted descending.
+pub fn top_n_similar(
+    query: &[f32],
+    vectors: &[f32],
+    dimensions: usize,
+    n: usize,
+    exclude_index: Option<usize>,
+) -> Vec<(usize, f32)> {
+    let count = vectors.len() / dimensions;
+    let mut scores: Vec<(usize, f32)> = (0..count)
+        .filter(|i| exclude_index != Some(*i))
+        .map(|i| {
+            let vec = &vectors[i * dimensions..(i + 1) * dimensions];
+            (i, cosine_similarity(query, vec))
+        })
+        .collect();
+    scores.sort_by(|a, b| b.1.partial_cmp(&a.1).unwrap_or(std::cmp::Ordering::Equal));
+    scores.truncate(n);
+    scores
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -137,6 +173,43 @@ mod tests {
         assert_eq!(loaded.vector(1), &[4.0, 5.0, 6.0]);
         assert_eq!(loaded.metadata.model, "test-model");
         assert_eq!(loaded.metadata.extraction_sha256, "abc123");
+    }
+
+    #[test]
+    fn test_cosine_similarity_identical() {
+        let a = vec![1.0, 0.0, 0.0];
+        let b = vec![1.0, 0.0, 0.0];
+        assert!((cosine_similarity(&a, &b) - 1.0).abs() < 1e-6);
+    }
+
+    #[test]
+    fn test_cosine_similarity_orthogonal() {
+        let a = vec![1.0, 0.0, 0.0];
+        let b = vec![0.0, 1.0, 0.0];
+        assert!((cosine_similarity(&a, &b)).abs() < 1e-6);
+    }
+
+    #[test]
+    fn test_top_n_similar() {
+        let vectors: Vec<f32> = vec![
+            1.0, 0.0, 0.0, // 0
+            0.9, 0.1, 0.0, // 1 — most similar to query
+            0.0, 1.0, 0.0, // 2 — least similar
+            0.5, 0.5, 0.0, // 3
+        ];
+        let query = vec![1.0, 0.0, 0.0];
+        let results = top_n_similar(&query, &vectors, 3, 2, None);
+        assert_eq!(results.len(), 2);
+        assert_eq!(results[0].0, 0); // identity
+        assert_eq!(results[1].0, 1); // next most similar
+    }
+
+    #[test]
+    fn test_top_n_with_exclude() {
+        let vectors: Vec<f32> = vec![1.0, 0.0, 0.0, 0.9, 0.1, 0.0, 0.0, 1.0, 0.0];
+        let query = vec![1.0, 0.0, 0.0];
+        let results = top_n_similar(&query, &vectors, 3, 2, Some(0));
+        assert_eq!(results[0].0, 1); // excluded index 0, so index 1 is top
     }
 
     #[test]

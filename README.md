@@ -20,12 +20,31 @@ This places the `congress-approp` binary on your PATH. You need **Rust 1.93+** (
 
 ### Explore the Example Data (No API Keys Required)
 
-The `examples/` directory contains pre-extracted data from three bills. Try these commands right away:
+The `examples/` directory contains pre-extracted data from three bills, with pre-computed embeddings for semantic search. Try these commands right away:
 
 ```bash
 # See what bills are available and their budget authority totals
 congress-approp summary --dir examples
 
+# Semantic search — find provisions by meaning, not just keywords.
+# "school lunch programs for kids" has zero keyword overlap with the result,
+# but semantic search finds it instantly:
+congress-approp search --dir examples --semantic "school lunch programs for kids" --top 5
+```
+
+```text
+┌──────┬───────────┬───────────────┬─────────────────────────────┬────────────────┬─────┐
+│ Sim  ┆ Bill      ┆ Type          ┆ Description / Account       ┆     Amount ($) ┆ Div │
+╞══════╪═══════════╪═══════════════╪═════════════════════════════╪════════════════╪═════╡
+│ 0.54 ┆ H.R. 4366 ┆ appropriation ┆ Child Nutrition Programs    ┆ 33,266,226,000 ┆ B   │
+│ 0.48 ┆ H.R. 4366 ┆ appropriation ┆ Child Nutrition Programs    ┆     18,004,000 ┆ B   │
+│ 0.48 ┆ H.R. 4366 ┆ appropriation ┆ Child Nutrition Programs    ┆     10,000,000 ┆ B   │
+└──────┴───────────┴───────────────┴─────────────────────────────┴────────────────┴─────┘
+```
+
+Semantic search requires pre-computed embeddings (included for example data) and `OPENAI_API_KEY` at query time. See [Semantic Search](#semantic-search) below.
+
+```bash
 # Find all appropriations across every bill
 congress-approp search --dir examples --type appropriation
 
@@ -34,6 +53,9 @@ congress-approp search --dir examples/hr5860 --type cr_substitution
 
 # Find all FEMA-related provisions
 congress-approp search --dir examples --keyword "Federal Emergency Management"
+
+# Find a provision in the supplemental, then see what matches in the omnibus
+congress-approp search --dir examples --similar hr9468:0 --top 5
 
 # Export everything to CSV for Excel
 congress-approp search --dir examples --type appropriation --format csv > appropriations.csv
@@ -386,6 +408,7 @@ Use `--verbose` to see each individual problematic provision.
 | `summary` | Show summary of all extracted bills |
 | `compare` | Compare provisions between two sets of bills |
 | `audit` | Show verification and quality report |
+| `embed` | Generate embeddings for semantic search (requires `OPENAI_API_KEY`) |
 | `upgrade` | Upgrade extraction data to the latest schema version (re-verifies, no LLM needed) |
 | `api test` | Test API connectivity (Congress.gov + Anthropic) |
 | `api bill list` | List appropriations bills for a Congress |
@@ -394,9 +417,42 @@ Use `--verbose` to see each individual problematic provision.
 
 **Common flags:**
 - `--parallel N` on `extract` controls concurrent LLM calls (default 5)
-- `--format table|json|csv` on `search` and `summary` controls output format
-- `--dry-run` on `download`, `extract`, and `upgrade` previews without making changes
+- `--format table|json|jsonl|csv` on `search` and `summary` controls output format
+- `--semantic <query>` on `search` ranks results by meaning similarity (requires embeddings)
+- `--similar <bill:index>` on `search` finds provisions similar to a specific one
+- `--by-agency` on `summary` shows budget authority by parent department
+- `--division`, `--min-dollars`, `--max-dollars` on `search` for filtering
+- `--dry-run` on `download`, `extract`, `embed`, and `upgrade` previews without making changes
 - `-v` enables verbose (debug-level) logging
+
+### Semantic Search
+
+Semantic search finds provisions by meaning, not just keywords. It uses OpenAI embeddings to understand that "school lunch programs for kids" means "Child Nutrition Programs" even though the words don't match.
+
+**Setup:**
+
+```bash
+# Generate embeddings (one-time, ~30 seconds per bill)
+export OPENAI_API_KEY="your-key"
+congress-approp embed --dir examples
+
+# Embeddings are pre-generated for the example data, so you can skip this step.
+```
+
+**Search by meaning:**
+
+```bash
+# Find provisions about a topic — works even when keywords don't match
+congress-approp search --dir examples --semantic "opioid crisis drug treatment"
+
+# Combine semantic search with filters
+congress-approp search --dir examples --semantic "clean energy" --type appropriation --min-dollars 100000000
+
+# Find provisions similar to a specific one across all bills
+congress-approp search --dir examples --similar hr9468:0 --top 5
+```
+
+The `embed` command writes `embeddings.json` (metadata) and `vectors.bin` (binary float32 vectors) to each bill directory. It skips bills whose embeddings are already up to date. Use `--dry-run` to preview token counts before calling the API.
 
 ### Output Files
 

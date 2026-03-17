@@ -112,6 +112,15 @@ enum Commands {
         /// List all valid provision types and exit
         #[arg(long)]
         list_types: bool,
+        /// Semantic search query (ranks results by meaning similarity, requires embeddings)
+        #[arg(long)]
+        semantic: Option<String>,
+        /// Find provisions similar to this one (format: bill_dir:index, e.g. hr4366:42)
+        #[arg(long)]
+        similar: Option<String>,
+        /// Maximum results for semantic/similar search
+        #[arg(long, default_value = "20")]
+        top: usize,
     },
     /// Show summary of all extracted bills
     Summary {
@@ -283,19 +292,28 @@ async fn main() -> Result<()> {
             max_dollars,
             format,
             list_types,
-        } => handle_search(
-            &dir,
-            agency.as_deref(),
-            r#type.as_deref(),
-            account.as_deref(),
-            keyword.as_deref(),
-            bill.as_deref(),
-            division.as_deref(),
-            min_dollars,
-            max_dollars,
-            &format,
-            list_types,
-        ),
+            semantic,
+            similar,
+            top,
+        } => {
+            handle_search(
+                &dir,
+                agency.as_deref(),
+                r#type.as_deref(),
+                account.as_deref(),
+                keyword.as_deref(),
+                bill.as_deref(),
+                division.as_deref(),
+                min_dollars,
+                max_dollars,
+                &format,
+                list_types,
+                semantic.as_deref(),
+                similar.as_deref(),
+                top,
+            )
+            .await
+        }
         Commands::Summary {
             dir,
             format,
@@ -861,7 +879,7 @@ fn compute_quality(amount_status: Option<&str>, match_tier: Option<&str>) -> &'s
 }
 
 #[allow(clippy::too_many_arguments)]
-fn handle_search(
+async fn handle_search(
     dir: &str,
     agency: Option<&str>,
     provision_type: Option<&str>,
@@ -873,6 +891,9 @@ fn handle_search(
     max_dollars: Option<i64>,
     format: &str,
     list_types: bool,
+    semantic: Option<&str>,
+    similar: Option<&str>,
+    top: usize,
 ) -> Result<()> {
     if list_types {
         println!("Available provision types:");
@@ -896,6 +917,27 @@ fn handle_search(
     if bills.is_empty() {
         println!("No extracted bills found in {dir}");
         return Ok(());
+    }
+
+    // Semantic/similar search path (early return)
+    if semantic.is_some() || similar.is_some() {
+        return handle_semantic_search(
+            &bills,
+            dir,
+            semantic,
+            similar,
+            top,
+            provision_type,
+            agency,
+            account,
+            keyword,
+            bill,
+            division_filter,
+            min_dollars,
+            max_dollars,
+            format,
+        )
+        .await;
     }
 
     const KNOWN_PROVISION_TYPES: &[&str] = &[
@@ -1363,6 +1405,342 @@ fn handle_search(
                 );
                 println!("Run 'report' for full verification details.");
             }
+        }
+    }
+
+    Ok(())
+}
+
+// ─── Semantic Search Handler ─────────────────────────────────────────────────
+
+#[allow(clippy::too_many_arguments)]
+async fn handle_semantic_search(
+    bills: &[loading::LoadedBill],
+    dir: &str,
+    semantic: Option<&str>,
+    similar: Option<&str>,
+    top_n: usize,
+    type_filter: Option<&str>,
+    agency: Option<&str>,
+    account: Option<&str>,
+    keyword: Option<&str>,
+    bill_filter: Option<&str>,
+    division_filter: Option<&str>,
+    min_dollars: Option<i64>,
+    max_dollars: Option<i64>,
+    format: &str,
+) -> Result<()> {
+    use congress_appropriations::approp::embeddings;
+
+    // Load embeddings for all bills
+    let mut bill_embeddings: Vec<Option<embeddings::LoadedEmbeddings>> = Vec::new();
+    let mut has_any = false;
+    for bill in bills {
+        match embeddings::load(&bill.dir)? {
+            Some(emb) => {
+                has_any = true;
+                bill_embeddings.push(Some(emb));
+            }
+            None => {
+                eprintln!(
+                    "⚠ {}: no embeddings found, excluded from semantic search",
+                    bill.extraction.bill.identifier
+                );
+                bill_embeddings.push(None);
+            }
+        }
+    }
+    if !has_any {
+        anyhow::bail!("No embeddings found. Run `congress-approp embed --dir {dir}` first.");
+    }
+
+    // Get the query vector
+    let query_vec: Vec<f32> = if let Some(query_text) = semantic {
+        // Embed the query text
+        let client = congress_appropriations::api::openai::client::OpenAIClient::from_env()?;
+        // Determine dimensions from first available embeddings
+        let first_emb = bill_embeddings.iter().flatten().next().unwrap();
+        let dims = first_emb.dimensions();
+        let model = first_emb.metadata.model.clone();
+        let request = congress_appropriations::api::openai::types::EmbeddingRequest {
+            model,
+            input: vec![query_text.to_string()],
+            dimensions: Some(dims),
+        };
+        // Need to run async from sync context
+        let response = client.embed(request).await?;
+        response.data.into_iter().next().unwrap().embedding
+    } else if let Some(similar_ref) = similar {
+        // Parse "bill_dir:index"
+        let parts: Vec<&str> = similar_ref.splitn(2, ':').collect();
+        anyhow::ensure!(
+            parts.len() == 2,
+            "Invalid --similar format. Use bill_dir:index (e.g., hr4366:42)"
+        );
+        let target_dir = parts[0];
+        let target_idx: usize = parts[1]
+            .parse()
+            .context("Invalid provision index in --similar")?;
+
+        // Find the bill and get the vector
+        let mut found = None;
+        for (i, bill) in bills.iter().enumerate() {
+            let dir_name = bill
+                .dir
+                .file_name()
+                .map(|n| n.to_string_lossy().to_string())
+                .unwrap_or_default();
+            if dir_name == target_dir {
+                if let Some(emb) = &bill_embeddings[i] {
+                    anyhow::ensure!(
+                        target_idx < emb.count(),
+                        "Provision index {target_idx} out of range (bill has {} provisions)",
+                        emb.count()
+                    );
+                    found = Some(emb.vector(target_idx).to_vec());
+                } else {
+                    anyhow::bail!("No embeddings for {target_dir}");
+                }
+                break;
+            }
+        }
+        found.context(format!("Bill directory '{target_dir}' not found"))?
+    } else {
+        unreachable!()
+    };
+
+    // Score all provisions
+    struct ScoredProvision<'a> {
+        bill_id: &'a str,
+        #[allow(dead_code)]
+        bill_dir_name: String,
+        provision_index: usize,
+        provision: &'a Provision,
+        similarity: f32,
+    }
+
+    let mut scored: Vec<ScoredProvision<'_>> = Vec::new();
+    for (i, bill) in bills.iter().enumerate() {
+        let Some(emb) = &bill_embeddings[i] else {
+            continue;
+        };
+        let bill_id = bill.extraction.bill.identifier.as_str();
+        let bill_dir_name = bill
+            .dir
+            .file_name()
+            .map(|n| n.to_string_lossy().to_string())
+            .unwrap_or_default();
+
+        for (idx, provision) in bill.extraction.provisions.iter().enumerate() {
+            // Skip the source provision for --similar
+            if let Some(similar_ref) = similar {
+                let parts: Vec<&str> = similar_ref.splitn(2, ':').collect();
+                if parts.len() == 2
+                    && bill_dir_name == parts[0]
+                    && idx == parts[1].parse::<usize>().unwrap_or(usize::MAX)
+                {
+                    continue;
+                }
+            }
+
+            // Apply hard filters
+            if let Some(tf) = type_filter
+                && provision.type_str() != tf
+            {
+                continue;
+            }
+            if let Some(af) = agency
+                && !provision
+                    .agency()
+                    .to_lowercase()
+                    .contains(&af.to_lowercase())
+            {
+                continue;
+            }
+            if let Some(ac) = account
+                && !provision
+                    .account_name()
+                    .to_lowercase()
+                    .contains(&ac.to_lowercase())
+            {
+                continue;
+            }
+            if let Some(kw) = keyword
+                && !provision
+                    .raw_text()
+                    .to_lowercase()
+                    .contains(&kw.to_lowercase())
+            {
+                continue;
+            }
+            if let Some(bf) = bill_filter
+                && !bill_id.to_lowercase().contains(&bf.to_lowercase())
+            {
+                continue;
+            }
+            if let Some(df) = division_filter {
+                let pdiv = provision.division().unwrap_or("");
+                if !pdiv.eq_ignore_ascii_case(df) {
+                    continue;
+                }
+            }
+            if let Some(min) = min_dollars {
+                let d = provision
+                    .amount()
+                    .and_then(|a| a.dollars())
+                    .map(|d| d.abs());
+                match d {
+                    Some(d) if d >= min => {}
+                    _ => continue,
+                }
+            }
+            if let Some(max) = max_dollars {
+                let d = provision
+                    .amount()
+                    .and_then(|a| a.dollars())
+                    .map(|d| d.abs());
+                match d {
+                    Some(d) if d <= max => {}
+                    _ => continue,
+                }
+            }
+
+            let sim = embeddings::cosine_similarity(&query_vec, emb.vector(idx));
+            scored.push(ScoredProvision {
+                bill_id,
+                bill_dir_name: bill_dir_name.clone(),
+                provision_index: idx,
+                provision,
+                similarity: sim,
+            });
+        }
+    }
+
+    // Sort and truncate
+    scored.sort_by(|a, b| {
+        b.similarity
+            .partial_cmp(&a.similarity)
+            .unwrap_or(std::cmp::Ordering::Equal)
+    });
+    scored.truncate(top_n);
+
+    if scored.is_empty() {
+        println!("No matching provisions found.");
+        return Ok(());
+    }
+
+    // Output
+    match format {
+        "json" => {
+            let output: Vec<serde_json::Value> = scored
+                .iter()
+                .map(|s| {
+                    let dollars = s.provision.amount().and_then(|a| a.dollars());
+                    serde_json::json!({
+                        "bill": s.bill_id,
+                        "provision_index": s.provision_index,
+                        "similarity": (s.similarity * 1000.0).round() / 1000.0,
+                        "provision_type": s.provision.type_str(),
+                        "account_name": s.provision.account_name(),
+                        "agency": s.provision.agency(),
+                        "dollars": dollars,
+                        "division": s.provision.division(),
+                        "section": s.provision.section(),
+                        "description": s.provision.description(),
+                        "raw_text": s.provision.raw_text(),
+                    })
+                })
+                .collect();
+            println!("{}", serde_json::to_string_pretty(&output)?);
+        }
+        "jsonl" => {
+            for s in &scored {
+                let dollars = s.provision.amount().and_then(|a| a.dollars());
+                let obj = serde_json::json!({
+                    "bill": s.bill_id,
+                    "provision_index": s.provision_index,
+                    "similarity": (s.similarity * 1000.0).round() / 1000.0,
+                    "provision_type": s.provision.type_str(),
+                    "account_name": s.provision.account_name(),
+                    "agency": s.provision.agency(),
+                    "dollars": dollars,
+                    "division": s.provision.division(),
+                    "section": s.provision.section(),
+                    "raw_text": s.provision.raw_text(),
+                });
+                println!("{}", serde_json::to_string(&obj)?);
+            }
+        }
+        "csv" => {
+            let mut wtr = csv::Writer::from_writer(std::io::stdout());
+            wtr.write_record([
+                "bill",
+                "provision_index",
+                "similarity",
+                "provision_type",
+                "account_name",
+                "agency",
+                "dollars",
+                "division",
+                "section",
+                "description",
+                "raw_text",
+            ])?;
+            for s in &scored {
+                let dollars = s.provision.amount().and_then(|a| a.dollars());
+                wtr.write_record([
+                    s.bill_id,
+                    &s.provision_index.to_string(),
+                    &format!("{:.3}", s.similarity),
+                    s.provision.type_str(),
+                    s.provision.account_name(),
+                    s.provision.agency(),
+                    &dollars.map(|d| d.to_string()).unwrap_or_default(),
+                    s.provision.division().unwrap_or(""),
+                    s.provision.section(),
+                    s.provision.description(),
+                    s.provision.raw_text(),
+                ])?;
+            }
+            wtr.flush()?;
+        }
+        _ => {
+            // Table format
+            let mut table = Table::new();
+            table.load_preset(UTF8_FULL_CONDENSED);
+            table.set_header(vec![
+                Cell::new("Sim"),
+                Cell::new("Bill"),
+                Cell::new("Type"),
+                Cell::new("Description / Account").set_alignment(CellAlignment::Left),
+                Cell::new("Amount ($)").set_alignment(CellAlignment::Right),
+                Cell::new("Div"),
+            ]);
+
+            for s in &scored {
+                let dollars = s.provision.amount().and_then(|a| a.dollars());
+                let dollars_str = dollars
+                    .map(format_dollars)
+                    .unwrap_or_else(|| "—".to_string());
+                let desc = if !s.provision.account_name().is_empty() {
+                    truncate(s.provision.account_name(), 45)
+                } else if !s.provision.description().is_empty() {
+                    truncate(s.provision.description(), 45)
+                } else {
+                    truncate(s.provision.raw_text(), 45)
+                };
+                let div = s.provision.division().unwrap_or("");
+                table.add_row(vec![
+                    Cell::new(format!("{:.2}", s.similarity)),
+                    Cell::new(s.bill_id),
+                    Cell::new(s.provision.type_str()),
+                    Cell::new(desc),
+                    Cell::new(dollars_str).set_alignment(CellAlignment::Right),
+                    Cell::new(div),
+                ]);
+            }
+            println!("{table}");
+            println!("\n{} provisions found", scored.len());
         }
     }
 
