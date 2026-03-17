@@ -10,6 +10,7 @@ homepage = "https://github.com/cgorski/congress-appropriations"
 readme = "README.md"
 keywords = ["congress", "appropriations", "federal-budget", "legislation", "government"]
 categories = ["command-line-utilities", "parser-implementations"]
+exclude = ["examples/*/vectors.bin"]
 
 [lib]
 name = "congress_appropriations"
