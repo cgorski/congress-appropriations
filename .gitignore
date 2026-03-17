@@ -2,8 +2,7 @@
 /target/
 **/*.rs.bk
 
-# Chunk cache (generated during extraction, used for resume)
-.chunks/
+# Chunk artifacts are stored in chunks/ (no dot) and committed for provenance
 
 # OS files
 .DS_Store

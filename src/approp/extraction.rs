@@ -88,7 +88,7 @@ pub enum ChunkProgress {
     },
 }
 
-/// Per-chunk artifact saved to .chunks/{ulid}.json for debugging and resume.
+/// Per-chunk artifact saved to chunks/{ulid}.json for provenance and analysis.
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct ChunkArtifact {
     pub chunk_id: String,
@@ -728,9 +728,9 @@ async fn extract_single_chunk(
     })
 }
 
-/// Save a chunk artifact to the .chunks/ directory.
+/// Save a chunk artifact to the chunks/ directory for provenance and analysis.
 fn save_chunk_artifact(bill_dir: &Path, result: &ChunkResult) -> Result<PathBuf> {
-    let chunks_dir = bill_dir.join(".chunks");
+    let chunks_dir = bill_dir.join("chunks");
     std::fs::create_dir_all(&chunks_dir)?;
 
     let artifact = ChunkArtifact {

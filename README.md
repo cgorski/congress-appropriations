@@ -409,7 +409,7 @@ For each bill, the extraction pipeline produces:
 | `metadata.json` | Extraction provenance: model name, prompt version, schema version, timestamps |
 | `BILLS-*.xml` | Original enrolled bill XML from Congress.gov |
 | `BILLS-*.txt` | Clean text derived from XML (generated during extraction) |
-| `.chunks/*.json` | Per-chunk LLM artifacts: thinking content, raw response, conversion report (for debugging and resume) |
+| `chunks/*.json` | Per-chunk LLM artifacts: thinking content, raw response, conversion report (provenance and analysis) |
 
 ## Technical Details
 
@@ -437,7 +437,7 @@ Verification is deterministic — no LLM involved:
 
 ### Chunk Traceability
 
-Every extraction produces per-chunk artifacts in `.chunks/` with ULIDs. Each artifact contains the model's thinking content, raw response, parsed JSON, and per-chunk conversion report. The `chunk_map` field in `extraction.json` links each provision to its source chunk, enabling full audit trails.
+Every extraction produces per-chunk artifacts in `chunks/` with ULIDs. Each artifact contains the model's thinking content, raw response, parsed JSON, and per-chunk conversion report — permanent provenance records that enable analysis of how the LLM interpreted each section of the bill. The `chunk_map` field in `extraction.json` links each provision to its source chunk, enabling full audit trails.
 
 ### Accuracy
 

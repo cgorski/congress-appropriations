@@ -22,7 +22,7 @@ directories** at any nesting depth. Discovery walks the tree looking for
     verification.json             # Optional — deterministic quality report
     metadata.json                 # Optional — model, prompt version, timestamps
     tokens.json                   # Optional — token usage stats
-    .chunks/                      # Debug artifacts from chunked extraction
+    chunks/                       # Per-chunk LLM artifacts (thinking, raw response, conversion report)
 ```
 
 | File                | Required | Producer         | Consumer                |
