@@ -14,7 +14,7 @@ use tokio::sync::mpsc;
 use tracing::{debug, info, warn};
 use ulid::Ulid;
 
-const MODEL: &str = "claude-opus-4-6";
+const DEFAULT_MODEL: &str = "claude-opus-4-6";
 const MAX_TOKENS: u32 = 128000;
 /// Default maximum tokens per extraction chunk.
 /// Titles/divisions larger than this are split at paragraph boundaries.
@@ -144,6 +144,7 @@ struct ChunkInput {
     preamble: String,
     chunk_text: String,
     bill_id: String,
+    model: String,
 }
 
 /// State of an in-flight chunk for the dashboard display.
@@ -180,13 +181,15 @@ fn compute_rate(history: &VecDeque<(Instant, usize)>, now: Instant) -> Option<us
 pub struct ExtractionPipeline {
     client: Arc<AnthropicClient>,
     pub tokens: TokenTracker,
+    model: String,
 }
 
 impl ExtractionPipeline {
-    pub fn new(client: AnthropicClient) -> Self {
+    pub fn new(client: AnthropicClient, model_override: Option<String>) -> Self {
         Self {
             client: Arc::new(client),
             tokens: TokenTracker::default(),
+            model: model_override.unwrap_or_else(|| DEFAULT_MODEL.to_string()),
         }
     }
 
@@ -370,6 +373,7 @@ impl ExtractionPipeline {
                 preamble: preamble.to_string(),
                 chunk_text: bill_text[chunk.start..chunk.end].to_string(),
                 bill_id: bill_id.to_string(),
+                model: self.model.clone(),
             })
             .collect();
 
@@ -518,7 +522,7 @@ impl ExtractionPipeline {
         ExtractionMetadata {
             extraction_version: env!("CARGO_PKG_VERSION").to_string(),
             prompt_version: "v3".to_string(),
-            model: MODEL.to_string(),
+            model: self.model.clone(),
             schema_version: "0.3.0".to_string(),
             source_pdf_sha256: None,
             extracted_text_sha256: TextIndex::text_hash(text),
@@ -652,7 +656,7 @@ async fn extract_single_chunk(
         "Sending chunk for extraction"
     );
 
-    let req = MessageBuilder::new(MODEL)
+    let req = MessageBuilder::new(&input.model)
         .system_cached(prompts::EXTRACTION_SYSTEM)
         .user(user_message)
         .max_tokens(MAX_TOKENS)

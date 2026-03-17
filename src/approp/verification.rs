@@ -106,6 +106,7 @@ pub struct VerificationReport {
     pub schema_version: Option<String>,
     pub amount_checks: Vec<AmountCheck>,
     pub raw_text_checks: Vec<RawTextCheck>,
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
     pub arithmetic_checks: Vec<ArithmeticResult>,
     pub completeness: CompletenessReport,
     pub summary: VerificationSummary,

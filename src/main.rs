@@ -73,6 +73,9 @@ enum Commands {
         /// Parallel LLM calls — higher is faster but uses more API quota
         #[arg(long, default_value = "5")]
         parallel: usize,
+        /// LLM model for extraction (tested with claude-opus-4-6; other models may vary in quality)
+        #[arg(long, env = "APPROP_MODEL")]
+        model: Option<String>,
     },
     /// Search provisions across all extracted bills
     Search {
@@ -97,6 +100,9 @@ enum Commands {
         /// Output format: table, json, csv
         #[arg(long, default_value = "table")]
         format: String,
+        /// List all valid provision types and exit
+        #[arg(long)]
+        list_types: bool,
     },
     /// Show summary of all extracted bills
     Summary {
@@ -233,7 +239,8 @@ async fn main() -> Result<()> {
             dir,
             dry_run,
             parallel,
-        } => handle_extract(&dir, dry_run, parallel).await,
+            model,
+        } => handle_extract(&dir, dry_run, parallel, model).await,
         Commands::Search {
             dir,
             agency,
@@ -242,6 +249,7 @@ async fn main() -> Result<()> {
             keyword,
             bill,
             format,
+            list_types,
         } => handle_search(
             &dir,
             agency.as_deref(),
@@ -250,6 +258,7 @@ async fn main() -> Result<()> {
             keyword.as_deref(),
             bill.as_deref(),
             &format,
+            list_types,
         ),
         Commands::Summary { dir, format } => handle_summary(&dir, &format),
         Commands::Compare {
@@ -352,7 +361,12 @@ async fn handle_bill(action: BillCommands) -> Result<()> {
 
 // ─── Extract Handler ─────────────────────────────────────────────────────────
 
-async fn handle_extract(dir: &str, dry_run: bool, max_parallel: usize) -> Result<()> {
+async fn handle_extract(
+    dir: &str,
+    dry_run: bool,
+    max_parallel: usize,
+    model: Option<String>,
+) -> Result<()> {
     use congress_appropriations::api::anthropic::AnthropicClient;
     use congress_appropriations::approp::extraction::ExtractionPipeline;
     use congress_appropriations::approp::verification;
@@ -392,7 +406,9 @@ async fn handle_extract(dir: &str, dry_run: bool, max_parallel: usize) -> Result
         .context("Set ANTHROPIC_API_KEY — sign up at https://console.anthropic.com/")?;
 
     // Set up pipeline
-    let mut pipeline = ExtractionPipeline::new(anthropic);
+    let model_name = model.as_deref().unwrap_or("claude-opus-4-6");
+    tracing::info!("  Model: {model_name}");
+    let mut pipeline = ExtractionPipeline::new(anthropic, model.clone());
 
     let mut total_provisions = 0usize;
     let mut total_verified = 0usize;
@@ -637,6 +653,19 @@ async fn handle_extract(dir: &str, dry_run: bool, max_parallel: usize) -> Result
 
 // ─── Search Handler ──────────────────────────────────────────────────────────
 
+fn compute_quality(amount_status: Option<&str>, match_tier: Option<&str>) -> &'static str {
+    match (amount_status, match_tier) {
+        (Some("found"), Some("exact")) => "strong",
+        (Some("found"), Some("normalized" | "spaceless")) => "moderate",
+        (Some("found_multiple"), Some("exact" | "normalized")) => "moderate",
+        (Some("found"), Some("no_match")) => "moderate",
+        (Some("found_multiple"), Some("no_match" | "spaceless")) => "weak",
+        (Some("not_found"), _) => "weak",
+        _ => "n/a",
+    }
+}
+
+#[allow(clippy::too_many_arguments)]
 fn handle_search(
     dir: &str,
     agency: Option<&str>,
@@ -645,7 +674,24 @@ fn handle_search(
     keyword: Option<&str>,
     bill: Option<&str>,
     format: &str,
+    list_types: bool,
 ) -> Result<()> {
+    if list_types {
+        println!("Available provision types:");
+        println!("  appropriation                    Budget authority grant");
+        println!("  rescission                       Cancellation of prior budget authority");
+        println!("  cr_substitution                  CR anomaly (substituting $X for $Y)");
+        println!("  transfer_authority               Permission to move funds between accounts");
+        println!("  limitation                       Cap or prohibition on spending");
+        println!("  directed_spending                Earmark / community project funding");
+        println!("  mandatory_spending_extension     Amendment to authorizing statute");
+        println!("  directive                        Reporting requirement or instruction");
+        println!("  rider                            Policy provision (no direct spending)");
+        println!("  continuing_resolution_baseline   Core CR funding mechanism");
+        println!("  other                            Unclassified provisions");
+        return Ok(());
+    }
+
     let dir_path = std::path::Path::new(dir);
     let bills = loading::load_bills(dir_path)?;
 
@@ -695,6 +741,7 @@ fn handle_search(
         raw_text: String,
         verified: Option<String>,
         match_tier: Option<String>,
+        quality: String,
     }
 
     let mut matches: Vec<Match> = Vec::new();
@@ -750,6 +797,8 @@ fn handle_search(
             let pold = provision.old_amount().and_then(|a| a.dollars());
             let pdesc = provision.description();
 
+            let quality_val = compute_quality(verified.as_deref(), tier);
+
             matches.push(Match {
                 bill_id: bill_id.clone(),
                 provision_index: idx,
@@ -765,6 +814,7 @@ fn handle_search(
                 raw_text: praw.to_string(),
                 verified,
                 match_tier: tier.map(|s| s.to_string()),
+                quality: quality_val.to_string(),
             });
         }
     }
@@ -789,6 +839,7 @@ fn handle_search(
                         "division": m.division,
                         "raw_text": m.raw_text,
                         "amount_status": m.verified,
+                        "quality": m.quality,
                         "match_tier": m.match_tier,
                     })
                 })
@@ -809,6 +860,7 @@ fn handle_search(
                 "section",
                 "division",
                 "amount_status",
+                "quality",
                 "raw_text",
             ])?;
             for m in &matches {
@@ -824,6 +876,7 @@ fn handle_search(
                     &m.section,
                     &m.division,
                     &m.verified.clone().unwrap_or_else(|| "n/a".to_string()),
+                    &m.quality,
                     &m.raw_text,
                 ])?;
             }
@@ -1575,7 +1628,7 @@ fn handle_audit(dir: &str, verbose: bool) -> Result<()> {
     println!("Column Guide:");
     println!("  Verified   Dollar amount string found at exactly one position in source text");
     println!(
-        "  NotFound   Dollar amounts NOT found in source — may be hallucinated, review manually"
+        "  NotFound   Dollar amounts NOT found in source — not present in source, review manually"
     );
     println!(
         "  Ambig      Dollar amounts found multiple times in source — correct but position uncertain"
