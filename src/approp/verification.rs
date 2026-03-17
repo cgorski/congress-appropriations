@@ -101,6 +101,9 @@ pub enum CheckResult {
 /// Full verification report.
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct VerificationReport {
+    /// Schema version for this file format. None = pre-versioned data.
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub schema_version: Option<String>,
     pub amount_checks: Vec<AmountCheck>,
     pub raw_text_checks: Vec<RawTextCheck>,
     pub arithmetic_checks: Vec<ArithmeticResult>,
@@ -314,6 +317,7 @@ pub fn verify_provisions(
     };
 
     VerificationReport {
+        schema_version: Some("1.0".to_string()),
         amount_checks,
         raw_text_checks,
         arithmetic_checks,

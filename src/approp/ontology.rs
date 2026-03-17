@@ -795,6 +795,9 @@ pub enum RelationType {
 /// Unified output from a single extraction call.
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct BillExtraction {
+    /// Schema version for this file format. None = pre-versioned data.
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub schema_version: Option<String>,
     pub bill: BillInfo,
     #[serde(default)]
     pub provisions: Vec<Provision>,
@@ -832,6 +835,20 @@ pub enum BillClassification {
     Minibus,
     #[serde(untagged)]
     Other(String),
+}
+
+impl std::fmt::Display for BillClassification {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        match self {
+            BillClassification::Regular => write!(f, "Regular"),
+            BillClassification::ContinuingResolution => write!(f, "Continuing Resolution"),
+            BillClassification::Omnibus => write!(f, "Omnibus"),
+            BillClassification::Supplemental => write!(f, "Supplemental"),
+            BillClassification::Rescissions => write!(f, "Rescissions"),
+            BillClassification::Minibus => write!(f, "Minibus"),
+            BillClassification::Other(s) => write!(f, "{}", s),
+        }
+    }
 }
 
 /// Self-check summary produced by the LLM.

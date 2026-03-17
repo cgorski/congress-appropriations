@@ -344,9 +344,6 @@ async fn handle_extract(dir: &str, dry_run: bool, max_parallel: usize) -> Result
 
     let total_start = Instant::now();
 
-    let anthropic =
-        AnthropicClient::from_env().context("Set ANTHROPIC_API_KEY environment variable")?;
-
     tracing::info!("═══════════════════════════════════════════════════════");
     tracing::info!("Extracting appropriations data from {dir}");
     tracing::info!("═══════════════════════════════════════════════════════");
@@ -375,6 +372,9 @@ async fn handle_extract(dir: &str, dry_run: bool, max_parallel: usize) -> Result
         }
         return Ok(());
     }
+
+    let anthropic =
+        AnthropicClient::from_env().context("Set ANTHROPIC_API_KEY environment variable")?;
 
     // Set up pipeline
     let mut pipeline = ExtractionPipeline::new(anthropic);
@@ -639,6 +639,20 @@ fn handle_search(
         return Ok(());
     }
 
+    const KNOWN_PROVISION_TYPES: &[&str] = &[
+        "appropriation", "rescission", "transfer_authority", "limitation",
+        "directed_spending", "cr_substitution", "mandatory_spending_extension",
+        "directive", "rider", "continuing_resolution_baseline", "other",
+    ];
+
+    if let Some(t) = provision_type {
+        if !KNOWN_PROVISION_TYPES.contains(&t) {
+            eprintln!("Warning: unknown provision type '{t}'.");
+            eprintln!("Known types: {}", KNOWN_PROVISION_TYPES.join(", "));
+            eprintln!();
+        }
+    }
+
     // Build verification lookup: (bill_identifier, provision_index) -> (verified, match_tier)
     let ver_lookup = build_verification_lookup(&bills);
 
@@ -656,7 +670,7 @@ fn handle_search(
         section: String,
         division: String,
         raw_text: String,
-        verified: Option<bool>,
+        verified: Option<String>,
         match_tier: Option<String>,
     }
 
@@ -708,7 +722,7 @@ fn handle_search(
             }
 
             let ver_key = (bill_id.as_str(), idx);
-            let (verified, tier) = ver_lookup.get(&ver_key).copied().unwrap_or((None, None));
+            let (verified, tier) = ver_lookup.get(&ver_key).cloned().unwrap_or((None, None));
 
             let pold = provision.old_amount().and_then(|a| a.dollars());
             let pdesc = provision.description();
@@ -751,7 +765,7 @@ fn handle_search(
                         "section": m.section,
                         "division": m.division,
                         "raw_text": m.raw_text,
-                        "verified": m.verified,
+                        "amount_status": m.verified,
                         "match_tier": m.match_tier,
                     })
                 })
@@ -771,7 +785,7 @@ fn handle_search(
                 "semantics",
                 "section",
                 "division",
-                "verified",
+                "amount_status",
                 "raw_text",
             ])?;
             for m in &matches {
@@ -787,13 +801,8 @@ fn handle_search(
                     &m.section,
                     &m.division,
                     &m.verified
-                        .map(|v| {
-                            if v {
-                                "yes".to_string()
-                            } else {
-                                "NO".to_string()
-                            }
-                        })
+                        .as_ref()
+                        .map(|s| s.clone())
                         .unwrap_or_else(|| "n/a".to_string()),
                     &m.raw_text,
                 ])?;
@@ -816,16 +825,17 @@ fn handle_search(
             match single_type {
                 Some("directive") => {
                     table.set_header(vec![
-                        Cell::new("V"),
+                        Cell::new("$"),
                         Cell::new("Bill"),
                         Cell::new("Description"),
                         Cell::new("Section"),
                         Cell::new("Div"),
                     ]);
                     for m in &matches {
-                        let vi = match m.verified {
-                            Some(true) => "✓",
-                            Some(false) => "✗",
+                        let vi = match m.verified.as_deref() {
+                            Some("found") => "✓",
+                            Some("found_multiple") => "≈",
+                            Some("not_found") => "✗",
                             _ => " ",
                         };
                         table.add_row(vec![
@@ -839,16 +849,17 @@ fn handle_search(
                 }
                 Some("rider") => {
                     table.set_header(vec![
-                        Cell::new("V"),
+                        Cell::new("$"),
                         Cell::new("Bill"),
                         Cell::new("Description"),
                         Cell::new("Section"),
                         Cell::new("Div"),
                     ]);
                     for m in &matches {
-                        let vi = match m.verified {
-                            Some(true) => "✓",
-                            Some(false) => "✗",
+                        let vi = match m.verified.as_deref() {
+                            Some("found") => "✓",
+                            Some("found_multiple") => "≈",
+                            Some("not_found") => "✗",
                             _ => " ",
                         };
                         table.add_row(vec![
@@ -862,7 +873,7 @@ fn handle_search(
                 }
                 Some("mandatory_spending_extension") => {
                     table.set_header(vec![
-                        Cell::new("V"),
+                        Cell::new("$"),
                         Cell::new("Bill"),
                         Cell::new("Program"),
                         Cell::new("Amount ($)").set_alignment(CellAlignment::Right),
@@ -870,9 +881,10 @@ fn handle_search(
                         Cell::new("Div"),
                     ]);
                     for m in &matches {
-                        let vi = match m.verified {
-                            Some(true) => "✓",
-                            Some(false) => "✗",
+                        let vi = match m.verified.as_deref() {
+                            Some("found") => "✓",
+                            Some("found_multiple") => "≈",
+                            Some("not_found") => "✗",
                             _ => " ",
                         };
                         let amt = m
@@ -891,7 +903,7 @@ fn handle_search(
                 }
                 Some("cr_substitution") => {
                     table.set_header(vec![
-                        Cell::new("V"),
+                        Cell::new("$"),
                         Cell::new("Bill"),
                         Cell::new("Account"),
                         Cell::new("New ($)").set_alignment(CellAlignment::Right),
@@ -901,9 +913,10 @@ fn handle_search(
                         Cell::new("Div"),
                     ]);
                     for m in &matches {
-                        let vi = match m.verified {
-                            Some(true) => "✓",
-                            Some(false) => "✗",
+                        let vi = match m.verified.as_deref() {
+                            Some("found") => "✓",
+                            Some("found_multiple") => "≈",
+                            Some("not_found") => "✗",
                             _ => " ",
                         };
                         let new_s = m
@@ -932,7 +945,7 @@ fn handle_search(
                 }
                 Some("limitation") => {
                     table.set_header(vec![
-                        Cell::new("V"),
+                        Cell::new("$"),
                         Cell::new("Bill"),
                         Cell::new("Description"),
                         Cell::new("Account"),
@@ -941,9 +954,10 @@ fn handle_search(
                         Cell::new("Div"),
                     ]);
                     for m in &matches {
-                        let vi = match m.verified {
-                            Some(true) => "✓",
-                            Some(false) => "✗",
+                        let vi = match m.verified.as_deref() {
+                            Some("found") => "✓",
+                            Some("found_multiple") => "≈",
+                            Some("not_found") => "✗",
                             _ => " ",
                         };
                         let amt = m
@@ -964,7 +978,7 @@ fn handle_search(
                 _ => {
                     // Default: mixed types or appropriation/rescission
                     table.set_header(vec![
-                        Cell::new("V"),
+                        Cell::new("$"),
                         Cell::new("Bill"),
                         Cell::new("Type"),
                         Cell::new("Description / Account"),
@@ -973,9 +987,10 @@ fn handle_search(
                         Cell::new("Div"),
                     ]);
                     for m in &matches {
-                        let vi = match m.verified {
-                            Some(true) => "✓",
-                            Some(false) => "✗",
+                        let vi = match m.verified.as_deref() {
+                            Some("found") => "✓",
+                            Some("found_multiple") => "≈",
+                            Some("not_found") => "✗",
                             _ => " ",
                         };
                         let amt = m
@@ -1004,7 +1019,7 @@ fn handle_search(
             println!("{table}");
             println!("{} provisions found", matches.len());
             println!();
-            println!("V = Verified: ✓ amount found in source text, ✗ not found (review manually)");
+            println!("$ = Amount status: ✓ found (unique), ≈ found (multiple matches), ✗ not found");
 
             // Warn about incomplete source bills
             let incomplete: Vec<String> = bills
@@ -1068,7 +1083,7 @@ fn handle_summary(dir: &str, format: &str) -> Result<()> {
             .map(|v| v.summary.completeness_pct);
         summaries.push(BillSummary {
             identifier: loaded.extraction.bill.identifier.clone(),
-            classification: format!("{:?}", loaded.extraction.bill.classification),
+            classification: format!("{}", loaded.extraction.bill.classification),
             provisions: loaded.extraction.provisions.len(),
             budget_authority: ba,
             rescissions,
@@ -1523,7 +1538,7 @@ fn handle_report(dir: &str, verbose: bool) -> Result<()> {
     println!("{table}");
     println!();
     println!("Column Guide:");
-    println!("  Verified   Dollar amounts found verbatim in source text — safe to cite");
+    println!("  Verified   Dollar amount string found at exactly one position in source text");
     println!(
         "  NotFound   Dollar amounts NOT found in source — may be hallucinated, review manually"
     );
@@ -1541,7 +1556,7 @@ fn handle_report(dir: &str, verbose: bool) -> Result<()> {
     );
     println!();
     println!("Key:");
-    println!("  NotFound = 0 and Complete% = 100%  →  All amounts captured and verified");
+    println!("  NotFound = 0 and Complete% = 100%  →  All amounts captured and found in source");
     println!(
         "  NotFound = 0 and Complete% < 100%  →  Extracted amounts correct, but bill has more"
     );
@@ -2115,7 +2130,7 @@ fn describe_bills(bills: &[LoadedBill]) -> String {
 }
 
 /// Lookup from (bill_identifier, provision_index) to (verified, match_tier).
-type VerificationLookup<'a> = HashMap<(&'a str, usize), (Option<bool>, Option<&'a str>)>;
+type VerificationLookup<'a> = HashMap<(&'a str, usize), (Option<String>, Option<&'a str>)>;
 
 /// Build a lookup of verification status by (bill_identifier, provision_index).
 fn build_verification_lookup(bills: &[LoadedBill]) -> VerificationLookup<'_> {
@@ -2123,12 +2138,15 @@ fn build_verification_lookup(bills: &[LoadedBill]) -> VerificationLookup<'_> {
     for loaded in bills {
         let bill_id = loaded.extraction.bill.identifier.as_str();
         if let Some(ref ver) = loaded.verification {
-            let mut amount_status: HashMap<usize, bool> = HashMap::new();
+            let mut amount_status: HashMap<usize, &str> = HashMap::new();
             for check in &ver.amount_checks {
-                amount_status.insert(
-                    check.provision_index,
-                    matches!(check.status, CheckResult::Verified | CheckResult::Ambiguous),
-                );
+                let status_str = match check.status {
+                    CheckResult::Verified => "found",
+                    CheckResult::Ambiguous => "found_multiple",
+                    CheckResult::NotFound => "not_found",
+                    _ => continue,
+                };
+                amount_status.insert(check.provision_index, status_str);
             }
 
             let mut tier_status: HashMap<usize, &str> = HashMap::new();
@@ -2145,7 +2163,7 @@ fn build_verification_lookup(bills: &[LoadedBill]) -> VerificationLookup<'_> {
             }
 
             for i in 0..loaded.extraction.provisions.len() {
-                let verified = amount_status.get(&i).copied();
+                let verified = amount_status.get(&i).map(|s| s.to_string());
                 let tier = tier_status.get(&i).copied();
                 lookup.insert((bill_id, i), (verified, tier));
             }

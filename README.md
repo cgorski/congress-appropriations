@@ -1,6 +1,6 @@
 # Congressional Appropriations Analyzer
 
-A command-line tool that downloads U.S. federal appropriations bills from Congress.gov, extracts every spending provision into structured JSON using Claude Opus 4.6, and verifies each dollar amount against the source text.
+A command-line tool that downloads U.S. federal appropriations bills from Congress.gov, extracts every spending provision into structured JSON using Claude Opus 4.6, and checks each dollar amount against the source text.
 
 The goal: make the ~1,500 pages of annual appropriations bills searchable, sortable, and machine-readable — so you can quickly answer questions like "how much did Congress appropriate for VA Compensation and Pensions?" or "which programs got cut in the continuing resolution?"
 
@@ -106,7 +106,7 @@ congress-approp summary --dir examples
 
 Budget authority is computed from the actual provisions, not the LLM's self-reported summary.
 
-**Understanding Complete%:** This measures *coverage*, not *correctness*. It shows what percentage of all dollar amounts in the source bill text were captured by an extracted provision. A bill at 94.2% completeness means the tool extracted 94.2% of the dollar amounts — the remaining 5.8% are amounts that exist in the bill but were not extracted (typically loan guarantee ceilings, life-cycle cost references, or amendment-text old values). Critically, completeness says nothing about accuracy: every extracted amount is independently verified against the source text. A bill with 0 NotFound means every extracted dollar amount is correct.
+**Understanding Complete%:** This measures *coverage*, not *correctness*. It shows what percentage of all dollar amounts in the source bill text were captured by an extracted provision. A bill at 94.2% completeness means the tool extracted 94.2% of the dollar amounts — the remaining 5.8% are amounts that exist in the bill but were not extracted (typically loan guarantee ceilings, life-cycle cost references, or amendment-text old values). Critically, completeness says nothing about accuracy: every extracted amount is independently verified against the source text. A bill with 0 NotFound means every extracted dollar amount string exists in the source text.
 
 **Understanding budget authority totals:** The Budget Auth column includes all provisions with `new_budget_authority` semantics at the `top_level` or `line_item` detail level. This includes both discretionary appropriations and mandatory spending programs that appear as appropriation lines in the bill text (e.g., SNAP at $122B in the Agriculture division). It also includes advance appropriations — funds enacted in this bill but available in the next fiscal year. The tool faithfully extracts what the bill text says; distinguishing mandatory from discretionary requires authorizing-law context beyond the bill itself. Advance appropriations are identified in the `notes` field.
 
@@ -122,7 +122,7 @@ congress-approp search --dir examples --type appropriation
 
 ```text
 ┌───┬───────────┬───────────────┬───────────────────────────────────────────────┬───────────────┬──────────┬─────┐
-│ V ┆ Bill      ┆ Type          ┆ Description / Account                         ┆    Amount ($) ┆ Section  ┆ Div │
+│ $ ┆ Bill      ┆ Type          ┆ Description / Account                         ┆    Amount ($) ┆ Section  ┆ Div │
 ╞═══╪═══════════╪═══════════════╪═══════════════════════════════════════════════╪═══════════════╪══════════╪═════╡
 │ ✓ ┆ H.R. 9468 ┆ appropriation ┆ Compensation and Pensions                     ┆ 2,285,513,000 ┆          ┆     │
 │ ✓ ┆ H.R. 9468 ┆ appropriation ┆ Readjustment Benefits                         ┆   596,969,000 ┆          ┆     │
@@ -130,7 +130,7 @@ congress-approp search --dir examples --type appropriation
 └───┴───────────┴───────────────┴───────────────────────────────────────────────┴───────────────┴──────────┴─────┘
 ```
 
-The **V** column shows verification status: ✓ means the dollar amount was found verbatim in the source text.
+The **$** column shows verification status: ✓ means the dollar amount string was found at exactly one position in the source text.
 
 **Find CR anomalies (which programs got funding changes):**
 
@@ -140,7 +140,7 @@ congress-approp search --dir examples/hr5860 --type cr_substitution
 
 ```text
 ┌───┬───────────┬──────────────────────────────────────────┬───────────────┬───────────────┬──────────────┬──────────┬─────┐
-│ V ┆ Bill      ┆ Account                                  ┆       New ($) ┆       Old ($) ┆    Delta ($) ┆ Section  ┆ Div │
+│ $ ┆ Bill      ┆ Account                                  ┆       New ($) ┆       Old ($) ┆    Delta ($) ┆ Section  ┆ Div │
 ╞═══╪═══════════╪══════════════════════════════════════════╪═══════════════╪═══════════════╪══════════════╪══════════╪═════╡
 │ ✓ ┆ H.R. 5860 ┆ Rural Housing Service—Rural Community…   ┆    25,300,000 ┆    75,300,000 ┆  -50,000,000 ┆ SEC. 101 ┆ A   │
 │ ✓ ┆ H.R. 5860 ┆ National Science Foundation—STEM Educ…   ┆    92,000,000 ┆   217,000,000 ┆ -125,000,000 ┆ SEC. 101 ┆ A   │
@@ -159,7 +159,7 @@ congress-approp search --dir examples/hr9468 --type directive
 
 ```text
 ┌───┬───────────┬────────────────────────────────────────────────────────────────────────┬──────────┬─────┐
-│ V ┆ Bill      ┆ Description                                                            ┆ Section  ┆ Div │
+│ $ ┆ Bill      ┆ Description                                                            ┆ Section  ┆ Div │
 ╞═══╪═══════════╪════════════════════════════════════════════════════════════════════════╪══════════╪═════╡
 │   ┆ H.R. 9468 ┆ Requires the Secretary of Veterans Affairs to submit a report detaili… ┆ SEC. 103 ┆     │
 │   ┆ H.R. 9468 ┆ Requires the Secretary of Veterans Affairs to submit a report on the … ┆ SEC. 103 ┆     │
@@ -259,22 +259,22 @@ congress-approp report --dir examples
 └───────────┴───────┴──────────┴──────────┴───────┴───────┴──────┴───────┴─────────┴───────────┘
 
 Column Guide:
-  Verified   Dollar amounts found verbatim in source text — safe to cite
-  NotFound   Dollar amounts NOT found in source — may be hallucinated, review manually
+  Verified   Dollar amount string found at exactly one position in source text
+  NotFound   Dollar amounts NOT found in source — review manually
   Exact      raw_text is byte-identical substring of source — verbatim copy
   Norm       raw_text matches after whitespace/quote/dash normalization — content correct
   NoMatch    raw_text not found at any tier — may be paraphrased, review manually
   Complete%  Percentage of ALL dollar amounts in source text captured by a provision
 
 Key:
-  NotFound = 0 and Complete% = 100%  →  All amounts captured and verified
-  NotFound = 0 and Complete% < 100%  →  Extracted amounts correct, but bill has more
+  NotFound = 0 and Complete% = 100%  →  All amounts captured and found in source
+  NotFound = 0 and Complete% < 100%  →  Extracted amounts found in source, but bill has more
   NotFound > 0                       →  Some amounts need manual review
 ```
 
 Use `--verbose` to see each individual problematic provision.
 
-**The key metric: across 2,501 provisions from three bills, zero dollar amounts have been hallucinated** (NotFound = 0 for every bill). The tool may be incomplete on large bills (Complete% < 100%), but what it does extract is verified against the source text.
+**The key metric: across 2,501 provisions from three bills, every extracted dollar amount was found in the source bill text** (NotFound = 0 for every bill). Verification confirms amounts exist in the bill, not that they are attributed to the correct provision — for 95.6% of provisions, the raw text excerpt also matches verbatim, providing strong attribution confidence. The tool may be incomplete on large bills (Complete% < 100%), but what it does extract checks out against the source.
 
 ## Bill Types
 
@@ -343,7 +343,7 @@ After all chunks complete, provisions are merged, the summary is recomputed from
 
 Verification is deterministic — no LLM involved:
 
-1. **Amount checks** — Every `text_as_written` dollar string is searched for verbatim in the source text. Result: `verified`, `not_found` (possible hallucination), or `ambiguous` (found multiple times).
+1. **Amount checks** — Every `text_as_written` dollar string is searched for verbatim in the source text. Result: `verified` (found at unique position), `not_found` (not present in source), or `ambiguous` (found at multiple positions).
 2. **Raw text checks** — Each provision's `raw_text` excerpt is checked as a substring of the source, with tiered matching: `exact` → `normalized` (whitespace/quote normalization) → `spaceless` (all spaces removed) → `no_match`.
 3. **Completeness** — Every dollar sign in the source text is counted and checked against extracted provisions. 100% means every dollar amount in the bill was captured.
 
@@ -358,7 +358,7 @@ Across 2,501 provisions from three 118th Congress bills:
 | Metric | Result |
 |--------|--------|
 | Provisions extracted | 2,501 (7 + 130 + 2,364) |
-| Dollar amounts hallucinated | **0** |
+| Dollar amounts not found in source | **0** |
 | Omnibus completeness | **94.2%** (1,634 of 1,734 dollar amounts captured) |
 | CR substitution pairs verified | **13/13** (100%) |
 | Sub-allocation accounting | Correctly excluded from budget authority totals |

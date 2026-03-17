@@ -1,0 +1,9 @@
+{
+  "extracted_text_sha256": "154dd957bdeb92b07a7bbb5438030e54b6668ddf897a808c037b07e6c4b265d6",
+  "extraction_version": "1.1.0",
+  "model": "claude-opus-4-6",
+  "prompt_version": "v3",
+  "schema_version": "1.0",
+  "source_pdf_sha256": null,
+  "timestamp": "unknown"
+}

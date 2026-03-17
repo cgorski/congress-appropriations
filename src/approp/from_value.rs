@@ -55,6 +55,7 @@ pub fn parse_bill_extraction(value: &Value) -> Result<(BillExtraction, Conversio
 
     Ok((
         BillExtraction {
+            schema_version: None,
             bill,
             provisions,
             summary,
@@ -149,7 +150,7 @@ fn parse_provision(value: &Value, report: &mut ConversionReport) -> Result<Provi
                 report
                     .warnings
                     .push(format!("SEC {section}: missing amount on appropriation"));
-                DollarAmount::zero(AmountSemantics::Other("missing".into()))
+                DollarAmount::zero(AmountSemantics::Other("indefinite".into()))
             }),
             fiscal_year: get_opt_u32(obj, "fiscal_year"),
             availability: parse_availability(obj.get("availability")),
@@ -215,7 +216,7 @@ fn parse_provision(value: &Value, report: &mut ConversionReport) -> Result<Provi
         "directed_spending" => Ok(Provision::DirectedSpending {
             account_name: get_opt_str(obj, "account_name"),
             amount: parse_dollar_amount(obj.get("amount"), report)
-                .unwrap_or_else(|| DollarAmount::zero(AmountSemantics::Other("missing".into()))),
+                .unwrap_or_else(|| DollarAmount::zero(AmountSemantics::Other("indefinite".into()))),
             earmark: parse_single_earmark(obj).unwrap_or(Earmark {
                 recipient: String::new(),
                 location: String::new(),
@@ -235,7 +236,7 @@ fn parse_provision(value: &Value, report: &mut ConversionReport) -> Result<Provi
             reference_act: get_str_or_warn(obj, "reference_act", report),
             reference_section: get_str_or_warn(obj, "reference_section", report),
             new_amount: parse_dollar_amount(obj.get("new_amount"), report)
-                .unwrap_or_else(|| DollarAmount::zero(AmountSemantics::Other("missing".into()))),
+                .unwrap_or_else(|| DollarAmount::zero(AmountSemantics::Other("indefinite".into()))),
             old_amount: parse_dollar_amount(obj.get("old_amount"), report)
                 .unwrap_or_else(|| DollarAmount::zero(AmountSemantics::ReferenceAmount)),
             account_name: get_opt_str(obj, "account_name"),
@@ -349,6 +350,29 @@ fn parse_dollar_amount(
     report: &mut ConversionReport,
 ) -> Option<DollarAmount> {
     let obj = value?.as_object()?;
+
+    // Check for AmountValue kind — handle "such_sums" and "none" before reading dollars
+    let kind = obj.get("kind")
+        .or_else(|| obj.get("value").and_then(|v| v.get("kind")))
+        .and_then(|k| k.as_str());
+
+    if kind == Some("such_sums") {
+        let semantics = match obj.get("semantics").and_then(|v| v.as_str()).unwrap_or("other") {
+            "new_budget_authority" => AmountSemantics::NewBudgetAuthority,
+            "transfer_ceiling" => AmountSemantics::TransferCeiling,
+            "rescission" => AmountSemantics::Rescission,
+            "limitation" => AmountSemantics::Limitation,
+            "reference_amount" => AmountSemantics::ReferenceAmount,
+            "mandatory_spending" => AmountSemantics::MandatorySpending,
+            other => AmountSemantics::Other(other.to_string()),
+        };
+        let text = obj.get("text_as_written").and_then(|v| v.as_str()).unwrap_or("").to_string();
+        return Some(DollarAmount::such_sums(semantics, text));
+    }
+    if kind == Some("none") {
+        return None;
+    }
+
     let dollars = match obj.get("dollars") {
         Some(Value::Number(n)) => n.as_i64().unwrap_or(0),
         Some(Value::String(s)) => {

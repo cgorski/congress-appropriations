@@ -471,6 +471,7 @@ impl ExtractionPipeline {
         }
 
         let mut final_extraction = BillExtraction {
+            schema_version: None,
             bill: bill_info,
             provisions: all_provisions,
             summary: ExtractionSummary {
@@ -484,6 +485,7 @@ impl ExtractionPipeline {
             },
             chunk_map,
         };
+        final_extraction.schema_version = Some("1.0".to_string());
 
         let (ba, rescissions) = final_extraction.compute_totals();
         final_extraction.summary.total_budget_authority = ba;
