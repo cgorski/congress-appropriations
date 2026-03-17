@@ -447,14 +447,28 @@ Across 2,501 provisions from three 118th Congress bills:
 |--------|--------|
 | Provisions extracted | 2,501 (7 + 130 + 2,364) |
 | Dollar amounts not found in source | **0** |
-| Omnibus coverage | **94.2%** (1,634 of 1,734 dollar amounts captured) |
+| Dollar amount internal consistency | **0 mismatches** across 1,441 provisions with parsed amounts |
 | CR substitution pairs verified | **13/13** (100%) |
 | Sub-allocation accounting | Correctly excluded from budget authority totals |
 | Raw text exact match rate | 95.6% (2,392 of 2,501 provisions) |
 
+The `audit` command shows a detailed verification breakdown including a coverage metric (percentage of dollar strings in the source text matched to an extracted provision). Coverage below 100% does not indicate errors — many dollar strings in bill text are statutory references, loan guarantee ceilings, or old amounts being struck by amendments, all of which are correctly excluded from extraction.
+
+### Token Usage
+
+Extraction sends bill text to the LLM in parallel chunks. Use `extract --dry-run` to preview chunk counts and estimated tokens before running.
+
+| Bill | Chunks | Estimated Input Tokens |
+|------|--------|----------------------|
+| H.R. 4366 (omnibus, 1.8 MB XML) | 75 | ~315,000 |
+| H.R. 5860 (CR, 131 KB XML) | 5 | ~25,000 |
+| H.R. 9468 (supplemental, 9 KB XML) | 1 | ~1,200 |
+
+Output tokens vary by bill complexity. The `tokens.json` file in each bill directory records exact input, output, and cache-read token counts after extraction.
+
 ### Limitations
 
-- **Omnibus bills** (1,000+ pages) are split into chunks and extracted in parallel. The FY2024 omnibus (H.R. 4366) achieved 94.2% coverage with 2,364 provisions in approximately 60 minutes using `--parallel 6`. Check the `Coverage` in the summary.
+- **Omnibus bills** (1,000+ pages) are split into chunks and extracted in parallel. The FY2024 omnibus (H.R. 4366) extracted 2,364 provisions in approximately 60 minutes using `--parallel 6`. Use `audit` for detailed verification metrics.
 - **Continuing resolution baselines** fund at prior-year rates. The tool extracts CR anomalies (substitutions) as structured data but doesn't model the baseline funding levels themselves.
 - **Earmarks** are referenced in bill text but the actual recipient lists are in the joint explanatory statement — a separate document not included in the enrolled bill XML.
 - **Year-over-year deltas** are computed by the `compare` command. Each year must be extracted independently.
