@@ -693,6 +693,15 @@ async fn extract_single_chunk(
         .with_context(|| format!("LLM extraction failed for {label}"))?;
 
     let thinking = message.thinking().map(|s| s.to_string());
+
+    // Check for output truncation
+    if matches!(message.stop_reason, Some(crate::api::anthropic::StopReason::MaxTokens)) {
+        warn!(
+            "{label}: LLM output was truncated (hit max_tokens). \
+             Response JSON is likely incomplete."
+        );
+    }
+
     let raw_response = message.all_text();
     let json_str = extract_json(&raw_response)?;
 

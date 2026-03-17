@@ -129,6 +129,15 @@ enum Commands {
         #[arg(long)]
         verbose: bool,
     },
+    /// Upgrade extraction data to the latest schema version (re-verifies, no LLM needed)
+    Upgrade {
+        /// Data directory to upgrade
+        #[arg(long, default_value = "./data")]
+        dir: String,
+        /// Show what would change without writing files
+        #[arg(long)]
+        dry_run: bool,
+    },
 }
 
 #[derive(Subcommand)]
@@ -247,6 +256,7 @@ async fn main() -> Result<()> {
             format,
         } => handle_compare(&base, &current, agency.as_deref(), &format),
         Commands::Audit { dir, verbose } => handle_audit(&dir, verbose),
+        Commands::Upgrade { dir, dry_run } => handle_upgrade(&dir, dry_run),
     }
 }
 
@@ -1569,6 +1579,185 @@ fn handle_audit(dir: &str, verbose: bool) -> Result<()> {
     println!("  NotFound > 0                       →  Some amounts need manual review");
 
     Ok(())
+}
+
+// ─── Upgrade Handler ─────────────────────────────────────────────────────────
+
+fn handle_upgrade(dir: &str, dry_run: bool) -> Result<()> {
+    use congress_appropriations::approp::text_index::{build_text_index, TextIndex};
+    use congress_appropriations::approp::verification;
+    use congress_appropriations::approp::xml;
+
+    let dir_path = std::path::Path::new(dir);
+
+    // Find all extraction.json files
+    let mut ext_files = Vec::new();
+    for entry in walkdir::WalkDir::new(dir_path).into_iter().filter_map(|e| e.ok()) {
+        if entry.file_name() == "extraction.json" {
+            ext_files.push(entry.into_path());
+        }
+    }
+    ext_files.sort();
+
+    if ext_files.is_empty() {
+        println!("No extraction.json files found in {dir}");
+        return Ok(());
+    }
+
+    println!("Found {} bill(s) to check", ext_files.len());
+    println!();
+
+    for ext_path in &ext_files {
+        let bill_dir = ext_path.parent().unwrap_or(std::path::Path::new("."));
+        let bill_name = bill_dir.file_name().map(|n| n.to_string_lossy().to_string()).unwrap_or_default();
+
+        // Load raw JSON for patching
+        let ext_text = std::fs::read_to_string(ext_path)?;
+        let mut ext_json: serde_json::Value = serde_json::from_str(&ext_text)?;
+
+        let current_version = ext_json.get("schema_version")
+            .and_then(|v| v.as_str())
+            .unwrap_or("0");
+
+        if current_version == "1.0" {
+            println!("{bill_name}: already at schema v1.0, skipping");
+            continue;
+        }
+
+        println!("Upgrading {bill_name}...");
+        println!("  Schema: {current_version} → 1.0");
+
+        // Apply v0 → v1.0 migrations
+        let mut fixed_count = 0usize;
+        ext_json["schema_version"] = serde_json::Value::String("1.0".to_string());
+
+        if let Some(provisions) = ext_json["provisions"].as_array_mut() {
+            for prov in provisions.iter_mut() {
+                for field in &["amount", "new_amount", "old_amount"] {
+                    if let Some(amount) = prov.get_mut(*field) {
+                        if fix_such_sums_amount(amount) {
+                            fixed_count += 1;
+                        }
+                    }
+                }
+                if let Some(amounts) = prov.get_mut("amounts") {
+                    if let Some(arr) = amounts.as_array_mut() {
+                        for amt in arr.iter_mut() {
+                            if fix_such_sums_amount(amt) {
+                                fixed_count += 1;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        println!("  Migrated: {fixed_count} provisions fixed");
+
+        if dry_run {
+            println!("  [DRY RUN] Would write extraction.json and re-verify");
+            println!();
+            continue;
+        }
+
+        // Write patched extraction.json
+        std::fs::write(ext_path, serde_json::to_string_pretty(&ext_json)?)?;
+
+        // Re-verify against source XML
+        let xml_files: Vec<_> = std::fs::read_dir(bill_dir)?
+            .filter_map(|e| e.ok())
+            .filter(|e| {
+                let p = e.path();
+                p.extension().is_some_and(|x| x == "xml")
+                    && p.file_stem().is_some_and(|n| n.to_string_lossy().starts_with("BILLS-"))
+            })
+            .map(|e| e.path())
+            .collect();
+
+        if let Some(xml_path) = xml_files.first() {
+            let parsed = xml::parse_bill_xml(xml_path, 3000)?;
+            let index = build_text_index(&parsed.full_text);
+
+            // Load the patched extraction via serde
+            let ext_text = std::fs::read_to_string(ext_path)?;
+            let extraction: congress_appropriations::approp::ontology::BillExtraction =
+                serde_json::from_str(&ext_text)?;
+
+            let mut report = verification::verify_provisions(
+                &extraction.provisions,
+                &parsed.full_text,
+                &index,
+            );
+            report.schema_version = Some("1.0".to_string());
+
+            let ver_path = bill_dir.join("verification.json");
+            std::fs::write(&ver_path, serde_json::to_string_pretty(&report)?)?;
+
+            println!(
+                "  Re-verified: {} provisions, {} not_found, {:.1}% coverage",
+                report.summary.total_provisions,
+                report.summary.amounts_not_found,
+                report.summary.completeness_pct
+            );
+
+            // Update metadata.json
+            let text_hash = TextIndex::text_hash(&parsed.full_text);
+            let meta_path = bill_dir.join("metadata.json");
+            let metadata = serde_json::json!({
+                "extraction_version": env!("CARGO_PKG_VERSION"),
+                "prompt_version": "v3",
+                "model": "claude-opus-4-6",
+                "schema_version": "1.0",
+                "source_pdf_sha256": null,
+                "extracted_text_sha256": text_hash,
+                "timestamp": chrono::Utc::now().to_rfc3339()
+            });
+            std::fs::write(&meta_path, serde_json::to_string_pretty(&metadata)?)?;
+
+            println!("  Updated: extraction.json, verification.json, metadata.json");
+        } else {
+            println!("  WARNING: No source XML found, skipping re-verification");
+        }
+        println!();
+    }
+
+    println!("Upgrade complete.");
+    Ok(())
+}
+
+/// Fix a dollar amount object: if kind=specific, dollars=0, semantics=missing → SuchSums + indefinite
+fn fix_such_sums_amount(amount: &mut serde_json::Value) -> bool {
+    if !amount.is_object() {
+        return false;
+    }
+
+    let semantics_is_missing = amount.get("semantics")
+        .and_then(|v| v.as_str())
+        .is_some_and(|s| s == "missing");
+
+    if !semantics_is_missing {
+        return false;
+    }
+
+    let value_obj = amount.get("value");
+    let kind_is_specific = value_obj
+        .and_then(|v| v.get("kind"))
+        .and_then(|v| v.as_str())
+        .is_some_and(|s| s == "specific");
+    let dollars_is_zero = value_obj
+        .and_then(|v| v.get("dollars"))
+        .and_then(|v| v.as_i64())
+        .is_some_and(|d| d == 0);
+    let text_is_empty = amount.get("text_as_written")
+        .and_then(|v| v.as_str())
+        .is_some_and(|s| s.is_empty());
+
+    if kind_is_specific && dollars_is_zero && text_is_empty {
+        amount["value"] = serde_json::json!({"kind": "such_sums"});
+    }
+
+    amount["semantics"] = serde_json::Value::String("indefinite".to_string());
+    true
 }
 
 // ─── Download Handler ────────────────────────────────────────────────────────
