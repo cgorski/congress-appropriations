@@ -1,0 +1,13 @@
+Congressional Appropriations Analyzer
+Copyright (c) 2025 Congressional Appropriations Analyzer Contributors
+
+This project is dual-licensed under MIT and Apache 2.0.
+
+GOVERNMENT DATA NOTICE:
+The appropriations bill PDFs, bill text, and legislative content contained
+in the data/ and examples/ directories are United States Government Works
+and are in the public domain under 17 U.S.C. § 105. No copyright
+restrictions apply to this government-authored content.
+
+The structured JSON extractions are derived from this public domain source
+material using the tool described in this repository.

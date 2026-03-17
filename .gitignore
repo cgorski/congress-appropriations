@@ -1,0 +1,32 @@
+# Rust
+/target/
+**/*.rs.bk
+
+# Chunk cache (generated during extraction, used for resume)
+.chunks/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Data output (working directories, not examples)
+/data/
+/cache/
+/tmp/
+
+# Environment / secrets
+*.env
+*.source
+
+# Legacy Python (tools/.venv kept locally but not committed)
+.venv/
+venv/
+__pycache__/
+*.py[cod]
