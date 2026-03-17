@@ -97,7 +97,16 @@ enum Commands {
         /// Filter to a specific bill (e.g. "H.R. 9468")
         #[arg(long)]
         bill: Option<String>,
-        /// Output format: table, json, csv
+        /// Filter by division letter (e.g., A, B, C)
+        #[arg(long)]
+        division: Option<String>,
+        /// Minimum dollar amount (absolute value)
+        #[arg(long)]
+        min_dollars: Option<i64>,
+        /// Maximum dollar amount (absolute value)
+        #[arg(long)]
+        max_dollars: Option<i64>,
+        /// Output format: table, json, jsonl, csv
         #[arg(long, default_value = "table")]
         format: String,
         /// List all valid provision types and exit
@@ -109,7 +118,7 @@ enum Commands {
         /// Data directory (try 'examples' for included FY2024 data)
         #[arg(long, default_value = "./data")]
         dir: String,
-        /// Output format: table, json
+        /// Output format: table, json, jsonl, csv
         #[arg(long, default_value = "table")]
         format: String,
     },
@@ -248,6 +257,9 @@ async fn main() -> Result<()> {
             account,
             keyword,
             bill,
+            division,
+            min_dollars,
+            max_dollars,
             format,
             list_types,
         } => handle_search(
@@ -257,6 +269,9 @@ async fn main() -> Result<()> {
             account.as_deref(),
             keyword.as_deref(),
             bill.as_deref(),
+            division.as_deref(),
+            min_dollars,
+            max_dollars,
             &format,
             list_types,
         ),
@@ -398,6 +413,27 @@ async fn handle_extract(
                 "  [DRY RUN] {label}: {} ({ext}, {size} bytes)",
                 path.display(),
             );
+
+            // Parse and build chunks to show estimated work
+            let is_xml = path.extension().is_some_and(|e| e == "xml");
+            let (text_len, chunk_count) = if is_xml {
+                let parsed = xml::parse_bill_xml(
+                    path,
+                    congress_appropriations::approp::extraction::DEFAULT_MAX_CHUNK_TOKENS,
+                )?;
+                (parsed.full_text.len(), parsed.chunks.len())
+            } else {
+                let text = std::fs::read_to_string(path)
+                    .with_context(|| format!("Failed to read {}", path.display()))?;
+                let (_pe, ch) = text_index::build_chunks(
+                    &text,
+                    congress_appropriations::approp::extraction::DEFAULT_MAX_CHUNK_TOKENS,
+                );
+                (text.len(), ch.len())
+            };
+
+            let est_tokens = text_len / 4;
+            tracing::info!("           {chunk_count} chunks, ~{est_tokens} estimated input tokens",);
         }
         return Ok(());
     }
@@ -673,6 +709,9 @@ fn handle_search(
     account: Option<&str>,
     keyword: Option<&str>,
     bill: Option<&str>,
+    division_filter: Option<&str>,
+    min_dollars: Option<i64>,
+    max_dollars: Option<i64>,
     format: &str,
     list_types: bool,
 ) -> Result<()> {
@@ -790,6 +829,29 @@ fn handle_search(
             {
                 continue;
             }
+            if let Some(div_filter) = division_filter
+                && !pdivision.eq_ignore_ascii_case(div_filter)
+            {
+                continue;
+            }
+            if min_dollars.is_some() || max_dollars.is_some() {
+                let abs_dollars = provision
+                    .amount()
+                    .and_then(|a| a.dollars())
+                    .map(|d| d.abs());
+                if let Some(min) = min_dollars {
+                    match abs_dollars {
+                        Some(d) if d >= min => {}
+                        _ => continue,
+                    }
+                }
+                if let Some(max) = max_dollars {
+                    match abs_dollars {
+                        Some(d) if d <= max => {}
+                        _ => continue,
+                    }
+                }
+            }
 
             let ver_key = (bill_id.as_str(), idx);
             let (verified, tier) = ver_lookup.get(&ver_key).cloned().unwrap_or((None, None));
@@ -845,6 +907,28 @@ fn handle_search(
                 })
                 .collect();
             println!("{}", serde_json::to_string_pretty(&output)?);
+        }
+        "jsonl" => {
+            for m in &matches {
+                let obj = serde_json::json!({
+                    "bill": m.bill_id,
+                    "provision_index": m.provision_index,
+                    "provision_type": m.provision_type,
+                    "account_name": m.account_name,
+                    "description": m.description,
+                    "agency": m.agency,
+                    "dollars": m.dollars,
+                    "old_dollars": m.old_dollars,
+                    "semantics": m.semantics,
+                    "section": m.section,
+                    "division": m.division,
+                    "raw_text": m.raw_text,
+                    "amount_status": m.verified,
+                    "quality": m.quality,
+                    "match_tier": m.match_tier,
+                });
+                println!("{}", serde_json::to_string(&obj)?);
+            }
         }
         "csv" => {
             let mut wtr = csv::Writer::from_writer(std::io::stdout());
@@ -1171,6 +1255,11 @@ fn handle_summary(dir: &str, format: &str) -> Result<()> {
         "json" => {
             println!("{}", serde_json::to_string_pretty(&summaries)?);
         }
+        "jsonl" => {
+            for s in &summaries {
+                println!("{}", serde_json::to_string(&s)?);
+            }
+        }
         _ => {
             let mut table = Table::new();
             table.load_preset(UTF8_FULL_CONDENSED);
@@ -1181,7 +1270,6 @@ fn handle_summary(dir: &str, format: &str) -> Result<()> {
                 Cell::new("Budget Auth ($)").set_alignment(CellAlignment::Right),
                 Cell::new("Rescissions ($)").set_alignment(CellAlignment::Right),
                 Cell::new("Net BA ($)").set_alignment(CellAlignment::Right),
-                Cell::new("Coverage").set_alignment(CellAlignment::Right),
             ]);
 
             let mut total_provs = 0usize;
@@ -1193,17 +1281,6 @@ fn handle_summary(dir: &str, format: &str) -> Result<()> {
                 total_ba += s.budget_authority;
                 total_resc += s.rescissions;
 
-                let completeness_str = s
-                    .completeness_pct
-                    .map(|p| format!("{p:.1}%"))
-                    .unwrap_or_else(|| "—".to_string());
-                let completeness_color = match s.completeness_pct {
-                    Some(p) if p >= 90.0 => Color::Green,
-                    Some(p) if p >= 50.0 => Color::Yellow,
-                    Some(_) => Color::Red,
-                    None => Color::Reset,
-                };
-
                 table.add_row(vec![
                     Cell::new(&s.identifier),
                     Cell::new(&s.classification),
@@ -1212,9 +1289,6 @@ fn handle_summary(dir: &str, format: &str) -> Result<()> {
                         .set_alignment(CellAlignment::Right),
                     Cell::new(format_dollars(s.rescissions)).set_alignment(CellAlignment::Right),
                     Cell::new(format_dollars(s.net_ba)).set_alignment(CellAlignment::Right),
-                    Cell::new(&completeness_str)
-                        .set_alignment(CellAlignment::Right)
-                        .fg(completeness_color),
                 ]);
             }
 
@@ -1234,7 +1308,6 @@ fn handle_summary(dir: &str, format: &str) -> Result<()> {
                 Cell::new(format_dollars(total_ba - total_resc))
                     .set_alignment(CellAlignment::Right)
                     .fg(Color::White),
-                Cell::new(""),
             ]);
 
             println!("{table}");
@@ -1244,9 +1317,30 @@ fn handle_summary(dir: &str, format: &str) -> Result<()> {
             );
             println!("Rescissions = sum of rescission provisions (absolute value)");
             println!("Net BA = Budget Auth − Rescissions");
-            println!(
-                "Coverage = percentage of dollar strings in source text matched to a provision (red < 50%, yellow < 90%)"
-            );
+
+            let mut total_not_found = 0usize;
+            let mut bills_with_not_found = 0usize;
+            for loaded in &bills {
+                let nf = loaded
+                    .verification
+                    .as_ref()
+                    .map(|v| v.summary.amounts_not_found)
+                    .unwrap_or(0);
+                total_not_found += nf;
+                if nf > 0 {
+                    bills_with_not_found += 1;
+                }
+            }
+            if total_not_found == 0 {
+                println!(
+                    "\n0 dollar amounts unverified across all bills. Run `congress-approp audit` for detailed verification."
+                );
+            } else {
+                println!(
+                    "\n{} dollar amounts not found in source text across {} bill(s). Run `congress-approp audit` for details.",
+                    total_not_found, bills_with_not_found
+                );
+            }
         }
     }
 

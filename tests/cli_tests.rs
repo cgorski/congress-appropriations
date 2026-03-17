@@ -59,8 +59,8 @@ fn summary_table_runs_successfully() {
         .stdout(predicates::str::contains("Omnibus"))
         .stdout(predicates::str::contains("Continuing Resolution"))
         .stdout(predicates::str::contains("Supplemental"))
-        .stdout(predicates::str::contains("Coverage"))
-        .stdout(predicates::str::contains("Provisions"));
+        .stdout(predicates::str::contains("Provisions"))
+        .stdout(predicates::str::contains("audit"));
 }
 
 #[test]
