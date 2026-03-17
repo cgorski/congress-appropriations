@@ -7,13 +7,13 @@ The goal: make the ~1,500 pages of annual appropriations bills searchable, sorta
 ## How It Works
 
 ```text
-Congress.gov API              XML Parser (Rust)          Claude Opus 4.6            Verification
-      │                             │                          │                          │
-      ▼                             ▼                          ▼                          ▼
- ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌──────────┐
- │ Download │─▶│ Parse    │─▶│ LLM      │─▶│ Verify   │─▶│ Search   │
- │ bill XML │  │ XML      │  │ extract  │  │ amounts  │  │ Compare  │
- └──────────┘  └──────────┘  └──────────┘  └──────────┘  └──────────┘
+ Congress.gov     XML Parser      Claude Opus 4.6    Verification       Query
+      │               │                 │                 │                │
+      ▼               ▼                 ▼                 ▼                ▼
+ ┌──────────┐  ┌──────────┐  ┌──────────────┐  ┌──────────┐  ┌──────────┐
+ │ Download │─▶│ Parse    │─▶│ LLM extract  │─▶│ Verify   │─▶│ Search   │
+ │ bill XML │  │ XML      │  │ (parallel)   │  │ amounts  │  │ Compare  │
+ └──────────┘  └──────────┘  └──────────────┘  └──────────┘  └──────────┘
   BILLS-*.xml   clean text    extraction.json  verification.json
 ```
 
