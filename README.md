@@ -36,9 +36,9 @@ congress-approp search --dir examples --semantic "school lunch programs for kids
 ┌──────┬───────────┬───────────────┬─────────────────────────────┬────────────────┬─────┐
 │ Sim  ┆ Bill      ┆ Type          ┆ Description / Account       ┆     Amount ($) ┆ Div │
 ╞══════╪═══════════╪═══════════════╪═════════════════════════════╪════════════════╪═════╡
-│ 0.54 ┆ H.R. 4366 ┆ appropriation ┆ Child Nutrition Programs    ┆ 33,266,226,000 ┆ B   │
-│ 0.48 ┆ H.R. 4366 ┆ appropriation ┆ Child Nutrition Programs    ┆     18,004,000 ┆ B   │
-│ 0.48 ┆ H.R. 4366 ┆ appropriation ┆ Child Nutrition Programs    ┆     10,000,000 ┆ B   │
+│ 0.51 ┆ H.R. 4366 ┆ appropriation ┆ Child Nutrition Programs    ┆ 33,266,226,000 ┆ B   │
+│ 0.46 ┆ H.R. 4366 ┆ appropriation ┆ Child Nutrition Programs    ┆     10,000,000 ┆ B   │
+│ 0.45 ┆ H.R. 4366 ┆ appropriation ┆ Child Nutrition Programs    ┆     18,004,000 ┆ B   │
 └──────┴───────────┴───────────────┴─────────────────────────────┴────────────────┴─────┘
 ```
 

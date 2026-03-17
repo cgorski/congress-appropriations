@@ -177,7 +177,7 @@ enum Commands {
         #[arg(long, default_value = "text-embedding-3-large")]
         model: String,
         /// Request this many dimensions from the API
-        #[arg(long, default_value = "1024")]
+        #[arg(long, default_value = "3072")]
         dimensions: usize,
         /// Provisions per API batch
         #[arg(long, default_value = "100")]
