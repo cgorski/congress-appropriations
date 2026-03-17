@@ -18,7 +18,7 @@ Congress.gov   XML Parser    Claude Opus 4.6   Verification      Query
 ```
 
 1. **Download** — Fetch enrolled bill XML from Congress.gov (structured, semantic markup).
-2. **Parse** — Extract clean text from XML using `roxmltree` in pure Rust. No Python, no PDF conversion. The XML provides exact structural boundaries for divisions, titles, and sections.
+2. **Parse** — Extract clean text from XML using `roxmltree` in pure Rust. The XML provides exact structural boundaries for divisions, titles, and sections.
 3. **Extract** — Send bill text to Claude Opus 4.6 with adaptive thinking. Large bills are automatically split into chunks and extracted in parallel. Every provision — appropriations, rescissions, CR anomalies, riders, directives — is captured as structured JSON.
 4. **Verify** — Deterministically check every dollar amount and text excerpt against the source. No LLM involved. Pure string matching with tiered fallback (exact → normalized → spaceless).
 5. **Query** — Search, summarize, compare, and verify across all extracted bills using built-in subcommands.
@@ -36,8 +36,6 @@ The amounts represent **budget authority** (what Congress authorizes agencies to
 - **Rust 1.93+** — [Install via rustup](https://rustup.rs/)
 - **Congress.gov API key** — Free, [sign up here](https://api.congress.gov/sign-up/)
 - **Anthropic API key** — Required for LLM extraction, [sign up here](https://console.anthropic.com/)
-
-No Python, no pip, no virtual environments required.
 
 ### Install
 
