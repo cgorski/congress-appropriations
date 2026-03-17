@@ -2,7 +2,8 @@
 /target/
 **/*.rs.bk
 
-# Chunk artifacts are stored in chunks/ (no dot) and committed for provenance
+# Chunk artifacts (LLM thinking traces, raw responses) — kept locally for provenance, not pushed
+chunks/
 
 # OS files
 .DS_Store
