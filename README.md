@@ -167,7 +167,54 @@ congress-approp search --dir examples/hr9468 --type directive
 congress-approp search --dir examples --type appropriation --format csv > appropriations.csv
 ```
 
+```text
+bill,provision_type,account_name,description,agency,dollars,old_dollars,semantics,...,raw_text
+H.R. 9468,appropriation,Compensation and Pensions,Compensation and Pensions,Department of Veterans Affairs,2285513000,,new_budget_authority,...
+H.R. 9468,appropriation,Readjustment Benefits,Readjustment Benefits,Department of Veterans Affairs,596969000,,new_budget_authority,...
+```
+
 The CSV includes `description`, `raw_text`, and all other fields for filtering in a spreadsheet.
+
+**Export to JSON for programmatic use:**
+
+```bash
+congress-approp search --dir examples/hr9468 --type directive --format json
+```
+
+```json
+[
+  {
+    "bill": "H.R. 9468",
+    "provision_type": "directive",
+    "description": "Requires the Secretary of Veterans Affairs to submit a report detailing corrections...",
+    "section": "SEC. 103",
+    "raw_text": "SEC. 103. (a) Not later than 30 days after the date of enactment...",
+    "verified": null,
+    "dollars": null
+  }
+]
+```
+
+JSON output includes every field for each matching provision, suitable for piping to `jq` or loading in scripts.
+
+**Realistic use cases:**
+
+```bash
+# What did Congress cut in the CR? (shows old and new amounts with delta)
+congress-approp search --dir data --type cr_substitution
+
+# All FEMA-related provisions across all bills
+congress-approp search --dir data --keyword "Federal Emergency Management"
+
+# Export all rescissions to a spreadsheet
+congress-approp search --dir data --type rescission --format csv > rescissions.csv
+
+# What reporting requirements apply to the VA?
+congress-approp search --dir data --keyword "Veterans Affairs" --type directive
+
+# Which mandatory programs were extended in the CR?
+congress-approp search --dir data --type mandatory_spending_extension --format json | jq '.[].description'
+```
 
 **All search flags:**
 
@@ -269,11 +316,11 @@ For each bill, the extraction pipeline produces:
 | `BILLS-*.txt` | Clean text derived from XML (generated during extraction) |
 | `.chunks/*.json` | Per-chunk LLM artifacts: thinking content, raw response, conversion report (for debugging and resume) |
 
-## How It Works
+## Technical Details
 
 ### XML Parsing
 
-Bill XML from Congress.gov uses semantic markup: `<division>`, `<title>`, `<appropriations-small>`, `<proviso>`, `<quote>`. The tool parses this with `roxmltree` (pure Rust, zero dependencies) and extracts clean text with `''quote''` delimiters matching the LLM prompt format. No PDF conversion or Python needed.
+Bill XML from Congress.gov uses semantic markup: `<division>`, `<title>`, `<appropriations-small>`, `<proviso>`, `<quote>`. The tool parses this with `roxmltree` (pure Rust) and extracts clean text with `''quote''` delimiters matching the LLM prompt format.
 
 ### Parallel Chunk Extraction
 
@@ -290,7 +337,7 @@ After all chunks complete, provisions are merged, the summary is recomputed from
 Verification is deterministic — no LLM involved:
 
 1. **Amount checks** — Every `text_as_written` dollar string is searched for verbatim in the source text. Result: `verified`, `not_found` (possible hallucination), or `ambiguous` (found multiple times).
-2. **Raw text checks** — Each provision's `raw_text` excerpt is checked as a substring of the source, with tiered matching: `exact` → `normalized` (whitespace/quote normalization) → `spaceless` (PDF artifact handling) → `no_match`.
+2. **Raw text checks** — Each provision's `raw_text` excerpt is checked as a substring of the source, with tiered matching: `exact` → `normalized` (whitespace/quote normalization) → `spaceless` (all spaces removed) → `no_match`.
 3. **Completeness** — Every dollar sign in the source text is counted and checked against extracted provisions. 100% means every dollar amount in the bill was captured.
 
 ### Chunk Traceability
