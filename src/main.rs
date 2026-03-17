@@ -159,6 +159,24 @@ enum Commands {
         #[arg(long)]
         dry_run: bool,
     },
+    /// Generate embeddings for extracted bills (requires OPENAI_API_KEY)
+    Embed {
+        /// Data directory
+        #[arg(long, default_value = "./data")]
+        dir: String,
+        /// Embedding model
+        #[arg(long, default_value = "text-embedding-3-large")]
+        model: String,
+        /// Request this many dimensions from the API
+        #[arg(long, default_value = "1024")]
+        dimensions: usize,
+        /// Provisions per API batch
+        #[arg(long, default_value = "100")]
+        batch_size: usize,
+        /// Preview without calling API
+        #[arg(long)]
+        dry_run: bool,
+    },
 }
 
 #[derive(Subcommand)]
@@ -291,7 +309,141 @@ async fn main() -> Result<()> {
         } => handle_compare(&base, &current, agency.as_deref(), &format),
         Commands::Audit { dir, verbose } => handle_audit(&dir, verbose),
         Commands::Upgrade { dir, dry_run } => handle_upgrade(&dir, dry_run),
+        Commands::Embed {
+            dir,
+            model,
+            dimensions,
+            batch_size,
+            dry_run,
+        } => handle_embed(&dir, &model, dimensions, batch_size, dry_run).await,
     }
+}
+
+// ─── Embed Handler ───────────────────────────────────────────────────────────
+
+async fn handle_embed(
+    dir: &str,
+    model: &str,
+    dimensions: usize,
+    batch_size: usize,
+    dry_run: bool,
+) -> Result<()> {
+    let dir_path = std::path::Path::new(dir);
+    let bills = loading::load_bills(dir_path)?;
+
+    if bills.is_empty() {
+        println!("No extracted bills found in {dir}");
+        return Ok(());
+    }
+
+    // For each bill, check if embeddings are up to date
+    let mut to_embed = Vec::new();
+    for bill in &bills {
+        let ext_path = bill.dir.join("extraction.json");
+        let ext_hash =
+            congress_appropriations::approp::staleness::file_sha256(&ext_path).unwrap_or_default();
+
+        // Check if embeddings exist and are current
+        let emb_path = bill.dir.join("embeddings.json");
+        let needs_embed = if emb_path.exists() {
+            if let Ok(content) = std::fs::read_to_string(&emb_path) {
+                if let Ok(meta) = serde_json::from_str::<serde_json::Value>(&content) {
+                    let stored = meta
+                        .get("extraction_sha256")
+                        .and_then(|v| v.as_str())
+                        .unwrap_or("");
+                    stored != ext_hash
+                } else {
+                    true
+                }
+            } else {
+                true
+            }
+        } else {
+            true
+        };
+
+        if needs_embed {
+            to_embed.push((bill, ext_hash));
+        } else {
+            let name = &bill.extraction.bill.identifier;
+            println!("{name}: embeddings up to date, skipping");
+        }
+    }
+
+    if to_embed.is_empty() {
+        println!("\nAll embeddings up to date.");
+        return Ok(());
+    }
+
+    // Create client once (skipped in dry-run)
+    let client = if !dry_run {
+        Some(congress_appropriations::api::openai::client::OpenAIClient::from_env()?)
+    } else {
+        None
+    };
+
+    // Embed each bill
+    for (bill, ext_hash) in &to_embed {
+        let name = &bill.extraction.bill.identifier;
+        let n = bill.extraction.provisions.len();
+        let texts: Vec<String> = bill
+            .extraction
+            .provisions
+            .iter()
+            .map(congress_appropriations::approp::query::build_embedding_text)
+            .collect();
+        let est_tokens: usize = texts.iter().map(|t| t.len() / 4).sum();
+
+        if dry_run {
+            println!("{name}: {n} provisions, ~{est_tokens} estimated tokens (dry run)");
+            continue;
+        }
+
+        println!("{name}: embedding {n} provisions...");
+
+        let client = client.as_ref().unwrap();
+        let mut all_vectors: Vec<f32> = Vec::with_capacity(n * dimensions);
+        let mut total_tokens = 0u32;
+
+        for (batch_idx, chunk) in texts.chunks(batch_size).enumerate() {
+            let request = congress_appropriations::api::openai::types::EmbeddingRequest {
+                model: model.to_string(),
+                input: chunk.to_vec(),
+                dimensions: Some(dimensions),
+            };
+            let response = client.embed(request).await?;
+            total_tokens += response.usage.total_tokens;
+
+            // Sort by index to ensure order matches
+            let mut data = response.data;
+            data.sort_by_key(|d| d.index);
+
+            for d in data {
+                all_vectors.extend_from_slice(&d.embedding);
+            }
+
+            let done = (batch_idx + 1) * batch_size;
+            let done = done.min(n);
+            print!("\r  {done}/{n} provisions");
+            use std::io::Write;
+            std::io::stdout().flush().ok();
+        }
+        println!();
+
+        // Save
+        congress_appropriations::approp::embeddings::save(
+            &bill.dir,
+            model,
+            dimensions,
+            ext_hash,
+            &all_vectors,
+        )?;
+
+        println!("  Saved: embeddings.json + vectors.bin ({total_tokens} tokens)");
+    }
+
+    Ok(())
 }
 
 // ─── API Handlers ────────────────────────────────────────────────────────────

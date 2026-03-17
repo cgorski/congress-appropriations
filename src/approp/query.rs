@@ -611,6 +611,30 @@ fn build_verification_lookup(bills: &[LoadedBill]) -> VerificationLookup<'_> {
     lookup
 }
 
+// ─── Embedding Text ──────────────────────────────────────────────────────────
+
+/// Build the text to embed for a provision. Deterministic.
+pub fn build_embedding_text(provision: &Provision) -> String {
+    let mut parts = Vec::new();
+    let acct = provision.account_name();
+    if !acct.is_empty() {
+        parts.push(format!("Account: {acct}"));
+    }
+    let agency = provision.agency();
+    if !agency.is_empty() {
+        parts.push(format!("Agency: {agency}"));
+    }
+    let desc = provision.description();
+    if !desc.is_empty() {
+        parts.push(format!("Description: {desc}"));
+    }
+    let raw = provision.raw_text();
+    if !raw.is_empty() {
+        parts.push(format!("Text: {raw}"));
+    }
+    parts.join(" | ")
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -759,5 +783,58 @@ mod tests {
         let result = compare(&base, &current, None);
         assert!(result.rows.is_empty());
         assert!(result.cross_type_warning.is_none());
+    }
+
+    #[test]
+    fn test_build_embedding_text_appropriation() {
+        let provision = Provision::Appropriation {
+            account_name: "Salaries and Expenses".to_string(),
+            agency: Some("Department of Defense".to_string()),
+            program: None,
+            amount: crate::approp::ontology::DollarAmount::from_dollars(
+                1_000_000,
+                AmountSemantics::NewBudgetAuthority,
+                "$1,000,000",
+            ),
+            fiscal_year: None,
+            availability: None,
+            provisos: vec![],
+            earmarks: vec![],
+            section: String::new(),
+            division: None,
+            title: None,
+            confidence: 0.9,
+            raw_text: "For salaries and expenses, $1,000,000.".to_string(),
+            notes: vec![],
+            cross_references: vec![],
+            detail_level: String::new(),
+            parent_account: None,
+        };
+        let text = build_embedding_text(&provision);
+        assert!(text.contains("Account: Salaries and Expenses"));
+        assert!(text.contains("Agency: Department of Defense"));
+        assert!(text.contains("Text: For salaries and expenses"));
+        assert!(text.contains(" | "));
+    }
+
+    #[test]
+    fn test_build_embedding_text_directive_no_account() {
+        let provision = Provision::Directive {
+            description: "Report on spending".to_string(),
+            deadlines: vec![],
+            section: String::new(),
+            division: None,
+            title: None,
+            confidence: 0.8,
+            raw_text: "The Secretary shall report...".to_string(),
+            notes: vec![],
+            cross_references: vec![],
+        };
+        let text = build_embedding_text(&provision);
+        // Directives have no account_name or agency
+        assert!(!text.contains("Account:"));
+        assert!(!text.contains("Agency:"));
+        assert!(text.contains("Description: Report on spending"));
+        assert!(text.contains("Text: The Secretary shall report..."));
     }
 }
