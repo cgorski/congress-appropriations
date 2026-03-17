@@ -119,8 +119,9 @@ enum Commands {
         #[arg(long, default_value = "table")]
         format: String,
     },
-    /// Show verification and quality report across all extracted bills
-    Report {
+    /// Audit data quality across all extracted bills
+    #[command(alias = "report")]
+    Audit {
         /// Data directory to report on
         #[arg(long, default_value = "./data")]
         dir: String,
@@ -245,7 +246,7 @@ async fn main() -> Result<()> {
             agency,
             format,
         } => handle_compare(&base, &current, agency.as_deref(), &format),
-        Commands::Report { dir, verbose } => handle_report(&dir, verbose),
+        Commands::Audit { dir, verbose } => handle_audit(&dir, verbose),
     }
 }
 
@@ -1102,11 +1103,11 @@ fn handle_summary(dir: &str, format: &str) -> Result<()> {
             table.set_header(vec![
                 Cell::new("Bill"),
                 Cell::new("Classification"),
-                Cell::new("Provs").set_alignment(CellAlignment::Right),
+                Cell::new("Provisions").set_alignment(CellAlignment::Right),
                 Cell::new("Budget Auth ($)").set_alignment(CellAlignment::Right),
                 Cell::new("Rescissions ($)").set_alignment(CellAlignment::Right),
                 Cell::new("Net BA ($)").set_alignment(CellAlignment::Right),
-                Cell::new("Complete%").set_alignment(CellAlignment::Right),
+                Cell::new("Coverage").set_alignment(CellAlignment::Right),
             ]);
 
             let mut total_provs = 0usize;
@@ -1170,7 +1171,7 @@ fn handle_summary(dir: &str, format: &str) -> Result<()> {
             println!("Rescissions = sum of rescission provisions (absolute value)");
             println!("Net BA = Budget Auth − Rescissions");
             println!(
-                "Complete% = percentage of dollar amounts in source text captured (red < 50%, yellow < 90%)"
+                "Coverage = percentage of dollar strings in source text matched to a provision (red < 50%, yellow < 90%)"
             );
         }
     }
@@ -1196,6 +1197,13 @@ fn handle_compare(
         anyhow::bail!("No extracted bills found in current directory: {current_dir}");
     }
 
+    let base_class = &base_bills[0].extraction.bill.classification;
+    let current_class = &current_bills[0].extraction.bill.classification;
+    if std::mem::discriminant(base_class) != std::mem::discriminant(current_class) {
+        eprintln!("⚠  Comparing {} to {}. Accounts in one but not the other may be expected — this does not necessarily indicate policy changes.", base_class, current_class);
+        eprintln!();
+    }
+
     let base_label = describe_bills(&base_bills);
     let current_label = describe_bills(&current_bills);
 
@@ -1212,7 +1220,7 @@ fn handle_compare(
         current_dollars: i64,
         delta: i64,
         delta_pct: Option<f64>,
-        status: String, // "changed", "new", "eliminated", "unchanged"
+        status: String, // "changed", "only in current", "only in base", "unchanged"
     }
 
     let mut all_keys: Vec<(String, String)> = Vec::new();
@@ -1264,9 +1272,9 @@ fn handle_compare(
         };
 
         let status = if base_val == 0 {
-            "new"
+            "only in current"
         } else if current_val == 0 {
-            "eliminated"
+            "only in base"
         } else if delta == 0 {
             "unchanged"
         } else {
@@ -1368,11 +1376,11 @@ fn handle_compare(
 
             println!("{table}");
             println!(
-                "{} accounts compared ({} changed, {} new, {} eliminated, {} unchanged)",
+                "{} accounts compared ({} changed, {} only in current, {} only in base, {} unchanged)",
                 deltas.len(),
                 deltas.iter().filter(|d| d.status == "changed").count(),
-                deltas.iter().filter(|d| d.status == "new").count(),
-                deltas.iter().filter(|d| d.status == "eliminated").count(),
+                deltas.iter().filter(|d| d.status == "only in current").count(),
+                deltas.iter().filter(|d| d.status == "only in base").count(),
                 deltas.iter().filter(|d| d.status == "unchanged").count(),
             );
         }
@@ -1383,7 +1391,7 @@ fn handle_compare(
 
 // ─── Report Handler ──────────────────────────────────────────────────────────
 
-fn handle_report(dir: &str, verbose: bool) -> Result<()> {
+fn handle_audit(dir: &str, verbose: bool) -> Result<()> {
     let dir_path = std::path::Path::new(dir);
     let bills = loading::load_bills(dir_path)?;
 
@@ -1396,15 +1404,15 @@ fn handle_report(dir: &str, verbose: bool) -> Result<()> {
     table.load_preset(UTF8_FULL_CONDENSED);
     table.set_header(vec![
         Cell::new("Bill"),
-        Cell::new("Provs").set_alignment(CellAlignment::Right),
+        Cell::new("Provisions").set_alignment(CellAlignment::Right),
         Cell::new("Verified").set_alignment(CellAlignment::Right),
         Cell::new("NotFound").set_alignment(CellAlignment::Right),
         Cell::new("Ambig").set_alignment(CellAlignment::Right),
         Cell::new("Exact").set_alignment(CellAlignment::Right),
-        Cell::new("Norm").set_alignment(CellAlignment::Right),
-        Cell::new("Space").set_alignment(CellAlignment::Right),
-        Cell::new("NoMatch").set_alignment(CellAlignment::Right),
-        Cell::new("Complete%").set_alignment(CellAlignment::Right),
+        Cell::new("NormText").set_alignment(CellAlignment::Right),
+        Cell::new("Spaceless").set_alignment(CellAlignment::Right),
+        Cell::new("TextMiss").set_alignment(CellAlignment::Right),
+        Cell::new("Coverage").set_alignment(CellAlignment::Right),
     ]);
 
     let mut total_provs = 0usize;
@@ -1546,19 +1554,17 @@ fn handle_report(dir: &str, verbose: bool) -> Result<()> {
         "  Ambig      Dollar amounts found multiple times in source — correct but position uncertain"
     );
     println!("  Exact      raw_text is byte-identical substring of source — verbatim copy");
+    println!("  NormText  raw_text matches after whitespace/quote/dash normalization — content correct");
+    println!("  Spaceless raw_text matches only after removing all spaces — PDF artifact, review");
+    println!("  TextMiss raw_text not found at any tier — may be paraphrased, review manually");
     println!(
-        "  Norm       raw_text matches after whitespace/quote/dash normalization — content correct"
-    );
-    println!("  Space      raw_text matches only after removing all spaces — PDF artifact, review");
-    println!("  NoMatch    raw_text not found at any tier — may be paraphrased, review manually");
-    println!(
-        "  Complete%  Percentage of ALL dollar amounts in source text captured by a provision"
+        "  Coverage  Percentage of dollar strings in source text matched to a provision"
     );
     println!();
     println!("Key:");
-    println!("  NotFound = 0 and Complete% = 100%  →  All amounts captured and found in source");
+    println!("  NotFound = 0 and Coverage = 100%   →  All amounts captured and found in source");
     println!(
-        "  NotFound = 0 and Complete% < 100%  →  Extracted amounts correct, but bill has more"
+        "  NotFound = 0 and Coverage < 100%   →  Extracted amounts correct, but bill has more"
     );
     println!("  NotFound > 0                       →  Some amounts need manual review");
 

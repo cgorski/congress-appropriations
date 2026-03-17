@@ -4,7 +4,7 @@ A command-line tool that downloads U.S. federal appropriations bills from Congre
 
 The goal: make the ~1,500 pages of annual appropriations bills searchable, sortable, and machine-readable — so you can quickly answer questions like "how much did Congress appropriate for VA Compensation and Pensions?" or "which programs got cut in the continuing resolution?"
 
-**Pre-processed data available:** The [`examples/`](examples/) directory includes completed extractions for three 118th Congress bills — a [supplemental](examples/hr9468/), a [continuing resolution](examples/hr5860/), and the [FY2024 omnibus](examples/hr4366/) (2,364 provisions, 94.2% completeness). No API keys required to query these. See [Try It Without API Keys](#try-it-without-api-keys) below.
+**Pre-processed data available:** The [`examples/`](examples/) directory includes completed extractions for three 118th Congress bills — a [supplemental](examples/hr9468/), a [continuing resolution](examples/hr5860/), and the [FY2024 omnibus](examples/hr4366/) (2,364 provisions, 94.2% coverage). No API keys required to query these. See [Try It Without API Keys](#try-it-without-api-keys) below.
 
 ## How It Works
 
@@ -79,11 +79,11 @@ congress-approp extract --dir data --parallel 6
 
 The `examples/` directory contains pre-extracted data from three bills. No API keys are required to explore the results:
 
-- **`examples/hr9468/`** — Veterans Benefits Supplemental Appropriations Act, 2024 (7 provisions, 100% completeness)
-- **`examples/hr5860/`** — Continuing Appropriations Act, 2024 (130 provisions, 61% completeness, includes CR substitutions and mandatory spending extensions)
-- **`examples/hr4366/`** — Consolidated Appropriations Act, 2024 — the FY2024 omnibus (2,364 provisions across 7 divisions, 94.2% completeness). Covers MilCon-VA, Agriculture, CJS, Energy-Water, Interior, THUD, and other matters.
+- **`examples/hr9468/`** — Veterans Benefits Supplemental Appropriations Act, 2024 (7 provisions, 100% coverage)
+- **`examples/hr5860/`** — Continuing Appropriations Act, 2024 (130 provisions, 61% coverage, includes CR substitutions and mandatory spending extensions)
+- **`examples/hr4366/`** — Consolidated Appropriations Act, 2024 — the FY2024 omnibus (2,364 provisions across 7 divisions, 94.2% coverage). Covers MilCon-VA, Agriculture, CJS, Energy-Water, Interior, THUD, and other matters.
 
-Each directory contains the source XML, extracted provisions, and verification report. All query commands (`search`, `summary`, `compare`, `report`) work against these directories. The goal is to eventually include all enacted appropriations bills so users can query without running the LLM extraction themselves.
+Each directory contains the source XML, extracted provisions, and verification report. All query commands (`search`, `summary`, `compare`, `audit`) work against these directories. The goal is to eventually include all enacted appropriations bills so users can query without running the LLM extraction themselves.
 
 ## Querying Extracted Bills
 
@@ -94,19 +94,19 @@ congress-approp summary --dir examples
 ```
 
 ```text
-┌───────────┬──────────────────────┬───────┬─────────────────┬─────────────────┬─────────────────┬───────────┐
-│ Bill      ┆ Classification       ┆ Provs ┆ Budget Auth ($) ┆ Rescissions ($) ┆      Net BA ($) ┆ Complete% │
-╞═══════════╪══════════════════════╪═══════╪═════════════════╪═════════════════╪═════════════════╪═══════════╡
-│ H.R. 4366 ┆ Omnibus              ┆  2364 ┆ 846,137,099,554 ┆  24,659,349,709 ┆ 821,477,749,845 ┆     94.2% │
-│ H.R. 5860 ┆ ContinuingResolution ┆   130 ┆  16,000,000,000 ┆               0 ┆  16,000,000,000 ┆     61.1% │
-│ H.R. 9468 ┆ Supplemental         ┆     7 ┆   2,882,482,000 ┆               0 ┆   2,882,482,000 ┆    100.0% │
-│ TOTAL     ┆                      ┆  2501 ┆ 865,019,581,554 ┆  24,659,349,709 ┆ 840,360,231,845 ┆           │
-└───────────┴──────────────────────┴───────┴─────────────────┴─────────────────┴─────────────────┴───────────┘
+┌───────────┬──────────────────────┬────────────┬─────────────────┬─────────────────┬─────────────────┬──────────┐
+│ Bill      ┆ Classification       ┆ Provisions ┆ Budget Auth ($) ┆ Rescissions ($) ┆      Net BA ($) ┆ Coverage │
+╞═══════════╪══════════════════════╪════════════╪═════════════════╪═════════════════╪═════════════════╪══════════╡
+│ H.R. 4366 ┆ Omnibus              ┆       2364 ┆ 846,137,099,554 ┆  24,659,349,709 ┆ 821,477,749,845 ┆    94.2% │
+│ H.R. 5860 ┆ ContinuingResolution ┆        130 ┆  16,000,000,000 ┆               0 ┆  16,000,000,000 ┆    61.1% │
+│ H.R. 9468 ┆ Supplemental         ┆          7 ┆   2,882,482,000 ┆               0 ┆   2,882,482,000 ┆   100.0% │
+│ TOTAL     ┆                      ┆       2501 ┆ 865,019,581,554 ┆  24,659,349,709 ┆ 840,360,231,845 ┆          │
+└───────────┴──────────────────────┴────────────┴─────────────────┴─────────────────┴─────────────────┴──────────┘
 ```
 
 Budget authority is computed from the actual provisions, not the LLM's self-reported summary.
 
-**Understanding Complete%:** This measures *coverage*, not *correctness*. It shows what percentage of all dollar amounts in the source bill text were captured by an extracted provision. A bill at 94.2% completeness means the tool extracted 94.2% of the dollar amounts — the remaining 5.8% are amounts that exist in the bill but were not extracted (typically loan guarantee ceilings, life-cycle cost references, or amendment-text old values). Critically, completeness says nothing about accuracy: every extracted amount is independently verified against the source text. A bill with 0 NotFound means every extracted dollar amount string exists in the source text.
+**Understanding Coverage:** This measures *coverage*, not *correctness*. It shows what percentage of all dollar amounts in the source bill text were captured by an extracted provision. A bill at 94.2% coverage means the tool extracted 94.2% of the dollar amounts — the remaining 5.8% are amounts that exist in the bill but were not extracted (typically loan guarantee ceilings, life-cycle cost references, or amendment-text old values). Critically, coverage says nothing about accuracy: every extracted amount is independently verified against the source text. A bill with 0 NotFound means every extracted dollar amount string exists in the source text.
 
 **Understanding budget authority totals:** The Budget Auth column includes all provisions with `new_budget_authority` semantics at the `top_level` or `line_item` detail level. This includes both discretionary appropriations and mandatory spending programs that appear as appropriation lines in the bill text (e.g., SNAP at $122B in the Agriculture division). It also includes advance appropriations — funds enacted in this bill but available in the next fiscal year. The tool faithfully extracts what the bill text says; distinguishing mandatory from discretionary requires authorizing-law context beyond the bill itself. Advance appropriations are identified in the `notes` field.
 
@@ -242,39 +242,40 @@ congress-approp compare --base examples/hr5860 --current examples/hr9468
 
 Compares appropriation accounts between any two directories. Matches by `(agency, account_name)` with automatic normalization for hierarchical CR names. Results sorted by largest change first.
 
-### `report` — Can I trust these numbers?
+### `audit` — Can I trust these numbers?
 
 ```bash
-congress-approp report --dir examples
+congress-approp audit --dir examples
 ```
 
 ```text
-┌───────────┬───────┬──────────┬──────────┬───────┬───────┬──────┬───────┬─────────┬───────────┐
-│ Bill      ┆ Provs ┆ Verified ┆ NotFound ┆ Ambig ┆ Exact ┆ Norm ┆ Space ┆ NoMatch ┆ Complete% │
-╞═══════════╪═══════╪══════════╪══════════╪═══════╪═══════╪══════╪═══════╪═════════╪═══════════╡
-│ H.R. 4366 ┆  2364 ┆      762 ┆        0 ┆   723 ┆  2285 ┆   59 ┆     0 ┆      20 ┆     94.2% │
-│ H.R. 5860 ┆   130 ┆       33 ┆        0 ┆     2 ┆   102 ┆   12 ┆     0 ┆      16 ┆     61.1% │
-│ H.R. 9468 ┆     7 ┆        2 ┆        0 ┆     0 ┆     5 ┆    0 ┆     0 ┆       2 ┆    100.0% │
-│ TOTAL     ┆  2501 ┆      797 ┆        0 ┆   725 ┆  2392 ┆   71 ┆     0 ┆      38 ┆           │
-└───────────┴───────┴──────────┴──────────┴───────┴───────┴──────┴───────┴─────────┴───────────┘
+┌───────────┬────────────┬──────────┬──────────┬───────┬───────┬──────────┬───────────┬──────────┬──────────┐
+│ Bill      ┆ Provisions ┆ Verified ┆ NotFound ┆ Ambig ┆ Exact ┆ NormText ┆ Spaceless ┆ TextMiss ┆ Coverage │
+╞═══════════╪════════════╪══════════╪══════════╪═══════╪═══════╪══════════╪═══════════╪══════════╪══════════╡
+│ H.R. 4366 ┆       2364 ┆      762 ┆        0 ┆   723 ┆  2285 ┆       59 ┆         0 ┆       20 ┆    94.2% │
+│ H.R. 5860 ┆        130 ┆       33 ┆        0 ┆     2 ┆   102 ┆       12 ┆         0 ┆       16 ┆    61.1% │
+│ H.R. 9468 ┆          7 ┆        2 ┆        0 ┆     0 ┆     5 ┆        0 ┆         0 ┆        2 ┆   100.0% │
+│ TOTAL     ┆       2501 ┆      797 ┆        0 ┆   725 ┆  2392 ┆       71 ┆         0 ┆       38 ┆          │
+└───────────┴────────────┴──────────┴──────────┴───────┴───────┴──────────┴───────────┴──────────┴──────────┘
 
 Column Guide:
   Verified   Dollar amount string found at exactly one position in source text
   NotFound   Dollar amounts NOT found in source — review manually
   Exact      raw_text is byte-identical substring of source — verbatim copy
-  Norm       raw_text matches after whitespace/quote/dash normalization — content correct
-  NoMatch    raw_text not found at any tier — may be paraphrased, review manually
-  Complete%  Percentage of ALL dollar amounts in source text captured by a provision
+  NormText   raw_text matches after whitespace/quote/dash normalization — content correct
+  Spaceless  raw_text matches after removing all spaces — catches text artifacts
+  TextMiss   raw_text not found at any tier — may be paraphrased, review manually
+  Coverage   Percentage of ALL dollar amounts in source text captured by a provision
 
 Key:
-  NotFound = 0 and Complete% = 100%  →  All amounts captured and found in source
-  NotFound = 0 and Complete% < 100%  →  Extracted amounts found in source, but bill has more
-  NotFound > 0                       →  Some amounts need manual review
+  NotFound = 0 and Coverage = 100%  →  All amounts captured and found in source
+  NotFound = 0 and Coverage < 100%  →  Extracted amounts found in source, but bill has more
+  NotFound > 0                      →  Some amounts need manual review
 ```
 
 Use `--verbose` to see each individual problematic provision.
 
-**The key metric: across 2,501 provisions from three bills, every extracted dollar amount was found in the source bill text** (NotFound = 0 for every bill). Verification confirms amounts exist in the bill, not that they are attributed to the correct provision — for 95.6% of provisions, the raw text excerpt also matches verbatim, providing strong attribution confidence. The tool may be incomplete on large bills (Complete% < 100%), but what it does extract checks out against the source.
+**The key metric: across 2,501 provisions from three bills, every extracted dollar amount was found in the source bill text** (NotFound = 0 for every bill). Verification confirms amounts exist in the bill, not that they are attributed to the correct provision — for 95.6% of provisions, the raw text excerpt also matches verbatim, providing strong attribution confidence. The tool may be incomplete on large bills (Coverage < 100%), but what it does extract checks out against the source.
 
 ## Bill Types
 
@@ -296,7 +297,7 @@ Use `--verbose` to see each individual problematic provision.
 | `search` | Search provisions across all extracted bills |
 | `summary` | Show summary of all extracted bills |
 | `compare` | Compare provisions between two sets of bills |
-| `report` | Show verification and quality report |
+| `audit` | Show verification and quality report |
 | `api test` | Test API connectivity (Congress.gov + Anthropic) |
 | `api bill list` | List appropriations bills for a Congress |
 | `api bill get` | Get metadata for a specific bill |
@@ -359,14 +360,14 @@ Across 2,501 provisions from three 118th Congress bills:
 |--------|--------|
 | Provisions extracted | 2,501 (7 + 130 + 2,364) |
 | Dollar amounts not found in source | **0** |
-| Omnibus completeness | **94.2%** (1,634 of 1,734 dollar amounts captured) |
+| Omnibus coverage | **94.2%** (1,634 of 1,734 dollar amounts captured) |
 | CR substitution pairs verified | **13/13** (100%) |
 | Sub-allocation accounting | Correctly excluded from budget authority totals |
 | Raw text exact match rate | 95.6% (2,392 of 2,501 provisions) |
 
 ### Limitations
 
-- **Omnibus bills** (1,000+ pages) are split into chunks and extracted in parallel. The FY2024 omnibus (H.R. 4366) achieved 94.2% completeness with 2,364 provisions in approximately 60 minutes using `--parallel 6`. Check the `Complete%` in the summary.
+- **Omnibus bills** (1,000+ pages) are split into chunks and extracted in parallel. The FY2024 omnibus (H.R. 4366) achieved 94.2% coverage with 2,364 provisions in approximately 60 minutes using `--parallel 6`. Check the `Coverage` in the summary.
 - **Continuing resolution baselines** fund at prior-year rates. The tool extracts CR anomalies (substitutions) as structured data but doesn't model the baseline funding levels themselves.
 - **Earmarks** are referenced in bill text but the actual recipient lists are in the joint explanatory statement — a separate document not included in the enrolled bill XML.
 - **Year-over-year deltas** are computed by the `compare` command. Each year must be extracted independently.

@@ -31,7 +31,7 @@ An array of provision objects. Each provision has a `provision_type` field that 
 | `section` | string | Section header as written, e.g. `"SEC. 101"`. Empty string if no section header applies |
 | `division` | string or null | Division letter, e.g. `"A"`. Null if the bill has no divisions |
 | `title` | string or null | Title numeral, e.g. `"IV"`, `"XIII"`. Null if not determinable |
-| `confidence` | float | Model's self-assessed confidence, 0.0–1.0. Typically 0.95+ for clear provisions, 0.7–0.9 for ambiguous ones |
+| `confidence` | float | LLM self-assessed confidence, 0.0–1.0. **Not calibrated.** Useful only for identifying outliers (< 0.90). Values above 0.90 are not meaningfully differentiated. |
 | `raw_text` | string | Verbatim excerpt from the bill text (~first 150 characters of the provision). Verified against the source text |
 | `notes` | array of strings | Explanatory annotations. Flags unusual patterns, drafting inconsistencies, or contextual information |
 | `cross_references` | array of CrossReference | References to other laws, sections, or bills (see below) |
@@ -338,9 +338,9 @@ Roll-up metrics for the entire bill.
 | Field | Type | Description |
 |-------|------|-------------|
 | `total_provisions` | integer | Total provisions checked |
-| `amounts_verified` | integer | Provisions whose dollar amount was found in source |
-| `amounts_not_found` | integer | Provisions whose dollar amount was NOT found |
-| `amounts_ambiguous` | integer | Provisions whose dollar amount appeared multiple times |
+| `amounts_verified` | integer | Provisions whose dollar amount was found in source (found at exactly one position) |
+| `amounts_not_found` | integer | Provisions whose dollar amount was NOT found (not present in source text) |
+| `amounts_ambiguous` | integer | Provisions whose dollar amount appeared multiple times (found at multiple positions) |
 | `raw_text_exact` | integer | Provisions with exact raw text match |
 | `raw_text_normalized` | integer | Provisions with normalized match |
 | `raw_text_spaceless` | integer | Provisions with spaceless match |
