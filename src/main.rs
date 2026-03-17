@@ -548,7 +548,7 @@ async fn handle_extract(
         )?;
 
         // Save metadata
-        let metadata = pipeline.build_metadata(&bill_text);
+        let metadata = pipeline.build_metadata(&bill_text, Some(source_path));
         std::fs::write(
             bill_dir.join("metadata.json"),
             serde_json::to_string_pretty(&metadata)?,
@@ -1786,6 +1786,7 @@ fn handle_upgrade(dir: &str, dry_run: bool) -> Result<()> {
     use congress_appropriations::approp::text_index::{TextIndex, build_text_index};
     use congress_appropriations::approp::verification;
     use congress_appropriations::approp::xml;
+    use sha2::{Digest, Sha256};
 
     let dir_path = std::path::Path::new(dir);
 
@@ -1906,6 +1907,8 @@ fn handle_upgrade(dir: &str, dry_run: bool) -> Result<()> {
 
             // Update metadata.json
             let text_hash = TextIndex::text_hash(&parsed.full_text);
+            let xml_bytes = std::fs::read(xml_path)?;
+            let source_xml_sha256 = format!("{:x}", Sha256::digest(&xml_bytes));
             let meta_path = bill_dir.join("metadata.json");
             let metadata = serde_json::json!({
                 "extraction_version": env!("CARGO_PKG_VERSION"),
@@ -1913,6 +1916,7 @@ fn handle_upgrade(dir: &str, dry_run: bool) -> Result<()> {
                 "model": "claude-opus-4-6",
                 "schema_version": "1.0",
                 "source_pdf_sha256": null,
+                "source_xml_sha256": source_xml_sha256,
                 "extracted_text_sha256": text_hash,
                 "timestamp": chrono::Utc::now().to_rfc3339()
             });

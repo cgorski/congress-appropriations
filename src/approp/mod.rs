@@ -6,6 +6,7 @@ pub mod from_value;
 pub mod loading;
 pub mod progress;
 pub mod prompts;
+pub mod staleness;
 pub mod text_index;
 pub mod verification;
 pub mod xml;

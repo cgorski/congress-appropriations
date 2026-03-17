@@ -517,14 +517,26 @@ impl ExtractionPipeline {
     }
 
     /// Build extraction metadata for provenance tracking.
-    pub fn build_metadata(&self, text: &str) -> ExtractionMetadata {
+    /// If `source_path` is provided, computes SHA-256 of the source file for the hash chain.
+    pub fn build_metadata(
+        &self,
+        text: &str,
+        source_path: Option<&std::path::Path>,
+    ) -> ExtractionMetadata {
         use crate::approp::text_index::TextIndex;
+        use sha2::{Digest, Sha256};
+        let source_xml_sha256 = source_path.and_then(|p| {
+            std::fs::read(p)
+                .ok()
+                .map(|bytes| format!("{:x}", Sha256::digest(&bytes)))
+        });
         ExtractionMetadata {
             extraction_version: env!("CARGO_PKG_VERSION").to_string(),
             prompt_version: "v3".to_string(),
             model: self.model.clone(),
             schema_version: "0.3.0".to_string(),
             source_pdf_sha256: None,
+            source_xml_sha256,
             extracted_text_sha256: TextIndex::text_hash(text),
             timestamp: chrono::Utc::now().to_rfc3339(),
         }

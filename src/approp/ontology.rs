@@ -950,6 +950,8 @@ pub struct ExtractionMetadata {
     pub schema_version: String,
     #[serde(default)]
     pub source_pdf_sha256: Option<String>,
+    #[serde(default)]
+    pub source_xml_sha256: Option<String>,
     pub extracted_text_sha256: String,
     pub timestamp: String,
 }

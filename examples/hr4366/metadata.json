@@ -5,5 +5,6 @@
   "prompt_version": "v3",
   "schema_version": "1.0",
   "source_pdf_sha256": null,
-  "timestamp": "unknown"
+  "timestamp": "unknown",
+  "source_xml_sha256": "63ae3f506d9e06145b3713736e8c3122e90fe1261abcc8a67b19ab726e14cdb9"
 }

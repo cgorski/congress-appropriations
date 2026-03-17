@@ -4,7 +4,7 @@ A command-line tool that downloads U.S. federal appropriations bills from Congre
 
 The goal: make the ~1,500 pages of annual appropriations bills searchable, sortable, and machine-readable — so you can quickly answer questions like "how much did Congress appropriate for VA Compensation and Pensions?" or "which programs got cut in the continuing resolution?"
 
-**Pre-processed data available:** The [`examples/`](examples/) directory includes completed extractions for three 118th Congress bills — a [supplemental](examples/hr9468/), a [continuing resolution](examples/hr5860/), and the [FY2024 omnibus](examples/hr4366/) (2,364 provisions, 94.2% coverage). No API keys required to query these.
+**Pre-processed data available:** The [`examples/`](examples/) directory includes completed extractions for three 118th Congress bills — a [supplemental](examples/hr9468/), a [continuing resolution](examples/hr5860/), and the [FY2024 omnibus](examples/hr4366/) (2,364 provisions). No API keys required to query these.
 
 ## Quick Start — Try It Now
 
@@ -41,11 +41,11 @@ congress-approp search --dir examples --type appropriation --format csv > approp
 
 ### Included Bills
 
-| Directory | Bill | Description | Provisions | Coverage |
-|-----------|------|-------------|------------|----------|
-| `examples/hr9468/` | H.R. 9468 | Veterans Benefits Supplemental Appropriations Act, 2024 — additional funding for VA compensation, pensions, and readjustment benefits | 7 | 100% |
-| `examples/hr5860/` | H.R. 5860 | Continuing Appropriations Act, 2024 — temporary funding at prior-year rates with 13 CR substitutions (anomalies) and mandatory spending extensions | 130 | 61.1% |
-| `examples/hr4366/` | H.R. 4366 | Consolidated Appropriations Act, 2024 — the FY2024 omnibus covering MilCon-VA, Agriculture, CJS, Energy-Water, Interior, THUD, and other matters | 2,364 | 94.2% |
+| Directory | Bill | Description | Provisions |
+|-----------|------|-------------|------------|
+| `examples/hr9468/` | H.R. 9468 | Veterans Benefits Supplemental Appropriations Act, 2024 — additional funding for VA compensation, pensions, and readjustment benefits | 7 |
+| `examples/hr5860/` | H.R. 5860 | Continuing Appropriations Act, 2024 — temporary funding at prior-year rates with 13 CR substitutions (anomalies) and mandatory spending extensions | 130 |
+| `examples/hr4366/` | H.R. 4366 | Consolidated Appropriations Act, 2024 — the FY2024 omnibus covering MilCon-VA, Agriculture, CJS, Energy-Water, Interior, THUD, and other matters | 2,364 |
 
 Each directory contains the source XML, extracted provisions, and verification report. All query commands (`search`, `summary`, `compare`, `audit`) work against these directories. The goal is to eventually include all enacted appropriations bills so users can query without running the LLM extraction themselves.
 
@@ -191,19 +191,21 @@ congress-approp summary --dir examples
 ```
 
 ```text
-┌───────────┬──────────────────────┬────────────┬─────────────────┬─────────────────┬─────────────────┬──────────┐
-│ Bill      ┆ Classification       ┆ Provisions ┆ Budget Auth ($) ┆ Rescissions ($) ┆      Net BA ($) ┆ Coverage │
-╞═══════════╪══════════════════════╪════════════╪═════════════════╪═════════════════╪═════════════════╪══════════╡
-│ H.R. 4366 ┆ Omnibus              ┆       2364 ┆ 846,137,099,554 ┆  24,659,349,709 ┆ 821,477,749,845 ┆    94.2% │
-│ H.R. 5860 ┆ ContinuingResolution ┆        130 ┆  16,000,000,000 ┆               0 ┆  16,000,000,000 ┆    61.1% │
-│ H.R. 9468 ┆ Supplemental         ┆          7 ┆   2,882,482,000 ┆               0 ┆   2,882,482,000 ┆   100.0% │
-│ TOTAL     ┆                      ┆       2501 ┆ 865,019,581,554 ┆  24,659,349,709 ┆ 840,360,231,845 ┆          │
-└───────────┴──────────────────────┴────────────┴─────────────────┴─────────────────┴─────────────────┴──────────┘
+┌───────────┬───────────────────────┬────────────┬─────────────────┬─────────────────┬─────────────────┐
+│ Bill      ┆ Classification        ┆ Provisions ┆ Budget Auth ($) ┆ Rescissions ($) ┆      Net BA ($) │
+╞═══════════╪═══════════════════════╪════════════╪═════════════════╪═════════════════╪═════════════════╡
+│ H.R. 4366 ┆ Omnibus               ┆       2364 ┆ 846,137,099,554 ┆  24,659,349,709 ┆ 821,477,749,845 │
+│ H.R. 5860 ┆ Continuing Resolution ┆        130 ┆  16,000,000,000 ┆               0 ┆  16,000,000,000 │
+│ H.R. 9468 ┆ Supplemental          ┆          7 ┆   2,882,482,000 ┆               0 ┆   2,882,482,000 │
+│ TOTAL     ┆                       ┆       2501 ┆ 865,019,581,554 ┆  24,659,349,709 ┆ 840,360,231,845 │
+└───────────┴───────────────────────┴────────────┴─────────────────┴─────────────────┴─────────────────┘
+
+0 dollar amounts unverified across all bills. Run `congress-approp audit` for detailed verification.
 ```
 
 Budget authority is computed from the actual provisions, not the LLM's self-reported summary.
 
-**Understanding Coverage:** This measures *coverage*, not *correctness*. It shows what percentage of all dollar amounts in the source bill text were captured by an extracted provision. A bill at 94.2% coverage means the tool extracted 94.2% of the dollar amounts — the remaining 5.8% are amounts that exist in the bill but were not extracted (typically loan guarantee ceilings, life-cycle cost references, or amendment-text old values). Critically, coverage says nothing about accuracy: every extracted amount is independently verified against the source text. A bill with 0 NotFound means every extracted dollar amount string exists in the source text.
+The `audit` command provides a detailed verification breakdown per bill, including a coverage metric showing what percentage of dollar strings in the source text were matched to extracted provisions. Every extracted dollar amount is independently verified against the source text — 0 amounts were unverified across all example data.
 
 **Understanding budget authority totals:** The Budget Auth column includes all provisions with `new_budget_authority` semantics at the `top_level` or `line_item` detail level. This includes both discretionary appropriations and mandatory spending programs that appear as appropriation lines in the bill text (e.g., SNAP at $122B in the Agriculture division). It also includes advance appropriations — funds enacted in this bill but available in the next fiscal year. The tool faithfully extracts what the bill text says; distinguishing mandatory from discretionary requires authorizing-law context beyond the bill itself. Advance appropriations are identified in the `notes` field.
 
