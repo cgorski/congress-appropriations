@@ -7,14 +7,14 @@ The goal: make the ~1,500 pages of annual appropriations bills searchable, sorta
 ## How It Works
 
 ```text
- Congress.gov     XML Parser      Claude Opus 4.6    Verification       Query
-      │               │                 │                 │                │
-      ▼               ▼                 ▼                 ▼                ▼
- ┌──────────┐  ┌──────────┐  ┌──────────────┐  ┌──────────┐  ┌──────────┐
- │ Download │─▶│ Parse    │─▶│ LLM extract  │─▶│ Verify   │─▶│ Search   │
- │ bill XML │  │ XML      │  │ (parallel)   │  │ amounts  │  │ Compare  │
- └──────────┘  └──────────┘  └──────────────┘  └──────────┘  └──────────┘
-  BILLS-*.xml   clean text    extraction.json  verification.json
+Congress.gov   XML Parser    Claude Opus 4.6   Verification      Query
+     │              │               │               │               │
+     ▼              ▼               ▼               ▼               ▼
+┌──────────┐  ┌──────────┐  ┌─────────────┐  ┌──────────┐  ┌──────────┐
+│ Download │─▶│ Parse    │─▶│ LLM extract │─▶│ Verify   │─▶│ Search   │
+│ bill XML │  │ XML      │  │ (parallel)  │  │ amounts  │  │ Compare  │
+└──────────┘  └──────────┘  └─────────────┘  └──────────┘  └──────────┘
+ BILLS-*.xml   clean text   extraction.json  verification.json
 ```
 
 1. **Download** — Fetch enrolled bill XML from Congress.gov (structured, semantic markup).
@@ -37,55 +37,52 @@ The amounts represent **budget authority** (what Congress authorizes agencies to
 - **Congress.gov API key** — Free, [sign up here](https://api.congress.gov/sign-up/)
 - **Anthropic API key** — Required for LLM extraction, [sign up here](https://console.anthropic.com/)
 
-That's it. No Python, no pip, no virtual environments.
+No Python, no pip, no virtual environments required.
 
 ### Install
 
 ```bash
-git clone https://github.com/youruser/appropriations.git
-cd appropriations
+git clone https://github.com/cgorski/congress-appropriations.git
+cd congress-appropriations
 cargo install --path .
 ```
 
-This puts `congress-approp` on your PATH. If you modify the code, run `cargo install --path .` again to update.
+This places the `congress-approp` binary on your PATH. After modifying the source, run `cargo install --path .` again to rebuild.
 
-### Extract a Bill
+### Extract a Single Bill
 
 ```bash
 # Set your API keys
 export CONGRESS_API_KEY="your-key"
 export ANTHROPIC_API_KEY="your-key"
 
-# Find the enrolled bill XML URL
-congress-approp api bill text --congress 118 --type hr -n 9468
+# Download one bill (enrolled version XML from Congress.gov)
+congress-approp download --congress 118 --type hr --number 9468 --output-dir data
 
-# Download it
-mkdir -p data/hr9468
-curl -sL -o data/hr9468/BILLS-118hr9468enr.xml \
-  "https://www.congress.gov/118/bills/hr9468/BILLS-118hr9468enr.xml"
-
-# Extract provisions and verify
-congress-approp extract --dir data/hr9468
+# Extract provisions and verify against source text
+congress-approp extract --dir data/118/hr/9468
 ```
 
-### Download All Bills for a Congress
+The `download` command fetches the enrolled XML and creates the directory structure. The `extract` command parses the XML, sends text to the LLM, and runs deterministic verification.
+
+### Download All Appropriations Bills for a Congress
 
 ```bash
-# Download all enacted appropriations bills (XML format)
-congress-approp download --congress 118 --enacted-only --output-dir data/118
+# Scan for all enacted appropriations bills and download XML
+congress-approp download --congress 118 --enacted-only --output-dir data
 
-# Extract everything
-congress-approp extract --dir data/118 --parallel 6
+# Extract all bills with parallel chunk processing
+congress-approp extract --dir data --parallel 6
 ```
 
 ## Try It Without API Keys
 
-The `examples/` directory contains pre-extracted data from two real bills — no API keys needed to explore:
+The `examples/` directory contains pre-extracted data from two bills. No API keys are required to explore the results:
 
-- **`examples/hr9468/`** — Veterans Benefits Supplemental Appropriations Act, 2024 (small, 7 provisions, 100% complete)
-- **`examples/hr5860/`** — Continuing Appropriations Act, 2024 (medium, 130 provisions, 61% complete, with CR substitutions and mandatory spending extensions)
+- **`examples/hr9468/`** — Veterans Benefits Supplemental Appropriations Act, 2024 (7 provisions, 100% completeness)
+- **`examples/hr5860/`** — Continuing Appropriations Act, 2024 (130 provisions, 61% completeness, includes CR substitutions and mandatory spending extensions)
 
-Each directory contains the source XML, the extracted provisions, and the verification report. You can run any query command against them immediately.
+Each directory contains the source XML, extracted provisions, and verification report. All query commands (`search`, `summary`, `compare`, `report`) work against these directories.
 
 ## Querying Extracted Bills
 
@@ -105,7 +102,9 @@ congress-approp summary --dir examples
 └───────────┴──────────────────────┴───────┴─────────────────┴─────────────────┴────────────────┴───────────┘
 ```
 
-Budget authority is computed from the actual provisions, not the LLM's self-reported summary. The **Complete%** column shows what percentage of dollar amounts in the source text were captured — red means incomplete, green means comprehensive.
+Budget authority is computed from the actual provisions, not the LLM's self-reported summary.
+
+**Understanding Complete%:** This measures *coverage*, not *correctness*. It shows what percentage of all dollar amounts in the source bill text were captured by an extracted provision. A bill at 61% completeness means the tool extracted 61% of the dollar amounts — the remaining 39% are provisions that exist in the bill but were not extracted (typically sub-allocations, amendment references, or fee authorization levels in large bills). Critically, completeness says nothing about accuracy: every extracted amount is independently verified against the source text. A bill at 61% completeness with 0 NotFound means "we captured 61% of the bill's dollar amounts, and every one of them is correct."
 
 ### `search` — Find provisions across bills
 

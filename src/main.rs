@@ -32,15 +32,21 @@ enum Commands {
         #[command(subcommand)]
         action: ApiCommands,
     },
-    /// Download bill PDFs from Congress.gov
+    /// Download bill XML from Congress.gov
     Download {
-        /// Congress number (e.g., 119)
+        /// Congress number (e.g., 118)
         #[arg(long)]
         congress: u32,
+        /// Bill type for single-bill download (e.g., hr, s, hjres)
+        #[arg(long)]
+        r#type: Option<String>,
+        /// Bill number for single-bill download (used with --type)
+        #[arg(long)]
+        number: Option<u32>,
         /// Output directory
         #[arg(long, default_value = "./data")]
         output_dir: String,
-        /// Only download enacted bills
+        /// Only download enacted bills (ignored when --type and --number are set)
         #[arg(long)]
         enacted_only: bool,
         /// Formats to download (comma-separated: pdf,xml)
@@ -190,20 +196,24 @@ async fn main() -> Result<()> {
         Commands::Api { action } => handle_api(action).await,
         Commands::Download {
             congress,
+            r#type,
+            number,
             output_dir,
             enacted_only,
             format,
             version,
             dry_run,
         } => {
-            handle_download(
+            handle_download(DownloadOptions {
                 congress,
-                &output_dir,
+                bill_type: r#type.as_deref(),
+                bill_number: number,
+                output_dir: &output_dir,
                 enacted_only,
-                &format,
-                version.as_deref(),
+                format: &format,
+                version_filter: version.as_deref(),
                 dry_run,
-            )
+            })
             .await
         }
         Commands::Extract {
@@ -1542,26 +1552,115 @@ fn handle_report(dir: &str, verbose: bool) -> Result<()> {
 
 // ─── Download Handler ────────────────────────────────────────────────────────
 
-async fn handle_download(
+struct DownloadOptions<'a> {
     congress: u32,
-    output_dir: &str,
+    bill_type: Option<&'a str>,
+    bill_number: Option<u32>,
+    output_dir: &'a str,
     enacted_only: bool,
-    format: &str,
-    version_filter: Option<&str>,
+    format: &'a str,
+    version_filter: Option<&'a str>,
     dry_run: bool,
-) -> Result<()> {
+}
+
+async fn handle_download(opts: DownloadOptions<'_>) -> Result<()> {
     let total_start = Instant::now();
 
     let client = CongressClient::from_env().context("Set CONGRESS_API_KEY environment variable")?;
-    let c = Congress::new(congress).map_err(|e| anyhow::anyhow!("{e}"))?;
+    let c = Congress::new(opts.congress).map_err(|e| anyhow::anyhow!("{e}"))?;
 
-    let formats: Vec<&str> = format.split(',').map(|s| s.trim()).collect();
-    let versions: Option<Vec<&str>> =
-        version_filter.map(|v| v.split(',').map(|s| s.trim()).collect());
+    let formats: Vec<&str> = opts.format.split(',').map(|s| s.trim()).collect();
+    let versions: Option<Vec<&str>> = opts
+        .version_filter
+        .map(|v| v.split(',').map(|s| s.trim()).collect());
+    let output_dir = opts.output_dir;
+    let dry_run = opts.dry_run;
+    let enacted_only = opts.enacted_only;
+
+    // Single-bill download: skip the scan and download one bill directly
+    if let (Some(bt_str), Some(num)) = (opts.bill_type, opts.bill_number) {
+        let bt: BillType = bt_str
+            .parse()
+            .map_err(|_| anyhow::anyhow!("Invalid bill type: {bt_str}"))?;
+        let id = BillId::new(c, bt, num);
+
+        tracing::info!("═══════════════════════════════════════════════════════");
+        tracing::info!("Downloading {id}");
+        tracing::info!("═══════════════════════════════════════════════════════");
+
+        let tvs = client.get_bill_text(&id).await?;
+        let mut downloaded = 0u32;
+
+        for tv in &tvs {
+            let ver_name = tv.r#type.as_deref().unwrap_or("unknown");
+            if let Some(ref allowed) = versions {
+                let ver_lower = ver_name.to_lowercase();
+                if !allowed
+                    .iter()
+                    .any(|a| ver_lower.contains(&a.to_lowercase()))
+                {
+                    continue;
+                }
+            }
+            for fmt in &tv.formats {
+                let fmt_type = fmt.r#type.as_deref().unwrap_or("").to_lowercase();
+                if !formats.iter().any(|f| fmt_type.contains(*f)) {
+                    continue;
+                }
+                let filename = fmt.url.split('/').next_back().unwrap_or("file");
+                let dir = format!("{}/{}/{}/{}", output_dir, c.number(), bt.api_slug(), num);
+                std::fs::create_dir_all(&dir)?;
+                let out_path = format!("{dir}/{filename}");
+
+                if std::path::Path::new(&out_path).exists() {
+                    tracing::info!("  Already exists: {filename}");
+                    continue;
+                }
+
+                if dry_run {
+                    tracing::info!("  [DRY RUN] Would download: {filename} ({ver_name})");
+                    continue;
+                }
+
+                tracing::info!("  Downloading {filename} ({ver_name})...");
+                let http = reqwest::Client::builder()
+                    .user_agent("congress-approp/1.0.0")
+                    .timeout(std::time::Duration::from_secs(60))
+                    .build()?;
+                let resp = http.get(&fmt.url).send().await?;
+                if resp.status().is_success() {
+                    let bytes = resp.bytes().await?;
+                    std::fs::write(&out_path, &bytes)?;
+                    tracing::info!("  ✓ {} ({})", filename, human_bytes(bytes.len()));
+                    downloaded += 1;
+                } else {
+                    tracing::warn!("  ✗ HTTP {}", resp.status());
+                }
+            }
+        }
+
+        let elapsed = total_start.elapsed();
+        tracing::info!("Download complete: {downloaded} files [{elapsed:.1?}]");
+        tracing::info!(
+            "  Output: {output_dir}/{}/{}/{}",
+            c.number(),
+            bt.api_slug(),
+            num
+        );
+        return Ok(());
+    }
+
+    // Validate: if only one of --type/--number given, error
+    if opts.bill_type.is_some() || opts.bill_number.is_some() {
+        anyhow::bail!("Both --type and --number are required for single-bill download");
+    }
 
     tracing::info!("═══════════════════════════════════════════════════════");
     tracing::info!("Scanning {} for appropriations bills", c);
-    tracing::info!("  Filters: enacted_only={enacted_only} formats={format}");
+    tracing::info!(
+        "  Filters: enacted_only={enacted_only} formats={}",
+        opts.format
+    );
     if let Some(ref v) = versions {
         tracing::info!("  Version filter: {}", v.join(", "));
     }
