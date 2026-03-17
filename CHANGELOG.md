@@ -4,6 +4,27 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [3.0.0] — 2026-03-17
+
+### Added
+- **Semantic search** — `--semantic "query"` on the `search` command ranks provisions by meaning similarity using OpenAI embeddings. Finds "Child Nutrition Programs" from "school lunch programs for kids" with zero keyword overlap.
+- **Find similar** — `--similar bill_dir:index` finds provisions most similar to a specific one across all loaded bills. Useful for cross-bill matching and year-over-year tracking.
+- **`embed` command** — generates embeddings for extracted bills using OpenAI `text-embedding-3-large`. Writes `embeddings.json` (metadata) + `vectors.bin` (binary float32 vectors) per bill directory. Skips up-to-date bills automatically.
+- **Pre-generated embeddings** for all three example bills (1024 dimensions, ~10 MB total). Semantic search works on example data without running `embed`.
+- **OpenAI API client** (`src/api/openai/`) for the embeddings endpoint.
+- **Hash chain** — `source_xml_sha256` in metadata.json, `extraction_sha256` in embeddings.json. Enables staleness detection across the full pipeline.
+- **Staleness detection** (`src/approp/staleness.rs`) — checks whether downstream artifacts are consistent with their inputs. Warns but never blocks.
+- **`--top N`** flag on `search` for controlling semantic/similar result count (default 20).
+- Cosine similarity utilities in `embeddings.rs` with unit tests.
+- `build_embedding_text()` in `query.rs` — deterministic text builder for provision embeddings.
+- Semantic Search section in README with setup instructions and examples.
+
+### Changed
+- `handle_search` is now async to support OpenAI embedding API calls.
+- README: removed coverage percentages from intro and bill table (was confusing). Updated summary table example to match current output.
+- `chunks/` directory renamed from `.chunks/` — LLM artifacts kept as local provenance (gitignored, not part of hash chain).
+- Example `metadata.json` files updated with `source_xml_sha256` field.
+
 ## [2.1.0] — 2026-03-17
 
 ### Added
