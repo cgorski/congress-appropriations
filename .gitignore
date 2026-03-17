@@ -30,3 +30,4 @@ Thumbs.db
 venv/
 __pycache__/
 *.py[cod]
+NEXT_STEPS.md
