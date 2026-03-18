@@ -1,0 +1,103 @@
+# Glossary
+
+Definitions of key terms used throughout this documentation and in the tool's output. Terms are listed alphabetically.
+
+---
+
+**Advance Appropriation** — Budget authority enacted in the current year's appropriations bill but not available for obligation until a future fiscal year. Common for VA medical accounts, where FY2024 legislation may include advance appropriations available starting in FY2025. These are included in the bill's budget authority total (because the bill enacts them) and typically flagged in the provision's `notes` field. See [Budget Authority Calculation](../explanation/budget-authority.md).
+
+**Ambiguous** (verification status) — A dollar amount verification result indicating that the `text_as_written` dollar string was found at **multiple** positions in the source bill text. The amount is confirmed to exist in the source — it's correct — but can't be pinned to a single location. Common for round numbers like `$5,000,000` which may appear 50+ times in a large omnibus. Displayed as `≈` in the search table's `$` column. Not an error. See [How Verification Works](../explanation/verification.md).
+
+**Anomaly** — See **CR Substitution**.
+
+**Appropriation** — A provision that grants budget authority — the legal permission for a federal agency to enter into financial obligations (sign contracts, award grants, hire staff) up to a specified dollar amount. This is the core spending provision type and the most common provision in appropriations bills. In the tool, provisions with `provision_type: "appropriation"` and `semantics: "new_budget_authority"` at `top_level` or `line_item` detail are counted toward the budget authority total. See [Provision Types](./provision-types.md).
+
+**Bill Classification** — The type of appropriations bill: `regular` (one of the twelve annual bills), `omnibus` (multiple bills combined), `minibus` (a few bills combined), `continuing_resolution` (temporary funding at prior-year rates), `supplemental` (additional funding outside the regular cycle), or `rescissions` (a bill primarily canceling prior budget authority). Displayed in the Classification column of the summary table. See [How Federal Appropriations Work](../introduction/appropriations-primer.md).
+
+**Budget Authority (BA)** — The legal authority Congress grants to federal agencies to enter into financial obligations. This is the dollar figure specified in an appropriation provision — what Congress *authorizes* agencies to commit to spend. Distinct from **outlays**, which are the actual cash disbursements by the Treasury. This tool reports budget authority. In the summary table, the "Budget Auth ($)" column sums all provisions with `semantics: "new_budget_authority"` at `top_level` or `line_item` detail levels. See [Budget Authority Calculation](../explanation/budget-authority.md).
+
+**Chunk** — A segment of bill text sent to the LLM as a single extraction request. Large bills (omnibus, continuing resolutions) are split into chunks at XML `<division>` and `<title>` boundaries so each chunk contains a complete legislative section. The FY2024 omnibus (H.R. 4366) splits into approximately 75 chunks. Chunk artifacts are stored in the `chunks/` directory (gitignored). See [The Extraction Pipeline](../explanation/pipeline.md).
+
+**Completeness** — See **Coverage**.
+
+**Confidence** — A float value (0.0–1.0) on each provision representing the LLM's self-assessed certainty in its extraction. **Not calibrated** — values above 0.90 are not meaningfully differentiated. Useful only for identifying outliers below 0.80, which may warrant manual review. Do not use for automated quality filtering; use the verification-derived `quality` field instead.
+
+**Congress Number** — An identifier for the two-year term of a U.S. Congress. The **118th Congress** served January 2023 – January 2025; the **119th Congress** serves January 2025 – January 2027. Bills are identified by their congress number — H.R. 4366 of the 118th Congress is a different bill from H.R. 4366 of any other Congress. All three example bills in this tool are from the 118th Congress.
+
+**Continuing Resolution (CR)** — Temporary legislation that funds the federal government at the prior fiscal year's rate for agencies whose regular appropriations bills have not been enacted. Most provisions in a CR simply continue prior-year funding, but specific programs may get different treatment through **anomalies** (formally called **CR substitutions**). H.R. 5860 in the example data is a continuing resolution with 13 CR substitutions. See [Work with CR Substitutions](../how-to/cr-substitutions.md).
+
+**Cosine Similarity** — The mathematical measure used to compare embedding vectors. For L2-normalized vectors (which is what this tool stores), cosine similarity equals the dot product. Scores range from approximately 0.2 to 0.9 in practice for appropriations data. Above 0.80 indicates nearly identical provisions (same program in different bills); 0.45–0.60 indicates loose conceptual connection; below 0.40 suggests no meaningful relationship. See [How Semantic Search Works](../explanation/semantic-search.md).
+
+**Coverage** — The percentage of dollar-sign patterns found in the source bill text that were matched to at least one extracted provision. This measures extraction **completeness**, not accuracy. Coverage below 100% is often correct — many dollar strings in bill text are statutory cross-references, loan guarantee ceilings, struck amounts in amendments, or prior-year citations that should not be extracted as provisions. Displayed in the Coverage column of the audit table. Removed from the summary table in v2.1.0 to prevent misinterpretation as an accuracy metric. See [What Coverage Means (and Doesn't)](../explanation/coverage.md).
+
+**CR Substitution** — A provision in a continuing resolution that replaces one dollar amount with another: the bill says "shall be applied by substituting '$X' for '$Y'," meaning fund the program at $X instead of the prior-year level of $Y. Also called an **anomaly**. The tool captures both the new amount ($X) and old amount ($Y) and automatically shows them in New/Old/Delta columns in the search table. In the example data, H.R. 5860 contains 13 CR substitutions. See [Work with CR Substitutions](../how-to/cr-substitutions.md).
+
+**Cross Reference** — A structured reference from one provision to another law, section, or bill. Stored in the `cross_references` array with fields `ref_type` (e.g., `amends`, `notwithstanding`, `rescinds_from`), `target` (e.g., `"31 U.S.C. 1105(a)"`), and optional `description`.
+
+**Detail Level** — A classification on appropriation provisions indicating where the provision sits in the funding hierarchy: `top_level` (main account appropriation), `line_item` (numbered item within a section), `sub_allocation` ("of which" breakdown), or `proviso_amount` (dollar amount in a "Provided, That" clause). The `compute_totals()` function uses this to prevent double-counting: only `top_level` and `line_item` provisions count toward budget authority. See [The Provision Type System](../explanation/provision-types.md).
+
+**Directive** — A provision type representing a reporting requirement or instruction to a federal agency (e.g., "The Secretary shall submit a report within 30 days..."). Directives don't carry dollar amounts and don't affect budget authority. See [Provision Types](./provision-types.md).
+
+**Division** — A lettered section of an omnibus bill (Division A, Division B, etc.), each typically corresponding to one of the twelve appropriations subcommittee jurisdictions. For example, in H.R. 4366: Division A = MilCon-VA, Division B = Agriculture, Division C = Commerce-Justice-Science, etc. Used with the `--division` search flag. Bills without divisions (like the VA supplemental H.R. 9468) have `null` in the division field.
+
+**Earmark** — Funding directed to a specific recipient, location, or project, often requested by a specific Member of Congress. Also called "community project funding" or "congressionally directed spending." Most earmarks are listed in the joint explanatory statement (a separate document not in the enrolled bill XML), so only earmarks that appear in the bill text itself are captured by the tool. See the `directed_spending` provision type.
+
+**Embedding** — A high-dimensional vector (list of 3,072 floating-point numbers) that represents the semantic meaning of a provision. Provisions about similar topics have vectors that point in similar directions, enabling meaning-based search and cross-bill matching. Generated by OpenAI's `text-embedding-3-large` model and stored in `vectors.bin`. See [How Semantic Search Works](../explanation/semantic-search.md).
+
+**Enacted** — Signed into law by the President (or passed over a veto). This tool downloads and extracts **enacted** bills — the versions that actually became binding law and authorized spending. The `--enacted-only` flag on the `download` command filters to these bills.
+
+**Enrolled** — The final version of a bill as passed by both the House and Senate in identical form and sent to the President for signature. This is the text version that `congress-approp` downloads by default — the authoritative text that becomes law. Distinguished from introduced, engrossed, and other intermediate versions.
+
+**Exact** (match tier) — A raw text verification result indicating that the provision's `raw_text` excerpt is a **byte-identical substring** of the source bill text. The strongest evidence of faithful extraction — the LLM copied the text perfectly. 95.6% of provisions in the example data match at this tier. See [How Verification Works](../explanation/verification.md).
+
+**Extraction** — The process of sending bill text to the LLM (Claude) to identify and classify every spending provision into structured JSON. This is Stage 3 of the pipeline and the only stage that uses an LLM. See [The Extraction Pipeline](../explanation/pipeline.md).
+
+**Fiscal Year (FY)** — The federal government's accounting year, running from **October 1 through September 30**. Named for the calendar year in which it ends: FY2024 = October 1, 2023 – September 30, 2024. Bills are labeled by the fiscal year they fund, not the calendar year they were enacted in.
+
+**Hash Chain** — A series of SHA-256 hash links connecting each pipeline artifact to the input it was built from. The source XML hash is recorded in `metadata.json`; the extraction hash is recorded in `embeddings.json`; the vectors hash is also recorded in `embeddings.json`. Enables **staleness detection** — if an upstream file changes, downstream artifacts are detected as potentially stale. See [Data Integrity and the Hash Chain](../explanation/hash-chain.md).
+
+**Limitation** — A provision type representing a cap or prohibition on spending (e.g., "not more than $X," "none of the funds shall be used for..."). Limitations have `semantics: "limitation"` and are **not** counted in budget authority totals. See [Provision Types](./provision-types.md).
+
+**Mandatory Spending** — Federal spending determined by eligibility rules in permanent law (Social Security, Medicare, Medicaid, SNAP, VA Compensation and Pensions) rather than annual appropriations votes. Accounts for approximately 63% of total federal spending. Some mandatory programs appear as appropriation line items in appropriations bill text — the tool extracts these but does not distinguish them from discretionary spending. See [Why the Numbers Might Not Match Headlines](../explanation/numbers-vs-headlines.md).
+
+**Mandatory Spending Extension** — A provision type representing an amendment to an authorizing statute, typically extending a mandatory program that would otherwise expire. Common in continuing resolutions and certain divisions of omnibus bills. See [Provision Types](./provision-types.md).
+
+**Match Tier** — The level at which a provision's `raw_text` excerpt was confirmed as a substring of the source text: `exact` (byte-identical), `normalized` (matches after whitespace/quote/dash normalization), `spaceless` (matches after removing all spaces), or `no_match` (not found at any tier). See [How Verification Works](../explanation/verification.md).
+
+**Net Budget Authority (Net BA)** — Budget authority minus rescissions. This is the net new spending authority enacted by a bill. Displayed in the "Net BA ($)" column of the summary table. For most reporting purposes, this is the number to cite.
+
+**Not Found** (verification status) — A dollar amount verification result indicating that the `text_as_written` dollar string was **not found anywhere** in the source bill text. This is the most serious verification failure — the LLM may have hallucinated the amount. Displayed as `✗` in the search table's `$` column. Across the included example data: 0 occurrences out of 2,501 provisions. **Should always be 0.** See [How Verification Works](../explanation/verification.md).
+
+**Omnibus** — A single bill packaging multiple (often all twelve) annual appropriations bills together, organized into lettered divisions. Congress frequently uses omnibuses when individual bills stall. H.R. 4366 in the example data is an omnibus covering seven of twelve appropriations subcommittee jurisdictions. See [How Federal Appropriations Work](../introduction/appropriations-primer.md).
+
+**Outlays** — Actual cash disbursements by the U.S. Treasury. Distinct from **budget authority**, which is the legal permission to commit to spending. Budget authority and outlays differ because agencies often obligate funds in one year but spend them over several years. Headline federal spending figures (~$6.7 trillion) are in outlays. This tool reports budget authority, not outlays.
+
+**Provision** — A single identifiable directive in an appropriations bill: an appropriation, a rescission, a spending limitation, a transfer authority, a CR anomaly, a policy rider, or any other discrete instruction. This is the fundamental unit of data in `congress-approp`. The tool classifies each provision into one of 11 types. See [Provision Types](./provision-types.md).
+
+**Proviso** — A condition attached to an appropriation via a "Provided, That" clause (e.g., "Provided, That not to exceed $279,000 shall be available for official reception expenses"). Provisos may contain dollar amounts, limitations, transfer authorities, or reporting requirements. They are stored in the `provisos` array within appropriation provisions.
+
+**Quality** — A derived assessment of a provision's verification status: `strong` (dollar amount verified AND raw text exact match), `moderate` (one of the two is imperfect), `weak` (dollar amount not found), or `n/a` (provision has no dollar amount). Available in JSON/CSV output as the `quality` field. Computed from the deterministic verification data, not from the LLM's confidence score.
+
+**Raw Text** — The `raw_text` field on every provision — a verbatim excerpt from the bill text (typically the first ~150 characters of the provision). Verified against the source text using tiered matching (exact → normalized → spaceless). Allows users to see the actual bill language without opening the XML.
+
+**Rescission** — A provision that cancels previously enacted budget authority. A rescission of $500 million reduces the net budget authority by that amount. In the summary table, rescissions appear in their own column and are subtracted from gross budget authority to produce Net BA. See [Provision Types](./provision-types.md).
+
+**Rider** — A policy provision that doesn't directly appropriate, rescind, or limit funds. Riders establish rules, extend authorities, set policy conditions, or make legislative findings. They don't carry dollar amounts and don't affect budget authority calculations. The second most common provision type in the example data (336 of 2,501). See [Provision Types](./provision-types.md).
+
+**Semantic Search** — A search method that finds provisions by meaning rather than exact keywords. Uses embedding vectors to understand that "school lunch programs for kids" means "Child Nutrition Programs" even though the words don't overlap. Invoked with `--semantic "your query"` on the search command. Requires pre-computed embeddings and `OPENAI_API_KEY`. See [How Semantic Search Works](../explanation/semantic-search.md).
+
+**Semantics** (amount) — The `semantics` field on a dollar amount, indicating what the amount represents in budget terms: `new_budget_authority` (new spending power — counted in BA totals), `rescission` (cancellation of prior BA), `reference_amount` (contextual — sub-allocations, "of which" breakdowns), `limitation` (cap on spending), `transfer_ceiling` (maximum transfer amount), or `mandatory_spending` (mandatory program amount). See [Provision Types](./provision-types.md).
+
+**Staleness** — The condition where a downstream artifact was built from a version of its input that no longer matches the current file on disk. Detected via the **hash chain** — if `extraction.json` changes but `embeddings.json` still records the old hash, the embeddings are stale. The tool warns but never blocks execution. See [Data Integrity and the Hash Chain](../explanation/hash-chain.md).
+
+**Sub-Allocation** — A breakdown within a parent account: "of which $X shall be for Y." Sub-allocations have `detail_level: "sub_allocation"` and `semantics: "reference_amount"`. They are **not additional money** — they specify how part of the parent appropriation should be spent. Excluded from budget authority totals to prevent double-counting. See [Budget Authority Calculation](../explanation/budget-authority.md).
+
+**Supplemental** — An additional appropriation enacted outside the regular annual cycle, typically in response to emergencies — natural disasters, military operations, public health crises, or funding shortfalls. H.R. 9468 in the example data is a supplemental providing $2.9 billion for VA Compensation and Pensions and Readjustment Benefits. See [How Federal Appropriations Work](../introduction/appropriations-primer.md).
+
+**Text As Written** — The `text_as_written` field on a dollar amount — the verbatim dollar string from the bill text (e.g., `"$2,285,513,000"`). This is the string searched for in the source XML during amount verification. It preserves the exact formatting from the bill, including commas and the dollar sign.
+
+**Title** — A numbered subdivision within a division of an omnibus bill (e.g., Title I, Title II). Identified by Roman numerals in the bill text. The `title` field in provision data contains the numeral (e.g., `"IV"`, `"XIII"`). The same title number may appear in different divisions — Division A Title I and Division B Title I are different sections.
+
+**Transfer Authority** — A provision granting permission to move funds between accounts. The dollar amount is a **ceiling** (maximum that may be transferred), not new spending. Transfer authority provisions have `semantics: "transfer_ceiling"` and are not counted in budget authority totals. See [Provision Types](./provision-types.md).
+
+**Verified** (verification status) — A dollar amount verification result indicating that the `text_as_written` dollar string was found at **exactly one** position in the source bill text. The strongest verification result — the amount is confirmed real and its location is unambiguous. Displayed as `✓` in the search table's `$` column. See [How Verification Works](../explanation/verification.md).

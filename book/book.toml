@@ -1,0 +1,29 @@
+[book]
+authors = ["Chris Gorski"]
+language = "en"
+src = "src"
+title = "Congressional Appropriations Analyzer"
+description = "Documentation for congress-approp — download, extract, and analyze U.S. federal appropriations bills"
+
+[build]
+build-dir = "../target/book"
+
+[output.html]
+default-theme = "light"
+preferred-dark-theme = "ayu"
+git-repository-url = "https://github.com/cgorski/congress-appropriations"
+edit-url-template = "https://github.com/cgorski/congress-appropriations/edit/main/book/{path}"
+site-url = "/congress-appropriations/"
+additional-css = []
+additional-js = []
+
+[output.html.search]
+enable = true
+limit-results = 30
+
+[output.html.print]
+enable = true
+
+[output.html.fold]
+enable = false
+level = 0

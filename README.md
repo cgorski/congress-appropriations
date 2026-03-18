@@ -1,6 +1,12 @@
 # Congressional Appropriations Analyzer
 
+[![Documentation](https://img.shields.io/badge/docs-mdbook-blue)](https://cgorski.github.io/congress-appropriations/) [![Crates.io](https://img.shields.io/crates/v/congress-appropriations)](https://crates.io/crates/congress-appropriations) [![CI](https://github.com/cgorski/congress-appropriations/actions/workflows/ci.yml/badge.svg)](https://github.com/cgorski/congress-appropriations/actions/workflows/ci.yml)
+
 A command-line tool that downloads U.S. federal appropriations bills from Congress.gov, extracts every spending provision into structured JSON using Claude Opus 4.6, and checks each dollar amount against the source text.
+
+> 📖 **[Read the full documentation →](https://cgorski.github.io/congress-appropriations/)**
+>
+> The documentation book includes tutorials, how-to guides, detailed explanations of the extraction pipeline and verification system, a complete CLI reference, and contributor guides.
 
 The goal: make the ~1,500 pages of annual appropriations bills searchable, sortable, and machine-readable — so you can quickly answer questions like "how much did Congress appropriate for VA Compensation and Pensions?" or "which programs got cut in the continuing resolution?"
 
