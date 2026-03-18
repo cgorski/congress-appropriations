@@ -35,6 +35,7 @@
 - [Work with CR Substitutions](./how-to/cr-substitutions.md)
 - [Use the Library API from Rust](./how-to/library-api.md)
 - [Upgrade Extraction Data](./how-to/upgrade-data.md)
+- [Enrich Bills with Metadata](./how-to/enrich-data.md)
 
 # Explanation
 

@@ -4,6 +4,34 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [4.0.0] — 2026-03-19
+
+### Added
+- **`enrich` command** — generates `bill_meta.json` per bill directory with fiscal year metadata, subcommittee/jurisdiction mappings, advance appropriation classification, bill nature enrichment, and canonical account names. Requires no API keys — uses XML parsing and deterministic keyword matching.
+- **`--fy <YEAR>` flag** on `summary`, `search`, and `compare` — filter to bills covering a specific fiscal year. Uses `bill.fiscal_years` from extraction data (no `enrich` required for basic FY filtering).
+- **`--subcommittee <SLUG>` flag** on `summary`, `search`, and `compare` — filter by appropriations subcommittee jurisdiction (e.g., `defense`, `thud`, `cjs`, `milcon-va`). Requires `bill_meta.json` (run `enrich` first). Maps division letters to canonical jurisdictions per-bill, solving the problem where Division A means Defense in one bill but CJS in another.
+- **`--base-fy` and `--current-fy` flags** on `compare` — compare all bills for one fiscal year against all bills for another, with optional `--subcommittee` scoping. Use with `--dir` to point at the data directory.
+- **`bill_meta.json`** — new per-bill metadata file containing congress number, fiscal years, enriched bill nature (omnibus/minibus/full-year CR with appropriations/supplemental/etc.), subcommittee mappings with classification source provenance, advance/current/supplemental timing for each BA provision, and canonical (case-normalized, prefix-stripped) account names.
+- **Advance appropriation detection** — the `enrich` command classifies each budget authority provision as current-year, advance, or supplemental using a fiscal-year-aware algorithm. Detects "shall become available on October 1, YYYY" and "for the first quarter of fiscal year YYYY" patterns, comparing the availability date to the bill's fiscal year. Correctly identifies $1.49 trillion in advance appropriations across the 13-bill dataset.
+- **Hash chain extended** to cover `bill_meta.json`: the file records `extraction_sha256`, and staleness detection warns when the extraction has changed since enrichment.
+- **13 new integration tests** covering `enrich`, `--fy`, `--subcommittee`, `--base-fy`/`--current-fy`, case-insensitive compare matching, and budget total regression guards.
+- **33 new unit tests** in `bill_meta.rs` covering jurisdiction classification, advance detection, account normalization, bill nature classification, and save/load roundtrip.
+- Pre-enriched `bill_meta.json` for all 13 example bills.
+
+### Changed
+- **Compare uses case-insensitive account matching.** Account names are now lowercased and em-dash/en-dash prefix-stripped before comparison. This resolves 52 false orphans across the 13-bill dataset caused by capitalization differences like "Grants-In-Aid" vs "Grants-in-Aid" vs "Grants-in-aid".
+- **Compare handler consolidated.** The `handle_compare` function in `main.rs` now calls `query::compare()` instead of reimplementing the comparison logic. Duplicate `build_account_map`, `normalize_account_name`, and `describe_bills` functions removed from `main.rs`.
+- **`CompareRow` field names** aligned with CLI JSON output: `account` → `account_name`, `base_amount` → `base_dollars`, `current_amount` → `current_dollars`.
+- **`LoadedBill` struct** now includes `bill_meta: Option<BillMeta>` — loaded automatically from `bill_meta.json` if present, `None` otherwise. Also derives `Clone`.
+- **`normalize_account_name` is now public** and lowercases in addition to stripping em-dash prefixes.
+- Version bumped to 4.0.0.
+
+### Known Limitations
+- **Sub-agency vs parent department mismatches** create approximately 20 false orphans per subcommittee comparison (e.g., "Maritime Administration" in one bill vs "Department of Transportation" in another). A sub-agency normalization lookup table is planned for a future release.
+- **Cross-semantics orphan rescue** not yet implemented — Transit Formula Grants ($14.6B) still shows as "only in current" when classified with different semantics across bills. Planned for a follow-up.
+- **`--subcommittee` requires `enrich`** — the flag produces a clear error message if `bill_meta.json` is not found. `--fy` works without `enrich`.
+- **17 supplemental policy division titles** (e.g., "FEND Off Fentanyl Act") are classified as `other` jurisdiction by default.
+
 ## [3.2.0] — 2026-03-18
 
 ### Added

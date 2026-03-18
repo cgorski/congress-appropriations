@@ -420,3 +420,416 @@ fn audit_empty_dir_no_crash() {
         .assert()
         .success();
 }
+
+// ─── Enrich Command ──────────────────────────────────────────────────────────
+
+#[test]
+fn enrich_dry_run_writes_nothing() {
+    // Copy a small bill to a temp dir so we don't modify examples/
+    let dir = tempfile::tempdir().unwrap();
+    let src = std::path::Path::new("examples/hr9468");
+    let dst = dir.path().join("hr9468");
+    copy_dir(src, &dst);
+
+    // Remove bill_meta.json if it was copied
+    let meta_path = dst.join("bill_meta.json");
+    let _ = std::fs::remove_file(&meta_path);
+    assert!(
+        !meta_path.exists(),
+        "bill_meta.json should not exist before dry run"
+    );
+
+    cmd()
+        .args(["enrich", "--dir", dir.path().to_str().unwrap(), "--dry-run"])
+        .assert()
+        .success()
+        .stderr(predicates::str::contains("would enrich"));
+
+    assert!(
+        !meta_path.exists(),
+        "bill_meta.json should not exist after dry run"
+    );
+}
+
+#[test]
+fn enrich_creates_bill_meta() {
+    let dir = tempfile::tempdir().unwrap();
+    let src = std::path::Path::new("examples/hr9468");
+    let dst = dir.path().join("hr9468");
+    copy_dir(src, &dst);
+
+    // Remove bill_meta.json if copied
+    let meta_path = dst.join("bill_meta.json");
+    let _ = std::fs::remove_file(&meta_path);
+
+    cmd()
+        .args(["enrich", "--dir", dir.path().to_str().unwrap()])
+        .assert()
+        .success()
+        .stderr(predicates::str::contains("enriched"));
+
+    assert!(meta_path.exists(), "bill_meta.json should be created");
+
+    // Validate the JSON structure
+    let content = std::fs::read_to_string(&meta_path).unwrap();
+    let meta: serde_json::Value = serde_json::from_str(&content).unwrap();
+    assert_eq!(meta["schema_version"].as_str(), Some("1.0"));
+    assert!(meta["extraction_sha256"].as_str().is_some());
+    assert!(meta["bill_nature"].as_str().is_some());
+    assert!(meta["fiscal_years"].as_array().is_some());
+}
+
+#[test]
+fn enrich_skips_existing() {
+    // Run against examples/ which already have bill_meta.json
+    cmd()
+        .args(["enrich", "--dir", "examples"])
+        .assert()
+        .success()
+        .stderr(predicates::str::contains("skip"))
+        .stderr(predicates::str::contains("skipped 13"));
+}
+
+#[test]
+fn enrich_force_re_enriches() {
+    let dir = tempfile::tempdir().unwrap();
+    let src = std::path::Path::new("examples/hr9468");
+    let dst = dir.path().join("hr9468");
+    copy_dir(src, &dst);
+
+    // First enrich
+    cmd()
+        .args(["enrich", "--dir", dir.path().to_str().unwrap()])
+        .assert()
+        .success();
+
+    // Second enrich without --force should skip
+    cmd()
+        .args(["enrich", "--dir", dir.path().to_str().unwrap()])
+        .assert()
+        .success()
+        .stderr(predicates::str::contains("skip"));
+
+    // With --force should re-enrich
+    cmd()
+        .args(["enrich", "--dir", dir.path().to_str().unwrap(), "--force"])
+        .assert()
+        .success()
+        .stderr(predicates::str::contains("enriched"));
+}
+
+// ─── FY Filtering ────────────────────────────────────────────────────────────
+
+#[test]
+fn summary_fy_filter_narrows_bills() {
+    let output = cmd()
+        .args([
+            "summary", "--dir", "examples", "--fy", "2026", "--format", "json",
+        ])
+        .output()
+        .unwrap();
+
+    assert!(output.status.success());
+    let stdout = str::from_utf8(&output.stdout).unwrap();
+    let data: Vec<serde_json::Value> = serde_json::from_str(stdout).unwrap();
+
+    // FY2026 bills: H.R. 5371, H.R. 6938, H.R. 7148, S. 870
+    assert!(
+        data.len() >= 3 && data.len() <= 5,
+        "Expected 3-5 FY2026 bills, found {}",
+        data.len()
+    );
+
+    // H.R. 4366 (FY2024) should NOT be present
+    let has_hr4366 = data
+        .iter()
+        .any(|b| b["identifier"].as_str() == Some("H.R. 4366"));
+    assert!(
+        !has_hr4366,
+        "H.R. 4366 (FY2024) should not appear in FY2026 filter"
+    );
+
+    // H.R. 7148 (FY2026) should be present
+    let has_hr7148 = data
+        .iter()
+        .any(|b| b["identifier"].as_str() == Some("H.R. 7148"));
+    assert!(
+        has_hr7148,
+        "H.R. 7148 (FY2026) should appear in FY2026 filter"
+    );
+}
+
+#[test]
+fn search_fy_filter_excludes_other_years() {
+    let output = cmd()
+        .args([
+            "search",
+            "--dir",
+            "examples",
+            "--type",
+            "appropriation",
+            "--fy",
+            "2026",
+            "--account",
+            "Tenant-Based Rental",
+            "--format",
+            "json",
+        ])
+        .output()
+        .unwrap();
+
+    assert!(output.status.success());
+    let stdout = str::from_utf8(&output.stdout).unwrap();
+    let data: Vec<serde_json::Value> = serde_json::from_str(stdout).unwrap();
+
+    // Should find TBRA in FY2026 bills but NOT in H.R. 4366 (FY2024)
+    for item in &data {
+        assert_ne!(
+            item["bill"].as_str(),
+            Some("H.R. 4366"),
+            "FY2024 bill H.R. 4366 should not appear with --fy 2026"
+        );
+    }
+    assert!(
+        !data.is_empty(),
+        "Should find at least one TBRA provision in FY2026"
+    );
+}
+
+// ─── Subcommittee Filtering ──────────────────────────────────────────────────
+
+#[test]
+fn summary_subcommittee_filter() {
+    let output = cmd()
+        .args([
+            "summary",
+            "--dir",
+            "examples",
+            "--fy",
+            "2026",
+            "--subcommittee",
+            "thud",
+            "--format",
+            "json",
+        ])
+        .output()
+        .unwrap();
+
+    assert!(output.status.success());
+    let stdout = str::from_utf8(&output.stdout).unwrap();
+    let data: Vec<serde_json::Value> = serde_json::from_str(stdout).unwrap();
+
+    // Should be exactly 1 bill: H.R. 7148 (the only FY2026 bill with a THUD division)
+    assert_eq!(
+        data.len(),
+        1,
+        "Expected 1 bill for FY2026 THUD, found {}",
+        data.len()
+    );
+    assert_eq!(data[0]["identifier"].as_str(), Some("H.R. 7148"));
+
+    // Provision count should be the THUD division only (618), not full bill (2837)
+    let provisions = data[0]["provisions"].as_i64().unwrap();
+    assert!(
+        provisions < 1000,
+        "THUD division should have <1000 provisions, got {provisions}"
+    );
+}
+
+#[test]
+fn subcommittee_without_enrich_gives_clear_error() {
+    // Use a temp dir with a bill that has no bill_meta.json
+    let dir = tempfile::tempdir().unwrap();
+    let src = std::path::Path::new("examples/hr9468");
+    let dst = dir.path().join("hr9468");
+    copy_dir(src, &dst);
+
+    // Remove bill_meta.json
+    let _ = std::fs::remove_file(dst.join("bill_meta.json"));
+
+    cmd()
+        .args([
+            "summary",
+            "--dir",
+            dir.path().to_str().unwrap(),
+            "--subcommittee",
+            "thud",
+        ])
+        .assert()
+        .failure()
+        .stderr(predicates::str::contains("enrich"));
+}
+
+#[test]
+fn subcommittee_invalid_slug_gives_error() {
+    cmd()
+        .args([
+            "summary",
+            "--dir",
+            "examples",
+            "--subcommittee",
+            "nonexistent",
+        ])
+        .assert()
+        .failure()
+        .stderr(predicates::str::contains("Unknown subcommittee"));
+}
+
+// ─── FY-Based Compare ────────────────────────────────────────────────────────
+
+#[test]
+fn compare_base_fy_current_fy() {
+    let output = cmd()
+        .args([
+            "compare",
+            "--base-fy",
+            "2024",
+            "--current-fy",
+            "2026",
+            "--subcommittee",
+            "thud",
+            "--dir",
+            "examples",
+        ])
+        .output()
+        .unwrap();
+
+    assert!(output.status.success());
+    let stdout = str::from_utf8(&output.stdout).unwrap();
+
+    // Should show meaningful comparison (43 changed, 12 unchanged)
+    assert!(
+        stdout.contains("changed"),
+        "Compare output should contain 'changed' status"
+    );
+    assert!(
+        stdout.contains("Comparing:"),
+        "Compare output should show base → current description"
+    );
+    // Should have matched some accounts (not all orphans)
+    assert!(
+        stdout.contains("unchanged"),
+        "Some accounts should be unchanged between FY2024 and FY2026 THUD"
+    );
+}
+
+#[test]
+fn compare_requires_base_and_current() {
+    // Neither --base/--current nor --base-fy/--current-fy
+    cmd()
+        .args(["compare", "--format", "json"])
+        .assert()
+        .failure();
+}
+
+// ─── Compare Case-Insensitive Matching ───────────────────────────────────────
+
+#[test]
+fn compare_case_insensitive_grants_in_aid() {
+    // Compare FY2024→FY2026 THUD and verify Grants-in-Aid for Airports matches
+    // (it has case variants: "Grants-In-Aid" vs "Grants-in-Aid" vs "Grants-in-aid")
+    let output = cmd()
+        .args([
+            "compare",
+            "--base-fy",
+            "2024",
+            "--current-fy",
+            "2026",
+            "--subcommittee",
+            "thud",
+            "--dir",
+            "examples",
+            "--format",
+            "json",
+        ])
+        .output()
+        .unwrap();
+
+    assert!(output.status.success());
+    let stdout = str::from_utf8(&output.stdout).unwrap();
+    let rows: Vec<serde_json::Value> = serde_json::from_str(stdout).unwrap();
+
+    // Find Grants-in-Aid for Airports — should be "changed" (matched), not orphaned
+    let grants = rows.iter().find(|r| {
+        r["account_name"]
+            .as_str()
+            .unwrap_or("")
+            .to_lowercase()
+            .contains("grants-in-aid for airports")
+    });
+
+    assert!(
+        grants.is_some(),
+        "Grants-in-Aid for Airports should appear in compare output"
+    );
+
+    let status = grants.unwrap()["status"].as_str().unwrap();
+    assert_eq!(
+        status, "changed",
+        "Grants-in-Aid should be 'changed' (matched across case variants), got '{status}'"
+    );
+}
+
+// ─── Budget Totals Unchanged After All Changes ───────────────────────────────
+
+#[test]
+fn budget_totals_unchanged_after_phase1() {
+    // Re-verify the critical regression guard after all Phase 1 changes
+    let output = cmd()
+        .args(["summary", "--dir", "examples", "--format", "json"])
+        .output()
+        .unwrap();
+
+    assert!(output.status.success());
+    let stdout = str::from_utf8(&output.stdout).unwrap();
+    let data: Vec<serde_json::Value> = serde_json::from_str(stdout).unwrap();
+
+    // The unfiltered summary should still show all 13 bills
+    assert!(
+        data.len() >= 13,
+        "Expected at least 13 bills, found {}",
+        data.len()
+    );
+
+    // The 3 original pinned totals must still match exactly
+    let pinned = vec![
+        ("H.R. 4366", 846_137_099_554_i64),
+        ("H.R. 5860", 16_000_000_000_i64),
+        ("H.R. 9468", 2_882_482_000_i64),
+    ];
+
+    for (bill, expected_ba) in &pinned {
+        let entry = data
+            .iter()
+            .find(|b| b["identifier"].as_str().unwrap() == *bill)
+            .unwrap_or_else(|| panic!("Missing bill: {bill}"));
+        let ba = entry["budget_authority"].as_i64().unwrap();
+        assert_eq!(ba, *expected_ba, "{bill} budget authority changed!");
+    }
+}
+
+// ─── Helpers ─────────────────────────────────────────────────────────────────
+
+/// Recursively copy a directory, skipping vectors.bin (large) and chunks/ (unnecessary).
+fn copy_dir(src: &std::path::Path, dst: &std::path::Path) {
+    std::fs::create_dir_all(dst).unwrap();
+    for entry in std::fs::read_dir(src).unwrap() {
+        let entry = entry.unwrap();
+        let ty = entry.file_type().unwrap();
+        let src_path = entry.path();
+        let dst_path = dst.join(entry.file_name());
+
+        let name = entry.file_name().to_string_lossy().to_string();
+
+        // Skip large/unnecessary files for test speed
+        if name == "vectors.bin" || name == "chunks" {
+            continue;
+        }
+
+        if ty.is_dir() {
+            copy_dir(&src_path, &dst_path);
+        } else {
+            std::fs::copy(&src_path, &dst_path).unwrap();
+        }
+    }
+}
