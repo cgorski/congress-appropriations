@@ -270,7 +270,7 @@ If any link in the chain breaks (input file changed but downstream wasn't regene
 
 ## Immutability Model
 
-Every file except the planned `links.json` (not yet implemented) is **write-once**:
+Every file except `links/links.json` is **write-once**. The links file is append-only (`link accept` adds entries, `link remove` deletes them):
 
 | File | Written When | Modified When |
 |------|-------------|---------------|
