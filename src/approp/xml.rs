@@ -44,6 +44,7 @@ pub fn parse_bill_xml(path: &Path, max_chunk_tokens: usize) -> Result<ParsedBill
         .with_context(|| format!("Failed to read XML file: {}", path.display()))?;
 
     parse_bill_xml_str(&raw_xml, max_chunk_tokens)
+        .with_context(|| format!("Failed to parse {}", path.display()))
 }
 
 /// Parse bill XML from a string.

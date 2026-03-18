@@ -126,13 +126,21 @@ pub fn find_bill_sources(dir: &Path) -> Vec<(String, PathBuf)> {
             }
         }
 
+        // Prefer enrolled versions: if any file stem ends with "enr",
+        // keep only enrolled files and discard other versions (ih, eh, eas, etc.)
+        // to avoid processing draft versions that may have different XML structures.
+        let has_enrolled = by_stem.keys().any(|s| s.ends_with("enr"));
+
         let label = parent
             .file_name()
             .map(|n| n.to_string_lossy().to_string())
             .unwrap_or_default();
 
-        for (_, path) in by_stem {
-            results.push((label.clone(), path));
+        for (stem, path) in &by_stem {
+            if has_enrolled && !stem.ends_with("enr") {
+                continue;
+            }
+            results.push((label.clone(), path.clone()));
         }
     }
 
@@ -290,5 +298,39 @@ mod tests {
         let sources = find_bill_sources(dir.path());
         assert_eq!(sources.len(), 1);
         assert!(sources[0].1.to_string_lossy().ends_with(".txt"));
+    }
+
+    #[test]
+    fn find_bill_sources_prefers_enrolled_over_other_versions() {
+        let dir = TempDir::new().unwrap();
+        let bill_dir = dir.path().join("7463");
+        fs::create_dir_all(&bill_dir).unwrap();
+        fs::write(bill_dir.join("BILLS-118hr7463enr.xml"), "<bill/>").unwrap();
+        fs::write(bill_dir.join("BILLS-118hr7463ih.xml"), "<bill/>").unwrap();
+        fs::write(bill_dir.join("BILLS-118hr7463eh.xml"), "<bill/>").unwrap();
+        fs::write(bill_dir.join("BILLS-118hr7463eas.xml"), "<bill/>").unwrap();
+
+        let sources = find_bill_sources(dir.path());
+        assert_eq!(sources.len(), 1, "Should return only the enrolled version");
+        assert!(
+            sources[0].1.to_string_lossy().contains("enr"),
+            "Should be the enrolled version"
+        );
+    }
+
+    #[test]
+    fn find_bill_sources_keeps_all_if_no_enrolled() {
+        let dir = TempDir::new().unwrap();
+        let bill_dir = dir.path().join("9999");
+        fs::create_dir_all(&bill_dir).unwrap();
+        fs::write(bill_dir.join("BILLS-118hr9999ih.xml"), "<bill/>").unwrap();
+        fs::write(bill_dir.join("BILLS-118hr9999eh.xml"), "<bill/>").unwrap();
+
+        let sources = find_bill_sources(dir.path());
+        assert_eq!(
+            sources.len(),
+            2,
+            "Should return all versions when no enrolled exists"
+        );
     }
 }

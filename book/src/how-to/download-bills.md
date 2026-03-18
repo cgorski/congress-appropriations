@@ -108,29 +108,31 @@ data/
 
 The file name follows the Government Publishing Office convention: `BILLS-{congress}{type}{number}enr.xml`.
 
-### Specify a different version
+### Only the enrolled version is downloaded
 
-By default, the tool downloads the enrolled version (the signed law). To download a different text version:
+By default, the tool downloads **only the enrolled version** (the final text signed into law). This is the version you need for extraction and analysis — one XML file per bill, no clutter.
+
+If you need other text versions (for example, to compare the House-passed version to the final enrolled version), you can request specific versions or all versions:
 
 ```bash
-# Introduced version
+# Download only the introduced version
 congress-approp download --congress 118 --type hr --number 4366 --output-dir data --version ih
 
-# Engrossed version (passed one chamber)
-congress-approp download --congress 118 --type hr --number 4366 --output-dir data --version eh
+# Download all available text versions (introduced, engrossed, enrolled, etc.)
+congress-approp download --congress 118 --type hr --number 4366 --output-dir data --all-versions
 ```
 
-Available version codes:
+Available version codes for `--version`:
 
 | Code | Version | Description |
 |------|---------|-------------|
-| `enr` | Enrolled | Final version, signed into law (default) |
+| `enr` | Enrolled | Final version, signed into law (**downloaded by default**) |
 | `ih` | Introduced in House | As originally introduced |
 | `is` | Introduced in Senate | As originally introduced |
 | `eh` | Engrossed in House | As passed by the House |
 | `es` | Engrossed in Senate | As passed by the Senate |
 
-> **Tip:** For extraction and analysis, always use the enrolled version — it's the authoritative text that became law. Other versions are useful for tracking how a bill changed during the legislative process.
+> **Tip:** For extraction and analysis, always use the enrolled version (the default). Non-enrolled versions may have different XML structures that the parser doesn't support. The `--all-versions` flag is for advanced workflows like tracking how a bill changed during the legislative process.
 
 ### Download multiple formats
 
@@ -262,7 +264,8 @@ Options:
     --output-dir <OUTPUT_DIR>  Output directory [default: ./data]
     --enacted-only             Only download enacted (signed into law) bills
     --format <FORMAT>          Download format: xml, pdf [comma-separated] [default: xml]
-    --version <VERSION>        Text version: enr, ih, eh, es, is [default: enr]
+    --version <VERSION>        Text version filter: enr, ih, eh, es, is
+    --all-versions             Download all text versions instead of just enrolled
     --dry-run                  Show what would be downloaded without fetching
 ```
 

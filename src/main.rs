@@ -58,6 +58,9 @@ enum Commands {
         /// Bill text version: enr (enrolled/final), ih (introduced), eh (engrossed)
         #[arg(long)]
         version: Option<String>,
+        /// Download all text versions (introduced, engrossed, enrolled, etc.) instead of just enrolled
+        #[arg(long)]
+        all_versions: bool,
         /// Show what would be downloaded without fetching
         #[arg(long)]
         dry_run: bool,
@@ -76,6 +79,9 @@ enum Commands {
         /// LLM model for extraction (tested with claude-opus-4-6; other models may vary in quality)
         #[arg(long, env = "APPROP_MODEL")]
         model: Option<String>,
+        /// Re-extract bills even if extraction.json already exists
+        #[arg(long)]
+        force: bool,
     },
     /// Search provisions across all extracted bills
     Search {
@@ -260,6 +266,7 @@ async fn main() -> Result<()> {
             enacted_only,
             format,
             version,
+            all_versions,
             dry_run,
         } => {
             handle_download(DownloadOptions {
@@ -270,6 +277,7 @@ async fn main() -> Result<()> {
                 enacted_only,
                 format: &format,
                 version_filter: version.as_deref(),
+                all_versions,
                 dry_run,
             })
             .await
@@ -279,7 +287,8 @@ async fn main() -> Result<()> {
             dry_run,
             parallel,
             model,
-        } => handle_extract(&dir, dry_run, parallel, model).await,
+            force,
+        } => handle_extract(&dir, dry_run, parallel, model, force).await,
         Commands::Search {
             dir,
             agency,
@@ -558,6 +567,7 @@ async fn handle_extract(
     dry_run: bool,
     max_parallel: usize,
     model: Option<String>,
+    force: bool,
 ) -> Result<()> {
     use congress_appropriations::api::anthropic::AnthropicClient;
     use congress_appropriations::approp::extraction::ExtractionPipeline;
@@ -615,6 +625,19 @@ async fn handle_extract(
         return Ok(());
     }
 
+    // Check if any bills actually need extraction before requiring API key
+    let needs_extraction = bill_sources.iter().any(|(_, source_path)| {
+        let bill_dir = source_path.parent().unwrap_or(std::path::Path::new("."));
+        let extraction_path = bill_dir.join("extraction.json");
+        !extraction_path.exists() || force
+    });
+
+    if !needs_extraction {
+        tracing::info!("");
+        tracing::info!("All bills already extracted. Use --force to re-extract.");
+        return Ok(());
+    }
+
     let anthropic = AnthropicClient::from_env()
         .context("Set ANTHROPIC_API_KEY — sign up at https://console.anthropic.com/")?;
 
@@ -637,6 +660,16 @@ async fn handle_extract(
         tracing::info!("═══════════════════════════════════════════════════════");
 
         let bill_dir = source_path.parent().unwrap_or(std::path::Path::new("."));
+
+        // Skip already-extracted bills unless --force is set
+        let extraction_path = bill_dir.join("extraction.json");
+        if extraction_path.exists() && !force {
+            tracing::info!(
+                "  Skipping {label}: extraction.json already exists (use --force to re-extract)"
+            );
+            continue;
+        }
+
         let bill_start = Instant::now();
 
         // Phase 1: Parse source and build text + chunks
@@ -645,10 +678,20 @@ async fn handle_extract(
 
         let (bill_text, preamble, chunks) = if is_xml {
             tracing::info!("  Phase 1: Parsing XML and building chunks...");
-            let parsed = xml::parse_bill_xml(
+            let parsed = match xml::parse_bill_xml(
                 source_path,
                 congress_appropriations::approp::extraction::DEFAULT_MAX_CHUNK_TOKENS,
-            )?;
+            ) {
+                Ok(p) => p,
+                Err(e) => {
+                    tracing::warn!(
+                        "  ⚠ Skipping {}: {} (not a parseable bill XML?)",
+                        source_path.display(),
+                        e
+                    );
+                    continue;
+                }
+            };
             tracing::info!(
                 "    {} chars, {} chunks, {} appropriations elements",
                 parsed.full_text.len(),
@@ -2510,6 +2553,7 @@ struct DownloadOptions<'a> {
     enacted_only: bool,
     format: &'a str,
     version_filter: Option<&'a str>,
+    all_versions: bool,
     dry_run: bool,
 }
 
@@ -2521,9 +2565,16 @@ async fn handle_download(opts: DownloadOptions<'_>) -> Result<()> {
     let c = Congress::new(opts.congress).map_err(|e| anyhow::anyhow!("{e}"))?;
 
     let formats: Vec<&str> = opts.format.split(',').map(|s| s.trim()).collect();
-    let versions: Option<Vec<&str>> = opts
-        .version_filter
-        .map(|v| v.split(',').map(|s| s.trim()).collect());
+    let versions: Option<Vec<&str>> = if let Some(v) = opts.version_filter {
+        // Explicit --version flag: use exactly what the user specified
+        Some(v.split(',').map(|s| s.trim()).collect())
+    } else if opts.all_versions {
+        // --all-versions: no filter, download everything
+        None
+    } else {
+        // Default: enrolled only
+        Some(vec!["Enrolled"])
+    };
     let output_dir = opts.output_dir;
     let dry_run = opts.dry_run;
     let enacted_only = opts.enacted_only;

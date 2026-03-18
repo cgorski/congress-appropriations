@@ -66,7 +66,28 @@ Point `--dir` at a parent directory to extract all bills found underneath:
 congress-approp extract --dir data
 ```
 
-The tool walks recursively, finds every directory containing a `BILLS-*.xml` file without an existing `extraction.json`, and extracts each one. Bills that already have extraction output are skipped.
+The tool walks recursively, finds every directory containing a `BILLS-*.xml` file, and extracts each one. **Bills that already have `extraction.json` are automatically skipped** — you can safely re-run the same command after a partial failure and it picks up where it left off. To force re-extraction of already-processed bills, use `--force`:
+
+```bash
+# Re-extract everything, even bills that already have extraction.json
+congress-approp extract --dir data --force
+```
+
+### Enrolled versions only
+
+When a bill directory contains multiple XML versions (enrolled, introduced, engrossed, etc.), the extract command **automatically uses only the enrolled version** (`*enr.xml`). Non-enrolled versions are ignored. If no enrolled version exists, all available versions are processed.
+
+This means you don't need to worry about cleaning up extra XML files — the tool picks the right one automatically.
+
+### Resilient processing
+
+If an XML file fails to parse (for example, a non-enrolled version with a different XML structure), the tool **logs a warning and continues** to the next bill instead of aborting the entire run:
+
+```text
+⚠ Skipping data/118/hr/2872/BILLS-118hr2872eas.xml: Failed to parse ... (not a parseable bill XML?)
+```
+
+This means one bad file won't kill a multi-bill extraction run.
 
 ### Extract all downloaded bills with parallelism
 
@@ -226,12 +247,14 @@ For a detailed verification procedure, see [Verify Extraction Accuracy](./verify
 
 ## Re-Extracting a Bill
 
-To re-extract (for example, with a newer model or after prompt improvements):
+To re-extract (for example, with a newer model or after prompt improvements), use the `--force` flag:
 
 ```bash
-# Simply run extract again — it overwrites existing files
-congress-approp extract --dir data/118/hr/9468
+# Re-extract even though extraction.json already exists
+congress-approp extract --dir data/118/hr/9468 --force
 ```
+
+Without `--force`, the extract command skips bills that already have `extraction.json`. This makes it safe to re-run `extract --dir data` after a partial failure — only unprocessed bills will be extracted.
 
 After re-extraction:
 - `extraction.json` and `verification.json` are overwritten
@@ -273,6 +296,14 @@ If a single title or division exceeds the maximum chunk token limit (~3,000 toke
 If extraction is interrupted (network error, rate limit, crash), you'll need to re-run it from the beginning. There is no checkpoint/resume mechanism — the tool extracts all chunks and merges them atomically.
 
 ## Troubleshooting
+
+### "All bills already extracted"
+
+This means every bill directory already has `extraction.json`. Use `--force` to re-extract:
+
+```bash
+congress-approp extract --dir data/118/hr/9468 --force
+```
 
 ### "No XML files found"
 
@@ -321,11 +352,11 @@ congress-approp extract --dir data/118/hr/9468
 # Extract with higher parallelism
 congress-approp extract --dir data/118/hr/4366 --parallel 8
 
-# Extract with a different model
-congress-approp extract --dir data/118/hr/9468 --model claude-sonnet-4-20250514
-
-# Extract all bills under a directory
+# Extract all bills under a directory (skips already-extracted bills)
 congress-approp extract --dir data --parallel 6
+
+# Re-extract a bill that was already extracted
+congress-approp extract --dir data/118/hr/9468 --force
 
 # Verify after extraction
 congress-approp audit --dir data/118/hr/9468
@@ -341,6 +372,7 @@ Options:
     --dry-run              Show what would be extracted without calling LLM
     --parallel <PARALLEL>  Parallel LLM calls [default: 5]
     --model <MODEL>        LLM model override [env: APPROP_MODEL=]
+    --force                Re-extract bills even if extraction.json already exists
 ```
 
 ## Next Steps

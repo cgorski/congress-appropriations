@@ -4,6 +4,20 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [3.1.0] — 2026-03-18
+
+### Added
+- **`--all-versions` flag on `download`** — explicitly download all text versions (introduced, engrossed, enrolled, etc.) when needed for conference tracking or bill comparison workflows.
+- **`--force` flag on `extract`** — re-extract bills even if `extraction.json` already exists. Without this flag, already-extracted bills are automatically skipped, making it safe to re-run after partial failures.
+
+### Changed
+- **Download defaults to enrolled only.** The `download` command now fetches only the enrolled (signed into law) XML by default, instead of every available text version. This prevents downloading 4–6 unnecessary files per bill and avoids wasted API calls during extraction. Use `--version` to request a specific version or `--all-versions` for all versions.
+- **Extract prefers enrolled XML.** When a bill directory contains multiple `BILLS-*.xml` files, the `extract` command automatically uses only the enrolled version (`*enr.xml`) and ignores other versions. Falls back to all files if no enrolled version exists.
+- **Extract skips already-extracted bills.** If `extraction.json` already exists in a bill directory, `extract` skips it with an informational message. Use `--force` to override. The `ANTHROPIC_API_KEY` is not required when all bills are already extracted.
+- **Extract is resilient to parse failures.** If an XML file fails to parse (e.g., a non-enrolled version with an unexpected structure), the tool logs a warning and continues to the next bill instead of aborting the entire run.
+- **Better error messages on XML parse failure.** Parse errors now include the filename that failed, making it clear which file caused the issue.
+- Version bumped to 3.1.0.
+
 ## [3.0.0] — 2026-03-17
 
 ### Added

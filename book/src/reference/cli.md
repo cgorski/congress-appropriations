@@ -326,7 +326,8 @@ congress-approp download [OPTIONS] --congress <CONGRESS>
 | `--output-dir` | path | `./data` | Output directory. Intermediate directories are created as needed. |
 | `--enacted-only` | flag | — | Only download bills signed into law |
 | `--format` | string | `xml` | Download format: `xml` (for extraction), `pdf` (for reading). Comma-separated for multiple. |
-| `--version` | string | `enr` | Text version: `enr` (enrolled/final), `ih` (introduced), `eh` (engrossed) |
+| `--version` | string | — | Text version filter: `enr` (enrolled/final), `ih` (introduced), `eh` (engrossed). When omitted, only enrolled is downloaded. |
+| `--all-versions` | flag | — | Download all text versions (introduced, engrossed, enrolled, etc.) instead of just enrolled |
 | `--dry-run` | flag | — | Show what would be downloaded without fetching |
 
 **Requires:** `CONGRESS_API_KEY` environment variable.
@@ -334,10 +335,10 @@ congress-approp download [OPTIONS] --congress <CONGRESS>
 ### Examples
 
 ```bash
-# Download a specific bill
+# Download a specific bill (enrolled version only, by default)
 congress-approp download --congress 118 --type hr --number 4366 --output-dir data
 
-# Download all enacted bills for a congress
+# Download all enacted bills for a congress (enrolled versions only)
 congress-approp download --congress 118 --enacted-only --output-dir data
 
 # Preview without downloading
@@ -345,6 +346,9 @@ congress-approp download --congress 118 --enacted-only --output-dir data --dry-r
 
 # Download both XML and PDF
 congress-approp download --congress 118 --type hr --number 4366 --output-dir data --format xml,pdf
+
+# Download all text versions (introduced, engrossed, enrolled, etc.)
+congress-approp download --congress 118 --type hr --number 4366 --output-dir data --all-versions
 ```
 
 ---
@@ -363,8 +367,14 @@ congress-approp extract [OPTIONS]
 | `--dry-run` | flag | — | Show chunk count and estimated tokens without calling the LLM |
 | `--parallel` | integer | `5` | Number of concurrent LLM API calls. Higher is faster but uses more API quota. |
 | `--model` | string | `claude-opus-4-6` | LLM model for extraction. Can also be set via `APPROP_MODEL` env var. Flag takes precedence. |
+| `--force` | flag | — | Re-extract bills even if `extraction.json` already exists. Without this flag, already-extracted bills are skipped. |
 
-**Requires:** `ANTHROPIC_API_KEY` environment variable.
+**Requires:** `ANTHROPIC_API_KEY` environment variable (not required if all bills are already extracted).
+
+**Behavior notes:**
+- **Skips already-extracted bills** by default. If every bill in `--dir` already has `extraction.json`, the command exits without requiring an API key. Use `--force` to re-extract.
+- **Prefers enrolled XML.** When a directory has multiple `BILLS-*.xml` files, only the enrolled version (`*enr.xml`) is processed. Non-enrolled versions are ignored.
+- **Resilient to parse failures.** If an XML file fails to parse (e.g., a non-enrolled version with a different structure), the tool logs a warning and continues to the next bill instead of aborting.
 
 ### Examples
 
@@ -378,8 +388,11 @@ congress-approp extract --dir data/118/hr/9468
 # Extract with higher parallelism for large bills
 congress-approp extract --dir data/118/hr/4366 --parallel 8
 
-# Extract all bills under a directory
+# Extract all bills under a directory (skips already-extracted bills)
 congress-approp extract --dir data --parallel 6
+
+# Re-extract a bill that was already processed
+congress-approp extract --dir data/118/hr/9468 --force
 
 # Use a different model
 congress-approp extract --dir data/118/hr/9468 --model claude-sonnet-4-20250514
