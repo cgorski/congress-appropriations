@@ -226,11 +226,11 @@ All API clients use `rustls-tls` — no OpenSSL dependency.
 
 | Operation | Time | Notes |
 |-----------|------|-------|
-| Load 3 bills (JSON parsing) | ~10ms | |
-| Load embeddings (3 bills, binary) | ~2ms | Memory read |
-| SHA-256 hash all files (3 bills) | ~2ms | |
-| Cosine search (2,500 provisions) | <0.1ms | Dot products |
-| **Total cold-start query** | **~15ms** | Load + hash + search |
+| Load 13 bills (JSON parsing) | ~40ms | |
+| Load embeddings (13 bills, binary) | ~8ms | Memory read |
+| SHA-256 hash all files (13 bills) | ~8ms | |
+| Cosine search (8,500 provisions) | <0.5ms | Dot products |
+| **Total cold-start query** | **~50ms** | Load + hash + search |
 | Embed query text (OpenAI API) | ~100ms | Network round-trip |
 | Full extraction (omnibus, 75 chunks) | ~60 min | Parallel LLM calls |
 | Generate embeddings (2,500 provisions) | ~30 sec | Batch API calls |

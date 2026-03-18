@@ -1,6 +1,6 @@
 # The Extraction Pipeline
 
-A bill flows through five stages on its way from raw XML on Congress.gov to queryable, verified, searchable data on your machine. Each stage produces immutable files. Once a stage completes for a bill, its output is never modified — unless you deliberately re-extract or upgrade.
+A bill flows through six stages on its way from raw XML on Congress.gov to queryable, verified, searchable data on your machine. Each stage produces immutable files. Once a stage completes for a bill, its output is never modified — unless you deliberately re-extract or upgrade.
 
 This chapter explains each stage in detail: what it does, what it produces, and why it's designed the way it is.
 
@@ -35,7 +35,7 @@ This chapter explains each stage in detail: what it does, what it produces, and 
                     └──────────┘
 ```
 
-**Only stages 3 (Extract) and 5 (Embed) call external APIs.** Everything else — downloading, parsing, enrichment, verification, querying — runs locally and deterministically.
+**Only stages 3 (Extract) and 5 (Embed) call external APIs.** Everything else — downloading, parsing, enrichment, verification, linking, querying — runs locally and deterministically.
 
 ## Stage 1: Download
 
@@ -53,28 +53,6 @@ data/118/hr/9468/
 ```
 
 **Requires:** `CONGRESS_API_KEY` (free from [api.congress.gov](https://api.congress.gov/sign-up/))
-
-## Stage 2.5: Enrich (Optional)
-
-The `enrich` command generates bill-level metadata by parsing the source XML structure and analyzing the already-extracted provisions. It bridges the gap between raw extraction and informed querying — adding structural knowledge that the LLM extraction doesn't capture.
-
-**Why this stage exists:** The LLM extracts provisions faithfully — every dollar amount, every account name, every section reference. But it doesn't know that Division A in H.R. 7148 covers Defense while Division A in H.R. 6938 covers CJS. It doesn't know that "shall become available on October 1, 2024" in a FY2024 bill means the money is for FY2025 (an advance appropriation). It doesn't know that "Grants-In-Aid for Airports" and "Grants-in-Aid for Airports" are the same account. The `enrich` command adds this structural and normalization knowledge.
-
-**What it does:**
-
-1. **Parses division titles from XML.** The enrolled bill XML contains `<division><enum>A</enum><header>Department of Defense Appropriations Act, 2026</header>` elements. The enrich command extracts each division's letter and title, then classifies the title to a jurisdiction using case-insensitive pattern matching against known subcommittee names.
-
-2. **Classifies advance vs current-year.** For each budget authority provision, the command checks the `availability` field and `raw_text` for "October 1, YYYY" or "first quarter of fiscal year YYYY" patterns. It compares the referenced year to the bill's fiscal year: if the money becomes available after the bill's FY ends, it's advance.
-
-3. **Normalizes account names.** Each account name is lowercased and stripped of hierarchical em-dash prefixes (e.g., "Department of VA—Compensation and Pensions" → "compensation and pensions") for cross-bill matching.
-
-4. **Classifies bill nature.** The provision type distribution and subcommittee count determine whether the bill is an omnibus (5+ subcommittees), minibus (2-4), full-year CR with appropriations (CR baseline + hundreds of regular appropriations), or other type.
-
-**Input:** `extraction.json` + `BILLS-*.xml`
-**Output:** `bill_meta.json`
-**Requires:** Nothing — no API keys, no network access.
-
-This stage is optional. All commands from v3.x continue to work without it. It is required for `--subcommittee` filtering, `--show-advance` display, and enriched bill classification display. See [Enrich Bills with Metadata](../how-to/enrich-data.md) for a complete guide.
 
 **No transformation is applied.** The XML is saved exactly as received from Congress.gov.
 
@@ -124,7 +102,7 @@ This is **semantic chunking**, not arbitrary token-limit splitting. Each chunk c
 
 ## Stage 3: Extract
 
-This is the core stage — the only one that uses an LLM. Each chunk of bill text is sent to Claude with a detailed system prompt (~300 lines) that defines every provision type, shows real JSON examples, constrains the output format, and includes specific instructions for edge cases.
+This is the core stage — the only one that uses an LLM. Each chunk of bill text is sent to Claude with a detailed system prompt (~300 lines) that defines every provision type, shows real JSON examples, constrains the output format, and includes specific instructions for edge cases. The LLM reads the actual legislative language and produces structured JSON — there is no intermediate regex extraction step.
 
 ### The system prompt
 
@@ -202,6 +180,28 @@ data/118/hr/9468/
 
 **Requires:** `ANTHROPIC_API_KEY`
 
+## Stage 3.5: Enrich (Optional)
+
+The `enrich` command generates bill-level metadata by parsing the source XML structure and analyzing the already-extracted provisions. It bridges the gap between raw extraction and informed querying — adding structural knowledge that the LLM extraction doesn't capture.
+
+**Why this stage exists:** The LLM extracts provisions faithfully — every dollar amount, every account name, every section reference. But it doesn't know that Division A in H.R. 7148 covers Defense while Division A in H.R. 6938 covers CJS. It doesn't know that "shall become available on October 1, 2024" in a FY2024 bill means the money is for FY2025 (an advance appropriation). It doesn't know that "Grants-In-Aid for Airports" and "Grants-in-Aid for Airports" are the same account. The `enrich` command adds this structural and normalization knowledge.
+
+**What it does:**
+
+1. **Parses division titles from XML.** The enrolled bill XML contains `<division><enum>A</enum><header>Department of Defense Appropriations Act, 2026</header>` elements. The enrich command extracts each division's letter and title, then classifies the title to a jurisdiction using case-insensitive pattern matching against known subcommittee names.
+
+2. **Classifies advance vs current-year.** For each budget authority provision, the command checks the `availability` field and `raw_text` for "October 1, YYYY" or "first quarter of fiscal year YYYY" patterns. It compares the referenced year to the bill's fiscal year: if the money becomes available after the bill's FY ends, it's advance.
+
+3. **Normalizes account names.** Each account name is lowercased and stripped of hierarchical em-dash prefixes (e.g., "Department of VA—Compensation and Pensions" → "compensation and pensions") for cross-bill matching.
+
+4. **Classifies bill nature.** The provision type distribution and subcommittee count determine whether the bill is an omnibus (5+ subcommittees), minibus (2-4), full-year CR with appropriations (CR baseline + hundreds of regular appropriations), or other type.
+
+**Input:** `extraction.json` + `BILLS-*.xml`
+**Output:** `bill_meta.json`
+**Requires:** Nothing — no API keys, no network access.
+
+This stage is optional. All commands from v3.x continue to work without it. It is required for `--subcommittee` filtering, `--show-advance` display, and enriched bill classification display. See [Enrich Bills with Metadata](../how-to/enrich-data.md) for a complete guide.
+
 ## Stage 4: Embed
 
 The `embed` command generates semantic embedding vectors for every provision using OpenAI's `text-embedding-3-large` model. This is the foundation for meaning-based search and cross-bill matching.
@@ -269,14 +269,14 @@ All of this is fast:
 
 | Operation | Time | Notes |
 |-----------|------|-------|
-| Load 3 bills (extraction.json) | ~10ms | JSON parsing |
-| Load embeddings (3 bills, binary) | ~2ms | Memory read |
-| Hash all files (3 bills) | ~2ms | SHA-256 |
-| Cosine search (2,500 provisions) | <0.1ms | Dot products |
-| **Total cold-start query** | **~15ms** | Load + hash + search |
+| Load 13 bills (extraction.json) | ~40ms | JSON parsing |
+| Load embeddings (13 bills, binary) | ~8ms | Memory read |
+| Hash all files (13 bills) | ~8ms | SHA-256 |
+| Cosine search (8,500 provisions) | <0.5ms | Dot products |
+| **Total cold-start query** | **~50ms** | Load + hash + search |
 | Embed query text (OpenAI API) | ~100ms | Network round-trip |
 
-At 20 congresses (~60 bills, ~15,000 provisions): cold start ~80ms, search <1ms. The system scales linearly and stays interactive at any realistic data volume.
+At 20 congresses (~60 bills, ~15,000 provisions): cold start ~100ms, search <1ms. The system scales linearly and stays interactive at any realistic data volume.
 
 **No API calls at query time** unless you use `--semantic` (one call to embed the query). The `--similar` command uses only stored vectors — completely offline.
 
@@ -310,7 +310,7 @@ If you re-download the XML (producing a new file), `metadata.json` still referen
 ⚠ H.R. 4366: embeddings are stale (extraction.json has changed)
 ```
 
-Warnings are advisory — they never block execution. Hashing all files for 3 bills takes ~2ms, so there's no performance reason to skip checks.
+Warnings are advisory — they never block execution. Hashing all files for 13 bills takes ~8ms, so there's no performance reason to skip checks.
 
 See [Data Integrity and the Hash Chain](./hash-chain.md) for more details.
 

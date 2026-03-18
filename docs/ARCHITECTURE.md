@@ -50,7 +50,7 @@ A bill flows through six stages. Each stage produces immutable files (except `li
                     └──────────┘
 ```
 
-**Only stages 3 (Extract) and 5 (Embed) call external APIs.** Everything else — downloading, parsing, enrichment, verification, linking, querying — runs locally and deterministically.
+**Only stages 3 (Extract) and 4 (Embed) call external APIs.** Everything else — downloading, parsing, enrichment, verification, linking, querying — runs locally and deterministically.
 
 ### Stage 1: Download
 
@@ -86,20 +86,6 @@ Chunks are extracted in parallel (default 5 concurrent API calls). Each chunk pr
 
 The `chunks/` directory contains per-chunk LLM artifacts: the model's thinking traces, raw responses, parsed JSON, and conversion reports. These are permanent provenance records kept locally (gitignored) for analysis of how the LLM interpreted each section.
 
-### Stage 4: Embed
-
-The `embed` command generates semantic embedding vectors for every provision using OpenAI's `text-embedding-3-large` model. Each provision is represented by concatenating its meaningful fields:
-
-```
-Account: Child Nutrition Programs | Agency: Department of Agriculture | Text: For necessary expenses...
-```
-
-This combined text is embedded into a 1024-dimensional vector that captures the provision's meaning. Provisions about similar topics (even with completely different wording) will have vectors pointing in similar directions — enabling semantic search.
-
-**Input:** `extraction.json`
-**Output:** `embeddings.json` (metadata) + `vectors.bin` (binary float32 vectors)
-**Requires:** `OPENAI_API_KEY`
-
 ### Stage 3.5: Enrich (Optional)
 
 The `enrich` command generates bill-level metadata by parsing the source XML structure and analyzing the already-extracted provisions. It runs entirely offline — no API calls needed.
@@ -115,17 +101,27 @@ The `enrich` command generates bill-level metadata by parsing the source XML str
 **Output:** `bill_meta.json`
 **Requires:** Nothing — no API keys, no network access.
 
-### Stage 5: Embed
+### Stage 4: Embed
 
-*[Unchanged from above]*
+The `embed` command generates semantic embedding vectors for every provision using OpenAI's `text-embedding-3-large` model. Each provision is represented by concatenating its meaningful fields:
 
-### Stage 6: Query
+```
+Account: Child Nutrition Programs | Agency: Department of Agriculture | Text: For necessary expenses...
+```
+
+This combined text is embedded into a 3,072-dimensional vector that captures the provision's meaning. Provisions about similar topics (even with completely different wording) will have vectors pointing in similar directions — enabling semantic search.
+
+**Input:** `extraction.json`
+**Output:** `embeddings.json` (metadata) + `vectors.bin` (binary float32 vectors)
+**Requires:** `OPENAI_API_KEY`
+
+### Stage 5: Query
 
 All query operations (`search`, `summary`, `compare`, `audit`, `relate`) run locally against the JSON and binary files on disk. No API calls at query time — except `--semantic` search, which makes one small API call to embed the query text.
 
 The `--fy` and `--subcommittee` flags on `summary`, `search`, and `compare` use `bill_meta.json` for fiscal year filtering and jurisdiction scoping. The `--show-advance` flag on `summary` uses `bill_meta.json` to separate current-year from advance budget authority.
 
-### Stage 7: Link (Optional)
+### Stage 6: Link (Optional)
 
 The `link suggest` command computes cross-bill provision relationships using embedding similarity and account name matching. Candidates are classified by confidence tier (verified, high, uncertain) and persisted via `link accept`.
 
@@ -208,7 +204,7 @@ The `staleness.rs` module checks this chain on commands that use embeddings. If 
 ⚠ H.R. 4366: embeddings are stale (extraction.json has changed)
 ```
 
-Hashing all files for 3 bills takes ~2ms. At 60 bills, ~12ms. There is no performance reason to skip or cache hash checks.
+Hashing all files for 13 bills takes ~8ms. At 60 bills, ~40ms. There is no performance reason to skip or cache hash checks.
 
 ---
 
@@ -221,7 +217,7 @@ Embeddings use a split format: JSON metadata + binary vectors.
 {
   "schema_version": "1.0",
   "model": "text-embedding-3-large",
-  "dimensions": 1024,
+  "dimensions": 3072,
   "count": 2364,
   "extraction_sha256": "ae912e3427b8...",
   "vectors_file": "vectors.bin",
@@ -232,7 +228,7 @@ Embeddings use a split format: JSON metadata + binary vectors.
 **`vectors.bin`** (count × dimensions × 4 bytes, binary):
 Raw little-endian float32 array. No header. Dimensions and count come from the JSON metadata. Loaded in Rust via `std::fs::read()` + byte-to-float conversion.
 
-**Why binary for vectors:** At 1024 dimensions × 2,364 provisions, the binary file is 9.7 MB and loads in <2ms. The same data as JSON float arrays would be ~57 MB and take ~175ms to parse in Rust. Since this is a read-heavy system (load once per CLI invocation, query many times), the binary format keeps startup instant.
+**Why binary for vectors:** At 3,072 dimensions × 2,364 provisions, the binary file is 29 MB and loads in <3ms. The same data as JSON float arrays would be ~170 MB and take ~500ms to parse in Rust. Since this is a read-heavy system (load once per CLI invocation, query many times), the binary format keeps startup instant.
 
 **Why JSON for metadata:** The metadata is tiny and must be human-inspectable for debugging and provenance. `cat embeddings.json` tells you what model was used, how many provisions are embedded, and what extraction they correspond to.
 
@@ -244,11 +240,11 @@ Semantic search lets users find provisions by meaning rather than keywords. The 
 
 ### How it works
 
-1. **At embed time:** Each provision's text is sent to OpenAI's `text-embedding-3-large` model, which returns a 1024-dimensional vector representing its meaning. These vectors are stored in `vectors.bin`.
+1. **At embed time:** Each provision's text is sent to OpenAI's `text-embedding-3-large` model, which returns a 3,072-dimensional vector representing its meaning. These vectors are stored in `vectors.bin`.
 
-2. **At query time:** The user's search query is embedded using the same model (single API call, ~100ms). The query vector is compared to every provision vector using cosine similarity (dot product of normalized vectors). Results are ranked by similarity and filtered by any hard constraints (--type, --division, --min-dollars, etc.).
+2. **At query time:** The user's search query is embedded using the same model (single API call, ~100ms). The query vector is compared to every provision vector using cosine similarity (dot product of normalized vectors). Results are ranked by similarity and filtered by any hard constraints (--type, --division, --min-dollars, --fy, --subcommittee, etc.).
 
-3. **Performance:** Cosine similarity over 2,500 vectors takes <0.1ms. The bottleneck is loading the binary file (~2ms) and the single API call to embed the query (~100ms). Total: ~100ms per search.
+3. **Performance:** Cosine similarity over 8,500 vectors takes <0.5ms. The bottleneck is loading the binary files (~8ms for 13 bills) and the single API call to embed the query (~100ms). Total: ~110ms per search.
 
 ### Similarity scores
 

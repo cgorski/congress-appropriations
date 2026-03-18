@@ -223,11 +223,11 @@ similarity = vectors[0] @ vectors[1]  # dot product = cosine for unit vectors
 
 | Operation | Time | Notes |
 |-----------|------|-------|
-| Load vectors from disk (3 bills) | ~2ms | Binary file I/O |
-| Cosine similarity (one query vs. 2,500 provisions) | <0.1ms | 2,500 dot products of 3,072 dimensions |
+| Load vectors from disk (13 bills) | ~8ms | Binary file I/O |
+| Cosine similarity (one query vs. 8,500 provisions) | <0.5ms | 8,500 dot products of 3,072 dimensions |
 | Embed query text (OpenAI API) | ~100ms | Network round-trip |
-| **Total `--semantic` search** | **~102ms** | Dominated by the API call |
-| **Total `--similar` search** | **~2ms** | No API call needed |
+| **Total `--semantic` search** | **~110ms** | Dominated by the API call |
+| **Total `--similar` search** | **~8ms** | No API call needed |
 
 At 20 congresses (~60 bills, ~15,000 provisions), cosine computation would still be under 1ms. The bottleneck is always the network call for `--semantic`, which is inherently ~100ms regardless of dataset size.
 
