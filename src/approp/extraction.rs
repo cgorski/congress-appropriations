@@ -198,6 +198,7 @@ impl ExtractionPipeline {
     /// Splits the bill into chunks (by division/title), extracts each chunk
     /// in parallel with bounded concurrency, then merges all results.
     /// Progress events are sent through a channel for live logging.
+    #[allow(clippy::too_many_arguments)]
     pub async fn extract_bill_parallel(
         &mut self,
         bill_id: &str,
@@ -206,6 +207,7 @@ impl ExtractionPipeline {
         chunks: &[ExtractionChunk],
         max_parallel: usize,
         bill_dir: &Path,
+        continue_on_error: bool,
     ) -> Result<(BillExtraction, ConversionReport)> {
         let total_chunks = chunks.len();
 
@@ -451,6 +453,15 @@ impl ExtractionPipeline {
 
         if first_bill_info.is_none() {
             anyhow::bail!("All chunks failed to extract for {bill_id}");
+        }
+
+        if !chunk_labels_failed.is_empty() && !continue_on_error {
+            anyhow::bail!(
+                "{} of {} chunks failed for {bill_id}. Aborting to prevent partial extraction. \
+                 Use --continue-on-error to save partial results.",
+                chunk_labels_failed.len(),
+                total_chunks
+            );
         }
 
         self.tokens.merge(&merged_tokens);

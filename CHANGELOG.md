@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [3.2.0] — 2026-03-18
+
+### Added
+- **`--continue-on-error` flag on `extract`** — opt-in to saving partial results when some chunks fail during extraction. Without this flag, the tool now aborts a bill's extraction if any chunk permanently fails (after all retries), and does not write `extraction.json`. This prevents garbage partial extractions from being saved to disk and mistaken for valid data.
+
+### Changed
+- **Extract aborts on chunk failure by default.** Previously, if some chunks failed during extraction, the tool would warn and save a partial `extraction.json` anyway — potentially with most of the bill missing. Now it aborts the bill (without writing files) and continues to the next bill. The error message tells you how many chunks failed and suggests `--continue-on-error` if you want the old behavior. This prevents the scenario where a rate-limited extraction produces a 21-provision file for a 2,300-provision omnibus bill.
+- **Per-bill error handling in multi-bill runs.** When extracting multiple bills, a failure on one bill no longer aborts the entire run. The failed bill is skipped (no files written), and extraction continues with the remaining bills.
+- Version bumped to 3.2.0.
+
 ## [3.1.0] — 2026-03-18
 
 ### Added

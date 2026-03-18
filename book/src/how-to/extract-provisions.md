@@ -89,6 +89,26 @@ If an XML file fails to parse (for example, a non-enrolled version with a differ
 
 This means one bad file won't kill a multi-bill extraction run.
 
+### Chunk failure handling
+
+Large bills are split into many chunks for parallel extraction. If any chunk permanently fails after all retries (typically due to API rate limiting or empty responses), the tool **aborts that bill by default** — it does not write `extraction.json`. This prevents garbage partial extractions from being saved and mistaken for valid data.
+
+```text
+✗ 7148: 113 of 115 chunks failed for H.R. 7148. Aborting to prevent partial extraction.
+  Use --continue-on-error to save partial results.
+  No extraction.json written for this bill.
+```
+
+The tool then continues to the next bill in the queue. Since no `extraction.json` was written for the failed bill, re-running the same command will automatically retry it.
+
+If you explicitly want partial results (for example, a bill where 59 of 92 chunks succeeded and you want the 1,600+ provisions that were extracted), use `--continue-on-error`:
+
+```bash
+congress-approp extract --dir data/118/hr/2882 --parallel 6 --continue-on-error
+```
+
+This saves the partial extraction.json with whatever chunks succeeded. The audit command will show lower coverage for these partial extractions.
+
 ### Extract all downloaded bills with parallelism
 
 ```bash
@@ -254,7 +274,7 @@ To re-extract (for example, with a newer model or after prompt improvements), us
 congress-approp extract --dir data/118/hr/9468 --force
 ```
 
-Without `--force`, the extract command skips bills that already have `extraction.json`. This makes it safe to re-run `extract --dir data` after a partial failure — only unprocessed bills will be extracted.
+Without `--force`, the extract command skips bills that already have `extraction.json`. This makes it safe to re-run `extract --dir data` after failures — bills that succeeded are skipped, and bills that failed (no `extraction.json` written) are retried automatically.
 
 After re-extraction:
 - `extraction.json` and `verification.json` are overwritten
@@ -296,6 +316,22 @@ If a single title or division exceeds the maximum chunk token limit (~3,000 toke
 If extraction is interrupted (network error, rate limit, crash), you'll need to re-run it from the beginning. There is no checkpoint/resume mechanism — the tool extracts all chunks and merges them atomically.
 
 ## Troubleshooting
+
+### "N of M chunks failed ... Aborting"
+
+This means some LLM API calls failed after all retries — typically due to rate limiting on large bills. The tool did not write `extraction.json` to prevent saving garbage data.
+
+**Fix:** Wait a few minutes for API quotas to reset, then re-run the same command. Since no `extraction.json` was written, the failed bill will be retried automatically. If the bill is very large (90+ chunks), try reducing parallelism:
+
+```bash
+congress-approp extract --dir data/119/hr/7148 --parallel 3
+```
+
+If you want to save whatever chunks succeeded (accepting an incomplete extraction), add `--continue-on-error`:
+
+```bash
+congress-approp extract --dir data/119/hr/7148 --parallel 6 --continue-on-error --force
+```
 
 ### "All bills already extracted"
 
@@ -358,6 +394,9 @@ congress-approp extract --dir data --parallel 6
 # Re-extract a bill that was already extracted
 congress-approp extract --dir data/118/hr/9468 --force
 
+# Save partial results even when some chunks fail
+congress-approp extract --dir data/118/hr/2882 --parallel 6 --continue-on-error
+
 # Verify after extraction
 congress-approp audit --dir data/118/hr/9468
 ```
@@ -373,6 +412,7 @@ Options:
     --parallel <PARALLEL>  Parallel LLM calls [default: 5]
     --model <MODEL>        LLM model override [env: APPROP_MODEL=]
     --force                Re-extract bills even if extraction.json already exists
+    --continue-on-error    Save partial results when some chunks fail (default: abort bill)
 ```
 
 ## Next Steps

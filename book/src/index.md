@@ -49,7 +49,7 @@ This book is organized so you can jump to whatever fits your needs:
 
 ## Version
 
-This documentation covers **congress-approp v3.1.x**.
+This documentation covers **congress-approp v3.2.x**.
 
 - **GitHub:** <https://github.com/cgorski/congress-appropriations>
 - **crates.io:** <https://crates.io/crates/congress-appropriations>

@@ -368,10 +368,13 @@ congress-approp extract [OPTIONS]
 | `--parallel` | integer | `5` | Number of concurrent LLM API calls. Higher is faster but uses more API quota. |
 | `--model` | string | `claude-opus-4-6` | LLM model for extraction. Can also be set via `APPROP_MODEL` env var. Flag takes precedence. |
 | `--force` | flag | — | Re-extract bills even if `extraction.json` already exists. Without this flag, already-extracted bills are skipped. |
+| `--continue-on-error` | flag | — | Save partial results when some chunks fail. Without this flag, the tool aborts a bill if any chunk permanently fails and does not write `extraction.json`. |
 
 **Requires:** `ANTHROPIC_API_KEY` environment variable (not required if all bills are already extracted).
 
 **Behavior notes:**
+- **Aborts on chunk failure by default.** If any chunk permanently fails (after all retries), the bill's extraction is aborted and no `extraction.json` is written. This prevents garbage partial extractions from being saved to disk. Use `--continue-on-error` to save partial results instead.
+- **Per-bill error handling.** In a multi-bill run, a failure on one bill does not abort the entire run. The failed bill is skipped (no files written) and extraction continues with the remaining bills. Re-running the same command retries only the failed bills.
 - **Skips already-extracted bills** by default. If every bill in `--dir` already has `extraction.json`, the command exits without requiring an API key. Use `--force` to re-extract.
 - **Prefers enrolled XML.** When a directory has multiple `BILLS-*.xml` files, only the enrolled version (`*enr.xml`) is processed. Non-enrolled versions are ignored.
 - **Resilient to parse failures.** If an XML file fails to parse (e.g., a non-enrolled version with a different structure), the tool logs a warning and continues to the next bill instead of aborting.
@@ -393,6 +396,9 @@ congress-approp extract --dir data --parallel 6
 
 # Re-extract a bill that was already processed
 congress-approp extract --dir data/118/hr/9468 --force
+
+# Save partial results even when some chunks fail (rate limiting, etc.)
+congress-approp extract --dir data/118/hr/2882 --parallel 6 --continue-on-error
 
 # Use a different model
 congress-approp extract --dir data/118/hr/9468 --model claude-sonnet-4-20250514

@@ -82,6 +82,9 @@ enum Commands {
         /// Re-extract bills even if extraction.json already exists
         #[arg(long)]
         force: bool,
+        /// Save partial results when some chunks fail (default: abort bill on any chunk failure)
+        #[arg(long)]
+        continue_on_error: bool,
     },
     /// Search provisions across all extracted bills
     Search {
@@ -288,7 +291,8 @@ async fn main() -> Result<()> {
             parallel,
             model,
             force,
-        } => handle_extract(&dir, dry_run, parallel, model, force).await,
+            continue_on_error,
+        } => handle_extract(&dir, dry_run, parallel, model, force, continue_on_error).await,
         Commands::Search {
             dir,
             agency,
@@ -568,6 +572,7 @@ async fn handle_extract(
     max_parallel: usize,
     model: Option<String>,
     force: bool,
+    continue_on_error: bool,
 ) -> Result<()> {
     use congress_appropriations::api::anthropic::AnthropicClient;
     use congress_appropriations::approp::extraction::ExtractionPipeline;
@@ -734,7 +739,7 @@ async fn handle_extract(
             max_parallel,
             est_tokens
         );
-        let (extraction, conversion_report) = pipeline
+        let (extraction, conversion_report) = match pipeline
             .extract_bill_parallel(
                 label,
                 &bill_text,
@@ -742,8 +747,18 @@ async fn handle_extract(
                 &chunks,
                 max_parallel,
                 bill_dir,
+                continue_on_error,
             )
-            .await?;
+            .await
+        {
+            Ok(result) => result,
+            Err(e) => {
+                tracing::error!("  ✗ {label}: {e}");
+                tracing::error!("    No extraction.json written for this bill.");
+                tracing::info!("");
+                continue;
+            }
+        };
 
         let actual_provisions = extraction.provisions.len();
         total_provisions += actual_provisions;
