@@ -1,0 +1,1450 @@
+{
+  "schema_version": "1.0",
+  "bill": {
+    "identifier": "S. 870",
+    "classification": "authorization",
+    "short_title": "Fire Grants and Safety Act of 2023",
+    "fiscal_years": [
+      2024,
+      2025,
+      2026,
+      2027,
+      2028
+    ],
+    "divisions": [
+      "A",
+      "B"
+    ],
+    "public_law": null
+  },
+  "provisions": [
+    {
+      "provision_type": "mandatory_spending_extension",
+      "program_name": "United States Fire Administration",
+      "statutory_reference": "Section 17(g)(1) of the Federal Fire Prevention and Control Act of 1974 (15 U.S.C. 2216(g)(1))",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 95000000
+        },
+        "semantics": "mandatory_spending",
+        "text_as_written": "$95,000,000"
+      },
+      "period": "each of fiscal years 2024 through 2028",
+      "extends_through": "fiscal year 2028",
+      "section": "SEC. 2",
+      "division": "A",
+      "title": null,
+      "confidence": 0.93,
+      "raw_text": "Section 17(g)(1) of the Federal Fire Prevention and Control Act of 1974 (15 U.S.C. 2216(g)(1)) is amended—(1) by subparagraph (L), by striking ''and'' af",
+      "notes": [
+        "Adds new subparagraph (N) authorizing $95,000,000 per year for FY2024-FY2028",
+        "This is an authorization of appropriations, not a direct appropriation",
+        "Also fixes a drafting error ('for for' → 'for') in subparagraph (M)"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 17(g)(1) of the Federal Fire Prevention and Control Act of 1974 (15 U.S.C. 2216(g)(1))",
+          "description": "Adds new subparagraph (N)"
+        }
+      ]
+    },
+    {
+      "provision_type": "mandatory_spending_extension",
+      "program_name": "United States Fire Administration—Section 8(f) Activities",
+      "statutory_reference": "Section 17(g)(1)(N) of the Federal Fire Prevention and Control Act of 1974 (as added by SEC. 2)",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 3420000
+        },
+        "semantics": "reference_amount",
+        "text_as_written": "$3,420,000"
+      },
+      "period": "each of fiscal years 2024 through 2028",
+      "extends_through": "fiscal year 2028",
+      "section": "SEC. 2",
+      "division": "A",
+      "title": null,
+      "confidence": 0.93,
+      "raw_text": "of which $3,420,000 for each such fiscal year shall be used to carry out section 8(f).",
+      "notes": [
+        "Sub-allocation of the $95,000,000 USFA authorization; $3,420,000 per year dedicated to section 8(f) activities"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "see_also",
+          "target": "Section 8(f) of the Federal Fire Prevention and Control Act of 1974",
+          "description": "Specifies use of $3,420,000 sub-allocation"
+        }
+      ]
+    },
+    {
+      "provision_type": "mandatory_spending_extension",
+      "program_name": "Assistance to Firefighters Grants Program / Fire Prevention and Safety Grants Program—Sunset Extension",
+      "statutory_reference": "Section 33(r) of the Federal Fire Prevention and Control Act of 1974 (15 U.S.C. 2229(r))",
+      "amount": null,
+      "period": "through 2030",
+      "extends_through": "2030",
+      "section": "SEC. 3",
+      "division": "A",
+      "title": null,
+      "confidence": 0.95,
+      "raw_text": "Section 33(r) of the Federal Fire Prevention and Control Act of 1974 (15 U.S.C. 2229(r)) is amended by striking ''2024'' and inserting ''2030''.",
+      "notes": [
+        "Extends the sunset date for the AFG/Fire Prevention and Safety Grants program from 2024 to 2030",
+        "Subsection (a) of SEC. 3"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 33(r) of the Federal Fire Prevention and Control Act of 1974 (15 U.S.C. 2229(r))",
+          "description": "Extends sunset from 2024 to 2030"
+        }
+      ]
+    },
+    {
+      "provision_type": "mandatory_spending_extension",
+      "program_name": "Assistance to Firefighters Grants Program / Fire Prevention and Safety Grants Program",
+      "statutory_reference": "Section 33(q)(1) of the Federal Fire Prevention and Control Act of 1974 (15 U.S.C. 2229(q)(1))",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 750000000
+        },
+        "semantics": "mandatory_spending",
+        "text_as_written": "$750,000,000"
+      },
+      "period": "each of fiscal years 2024 through 2028",
+      "extends_through": "fiscal year 2028",
+      "section": "SEC. 3",
+      "division": "A",
+      "title": null,
+      "confidence": 0.94,
+      "raw_text": "Section 33(q)(1) of the Federal Fire Prevention and Control Act of 1974 (15 U.S.C. 2229(q)(1)) is amended by striking ''to carry out this section—'' an",
+      "notes": [
+        "Replaces the tiered authorization schedule with a flat $750,000,000 per year for FY2024-FY2028",
+        "This is an authorization of appropriations, not a direct appropriation",
+        "Subsection (b) of SEC. 3"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 33(q)(1) of the Federal Fire Prevention and Control Act of 1974 (15 U.S.C. 2229(q)(1))",
+          "description": "Replaces authorization schedule with flat $750M/year"
+        }
+      ]
+    },
+    {
+      "provision_type": "mandatory_spending_extension",
+      "program_name": "Staffing for Adequate Fire and Emergency Response (SAFER) Grant Program—Sunset Extension",
+      "statutory_reference": "Section 34(k) of the Federal Fire Prevention and Control Act of 1974 (15 U.S.C. 2229a(k))",
+      "amount": null,
+      "period": "through 2030",
+      "extends_through": "2030",
+      "section": "SEC. 4",
+      "division": "A",
+      "title": null,
+      "confidence": 0.95,
+      "raw_text": "Section 34(k) of the Federal Fire Prevention and Control Act of 1974 (15 U.S.C. 2229a(k)) is amended by striking ''2024'' and inserting ''2030''.",
+      "notes": [
+        "Extends the sunset date for the SAFER grant program from 2024 to 2030",
+        "Subsection (a) of SEC. 4"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 34(k) of the Federal Fire Prevention and Control Act of 1974 (15 U.S.C. 2229a(k))",
+          "description": "Extends sunset from 2024 to 2030"
+        }
+      ]
+    },
+    {
+      "provision_type": "mandatory_spending_extension",
+      "program_name": "Staffing for Adequate Fire and Emergency Response (SAFER) Grant Program",
+      "statutory_reference": "Section 34(j)(1) of the Federal Fire Prevention and Control Act of 1974 (15 U.S.C. 2229a(j)(1))",
+      "amount": null,
+      "period": "each of fiscal years 2024 through 2028",
+      "extends_through": "fiscal year 2028",
+      "section": "SEC. 4",
+      "division": "A",
+      "title": null,
+      "confidence": 0.85,
+      "raw_text": "Section 34(j)(1) of the Federal Fire Prevention and Control Act of 1974 (15 U.S.C. 2229a(j)(1)(I)) is amended—(1) by subparagraph (G), by inserting ''a",
+      "notes": [
+        "Subsection (b) of SEC. 4",
+        "Amends subparagraph (H) to change 'fiscal year 2013' to 'each of fiscal years 2024 through 2028' and strikes subparagraph (I)",
+        "The implicit authorization level is carried over from existing subparagraph (H), which in statute authorized $750,000,000 for fiscal year 2013; the effect is to authorize that same amount for FY2024-FY2028",
+        "No explicit dollar amount appears in the bill text for this subsection"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 34(j)(1) of the Federal Fire Prevention and Control Act of 1974 (15 U.S.C. 2229a(j)(1))",
+          "description": "Modifies subparagraph (H) fiscal years and strikes subparagraph (I)"
+        }
+      ]
+    },
+    {
+      "provision_type": "directive",
+      "description": "Requires the Comptroller General to conduct an audit of and issue a publicly available report on barriers that prevent fire departments from accessing Federal funds and on the United States Fire Administration.",
+      "deadlines": [
+        "three years after the date of enactment"
+      ],
+      "section": "SEC. 5",
+      "division": "A",
+      "title": null,
+      "confidence": 0.97,
+      "raw_text": "Not later than three years after the date of the enactment of this Act, the Comptroller General of the United States shall conduct an audit of and issue",
+      "notes": [
+        "GAO audit covers two topics: (1) barriers to fire departments accessing Federal funds, and (2) the United States Fire Administration",
+        "Report must be publicly available"
+      ],
+      "cross_references": []
+    },
+    {
+      "provision_type": "rider",
+      "description": "Directs the NRC to coordinate all work relating to import/export licensing for nuclear reactors and radioactive materials, international regulatory cooperation, and support interagency/international coordination on technical standards, capacity building, and exchange programs. Authorizes establishment of an 'International Nuclear Export and Innovation Branch' within the Office of International Programs. Requires interagency coordination with Secretary of State, Secretary of Energy, and other agencies. Includes savings clause preserving Commission authority to license and regulate civilian use of radioactive materials.",
+      "policy_area": "Nuclear energy export and international cooperation",
+      "section": "SEC. 101",
+      "division": "B",
+      "title": "I",
+      "confidence": 0.93,
+      "raw_text": "The Commission shall—(A) coordinate all work of the Commission relating to—(i) import and export licensing for nuclear reactors and radioactive materials; and (ii",
+      "notes": [
+        "Subsection (a) establishes coordination duties for the NRC Commission",
+        "Subsection (b) authorizes (but does not require) creation of the 'International Nuclear Export and Innovation Branch'",
+        "Subsection (d) requires coordination with State, Energy, and other agencies",
+        "Subsection (e) is a savings clause preserving existing NRC authority",
+        "No dollar amounts in this provision"
+      ],
+      "cross_references": []
+    },
+    {
+      "provision_type": "rider",
+      "description": "Amends Section 102 of the Nuclear Energy Innovation and Modernization Act (42 U.S.C. 2215) to require the Commission to identify international nuclear export and innovation activities in its annual budget justification and to exclude costs for those activities from the NRC fee base. Effective October 1, 2025.",
+      "policy_area": "NRC fee structure / international nuclear activities",
+      "section": "SEC. 101",
+      "division": "B",
+      "title": "I",
+      "confidence": 0.94,
+      "raw_text": "Section 102 of the Nuclear Energy Innovation and Modernization Act (42 U.S.C. 2215) is amended—(A) subsection (a), by adding at the end the following",
+      "notes": [
+        "Subsection (c) of SEC. 101",
+        "Amends both subsection (a) and subsection (b)(1)(B) of NEIMA Sec. 102",
+        "Effective date: October 1, 2025",
+        "Effect: international nuclear export and innovation activity costs excluded from NRC licensee fee recovery base"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 102 of the Nuclear Energy Innovation and Modernization Act (42 U.S.C. 2215)",
+          "description": "Adds new paragraph (4) to subsection (a) and new clause (iv) to subsection (b)(1)(B)"
+        }
+      ]
+    },
+    {
+      "provision_type": "rider",
+      "description": "Prohibits any person subject to NRC jurisdiction from possessing or owning covered fuel (enriched uranium fabricated outside the U.S. into fuel assemblies by Russian or Chinese government-owned/controlled entities or entities under their jurisdiction) without an NRC license under section 53 of the Atomic Energy Act. Requires NRC to consult with Secretary of Energy and Secretary of State before issuing such a license. Prohibits license issuance if Secretaries of Energy and State jointly determine possession/ownership poses a national security threat, or if no determination is made. Establishes timeline: 30-day notice to Secretaries, 180-day determination window, immediate Commission notification, 30-day congressional notification, and 15-day public notice. Includes savings clause for existing and future treaties.",
+      "policy_area": "Nuclear fuel supply chain / national security",
+      "section": "SEC. 102",
+      "division": "B",
+      "title": "I",
+      "confidence": 0.95,
+      "raw_text": "Unless specifically authorized by the Commission in a license issued under section 53 of the Atomic Energy Act of 1954 (42 U.S.C. 2073) and part 70 of",
+      "notes": [
+        "Targets enriched uranium fuel assemblies fabricated outside the U.S. by Russian or Chinese entities",
+        "Creates a joint DOE/State Department national security determination process",
+        "If no determination is made within 180 days, license cannot be issued (subsection (c)(2)(C))",
+        "Savings clause in subsection (d) preserves existing treaties and international agreements"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "subject_to",
+          "target": "Section 53 of the Atomic Energy Act of 1954 (42 U.S.C. 2073)",
+          "description": "Licensing framework for special nuclear material"
+        },
+        {
+          "ref_type": "subject_to",
+          "target": "Part 70 of title 10, Code of Federal Regulations",
+          "description": "NRC domestic licensing of special nuclear material"
+        }
+      ]
+    },
+    {
+      "provision_type": "directive",
+      "description": "Requires the NRC, after consulting with the Secretary of State and other relevant agencies, to notify appropriate committees of Congress (including Senate Foreign Relations, Senate Energy and Natural Resources, and House Foreign Affairs) when issuing export licenses for transfers of specified nuclear items to countries that have not concluded and ratified an IAEA Additional Protocol or have not ratified/acceded to the amendment to the Convention on the Physical Protection of Nuclear Material. Covered items include unirradiated nuclear fuel containing special nuclear material (excluding LEU), reactors using such fuel, and reprocessing/separation plant components listed in 10 CFR Part 110 Appendix I.",
+      "deadlines": [],
+      "section": "SEC. 103",
+      "division": "B",
+      "title": "I",
+      "confidence": 0.95,
+      "raw_text": "If the Commission, after consultation with the Secretary of State and any other relevant agencies, issues an export license for the transfer of any item",
+      "notes": [
+        "Low-enriched uranium (< 20% U-235) is excluded from the notification requirement",
+        "Notification triggered by two country criteria: lack of IAEA Additional Protocol or lack of ratification of CPPNM amendment",
+        "Items covered include fuel with special nuclear material, reactors, and reprocessing/separation components"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "see_also",
+          "target": "Section 11 of the Atomic Energy Act of 1954 (42 U.S.C. 2014)",
+          "description": "Definition of special nuclear material"
+        },
+        {
+          "ref_type": "see_also",
+          "target": "Part 110 of title 10, Code of Federal Regulations, Appendix I",
+          "description": "List of nuclear plant components subject to export controls"
+        }
+      ]
+    },
+    {
+      "provision_type": "directive",
+      "description": "Requires the Secretary of Energy, in consultation with the Secretary of State, Secretary of Commerce, EPA Administrator, and NRC, to conduct a study within 1 year of enactment on the global status of the civilian nuclear energy industry and its supply chains. Study must include information on industry status and long-term risks, emission reduction potential, role in U.S. foreign policy, importance to allied countries, collaboration opportunities, competitors' use of nuclear energy in foreign policy, effects of U.S. involvement in international markets and standards, benefits to other U.S. industries, supply chain challenges, and recommendations for national strategy. Report to Congress within 180 days of study completion, including classified annex if necessary.",
+      "deadlines": [
+        "1 year after enactment (study)",
+        "180 days after study completion (report to Congress)"
+      ],
+      "section": "SEC. 104",
+      "division": "B",
+      "title": "I",
+      "confidence": 0.95,
+      "raw_text": "Not later than 1 year after the date of enactment of this Act, the Secretary of Energy, in consultation with the Secretary of State, the Secretary of Co",
+      "notes": [
+        "Comprehensive assessment covering industry status, foreign policy, nonproliferation, supply chain, and strategic competition",
+        "Must include recommendations for national strategy to increase nuclear energy's role in diplomacy",
+        "Classified annex permitted if necessary"
+      ],
+      "cross_references": []
+    },
+    {
+      "provision_type": "directive",
+      "description": "Requires the Secretary of Energy, with the concurrence of the Secretary of State, to identify and evaluate factors (beyond Section 123 agreements) within 90 days of enactment that may determine a country's generally authorized destination status under 10 CFR Part 810. Requires the Secretary to review and update the DOE's process for making such determinations incorporating the identified factors. Requires review and amendment of the Appendix A list within 1 year of enactment, and at least once every 5 years thereafter.",
+      "deadlines": [
+        "90 days after enactment (identify factors)",
+        "1 year after enactment (review list)",
+        "At least once every 5 years (subsequent reviews)"
+      ],
+      "section": "SEC. 105",
+      "division": "B",
+      "title": "I",
+      "confidence": 0.95,
+      "raw_text": "Not later than 90 days after the date of enactment of this Act, the Secretary of Energy, with the concurrence of the Secretary of State, shall identify",
+      "notes": [
+        "Part 810 of 10 CFR governs assistance to foreign atomic energy activities",
+        "Appendix A lists countries that are 'generally authorized destinations' for nuclear technology transfers",
+        "Section 123 agreements (42 U.S.C. 2153) are explicitly noted as not the only factor to be considered"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "see_also",
+          "target": "Section 123 of the Atomic Energy Act of 1954 (42 U.S.C. 2153)",
+          "description": "Agreements for cooperation, referenced as one but not the sole factor for Part 810 determinations"
+        },
+        {
+          "ref_type": "see_also",
+          "target": "Part 810 of title 10, Code of Federal Regulations",
+          "description": "DOE regulations on assistance to foreign atomic energy activities"
+        }
+      ]
+    },
+    {
+      "provision_type": "rider",
+      "description": "Amends the Nuclear Energy Innovation and Modernization Act to reform NRC fee structures for advanced nuclear reactor applicants and pre-applicants. Adds definitions for 'advanced nuclear reactor applicant', 'advanced nuclear reactor pre-applicant', 'agency support', 'hourly rate for mission-direct program salaries and benefits', 'mission-direct program salaries and benefits', and 'mission-indirect program support'. Caps the hourly rate charged to advanced nuclear reactor applicants and pre-applicants at the hourly rate for mission-direct program salaries and benefits, excluding mission-indirect program support and agency support costs. Includes a sunset for pre-applicant fee provisions on September 30, 2030, and an effective date of October 1, 2025.",
+      "policy_area": "Nuclear energy regulation / NRC fee reform",
+      "section": "SEC. 201",
+      "division": "B",
+      "title": "II",
+      "confidence": 0.95,
+      "raw_text": "SEC. 201. \nFees for advanced nuclear reactor application review\n(a) \nDefinitions\nSection 3 of the Nuclear Energy Innovation and Modernization Act (42 U.S.C. 2215 note; Publ",
+      "notes": [
+        "Amends Section 3, Section 102(b)(1)(B), Section 102(b)(2), and adds Section 102(g) of the Nuclear Energy Innovation and Modernization Act (P.L. 115-439)",
+        "Caps hourly fee rate for advanced nuclear reactor applicants and pre-applicants to mission-direct program salaries and benefits only, excluding overhead costs",
+        "Subsection (d) sunsets the pre-applicant fee provisions (paragraphs (1)(B)(vi) and (2)(C) of subsection (b)) on September 30, 2030",
+        "Subsection (e) sets effective date of all amendments at October 1, 2025",
+        "No appropriation or dollar amount is specified; this is a fee structure policy change"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 3 of the Nuclear Energy Innovation and Modernization Act (42 U.S.C. 2215 note; P.L. 115-439)",
+          "description": "Adds definitions"
+        },
+        {
+          "ref_type": "amends",
+          "target": "Section 102(b)(1)(B) of the Nuclear Energy Innovation and Modernization Act (42 U.S.C. 2215(b)(1)(B))",
+          "description": "Adds excluded activities for fee recovery"
+        },
+        {
+          "ref_type": "amends",
+          "target": "Section 102(b)(2) of the Nuclear Energy Innovation and Modernization Act (42 U.S.C. 2215(b))",
+          "description": "Replaces fees-for-service paragraph with new provisions capping advanced reactor fees"
+        },
+        {
+          "ref_type": "amends",
+          "target": "Section 102 of the Nuclear Energy Innovation and Modernization Act (42 U.S.C. 2215)",
+          "description": "Adds sunset subsection (g)"
+        }
+      ]
+    },
+    {
+      "provision_type": "rider",
+      "description": "Authorizes the Secretary of Energy to award prizes to the first eligible entities (non-Federal entities and TVA) to receive NRC operating licenses or combined license findings for advanced nuclear reactors in five award categories. Award amounts equal the total NRC fees assessed and collected from the entity for licensing costs. Categories include: (i) first advanced nuclear reactor licensed; (ii) first using spent fuel/depleted uranium as fuel; (iii) first nuclear integrated energy system; (iv) first flexible operation reactor for nonelectric applications; (v) first licensed under the technology-inclusive regulatory framework. Federal funding limitations apply, excluding TVA power program funds and requiring deduction of federal funds received for the project. Awards need not be repaid.",
+      "policy_area": "Nuclear energy / advanced reactor licensing incentives",
+      "section": "SEC. 202",
+      "division": "B",
+      "title": "II",
+      "confidence": 0.94,
+      "raw_text": "SEC. 202. \nAdvanced nuclear reactor prizes\nSection 103 of the Nuclear Energy Innovation and Modernization Act (Public Law 115–439; 132 Stat. 5571) is amended by addin",
+      "notes": [
+        "Amends Section 103 of NEIMA (P.L. 115-439) by adding new subsection (f)",
+        "Subject to the availability of appropriations — this is an authorization, not an appropriation",
+        "Notwithstanding section 169 of the Atomic Energy Act of 1954 (42 U.S.C. 2209) — overrides standard NRC fee provisions",
+        "Award amount is variable: equals total NRC fees collected from the awardee for the licensed project, minus federal cost-share",
+        "Five distinct award categories for first-of-a-kind advanced reactors",
+        "TVA power program funds are excluded from the definition of 'Federal funds' for the funding limitation",
+        "Notwithstanding 31 U.S.C. 9104(a)(4) — awardees are not required to repay or pay dividends"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 103 of the Nuclear Energy Innovation and Modernization Act (P.L. 115-439; 132 Stat. 5571)",
+          "description": "Adds subsection (f) on prizes for advanced nuclear reactor licensing"
+        },
+        {
+          "ref_type": "notwithstanding",
+          "target": "Section 169 of the Atomic Energy Act of 1954 (42 U.S.C. 2209)",
+          "description": "Overrides standard NRC fee recovery for prizes"
+        },
+        {
+          "ref_type": "notwithstanding",
+          "target": "31 U.S.C. 9104(a)(4)",
+          "description": "Exempts prize recipients from repayment or dividend requirements"
+        },
+        {
+          "ref_type": "see_also",
+          "target": "Section 102(b)(2) of the Nuclear Energy Innovation and Modernization Act",
+          "description": "Defines fees collected that determine prize award amounts"
+        },
+        {
+          "ref_type": "see_also",
+          "target": "Section 988 of the Energy Policy Act of 2005 (42 U.S.C. 16352)",
+          "description": "Minimum cost-share requirement referenced in federal funding limitation"
+        },
+        {
+          "ref_type": "see_also",
+          "target": "Tennessee Valley Authority Act of 1933 (16 U.S.C. 831 et seq.)",
+          "description": "TVA power program funds excluded from definition of Federal funds"
+        }
+      ]
+    },
+    {
+      "provision_type": "directive",
+      "description": "Requires the NRC to submit a report to Congress within 270 days of enactment addressing unique licensing issues or requirements relating to: (1) flexible operation of advanced nuclear reactors; (2) exclusive use of advanced nuclear reactors for nonelectric applications; and (3) colocation of nuclear reactors with industrial plants or other facilities. The report must address applications including hydrogen production, water desalination, industrial process heat, district heating, energy storage, isotope production, and others. Must include cost estimates, proposed budgets, and timeframes for implementation.",
+      "deadlines": [
+        "270 days after enactment"
+      ],
+      "section": "SEC. 203",
+      "division": "B",
+      "title": "II",
+      "confidence": 0.96,
+      "raw_text": "SEC. 203. \nLicensing considerations relating to use of nuclear energy for nonelectric applications\n(a) \nIn general\nNot later than 270 days after the date of enactment",
+      "notes": [
+        "Report must address licensing issues for nonelectric nuclear applications including hydrogen production, water desalination/wastewater treatment, industrial process heat, district heating, energy storage, isotope production, and others",
+        "Commission must seek input from Secretary of Energy, nuclear energy industry, technology developers, industrial/chemical/medical sectors, NGOs, and public stakeholders",
+        "Report must describe options for addressing issues within existing regulatory framework, the technology-inclusive framework under NEIMA Section 103(a)(4), or through new rulemaking",
+        "Must include cost estimates, proposed budgets, and proposed timeframes for risk-informed and performance-based regulatory guidance"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "see_also",
+          "target": "Section 103(a)(4) of the Nuclear Energy Innovation and Modernization Act (42 U.S.C. 2133 note; P.L. 115-439)",
+          "description": "Technology-inclusive regulatory framework referenced as one option for addressing licensing issues"
+        }
+      ]
+    },
+    {
+      "provision_type": "rider",
+      "description": "Amends Section 102(b)(1)(B) of the Nuclear Energy Innovation and Modernization Act to add costs for NRC review of early site permit applications and pre-application activities to demonstrate advanced nuclear reactors on Department of Energy sites or critical national security infrastructure sites, effective October 1, 2025.",
+      "policy_area": "Nuclear Energy Regulation",
+      "section": "SEC. 204",
+      "division": "B",
+      "title": "II",
+      "confidence": 0.95,
+      "raw_text": "Section 102(b)(1)(B) of the Nuclear Energy Innovation and Modernization Act (42 U.S.C. 2215(b)(1)(B)) (as amended by section 201(b)) is amended by addi",
+      "notes": [
+        "Adds new clause (vii) covering costs for early site permit review and pre-application activities on DOE and critical national security infrastructure sites",
+        "Effective date of October 1, 2025 specified in subsection (b)",
+        "References section 201(b) for a prior amendment in the same bill"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 102(b)(1)(B) of the Nuclear Energy Innovation and Modernization Act (42 U.S.C. 2215(b)(1)(B))",
+          "description": "Adds clause (vii) for early site permit costs on DOE sites"
+        },
+        {
+          "ref_type": "see_also",
+          "target": "Section 327(d) of the John S. McCain National Defense Authorization Act for Fiscal Year 2019 (Public Law 115-232)",
+          "description": "Definition of critical national security infrastructure"
+        },
+        {
+          "ref_type": "see_also",
+          "target": "Section 201(b)",
+          "description": "Prior amendment to same section in this bill"
+        }
+      ]
+    },
+    {
+      "provision_type": "rider",
+      "description": "Amends Section 11 of the Atomic Energy Act of 1954 to define the term 'fusion machine' as a machine capable of transforming atomic nuclei through fusion processes and capturing the resultant products; modifies the definition of byproduct material to include material made radioactive by use of a fusion machine; and redesignates and reorders subsections.",
+      "policy_area": "Nuclear Energy Regulation — Fusion",
+      "section": "SEC. 205",
+      "division": "B",
+      "title": "II",
+      "confidence": 0.95,
+      "raw_text": "Section 11 of the Atomic Energy Act of 1954 (42 U.S.C. 2014) is amended—(1) in subsection e.—(A) on paragraph (3)(B)—(i) on clause (i), by inserting",
+      "notes": [
+        "Subsection (a) amends the Atomic Energy Act to establish 'fusion machine' as a defined term",
+        "Modifies 'byproduct material' definition to include fusion machine products",
+        "Redesignates and reorders subsections ee. through jj. of section 11",
+        "This is the core statutory change establishing a regulatory framework for fusion energy"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 11 of the Atomic Energy Act of 1954 (42 U.S.C. 2014)",
+          "description": "Adds definition of fusion machine and amends byproduct material definition"
+        }
+      ]
+    },
+    {
+      "provision_type": "rider",
+      "description": "Makes technical and conforming changes to the Nuclear Energy Innovation and Modernization Act to incorporate the 'fusion machine' definition, including adding fusion machine license applications to the definition of commercial advanced nuclear reactor license applications.",
+      "policy_area": "Nuclear Energy Regulation — Fusion",
+      "section": "SEC. 205",
+      "division": "B",
+      "title": "II",
+      "confidence": 0.95,
+      "raw_text": "Section 103(a) of the Nuclear Energy Innovation and Modernization Act (42 U.S.C. 2133 note; Public Law 115–439) is amended—(A) paragraph (4), by striki",
+      "notes": [
+        "Subsection (b) of SEC. 205",
+        "Amends Section 103(a) of NEIMA to include fusion machine license applications",
+        "Amends Section 3 of NEIMA to add definition of fusion machine and update advanced nuclear reactor definition"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 103(a) of the Nuclear Energy Innovation and Modernization Act (42 U.S.C. 2133 note; Public Law 115-439)",
+          "description": "Includes fusion machine license applications in advanced nuclear reactor licensing provisions"
+        },
+        {
+          "ref_type": "amends",
+          "target": "Section 3 of the Nuclear Energy Innovation and Modernization Act (42 U.S.C. 2215 note; Public Law 115-439)",
+          "description": "Adds fusion machine definition and updates advanced nuclear reactor definition"
+        }
+      ]
+    },
+    {
+      "provision_type": "directive",
+      "description": "Requires the Commission to submit a report to Congress within 1 year on risk- and performance-based, design-specific licensing frameworks for mass-manufactured fusion machines, including an evaluation of the FAA aircraft certification process as a potential model, and an estimated timeline for issuing consolidated guidance or regulations.",
+      "deadlines": [
+        "1 year after date of enactment"
+      ],
+      "section": "SEC. 205",
+      "division": "B",
+      "title": "II",
+      "confidence": 0.95,
+      "raw_text": "Not later than 1 year after the date of enactment of this Act, the Commission shall submit to the appropriate committees of Congress a report on—(A) the",
+      "notes": [
+        "Subsection (c) of SEC. 205",
+        "Study to be conducted in consultation with Agreement States and private fusion sector",
+        "Specifically asks for evaluation of FAA aircraft certification as a model for mass-manufactured fusion machines"
+      ],
+      "cross_references": []
+    },
+    {
+      "provision_type": "directive",
+      "description": "Requires the Commission to evaluate within 1 year the extent to which modification of regulations, guidance, or policy is needed to enable efficient, timely, and predictable licensing reviews for production or utilization facilities at brownfield sites, retired fossil fuel sites, or both, considering reuse of existing infrastructure, early site permits, standardized site parameters, and standardized applications; and to submit a report to Congress within 14 months.",
+      "deadlines": [
+        "1 year after date of enactment",
+        "14 months after date of enactment"
+      ],
+      "section": "SEC. 206",
+      "division": "B",
+      "title": "II",
+      "confidence": 0.95,
+      "raw_text": "Not later than 1 year after the date of enactment of this Act, the Commission shall evaluate the extent to which modification of regulations, guidance,",
+      "notes": [
+        "Subsection (b) of SEC. 206",
+        "Covered sites include brownfield sites, retired fossil fuel sites, or both",
+        "Commission must consider reuse of switchyard, heat-sink, steam cycle, roads, railroad, and water infrastructure",
+        "Report due at 14 months describing identified regulations, guidance, and policies"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "see_also",
+          "target": "Section 101 of the Comprehensive Environmental Response, Compensation, and Liability Act of 1980 (42 U.S.C. 9601)",
+          "description": "Definition of brownfield site"
+        },
+        {
+          "ref_type": "see_also",
+          "target": "Section 11 of the Atomic Energy Act of 1954 (42 U.S.C. 2014)",
+          "description": "Definitions of production facility and utilization facility"
+        }
+      ]
+    },
+    {
+      "provision_type": "directive",
+      "description": "Requires the Commission within 2 years to develop and implement strategies, or initiate a rulemaking, to enable efficient, timely, and predictable licensing reviews for production or utilization facilities at covered sites (brownfield/retired fossil fuel sites), considering existing infrastructure, emergency preparedness, historical environmental data, prior NEPA reviews, decommissioning activities, and community engagement.",
+      "deadlines": [
+        "2 years after date of enactment"
+      ],
+      "section": "SEC. 206",
+      "division": "B",
+      "title": "II",
+      "confidence": 0.95,
+      "raw_text": "Not later than 2 years after the date of enactment of this Act, the Commission shall—(A) develop and implement strategies to enable efficient, timely, a",
+      "notes": [
+        "Subsection (c) of SEC. 206",
+        "Commission has two options: develop/implement strategies OR initiate a rulemaking",
+        "Must consider NEPA reviews, decommissioning, and community engagement"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "see_also",
+          "target": "National Environmental Policy Act of 1969 (42 U.S.C. 4321 et seq.)",
+          "description": "Previously completed environmental reviews to be considered"
+        }
+      ]
+    },
+    {
+      "provision_type": "directive",
+      "description": "Requires the Commission to submit to Congress within 3 years a report describing actions taken to develop licensing strategies or initiate rulemaking for nuclear facilities at covered sites (brownfield/retired fossil fuel sites).",
+      "deadlines": [
+        "3 years after date of enactment"
+      ],
+      "section": "SEC. 206",
+      "division": "B",
+      "title": "II",
+      "confidence": 0.95,
+      "raw_text": "Not later than 3 years after the date of enactment of this Act, the Commission shall submit to the appropriate committees of Congress a report describing",
+      "notes": [
+        "Subsection (d) of SEC. 206",
+        "Follow-up report on implementation of subsection (c)(1)"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "see_also",
+          "target": "SEC. 206(c)(1)",
+          "description": "Actions being reported on"
+        }
+      ]
+    },
+    {
+      "provision_type": "directive",
+      "description": "Requires the Commission to establish and carry out an expedited combined license review procedure under section 185 b. of the Atomic Energy Act. Applicants must reference a certified design or a substantially similar design and propose to build on or adjacent to an existing/former licensed commercial reactor site. Sets deadlines of 18 months for technical review and environmental review, 2 years for public hearings, and 25 months for a final licensing decision after docketing.",
+      "deadlines": [
+        "18 months after docketing",
+        "2 years after docketing",
+        "25 months after docketing"
+      ],
+      "section": "SEC. 207",
+      "division": "B",
+      "title": "II",
+      "confidence": 0.95,
+      "raw_text": "In accordance with this section, the Commission shall establish and carry out an expedited procedure for issuing a combined license pursuant to section 1",
+      "notes": [
+        "Subsections (a) through (c) of SEC. 207",
+        "Qualification requires certified design or substantially similar design AND siting on or adjacent to existing/former reactor site",
+        "Applicant may not be subject to suspension/revocation order",
+        "Timelines are 'to the maximum extent practicable'"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "see_also",
+          "target": "Section 185 b. of the Atomic Energy Act of 1954 (42 U.S.C. 2235(b))",
+          "description": "Combined license authority"
+        },
+        {
+          "ref_type": "see_also",
+          "target": "National Environmental Policy Act of 1969 (42 U.S.C. 4321 et seq.)",
+          "description": "Environmental review requirements"
+        }
+      ]
+    },
+    {
+      "provision_type": "directive",
+      "description": "Requires the Executive Director for Operations of the Commission to inform the Commission within 30 days of any failure to meet expedited combined license review deadlines. If any deadline is exceeded by 90 days, the Commission must submit a report to Congress explaining the delay and providing a plan for completion.",
+      "deadlines": [
+        "30 days after missed deadline",
+        "90 days after missed deadline"
+      ],
+      "section": "SEC. 207",
+      "division": "B",
+      "title": "II",
+      "confidence": 0.95,
+      "raw_text": "Not later than 30 days after the applicable deadline, the Executive Director for Operations of the Commission shall inform the Commission of any failure",
+      "notes": [
+        "Subsection (d) of SEC. 207",
+        "Two-tier reporting: internal notification at 30 days, congressional report at 90 days",
+        "Congressional report must include detailed explanation and completion plan"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "see_also",
+          "target": "SEC. 207(c)",
+          "description": "Deadlines being monitored"
+        }
+      ]
+    },
+    {
+      "provision_type": "directive",
+      "description": "Requires the Commission within 18 months to develop risk-informed and performance-based strategies and guidance to license and regulate micro-reactors, covering staffing, operations, oversight, inspections, safeguards, security, emergency preparedness, risk analysis methods, decommissioning funding assurance, transportation of fueled micro-reactors, and siting (including population density, mobile deployment, and environmental reviews). Requires implementation within 3 years through existing framework, technology-inclusive framework under NEIMA, or rulemaking. Commission must consult with the Secretary of Energy, other Federal agencies, micro-reactor developers, and other stakeholders.",
+      "deadlines": [
+        "18 months after date of enactment",
+        "3 years after date of enactment"
+      ],
+      "section": "SEC. 208",
+      "division": "B",
+      "title": "II",
+      "confidence": 0.95,
+      "raw_text": "The Commission shall—(1) not later than 18 months after the date of enactment of this Act, develop risk-informed and performance-based strategies and guida",
+      "notes": [
+        "Comprehensive micro-reactor regulatory framework directive",
+        "Covers eight specific areas including mobile deployment and transportation of fueled reactors",
+        "References SECY-20-0045 (population density siting) and SECY-20-0093 (micro-reactor policy)",
+        "Implementation may occur through existing framework, NEIMA section 103(a)(4) technology-inclusive framework, or new rulemaking",
+        "Consultation required with DOE, other agencies, developers, and stakeholders"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "see_also",
+          "target": "Section 103 of the Atomic Energy Act of 1954 (42 U.S.C. 2133)",
+          "description": "Commercial licensing authority for micro-reactors"
+        },
+        {
+          "ref_type": "see_also",
+          "target": "Section 103(a)(4) of the Nuclear Energy Innovation and Modernization Act (42 U.S.C. 2133 note; Public Law 115-439)",
+          "description": "Technology-inclusive regulatory framework"
+        },
+        {
+          "ref_type": "see_also",
+          "target": "SECY-20-0045",
+          "description": "Population-related siting considerations for advanced reactors (May 8, 2020)"
+        },
+        {
+          "ref_type": "see_also",
+          "target": "SECY-20-0093",
+          "description": "Policy and licensing considerations related to micro-reactors (October 6, 2020)"
+        }
+      ]
+    },
+    {
+      "provision_type": "rider",
+      "description": "Exempts entities owned, controlled, or dominated by OECD member countries (excluding sanctioned countries) or the Republic of India from the Atomic Energy Act's prohibitions on issuing utilization facility licenses to aliens, foreign corporations, or foreign-dominated entities, provided the Commission determines issuance is not inimical to common defense and security or public health and safety.",
+      "policy_area": "Nuclear energy / Foreign ownership of nuclear facilities",
+      "section": "SEC. 301",
+      "division": "B",
+      "title": "III",
+      "confidence": 0.95,
+      "raw_text": "The prohibitions against issuing certain licenses for utilization facilities to certain aliens, corporations, and other entities described in the second",
+      "notes": [
+        "Subsections (a) and (b) together create an exception to foreign ownership restrictions in sections 103(d) and 104(d) of the Atomic Energy Act of 1954",
+        "Applies to OECD member countries and India, but excludes countries subject to sanctions under section 231 of the Countering America's Adversaries Through Sanctions Act (22 U.S.C. 9525)",
+        "Exclusion also covers countries whose citizens/entities are on the SDN list maintained by OFAC pursuant to those sanctions",
+        "Title III heading: Preserving existing nuclear energy generation"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 103(d) of the Atomic Energy Act of 1954 (42 U.S.C. 2133(d))",
+          "description": "Creates exception to foreign ownership prohibition for commercial licenses"
+        },
+        {
+          "ref_type": "amends",
+          "target": "Section 104(d) of the Atomic Energy Act of 1954 (42 U.S.C. 2134(d))",
+          "description": "Creates exception to foreign ownership prohibition for medical/research/development licenses"
+        },
+        {
+          "ref_type": "see_also",
+          "target": "Section 231 of the Countering America's Adversaries Through Sanctions Act (22 U.S.C. 9525)",
+          "description": "Basis for excluding certain countries from the exemption"
+        }
+      ]
+    },
+    {
+      "provision_type": "rider",
+      "description": "Technical amendment correcting a typographical error in section 103(d) of the Atomic Energy Act of 1954 by striking 'any any' and inserting 'any'.",
+      "policy_area": "Nuclear energy / Technical correction",
+      "section": "SEC. 301",
+      "division": "B",
+      "title": "III",
+      "confidence": 0.97,
+      "raw_text": "Section 103 d. of the Atomic Energy Act of 1954 (42 U.S.C. 2133(d)) is amended, the second sentence, by striking ''any any'' and inserting ''any''.",
+      "notes": [
+        "Subsection (c) of SEC. 301",
+        "Corrects a duplicated word in existing law"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 103(d) of the Atomic Energy Act of 1954 (42 U.S.C. 2133(d))",
+          "description": "Technical correction striking duplicated 'any'"
+        }
+      ]
+    },
+    {
+      "provision_type": "rider",
+      "description": "Savings clause preserving the requirements of section 721 of the Defense Production Act of 1950 (CFIUS review authority) notwithstanding the foreign ownership exemptions created by this section.",
+      "policy_area": "Nuclear energy / National security review (CFIUS)",
+      "section": "SEC. 301",
+      "division": "B",
+      "title": "III",
+      "confidence": 0.96,
+      "raw_text": "Nothing in this section affects the requirements of section 721 of the Defense Production Act of 1950 (50 U.S.C. 4565).",
+      "notes": [
+        "Subsection (d) of SEC. 301",
+        "Ensures CFIUS review authority under the Defense Production Act is not affected by the foreign ownership exemption"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "subject_to",
+          "target": "Section 721 of the Defense Production Act of 1950 (50 U.S.C. 4565)",
+          "description": "CFIUS review requirements preserved"
+        }
+      ]
+    },
+    {
+      "provision_type": "directive",
+      "description": "Requires the Commission (NRC) to submit a report to Congress within 180 days on manufacturing and construction for nuclear energy projects, covering advanced manufacturing processes, advanced construction techniques, iterative innovation, nuclear-grade component requirements, transport of fueled advanced reactor cores, safety aspects not addressed by existing codes and standards, and proposed budgets and timeframes for implementing risk-informed regulatory guidance.",
+      "deadlines": [
+        "180 days after enactment"
+      ],
+      "section": "SEC. 401",
+      "division": "B",
+      "title": "IV",
+      "confidence": 0.95,
+      "raw_text": "Not later than 180 days after the date of enactment of this Act, the Commission shall submit to the appropriate committees of Congress a report (referred",
+      "notes": [
+        "Report must include stakeholder input from DOE, industry, National Labs, universities, unions, NGOs, and others",
+        "Report must include cost estimates, proposed budgets, and proposed timeframes for implementing regulatory guidance",
+        "Commission refers to the Nuclear Regulatory Commission"
+      ],
+      "cross_references": []
+    },
+    {
+      "provision_type": "rider",
+      "description": "Amends Section 313 of division C of the Omnibus Appropriations Act, 2009 to establish a nuclear energy traineeship subprogram under the NRC, in coordination with institutions of higher education and trade schools, to competitively award traineeships for critical mission needs of the Commission and nuclear workforce needs, including nuclear tradecraft workforce needs.",
+      "policy_area": "Nuclear energy workforce development and training",
+      "section": "SEC. 402",
+      "division": "B",
+      "title": "IV",
+      "confidence": 0.94,
+      "raw_text": "Section 313 of division C of the Omnibus Appropriations Act, 2009 (42 U.S.C. 16274a), is amended—(1) subsection (a), by striking ''Nuclear Regulatory''",
+      "notes": [
+        "Amends 42 U.S.C. 16274a to broaden the existing program and add a nuclear energy traineeship subprogram",
+        "Requires coordination with Secretary of Energy to prioritize traineeships focusing on nuclear workforce needs and critical NRC mission needs",
+        "Requires annual evaluation of nuclear workforce needs",
+        "Encourages partnerships among National Laboratories, institutions of higher education, trade schools, and industry"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 313 of division C of the Omnibus Appropriations Act, 2009 (42 U.S.C. 16274a)",
+          "description": "Amends existing nuclear science and engineering support program to add traineeship subprogram"
+        },
+        {
+          "ref_type": "see_also",
+          "target": "Section 951(b) of the Energy Policy Act of 2005 (42 U.S.C. 16271(b))",
+          "description": "Definition of advanced nuclear reactor and National Laboratory"
+        },
+        {
+          "ref_type": "see_also",
+          "target": "Section 2 of the Energy Policy Act of 2005 (42 U.S.C. 15801)",
+          "description": "Definition of institution of higher education"
+        }
+      ]
+    },
+    {
+      "provision_type": "directive",
+      "description": "Requires the Secretary of Energy to submit biennial reports to Congress beginning January 1, 2026, describing payments made due to partial breach of standard contracts under the Nuclear Waste Policy Act, cumulative DOE spending on spent nuclear fuel and high-level radioactive waste storage and management, projected lifecycle costs, mechanisms for better accounting of liabilities, recommendations for improving cost accounting, interim storage actions, and activities to develop and deploy technologies enhancing safe transportation or storage of spent nuclear fuel or high-level radioactive waste.",
+      "deadlines": [
+        "January 1, 2026",
+        "biennially thereafter"
+      ],
+      "section": "SEC. 403",
+      "division": "B",
+      "title": "IV",
+      "confidence": 0.95,
+      "raw_text": "Not later than January 1, 2026, and biennially thereafter, the Secretary of Energy shall submit to Congress a report that describes—(1) the annual and c",
+      "notes": [
+        "Report covers 8 categories of information related to spent nuclear fuel and high-level radioactive waste",
+        "Includes projected lifecycle costs through 2050 for existing reactor inventory",
+        "References standard contracts under the Nuclear Waste Policy Act of 1982",
+        "Covers cumulative DOE spending since fiscal year 2008"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "see_also",
+          "target": "Nuclear Waste Policy Act of 1982 (42 U.S.C. 10101 et seq.)",
+          "description": "Defines terms and context for standard contracts and partial breach of contract"
+        },
+        {
+          "ref_type": "see_also",
+          "target": "10 CFR 961.3",
+          "description": "Definition of standard contract"
+        }
+      ]
+    },
+    {
+      "provision_type": "directive",
+      "description": "Requires the Commission (NRC) to establish an initiative to enhance preparedness and coordination on qualification and licensing of advanced nuclear fuel, and requires the Commission and the Secretary of Energy to enter into a memorandum of understanding within 180 days to share technical expertise on accident tolerant fuels, advanced reactor fuel concepts, and related matters. Also requires a report to Congress within 2 years describing the Commission's efforts, including assessments of preparedness to review advanced fuel types (accident tolerant fuel, ceramic cladding, silicon carbide fuels, HALEU fuels, molten-salt liquid fuels, fuels from spent fuel or depleted uranium).",
+      "deadlines": [
+        "180 days after enactment (MOU)",
+        "2 years after enactment (report)"
+      ],
+      "section": "SEC. 404",
+      "division": "B",
+      "title": "IV",
+      "confidence": 0.95,
+      "raw_text": "The Commission shall establish an initiative to enhance preparedness and coordination with respect to the qualification and licensing of advanced nuclear",
+      "notes": [
+        "MOU must cover sharing technical expertise, enabling testing/demonstration of accident tolerant fuels, operating a shared database, and leveraging safety analysis expertise",
+        "MOU must ensure DOE has sufficient expertise for R&D and NRC has sufficient expertise for licensing evaluations",
+        "Report must include assessment of NRC preparedness to review 7 categories of advanced fuel concepts",
+        "Requires consultation with DOE, National Labs, industry, technology developers, NGOs, and public stakeholders for the report"
+      ],
+      "cross_references": []
+    },
+    {
+      "provision_type": "directive",
+      "description": "Requires the NRC to update its mission statement within 1 year of enactment to include that licensing and regulation of civilian use of radioactive materials and nuclear energy be conducted efficiently and not unnecessarily limit civilian use or its benefits to society, and to submit a report to Congress describing the updated mission statement and guidance to staff.",
+      "deadlines": [
+        "1 year after enactment",
+        "on completion of mission statement update"
+      ],
+      "section": "SEC. 501",
+      "division": "B",
+      "title": "V",
+      "confidence": 0.95,
+      "raw_text": "Not later than 1 year after the date of enactment of this Act, the Commission shall, while remaining consistent with the policies of the Atomic Energy",
+      "notes": [
+        "Subsection (a) directs the mission statement update; subsection (b) requires a report to appropriate committees of Congress describing the updated mission statement and guidance to staff",
+        "Must remain consistent with Atomic Energy Act of 1954 and Energy Reorganization Act of 1974 policies including adequate protection of public health and safety, common defense and security, and environmental protection"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "subject_to",
+          "target": "Atomic Energy Act of 1954 (42 U.S.C. 2011 et seq.)",
+          "description": "Mission update must remain consistent with policies of this Act"
+        },
+        {
+          "ref_type": "subject_to",
+          "target": "Energy Reorganization Act of 1974 (42 U.S.C. 5801 et seq.)",
+          "description": "Mission update must remain consistent with policies of this Act"
+        }
+      ]
+    },
+    {
+      "provision_type": "rider",
+      "description": "Amends the Atomic Energy Act of 1954 by inserting new Section 161B granting the NRC Chairman direct hire authority for up to 210 exceptionally well-qualified individuals in covered positions and up to 20 term-limited appointments per fiscal year (terms not exceeding 4 years), authority to fix compensation without regard to GS pay rates (capped at Executive Schedule Level III), authority to pay one-time hiring bonuses up to $25,000 and performance bonuses up to $25,000 (with 5-year cooldown), and related reporting, delegation, and sunset provisions.",
+      "policy_area": "Nuclear Regulatory Commission workforce and hiring authorities",
+      "section": "SEC. 502",
+      "division": "B",
+      "title": "V",
+      "confidence": 0.95,
+      "raw_text": "The Atomic Energy Act of 1954 (42 U.S.C. 2011 et seq.) is amended by inserting after section 161A the following: SEC. 161B. Commission workforce",
+      "notes": [
+        "Creates new Section 161B of the Atomic Energy Act of 1954",
+        "Direct hire authority: up to 210 covered positions at any time under (a)(1)(A); up to 20 term-limited positions per fiscal year under (a)(1)(B)",
+        "Term-limited positions may not exceed 4 years",
+        "Compensation capped at Executive Schedule Level III; excludes Senior Executive Service positions",
+        "One-time hiring bonus up to $25,000 for new hires; performance bonus up to $25,000 with 5-year cooldown between performance bonuses",
+        "Exceptional performance includes timely licensing reviews, resolution of novel regulatory issues, improving Commission effectiveness",
+        "Chairman must develop implementation plan within 180 days and report to House Energy and Commerce, Senate EPW, and OPM before implementing",
+        "Budget materials starting FY2026 must include hiring, vacancy, and compensation information",
+        "Covered positions: highly-specialized scientific/technical/engineering/mathematical positions for critical licensing or regulatory oversight needs, or positions determined necessary by the Executive Director for Operations",
+        "Authorities sunset September 30, 2034, extendable to September 30, 2039 if Commission certifies continued necessity",
+        "Notwithstanding section 161 d. of the Atomic Energy Act and Reorganization Plan No. 1 of 1980"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Atomic Energy Act of 1954 (42 U.S.C. 2011 et seq.)",
+          "description": "Inserts new Section 161B after Section 161A"
+        },
+        {
+          "ref_type": "notwithstanding",
+          "target": "Section 161 d. of the Atomic Energy Act of 1954",
+          "description": "Direct hire authority overrides this provision"
+        },
+        {
+          "ref_type": "notwithstanding",
+          "target": "Reorganization Plan No. 1 of 1980 (94 Stat. 3585; 5 U.S.C. app.)",
+          "description": "Direct hire authority overrides this provision"
+        },
+        {
+          "ref_type": "see_also",
+          "target": "5 U.S.C. 5314",
+          "description": "Executive Schedule Level III pay cap reference"
+        },
+        {
+          "ref_type": "see_also",
+          "target": "5 U.S.C. 3132",
+          "description": "Senior Executive Service position definition"
+        },
+        {
+          "ref_type": "see_also",
+          "target": "5 U.S.C. 5307(a)(1)",
+          "description": "Aggregate limitation on pay applicable to performance bonus cap"
+        }
+      ]
+    },
+    {
+      "provision_type": "directive",
+      "description": "Requires the Comptroller General to submit a report to House Energy and Commerce, House Oversight and Accountability, Senate EPW, and Senate HSGAC evaluating the utilization and effectiveness of the Section 161B workforce authorities, assessing their role in licensing advanced nuclear reactors, and making recommendations on strategic workforce management and whether to extend, enhance, modify, or discontinue the authorities.",
+      "deadlines": [
+        "September 30, 2033"
+      ],
+      "section": "SEC. 502",
+      "division": "B",
+      "title": "V",
+      "confidence": 0.95,
+      "raw_text": "Not later than September 30, 2033, the Comptroller General of the United States shall submit to the Committee on Energy and Commerce and the Committee",
+      "notes": [
+        "This is subsection (b) of SEC. 502",
+        "GAO report must cover: (1) utilization of authorities, (2) role of appointees in advanced nuclear reactor licensing, (3) effectiveness assessment, (4) strategic workforce management recommendations, (5) recommendations on extending/modifying/discontinuing authorities"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "see_also",
+          "target": "Section 161B of the Atomic Energy Act of 1954",
+          "description": "Evaluates the authorities created by this section"
+        }
+      ]
+    },
+    {
+      "provision_type": "directive",
+      "description": "Requires the Commission to annually solicit applications for the Nuclear Regulator Apprenticeship Network.",
+      "deadlines": [
+        "annually"
+      ],
+      "section": "SEC. 502",
+      "division": "B",
+      "title": "V",
+      "confidence": 0.95,
+      "raw_text": "The Commission, on an annual basis, shall solicit applications for the Nuclear Regulator Apprenticeship Network.",
+      "notes": [
+        "This is subsection (c) of SEC. 502",
+        "NRAN is the Nuclear Regulator Apprenticeship Network"
+      ],
+      "cross_references": []
+    },
+    {
+      "provision_type": "directive",
+      "description": "Requires the Commission to submit to the appropriate committees of Congress and make publicly available a report within 3 years describing progress on implementation of corporate support budget authority caps under section 102(a)(3) of the Nuclear Energy Innovation and Modernization Act and whether the Commission is meeting those caps.",
+      "deadlines": [
+        "3 years after enactment"
+      ],
+      "section": "SEC. 503",
+      "division": "B",
+      "title": "V",
+      "confidence": 0.95,
+      "raw_text": "Not later than 3 years after the date of enactment of this Act, the Commission shall submit to the appropriate committees of Congress and make publicly",
+      "notes": [
+        "Subsection (a) of SEC. 503; report on corporate support funding implementation"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "see_also",
+          "target": "Section 102(a)(3) of the Nuclear Energy Innovation and Modernization Act (42 U.S.C. 2215(a)(3))",
+          "description": "References the corporate support budget authority caps"
+        }
+      ]
+    },
+    {
+      "provision_type": "rider",
+      "description": "Amends Section 102(a)(3) of the Nuclear Energy Innovation and Modernization Act to replace the phased corporate support cost caps (subparagraphs (B) and (C)) with a single 30 percent cap for fiscal year 2025 and each fiscal year thereafter.",
+      "policy_area": "Nuclear Regulatory Commission corporate support cost limitation",
+      "section": "SEC. 503",
+      "division": "B",
+      "title": "V",
+      "confidence": 0.95,
+      "raw_text": "Section 102(a)(3) of the Nuclear Energy Innovation and Modernization Act (42 U.S.C. 2215(a)(3)) is amended by striking subparagraphs (B) and (C) and i",
+      "notes": [
+        "Subsection (b) of SEC. 503; sets a permanent 30% cap on NRC corporate support costs starting FY2025"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 102(a)(3) of the Nuclear Energy Innovation and Modernization Act (42 U.S.C. 2215(a)(3))",
+          "description": "Strikes subparagraphs (B) and (C) and replaces with a single 30% cap for FY2025+"
+        }
+      ]
+    },
+    {
+      "provision_type": "rider",
+      "description": "Amends paragraph (10) of section 3 of the Nuclear Energy Innovation and Modernization Act to clarify that 'corporate support costs' excludes: (i) costs for rent and utilities for space in Three White Flint North building not occupied by the Commission; and (ii) costs for salaries, travel, and other support for the Office of the Commission.",
+      "policy_area": "Nuclear Regulatory Commission corporate support cost definition",
+      "section": "SEC. 503",
+      "division": "B",
+      "title": "V",
+      "confidence": 0.95,
+      "raw_text": "Paragraph (10) of section 3 of the Nuclear Energy Innovation and Modernization Act (42 U.S.C. 2215 note; Public Law 115–439) (as redesignated by section",
+      "notes": [
+        "Subsection (c) of SEC. 503; narrows the definition of corporate support costs by excluding certain rent/utilities and Office of the Commission costs"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 3(10) of the Nuclear Energy Innovation and Modernization Act (Public Law 115-439)",
+          "description": "Adds exclusions to the definition of corporate support costs"
+        }
+      ]
+    },
+    {
+      "provision_type": "rider",
+      "description": "Amends Section 102(c) of the Nuclear Energy Innovation and Modernization Act to shorten the deadline in paragraph (3) from 180 days to 90 days and adds a new paragraph (4) requiring the Commission to review and assess performance metrics and milestone schedules not less than every 3 years and revise them as appropriate.",
+      "policy_area": "Nuclear Regulatory Commission performance metrics and milestone schedules",
+      "section": "SEC. 504",
+      "division": "B",
+      "title": "V",
+      "confidence": 0.95,
+      "raw_text": "Section 102(c) of the Nuclear Energy Innovation and Modernization Act (42 U.S.C. 2215(c)) is amended—(1) in� paragraph (3)—(A) on the paragraph head",
+      "notes": [
+        "Reduces reporting deadline from 180 to 90 days and adds triennial review/revision requirement for performance metrics"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 102(c) of the Nuclear Energy Innovation and Modernization Act (42 U.S.C. 2215(c))",
+          "description": "Changes 180-day deadline to 90 days and adds periodic review requirement"
+        }
+      ]
+    },
+    {
+      "provision_type": "rider",
+      "description": "Amends Section 203 of the Energy Reorganization Act of 1974 to add a new subsection (c) directing the Director of Nuclear Reactor Regulation to establish and maintain techniques and guidance for evaluating license applications to support efficient, timely, and predictable reviews, subject to Commission approval for policy formulation.",
+      "policy_area": "Nuclear Regulatory Commission licensing process efficiency",
+      "section": "SEC. 505",
+      "division": "B",
+      "title": "V",
+      "confidence": 0.95,
+      "raw_text": "Section 203 of the Energy Reorganization Act of 1974 (42 U.S.C. 5843) is amended—(1) in subsection (a), by striking ''(a) There'' and inserting the",
+      "notes": [
+        "Subsection (a) of SEC. 505; restructures section headings and adds new licensing process subsection (c) to Section 203 of the Energy Reorganization Act"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 203 of the Energy Reorganization Act of 1974 (42 U.S.C. 5843)",
+          "description": "Adds licensing process requirements for the Director of Nuclear Reactor Regulation"
+        }
+      ]
+    },
+    {
+      "provision_type": "rider",
+      "description": "Amends Section 181 of the Atomic Energy Act of 1954 to add a new subsection (b) requiring the Commission to provide for efficient and timely reviews and proceedings for granting, suspending, revoking, or amending licenses, construction permits, or transfer control applications.",
+      "policy_area": "Nuclear licensing review efficiency",
+      "section": "SEC. 505",
+      "division": "B",
+      "title": "V",
+      "confidence": 0.95,
+      "raw_text": "Section 181 of the Atomic Energy Act of 1954 (42 U.S.C. 2231) is amended—(A) by striking ''The provisions of'' and inserting the following:",
+      "notes": [
+        "Subsection (b) of SEC. 505; adds efficient licensing review requirement to the Atomic Energy Act"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 181 of the Atomic Energy Act of 1954 (42 U.S.C. 2231)",
+          "description": "Adds efficient licensing reviews subsection"
+        }
+      ]
+    },
+    {
+      "provision_type": "rider",
+      "description": "Amends Section 185 of the Atomic Energy Act of 1954 to add a new subsection c requiring the Commission, when reviewing an application for an early site permit, construction permit, operating license, or combined license for a facility at an existing licensed site, to use, to the extent practicable, information that was part of the licensing basis of the previously licensed facility.",
+      "policy_area": "Nuclear licensing at existing sites",
+      "section": "SEC. 505",
+      "division": "B",
+      "title": "V",
+      "confidence": 0.95,
+      "raw_text": "Section 185 of the Atomic Energy Act of 1954 (42 U.S.C. 2235) is amended by adding at the end the following:",
+      "notes": [
+        "Subsection (c) of SEC. 505; allows reuse of existing licensing basis information for co-located facilities"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 185 of the Atomic Energy Act of 1954 (42 U.S.C. 2235)",
+          "description": "Adds provision for reviews at existing licensed sites"
+        }
+      ]
+    },
+    {
+      "provision_type": "directive",
+      "description": "Requires the Commission to submit a report to Congress within 180 days on efforts to facilitate efficient, timely, and predictable environmental reviews of nuclear reactor license applications, including through expanded use of categorical exclusions, environmental assessments, and generic environmental impact statements. The report must describe implementation of NEPA amendments from the Fiscal Responsibility Act of 2023, consider numerous streamlining measures (adoption of other agencies' environmental documents, use of mitigated FONSIs, coordination with other agencies, use of applicant EIS as draft, digital technologies, etc.), and include a schedule for any necessary rulemakings.",
+      "deadlines": [
+        "180 days after enactment"
+      ],
+      "section": "SEC. 506",
+      "division": "B",
+      "title": "V",
+      "confidence": 0.95,
+      "raw_text": "Not later than 180 days after the date of enactment of this Act, the Commission shall submit to the appropriate committees of Congress a report on the ef",
+      "notes": [
+        "Extensive directive with 12 sub-considerations (A through L) for streamlining NRC environmental reviews under NEPA"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "see_also",
+          "target": "Section 103 of the Atomic Energy Act of 1954 (42 U.S.C. 2133)",
+          "description": "License applications subject to environmental review"
+        },
+        {
+          "ref_type": "see_also",
+          "target": "National Environmental Policy Act of 1969 (42 U.S.C. 4321 et seq.)",
+          "description": "NEPA obligations referenced"
+        },
+        {
+          "ref_type": "see_also",
+          "target": "Section 321 of the Fiscal Responsibility Act of 2023 (Public Law 118-5; 137 Stat. 38)",
+          "description": "NEPA amendments the Commission must implement"
+        },
+        {
+          "ref_type": "see_also",
+          "target": "Section 107(f) of the National Environmental Policy Act of 1969 (42 U.S.C. 4336a(f))",
+          "description": "Authority for using applicant's EIS as Commission's draft"
+        }
+      ]
+    },
+    {
+      "provision_type": "directive",
+      "description": "Requires the Commission within 1 year to develop and submit a report identifying specific improvements to nuclear reactor and materials oversight and inspection programs to maximize efficiency through risk-informed, performance-based procedures, expanded use of information technologies, and staff training. Report must cover assessment of oversight elements (travel, planning, document collection, cross-cutting issues), measures to reduce duplication, risk-informed procedures, enabling licensee innovation, and an implementation timeline. Requires stakeholder input from other federal agencies, industry, NGOs, and public.",
+      "deadlines": [
+        "1 year after enactment"
+      ],
+      "section": "SEC. 507",
+      "division": "B",
+      "title": "V",
+      "confidence": 0.95,
+      "raw_text": "Not later than 1 year after the date of enactment of this Act, the Commission shall develop and submit to the appropriate committees of Congress a report",
+      "notes": [
+        "Comprehensive inspection/oversight modernization directive with 7 major report elements covering technology, risk-informed approaches, AI/ML, and licensee innovation"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "see_also",
+          "target": "Sections 103 and 104 of the Atomic Energy Act of 1954 (42 U.S.C. 2133, 2134)",
+          "description": "Definition of licensee for this section"
+        },
+        {
+          "ref_type": "see_also",
+          "target": "Atomic Energy Act of 1954 (42 U.S.C. 2011 et seq.)",
+          "description": "Statutory basis for oversight and inspection programs"
+        }
+      ]
+    },
+    {
+      "provision_type": "rider",
+      "description": "Amends Section 104 c. of the Atomic Energy Act of 1954 to restructure and add limitations on NRC licensing of utilization facilities for research and development activities, including caps on annual costs devoted to sale of nonenergy services and energy (75% combined, 50% for energy alone).",
+      "policy_area": "Nuclear energy regulation",
+      "section": "SEC. 601",
+      "division": "B",
+      "title": "VI",
+      "confidence": 0.95,
+      "raw_text": "Section 104 c. of the Atomic Energy Act of 1954 (42 U.S.C. 2134(c)) is amended—(1) by striking the third sentence and inserting the following:(3)",
+      "notes": [
+        "Restructures Section 104(c) into numbered paragraphs with headings",
+        "Establishes two-pronged cost limitation: not more than 75% of annual costs for sale of nonenergy services and/or energy, and not more than 50% for sale of energy alone",
+        "Section heading indicates this is a 'Technical correction'"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 104 c. of the Atomic Energy Act of 1954 (42 U.S.C. 2134(c))",
+          "description": "Restructures and adds limitations on utilization facility licensing for R&D activities"
+        }
+      ]
+    },
+    {
+      "provision_type": "directive",
+      "description": "Requires the Commission (NRC) to submit to appropriate congressional committees a report describing any engagement between the Commission and the Government of Canada with respect to nuclear waste issues in the Great Lakes Basin.",
+      "deadlines": [
+        "1 year after the date of enactment"
+      ],
+      "section": "SEC. 602",
+      "division": "B",
+      "title": "VI",
+      "confidence": 0.97,
+      "raw_text": "Not later than 1 year after the date of enactment of this Act, the Commission shall submit to the appropriate committees of Congress, the Committee on",
+      "notes": [
+        "Report recipients include: appropriate committees of Congress, Committee on Foreign Relations of the Senate, Committee on Energy and Natural Resources of the Senate, and Committee on Foreign Affairs of the House"
+      ],
+      "cross_references": []
+    },
+    {
+      "provision_type": "rider",
+      "description": "Savings clause providing that nothing in this Act affects authorities of the Department of State.",
+      "policy_area": "Preservation of existing authority",
+      "section": "SEC. 603",
+      "division": "B",
+      "title": "VI",
+      "confidence": 0.97,
+      "raw_text": "Nothing in this Act affects authorities of the Department of State.",
+      "notes": [
+        "Standard savings clause preserving Department of State authorities, likely related to the international engagement provisions elsewhere in the Act"
+      ],
+      "cross_references": []
+    }
+  ],
+  "summary": {
+    "total_provisions": 49,
+    "by_division": {
+      "A": 7,
+      "B": 42
+    },
+    "by_type": {
+      "directive": 22,
+      "mandatory_spending_extension": 6,
+      "rider": 21
+    },
+    "total_budget_authority": 0,
+    "total_rescissions": 0,
+    "sections_with_no_provisions": [
+      "SEC. 1"
+    ],
+    "flagged_issues": [
+      "This is an authorization bill, not an appropriations bill; all dollar amounts are authorizations of appropriations, not direct budget authority",
+      "SEC. 4(b) does not state an explicit dollar amount—the authorization level ($750,000,000) is implicit from the existing subparagraph (H) of section 34(j)(1) being extended to FY2024-2028",
+      "Bill identifier assumed to be S. 870 based on user reference to '870' and the short title 'Fire Grants and Safety Act of 2023'",
+      "This is an authorization title with no appropriations — all provisions are policy riders or directives",
+      "SEC. 101(c) amends NEIMA to exclude international activities from NRC fee base, effective October 1, 2025",
+      "SEC. 102 creates a de facto ban on Russian/Chinese-fabricated nuclear fuel absent joint DOE/State determination",
+      "Bill preamble was empty; identifier inferred as S. 870 from internal reference to 'ADVANCE Act of 2024'",
+      "Title II contains no appropriations — all provisions are authorization/policy changes and a reporting requirement",
+      "SEC. 202 authorizes prizes 'subject to the availability of appropriations' but no funds are appropriated in this title",
+      "Bill identifier '870' provided by user without chamber prefix (H.R. or S.) or Congress number",
+      "No dollar amounts or appropriations in Division B, Title II — all provisions are regulatory/policy directives and riders related to NRC nuclear energy licensing",
+      "SEC. 204 references section 201(b) which appears earlier in the same bill but is not included in this excerpt",
+      "SEC. 205(b)(2) references section 201(a) for prior amendment to the same section",
+      "Title III contains no appropriations or spending provisions; all provisions are policy riders amending the Atomic Energy Act of 1954 to allow foreign ownership of nuclear facilities by allied-nation entities",
+      "Title IV contains no appropriations or dollar amounts — all provisions are authorizing/directive in nature",
+      "SEC. 402 amends existing law (42 U.S.C. 16274a) to create a new traineeship subprogram but does not authorize specific funding levels",
+      "Title V is entirely authorizing/policy language with no appropriations. SEC. 502(a) creates significant new NRC hiring and compensation authorities via amendment to the Atomic Energy Act of 1954.",
+      "Workforce authorities sunset September 30, 2034, extendable to September 30, 2039 upon Commission certification.",
+      "Title V contains no appropriations or dollar amounts; all provisions are policy riders or reporting directives related to Nuclear Regulatory Commission reform",
+      "Bill identifier '870' was provided without prefix (H.R./S.) — exact bill number uncertain",
+      "Title VI contains no spending provisions; all sections are policy riders or directives",
+      "Bill identifier inferred as S. 870 based on content (ADVANCE Act) and user instruction"
+    ]
+  },
+  "chunk_map": [
+    {
+      "chunk_id": "01KKZM4XC69HVZAEA8WSQFK21M",
+      "label": "[1/9] A",
+      "provision_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "chunk_id": "01KKZM4XC6N46WH79919C9JGMP",
+      "label": "[2/9] B-I",
+      "provision_indices": [
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ]
+    },
+    {
+      "chunk_id": "01KKZM4XC68HWKBNWPV7TYGRBF",
+      "label": "[3/9] B-IIa",
+      "provision_indices": [
+        13,
+        14,
+        15
+      ]
+    },
+    {
+      "chunk_id": "01KKZM4XC6KC19TSJNDNX2GC65",
+      "label": "[4/9] B-IIb",
+      "provision_indices": [
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25
+      ]
+    },
+    {
+      "chunk_id": "01KKZM4XC62XY8HX2DGPPRNFX4",
+      "label": "[5/9] B-III",
+      "provision_indices": [
+        26,
+        27,
+        28
+      ]
+    },
+    {
+      "chunk_id": "01KKZM4XC6517X8M1M03873CF5",
+      "label": "[6/9] B-IV",
+      "provision_indices": [
+        29,
+        30,
+        31,
+        32
+      ]
+    },
+    {
+      "chunk_id": "01KKZM5W5MRQSRA7W361PMZJ9Q",
+      "label": "[7/9] B-Va",
+      "provision_indices": [
+        33,
+        34,
+        35,
+        36
+      ]
+    },
+    {
+      "chunk_id": "01KKZM6D18HDRGDASQYSKZSPZP",
+      "label": "[8/9] B-Vb",
+      "provision_indices": [
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45
+      ]
+    },
+    {
+      "chunk_id": "01KKZM738PPSN76EA4J6ZAXCK2",
+      "label": "[9/9] B-VI",
+      "provision_indices": [
+        46,
+        47,
+        48
+      ]
+    }
+  ]
+}

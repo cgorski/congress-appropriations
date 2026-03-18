@@ -29,7 +29,14 @@ fn budget_authority_totals_match_expected() {
         ("H.R. 9468", 2_882_482_000, 0),
     ];
 
-    assert_eq!(data.len(), expected.len(), "Wrong number of bills");
+    // examples/ may contain more bills than the original 3;
+    // verify the original 3 are present with correct totals.
+    assert!(
+        data.len() >= expected.len(),
+        "Expected at least {} bills, found {}",
+        expected.len(),
+        data.len()
+    );
 
     for (bill, expected_ba, expected_resc) in &expected {
         let entry = data
@@ -73,7 +80,11 @@ fn summary_json_is_valid() {
     assert!(output.status.success());
     let stdout = str::from_utf8(&output.stdout).unwrap();
     let data: Vec<serde_json::Value> = serde_json::from_str(stdout).unwrap();
-    assert_eq!(data.len(), 3);
+    assert!(
+        data.len() >= 3,
+        "Expected at least 3 bills, found {}",
+        data.len()
+    );
 }
 
 // ─── Audit Command ───────────────────────────────────────────────────────────

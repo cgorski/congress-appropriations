@@ -1,0 +1,9 @@
+{
+  "schema_version": "1.0",
+  "model": "text-embedding-3-large",
+  "dimensions": 3072,
+  "count": 2837,
+  "extraction_sha256": "b461a6878d8d9fae67d1752642823dd3aa72b74996ed17717d652d5dd909719f",
+  "vectors_file": "vectors.bin",
+  "vectors_sha256": "31ad70089d50bb652efe5baee4f544ee9374a281945444665f405866c3fd0c56"
+}

@@ -1,0 +1,409 @@
+{
+  "schema_version": "1.0",
+  "amount_checks": [
+    {
+      "provision_index": 0,
+      "text_as_written": "$95,000,000",
+      "found_in_source": true,
+      "source_positions": [
+        600
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 1,
+      "text_as_written": "$3,420,000",
+      "found_in_source": true,
+      "source_positions": [
+        665
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 3,
+      "text_as_written": "$750,000,000",
+      "found_in_source": true,
+      "source_positions": [
+        1323
+      ],
+      "status": "verified"
+    }
+  ],
+  "raw_text_checks": [
+    {
+      "provision_index": 0,
+      "raw_text_preview": "Section 17(g)(1) of the Federal Fire Prevention and Control Act of 1974 (15 U.S....",
+      "is_verbatim_substring": false,
+      "match_tier": "no_match",
+      "found_at_position": null
+    },
+    {
+      "provision_index": 1,
+      "raw_text_preview": "of which $3,420,000 for each such fiscal year shall be used to carry out section...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 656
+    },
+    {
+      "provision_index": 2,
+      "raw_text_preview": "Section 33(r) of the Federal Fire Prevention and Control Act of 1974 (15 U.S.C. ...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 876
+    },
+    {
+      "provision_index": 3,
+      "raw_text_preview": "Section 33(q)(1) of the Federal Fire Prevention and Control Act of 1974 (15 U.S....",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 1057
+    },
+    {
+      "provision_index": 4,
+      "raw_text_preview": "Section 34(k) of the Federal Fire Prevention and Control Act of 1974 (15 U.S.C. ...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 1486
+    },
+    {
+      "provision_index": 5,
+      "raw_text_preview": "Section 34(j)(1) of the Federal Fire Prevention and Control Act of 1974 (15 U.S....",
+      "is_verbatim_substring": false,
+      "match_tier": "no_match",
+      "found_at_position": null
+    },
+    {
+      "provision_index": 6,
+      "raw_text_preview": "Not later than three years after the date of the enactment of this Act, the Comp...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 2036
+    },
+    {
+      "provision_index": 7,
+      "raw_text_preview": "The Commission shall—(A) coordinate all work of the Commission relating to—(...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 2557
+    },
+    {
+      "provision_index": 8,
+      "raw_text_preview": "Section 102 of the Nuclear Energy Innovation and Modernization Act (42 U.S.C. 22...",
+      "is_verbatim_substring": false,
+      "match_tier": "no_match",
+      "found_at_position": null
+    },
+    {
+      "provision_index": 9,
+      "raw_text_preview": "Unless specifically authorized by the Commission in a license issued under secti...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 6164
+    },
+    {
+      "provision_index": 10,
+      "raw_text_preview": "If the Commission, after consultation with the Secretary of State and any other ...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 9795
+    },
+    {
+      "provision_index": 11,
+      "raw_text_preview": "Not later than 1 year after the date of enactment of this Act, the Secretary of ...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 11535
+    },
+    {
+      "provision_index": 12,
+      "raw_text_preview": "Not later than 90 days after the date of enactment of this Act, the Secretary of...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 14506
+    },
+    {
+      "provision_index": 13,
+      "raw_text_preview": "SEC. 201. \nFees for advanced nuclear reactor application review\n(a) \nDefinitions...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 15985
+    },
+    {
+      "provision_index": 14,
+      "raw_text_preview": "SEC. 202. \nAdvanced nuclear reactor prizes\nSection 103 of the Nuclear Energy Inn...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 20916
+    },
+    {
+      "provision_index": 15,
+      "raw_text_preview": "SEC. 203. \nLicensing considerations relating to use of nuclear energy for nonele...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 26190
+    },
+    {
+      "provision_index": 16,
+      "raw_text_preview": "Section 102(b)(1)(B) of the Nuclear Energy Innovation and Modernization Act (42 ...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 28810
+    },
+    {
+      "provision_index": 17,
+      "raw_text_preview": "Section 11 of the Atomic Energy Act of 1954 (42 U.S.C. 2014) is amended—(1) in...",
+      "is_verbatim_substring": false,
+      "match_tier": "no_match",
+      "found_at_position": null
+    },
+    {
+      "provision_index": 18,
+      "raw_text_preview": "Section 103(a) of the Nuclear Energy Innovation and Modernization Act (42 U.S.C....",
+      "is_verbatim_substring": false,
+      "match_tier": "no_match",
+      "found_at_position": null
+    },
+    {
+      "provision_index": 19,
+      "raw_text_preview": "Not later than 1 year after the date of enactment of this Act, the Commission sh...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 32690
+    },
+    {
+      "provision_index": 20,
+      "raw_text_preview": "Not later than 1 year after the date of enactment of this Act, the Commission sh...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 34589
+    },
+    {
+      "provision_index": 21,
+      "raw_text_preview": "Not later than 2 years after the date of enactment of this Act, the Commission s...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 35983
+    },
+    {
+      "provision_index": 22,
+      "raw_text_preview": "Not later than 3 years after the date of enactment of this Act, the Commission s...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 37138
+    },
+    {
+      "provision_index": 23,
+      "raw_text_preview": "In accordance with this section, the Commission shall establish and carry out an...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 37414
+    },
+    {
+      "provision_index": 24,
+      "raw_text_preview": "Not later than 30 days after the applicable deadline, the Executive Director for...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 39800
+    },
+    {
+      "provision_index": 25,
+      "raw_text_preview": "The Commission shall—(1) not later than 18 months after the date of enactment ...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 40473
+    },
+    {
+      "provision_index": 26,
+      "raw_text_preview": "The prohibitions against issuing certain licenses for utilization facilities to ...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 42955
+    },
+    {
+      "provision_index": 27,
+      "raw_text_preview": "Section 103 d. of the Atomic Energy Act of 1954 (42 U.S.C. 2133(d)) is amended, ...",
+      "is_verbatim_substring": false,
+      "match_tier": "no_match",
+      "found_at_position": null
+    },
+    {
+      "provision_index": 28,
+      "raw_text_preview": "Nothing in this section affects the requirements of section 721 of the Defense P...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 45000
+    },
+    {
+      "provision_index": 29,
+      "raw_text_preview": "Not later than 180 days after the date of enactment of this Act, the Commission ...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 45304
+    },
+    {
+      "provision_index": 30,
+      "raw_text_preview": "Section 313 of division C of the Omnibus Appropriations Act, 2009 (42 U.S.C. 162...",
+      "is_verbatim_substring": false,
+      "match_tier": "no_match",
+      "found_at_position": null
+    },
+    {
+      "provision_index": 31,
+      "raw_text_preview": "Not later than January 1, 2026, and biennially thereafter, the Secretary of Ener...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 51280
+    },
+    {
+      "provision_index": 32,
+      "raw_text_preview": "The Commission shall establish an initiative to enhance preparedness and coordin...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 53364
+    },
+    {
+      "provision_index": 33,
+      "raw_text_preview": "Not later than 1 year after the date of enactment of this Act, the Commission sh...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 56781
+    },
+    {
+      "provision_index": 34,
+      "raw_text_preview": "The Atomic Energy Act of 1954 (42 U.S.C. 2011 et seq.) is amended by inserting a...",
+      "is_verbatim_substring": false,
+      "match_tier": "normalized",
+      "found_at_position": null
+    },
+    {
+      "provision_index": 35,
+      "raw_text_preview": "Not later than September 30, 2033, the Comptroller General of the United States ...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 69390
+    },
+    {
+      "provision_index": 36,
+      "raw_text_preview": "The Commission, on an annual basis, shall solicit applications for the Nuclear R...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 70828
+    },
+    {
+      "provision_index": 37,
+      "raw_text_preview": "Not later than 3 years after the date of enactment of this Act, the Commission s...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 71002
+    },
+    {
+      "provision_index": 38,
+      "raw_text_preview": "Section 102(a)(3) of the Nuclear Energy Innovation and Modernization Act (42 U.S...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 71519
+    },
+    {
+      "provision_index": 39,
+      "raw_text_preview": "Paragraph (10) of section 3 of the Nuclear Energy Innovation and Modernization A...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 71804
+    },
+    {
+      "provision_index": 40,
+      "raw_text_preview": "Section 102(c) of the Nuclear Energy Innovation and Modernization Act (42 U.S.C....",
+      "is_verbatim_substring": false,
+      "match_tier": "no_match",
+      "found_at_position": null
+    },
+    {
+      "provision_index": 41,
+      "raw_text_preview": "Section 203 of the Energy Reorganization Act of 1974 (42 U.S.C. 5843) is amended...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 73411
+    },
+    {
+      "provision_index": 42,
+      "raw_text_preview": "Section 181 of the Atomic Energy Act of 1954 (42 U.S.C. 2231) is amended—(A) b...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 74988
+    },
+    {
+      "provision_index": 43,
+      "raw_text_preview": "Section 185 of the Atomic Energy Act of 1954 (42 U.S.C. 2235) is amended by addi...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 75502
+    },
+    {
+      "provision_index": 44,
+      "raw_text_preview": "Not later than 180 days after the date of enactment of this Act, the Commission ...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 76237
+    },
+    {
+      "provision_index": 45,
+      "raw_text_preview": "Not later than 1 year after the date of enactment of this Act, the Commission sh...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 81044
+    },
+    {
+      "provision_index": 46,
+      "raw_text_preview": "Section 104 c. of the Atomic Energy Act of 1954 (42 U.S.C. 2134(c)) is amended...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 84637
+    },
+    {
+      "provision_index": 47,
+      "raw_text_preview": "Not later than 1 year after the date of enactment of this Act, the Commission sh...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 85859
+    },
+    {
+      "provision_index": 48,
+      "raw_text_preview": "Nothing in this Act affects authorities of the Department of State.",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 86349
+    }
+  ],
+  "completeness": {
+    "total_dollar_amounts_in_text": 5,
+    "accounted_for": 3,
+    "unaccounted": [
+      {
+        "text": "$25,000",
+        "value": 25000,
+        "position": 62705,
+        "context": "appointed under subsection (a) a 1-time hiring bonus in an amount not to exceed $25,000.(2)  For existing employees (A)  In general Subject to subparagraphs (B)"
+      },
+      {
+        "text": "$25,000",
+        "value": 25000,
+        "position": 62983,
+        "context": "r may be paid a performance bonus in an amount not to exceed the least of—(i) $25,000; and(ii) the amount of the limitation that is applicable for a calendar"
+      }
+    ]
+  },
+  "summary": {
+    "total_provisions": 49,
+    "amounts_verified": 3,
+    "amounts_not_found": 0,
+    "amounts_ambiguous": 0,
+    "raw_text_exact": 40,
+    "raw_text_normalized": 1,
+    "raw_text_spaceless": 0,
+    "raw_text_no_match": 8,
+    "completeness_pct": 60.0,
+    "provisions_by_detail_level": {
+      "n/a": 49
+    }
+  }
+}

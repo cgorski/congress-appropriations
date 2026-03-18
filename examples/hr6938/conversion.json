@@ -1,0 +1,25 @@
+{
+  "provisions_parsed": 1061,
+  "provisions_failed": 0,
+  "null_to_default": 98,
+  "type_coercions": 0,
+  "unknown_provision_types": 24,
+  "warnings": [
+    "SEC : missing amount on appropriation",
+    "SEC : missing amount on appropriation",
+    "SEC : missing amount on appropriation",
+    "SEC : missing amount on appropriation",
+    "SEC : missing amount on appropriation",
+    "SEC : missing amount on appropriation",
+    "SEC : missing amount on appropriation",
+    "SEC : missing amount on appropriation",
+    "SEC : missing amount on appropriation",
+    "SEC : missing amount on appropriation",
+    "SEC : missing amount on appropriation",
+    "SEC : missing amount on appropriation",
+    "SEC : missing amount on appropriation",
+    "SEC : missing amount on appropriation",
+    "SEC : missing amount on appropriation",
+    "SEC SEC. 510: missing amount on appropriation"
+  ]
+}

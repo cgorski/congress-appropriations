@@ -1,0 +1,13 @@
+{
+  "provisions_parsed": 114,
+  "provisions_failed": 0,
+  "null_to_default": 4,
+  "type_coercions": 0,
+  "unknown_provision_types": 17,
+  "warnings": [
+    "SEC SEC. 129: missing amount on rescission",
+    "SEC SEC. 145: missing amount on appropriation",
+    "SEC SEC. 149: missing amount on rescission",
+    "SEC SEC. 149: missing amount on appropriation"
+  ]
+}
