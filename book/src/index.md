@@ -4,36 +4,63 @@
 
 `congress-approp` is a Rust command-line tool that downloads U.S. federal appropriations bills from Congress.gov, extracts every spending provision into structured JSON using Claude, verifies each dollar amount against the source bill text, and gives you tools to search, compare, summarize, and audit the results. No more hunting through 1,500 pages of legislative text to find out how much Congress appropriated for a program.
 
-> **Trust callout:** Across 2,501 provisions extracted from three FY2024 bills, every single dollar amount was found verbatim in the source bill text. Zero unverifiable amounts. The LLM extracts; deterministic code verifies.
+> **Trust callout:** Across 8,554 provisions extracted from thirteen enacted appropriations bills, every single dollar amount was found verbatim in the source bill text. Zero unverifiable amounts. The LLM extracts; deterministic code verifies.
 
 ## What's Included
 
-This book ships with **three pre-extracted example bills** covering the major appropriations bill types. You don't need any API keys to explore them — just install the tool and start querying:
+This book ships with **thirteen pre-extracted bills** covering FY2024 through FY2026 — omnibus packages, minibus bills, continuing resolutions, supplementals, and authorizations. All twelve appropriations subcommittees are represented for FY2026. You don't need any API keys to explore them — just install the tool and start querying.
 
-| Bill | Description | Provisions | Budget Authority |
-|------|-------------|------------|------------------|
-| H.R. 4366 | Consolidated Appropriations Act, 2024 (omnibus) | 2,364 | $846B |
-| H.R. 5860 | Continuing Appropriations Act, 2024 (CR) | 130 | $16B |
-| H.R. 9468 | Veterans Benefits Supplemental, 2024 | 7 | $2.9B |
+## What Can You Do?
 
-## Quick Example
+**"How did THUD funding change from FY2024 to FY2026?"**
 
 ```bash
-congress-approp summary --dir examples
+congress-approp enrich --dir examples                    # Generate metadata (once, no API key)
+congress-approp compare --base-fy 2024 --current-fy 2026 --subcommittee thud --dir examples
+```
+
+82 accounts matched across fiscal years — Tenant-Based Rental Assistance up $6.1B (+18.7%), Transit Formula Grants reclassified at $14.6B, Capital Investment Grants down $505M.
+
+**"What's the FY2026 MilCon-VA budget, and how much is advance?"**
+
+```bash
+congress-approp summary --dir examples --fy 2026 --subcommittee milcon-va --show-advance
 ```
 
 ```text
-┌───────────┬───────────────────────┬────────────┬─────────────────┬─────────────────┬─────────────────┐
-│ Bill      ┆ Classification        ┆ Provisions ┆ Budget Auth ($) ┆ Rescissions ($) ┆      Net BA ($) │
-╞═══════════╪═══════════════════════╪════════════╪═════════════════╪═════════════════╪═════════════════╡
-│ H.R. 4366 ┆ Omnibus               ┆       2364 ┆ 846,137,099,554 ┆  24,659,349,709 ┆ 821,477,749,845 │
-│ H.R. 5860 ┆ Continuing Resolution ┆        130 ┆  16,000,000,000 ┆               0 ┆  16,000,000,000 │
-│ H.R. 9468 ┆ Supplemental          ┆          7 ┆   2,882,482,000 ┆               0 ┆   2,882,482,000 │
-│ TOTAL     ┆                       ┆       2501 ┆ 865,019,581,554 ┆  24,659,349,709 ┆ 840,360,231,845 │
-└───────────┴───────────────────────┴────────────┴─────────────────┴─────────────────┴─────────────────┘
-
-0 dollar amounts unverified across all bills. Run `congress-approp audit` for detailed verification.
+┌───────────┬────────────────┬────────────┬─────────────────┬─────────────────┬─────────────────┬─────────────────┬─────────────────┐
+│ Bill      ┆ Classification ┆ Provisions ┆     Current ($) ┆     Advance ($) ┆    Total BA ($) ┆ Rescissions ($) ┆      Net BA ($) │
+╞═══════════╪════════════════╪════════════╪═════════════════╪═════════════════╪═════════════════╪═════════════════╪═════════════════╡
+│ H.R. 5371 ┆ Minibus        ┆        257 ┆ 101,742,083,450 ┆ 393,689,946,000 ┆ 495,432,029,450 ┆  16,499,000,000 ┆ 478,933,029,450 │
+└───────────┴────────────────┴────────────┴─────────────────┴─────────────────┴─────────────────┴─────────────────┴─────────────────┘
 ```
+
+79.5% of MilCon-VA is advance appropriations for the next fiscal year — without `--show-advance`, you'd overstate current-year VA spending by $394 billion.
+
+**"Trace VA Compensation and Pensions across all fiscal years"**
+
+```bash
+congress-approp relate hr9468:0 --dir examples --fy-timeline
+```
+
+Shows every matching provision across FY2024–FY2026 with current/advance/supplemental split, plus deterministic hashes you can save as persistent links for future comparisons.
+
+**"Find everything about FEMA disaster relief"**
+
+```bash
+congress-approp search --dir examples --semantic "FEMA disaster relief funding" --top 5
+```
+
+Finds FEMA provisions across 5 different bills by *meaning*, not just keywords — even when the bill text says "Federal Emergency Management Agency—Disaster Relief Fund" instead of "FEMA."
+
+## Key Concepts
+
+- **`enrich`** generates bill metadata offline (no API keys) — enabling fiscal year filtering, subcommittee scoping, and advance appropriation detection.
+- **`--fy 2026`** filters any command to bills covering that fiscal year.
+- **`--subcommittee thud`** scopes to a specific appropriations jurisdiction, resolving division letters automatically (Division D in one bill, Division F in another — both map to THUD).
+- **`--show-advance`** separates current-year spending from advance appropriations (money enacted now but available in a future fiscal year). Critical for year-over-year comparisons.
+- **`relate`** traces one provision across all bills with a fiscal year timeline.
+- **`link suggest` / `link accept`** persist cross-bill relationships so `compare --use-links` can handle renames automatically.
 
 ## Navigating This Book
 
@@ -49,7 +76,7 @@ This book is organized so you can jump to whatever fits your needs:
 
 ## Version
 
-This documentation covers **congress-approp v3.2.x**.
+This documentation covers **congress-approp v4.0.x**.
 
 - **GitHub:** <https://github.com/cgorski/congress-appropriations>
 - **crates.io:** <https://crates.io/crates/congress-appropriations>
