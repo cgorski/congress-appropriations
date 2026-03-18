@@ -154,6 +154,9 @@ enum Commands {
         /// Filter by subcommittee jurisdiction (e.g., defense, thud, cjs). Requires `enrich`.
         #[arg(long)]
         subcommittee: Option<String>,
+        /// Separate advance appropriations from current-year in the output. Requires `enrich`.
+        #[arg(long)]
+        show_advance: bool,
     },
     /// Compare provisions between two sets of bills (e.g. two fiscal years)
     Compare {
@@ -373,7 +376,15 @@ async fn main() -> Result<()> {
             by_agency,
             fy,
             subcommittee,
-        } => handle_summary(&dir, &format, by_agency, fy, subcommittee.as_deref()),
+            show_advance,
+        } => handle_summary(
+            &dir,
+            &format,
+            by_agency,
+            fy,
+            subcommittee.as_deref(),
+            show_advance,
+        ),
         Commands::Compare {
             base,
             current,
@@ -2077,6 +2088,7 @@ fn handle_summary(
     by_agency: bool,
     fy: Option<u32>,
     subcommittee: Option<&str>,
+    show_advance: bool,
 ) -> Result<()> {
     let dir_path = std::path::Path::new(dir);
     let all_bills = loading::load_bills(dir_path)?;
@@ -2111,6 +2123,40 @@ fn handle_summary(
 
     if bills.is_empty() {
         println!("No bills found matching the specified filters.");
+        // Show what IS available to help the user
+        let all_for_hint = loading::load_bills(dir_path).unwrap_or_default();
+        if !all_for_hint.is_empty() {
+            let mut available_fys: Vec<u32> = all_for_hint
+                .iter()
+                .flat_map(|b| b.extraction.bill.fiscal_years.iter().copied())
+                .collect();
+            available_fys.sort();
+            available_fys.dedup();
+            if !available_fys.is_empty() {
+                let fy_strs: Vec<String> = available_fys.iter().map(|y| y.to_string()).collect();
+                eprintln!("  Available fiscal years: {}", fy_strs.join(", "));
+            }
+            if subcommittee.is_some() {
+                let mut available_subs: Vec<String> = all_for_hint
+                    .iter()
+                    .filter_map(|b| b.bill_meta.as_ref())
+                    .flat_map(|m| {
+                        m.subcommittees
+                            .iter()
+                            .map(|s| s.jurisdiction.slug().to_string())
+                    })
+                    .collect();
+                available_subs.sort();
+                available_subs.dedup();
+                // Remove generic ones for cleaner output
+                available_subs.retain(|s| {
+                    s != "other" && s != "extenders" && s != "policy" && s != "budget-process"
+                });
+                if !available_subs.is_empty() {
+                    eprintln!("  Available subcommittees: {}", available_subs.join(", "));
+                }
+            }
+        }
         return Ok(());
     }
 
@@ -2123,6 +2169,10 @@ fn handle_summary(
         rescissions: i64,
         net_ba: i64,
         completeness_pct: Option<f64>,
+        #[serde(skip_serializing_if = "Option::is_none")]
+        current_year_ba: Option<i64>,
+        #[serde(skip_serializing_if = "Option::is_none")]
+        advance_ba: Option<i64>,
     }
 
     let mut summaries: Vec<BillSummary> = Vec::new();
@@ -2141,6 +2191,106 @@ fn handle_summary(
             .map(|m| format!("{}", m.bill_nature))
             .unwrap_or_else(|| format!("{}", loaded.extraction.bill.classification));
 
+        // Compute advance/current split if --show-advance and bill_meta is available.
+        //
+        // Important: provision_timing entries use ORIGINAL extraction indices,
+        // but after subcommittee filtering, loaded.extraction.provisions may be
+        // a filtered subset with different indices. So we iterate provision_timing
+        // directly and look up the original extraction's provision by stored index.
+        // We check whether the provision belongs to the current filtered set by
+        // verifying its division matches the filtered provisions' divisions.
+        let (current_year_ba, advance_ba) = if show_advance {
+            if let Some(meta) = &loaded.bill_meta {
+                use congress_appropriations::approp::bill_meta::FundingTiming;
+                use congress_appropriations::approp::ontology::{
+                    AmountSemantics, Provision as Prov,
+                };
+
+                // Determine which divisions are in the filtered bill.
+                // If no subcommittee filter was applied, all divisions are included.
+                let active_divisions: Option<std::collections::HashSet<String>> =
+                    if subcommittee.is_some() {
+                        let divs: std::collections::HashSet<String> = loaded
+                            .extraction
+                            .provisions
+                            .iter()
+                            .filter_map(|p| p.division().map(|d| d.to_uppercase()))
+                            .collect();
+                        Some(divs)
+                    } else {
+                        None // no filter — all divisions included
+                    };
+
+                // We need access to the original extraction to look up provisions
+                // by their original index. Reload from disk if needed, or use the
+                // unfiltered data. Since bill_meta stores extraction_sha256, we can
+                // trust that provision_timing indices match the extraction on disk.
+                //
+                // For efficiency, we load the original extraction only when
+                // subcommittee filtering is active (when indices may have shifted).
+                let original_ext = if subcommittee.is_some() {
+                    let ext_path = loaded.dir.join("extraction.json");
+                    std::fs::read_to_string(&ext_path).ok().and_then(|s| {
+                        serde_json::from_str::<
+                            congress_appropriations::approp::ontology::BillExtraction,
+                        >(&s)
+                        .ok()
+                    })
+                } else {
+                    None
+                };
+                let provisions_source = original_ext
+                    .as_ref()
+                    .map(|e| e.provisions.as_slice())
+                    .unwrap_or(&loaded.extraction.provisions);
+
+                let mut current = 0i64;
+                let mut advance = 0i64;
+
+                for timing_entry in &meta.provision_timing {
+                    let idx = timing_entry.provision_index;
+                    if idx >= provisions_source.len() {
+                        continue;
+                    }
+                    let p = &provisions_source[idx];
+
+                    // Check if this provision is in an active division
+                    if let Some(ref divs) = active_divisions {
+                        let prov_div = p.division().unwrap_or("").to_uppercase();
+                        if !divs.contains(&prov_div) {
+                            continue;
+                        }
+                    }
+
+                    if let Some(amt) = p.amount() {
+                        if !matches!(amt.semantics, AmountSemantics::NewBudgetAuthority) {
+                            continue;
+                        }
+                        if !matches!(p, Prov::Appropriation { .. }) {
+                            continue;
+                        }
+                        let dl = match p {
+                            Prov::Appropriation { detail_level, .. } => detail_level.as_str(),
+                            _ => "",
+                        };
+                        if dl == "sub_allocation" || dl == "proviso_amount" {
+                            continue;
+                        }
+                        let dollars = amt.dollars().unwrap_or(0);
+                        match timing_entry.timing {
+                            FundingTiming::Advance => advance += dollars,
+                            _ => current += dollars,
+                        }
+                    }
+                }
+                (Some(current), Some(advance))
+            } else {
+                (None, None)
+            }
+        } else {
+            (None, None)
+        };
+
         summaries.push(BillSummary {
             identifier: loaded.extraction.bill.identifier.clone(),
             classification,
@@ -2149,6 +2299,8 @@ fn handle_summary(
             rescissions,
             net_ba: ba - rescissions,
             completeness_pct: completeness,
+            current_year_ba,
+            advance_ba,
         });
     }
 
@@ -2164,52 +2316,122 @@ fn handle_summary(
         _ => {
             let mut table = Table::new();
             table.load_preset(UTF8_FULL_CONDENSED);
-            table.set_header(vec![
-                Cell::new("Bill"),
-                Cell::new("Classification"),
-                Cell::new("Provisions").set_alignment(CellAlignment::Right),
-                Cell::new("Budget Auth ($)").set_alignment(CellAlignment::Right),
-                Cell::new("Rescissions ($)").set_alignment(CellAlignment::Right),
-                Cell::new("Net BA ($)").set_alignment(CellAlignment::Right),
-            ]);
+            if show_advance && summaries.iter().any(|s| s.current_year_ba.is_some()) {
+                table.set_header(vec![
+                    Cell::new("Bill"),
+                    Cell::new("Classification"),
+                    Cell::new("Provisions").set_alignment(CellAlignment::Right),
+                    Cell::new("Current ($)").set_alignment(CellAlignment::Right),
+                    Cell::new("Advance ($)").set_alignment(CellAlignment::Right),
+                    Cell::new("Total BA ($)").set_alignment(CellAlignment::Right),
+                    Cell::new("Rescissions ($)").set_alignment(CellAlignment::Right),
+                    Cell::new("Net BA ($)").set_alignment(CellAlignment::Right),
+                ]);
+            } else {
+                table.set_header(vec![
+                    Cell::new("Bill"),
+                    Cell::new("Classification"),
+                    Cell::new("Provisions").set_alignment(CellAlignment::Right),
+                    Cell::new("Budget Auth ($)").set_alignment(CellAlignment::Right),
+                    Cell::new("Rescissions ($)").set_alignment(CellAlignment::Right),
+                    Cell::new("Net BA ($)").set_alignment(CellAlignment::Right),
+                ]);
+            }
 
             let mut total_provs = 0usize;
             let mut total_ba = 0i64;
             let mut total_resc = 0i64;
 
+            let has_advance_data =
+                show_advance && summaries.iter().any(|s| s.current_year_ba.is_some());
+
+            let mut total_current = 0i64;
+            let mut total_advance = 0i64;
+
             for s in &summaries {
                 total_provs += s.provisions;
                 total_ba += s.budget_authority;
                 total_resc += s.rescissions;
+                if let Some(c) = s.current_year_ba {
+                    total_current += c;
+                }
+                if let Some(a) = s.advance_ba {
+                    total_advance += a;
+                }
 
-                table.add_row(vec![
-                    Cell::new(&s.identifier),
-                    Cell::new(&s.classification),
-                    Cell::new(s.provisions).set_alignment(CellAlignment::Right),
-                    Cell::new(format_dollars(s.budget_authority))
+                if has_advance_data {
+                    table.add_row(vec![
+                        Cell::new(&s.identifier),
+                        Cell::new(&s.classification),
+                        Cell::new(s.provisions).set_alignment(CellAlignment::Right),
+                        Cell::new(format_dollars(
+                            s.current_year_ba.unwrap_or(s.budget_authority),
+                        ))
                         .set_alignment(CellAlignment::Right),
-                    Cell::new(format_dollars(s.rescissions)).set_alignment(CellAlignment::Right),
-                    Cell::new(format_dollars(s.net_ba)).set_alignment(CellAlignment::Right),
-                ]);
+                        Cell::new(format_dollars(s.advance_ba.unwrap_or(0)))
+                            .set_alignment(CellAlignment::Right),
+                        Cell::new(format_dollars(s.budget_authority))
+                            .set_alignment(CellAlignment::Right),
+                        Cell::new(format_dollars(s.rescissions))
+                            .set_alignment(CellAlignment::Right),
+                        Cell::new(format_dollars(s.net_ba)).set_alignment(CellAlignment::Right),
+                    ]);
+                } else {
+                    table.add_row(vec![
+                        Cell::new(&s.identifier),
+                        Cell::new(&s.classification),
+                        Cell::new(s.provisions).set_alignment(CellAlignment::Right),
+                        Cell::new(format_dollars(s.budget_authority))
+                            .set_alignment(CellAlignment::Right),
+                        Cell::new(format_dollars(s.rescissions))
+                            .set_alignment(CellAlignment::Right),
+                        Cell::new(format_dollars(s.net_ba)).set_alignment(CellAlignment::Right),
+                    ]);
+                }
             }
 
             // Totals row
-            table.add_row(vec![
-                Cell::new("TOTAL").fg(Color::White),
-                Cell::new(""),
-                Cell::new(total_provs)
-                    .set_alignment(CellAlignment::Right)
-                    .fg(Color::White),
-                Cell::new(format_dollars(total_ba))
-                    .set_alignment(CellAlignment::Right)
-                    .fg(Color::White),
-                Cell::new(format_dollars(total_resc))
-                    .set_alignment(CellAlignment::Right)
-                    .fg(Color::White),
-                Cell::new(format_dollars(total_ba - total_resc))
-                    .set_alignment(CellAlignment::Right)
-                    .fg(Color::White),
-            ]);
+            if has_advance_data {
+                table.add_row(vec![
+                    Cell::new("TOTAL").fg(Color::White),
+                    Cell::new(""),
+                    Cell::new(total_provs)
+                        .set_alignment(CellAlignment::Right)
+                        .fg(Color::White),
+                    Cell::new(format_dollars(total_current))
+                        .set_alignment(CellAlignment::Right)
+                        .fg(Color::White),
+                    Cell::new(format_dollars(total_advance))
+                        .set_alignment(CellAlignment::Right)
+                        .fg(Color::White),
+                    Cell::new(format_dollars(total_ba))
+                        .set_alignment(CellAlignment::Right)
+                        .fg(Color::White),
+                    Cell::new(format_dollars(total_resc))
+                        .set_alignment(CellAlignment::Right)
+                        .fg(Color::White),
+                    Cell::new(format_dollars(total_ba - total_resc))
+                        .set_alignment(CellAlignment::Right)
+                        .fg(Color::White),
+                ]);
+            } else {
+                table.add_row(vec![
+                    Cell::new("TOTAL").fg(Color::White),
+                    Cell::new(""),
+                    Cell::new(total_provs)
+                        .set_alignment(CellAlignment::Right)
+                        .fg(Color::White),
+                    Cell::new(format_dollars(total_ba))
+                        .set_alignment(CellAlignment::Right)
+                        .fg(Color::White),
+                    Cell::new(format_dollars(total_resc))
+                        .set_alignment(CellAlignment::Right)
+                        .fg(Color::White),
+                    Cell::new(format_dollars(total_ba - total_resc))
+                        .set_alignment(CellAlignment::Right)
+                        .fg(Color::White),
+                ]);
+            }
 
             println!("{table}");
             println!();

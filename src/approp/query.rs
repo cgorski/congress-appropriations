@@ -502,6 +502,54 @@ pub fn compare(
         });
     }
 
+    // ── Cross-semantics orphan rescue ────────────────────────────────────
+    //
+    // Scan orphans ("only in base" / "only in current") and check if the
+    // account name exists in the other bill under a different semantics
+    // (e.g., Transit Formula Grants classified as "limitation" in one bill
+    // and "new_budget_authority" in the other). If found, change status to
+    // "reclassified" and fill in the missing dollars.
+    let base_wide = build_any_semantics_map(base, agency_filter);
+    let current_wide = build_any_semantics_map(current, agency_filter);
+
+    for row in &mut rows {
+        if row.status == "only in base" {
+            // Base has it, current doesn't (under BA semantics).
+            // Check if current has it under ANY semantics.
+            let key = (
+                normalize_agency(&row.agency),
+                normalize_account_name(&row.account_name),
+            );
+            if let Some(wide_entry) = current_wide.get(&key) {
+                row.current_dollars = wide_entry.dollars;
+                row.delta = row.current_dollars - row.base_dollars;
+                row.delta_pct = if row.base_dollars != 0 {
+                    Some((row.delta as f64 / row.base_dollars as f64) * 100.0)
+                } else {
+                    None
+                };
+                row.status = "reclassified".to_string();
+            }
+        } else if row.status == "only in current" {
+            // Current has it, base doesn't (under BA semantics).
+            // Check if base has it under ANY semantics.
+            let key = (
+                normalize_agency(&row.agency),
+                normalize_account_name(&row.account_name),
+            );
+            if let Some(wide_entry) = base_wide.get(&key) {
+                row.base_dollars = wide_entry.dollars;
+                row.delta = row.current_dollars - row.base_dollars;
+                row.delta_pct = if row.base_dollars != 0 {
+                    Some((row.delta as f64 / row.base_dollars as f64) * 100.0)
+                } else {
+                    None
+                };
+                row.status = "reclassified".to_string();
+            }
+        }
+    }
+
     // Sort by absolute delta descending
     rows.sort_by(|a, b| b.delta.unsigned_abs().cmp(&a.delta.unsigned_abs()));
 
@@ -695,6 +743,51 @@ fn build_account_map(
                     continue;
                 }
                 if !matches!(p, Provision::Appropriation { .. }) {
+                    continue;
+                }
+                let ag = p.agency();
+                let ag = if ag.is_empty() { "(unknown)" } else { ag };
+                if let Some(filter) = agency_filter
+                    && !ag.to_lowercase().contains(&filter.to_lowercase())
+                {
+                    continue;
+                }
+                let key = (
+                    normalize_agency(ag),
+                    normalize_account_name(p.account_name()),
+                );
+                let entry = accounts.entry(key).or_insert_with(|| AccountMapEntry {
+                    dollars: 0,
+                    display_agency: ag.to_string(),
+                    display_account: p.account_name().to_string(),
+                });
+                entry.dollars += amt.dollars().unwrap_or(0);
+            }
+        }
+    }
+    accounts
+}
+
+/// Build a map of `(normalized_agency, normalized_account) → AccountMapEntry`
+/// for appropriation AND limitation provisions with ANY dollar semantics.
+///
+/// Used by the cross-semantics orphan rescue in `compare()` to detect
+/// accounts that exist in both bills but with different semantics
+/// (e.g., Transit Formula Grants as "limitation" in one bill and
+/// "new_budget_authority" in another).
+fn build_any_semantics_map(
+    bills: &[LoadedBill],
+    agency_filter: Option<&str>,
+) -> HashMap<(String, String), AccountMapEntry> {
+    let mut accounts: HashMap<(String, String), AccountMapEntry> = HashMap::new();
+    for loaded in bills {
+        for p in &loaded.extraction.provisions {
+            if let Some(amt) = p.amount() {
+                // Include Appropriation and Limitation provisions with any semantics
+                if !matches!(
+                    p,
+                    Provision::Appropriation { .. } | Provision::Limitation { .. }
+                ) {
                     continue;
                 }
                 let ag = p.agency();
