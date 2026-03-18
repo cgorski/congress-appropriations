@@ -10,7 +10,7 @@ A command-line tool that downloads U.S. federal appropriations bills from Congre
 
 The goal: make the ~1,500 pages of annual appropriations bills searchable, sortable, and machine-readable — so you can quickly answer questions like "how much did Congress appropriate for VA Compensation and Pensions?" or "which programs got cut in the continuing resolution?"
 
-**Pre-processed data available:** The [`examples/`](examples/) directory includes completed extractions for three 118th Congress bills — a [supplemental](examples/hr9468/), a [continuing resolution](examples/hr5860/), and the [FY2024 omnibus](examples/hr4366/) (2,364 provisions). No API keys required to query these.
+**Pre-processed data available:** The [`examples/`](examples/) directory includes completed extractions for thirteen enacted appropriations bills across the 118th and 119th Congresses (FY2024–FY2026), covering all twelve appropriations subcommittees. 8,554 provisions, $6.4 trillion in budget authority, pre-enriched metadata, and pre-computed embeddings. No API keys required to query these.
 
 ## Quick Start — Try It Now
 
@@ -26,7 +26,7 @@ This places the `congress-approp` binary on your PATH. You need **Rust 1.93+** (
 
 ### Explore the Example Data (No API Keys Required)
 
-The `examples/` directory contains pre-extracted data from three bills, with pre-computed embeddings for semantic search. Try these commands right away:
+The `examples/` directory contains pre-extracted data from thirteen bills, with pre-computed embeddings for semantic search and pre-enriched metadata for fiscal year and subcommittee filtering. Try these commands right away:
 
 ```bash
 # See what bills are available and their budget authority totals
@@ -256,21 +256,25 @@ The `extract` command parses the XML, sends text to the LLM, and runs determinis
 ### `summary` — What bills do I have?
 
 ```bash
-congress-approp summary --dir examples
+# See all FY2026 bills (uses --fy to filter; run `enrich` first for enriched classifications)
+congress-approp summary --dir examples --fy 2026
 ```
 
 ```text
-┌───────────┬───────────────────────┬────────────┬─────────────────┬─────────────────┬─────────────────┐
-│ Bill      ┆ Classification        ┆ Provisions ┆ Budget Auth ($) ┆ Rescissions ($) ┆      Net BA ($) │
-╞═══════════╪═══════════════════════╪════════════╪═════════════════╪═════════════════╪═════════════════╡
-│ H.R. 4366 ┆ Omnibus               ┆       2364 ┆ 846,137,099,554 ┆  24,659,349,709 ┆ 821,477,749,845 │
-│ H.R. 5860 ┆ Continuing Resolution ┆        130 ┆  16,000,000,000 ┆               0 ┆  16,000,000,000 │
-│ H.R. 9468 ┆ Supplemental          ┆          7 ┆   2,882,482,000 ┆               0 ┆   2,882,482,000 │
-│ TOTAL     ┆                       ┆       2501 ┆ 865,019,581,554 ┆  24,659,349,709 ┆ 840,360,231,845 │
-└───────────┴───────────────────────┴────────────┴─────────────────┴─────────────────┴─────────────────┘
+┌───────────┬────────────────┬────────────┬───────────────────┬─────────────────┬───────────────────┐
+│ Bill      ┆ Classification ┆ Provisions ┆   Budget Auth ($) ┆ Rescissions ($) ┆        Net BA ($) │
+╞═══════════╪════════════════╪════════════╪═══════════════════╪═════════════════╪═══════════════════╡
+│ H.R. 5371 ┆ Minibus        ┆       1048 ┆   681,142,644,860 ┆  16,999,000,000 ┆   664,143,644,860 │
+│ H.R. 6938 ┆ Minibus        ┆       1061 ┆   196,377,983,000 ┆   5,874,200,000 ┆   190,503,783,000 │
+│ H.R. 7148 ┆ Omnibus        ┆       2837 ┆ 2,787,914,783,135 ┆  34,581,747,670 ┆ 2,753,333,035,465 │
+│ S. 870    ┆ Authorization  ┆         49 ┆                 0 ┆               0 ┆                 0 │
+│ TOTAL     ┆                ┆       4995 ┆ 3,665,435,410,995 ┆  57,454,947,670 ┆ 3,607,980,463,325 │
+└───────────┴────────────────┴────────────┴───────────────────┴─────────────────┴───────────────────┘
 
 0 dollar amounts unverified across all bills. Run `congress-approp audit` for detailed verification.
 ```
+
+Without `--fy`, the summary shows all 13 bills across FY2024–FY2026 ($6.4 trillion total). Use `--subcommittee thud` to narrow further to a specific jurisdiction, and `--show-advance` to separate current-year from advance appropriations.
 
 Budget authority is computed from the actual provisions, not the LLM's self-reported summary.
 
@@ -416,16 +420,9 @@ Compares appropriation accounts between any two directories. Matches by `(agency
 congress-approp audit --dir examples
 ```
 
-```text
-┌───────────┬────────────┬──────────┬──────────┬───────┬───────┬──────────┬───────────┬──────────┬──────────┐
-│ Bill      ┆ Provisions ┆ Verified ┆ NotFound ┆ Ambig ┆ Exact ┆ NormText ┆ Spaceless ┆ TextMiss ┆ Coverage │
-╞═══════════╪════════════╪══════════╪══════════╪═══════╪═══════╪══════════╪═══════════╪══════════╪══════════╡
-│ H.R. 4366 ┆       2364 ┆      762 ┆        0 ┆   723 ┆  2285 ┆       59 ┆         0 ┆       20 ┆    94.2% │
-│ H.R. 5860 ┆        130 ┆       33 ┆        0 ┆     2 ┆   102 ┆       12 ┆         0 ┆       16 ┆    61.1% │
-│ H.R. 9468 ┆          7 ┆        2 ┆        0 ┆     0 ┆     5 ┆        0 ┆         0 ┆        2 ┆   100.0% │
-│ TOTAL     ┆       2501 ┆      797 ┆        0 ┆   725 ┆  2392 ┆       71 ┆         0 ┆       38 ┆          │
-└───────────┴────────────┴──────────┴──────────┴───────┴───────┴──────────┴───────────┴──────────┴──────────┘
+The audit table shows verification metrics for all 13 bills — Verified (unique attribution), Ambiguous (multiple positions), NotFound, and raw text match tiers (Exact, Normalized, Spaceless, NoMatch). Across all 8,554 provisions: **0 NotFound** amounts.
 
+```text
 Column Guide:
   Verified   Dollar amount string found at exactly one position in source text
   NotFound   Dollar amounts NOT found in source — review manually
@@ -443,7 +440,7 @@ Key:
 
 Use `--verbose` to see each individual problematic provision.
 
-**The key metric: across 2,501 provisions from three bills, every extracted dollar amount was found in the source bill text** (NotFound = 0 for every bill). Verification confirms amounts exist in the bill, not that they are attributed to the correct provision — for 95.6% of provisions, the raw text excerpt also matches verbatim, providing strong attribution confidence. The tool may be incomplete on large bills (Coverage < 100%), but what it does extract checks out against the source.
+**The key metric: across 8,554 provisions from thirteen bills, every extracted dollar amount was found in the source bill text** (NotFound = 0 for every bill). Verification confirms amounts exist in the bill, not that they are attributed to the correct provision — for 95.5% of provisions, the raw text excerpt also matches verbatim, providing strong attribution confidence. The tool may be incomplete on large bills (Coverage < 100%), but what it does extract checks out against the source.
 
 ## CLI Reference
 
@@ -554,16 +551,17 @@ Every extraction produces per-chunk artifacts in `chunks/` with ULIDs. Each arti
 
 ### Accuracy
 
-Across 8,554 provisions from thirteen 118th and 119th Congress bills:
+Across 8,554 provisions from thirteen enacted appropriations bills (118th and 119th Congress, FY2024–FY2026):
 
 | Metric | Result |
 |--------|--------|
-| Provisions extracted | 2,501 (7 + 130 + 2,364) |
+| Provisions extracted | 8,554 across 13 bills |
 | Dollar amounts not found in source | **0** |
-| Dollar amount internal consistency | **0 mismatches** across 1,441 provisions with parsed amounts |
-| CR substitution pairs verified | **13/13** (100%) |
+| Dollar amount internal consistency | **0 mismatches** across all provisions with parsed amounts |
+| CR substitution pairs verified | **100%** |
 | Sub-allocation accounting | Correctly excluded from budget authority totals |
-| Raw text exact match rate | 95.6% (2,392 of 2,501 provisions) |
+| Raw text exact match rate | 95.5% |
+| Advance appropriations detected | $1.49 trillion (FY-aware classification, 100% accuracy) |
 
 The `audit` command shows a detailed verification breakdown including a coverage metric (percentage of dollar strings in the source text matched to an extracted provision). Coverage below 100% does not indicate errors — many dollar strings in bill text are statutory references, loan guarantee ceilings, or old amounts being struck by amendments, all of which are correctly excluded from extraction.
 
