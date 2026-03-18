@@ -22,15 +22,20 @@ This chapter explains each stage in detail: what it does, what it produces, and 
                     └──────────┘
                          │
                     ┌──────────┐
+                    │ Enrich   │ ───▶ bill_meta.json          (offline, no API)
+                    │(optional)│
+                    └──────────┘
+                         │
+                    ┌──────────┐
   OpenAI API ◀───── │  Embed   │ ───▶ embeddings.json + vectors.bin
                     └──────────┘
                          │
                     ┌──────────┐
-                    │  Query   │ ───▶ search, compare, summary, audit
+                    │  Query   │ ───▶ search, compare, summary, audit, relate
                     └──────────┘
 ```
 
-**Only stages 3 (Extract) and 4 (Embed) call external APIs.** Everything else — downloading, parsing, verification, querying — runs locally and deterministically.
+**Only stages 3 (Extract) and 5 (Embed) call external APIs.** Everything else — downloading, parsing, enrichment, verification, querying — runs locally and deterministically.
 
 ## Stage 1: Download
 
@@ -48,6 +53,28 @@ data/118/hr/9468/
 ```
 
 **Requires:** `CONGRESS_API_KEY` (free from [api.congress.gov](https://api.congress.gov/sign-up/))
+
+## Stage 2.5: Enrich (Optional)
+
+The `enrich` command generates bill-level metadata by parsing the source XML structure and analyzing the already-extracted provisions. It bridges the gap between raw extraction and informed querying — adding structural knowledge that the LLM extraction doesn't capture.
+
+**Why this stage exists:** The LLM extracts provisions faithfully — every dollar amount, every account name, every section reference. But it doesn't know that Division A in H.R. 7148 covers Defense while Division A in H.R. 6938 covers CJS. It doesn't know that "shall become available on October 1, 2024" in a FY2024 bill means the money is for FY2025 (an advance appropriation). It doesn't know that "Grants-In-Aid for Airports" and "Grants-in-Aid for Airports" are the same account. The `enrich` command adds this structural and normalization knowledge.
+
+**What it does:**
+
+1. **Parses division titles from XML.** The enrolled bill XML contains `<division><enum>A</enum><header>Department of Defense Appropriations Act, 2026</header>` elements. The enrich command extracts each division's letter and title, then classifies the title to a jurisdiction using case-insensitive pattern matching against known subcommittee names.
+
+2. **Classifies advance vs current-year.** For each budget authority provision, the command checks the `availability` field and `raw_text` for "October 1, YYYY" or "first quarter of fiscal year YYYY" patterns. It compares the referenced year to the bill's fiscal year: if the money becomes available after the bill's FY ends, it's advance.
+
+3. **Normalizes account names.** Each account name is lowercased and stripped of hierarchical em-dash prefixes (e.g., "Department of VA—Compensation and Pensions" → "compensation and pensions") for cross-bill matching.
+
+4. **Classifies bill nature.** The provision type distribution and subcommittee count determine whether the bill is an omnibus (5+ subcommittees), minibus (2-4), full-year CR with appropriations (CR baseline + hundreds of regular appropriations), or other type.
+
+**Input:** `extraction.json` + `BILLS-*.xml`
+**Output:** `bill_meta.json`
+**Requires:** Nothing — no API keys, no network access.
+
+This stage is optional. All commands from v3.x continue to work without it. It is required for `--subcommittee` filtering, `--show-advance` display, and enriched bill classification display. See [Enrich Bills with Metadata](../how-to/enrich-data.md) for a complete guide.
 
 **No transformation is applied.** The XML is saved exactly as received from Congress.gov.
 

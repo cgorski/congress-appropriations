@@ -234,6 +234,23 @@ enum Commands {
         #[arg(long)]
         force: bool,
     },
+    /// Deep-dive on one provision across all bills (requires embeddings)
+    Relate {
+        /// Provision reference: bill_directory:index (e.g., hr9468:0)
+        source: String,
+        /// Data directory
+        #[arg(long, default_value = "./examples")]
+        dir: String,
+        /// Max related provisions per tier
+        #[arg(long, default_value = "10")]
+        top: usize,
+        /// Output format: table, json, hashes
+        #[arg(long, default_value = "table")]
+        format: String,
+        /// Show fiscal year timeline with advance/current/supplemental split
+        #[arg(long)]
+        fy_timeline: bool,
+    },
 }
 
 #[derive(Subcommand)]
@@ -418,7 +435,201 @@ async fn main() -> Result<()> {
             dry_run,
             force,
         } => handle_enrich(&dir, dry_run, force),
+        Commands::Relate {
+            source,
+            dir,
+            top,
+            format,
+            fy_timeline,
+        } => handle_relate(&source, &dir, top, &format, fy_timeline),
     }
+}
+
+// ─── Relate Handler ──────────────────────────────────────────────────────────
+
+fn handle_relate(
+    source_ref: &str,
+    dir: &str,
+    top_n: usize,
+    format: &str,
+    fy_timeline: bool,
+) -> Result<()> {
+    use congress_appropriations::approp::embeddings;
+    use congress_appropriations::approp::query;
+
+    // Parse "bill_dir:index" reference
+    let parts: Vec<&str> = source_ref.splitn(2, ':').collect();
+    if parts.len() != 2 {
+        anyhow::bail!(
+            "Invalid provision reference: '{source_ref}'. Expected format: bill_dir:index (e.g., hr9468:0)"
+        );
+    }
+    let source_bill_dir = parts[0];
+    let source_idx: usize = parts[1].parse().map_err(|_| {
+        anyhow::anyhow!("Invalid provision index: '{}'. Must be a number.", parts[1])
+    })?;
+
+    // Load all bills and embeddings
+    let bills = loading::load_bills(std::path::Path::new(dir))?;
+    if bills.is_empty() {
+        anyhow::bail!("No extracted bills found in directory: {dir}");
+    }
+
+    let mut bill_embeddings: Vec<Option<embeddings::LoadedEmbeddings>> = Vec::new();
+    for bill in &bills {
+        let emb = embeddings::load(&bill.dir)?;
+        bill_embeddings.push(emb);
+    }
+
+    // Run relate
+    let report = query::relate(
+        source_bill_dir,
+        source_idx,
+        &bills,
+        &bill_embeddings,
+        top_n,
+        fy_timeline,
+    )?;
+
+    match format {
+        "json" => {
+            println!("{}", serde_json::to_string_pretty(&report)?);
+        }
+        "hashes" => {
+            // Output just the hashes of same_account matches (for piping to link accept)
+            for m in &report.same_account {
+                println!("{}", m.hash);
+            }
+        }
+        _ => {
+            // Table format
+            println!(
+                "Provision: {} [{}] — {} ({})",
+                report.source_bill,
+                report.source_index,
+                report.source_account,
+                report
+                    .source_dollars
+                    .map(|d| format!("${}", format_dollars(d)))
+                    .unwrap_or_else(|| "no amount".to_string()),
+            );
+            println!();
+
+            if !report.same_account.is_empty() {
+                println!("Same Account:");
+                let mut table = Table::new();
+                table.load_preset(UTF8_FULL_CONDENSED);
+                table.set_header(vec![
+                    Cell::new("Hash"),
+                    Cell::new("Sim"),
+                    Cell::new("Bill"),
+                    Cell::new("Type"),
+                    Cell::new("Account / Description"),
+                    Cell::new("Amount ($)").set_alignment(CellAlignment::Right),
+                    Cell::new("Timing"),
+                    Cell::new("Conf"),
+                ]);
+
+                for m in &report.same_account {
+                    let timing_str = match (m.timing.as_deref(), m.available_fy) {
+                        (Some("advance"), Some(fy)) => format!("advance(FY{fy})"),
+                        (Some("supplemental"), _) => "supplemental".to_string(),
+                        (Some("current_year"), _) => "current".to_string(),
+                        _ => "—".to_string(),
+                    };
+                    table.add_row(vec![
+                        Cell::new(&m.hash),
+                        Cell::new(format!("{:.2}", m.similarity)),
+                        Cell::new(&m.bill_identifier),
+                        Cell::new(&m.provision_type),
+                        Cell::new(truncate(&m.account_name, 40)),
+                        Cell::new(
+                            m.dollars
+                                .map(format_dollars)
+                                .unwrap_or_else(|| "—".to_string()),
+                        )
+                        .set_alignment(CellAlignment::Right),
+                        Cell::new(&timing_str),
+                        Cell::new(m.confidence),
+                    ]);
+                }
+                println!("{table}");
+            }
+
+            if !report.related.is_empty() {
+                println!();
+                println!("Related:");
+                let mut table = Table::new();
+                table.load_preset(UTF8_FULL_CONDENSED);
+                table.set_header(vec![
+                    Cell::new("Hash"),
+                    Cell::new("Sim"),
+                    Cell::new("Bill"),
+                    Cell::new("Type"),
+                    Cell::new("Account / Description"),
+                    Cell::new("Amount ($)").set_alignment(CellAlignment::Right),
+                    Cell::new("Conf"),
+                ]);
+
+                for m in &report.related {
+                    table.add_row(vec![
+                        Cell::new(&m.hash),
+                        Cell::new(format!("{:.2}", m.similarity)),
+                        Cell::new(&m.bill_identifier),
+                        Cell::new(&m.provision_type),
+                        Cell::new(truncate(&m.account_name, 40)),
+                        Cell::new(
+                            m.dollars
+                                .map(format_dollars)
+                                .unwrap_or_else(|| "—".to_string()),
+                        )
+                        .set_alignment(CellAlignment::Right),
+                        Cell::new(m.confidence),
+                    ]);
+                }
+                println!("{table}");
+            }
+
+            if let Some(ref timeline) = report.timeline {
+                println!();
+                println!("Fiscal Year Timeline:");
+                let mut table = Table::new();
+                table.load_preset(UTF8_FULL_CONDENSED);
+                table.set_header(vec![
+                    Cell::new("FY"),
+                    Cell::new("Current ($)").set_alignment(CellAlignment::Right),
+                    Cell::new("Advance ($)").set_alignment(CellAlignment::Right),
+                    Cell::new("Supplemental ($)").set_alignment(CellAlignment::Right),
+                    Cell::new("Bills"),
+                ]);
+
+                for entry in timeline {
+                    table.add_row(vec![
+                        Cell::new(entry.fy),
+                        Cell::new(format_dollars(entry.current_year_ba))
+                            .set_alignment(CellAlignment::Right),
+                        Cell::new(format_dollars(entry.advance_ba))
+                            .set_alignment(CellAlignment::Right),
+                        Cell::new(format_dollars(entry.supplemental_ba))
+                            .set_alignment(CellAlignment::Right),
+                        Cell::new(entry.source_bills.join(", ")),
+                    ]);
+                }
+                println!("{table}");
+            }
+
+            let total_matches = report.same_account.len() + report.related.len();
+            println!();
+            println!(
+                "{} matches ({} same account, {} related)",
+                total_matches,
+                report.same_account.len(),
+                report.related.len()
+            );
+        }
+    }
+
+    Ok(())
 }
 
 // ─── Enrich Handler ──────────────────────────────────────────────────────────
@@ -2285,6 +2496,10 @@ fn handle_summary(
                 }
                 (Some(current), Some(advance))
             } else {
+                eprintln!(
+                    "  hint: {}: --show-advance requires bill metadata. Run `congress-approp enrich --dir {}` first.",
+                    loaded.extraction.bill.identifier, dir
+                );
                 (None, None)
             }
         } else {

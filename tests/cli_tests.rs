@@ -808,6 +808,136 @@ fn budget_totals_unchanged_after_phase1() {
     }
 }
 
+// ─── Relate Command ──────────────────────────────────────────────────────────
+
+#[test]
+fn relate_table_output() {
+    let output = cmd()
+        .args(["relate", "hr9468:0", "--dir", "examples"])
+        .output()
+        .unwrap();
+
+    assert!(output.status.success());
+    let stdout = str::from_utf8(&output.stdout).unwrap();
+
+    // Should show the source provision
+    assert!(
+        stdout.contains("Compensation and Pensions"),
+        "Should show source account name"
+    );
+    assert!(stdout.contains("H.R. 9468"), "Should show source bill");
+    // Should show matches with hashes
+    assert!(
+        stdout.contains("Same Account:"),
+        "Should have a Same Account section"
+    );
+    assert!(
+        stdout.contains("verified"),
+        "Should show verified confidence for name-matched provisions"
+    );
+    // Should have 8-char hashes
+    assert!(
+        stdout.contains("b7e688d7"),
+        "Should show deterministic hash for first match"
+    );
+}
+
+#[test]
+fn relate_with_fy_timeline() {
+    let output = cmd()
+        .args(["relate", "hr9468:0", "--dir", "examples", "--fy-timeline"])
+        .output()
+        .unwrap();
+
+    assert!(output.status.success());
+    let stdout = str::from_utf8(&output.stdout).unwrap();
+
+    assert!(
+        stdout.contains("Fiscal Year Timeline:"),
+        "Should show timeline section"
+    );
+    assert!(stdout.contains("2024"), "Timeline should include FY2024");
+    assert!(stdout.contains("2026"), "Timeline should include FY2026");
+}
+
+#[test]
+fn relate_json_output() {
+    let output = cmd()
+        .args([
+            "relate",
+            "hr9468:0",
+            "--dir",
+            "examples",
+            "--format",
+            "json",
+            "--fy-timeline",
+        ])
+        .output()
+        .unwrap();
+
+    assert!(output.status.success());
+    let stdout = str::from_utf8(&output.stdout).unwrap();
+    let report: serde_json::Value = serde_json::from_str(stdout).unwrap();
+
+    assert_eq!(report["source_bill"].as_str(), Some("H.R. 9468"));
+    assert_eq!(report["source_index"].as_u64(), Some(0));
+    assert!(report["same_account"].as_array().unwrap().len() >= 3);
+    assert!(report["timeline"].as_array().is_some());
+
+    // Check that hashes are present and 8 chars
+    let first_hash = report["same_account"][0]["hash"].as_str().unwrap();
+    assert_eq!(first_hash.len(), 8, "Hash should be 8 hex chars");
+}
+
+#[test]
+fn relate_hashes_output() {
+    let output = cmd()
+        .args([
+            "relate", "hr9468:0", "--dir", "examples", "--format", "hashes",
+        ])
+        .output()
+        .unwrap();
+
+    assert!(output.status.success());
+    let stdout = str::from_utf8(&output.stdout).unwrap();
+    let hashes: Vec<&str> = stdout.trim().lines().collect();
+
+    assert!(hashes.len() >= 3, "Should output at least 3 hashes");
+    for hash in &hashes {
+        assert_eq!(hash.len(), 8, "Each hash should be 8 hex chars");
+    }
+
+    // Hashes should be deterministic
+    let output2 = cmd()
+        .args([
+            "relate", "hr9468:0", "--dir", "examples", "--format", "hashes",
+        ])
+        .output()
+        .unwrap();
+    let stdout2 = str::from_utf8(&output2.stdout).unwrap();
+    assert_eq!(
+        stdout, stdout2,
+        "Hashes should be deterministic across runs"
+    );
+}
+
+#[test]
+fn relate_invalid_reference() {
+    // Missing colon
+    cmd()
+        .args(["relate", "hr9468", "--dir", "examples"])
+        .assert()
+        .failure()
+        .stderr(predicates::str::contains("Invalid provision reference"));
+
+    // Non-existent bill
+    cmd()
+        .args(["relate", "nonexistent:0", "--dir", "examples"])
+        .assert()
+        .failure()
+        .stderr(predicates::str::contains("not found"));
+}
+
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 
 /// Recursively copy a directory, skipping vectors.bin (large) and chunks/ (unnecessary).

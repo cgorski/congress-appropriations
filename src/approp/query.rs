@@ -3,10 +3,13 @@
 //! These functions take `&[LoadedBill]` and return plain data structs
 //! suitable for any output format. The CLI layer handles formatting.
 
+use crate::approp::bill_meta::{self, FundingTiming};
+use crate::approp::embeddings::{self, LoadedEmbeddings};
 use crate::approp::loading::LoadedBill;
 use crate::approp::ontology::{AmountSemantics, Provision};
 use crate::approp::verification::{CheckResult, MatchTier};
 use serde::Serialize;
+use sha2::{Digest, Sha256};
 use std::collections::HashMap;
 
 // ─── Summary ─────────────────────────────────────────────────────────────────
@@ -940,6 +943,345 @@ pub fn build_embedding_text(provision: &Provision) -> String {
         parts.push(format!("Text: {raw}"));
     }
     parts.join(" | ")
+}
+
+// ─── Relate ──────────────────────────────────────────────────────────────────
+
+/// A match found by `relate()` — one provision similar to the source.
+#[derive(Debug, Serialize)]
+pub struct RelateMatch {
+    /// Deterministic 8-char hex hash for future link persistence.
+    pub hash: String,
+    pub bill_identifier: String,
+    pub bill_dir: String,
+    pub provision_index: usize,
+    pub similarity: f32,
+    pub account_name: String,
+    pub agency: String,
+    pub dollars: Option<i64>,
+    pub provision_type: String,
+    /// "verified" (name match), "high" (sim>=0.65 + same normalized agency),
+    /// "uncertain" (0.55-0.65 or name mismatch)
+    pub confidence: &'static str,
+    /// Funding timing from bill_meta, if available.
+    pub timing: Option<String>,
+    /// The FY the money becomes available, if advance.
+    pub available_fy: Option<u32>,
+}
+
+/// One row in the fiscal year timeline produced by `relate --fy-timeline`.
+#[derive(Debug, Serialize)]
+pub struct FyTimelineEntry {
+    pub fy: u32,
+    pub current_year_ba: i64,
+    pub advance_ba: i64,
+    pub supplemental_ba: i64,
+    pub source_bills: Vec<String>,
+}
+
+/// Full report from the `relate` command.
+#[derive(Debug, Serialize)]
+pub struct RelateReport {
+    pub source_bill: String,
+    pub source_index: usize,
+    pub source_account: String,
+    pub source_dollars: Option<i64>,
+    /// High-confidence matches (name match or high similarity + same agency).
+    pub same_account: Vec<RelateMatch>,
+    /// Lower-confidence matches (uncertain zone).
+    pub related: Vec<RelateMatch>,
+    /// Fiscal year timeline, if requested.
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub timeline: Option<Vec<FyTimelineEntry>>,
+}
+
+/// Compute a deterministic 8-char hex hash for a link candidate.
+///
+/// The hash is derived from source bill, source index, target bill, target
+/// index, and the embedding model name. This ensures:
+/// - Same inputs always produce the same hash (deterministic)
+/// - Re-embedding with a different model invalidates old hashes
+pub fn compute_link_hash(
+    src_bill_dir: &str,
+    src_idx: usize,
+    tgt_bill_dir: &str,
+    tgt_idx: usize,
+    model: &str,
+) -> String {
+    let data = format!("{src_bill_dir}:{src_idx}\u{2192}{tgt_bill_dir}:{tgt_idx}:{model}");
+    let digest = Sha256::digest(data.as_bytes());
+    format!("{:x}", digest)[..8].to_string()
+}
+
+/// Deep-dive on one provision: find similar provisions across all bills,
+/// group by confidence, and optionally build a fiscal year timeline.
+///
+/// This is the library function behind the `relate` CLI command. It takes
+/// pre-loaded bills and embeddings to avoid I/O.
+///
+/// # Arguments
+/// - `source_bill_dir`: directory name of the source bill (e.g., "hr9468")
+/// - `source_idx`: provision index within that bill
+/// - `bills`: all loaded bills
+/// - `bill_embeddings`: embeddings for each bill (parallel to `bills`), `None` if unavailable
+/// - `top_n`: max results per confidence tier
+/// - `build_timeline`: whether to compute the FY timeline
+pub fn relate(
+    source_bill_dir: &str,
+    source_idx: usize,
+    bills: &[LoadedBill],
+    bill_embeddings: &[Option<LoadedEmbeddings>],
+    top_n: usize,
+    build_timeline: bool,
+) -> anyhow::Result<RelateReport> {
+    // Find the source bill and provision
+    let source_bill_pos = bills
+        .iter()
+        .position(|b| {
+            b.dir
+                .file_name()
+                .is_some_and(|n| n.to_string_lossy() == source_bill_dir)
+        })
+        .ok_or_else(|| anyhow::anyhow!("Bill directory '{source_bill_dir}' not found"))?;
+
+    let source_bill = &bills[source_bill_pos];
+    let source_provision = source_bill
+        .extraction
+        .provisions
+        .get(source_idx)
+        .ok_or_else(|| {
+            anyhow::anyhow!(
+                "Provision index {source_idx} out of range (bill has {} provisions)",
+                source_bill.extraction.provisions.len()
+            )
+        })?;
+
+    let source_account = source_provision.account_name().to_string();
+    let source_dollars = source_provision.amount().and_then(|a| a.dollars());
+    let source_bill_id = source_bill.extraction.bill.identifier.clone();
+
+    // Get the source embedding vector
+    let source_emb = bill_embeddings[source_bill_pos]
+        .as_ref()
+        .ok_or_else(|| anyhow::anyhow!("No embeddings found for {source_bill_dir}"))?;
+    anyhow::ensure!(
+        source_idx < source_emb.count(),
+        "Provision index {source_idx} out of range for embeddings (count={})",
+        source_emb.count()
+    );
+    let source_vec = source_emb.vector(source_idx);
+    let embedding_model = source_emb.metadata.model.clone();
+
+    // Compute similarity against every provision in every bill
+    let source_canonical = bill_meta::normalize_account_name(&source_account);
+    let source_norm_agency = normalize_agency(source_provision.agency());
+
+    let mut all_scored: Vec<RelateMatch> = Vec::new();
+
+    for (bill_pos, bill) in bills.iter().enumerate() {
+        let Some(emb) = &bill_embeddings[bill_pos] else {
+            continue;
+        };
+
+        let bill_id = bill.extraction.bill.identifier.as_str();
+        let bill_dir_name = bill
+            .dir
+            .file_name()
+            .map(|n| n.to_string_lossy().to_string())
+            .unwrap_or_default();
+
+        // Build timing lookup for this bill
+        let timing_map: HashMap<usize, (&FundingTiming, Option<u32>)> = bill
+            .bill_meta
+            .as_ref()
+            .map(|m| {
+                m.provision_timing
+                    .iter()
+                    .map(|t| (t.provision_index, (&t.timing, t.available_fy)))
+                    .collect()
+            })
+            .unwrap_or_default();
+
+        for (idx, provision) in bill.extraction.provisions.iter().enumerate() {
+            // Skip the source provision itself
+            if bill_pos == source_bill_pos && idx == source_idx {
+                continue;
+            }
+
+            if idx >= emb.count() {
+                break;
+            }
+
+            let sim = embeddings::cosine_similarity(source_vec, emb.vector(idx));
+            if sim < 0.50 {
+                continue;
+            }
+
+            let acct = provision.account_name().to_string();
+            let canonical = bill_meta::normalize_account_name(&acct);
+            let norm_agency = normalize_agency(provision.agency());
+
+            // Determine confidence tier
+            let name_match = !canonical.is_empty()
+                && !source_canonical.is_empty()
+                && canonical == source_canonical;
+            let same_agency = norm_agency == source_norm_agency;
+
+            let confidence = if name_match {
+                "verified"
+            } else if sim >= 0.65 && same_agency {
+                "high"
+            } else {
+                "uncertain"
+            };
+
+            // Only include if above threshold for the tier
+            if confidence == "uncertain" && sim < 0.55 {
+                continue;
+            }
+
+            let dollars = provision.amount().and_then(|a| a.dollars());
+
+            let (timing, available_fy) = timing_map
+                .get(&idx)
+                .map(|(t, fy)| (Some(format!("{t:?}").to_lowercase()), *fy))
+                .unwrap_or((None, None));
+
+            let hash = compute_link_hash(
+                source_bill_dir,
+                source_idx,
+                &bill_dir_name,
+                idx,
+                &embedding_model,
+            );
+
+            all_scored.push(RelateMatch {
+                hash,
+                bill_identifier: bill_id.to_string(),
+                bill_dir: bill_dir_name.clone(),
+                provision_index: idx,
+                similarity: sim,
+                account_name: acct,
+                agency: provision.agency().to_string(),
+                dollars,
+                provision_type: provision.type_str().to_string(),
+                confidence,
+                timing,
+                available_fy,
+            });
+        }
+    }
+
+    // Sort by similarity descending
+    all_scored.sort_by(|a, b| {
+        b.similarity
+            .partial_cmp(&a.similarity)
+            .unwrap_or(std::cmp::Ordering::Equal)
+    });
+
+    // Split into tiers
+    let mut same_account: Vec<RelateMatch> = Vec::new();
+    let mut related: Vec<RelateMatch> = Vec::new();
+
+    for m in all_scored {
+        match m.confidence {
+            "verified" | "high" => {
+                if same_account.len() < top_n {
+                    same_account.push(m);
+                }
+            }
+            _ => {
+                if related.len() < top_n {
+                    related.push(m);
+                }
+            }
+        }
+    }
+
+    // Build FY timeline if requested
+    let timeline = if build_timeline {
+        let mut fy_map: HashMap<u32, (i64, i64, i64, Vec<String>)> = HashMap::new();
+
+        // Include the source provision in the timeline
+        if let Some(dollars) = source_dollars {
+            let source_fys = &source_bill.extraction.bill.fiscal_years;
+            let source_timing = source_bill
+                .bill_meta
+                .as_ref()
+                .and_then(|m| {
+                    m.provision_timing
+                        .iter()
+                        .find(|t| t.provision_index == source_idx)
+                })
+                .map(|t| &t.timing);
+
+            for &fy in source_fys {
+                let entry = fy_map.entry(fy).or_insert((0, 0, 0, Vec::new()));
+                match source_timing {
+                    Some(FundingTiming::Advance) => entry.1 += dollars,
+                    Some(FundingTiming::Supplemental) => entry.2 += dollars,
+                    _ => entry.0 += dollars,
+                }
+                let bill_id = &source_bill.extraction.bill.identifier;
+                if !entry.3.contains(bill_id) {
+                    entry.3.push(bill_id.clone());
+                }
+            }
+        }
+
+        // Include same_account matches in the timeline
+        for m in &same_account {
+            let bill = bills.iter().find(|b| {
+                b.dir
+                    .file_name()
+                    .is_some_and(|n| n.to_string_lossy() == m.bill_dir)
+            });
+            if let Some(bill) = bill {
+                let fys = &bill.extraction.bill.fiscal_years;
+                if let Some(dollars) = m.dollars {
+                    for &fy in fys {
+                        let entry = fy_map.entry(fy).or_insert((0, 0, 0, Vec::new()));
+                        let timing_str = m.timing.as_deref().unwrap_or("current_year");
+                        match timing_str {
+                            "advance" => entry.1 += dollars,
+                            "supplemental" => entry.2 += dollars,
+                            _ => entry.0 += dollars,
+                        }
+                        if !entry.3.contains(&m.bill_identifier) {
+                            entry.3.push(m.bill_identifier.clone());
+                        }
+                    }
+                }
+            }
+        }
+
+        let mut timeline: Vec<FyTimelineEntry> = fy_map
+            .into_iter()
+            .map(
+                |(fy, (current, advance, supplemental, bills))| FyTimelineEntry {
+                    fy,
+                    current_year_ba: current,
+                    advance_ba: advance,
+                    supplemental_ba: supplemental,
+                    source_bills: bills,
+                },
+            )
+            .collect();
+        timeline.sort_by_key(|e| e.fy);
+        Some(timeline)
+    } else {
+        None
+    };
+
+    Ok(RelateReport {
+        source_bill: source_bill_id,
+        source_index: source_idx,
+        source_account,
+        source_dollars,
+        same_account,
+        related,
+        timeline,
+    })
 }
 
 #[cfg(test)]
