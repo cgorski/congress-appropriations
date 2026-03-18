@@ -1383,18 +1383,51 @@ async fn handle_search(
         .await;
     }
 
-    // Apply subcommittee filter (only for non-semantic search paths)
-    let bills = if let Some(sub_slug) = subcommittee {
+    // For non-semantic search, do NOT use filter_bills_to_subcommittee because it
+    // shifts provision indices, causing the output provision_index to not match the
+    // original extraction (and thus breaking `relate bill:index` references).
+    // Instead, resolve the subcommittee to a set of (bill_dir, division) pairs and
+    // filter results after the search.
+    let subcommittee_divisions: Option<HashMap<String, Vec<String>>> = if let Some(sub_slug) =
+        subcommittee
+    {
         use congress_appropriations::approp::bill_meta::Jurisdiction;
         let jurisdiction = Jurisdiction::from_slug(sub_slug).ok_or_else(|| {
-            anyhow::anyhow!(
-                "Unknown subcommittee: '{sub_slug}'. Valid slugs: defense, labor-hhs, thud, financial-services, cjs, energy-water, interior, agriculture, legislative-branch, milcon-va, state-foreign-ops, homeland-security"
-            )
-        })?;
-        filter_bills_to_subcommittee(&fy_filtered, &jurisdiction)?
+                anyhow::anyhow!(
+                    "Unknown subcommittee: '{sub_slug}'. Valid slugs: defense, labor-hhs, thud, financial-services, cjs, energy-water, interior, agriculture, legislative-branch, milcon-va, state-foreign-ops, homeland-security"
+                )
+            })?;
+        let mut map: HashMap<String, Vec<String>> = HashMap::new();
+        for bill in &fy_filtered {
+            if let Some(meta) = &bill.bill_meta {
+                let divs: Vec<String> = meta
+                    .subcommittees
+                    .iter()
+                    .filter(|s| s.jurisdiction == jurisdiction)
+                    .map(|s| s.division.to_uppercase())
+                    .collect();
+                if !divs.is_empty() {
+                    let bill_id = bill.extraction.bill.identifier.clone();
+                    map.insert(bill_id, divs);
+                }
+            } else {
+                anyhow::bail!(
+                    "{}: --subcommittee requires bill metadata. Run `congress-approp enrich --dir {}` first.",
+                    bill.extraction.bill.identifier,
+                    dir
+                );
+            }
+        }
+        if map.is_empty() {
+            println!("No bills found matching the specified filters.");
+            return Ok(());
+        }
+        Some(map)
     } else {
-        fy_filtered
+        None
     };
+
+    let bills = fy_filtered;
 
     if bills.is_empty() {
         println!("No bills found matching the specified filters.");
@@ -1495,6 +1528,18 @@ async fn handle_search(
                 && !pdivision.eq_ignore_ascii_case(div_filter)
             {
                 continue;
+            }
+            // Subcommittee filter: check if this provision's division is in the
+            // resolved jurisdiction mapping. Applied here (not via
+            // filter_bills_to_subcommittee) to preserve original provision indices
+            // so that `relate bill:index` references work correctly.
+            if let Some(ref sub_divs) = subcommittee_divisions {
+                let dominated = sub_divs
+                    .get(bill_id.as_str())
+                    .is_some_and(|divs| divs.iter().any(|d| d.eq_ignore_ascii_case(pdivision)));
+                if !dominated {
+                    continue;
+                }
             }
             if min_dollars.is_some() || max_dollars.is_some() {
                 let abs_dollars = provision
