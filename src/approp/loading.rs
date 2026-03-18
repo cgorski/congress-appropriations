@@ -3,6 +3,7 @@
 //! Provides functions to discover bill directories and deserialize
 //! extraction/verification artifacts from JSON files on disk.
 
+use crate::approp::bill_meta::BillMeta;
 use crate::approp::ontology::{BillExtraction, ExtractionMetadata};
 use crate::approp::verification::VerificationReport;
 use anyhow::{Context, Result};
@@ -11,7 +12,7 @@ use tracing::debug;
 use walkdir::WalkDir;
 
 /// A bill directory with its loaded artifacts.
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub struct LoadedBill {
     /// Path to the bill directory
     pub dir: PathBuf,
@@ -21,6 +22,8 @@ pub struct LoadedBill {
     pub verification: Option<VerificationReport>,
     /// Extraction metadata (model, prompt version, timestamps), if available
     pub metadata: Option<ExtractionMetadata>,
+    /// Bill-level metadata (fiscal years, jurisdictions, advance classification), if available
+    pub bill_meta: Option<BillMeta>,
 }
 
 /// Walk a directory tree, find all bill directories (those containing extraction.json),
@@ -46,6 +49,8 @@ pub fn load_bills(dir: &Path) -> Result<Vec<LoadedBill>> {
         let metadata: Option<ExtractionMetadata> =
             load_json_optional(&bill_dir.join("metadata.json"));
 
+        let bill_meta: Option<BillMeta> = load_json_optional(&bill_dir.join("bill_meta.json"));
+
         debug!(
             bill = extraction.bill.identifier,
             dir = %bill_dir.display(),
@@ -57,6 +62,7 @@ pub fn load_bills(dir: &Path) -> Result<Vec<LoadedBill>> {
             extraction,
             verification,
             metadata,
+            bill_meta,
         });
     }
 

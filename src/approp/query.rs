@@ -365,18 +365,18 @@ pub fn compute_quality(amount_status: Option<&str>, match_tier: Option<&str>) ->
 /// One row of the comparison table.
 #[derive(Debug, Serialize)]
 pub struct CompareRow {
-    pub account: String,
+    pub account_name: String,
     pub agency: String,
-    pub base_amount: i64,
-    pub current_amount: i64,
+    pub base_dollars: i64,
+    pub current_dollars: i64,
     pub delta: i64,
     pub delta_pct: Option<f64>,
-    /// One of `"changed"`, `"only in base"`, `"only in current"`, `"unchanged"`.
+    /// One of `"changed"`, `"only in base"`, `"only in current"`, `"unchanged"`, `"reclassified"`.
     pub status: String,
 }
 
 /// The full result of comparing two sets of bills.
-#[derive(Debug)]
+#[derive(Debug, Serialize)]
 pub struct CompareResult {
     pub base_description: String,
     pub current_description: String,
@@ -442,20 +442,18 @@ pub fn compare(
     let mut rows: Vec<CompareRow> = Vec::new();
 
     for key in &all_keys {
-        let base_val = base_accounts.get(key).copied().unwrap_or(0);
+        let base_entry = base_accounts.get(key);
+        let base_val = base_entry.map(|e| e.dollars).unwrap_or(0);
 
         // Look up in current — try exact match first, then suffix match
-        let current_val = current_accounts
-            .get(key)
-            .copied()
-            .or_else(|| {
-                let short = normalize_account_name(&key.1);
-                current_accounts
-                    .iter()
-                    .find(|(k, _)| k.0 == key.0 && normalize_account_name(&k.1) == short)
-                    .map(|(_, v)| *v)
-            })
-            .unwrap_or(0);
+        let current_entry = current_accounts.get(key).or_else(|| {
+            let short = normalize_account_name(&key.1);
+            current_accounts
+                .iter()
+                .find(|(k, _)| k.0 == key.0 && normalize_account_name(&k.1) == short)
+                .map(|(_, v)| v)
+        });
+        let current_val = current_entry.map(|e| e.dollars).unwrap_or(0);
 
         if base_val == 0 && current_val == 0 {
             continue;
@@ -478,11 +476,17 @@ pub fn compare(
             "changed"
         };
 
+        // Use original display names — prefer base side, fall back to current
+        let (display_account, display_agency) = base_entry
+            .or(current_entry)
+            .map(|e| (e.display_account.clone(), e.display_agency.clone()))
+            .unwrap_or_else(|| (key.1.clone(), key.0.clone()));
+
         rows.push(CompareRow {
-            account: key.1.clone(),
-            agency: key.0.clone(),
-            base_amount: base_val,
-            current_amount: current_val,
+            account_name: display_account,
+            agency: display_agency,
+            base_dollars: base_val,
+            current_dollars: current_val,
             delta,
             delta_pct,
             status: status.to_string(),
@@ -502,13 +506,26 @@ pub fn compare(
 
 // ─── Private helpers ─────────────────────────────────────────────────────────
 
-/// Build a map of `(agency, account_name) → total dollars` for appropriation
-/// provisions with `NewBudgetAuthority` semantics.
+/// An entry in the account comparison map, holding the aggregated dollar total
+/// and the original (non-normalized) names for display purposes.
+struct AccountMapEntry {
+    dollars: i64,
+    /// Original agency name as extracted (before lowercasing).
+    display_agency: String,
+    /// Original account name as extracted (before normalization).
+    display_account: String,
+}
+
+/// Build a map of `(normalized_agency, normalized_account) → AccountMapEntry`
+/// for appropriation provisions with `NewBudgetAuthority` semantics.
+///
+/// Keys are lowercased and account names are em-dash-stripped for case-insensitive
+/// matching. The `AccountMapEntry` preserves the original names for display.
 fn build_account_map(
     bills: &[LoadedBill],
     agency_filter: Option<&str>,
-) -> HashMap<(String, String), i64> {
-    let mut accounts: HashMap<(String, String), i64> = HashMap::new();
+) -> HashMap<(String, String), AccountMapEntry> {
+    let mut accounts: HashMap<(String, String), AccountMapEntry> = HashMap::new();
     for loaded in bills {
         for p in &loaded.extraction.provisions {
             if let Some(amt) = p.amount() {
@@ -525,8 +542,13 @@ fn build_account_map(
                 {
                     continue;
                 }
-                let key = (ag.to_string(), p.account_name().to_string());
-                *accounts.entry(key).or_insert(0) += amt.dollars().unwrap_or(0);
+                let key = (ag.to_lowercase(), normalize_account_name(p.account_name()));
+                let entry = accounts.entry(key).or_insert_with(|| AccountMapEntry {
+                    dollars: 0,
+                    display_agency: ag.to_string(),
+                    display_account: p.account_name().to_string(),
+                });
+                entry.dollars += amt.dollars().unwrap_or(0);
             }
         }
     }
@@ -535,13 +557,17 @@ fn build_account_map(
 
 /// Normalize account name for fuzzy cross-bill matching.
 ///
-/// Strips hierarchical prefixes separated by em-dash or en-dash.
-fn normalize_account_name(name: &str) -> String {
-    let parts: Vec<&str> = name.split(&['\u{2014}', '\u{2013}'][..]).collect();
+/// Lowercases, strips hierarchical prefixes separated by em-dash or en-dash,
+/// and trims whitespace. This ensures that "Grants-In-Aid for Airports",
+/// "Grants-in-Aid for Airports", and "Department of VA—Grants-in-Aid for Airports"
+/// all normalize to the same string.
+pub fn normalize_account_name(name: &str) -> String {
+    let lower = name.to_lowercase();
+    let parts: Vec<&str> = lower.split(&['\u{2014}', '\u{2013}'][..]).collect();
     if parts.len() > 1 {
-        return parts.last().unwrap_or(&name).trim().to_string();
+        return parts.last().unwrap_or(&"").trim().to_string();
     }
-    name.trim().to_string()
+    lower.trim().to_string()
 }
 
 /// Create a short human-readable description of a set of loaded bills.
@@ -685,7 +711,7 @@ mod tests {
     fn test_normalize_account_name_plain() {
         assert_eq!(
             normalize_account_name("Salaries and Expenses"),
-            "Salaries and Expenses"
+            "salaries and expenses"
         );
     }
 
@@ -693,7 +719,7 @@ mod tests {
     fn test_normalize_account_name_with_em_dash() {
         assert_eq!(
             normalize_account_name("Department of Defense\u{2014}Salaries and Expenses"),
-            "Salaries and Expenses"
+            "salaries and expenses"
         );
     }
 
@@ -701,7 +727,20 @@ mod tests {
     fn test_normalize_account_name_with_en_dash() {
         assert_eq!(
             normalize_account_name("DoD\u{2013}Operations"),
-            "Operations"
+            "operations"
+        );
+    }
+
+    #[test]
+    fn test_normalize_account_name_case_insensitive() {
+        // These three variants should all normalize to the same string
+        assert_eq!(
+            normalize_account_name("Grants-In-Aid for Airports"),
+            normalize_account_name("Grants-in-Aid for Airports")
+        );
+        assert_eq!(
+            normalize_account_name("Grants-In-Aid for Airports"),
+            normalize_account_name("Grants-in-aid for Airports")
         );
     }
 

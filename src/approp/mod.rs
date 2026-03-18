@@ -1,3 +1,4 @@
+pub mod bill_meta;
 pub mod extraction;
 pub mod ontology;
 pub mod query;

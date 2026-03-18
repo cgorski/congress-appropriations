@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0",
+  "congress": 118,
+  "fiscal_years": [
+    2024
+  ],
+  "bill_nature": "supplemental",
+  "subcommittees": [],
+  "provision_timing": [
+    {
+      "provision_index": 0,
+      "timing": "supplemental",
+      "available_fy": null,
+      "source": {
+        "type": "note_text"
+      }
+    },
+    {
+      "provision_index": 1,
+      "timing": "supplemental",
+      "available_fy": null,
+      "source": {
+        "type": "note_text"
+      }
+    }
+  ],
+  "canonical_accounts": [
+    {
+      "provision_index": 0,
+      "canonical_name": "compensation and pensions"
+    },
+    {
+      "provision_index": 1,
+      "canonical_name": "readjustment benefits"
+    }
+  ],
+  "extraction_sha256": "06a169f51812388aa2a5a79d145ac62bee7aad2594c9b27a455d786c6494d4d0"
+}

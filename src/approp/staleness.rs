@@ -19,6 +19,8 @@ pub enum StaleWarning {
     ExtractionStale { bill: String },
     /// The extraction.json has changed since embeddings were produced.
     EmbeddingsStale { bill: String },
+    /// The extraction.json has changed since bill metadata was produced.
+    BillMetaStale { bill: String },
 }
 
 impl fmt::Display for StaleWarning {
@@ -31,6 +33,12 @@ impl fmt::Display for StaleWarning {
                 write!(
                     f,
                     "{bill}: embeddings are stale (extraction.json has changed)"
+                )
+            }
+            StaleWarning::BillMetaStale { bill } => {
+                write!(
+                    f,
+                    "{bill}: bill metadata is stale (extraction.json has changed). Run `enrich --force`."
                 )
             }
         }
@@ -66,7 +74,19 @@ pub fn check(bills: &[LoadedBill]) -> Vec<StaleWarning> {
             });
         }
 
-        // ── 2. Check embeddings staleness (extraction.json → embeddings.extraction_sha256) ──
+        // ── 2. Check bill_meta staleness (extraction.json → bill_meta.extraction_sha256) ──
+        if let Some(meta) = &bill.bill_meta {
+            let extraction_path = bill.dir.join("extraction.json");
+            if let Ok(current_hash) = file_sha256(&extraction_path)
+                && current_hash != meta.extraction_sha256
+            {
+                warnings.push(StaleWarning::BillMetaStale {
+                    bill: identifier.clone(),
+                });
+            }
+        }
+
+        // ── 3. Check embeddings staleness (extraction.json → embeddings.extraction_sha256) ──
         let embeddings_path = bill.dir.join("embeddings.json");
         if embeddings_path.exists()
             && let Ok(emb_text) = std::fs::read_to_string(&embeddings_path)
@@ -121,6 +141,14 @@ mod tests {
             bill: "H.R. 4366".to_string(),
         };
         assert!(w.to_string().contains("embeddings are stale"));
+    }
+
+    #[test]
+    fn display_bill_meta_stale() {
+        let w = StaleWarning::BillMetaStale {
+            bill: "H.R. 4366".to_string(),
+        };
+        assert!(w.to_string().contains("bill metadata is stale"));
     }
 
     #[test]

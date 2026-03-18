@@ -252,6 +252,7 @@ dependencies = [
  "csv",
  "futures",
  "predicates",
+ "regex",
  "reqwest",
  "roxmltree",
  "serde",

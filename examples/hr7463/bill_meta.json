@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "congress": 118,
+  "fiscal_years": [
+    2024
+  ],
+  "bill_nature": "continuing_resolution",
+  "subcommittees": [
+    {
+      "division": "A",
+      "jurisdiction": "continuing_resolution",
+      "title": "Extension of Continuing Appropriations Act, 2024",
+      "source": {
+        "type": "pattern_match",
+        "pattern": "continuing appropriations"
+      }
+    },
+    {
+      "division": "B",
+      "jurisdiction": "other",
+      "title": "Other Matters",
+      "source": {
+        "type": "pattern_match",
+        "pattern": "other matters"
+      }
+    }
+  ],
+  "provision_timing": [],
+  "canonical_accounts": [],
+  "extraction_sha256": "b5333f3b864e46177f0bf1ab0be655445c6a592c01cb1c05febf6f40f9d467ec"
+}

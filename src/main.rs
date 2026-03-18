@@ -130,6 +130,12 @@ enum Commands {
         /// Maximum results for semantic/similar search
         #[arg(long, default_value = "20")]
         top: usize,
+        /// Filter to bills covering this fiscal year
+        #[arg(long)]
+        fy: Option<u32>,
+        /// Filter by subcommittee jurisdiction (e.g., defense, thud, cjs). Requires `enrich`.
+        #[arg(long)]
+        subcommittee: Option<String>,
     },
     /// Show summary of all extracted bills
     Summary {
@@ -142,18 +148,36 @@ enum Commands {
         /// Show budget authority totals by parent department
         #[arg(long)]
         by_agency: bool,
+        /// Filter to bills covering this fiscal year
+        #[arg(long)]
+        fy: Option<u32>,
+        /// Filter by subcommittee jurisdiction (e.g., defense, thud, cjs). Requires `enrich`.
+        #[arg(long)]
+        subcommittee: Option<String>,
     },
     /// Compare provisions between two sets of bills (e.g. two fiscal years)
     Compare {
         /// Base directory for comparison (e.g., data from prior fiscal year)
         #[arg(long)]
-        base: String,
+        base: Option<String>,
         /// Current directory for comparison (e.g., data from current fiscal year)
         #[arg(long)]
-        current: String,
+        current: Option<String>,
+        /// Use all bills for this FY as the base set (alternative to --base)
+        #[arg(long)]
+        base_fy: Option<u32>,
+        /// Use all bills for this FY as the current set (alternative to --current)
+        #[arg(long)]
+        current_fy: Option<u32>,
+        /// Data directory (required with --base-fy/--current-fy)
+        #[arg(long)]
+        dir: Option<String>,
         /// Filter by agency name (case-insensitive substring)
         #[arg(long, short)]
         agency: Option<String>,
+        /// Scope comparison to one subcommittee jurisdiction. Requires `enrich`.
+        #[arg(long)]
+        subcommittee: Option<String>,
         /// Output format: table, json, csv
         #[arg(long, default_value = "table")]
         format: String,
@@ -194,6 +218,18 @@ enum Commands {
         /// Preview without calling API
         #[arg(long)]
         dry_run: bool,
+    },
+    /// Generate bill metadata for FY/subcommittee filtering (no API key needed)
+    Enrich {
+        /// Data directory
+        #[arg(long, default_value = "./data")]
+        dir: String,
+        /// Preview without writing files
+        #[arg(long)]
+        dry_run: bool,
+        /// Re-enrich even if bill_meta.json exists
+        #[arg(long)]
+        force: bool,
     },
 }
 
@@ -308,6 +344,8 @@ async fn main() -> Result<()> {
             semantic,
             similar,
             top,
+            fy,
+            subcommittee,
         } => {
             handle_search(
                 &dir,
@@ -324,6 +362,8 @@ async fn main() -> Result<()> {
                 semantic.as_deref(),
                 similar.as_deref(),
                 top,
+                fy,
+                subcommittee.as_deref(),
             )
             .await
         }
@@ -331,13 +371,28 @@ async fn main() -> Result<()> {
             dir,
             format,
             by_agency,
-        } => handle_summary(&dir, &format, by_agency),
+            fy,
+            subcommittee,
+        } => handle_summary(&dir, &format, by_agency, fy, subcommittee.as_deref()),
         Commands::Compare {
             base,
             current,
+            base_fy,
+            current_fy,
+            dir,
             agency,
+            subcommittee,
             format,
-        } => handle_compare(&base, &current, agency.as_deref(), &format),
+        } => handle_compare(
+            base.as_deref(),
+            current.as_deref(),
+            base_fy,
+            current_fy,
+            dir.as_deref(),
+            agency.as_deref(),
+            subcommittee.as_deref(),
+            &format,
+        ),
         Commands::Audit { dir, verbose } => handle_audit(&dir, verbose),
         Commands::Upgrade { dir, dry_run } => handle_upgrade(&dir, dry_run),
         Commands::Embed {
@@ -347,7 +402,93 @@ async fn main() -> Result<()> {
             batch_size,
             dry_run,
         } => handle_embed(&dir, &model, dimensions, batch_size, dry_run).await,
+        Commands::Enrich {
+            dir,
+            dry_run,
+            force,
+        } => handle_enrich(&dir, dry_run, force),
     }
+}
+
+// ─── Enrich Handler ──────────────────────────────────────────────────────────
+
+fn handle_enrich(dir: &str, dry_run: bool, force: bool) -> Result<()> {
+    use congress_appropriations::approp::bill_meta;
+
+    let bills = loading::load_bills(std::path::Path::new(dir))?;
+
+    if bills.is_empty() {
+        anyhow::bail!("No extracted bills found in directory: {dir}");
+    }
+
+    let mut enriched = 0usize;
+    let mut skipped = 0usize;
+    let mut failed = 0usize;
+
+    for loaded in &bills {
+        let bill_id = &loaded.extraction.bill.identifier;
+        let bill_dir = &loaded.dir;
+
+        // Skip if bill_meta.json already exists and !force
+        if !force && bill_dir.join("bill_meta.json").exists() {
+            skipped += 1;
+            eprintln!("  skip {bill_id} (bill_meta.json exists, use --force to re-enrich)");
+            continue;
+        }
+
+        // Find the XML source file
+        let xml_path = bill_meta::find_xml_in_dir(bill_dir);
+
+        let extraction_path = bill_dir.join("extraction.json");
+
+        match bill_meta::generate_bill_meta(
+            &loaded.extraction,
+            xml_path.as_deref(),
+            &extraction_path,
+        ) {
+            Ok(meta) => {
+                let n_divisions = meta.subcommittees.len();
+                let n_advance = meta
+                    .provision_timing
+                    .iter()
+                    .filter(|t| t.timing == bill_meta::FundingTiming::Advance)
+                    .count();
+                let n_supplemental = meta
+                    .provision_timing
+                    .iter()
+                    .filter(|t| t.timing == bill_meta::FundingTiming::Supplemental)
+                    .count();
+                let n_timing = meta.provision_timing.len();
+
+                if dry_run {
+                    eprintln!(
+                        "  would enrich {bill_id}: nature={:?}, {} divisions, {n_timing} BA provisions ({n_advance} advance, {n_supplemental} supplemental)",
+                        meta.bill_nature, n_divisions
+                    );
+                } else {
+                    bill_meta::save_bill_meta(bill_dir, &meta)?;
+                    eprintln!(
+                        "  enriched {bill_id}: nature={:?}, {} divisions, {n_timing} BA provisions ({n_advance} advance, {n_supplemental} supplemental)",
+                        meta.bill_nature, n_divisions
+                    );
+                }
+                enriched += 1;
+            }
+            Err(e) => {
+                eprintln!("  FAILED {bill_id}: {e}");
+                failed += 1;
+            }
+        }
+    }
+
+    eprintln!();
+    if dry_run {
+        eprintln!("Dry run complete: would enrich {enriched}, skipped {skipped}, failed {failed}");
+    } else {
+        eprintln!("Enrich complete: enriched {enriched}, skipped {skipped}, failed {failed}");
+    }
+
+    Ok(())
 }
 
 // ─── Embed Handler ───────────────────────────────────────────────────────────
@@ -952,6 +1093,8 @@ async fn handle_search(
     semantic: Option<&str>,
     similar: Option<&str>,
     top: usize,
+    fy: Option<u32>,
+    subcommittee: Option<&str>,
 ) -> Result<()> {
     if list_types {
         println!("Available provision types:");
@@ -970,17 +1113,36 @@ async fn handle_search(
     }
 
     let dir_path = std::path::Path::new(dir);
-    let bills = loading::load_bills(dir_path)?;
+    let all_bills = loading::load_bills(dir_path)?;
 
-    if bills.is_empty() {
+    if all_bills.is_empty() {
         println!("No extracted bills found in {dir}");
         return Ok(());
     }
 
-    // Semantic/similar search path (early return)
+    // Apply FY filter
+    let fy_filtered: Vec<_> = if let Some(fiscal_year) = fy {
+        all_bills
+            .into_iter()
+            .filter(|b| b.extraction.bill.fiscal_years.contains(&fiscal_year))
+            .collect()
+    } else {
+        all_bills
+    };
+
+    if fy_filtered.is_empty() {
+        println!("No bills found matching the specified filters.");
+        return Ok(());
+    }
+
+    // Semantic/similar search path (early return).
+    // Uses FY-filtered bills but NOT subcommittee-filtered, because
+    // subcommittee filtering changes provision indices which breaks
+    // vector lookups. Subcommittee is passed as a parameter and
+    // applied during the scoring loop.
     if semantic.is_some() || similar.is_some() {
         return handle_semantic_search(
-            &bills,
+            &fy_filtered,
             dir,
             semantic,
             similar,
@@ -994,8 +1156,27 @@ async fn handle_search(
             min_dollars,
             max_dollars,
             format,
+            subcommittee,
         )
         .await;
+    }
+
+    // Apply subcommittee filter (only for non-semantic search paths)
+    let bills = if let Some(sub_slug) = subcommittee {
+        use congress_appropriations::approp::bill_meta::Jurisdiction;
+        let jurisdiction = Jurisdiction::from_slug(sub_slug).ok_or_else(|| {
+            anyhow::anyhow!(
+                "Unknown subcommittee: '{sub_slug}'. Valid slugs: defense, labor-hhs, thud, financial-services, cjs, energy-water, interior, agriculture, legislative-branch, milcon-va, state-foreign-ops, homeland-security"
+            )
+        })?;
+        filter_bills_to_subcommittee(&fy_filtered, &jurisdiction)?
+    } else {
+        fy_filtered
+    };
+
+    if bills.is_empty() {
+        println!("No bills found matching the specified filters.");
+        return Ok(());
     }
 
     const KNOWN_PROVISION_TYPES: &[&str] = &[
@@ -1487,6 +1668,7 @@ async fn handle_semantic_search(
     min_dollars: Option<i64>,
     max_dollars: Option<i64>,
     format: &str,
+    subcommittee: Option<&str>,
 ) -> Result<()> {
     use congress_appropriations::approp::embeddings;
 
@@ -1663,6 +1845,26 @@ async fn handle_semantic_search(
                 }
             }
 
+            // Subcommittee filter: check provision's division against bill_meta jurisdiction.
+            // This is applied here (not via filter_bills_to_subcommittee) to preserve
+            // original provision indices for correct vector lookups.
+            if let Some(sub_slug) = subcommittee {
+                use congress_appropriations::approp::bill_meta::Jurisdiction;
+                if let Some(target_j) = Jurisdiction::from_slug(sub_slug) {
+                    let dominated = if let Some(meta) = &bill.bill_meta {
+                        let prov_div = provision.division().unwrap_or("");
+                        meta.subcommittees.iter().any(|s| {
+                            s.division.eq_ignore_ascii_case(prov_div) && s.jurisdiction == target_j
+                        })
+                    } else {
+                        false // no bill_meta → can't resolve subcommittee → skip
+                    };
+                    if !dominated {
+                        continue;
+                    }
+                }
+            }
+
             let sim = embeddings::cosine_similarity(&query_vec, emb.vector(idx));
             scored.push(ScoredProvision {
                 bill_id,
@@ -1807,12 +2009,108 @@ async fn handle_semantic_search(
 
 // ─── Summary Handler ─────────────────────────────────────────────────────────
 
-fn handle_summary(dir: &str, format: &str, by_agency: bool) -> Result<()> {
+/// Filter bills to only include provisions from divisions matching the given jurisdiction.
+/// Creates new LoadedBill copies with filtered provision lists.
+fn filter_bills_to_subcommittee(
+    bills: &[loading::LoadedBill],
+    jurisdiction: &congress_appropriations::approp::bill_meta::Jurisdiction,
+) -> Result<Vec<loading::LoadedBill>> {
+    let mut filtered = Vec::new();
+    for bill in bills {
+        let meta = bill.bill_meta.as_ref().ok_or_else(|| {
+            anyhow::anyhow!(
+                "{}: --subcommittee requires bill metadata. Run `congress-approp enrich --dir <DIR>` first.",
+                bill.extraction.bill.identifier
+            )
+        })?;
+
+        // Find division letters for this jurisdiction
+        let matching_divisions: Vec<&str> = meta
+            .subcommittees
+            .iter()
+            .filter(|s| s.jurisdiction == *jurisdiction)
+            .map(|s| s.division.as_str())
+            .collect();
+
+        if matching_divisions.is_empty() {
+            continue; // This bill doesn't contain this subcommittee
+        }
+
+        // Filter provisions to only those in matching divisions
+        let filtered_provisions: Vec<_> = bill
+            .extraction
+            .provisions
+            .iter()
+            .filter(|p| {
+                if let Some(div) = p.division() {
+                    matching_divisions
+                        .iter()
+                        .any(|d| d.eq_ignore_ascii_case(div))
+                } else {
+                    false
+                }
+            })
+            .cloned()
+            .collect();
+
+        if filtered_provisions.is_empty() {
+            continue;
+        }
+
+        let mut filtered_extraction = bill.extraction.clone();
+        filtered_extraction.provisions = filtered_provisions;
+
+        filtered.push(loading::LoadedBill {
+            dir: bill.dir.clone(),
+            extraction: filtered_extraction,
+            verification: bill.verification.clone(),
+            metadata: bill.metadata.clone(),
+            bill_meta: bill.bill_meta.clone(),
+        });
+    }
+    Ok(filtered)
+}
+
+fn handle_summary(
+    dir: &str,
+    format: &str,
+    by_agency: bool,
+    fy: Option<u32>,
+    subcommittee: Option<&str>,
+) -> Result<()> {
     let dir_path = std::path::Path::new(dir);
-    let bills = loading::load_bills(dir_path)?;
+    let all_bills = loading::load_bills(dir_path)?;
+
+    if all_bills.is_empty() {
+        println!("No extracted bills found in {dir}");
+        return Ok(());
+    }
+
+    // Apply FY filter
+    let fy_filtered: Vec<_> = if let Some(fiscal_year) = fy {
+        all_bills
+            .into_iter()
+            .filter(|b| b.extraction.bill.fiscal_years.contains(&fiscal_year))
+            .collect()
+    } else {
+        all_bills
+    };
+
+    // Apply subcommittee filter
+    let bills = if let Some(sub_slug) = subcommittee {
+        use congress_appropriations::approp::bill_meta::Jurisdiction;
+        let jurisdiction = Jurisdiction::from_slug(sub_slug).ok_or_else(|| {
+            anyhow::anyhow!(
+                "Unknown subcommittee: '{sub_slug}'. Valid slugs: defense, labor-hhs, thud, financial-services, cjs, energy-water, interior, agriculture, legislative-branch, milcon-va, state-foreign-ops, homeland-security"
+            )
+        })?;
+        filter_bills_to_subcommittee(&fy_filtered, &jurisdiction)?
+    } else {
+        fy_filtered
+    };
 
     if bills.is_empty() {
-        println!("No extracted bills found in {dir}");
+        println!("No bills found matching the specified filters.");
         return Ok(());
     }
 
@@ -1972,126 +2270,90 @@ fn handle_summary(dir: &str, format: &str, by_agency: bool) -> Result<()> {
 
 // ─── Compare Handler ─────────────────────────────────────────────────────────
 
+#[allow(clippy::too_many_arguments)]
 fn handle_compare(
-    base_dir: &str,
-    current_dir: &str,
+    base_dir: Option<&str>,
+    current_dir: Option<&str>,
+    base_fy: Option<u32>,
+    current_fy: Option<u32>,
+    dir: Option<&str>,
     agency_filter: Option<&str>,
+    subcommittee: Option<&str>,
     format: &str,
 ) -> Result<()> {
-    let base_bills = loading::load_bills(std::path::Path::new(base_dir))?;
-    let current_bills = loading::load_bills(std::path::Path::new(current_dir))?;
+    use congress_appropriations::approp::bill_meta::Jurisdiction;
+    use congress_appropriations::approp::query;
 
-    if base_bills.is_empty() {
-        anyhow::bail!("No extracted bills found in base directory: {base_dir}");
-    }
-    if current_bills.is_empty() {
-        anyhow::bail!("No extracted bills found in current directory: {current_dir}");
-    }
+    // Resolve which bills to compare: either --base/--current dirs or --base-fy/--current-fy
+    let (base_bills, current_bills) = if let (Some(bfy), Some(cfy)) = (base_fy, current_fy) {
+        let data_dir = dir.unwrap_or("./data");
+        let all_bills = loading::load_bills(std::path::Path::new(data_dir))?;
+        if all_bills.is_empty() {
+            anyhow::bail!("No extracted bills found in directory: {data_dir}");
+        }
 
-    let base_class = &base_bills[0].extraction.bill.classification;
-    let current_class = &current_bills[0].extraction.bill.classification;
-    if std::mem::discriminant(base_class) != std::mem::discriminant(current_class) {
-        eprintln!(
-            "⚠  Comparing {} to {}. Accounts in one but not the other may be expected — this does not necessarily indicate policy changes.",
-            base_class, current_class
+        let base: Vec<_> = all_bills
+            .iter()
+            .filter(|b| b.extraction.bill.fiscal_years.contains(&bfy))
+            .cloned()
+            .collect();
+        let current: Vec<_> = all_bills
+            .iter()
+            .filter(|b| b.extraction.bill.fiscal_years.contains(&cfy))
+            .cloned()
+            .collect();
+
+        if base.is_empty() {
+            anyhow::bail!("No bills found covering FY{bfy}");
+        }
+        if current.is_empty() {
+            anyhow::bail!("No bills found covering FY{cfy}");
+        }
+
+        (base, current)
+    } else if let (Some(bd), Some(cd)) = (base_dir, current_dir) {
+        let base = loading::load_bills(std::path::Path::new(bd))?;
+        let current = loading::load_bills(std::path::Path::new(cd))?;
+        if base.is_empty() {
+            anyhow::bail!("No extracted bills found in base directory: {bd}");
+        }
+        if current.is_empty() {
+            anyhow::bail!("No extracted bills found in current directory: {cd}");
+        }
+        (base, current)
+    } else {
+        anyhow::bail!(
+            "Provide either --base and --current directories, or --base-fy and --current-fy with --dir"
         );
+    };
+
+    // If --subcommittee is specified, filter provisions to matching divisions
+    // by resolving jurisdiction → division letter per bill via bill_meta
+    let (base_filtered, current_filtered) = if let Some(sub_slug) = subcommittee {
+        let jurisdiction = Jurisdiction::from_slug(sub_slug).ok_or_else(|| {
+            anyhow::anyhow!(
+                "Unknown subcommittee: '{sub_slug}'. Valid slugs: defense, labor-hhs, thud, financial-services, cjs, energy-water, interior, agriculture, legislative-branch, milcon-va, state-foreign-ops, homeland-security"
+            )
+        })?;
+
+        (
+            filter_bills_to_subcommittee(&base_bills, &jurisdiction)?,
+            filter_bills_to_subcommittee(&current_bills, &jurisdiction)?,
+        )
+    } else {
+        (base_bills, current_bills)
+    };
+
+    let result = query::compare(&base_filtered, &current_filtered, agency_filter);
+
+    if let Some(ref warning) = result.cross_type_warning {
+        eprintln!("⚠  {warning}");
         eprintln!();
     }
 
-    let base_label = describe_bills(&base_bills);
-    let current_label = describe_bills(&current_bills);
-
-    // Build account maps: (agency, account_name) -> total dollars
-    let base_accounts = build_account_map(&base_bills, agency_filter);
-    let current_accounts = build_account_map(&current_bills, agency_filter);
-
-    // Build the comparison
-    #[derive(serde::Serialize)]
-    struct AccountDelta {
-        agency: String,
-        account_name: String,
-        base_dollars: i64,
-        current_dollars: i64,
-        delta: i64,
-        delta_pct: Option<f64>,
-        status: String, // "changed", "only in current", "only in base", "unchanged"
-    }
-
-    let mut all_keys: Vec<(String, String)> = Vec::new();
-    for k in base_accounts.keys() {
-        all_keys.push(k.clone());
-    }
-    for k in current_accounts.keys() {
-        if !all_keys.contains(k) {
-            // Try suffix matching for hierarchical CR names
-            let short = normalize_account_name(&k.1);
-            let found = base_accounts
-                .keys()
-                .any(|bk| normalize_account_name(&bk.1) == short && bk.0 == k.0);
-            if !found {
-                all_keys.push(k.clone());
-            }
-        }
-    }
-    all_keys.sort();
-    all_keys.dedup();
-
-    let mut deltas: Vec<AccountDelta> = Vec::new();
-
-    for key in &all_keys {
-        let base_val = base_accounts.get(key).copied().unwrap_or(0);
-
-        // Look up in current — try exact match first, then suffix match
-        let current_val = current_accounts
-            .get(key)
-            .copied()
-            .or_else(|| {
-                let short = normalize_account_name(&key.1);
-                current_accounts
-                    .iter()
-                    .find(|(k, _)| k.0 == key.0 && normalize_account_name(&k.1) == short)
-                    .map(|(_, v)| *v)
-            })
-            .unwrap_or(0);
-
-        if base_val == 0 && current_val == 0 {
-            continue;
-        }
-
-        let delta = current_val - base_val;
-        let delta_pct = if base_val != 0 {
-            Some((delta as f64 / base_val as f64) * 100.0)
-        } else {
-            None
-        };
-
-        let status = if base_val == 0 {
-            "only in current"
-        } else if current_val == 0 {
-            "only in base"
-        } else if delta == 0 {
-            "unchanged"
-        } else {
-            "changed"
-        };
-
-        deltas.push(AccountDelta {
-            agency: key.0.clone(),
-            account_name: key.1.clone(),
-            base_dollars: base_val,
-            current_dollars: current_val,
-            delta,
-            delta_pct,
-            status: status.to_string(),
-        });
-    }
-
-    // Sort by absolute delta descending
-    deltas.sort_by(|a, b| b.delta.unsigned_abs().cmp(&a.delta.unsigned_abs()));
-
     match format {
         "json" => {
-            println!("{}", serde_json::to_string_pretty(&deltas)?);
+            println!("{}", serde_json::to_string_pretty(&result.rows)?);
         }
         "csv" => {
             let mut wtr = csv::Writer::from_writer(std::io::stdout());
@@ -2104,7 +2366,7 @@ fn handle_compare(
                 "delta_pct",
                 "status",
             ])?;
-            for d in &deltas {
+            for d in &result.rows {
                 wtr.write_record([
                     &d.agency,
                     &d.account_name,
@@ -2118,10 +2380,13 @@ fn handle_compare(
             wtr.flush()?;
         }
         _ => {
-            println!("Comparing: {base_label}  →  {current_label}");
+            println!(
+                "Comparing: {}  →  {}",
+                result.base_description, result.current_description
+            );
             println!();
 
-            if deltas.is_empty() {
+            if result.rows.is_empty() {
                 println!("No matching appropriation accounts found.");
                 return Ok(());
             }
@@ -2138,7 +2403,7 @@ fn handle_compare(
                 Cell::new("Status"),
             ]);
 
-            for d in &deltas {
+            for d in &result.rows {
                 let delta_color = if d.delta > 0 {
                     Color::Green
                 } else if d.delta < 0 {
@@ -2171,14 +2436,23 @@ fn handle_compare(
             println!("{table}");
             println!(
                 "{} accounts compared ({} changed, {} only in current, {} only in base, {} unchanged)",
-                deltas.len(),
-                deltas.iter().filter(|d| d.status == "changed").count(),
-                deltas
+                result.rows.len(),
+                result.rows.iter().filter(|d| d.status == "changed").count(),
+                result
+                    .rows
                     .iter()
                     .filter(|d| d.status == "only in current")
                     .count(),
-                deltas.iter().filter(|d| d.status == "only in base").count(),
-                deltas.iter().filter(|d| d.status == "unchanged").count(),
+                result
+                    .rows
+                    .iter()
+                    .filter(|d| d.status == "only in base")
+                    .count(),
+                result
+                    .rows
+                    .iter()
+                    .filter(|d| d.status == "unchanged")
+                    .count(),
             );
         }
     }
@@ -3071,63 +3345,6 @@ fn prov_amount_strs(p: &Provision) -> (Option<i64>, &str) {
             (amt.dollars(), sem)
         }
         None => (None, ""),
-    }
-}
-
-/// Build a map of (agency, account_name) -> total dollars for appropriations.
-fn build_account_map(
-    bills: &[LoadedBill],
-    agency_filter: Option<&str>,
-) -> HashMap<(String, String), i64> {
-    let mut accounts: HashMap<(String, String), i64> = HashMap::new();
-    for loaded in bills {
-        for p in &loaded.extraction.provisions {
-            if let Some(amt) = p.amount() {
-                if !matches!(amt.semantics, AmountSemantics::NewBudgetAuthority) {
-                    continue;
-                }
-                if !matches!(p, Provision::Appropriation { .. }) {
-                    continue;
-                }
-                let ag = p.agency();
-                let ag = if ag.is_empty() { "(unknown)" } else { ag };
-                if let Some(filter) = agency_filter
-                    && !ag.to_lowercase().contains(&filter.to_lowercase())
-                {
-                    continue;
-                }
-                let key = (ag.to_string(), p.account_name().to_string());
-                *accounts.entry(key).or_insert(0) += amt.dollars().unwrap_or(0);
-            }
-        }
-    }
-    accounts
-}
-
-/// Normalize account name for fuzzy cross-bill matching.
-/// Strips hierarchical prefixes separated by em-dash or en-dash.
-fn normalize_account_name(name: &str) -> String {
-    let parts: Vec<&str> = name.split(&['\u{2014}', '\u{2013}'][..]).collect();
-    if parts.len() > 1 {
-        return parts.last().unwrap_or(&name).trim().to_string();
-    }
-    name.trim().to_string()
-}
-
-/// Create a short description of a set of loaded bills.
-fn describe_bills(bills: &[LoadedBill]) -> String {
-    if bills.len() == 1 {
-        bills[0].extraction.bill.identifier.clone()
-    } else {
-        let ids: Vec<&str> = bills
-            .iter()
-            .map(|b| b.extraction.bill.identifier.as_str())
-            .collect();
-        if ids.len() <= 3 {
-            ids.join(", ")
-        } else {
-            format!("{} bills ({}, {}, ...)", ids.len(), ids[0], ids[1])
-        }
     }
 }
 

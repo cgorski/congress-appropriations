@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0",
+  "congress": 118,
+  "fiscal_years": [
+    2024
+  ],
+  "bill_nature": "continuing_resolution",
+  "subcommittees": [
+    {
+      "division": "A",
+      "jurisdiction": "continuing_resolution",
+      "title": "Further Continuing Appropriations Act, 2024",
+      "source": {
+        "type": "pattern_match",
+        "pattern": "continuing appropriations"
+      }
+    },
+    {
+      "division": "B",
+      "jurisdiction": "other",
+      "title": "Other Matters",
+      "source": {
+        "type": "pattern_match",
+        "pattern": "other matters"
+      }
+    }
+  ],
+  "provision_timing": [
+    {
+      "provision_index": 15,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    }
+  ],
+  "canonical_accounts": [
+    {
+      "provision_index": 8,
+      "canonical_name": "shipbuilding and conversion, navy"
+    },
+    {
+      "provision_index": 50,
+      "canonical_name": "biorefinery, renewable chemical, and biobased product manufacturing assistance program"
+    }
+  ],
+  "extraction_sha256": "a8d3025422f1297727e6d066a10078cbb26237b36efdb29fd2653046a73b7a67"
+}

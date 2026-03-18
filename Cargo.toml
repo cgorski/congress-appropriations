@@ -37,6 +37,7 @@ futures = "0.3"
 walkdir = "2.5"
 comfy-table = "7.2"
 csv = "1.4"
+regex = "1"
 roxmltree = "0.21"
 ulid = "1.2"
 

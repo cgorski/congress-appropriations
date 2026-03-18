@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0",
+  "congress": 118,
+  "fiscal_years": [
+    2024,
+    2025,
+    2026,
+    2027,
+    2028
+  ],
+  "bill_nature": "authorization",
+  "subcommittees": [
+    {
+      "division": "A",
+      "jurisdiction": "other",
+      "title": "Fire Grants and Safety",
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "division": "B",
+      "jurisdiction": "other",
+      "title": "Accelerating Deployment of Versatile, Advanced Nuclear for Clean Energy",
+      "source": {
+        "type": "default_rule"
+      }
+    }
+  ],
+  "provision_timing": [],
+  "canonical_accounts": [],
+  "extraction_sha256": "4093fe07e13a0e94505debdb01e708c3ef741a51e57a037bb40b832677fc2e5d"
+}
