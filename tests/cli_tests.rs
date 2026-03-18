@@ -675,6 +675,65 @@ fn subcommittee_invalid_slug_gives_error() {
         .stderr(predicates::str::contains("Unknown subcommittee"));
 }
 
+// ─── Show Advance ────────────────────────────────────────────────────────────
+
+#[test]
+fn summary_show_advance_milcon_va() {
+    let output = cmd()
+        .args([
+            "summary",
+            "--dir",
+            "examples",
+            "--fy",
+            "2026",
+            "--subcommittee",
+            "milcon-va",
+            "--show-advance",
+            "--format",
+            "json",
+        ])
+        .output()
+        .unwrap();
+
+    assert!(output.status.success());
+    let stdout = str::from_utf8(&output.stdout).unwrap();
+    let data: Vec<serde_json::Value> = serde_json::from_str(stdout).unwrap();
+
+    assert_eq!(
+        data.len(),
+        1,
+        "Should have exactly 1 bill for FY2026 MilCon-VA"
+    );
+
+    let bill = &data[0];
+    assert_eq!(bill["identifier"].as_str(), Some("H.R. 5371"));
+
+    // MilCon-VA is ~79.5% advance — advance should be much larger than current
+    let current = bill["current_year_ba"].as_i64().unwrap();
+    let advance = bill["advance_ba"].as_i64().unwrap();
+    let total = bill["budget_authority"].as_i64().unwrap();
+
+    assert!(
+        advance > current,
+        "MilCon-VA advance ({advance}) should exceed current ({current})"
+    );
+    assert!(
+        advance > 300_000_000_000,
+        "MilCon-VA advance should be >$300B, got {advance}"
+    );
+    assert!(
+        current > 50_000_000_000 && current < 200_000_000_000,
+        "MilCon-VA current should be $50-200B, got {current}"
+    );
+    // current + advance should approximately equal total BA
+    // (may not be exact due to supplemental/unknown provisions)
+    let sum = current + advance;
+    assert!(
+        (sum - total).abs() < 1_000_000_000,
+        "current ({current}) + advance ({advance}) = {sum} should be close to total ({total})"
+    );
+}
+
 // ─── FY-Based Compare ────────────────────────────────────────────────────────
 
 #[test]

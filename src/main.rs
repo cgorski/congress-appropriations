@@ -496,7 +496,7 @@ async fn main() -> Result<()> {
             batch_size,
             dry_run,
         } => handle_embed(&dir, &model, dimensions, batch_size, dry_run).await,
-        Commands::Link { action } => handle_link(action).await,
+        Commands::Link { action } => handle_link(action),
         Commands::Enrich {
             dir,
             dry_run,
@@ -514,7 +514,7 @@ async fn main() -> Result<()> {
 
 // ─── Link Handler ────────────────────────────────────────────────────────────
 
-async fn handle_link(action: LinkCommands) -> Result<()> {
+fn handle_link(action: LinkCommands) -> Result<()> {
     use congress_appropriations::approp::embeddings;
     use congress_appropriations::approp::links;
 
@@ -2742,152 +2742,36 @@ fn handle_summary(
         return Ok(());
     }
 
-    #[derive(serde::Serialize)]
-    struct BillSummary {
-        identifier: String,
-        classification: String,
-        provisions: usize,
-        budget_authority: i64,
-        rescissions: i64,
-        net_ba: i64,
-        completeness_pct: Option<f64>,
-        #[serde(skip_serializing_if = "Option::is_none")]
-        current_year_ba: Option<i64>,
-        #[serde(skip_serializing_if = "Option::is_none")]
-        advance_ba: Option<i64>,
-    }
+    use congress_appropriations::approp::query;
 
-    let mut summaries: Vec<BillSummary> = Vec::new();
+    // Use the library function for the core computation.
+    // This replaces ~130 lines of inline reimplementation that existed before consolidation.
+    let mut summaries = query::summarize(&bills);
 
-    for loaded in &bills {
-        let (ba, rescissions) = loaded.extraction.compute_totals();
-        let completeness = loaded
-            .verification
-            .as_ref()
-            .map(|v| v.summary.completeness_pct);
-        // Prefer enriched bill_nature from bill_meta when available,
-        // fall back to the LLM's original classification.
-        let classification = loaded
-            .bill_meta
-            .as_ref()
-            .map(|m| format!("{}", m.bill_nature))
-            .unwrap_or_else(|| format!("{}", loaded.extraction.bill.classification));
-
-        // Compute advance/current split if --show-advance and bill_meta is available.
-        //
-        // Important: provision_timing entries use ORIGINAL extraction indices,
-        // but after subcommittee filtering, loaded.extraction.provisions may be
-        // a filtered subset with different indices. So we iterate provision_timing
-        // directly and look up the original extraction's provision by stored index.
-        // We check whether the provision belongs to the current filtered set by
-        // verifying its division matches the filtered provisions' divisions.
-        let (current_year_ba, advance_ba) = if show_advance {
-            if let Some(meta) = &loaded.bill_meta {
-                use congress_appropriations::approp::bill_meta::FundingTiming;
-                use congress_appropriations::approp::ontology::{
-                    AmountSemantics, Provision as Prov,
-                };
-
-                // Determine which divisions are in the filtered bill.
-                // If no subcommittee filter was applied, all divisions are included.
-                let active_divisions: Option<std::collections::HashSet<String>> =
-                    if subcommittee.is_some() {
-                        let divs: std::collections::HashSet<String> = loaded
-                            .extraction
-                            .provisions
-                            .iter()
-                            .filter_map(|p| p.division().map(|d| d.to_uppercase()))
-                            .collect();
-                        Some(divs)
-                    } else {
-                        None // no filter — all divisions included
-                    };
-
-                // We need access to the original extraction to look up provisions
-                // by their original index. Reload from disk if needed, or use the
-                // unfiltered data. Since bill_meta stores extraction_sha256, we can
-                // trust that provision_timing indices match the extraction on disk.
-                //
-                // For efficiency, we load the original extraction only when
-                // subcommittee filtering is active (when indices may have shifted).
-                let original_ext = if subcommittee.is_some() {
-                    let ext_path = loaded.dir.join("extraction.json");
-                    std::fs::read_to_string(&ext_path).ok().and_then(|s| {
-                        serde_json::from_str::<
-                            congress_appropriations::approp::ontology::BillExtraction,
-                        >(&s)
-                        .ok()
-                    })
-                } else {
-                    None
-                };
-                let provisions_source = original_ext
-                    .as_ref()
-                    .map(|e| e.provisions.as_slice())
-                    .unwrap_or(&loaded.extraction.provisions);
-
-                let mut current = 0i64;
-                let mut advance = 0i64;
-
-                for timing_entry in &meta.provision_timing {
-                    let idx = timing_entry.provision_index;
-                    if idx >= provisions_source.len() {
-                        continue;
-                    }
-                    let p = &provisions_source[idx];
-
-                    // Check if this provision is in an active division
-                    if let Some(ref divs) = active_divisions {
-                        let prov_div = p.division().unwrap_or("").to_uppercase();
-                        if !divs.contains(&prov_div) {
-                            continue;
-                        }
-                    }
-
-                    if let Some(amt) = p.amount() {
-                        if !matches!(amt.semantics, AmountSemantics::NewBudgetAuthority) {
-                            continue;
-                        }
-                        if !matches!(p, Prov::Appropriation { .. }) {
-                            continue;
-                        }
-                        let dl = match p {
-                            Prov::Appropriation { detail_level, .. } => detail_level.as_str(),
-                            _ => "",
-                        };
-                        if dl == "sub_allocation" || dl == "proviso_amount" {
-                            continue;
-                        }
-                        let dollars = amt.dollars().unwrap_or(0);
-                        match timing_entry.timing {
-                            FundingTiming::Advance => advance += dollars,
-                            _ => current += dollars,
-                        }
-                    }
+    // If --show-advance is NOT requested, strip the advance fields to keep output clean.
+    // The library function always computes them when bill_meta is available.
+    if !show_advance {
+        for s in &mut summaries {
+            s.current_year_ba = None;
+            s.advance_ba = None;
+        }
+    } else {
+        // Warn about bills missing bill_meta when --show-advance is requested
+        for s in &summaries {
+            if s.current_year_ba.is_none() {
+                let bill = bills
+                    .iter()
+                    .find(|b| b.extraction.bill.identifier == s.identifier);
+                if let Some(bill) = bill
+                    && bill.bill_meta.is_none()
+                {
+                    eprintln!(
+                        "  hint: {}: --show-advance requires bill metadata. Run `congress-approp enrich --dir {}` first.",
+                        s.identifier, dir
+                    );
                 }
-                (Some(current), Some(advance))
-            } else {
-                eprintln!(
-                    "  hint: {}: --show-advance requires bill metadata. Run `congress-approp enrich --dir {}` first.",
-                    loaded.extraction.bill.identifier, dir
-                );
-                (None, None)
             }
-        } else {
-            (None, None)
-        };
-
-        summaries.push(BillSummary {
-            identifier: loaded.extraction.bill.identifier.clone(),
-            classification,
-            provisions: loaded.extraction.provisions.len(),
-            budget_authority: ba,
-            rescissions,
-            net_ba: ba - rescissions,
-            completeness_pct: completeness,
-            current_year_ba,
-            advance_ba,
-        });
+        }
     }
 
     match format {

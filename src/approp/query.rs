@@ -24,6 +24,12 @@ pub struct BillSummary {
     pub rescissions: i64,
     pub net_ba: i64,
     pub completeness_pct: Option<f64>,
+    /// Current-year budget authority (excluding advance). Present when bill_meta exists.
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub current_year_ba: Option<i64>,
+    /// Advance budget authority (for future FYs). Present when bill_meta exists.
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub advance_ba: Option<i64>,
 }
 
 /// Produce a summary row for every loaded bill.
@@ -45,6 +51,9 @@ pub fn summarize(bills: &[LoadedBill]) -> Vec<BillSummary> {
                 .map(|m| format!("{}", m.bill_nature))
                 .unwrap_or_else(|| format!("{}", loaded.extraction.bill.classification));
 
+            // Compute advance/current split from bill_meta if available
+            let (current_year_ba, advance_ba) = compute_advance_split(loaded);
+
             BillSummary {
                 identifier: loaded.extraction.bill.identifier.clone(),
                 classification,
@@ -53,9 +62,111 @@ pub fn summarize(bills: &[LoadedBill]) -> Vec<BillSummary> {
                 rescissions,
                 net_ba: ba - rescissions,
                 completeness_pct: completeness,
+                current_year_ba,
+                advance_ba,
             }
         })
         .collect()
+}
+
+/// Compute current-year vs advance budget authority split from bill_meta timing data.
+///
+/// Returns `(Some(current), Some(advance))` if bill_meta has provision_timing data,
+/// `(None, None)` otherwise.
+///
+/// Always loads the original extraction from disk when provision_timing indices
+/// exceed the current provision count. This handles subcommittee-filtered bills
+/// where `loaded.extraction.provisions` is a subset with shifted indices but
+/// `bill_meta.provision_timing` stores original extraction indices.
+fn compute_advance_split(loaded: &LoadedBill) -> (Option<i64>, Option<i64>) {
+    let Some(meta) = &loaded.bill_meta else {
+        return (None, None);
+    };
+    if meta.provision_timing.is_empty() {
+        return (None, None);
+    }
+
+    // Check if any timing index exceeds the current provision count —
+    // this means provisions have been filtered and we need the original.
+    let max_timing_idx = meta
+        .provision_timing
+        .iter()
+        .map(|t| t.provision_index)
+        .max()
+        .unwrap_or(0);
+
+    let original_extraction = if max_timing_idx >= loaded.extraction.provisions.len() {
+        // Provision indices from bill_meta exceed current list — load original from disk
+        let ext_path = loaded.dir.join("extraction.json");
+        std::fs::read_to_string(&ext_path)
+            .ok()
+            .and_then(|s| serde_json::from_str::<crate::approp::ontology::BillExtraction>(&s).ok())
+    } else {
+        None
+    };
+    let provisions = original_extraction
+        .as_ref()
+        .map(|e| e.provisions.as_slice())
+        .unwrap_or(&loaded.extraction.provisions);
+
+    // Determine which divisions are active in the (potentially filtered) bill.
+    // If the bill has been subcommittee-filtered, only provisions in the active
+    // divisions should be counted. If unfiltered, all divisions are active.
+    let active_divisions: Option<std::collections::HashSet<String>> =
+        if original_extraction.is_some() {
+            // Bill was filtered — collect divisions from the filtered provision list
+            let divs: std::collections::HashSet<String> = loaded
+                .extraction
+                .provisions
+                .iter()
+                .filter_map(|p| p.division().map(|d| d.to_uppercase()))
+                .collect();
+            if divs.is_empty() { None } else { Some(divs) }
+        } else {
+            None // unfiltered — all divisions included
+        };
+
+    let mut current = 0i64;
+    let mut advance = 0i64;
+
+    for timing_entry in &meta.provision_timing {
+        let idx = timing_entry.provision_index;
+        if idx >= provisions.len() {
+            continue;
+        }
+        let p = &provisions[idx];
+
+        // Skip provisions not in the active divisions (when subcommittee-filtered)
+        if let Some(ref divs) = active_divisions {
+            let prov_div = p.division().unwrap_or("").to_uppercase();
+            if !divs.contains(&prov_div) {
+                continue;
+            }
+        }
+
+        if let Some(amt) = p.amount() {
+            if !matches!(amt.semantics, AmountSemantics::NewBudgetAuthority) {
+                continue;
+            }
+            if !matches!(p, Provision::Appropriation { .. }) {
+                continue;
+            }
+            let dl = match p {
+                Provision::Appropriation { detail_level, .. } => detail_level.as_str(),
+                _ => "",
+            };
+            if dl == "sub_allocation" || dl == "proviso_amount" {
+                continue;
+            }
+            let dollars = amt.dollars().unwrap_or(0);
+            match timing_entry.timing {
+                bill_meta::FundingTiming::Advance => advance += dollars,
+                _ => current += dollars,
+            }
+        }
+    }
+
+    (Some(current), Some(advance))
 }
 
 // ─── Agency Rollup ───────────────────────────────────────────────────────────
