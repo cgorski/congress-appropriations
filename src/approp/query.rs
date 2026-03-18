@@ -613,10 +613,18 @@ const SUB_AGENCY_TO_PARENT: &[(&str, &str)] = &[
         "u.s. fish and wildlife service",
         "department of the interior",
     ),
+    (
+        "united states fish and wildlife service",
+        "department of the interior",
+    ),
     ("bureau of indian affairs", "department of the interior"),
     ("bureau of indian education", "department of the interior"),
     ("bureau of reclamation", "department of the interior"),
     ("u.s. geological survey", "department of the interior"),
+    (
+        "united states geological survey",
+        "department of the interior",
+    ),
     (
         "office of surface mining reclamation and enforcement",
         "department of the interior",
@@ -695,7 +703,9 @@ fn normalize_agency(agency: &str) -> String {
     let mut lower = agency.to_lowercase();
     lower = lower.trim().to_string();
 
-    // Step 1: comma-based parent extraction (existing logic from extract_parent_department)
+    // Step 1: separator-based parent extraction
+    // Handle both comma-separated ("Office of Inspector General, DOT") and
+    // slash-separated ("Department of Energy / NNSA") agency names.
     if let Some(comma_pos) = lower.find(',') {
         let before = lower[..comma_pos].trim().to_string();
         let after = lower[comma_pos + 1..].trim().to_string();
@@ -704,6 +714,19 @@ fn normalize_agency(agency: &str) -> String {
         } else {
             lower = before;
         }
+    } else if let Some(slash_pos) = lower.find(" / ") {
+        // "Department of Energy / National Nuclear Security Administration"
+        // → try the part after the slash as a sub-agency lookup first
+        let after = lower[slash_pos + 3..].trim().to_string();
+        let before = lower[..slash_pos].trim().to_string();
+        // Check if the part after the slash is a known sub-agency
+        for (sub, parent) in SUB_AGENCY_TO_PARENT {
+            if after == *sub {
+                return parent.to_string();
+            }
+        }
+        // If not in table, use the part before the slash (the parent)
+        lower = before;
     }
 
     // Step 2: sub-agency lookup
