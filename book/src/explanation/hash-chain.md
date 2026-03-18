@@ -151,7 +151,7 @@ The hash chain works because of the write-once principle: every file is immutabl
 - **No invalidation logic.** There's nothing to invalidate — files are either current (hashes match) or stale (hashes don't match).
 - **No locking.** Read operations don't need to coordinate. Write operations (extract, embed, upgrade) overwrite files atomically.
 
-The one planned exception is `links.json` (not yet implemented), which will be append-only — new links are added, existing links can be removed, but the file grows monotonically. Even this follows a simple consistency model: links reference provision indices in specific bill directories, and if those bills are re-extracted, the links become invalid (detectable via hash chain).
+The one exception is `links/links.json`, which is append-only — new links are added via `link accept`, existing links can be removed via `link remove`. Even this follows a simple consistency model: links reference provision indices in specific bill directories, and if those bills are re-extracted, the links become invalid (detectable via hash chain).
 
 ## Verifying Integrity Manually
 

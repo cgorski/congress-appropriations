@@ -152,16 +152,40 @@ Once you can match accounts across bills, you can assemble a complete funding pi
 
 With multiple fiscal years extracted, you could extend this to a multi-year timeline. The `--similar` command makes cross-year matching possible even when account names evolve.
 
-## What's Coming: Persistent Links
+## Deep-Dive with Relate
 
-Currently, `--similar` results are ephemeral — you see them, but they aren't saved. A future `link suggest` / `link accept` workflow will let you persist these relationships:
+The `relate` command provides a focused view of one provision across all bills, with a fiscal year timeline showing advance/current/supplemental splits:
 
 ```bash
-# Future workflow (not yet implemented):
-congress-approp link suggest --dir data --threshold 0.80
-congress-approp link accept --dir data a1b2c3 d4e5f6
-congress-approp compare --base data/fy2023 --current data/fy2024 --use-links
+# Trace VA Compensation and Pensions across all fiscal years
+congress-approp relate hr9468:0 --dir examples --fy-timeline
 ```
+
+Each match includes a deterministic 8-character hash that you can use to persist the relationship.
+
+## Persistent Links
+
+You can save cross-bill relationships using the link system, so they persist across sessions and can be used by `compare --use-links`:
+
+```bash
+# Discover link candidates from embeddings
+congress-approp link suggest --dir examples --scope cross --limit 20
+
+# Accept specific matches by hash (from relate or link suggest output)
+congress-approp link accept --dir examples a3f7b2c4 e5d1c8a9
+
+# Or batch-accept all verified + high-confidence candidates
+congress-approp link accept --dir examples --auto
+
+# Use accepted links in compare to handle renames
+congress-approp compare --base-fy 2024 --current-fy 2026 --subcommittee thud --dir examples --use-links
+
+# View and manage saved links
+congress-approp link list --dir examples
+congress-approp link remove --dir examples a3f7b2c4
+```
+
+Links are stored at `<dir>/links/links.json` and are indexed by deterministic hashes — the same provision pair always produces the same hash, so you can script the workflow reliably. See [Enrich Bills with Metadata](../how-to/enrich-data.md) and the [CLI Reference](../reference/cli.md) for details.
 
 This will enable automatic cross-year matching even when account names change, with human review for ambiguous cases.
 

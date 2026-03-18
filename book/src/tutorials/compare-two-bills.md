@@ -111,7 +111,7 @@ congress-approp search --dir examples --similar hr9468:0 --top 5
 
 This uses embedding vectors to match by meaning rather than account name. See [Track a Program Across Bills](./track-program-across-bills.md) for details.
 
-A future `compare --use-links` feature will allow persistent cross-bill relationships to inform the matching, handling renames automatically.
+The `compare --use-links` flag uses persistent cross-bill relationships (created via `link accept`) to inform the matching, handling renames automatically. See [Track a Program Across Bills](./track-program-across-bills.md) for the full link workflow.
 
 ## Export Comparisons
 

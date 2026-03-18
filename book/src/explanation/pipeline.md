@@ -290,7 +290,7 @@ Every file in the pipeline is **write-once**. After a bill is extracted and embe
 - **Git-friendly.** All files are diffable JSON (except `vectors.bin`, which is gitattributed as binary).
 - **Trivially relocatable.** Copy a bill directory anywhere and it works — no registry, no config, no state files outside the directory.
 
-The one exception to strict immutability is the future `links.json` file (not yet implemented), which will be append-only for accepted cross-bill relationships.
+The one exception to strict immutability is the `links/links.json` file, which is append-only for accepted cross-bill relationships. Links are added via `link accept` and removed via `link remove`, but the file is never overwritten — only updated.
 
 ## The Hash Chain
 

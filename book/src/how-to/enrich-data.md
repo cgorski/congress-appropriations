@@ -186,7 +186,7 @@ The `--base-fy` and `--current-fy` flags automatically select the right bills fo
 
 ## Known Limitations
 
-- **Sub-agency mismatches** — the LLM sometimes uses "Maritime Administration" in one bill and "Department of Transportation" in another for the same accounts. This creates approximately 20 false orphans per subcommittee comparison. A sub-agency normalization lookup is planned for a future release.
+- **Sub-agency mismatches** — the LLM sometimes uses sub-agency names (e.g., "Maritime Administration") in one bill and parent department names (e.g., "Department of Transportation") in another. The compare command includes a 35-entry sub-agency-to-parent-department lookup table that resolves most of these, but some agency naming inconsistencies (~5-15 orphans per subcommittee) may remain for agencies not in the table.
 - **17 supplemental policy division titles** (e.g., "FEND Off Fentanyl Act", "Protecting Americans from Foreign Adversary Controlled Applications Act") are classified as `other` jurisdiction by default. These are from just two bills (H.R. 815 and S. 870) and don't affect regular appropriations bill analysis.
 - **Advance detection patterns** cover "October 1, YYYY" and "first quarter of fiscal year YYYY." If Congress uses novel phrasing in future bills, those provisions would default to `current_year`. The tool logs a warning when it detects a provision referencing a future fiscal year but not matching any known advance pattern.
 
