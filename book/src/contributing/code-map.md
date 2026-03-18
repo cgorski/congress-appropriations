@@ -32,7 +32,7 @@ src/
     ├── loading.rs                   ← Directory walking, bill loading (~300 lines)
     ├── query.rs                     ← Library API (~840 lines)
     ├── embeddings.rs                ← Embedding storage (~260 lines)
-    ├── staleness.rs                 ← Hash chain checking (~100 lines)
+    ├── staleness.rs                 ← Hash chain checking (~165 lines)
     └── progress.rs                  ← Extraction progress bar (~170 lines)
 ```
 
@@ -86,7 +86,7 @@ examples/
 | File | Lines | Purpose | When to Edit |
 |------|-------|---------|-------------|
 | `src/approp/verification.rs` | ~370 | **Deterministic verification.** Three checks: (1) dollar amount strings searched in source text, (2) raw_text matched via three-tier system (exact → normalized → spaceless → no_match), (3) completeness — percentage of dollar strings in source matched to provisions. Contains `verify_extraction()`, `AmountCheck`, `RawTextCheck`, `MatchTier`, `CheckResult`, `VerificationReport`. | Adding new verification checks (e.g., arithmetic checks); changing match tier logic. |
-| `src/approp/staleness.rs` | ~100 | **Hash chain checking.** Computes SHA-256 of files, compares to stored hashes, returns `StaleWarning` if mismatched. Contains `check()`, `file_sha256()`, `StaleWarning` enum. | Adding new staleness checks (e.g., for future links.json). |
+| `src/approp/staleness.rs` | ~165 | **Hash chain checking.** Computes SHA-256 of files, compares to stored hashes, returns `StaleWarning` if mismatched. Contains `check()`, `file_sha256()`, `StaleWarning` enum with `ExtractionStale`, `EmbeddingsStale`, and `BillMetaStale` variants. | Adding new staleness checks for additional pipeline artifacts. |
 
 ### Core: Query and Search
 

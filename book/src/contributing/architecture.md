@@ -20,7 +20,7 @@ Only stages 3 (Extract) and 4 (Embed) call external APIs. Everything else is loc
 
 ```text
 src/
-  main.rs                    ← CLI entry point, clap definitions, output formatting (~2,800 lines)
+  main.rs                    ← CLI entry point, clap definitions, output formatting (~4,200 lines)
   lib.rs                     ← Re-exports: api:: and approp::, plus load_bills and query
   api/
     mod.rs                   ← pub mod anthropic; pub mod congress; pub mod openai;
@@ -169,7 +169,7 @@ The CLI is built with `clap` derive macros. The `Commands` enum defines all subc
 | `download` | `handle_download()` | ~400 | Yes |
 | `upgrade` | `handle_upgrade()` | ~150 | No |
 
-> **Known technical debt:** `main.rs` is ~2,800 lines. The handler functions contain inline formatting logic that should be moved to `query.rs`. A future refactor will reduce `main.rs` to ~1,000 lines by making every handler a thin wrapper: parse args → call library → format output.
+> **Known technical debt:** `main.rs` is ~4,200 lines. While the summary and compare handlers have been consolidated to call library functions in `query.rs`, the search handler still contains substantial inline formatting logic. Each provision type has its own table column layout, and the semantic search path has ~200 lines of inline filtering. A future refactor could reduce `main.rs` by extracting the table formatting into a dedicated module.
 
 ## Key Design Decisions
 
