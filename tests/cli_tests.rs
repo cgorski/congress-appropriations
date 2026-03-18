@@ -938,6 +938,173 @@ fn relate_invalid_reference() {
         .stderr(predicates::str::contains("not found"));
 }
 
+// ─── Link Commands ───────────────────────────────────────────────────────────
+
+#[test]
+fn link_suggest_produces_candidates() {
+    let output = cmd()
+        .args([
+            "link", "suggest", "--dir", "examples", "--scope", "cross", "--limit", "5", "--format",
+            "json",
+        ])
+        .output()
+        .unwrap();
+
+    assert!(output.status.success());
+    let stdout = str::from_utf8(&output.stdout).unwrap();
+    let candidates: Vec<serde_json::Value> = serde_json::from_str(stdout).unwrap();
+
+    assert!(
+        !candidates.is_empty(),
+        "Should produce at least one candidate"
+    );
+    // Each candidate should have a hash, similarity, and confidence
+    let first = &candidates[0];
+    assert!(first["hash"].as_str().is_some());
+    assert!(first["similarity"].as_f64().is_some());
+    assert!(first["confidence"].as_str().is_some());
+}
+
+#[test]
+fn link_full_workflow() {
+    // Use a temp dir to avoid polluting examples/
+    let dir = tempfile::tempdir().unwrap();
+    // Copy two small bills with embeddings
+    for bill in &["hr9468", "hr5860"] {
+        let src = std::path::Path::new("examples").join(bill);
+        let dst = dir.path().join(bill);
+        copy_dir_with_vectors(&src, &dst);
+    }
+
+    // Step 1: Suggest links
+    let output = cmd()
+        .args([
+            "link",
+            "suggest",
+            "--dir",
+            dir.path().to_str().unwrap(),
+            "--scope",
+            "all",
+            "--limit",
+            "50",
+            "--format",
+            "json",
+        ])
+        .output()
+        .unwrap();
+    assert!(output.status.success());
+    let stdout = str::from_utf8(&output.stdout).unwrap();
+    let candidates: Vec<serde_json::Value> = serde_json::from_str(stdout).unwrap();
+
+    if candidates.is_empty() {
+        // No candidates between these two small bills — that's OK, skip rest
+        return;
+    }
+
+    // Step 2: Accept first candidate by hash
+    let first_hash = candidates[0]["hash"].as_str().unwrap().to_string();
+    cmd()
+        .args([
+            "link",
+            "accept",
+            "--dir",
+            dir.path().to_str().unwrap(),
+            &first_hash,
+        ])
+        .assert()
+        .success()
+        .stderr(predicates::str::contains("Accepted 1 links"));
+
+    // Step 3: List shows the accepted link
+    let output = cmd()
+        .args([
+            "link",
+            "list",
+            "--dir",
+            dir.path().to_str().unwrap(),
+            "--format",
+            "json",
+        ])
+        .output()
+        .unwrap();
+    assert!(output.status.success());
+    let stdout = str::from_utf8(&output.stdout).unwrap();
+    let links: Vec<serde_json::Value> = serde_json::from_str(stdout).unwrap();
+    assert_eq!(links.len(), 1);
+    assert_eq!(links[0]["hash"].as_str().unwrap(), first_hash);
+
+    // Step 4: Remove the link
+    cmd()
+        .args([
+            "link",
+            "remove",
+            "--dir",
+            dir.path().to_str().unwrap(),
+            &first_hash,
+        ])
+        .assert()
+        .success()
+        .stderr(predicates::str::contains("Removed 1 links"));
+
+    // Step 5: List is now empty
+    let output = cmd()
+        .args([
+            "link",
+            "list",
+            "--dir",
+            dir.path().to_str().unwrap(),
+            "--format",
+            "json",
+        ])
+        .output()
+        .unwrap();
+    assert!(output.status.success());
+    let stdout = str::from_utf8(&output.stdout).unwrap();
+    let links: Vec<serde_json::Value> = serde_json::from_str(stdout).unwrap();
+    assert!(links.is_empty());
+}
+
+#[test]
+fn link_accept_auto() {
+    let dir = tempfile::tempdir().unwrap();
+    for bill in &["hr9468", "hr4366"] {
+        let src = std::path::Path::new("examples").join(bill);
+        let dst = dir.path().join(bill);
+        copy_dir_with_vectors(&src, &dst);
+    }
+
+    cmd()
+        .args([
+            "link",
+            "accept",
+            "--dir",
+            dir.path().to_str().unwrap(),
+            "--auto",
+        ])
+        .assert()
+        .success()
+        .stderr(predicates::str::contains("Auto-accepted"));
+}
+
+#[test]
+fn link_list_empty_no_crash() {
+    let dir = tempfile::tempdir().unwrap();
+    cmd()
+        .args(["link", "list", "--dir", dir.path().to_str().unwrap()])
+        .assert()
+        .success()
+        .stdout(predicates::str::contains("No links file found"));
+}
+
+#[test]
+fn link_suggest_invalid_scope() {
+    cmd()
+        .args(["link", "suggest", "--dir", "examples", "--scope", "invalid"])
+        .assert()
+        .failure()
+        .stderr(predicates::str::contains("Invalid scope"));
+}
+
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 
 /// Recursively copy a directory, skipping vectors.bin (large) and chunks/ (unnecessary).
@@ -958,6 +1125,30 @@ fn copy_dir(src: &std::path::Path, dst: &std::path::Path) {
 
         if ty.is_dir() {
             copy_dir(&src_path, &dst_path);
+        } else {
+            std::fs::copy(&src_path, &dst_path).unwrap();
+        }
+    }
+}
+
+/// Copy a directory INCLUDING vectors.bin (needed for link suggest which requires embeddings).
+fn copy_dir_with_vectors(src: &std::path::Path, dst: &std::path::Path) {
+    std::fs::create_dir_all(dst).unwrap();
+    for entry in std::fs::read_dir(src).unwrap() {
+        let entry = entry.unwrap();
+        let ty = entry.file_type().unwrap();
+        let src_path = entry.path();
+        let dst_path = dst.join(entry.file_name());
+
+        let name = entry.file_name().to_string_lossy().to_string();
+
+        // Skip only chunks/ (unnecessary for tests)
+        if name == "chunks" {
+            continue;
+        }
+
+        if ty.is_dir() {
+            copy_dir_with_vectors(&src_path, &dst_path);
         } else {
             std::fs::copy(&src_path, &dst_path).unwrap();
         }

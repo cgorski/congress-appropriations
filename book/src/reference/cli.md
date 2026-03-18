@@ -550,6 +550,181 @@ See [Enrich Bills with Metadata](../how-to/enrich-data.md) for a detailed guide 
 
 ---
 
+## relate
+
+Deep-dive on one provision across all bills. Finds similar provisions by embedding similarity, groups them by confidence tier, and optionally builds a fiscal year timeline with advance/current/supplemental split. Requires pre-computed embeddings but **no API keys** (uses stored vectors).
+
+```text
+congress-approp relate <SOURCE> [OPTIONS]
+```
+
+The `<SOURCE>` argument is a provision reference in the format `bill_directory:index` (e.g., `hr9468:0`). Use the `provision_index` from search output.
+
+| Flag | Type | Default | Description |
+|------|------|---------|-------------|
+| `--dir` | path | `./examples` | Data directory |
+| `--top` | integer | `10` | Max related provisions per confidence tier |
+| `--format` | string | `table` | Output format: `table`, `json`, `hashes` |
+| `--fy-timeline` | flag | — | Show fiscal year timeline with advance/current/supplemental split |
+
+### Output
+
+The table output shows two sections:
+
+- **Same Account** — high-confidence matches (verified name match or high similarity + same agency). Each row includes a deterministic 8-char hash, similarity score, bill, account name, dollar amount, funding timing, and confidence label.
+- **Related** — lower-confidence matches (uncertain zone, 0.55–0.65 similarity or name mismatch).
+
+With `--fy-timeline`, a third section shows the fiscal year timeline: current-year BA, advance BA, supplemental BA, and contributing bills for each fiscal year.
+
+### Examples
+
+```bash
+# Deep-dive on VA Compensation and Pensions
+congress-approp relate hr9468:0 --dir examples --fy-timeline
+
+# Get just the link hashes for piping to `link accept`
+congress-approp relate hr9468:0 --dir examples --format hashes
+
+# JSON output with timeline
+congress-approp relate hr9468:0 --dir examples --format json --fy-timeline
+```
+
+### Link Hashes
+
+Each match includes a deterministic 8-character hex hash (e.g., `b7e688d7`). These hashes are computed from the source provision, target provision, and embedding model — the same inputs always produce the same hash. Use `--format hashes` to output just the hashes of same-account matches, suitable for piping to `link accept`:
+
+```bash
+congress-approp relate hr9468:0 --dir examples --format hashes | \
+  xargs congress-approp link accept --dir examples
+```
+
+---
+
+## link suggest
+
+Compute cross-bill link candidates from embeddings. For each top-level budget authority provision, finds the best match in every other bill above the similarity threshold and classifies by confidence tier.
+
+```text
+congress-approp link suggest [OPTIONS]
+```
+
+| Flag | Type | Default | Description |
+|------|------|---------|-------------|
+| `--dir` | path | `./examples` | Data directory |
+| `--threshold` | float | `0.55` | Minimum similarity for candidates |
+| `--scope` | string | `all` | Which bill pairs to compare: `intra` (within same FY), `cross` (across FYs), `all` |
+| `--limit` | integer | `100` | Max candidates to output |
+| `--format` | string | `table` | Output format: `table`, `json`, `hashes` |
+
+### Confidence Tiers
+
+Based on empirically calibrated thresholds from analysis of 6.7M pairwise comparisons:
+
+| Tier | Criteria | Meaning |
+|------|----------|---------|
+| **verified** | Canonical account name match (case-insensitive, prefix-stripped) | Almost certainly the same account |
+| **high** | Similarity ≥ 0.65 AND same normalized agency | Very likely the same account |
+| **uncertain** | Similarity 0.55–0.65, or name mismatch above 0.65 | Needs manual review |
+
+### Examples
+
+```bash
+# Cross-fiscal-year candidates (year-over-year tracking)
+congress-approp link suggest --dir examples --scope cross --limit 20
+
+# All candidates above 0.65 similarity
+congress-approp link suggest --dir examples --threshold 0.65 --limit 50
+
+# Output just the hashes of new (un-accepted) candidates
+congress-approp link suggest --dir examples --format hashes
+```
+
+---
+
+## link accept
+
+Persist link candidates by accepting them into `links/links.json` at the data root.
+
+```text
+congress-approp link accept [OPTIONS] [HASHES...]
+```
+
+| Flag | Type | Default | Description |
+|------|------|---------|-------------|
+| `--dir` | path | `./examples` | Data directory |
+| `--note` | string | — | Optional annotation (e.g., "Account renamed from X to Y") |
+| `--auto` | flag | — | Accept all verified + high-confidence candidates without specifying hashes |
+| `HASHES` | positional | — | One or more 8-char link hashes to accept |
+
+### Examples
+
+```bash
+# Accept specific links by hash
+congress-approp link accept --dir examples a3f7b2c4 e5d1c8a9
+
+# Accept with a note
+congress-approp link accept --dir examples a3f7b2c4 --note "Same VA account, different bill vehicles"
+
+# Auto-accept all verified and high-confidence candidates
+congress-approp link accept --dir examples --auto
+
+# Pipe from relate output
+congress-approp relate hr9468:0 --dir examples --format hashes | \
+  xargs congress-approp link accept --dir examples
+```
+
+---
+
+## link remove
+
+Remove accepted links by hash.
+
+```text
+congress-approp link remove --dir <DIR> <HASHES...>
+```
+
+| Flag | Type | Default | Description |
+|------|------|---------|-------------|
+| `--dir` | path | `./examples` | Data directory |
+| `HASHES` | positional | *(required)* | One or more 8-char link hashes to remove |
+
+### Example
+
+```bash
+congress-approp link remove --dir examples a3f7b2c4
+```
+
+---
+
+## link list
+
+Show accepted links, optionally filtered by bill.
+
+```text
+congress-approp link list [OPTIONS]
+```
+
+| Flag | Type | Default | Description |
+|------|------|---------|-------------|
+| `--dir` | path | `./examples` | Data directory |
+| `--format` | string | `table` | Output format: `table`, `json` |
+| `--bill` | string | — | Filter to links involving this bill (case-insensitive substring) |
+
+### Examples
+
+```bash
+# Show all accepted links
+congress-approp link list --dir examples
+
+# Filter to links involving H.R. 4366
+congress-approp link list --dir examples --bill hr4366
+
+# JSON output for programmatic use
+congress-approp link list --dir examples --format json
+```
+
+---
+
 ## upgrade
 
 Upgrade extraction data to the latest schema version. Re-deserializes existing data through the current parsing logic and re-runs verification. **No LLM API calls.**
