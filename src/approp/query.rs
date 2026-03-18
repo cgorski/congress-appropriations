@@ -33,9 +33,18 @@ pub fn summarize(bills: &[LoadedBill]) -> Vec<BillSummary> {
                 .verification
                 .as_ref()
                 .map(|v| v.summary.completeness_pct);
+
+            // Prefer enriched bill_nature from bill_meta when available,
+            // fall back to the LLM's original classification.
+            let classification = loaded
+                .bill_meta
+                .as_ref()
+                .map(|m| format!("{}", m.bill_nature))
+                .unwrap_or_else(|| format!("{}", loaded.extraction.bill.classification));
+
             BillSummary {
                 identifier: loaded.extraction.bill.identifier.clone(),
-                classification: format!("{}", loaded.extraction.bill.classification),
+                classification,
                 provisions: loaded.extraction.provisions.len(),
                 budget_authority: ba,
                 rescissions,

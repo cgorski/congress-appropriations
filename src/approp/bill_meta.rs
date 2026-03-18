@@ -47,6 +47,23 @@ pub enum BillNature {
     Other(String),
 }
 
+impl std::fmt::Display for BillNature {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        match self {
+            BillNature::Regular => write!(f, "Regular"),
+            BillNature::Omnibus => write!(f, "Omnibus"),
+            BillNature::Minibus => write!(f, "Minibus"),
+            BillNature::ContinuingResolution => write!(f, "Continuing Resolution"),
+            BillNature::FullYearCrWithAppropriations => {
+                write!(f, "Full-Year CR with Appropriations")
+            }
+            BillNature::Supplemental => write!(f, "Supplemental"),
+            BillNature::Authorization => write!(f, "Authorization"),
+            BillNature::Other(s) => write!(f, "{s}"),
+        }
+    }
+}
+
 /// Maps a single division letter to a canonical jurisdiction.
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct SubcommitteeMapping {
