@@ -468,7 +468,8 @@ Semantic search finds provisions by meaning, not just keywords. It uses OpenAI e
 export OPENAI_API_KEY="your-key"
 congress-approp embed --dir examples
 
-# Embeddings are pre-generated for the example data, so you can skip this step.
+# Embeddings are pre-generated for the example data if you cloned the git repo.
+# If you installed via `cargo install`, run `embed` to generate them (~30 sec per bill).
 ```
 
 **Search by meaning:**
@@ -485,6 +486,8 @@ congress-approp search --dir examples --similar hr9468:0 --top 5
 ```
 
 The `embed` command writes `embeddings.json` (metadata) and `vectors.bin` (binary float32 vectors) to each bill directory. It skips bills whose embeddings are already up to date. Use `--dry-run` to preview token counts before calling the API.
+
+> **Note on embedding availability:** The `vectors.bin` files are included in the git repository so that `git clone` users can use semantic search immediately. However, they are excluded from the crates.io package (they exceed the 10 MB upload limit). If you installed via `cargo install`, run `congress-approp embed --dir examples` to generate embeddings for the example data. This takes approximately 30 seconds per bill and requires an `OPENAI_API_KEY`.
 
 ### Output Files
 

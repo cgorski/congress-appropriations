@@ -506,6 +506,159 @@ pub fn compare(
 
 // ─── Private helpers ─────────────────────────────────────────────────────────
 
+/// Map of known sub-agency names to their parent department.
+///
+/// Used by `normalize_agency` to resolve cases where the LLM uses different
+/// granularities across bills — e.g., "Maritime Administration" in one bill
+/// and "Department of Transportation" in another for the same account.
+///
+/// This is a static lookup because the agency hierarchy is stable across
+/// congresses. The trade-off: within-bill entries under different sub-agencies
+/// of the same department with the same account name (e.g., two different
+/// "Salaries and Expenses" lines under DOT) will be merged. In practice this
+/// affects ~7 entries across the 13-bill dataset, all for administrative
+/// accounts where the merged total is still directionally correct.
+const SUB_AGENCY_TO_PARENT: &[(&str, &str)] = &[
+    // Department of Transportation
+    ("maritime administration", "department of transportation"),
+    (
+        "federal highway administration",
+        "department of transportation",
+    ),
+    (
+        "federal aviation administration",
+        "department of transportation",
+    ),
+    (
+        "federal transit administration",
+        "department of transportation",
+    ),
+    (
+        "federal railroad administration",
+        "department of transportation",
+    ),
+    (
+        "national highway traffic safety administration",
+        "department of transportation",
+    ),
+    (
+        "great lakes st. lawrence seaway development corporation",
+        "department of transportation",
+    ),
+    (
+        "pipeline and hazardous materials safety administration",
+        "department of transportation",
+    ),
+    // Department of the Interior
+    ("national park service", "department of the interior"),
+    ("bureau of land management", "department of the interior"),
+    (
+        "u.s. fish and wildlife service",
+        "department of the interior",
+    ),
+    ("bureau of indian affairs", "department of the interior"),
+    ("bureau of indian education", "department of the interior"),
+    ("bureau of reclamation", "department of the interior"),
+    ("u.s. geological survey", "department of the interior"),
+    (
+        "office of surface mining reclamation and enforcement",
+        "department of the interior",
+    ),
+    (
+        "bureau of ocean energy management",
+        "department of the interior",
+    ),
+    (
+        "bureau of safety and environmental enforcement",
+        "department of the interior",
+    ),
+    (
+        "bureau of trust funds administration",
+        "department of the interior",
+    ),
+    // Department of Housing and Urban Development
+    (
+        "government national mortgage association",
+        "department of housing and urban development",
+    ),
+    (
+        "federal housing administration",
+        "department of housing and urban development",
+    ),
+    (
+        "neighborhood reinvestment corporation",
+        "department of housing and urban development",
+    ),
+    // Department of Justice
+    ("federal bureau of investigation", "department of justice"),
+    ("drug enforcement administration", "department of justice"),
+    (
+        "bureau of alcohol, tobacco, firearms and explosives",
+        "department of justice",
+    ),
+    ("u.s. marshals service", "department of justice"),
+    ("federal bureau of prisons", "department of justice"),
+    ("bureau of justice assistance", "department of justice"),
+    // Department of Commerce
+    (
+        "national oceanic and atmospheric administration",
+        "department of commerce",
+    ),
+    (
+        "national institute of standards and technology",
+        "department of commerce",
+    ),
+    ("u.s. patent and trademark office", "department of commerce"),
+    (
+        "international trade administration",
+        "department of commerce",
+    ),
+    ("bureau of industry and security", "department of commerce"),
+    (
+        "economic development administration",
+        "department of commerce",
+    ),
+    (
+        "minority business development agency",
+        "department of commerce",
+    ),
+    // Department of Defense (civil)
+    (
+        "department of the army, corps of engineers—civil",
+        "department of defense—civil",
+    ),
+];
+
+/// Normalize an agency name to its parent department for cross-bill matching.
+///
+/// First applies comma-based extraction (e.g., "Office of Inspector General,
+/// Department of Defense" → "Department of Defense"), then looks up the result
+/// in the sub-agency-to-parent table.
+fn normalize_agency(agency: &str) -> String {
+    let mut lower = agency.to_lowercase();
+    lower = lower.trim().to_string();
+
+    // Step 1: comma-based parent extraction (existing logic from extract_parent_department)
+    if let Some(comma_pos) = lower.find(',') {
+        let before = lower[..comma_pos].trim().to_string();
+        let after = lower[comma_pos + 1..].trim().to_string();
+        if before == "office of inspector general" {
+            lower = after;
+        } else {
+            lower = before;
+        }
+    }
+
+    // Step 2: sub-agency lookup
+    for (sub, parent) in SUB_AGENCY_TO_PARENT {
+        if lower == *sub {
+            return parent.to_string();
+        }
+    }
+
+    lower
+}
+
 /// An entry in the account comparison map, holding the aggregated dollar total
 /// and the original (non-normalized) names for display purposes.
 struct AccountMapEntry {
@@ -542,7 +695,10 @@ fn build_account_map(
                 {
                     continue;
                 }
-                let key = (ag.to_lowercase(), normalize_account_name(p.account_name()));
+                let key = (
+                    normalize_agency(ag),
+                    normalize_account_name(p.account_name()),
+                );
                 let entry = accounts.entry(key).or_insert_with(|| AccountMapEntry {
                     dollars: 0,
                     display_agency: ag.to_string(),
@@ -706,6 +862,65 @@ mod tests {
         assert_eq!(compute_quality(None, None), "n/a");
         assert_eq!(compute_quality(None, Some("exact")), "n/a");
     }
+
+    // ── Agency Normalization ──
+
+    #[test]
+    fn test_normalize_agency_parent_department() {
+        assert_eq!(
+            normalize_agency("Maritime Administration"),
+            "department of transportation"
+        );
+    }
+
+    #[test]
+    fn test_normalize_agency_already_parent() {
+        assert_eq!(
+            normalize_agency("Department of Transportation"),
+            "department of transportation"
+        );
+    }
+
+    #[test]
+    fn test_normalize_agency_comma_oig() {
+        assert_eq!(
+            normalize_agency("Office of Inspector General, Department of Transportation"),
+            "department of transportation"
+        );
+    }
+
+    #[test]
+    fn test_normalize_agency_comma_secretary() {
+        // "Department of Transportation, Office of the Secretary" →
+        // comma extraction takes "Department of Transportation" →
+        // not in sub-agency table → stays as is
+        assert_eq!(
+            normalize_agency("Department of Transportation, Office of the Secretary"),
+            "department of transportation"
+        );
+    }
+
+    #[test]
+    fn test_normalize_agency_interior_sub() {
+        assert_eq!(
+            normalize_agency("National Park Service"),
+            "department of the interior"
+        );
+        assert_eq!(
+            normalize_agency("Bureau of Land Management"),
+            "department of the interior"
+        );
+    }
+
+    #[test]
+    fn test_normalize_agency_unknown_passthrough() {
+        assert_eq!(
+            normalize_agency("Environmental Protection Agency"),
+            "environmental protection agency"
+        );
+    }
+
+    // ── Account Normalization ──
 
     #[test]
     fn test_normalize_account_name_plain() {

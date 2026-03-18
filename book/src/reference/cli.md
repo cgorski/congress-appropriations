@@ -25,8 +25,19 @@ congress-approp summary [OPTIONS]
 | `--dir` | path | `./data` | Data directory containing extracted bills. Try `examples` for included FY2024 data. Walks recursively to find all `extraction.json` files. |
 | `--format` | string | `table` | Output format: `table`, `json`, `jsonl`, `csv` |
 | `--by-agency` | flag | — | Append a second table showing budget authority totals by parent department, sorted descending |
+| `--fy` | integer | — | Filter to bills covering this fiscal year (e.g., `2026`). Uses `bill.fiscal_years` from extraction data — works without `enrich`. |
+| `--subcommittee` | string | — | Filter by subcommittee jurisdiction (e.g., `defense`, `thud`, `cjs`). Requires `bill_meta.json` — run `enrich` first. See [Enrich Bills with Metadata](../how-to/enrich-data.md) for valid slugs. |
 
 ### Examples
+
+```bash
+# FY2026 bills only
+congress-approp summary --dir examples --fy 2026
+
+# FY2026 THUD subcommittee only (requires enrich)
+congress-approp summary --dir examples --fy 2026 --subcommittee thud
+```
+
 
 ```bash
 # Basic summary of included example data
@@ -86,6 +97,8 @@ congress-approp search [OPTIONS]
 | `--division` | | string | Filter by division letter (e.g., `A`, `B`, `C`) |
 | `--min-dollars` | | integer | Minimum dollar amount (absolute value) |
 | `--max-dollars` | | integer | Maximum dollar amount (absolute value) |
+| `--fy` | | integer | Filter to bills covering this fiscal year (e.g., `2026`). Works without `enrich`. |
+| `--subcommittee` | | string | Filter by subcommittee jurisdiction (e.g., `thud`, `defense`). Requires `enrich`. |
 
 All filters use **AND logic** — every provision in the result must match every specified filter. Filter order on the command line has no effect on results.
 
@@ -203,31 +216,60 @@ JSON and CSV output include more fields than the table:
 
 ## compare
 
-Compare provisions between two sets of bills. Matches accounts by `(agency, account_name)` and computes dollar deltas.
+Compare provisions between two sets of bills. Matches accounts by `(agency, account_name)` and computes dollar deltas. Account names are matched case-insensitively with em-dash prefix stripping, and sub-agencies are normalized to their parent department for matching (e.g., "Maritime Administration" matches "Department of Transportation").
 
+There are two ways to specify what to compare:
+
+**Directory-based** (compare two specific directories):
 ```text
-congress-approp compare [OPTIONS] --base <BASE> --current <CURRENT>
+congress-approp compare --base <BASE> --current <CURRENT> [OPTIONS]
+```
+
+**FY-based** (compare all bills for one fiscal year against another):
+```text
+congress-approp compare --base-fy <YEAR> --current-fy <YEAR> --dir <DIR> [OPTIONS]
 ```
 
 | Flag | Short | Type | Default | Description |
 |------|-------|------|---------|-------------|
-| `--base` | | path | *(required)* | Base directory for comparison (e.g., prior fiscal year) |
-| `--current` | | path | *(required)* | Current directory for comparison (e.g., current fiscal year) |
+| `--base` | | path | — | Base directory for comparison (e.g., prior fiscal year) |
+| `--current` | | path | — | Current directory for comparison (e.g., current fiscal year) |
+| `--base-fy` | | integer | — | Use all bills covering this FY as the base set (alternative to `--base`) |
+| `--current-fy` | | integer | — | Use all bills covering this FY as the current set (alternative to `--current`) |
+| `--dir` | | path | `./data` | Data directory (required with `--base-fy`/`--current-fy`) |
+| `--subcommittee` | | string | — | Scope comparison to one subcommittee jurisdiction. Requires `enrich`. |
 | `--agency` | `-a` | string | — | Filter by agency name (case-insensitive substring) |
 | `--format` | | string | `table` | Output format: `table`, `json`, `csv` |
+
+You must provide either `--base` + `--current` (directory paths) or `--base-fy` + `--current-fy` + `--dir`.
 
 ### Examples
 
 ```bash
-# Compare omnibus to supplemental
+# Compare omnibus to supplemental (directory-based)
 congress-approp compare --base examples/hr4366 --current examples/hr9468
+
+# Compare THUD funding: FY2024 → FY2026 (FY-based with subcommittee scope)
+congress-approp compare --base-fy 2024 --current-fy 2026 --subcommittee thud --dir examples
+
+# Compare all FY2024 vs FY2026 (no subcommittee scope)
+congress-approp compare --base-fy 2024 --current-fy 2026 --dir examples
 
 # Filter to VA accounts only
 congress-approp compare --base examples/hr4366 --current examples/hr9468 --agency "Veterans"
 
 # Export comparison to CSV
-congress-approp compare --base examples/hr4366 --current examples/hr9468 --format csv > comparison.csv
+congress-approp compare --base-fy 2024 --current-fy 2026 --subcommittee thud --dir examples --format csv > thud_compare.csv
 ```
+
+### Matching Behavior
+
+Account matching uses several normalization layers:
+
+- **Case-insensitive**: "Grants-In-Aid for Airports" matches "Grants-in-Aid for Airports"
+- **Em-dash prefix stripping**: "Department of VA—Compensation and Pensions" matches "Compensation and Pensions"
+- **Sub-agency normalization**: "Maritime Administration" matches "Department of Transportation" for the same account name
+- **Hierarchical CR name matching**: "Federal Emergency Management Agency—Disaster Relief Fund" matches "Disaster Relief Fund"
 
 ### Output Columns
 
@@ -235,8 +277,8 @@ congress-approp compare --base examples/hr4366 --current examples/hr9468 --forma
 |--------|-------------|
 | `Account` | Account name, matched between bills |
 | `Agency` | Parent department or agency |
-| `Base ($)` | Budget authority in the `--base` bills |
-| `Current ($)` | Budget authority in the `--current` bills |
+| `Base ($)` | Budget authority in the `--base` or `--base-fy` bills |
+| `Current ($)` | Budget authority in the `--current` or `--current-fy` bills |
 | `Delta ($)` | Current minus Base |
 | `Δ %` | Percentage change |
 | `Status` | `changed`, `unchanged`, `only in base`, or `only in current` |
@@ -458,6 +500,53 @@ congress-approp embed --dir data --dimensions 1024
 |------|-------------|
 | `embeddings.json` | Metadata: model, dimensions, count, SHA-256 hashes |
 | `vectors.bin` | Raw little-endian float32 vectors (count × dimensions × 4 bytes) |
+
+---
+
+## enrich
+
+Generate bill metadata for fiscal year filtering, subcommittee scoping, and advance appropriation classification. This command parses the source XML and analyzes the extraction output — **no API keys are required**.
+
+```text
+congress-approp enrich [OPTIONS]
+```
+
+| Flag | Type | Default | Description |
+|------|------|---------|-------------|
+| `--dir` | path | `./data` | Data directory containing extracted bills |
+| `--dry-run` | flag | — | Preview what would be generated without writing files |
+| `--force` | flag | — | Re-enrich even if `bill_meta.json` already exists |
+
+### What It Generates
+
+For each bill directory, `enrich` creates a `bill_meta.json` file containing:
+
+- **Congress number** — parsed from the XML filename
+- **Subcommittee mappings** — division letter → jurisdiction (e.g., Division A → Defense)
+- **Bill nature** — enriched classification (omnibus, minibus, full-year CR with appropriations, etc.)
+- **Advance appropriation classification** — each budget authority provision classified as current-year, advance, or supplemental using a fiscal-year-aware algorithm
+- **Canonical account names** — case-normalized, prefix-stripped names for cross-bill matching
+
+### Examples
+
+```bash
+# Enrich all bills
+congress-approp enrich --dir examples
+
+# Preview without writing files
+congress-approp enrich --dir examples --dry-run
+
+# Force re-enrichment
+congress-approp enrich --dir examples --force
+```
+
+### When to Run
+
+Run `enrich` once after extracting bills, before using `--subcommittee` filters. The `--fy` flag on other commands works without `enrich` (it uses fiscal year data already in `extraction.json`), but `--subcommittee` requires the division-to-jurisdiction mapping that only `enrich` provides.
+
+The tool warns when `bill_meta.json` is stale (when `extraction.json` has changed since enrichment). Run `enrich --force` to regenerate.
+
+See [Enrich Bills with Metadata](../how-to/enrich-data.md) for a detailed guide including subcommittee slugs, advance classification algorithm, and provenance tracking.
 
 ---
 

@@ -31,6 +31,8 @@ congress-approp compare --base-fy 2024 --current-fy 2026 --subcommittee thud --d
 
 > **Note:** The `--fy` flag works without `enrich` — it uses the fiscal year data already in `extraction.json`. But `--subcommittee` requires the division-to-jurisdiction mapping that only `enrich` provides.
 
+> **Note on embeddings:** Semantic search (the `--semantic` flag) requires embedding vectors. If you cloned the git repository, pre-generated `vectors.bin` files are included for all example bills. If you installed via `cargo install`, the embedding files are not included (they exceed the crates.io size limit) — run `congress-approp embed --dir examples` to generate them (~30 seconds per bill, requires `OPENAI_API_KEY`). The `enrich` command itself does not require embeddings and does not use any API keys.
+
 ## What It Generates
 
 The `enrich` command creates a `bill_meta.json` file in each bill directory containing five categories of metadata:
