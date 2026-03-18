@@ -14,7 +14,7 @@ The core principle: **the LLM does the hard part (understanding legal text), but
 
 ## The Pipeline
 
-A bill flows through five stages. Each stage produces immutable files. Once a stage completes for a bill, its output is never modified (except in rare deliberate re-runs).
+A bill flows through six stages. Each stage produces immutable files (except `links.json` which is append-only). Once a stage completes for a bill, its output is never modified (except in rare deliberate re-runs).
 
 ```
                     ┌──────────┐
@@ -32,15 +32,25 @@ A bill flows through five stages. Each stage produces immutable files. Once a st
                     └──────────┘
                          │
                     ┌──────────┐
+                    │ Enrich   │ ───▶ bill_meta.json          (offline, no API)
+                    │(optional)│
+                    └──────────┘
+                         │
+                    ┌──────────┐
   OpenAI API ◀───── │  Embed   │ ───▶ embeddings.json + vectors.bin
                     └──────────┘
                          │
                     ┌──────────┐
                     │  Query   │ ───▶ search, compare, summary, audit, relate
                     └──────────┘
+                         │
+                    ┌──────────┐
+                    │  Link    │ ───▶ links/links.json        (persistent)
+                    │(optional)│
+                    └──────────┘
 ```
 
-**Only stages 3 (Extract) and 4 (Embed) call external APIs.** Everything else is local, deterministic, and instant.
+**Only stages 3 (Extract) and 5 (Embed) call external APIs.** Everything else — downloading, parsing, enrichment, verification, linking, querying — runs locally and deterministically.
 
 ### Stage 1: Download
 
@@ -90,24 +100,61 @@ This combined text is embedded into a 1024-dimensional vector that captures the 
 **Output:** `embeddings.json` (metadata) + `vectors.bin` (binary float32 vectors)
 **Requires:** `OPENAI_API_KEY`
 
-### Stage 5: Query
+### Stage 3.5: Enrich (Optional)
 
-All query operations (`search`, `summary`, `compare`, `audit`) run locally against the JSON and binary files on disk. No API calls at query time — except `--semantic` search, which makes one small API call to embed the query text.
+The `enrich` command generates bill-level metadata by parsing the source XML structure and analyzing the already-extracted provisions. It runs entirely offline — no API calls needed.
+
+**What it produces:**
+- **Subcommittee mappings** — division letter → canonical jurisdiction (Defense, THUD, CJS, etc.) via XML parsing and pattern matching on division titles
+- **Advance appropriation classification** — each budget authority provision classified as current-year, advance, or supplemental using a fiscal-year-aware algorithm that compares "October 1, YYYY" and "first quarter of fiscal year YYYY" dates to the bill's fiscal year
+- **Bill nature** — enriched classification (omnibus, minibus, full-year CR with appropriations, supplemental, authorization) from provision type distribution and subcommittee count
+- **Canonical account names** — lowercased, em-dash-prefix-stripped names for case-insensitive cross-bill matching
+- **Classification provenance** — every automated decision records its source (XML structure, pattern match, fiscal year comparison, default rule)
+
+**Input:** `extraction.json` + `BILLS-*.xml`
+**Output:** `bill_meta.json`
+**Requires:** Nothing — no API keys, no network access.
+
+### Stage 5: Embed
+
+*[Unchanged from above]*
+
+### Stage 6: Query
+
+All query operations (`search`, `summary`, `compare`, `audit`, `relate`) run locally against the JSON and binary files on disk. No API calls at query time — except `--semantic` search, which makes one small API call to embed the query text.
+
+The `--fy` and `--subcommittee` flags on `summary`, `search`, and `compare` use `bill_meta.json` for fiscal year filtering and jurisdiction scoping. The `--show-advance` flag on `summary` uses `bill_meta.json` to separate current-year from advance budget authority.
+
+### Stage 7: Link (Optional)
+
+The `link suggest` command computes cross-bill provision relationships using embedding similarity and account name matching. Candidates are classified by confidence tier (verified, high, uncertain) and persisted via `link accept`.
+
+**What it produces:**
+- **Link candidates** — pairs of provisions across different bills with similarity scores and confidence tiers
+- **Accepted links** — user-reviewed relationships stored in `links/links.json` at the data root
+- **Link hashes** — deterministic 8-char hex identifiers (from SHA-256 of source, target, and model) that remain stable across runs
+
+**Input:** `embeddings.json` + `vectors.bin` + `bill_meta.json` (for account normalization)
+**Output:** `links/links.json`
+**Requires:** Pre-computed embeddings. No API keys at suggest/accept time.
+
+Links are consumed by `compare --use-links` (rescues orphans via accepted links) and `relate` (shows link hashes for future persistence).
 
 ---
 
 ## Data Directory Layout
 
-Every bill lives in its own directory. Files are discovered by walking recursively for `extraction.json` — that's the anchor file. Everything else is optional.
+Every bill lives in its own directory. Files are discovered by walking recursively for `extraction.json` — that's the anchor file. Everything else is optional. Cross-bill links live at the data root in `links/links.json`.
 
 ```
 examples/                          ← any --dir path works
 ├── hr4366/                        ← bill directory
 │   ├── BILLS-118hr4366enr.xml     ← source XML from Congress.gov
 │   ├── extraction.json            ← structured provisions (REQUIRED)
-│   ├── verification.json          ← deterministic verification report
+│   ├── verification.json          ← deterministic verification
 │   ├── metadata.json              ← model, prompt version, hashes
 │   ├── tokens.json                ← token usage from extraction
+│   ├── bill_meta.json             ← bill metadata: FY, jurisdictions, advance (enrich)
 │   ├── embeddings.json            ← embedding metadata (model, dimensions, hashes)
 │   ├── vectors.bin                ← raw float32 embedding vectors
 │   └── chunks/                    ← per-chunk LLM artifacts (gitignored)
@@ -115,20 +162,24 @@ examples/                          ← any --dir path works
 │       └── ...
 ├── hr5860/
 │   └── ...
-└── hr9468/
-    └── ...
+├── hr9468/
+│   └── ...
+└── links/                         ← cross-bill relationships (link accept)
+    └── links.json                 ← append-only via link accept/remove
 ```
 
 | File | Required | Written by | Read by | Mutated after creation? |
 |------|----------|-----------|---------|------------------------|
-| `BILLS-*.xml` | For extraction | `download` | `extract`, `upgrade` | Never |
+| `BILLS-*.xml` | For extraction | `download` | `extract`, `upgrade`, `enrich` | Never |
 | `extraction.json` | **Yes** | `extract` | All query commands | Never (unless deliberately re-extracted) |
 | `verification.json` | No | `extract`, `upgrade` | `audit`, `search` quality | Never |
 | `metadata.json` | No | `extract` | Staleness detection | Never |
 | `tokens.json` | No | `extract` | Informational | Never |
-| `embeddings.json` | No | `embed` | Semantic search | Never (unless re-embedded) |
-| `vectors.bin` | No | `embed` | Semantic search | Never (unless re-embedded) |
+| `bill_meta.json` | No | `enrich` | `--subcommittee`, `--show-advance`, `relate` | Only by re-enrich |
+| `embeddings.json` | No | `embed` | Semantic search, `link suggest` | Never (unless re-embedded) |
+| `vectors.bin` | No | `embed` | Semantic search, `link suggest`, `relate` | Never (unless re-embedded) |
 | `chunks/*.json` | No | `extract` | Analysis/debugging | Never |
+| `links/links.json` | No | `link accept` | `compare --use-links`, `link list` | Append-only (accept adds, remove deletes) |
 
 **Every file is write-once.** Once a bill is extracted and embedded, its files are never modified. The system is read-dominated: writes happen ~15 times per year (when Congress enacts bills), reads happen hundreds to thousands of times.
 
@@ -143,10 +194,13 @@ Each downstream artifact records the SHA-256 hash of its input. This enables **s
 ```
 BILLS-*.xml ──sha256──▶ metadata.json (source_xml_sha256)
                               │
+extraction.json ──sha256──▶ bill_meta.json (extraction_sha256)
 extraction.json ──sha256──▶ embeddings.json (extraction_sha256)
                               │
 vectors.bin ──sha256──▶ embeddings.json (vectors_sha256)
 ```
+
+The `bill_meta.json` link was added in v4.0 — when the extraction changes, provision indices in `bill_meta.json` may no longer be valid. The staleness check warns: "bill metadata is stale (extraction.json has changed). Run `enrich --force`."
 
 The `staleness.rs` module checks this chain on commands that use embeddings. If a hash mismatches, it prints a warning to stderr but never blocks execution:
 
@@ -224,6 +278,8 @@ OpenAI embedding vectors are L2-normalized (norm = 1.0), so cosine similarity eq
 |--------|-------|---------|
 | `ontology.rs` | ~960 | All data types. The `Provision` enum has 11 variants (Appropriation, Rescission, TransferAuthority, Limitation, DirectedSpending, CrSubstitution, MandatorySpendingExtension, Directive, Rider, ContinuingResolutionBaseline, Other). Also defines `BillExtraction`, `DollarAmount`, `AmountSemantics`, `BillClassification`, `ExtractionMetadata`, and all supporting types. |
 | `from_value.rs` | ~690 | Resilient JSON → Provision deserialization. Handles LLM output variance: missing fields get defaults, unexpected types are coerced, unknown provision types become `Other`. This is why extraction rarely fails even when the LLM returns imperfect JSON. |
+| `bill_meta.rs` | ~1280 | Bill-level metadata types and classification functions. `BillMeta`, `BillNature`, `Jurisdiction`, `SubcommitteeMapping`, `ProvisionTiming`, `FundingTiming`, `CanonicalAccount`, `ClassificationSource`. Includes XML division parsing via `roxmltree`, jurisdiction classification via pattern matching, fiscal-year-aware advance appropriation detection, account name normalization, and bill nature classification. No external dependencies — runs entirely offline. 33 unit tests. |
+| `links.rs` | ~790 | Persistent cross-bill provision links. `LinksFile`, `AcceptedLink`, `LinkCandidate`, `LinkConfidence`, `LinkRelationship`, `LinkEvidence`, `ProvisionRef`. Core `suggest()` algorithm computes cross-bill similarity for all BA provisions using calibrated thresholds (0.55/0.65). `accept_links()` and `remove_links()` for link management. `load_links()` / `save_links()` for I/O at `<dir>/links/links.json`. 10 unit tests. |
 
 ### Extraction pipeline
 
@@ -246,8 +302,8 @@ OpenAI embedding vectors are L2-normalized (norm = 1.0), so cosine similarity eq
 
 | Module | Lines | Purpose |
 |--------|-------|---------|
-| `query.rs` | ~840 | The library API. Functions: `summarize()`, `search()`, `compare()`, `audit()`, `rollup_by_department()`, `build_embedding_text()`. All take `&[LoadedBill]` and return plain data structs. No I/O, no formatting. |
-| `loading.rs` | ~300 | Directory walking via `walkdir`, JSON deserialization, assembly of `LoadedBill` structs. Finds `extraction.json` recursively, loads sibling artifacts. |
+| `query.rs` | ~1300 | The library API. Functions: `summarize()`, `search()`, `compare()`, `audit()`, `rollup_by_department()`, `build_embedding_text()`, `relate()`, `compute_link_hash()`. Also contains `normalize_agency()` (sub-agency-to-parent-department lookup with 35 entries) and `normalize_account_name()` (case-insensitive, em-dash-prefix-stripped). The `compare()` function includes cross-semantics orphan rescue. All functions take `&[LoadedBill]` and return plain data structs. No I/O, no formatting. |
+| `loading.rs` | ~340 | Directory walking via `walkdir`, JSON deserialization, assembly of `LoadedBill` structs. Finds `extraction.json` recursively, loads sibling artifacts including `bill_meta.json`. `LoadedBill` includes `bill_meta: Option<BillMeta>`. |
 | `embeddings.rs` | ~260 | Embedding storage: `load()` / `save()` for the JSON metadata + binary vectors format. Also provides `cosine_similarity()`, `normalize()`, and `top_n_similar()` functions for vector search. |
 
 ### API clients
@@ -373,7 +429,7 @@ The `upgrade` command re-deserializes and re-verifies existing data against the 
 
 ### 7. Write-once, read-many
 
-All artifacts except link files (future) are immutable after creation. This means:
+All artifacts except `links/links.json` are immutable after creation. The links file is append-only (`link accept` adds entries, `link remove` deletes them). This means:
 - No file locking needed
 - No database needed — JSON files on disk are the right abstraction
 - No caching needed — the files ARE the cache
@@ -385,16 +441,18 @@ All artifacts except link files (future) are immutable after creation. This mean
 
 | Operation | Time | Notes |
 |-----------|------|-------|
-| Load 3 bills (extraction.json) | ~10ms | JSON parsing |
-| Load embeddings (3 bills, binary) | ~2ms | Memory-mapped read |
-| Hash all files (3 bills) | ~2ms | SHA-256 |
-| Cosine search (2,500 provisions) | <0.1ms | Numpy-equivalent dot product |
-| **Total cold-start query** | **~15ms** | Load + hash + search |
+| Load 13 bills (extraction.json) | ~40ms | JSON parsing |
+| Load embeddings (13 bills, binary) | ~8ms | Raw byte read |
+| Hash all files (13 bills) | ~8ms | SHA-256 |
+| Cosine search (8,500 provisions) | <0.5ms | Dot product |
+| Enrich all 13 bills | <1s | XML parsing + classification |
+| Link suggest (13 bills, all scope) | ~4s | O(n²) pairwise comparison |
+| **Total cold-start query** | **~50ms** | Load + hash + search |
 | Embed query text (OpenAI API) | ~100ms | Network round-trip |
 | Full extraction (omnibus, 75 chunks) | ~60 min | Parallel LLM calls |
 | Generate embeddings (2,500 provisions) | ~30 sec | Batch API calls |
 
-At 20 congresses (~60 bills, ~15,000 provisions): cold start ~80ms, search <1ms. The system scales linearly and stays interactive at any realistic data volume.
+At 20 congresses (~60 bills, ~15,000 provisions): cold start ~100ms, search <1ms, link suggest ~50s. The system scales linearly for query operations and quadratically for link suggest (which is run infrequently).
 
 ---
 
