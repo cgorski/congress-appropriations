@@ -91,13 +91,32 @@ The `enrich` command also classifies each budget authority provision as current-
 
 ### Included Bills
 
-| Directory | Bill | Description | Provisions |
-|-----------|------|-------------|------------|
-| `examples/hr9468/` | H.R. 9468 | Veterans Benefits Supplemental Appropriations Act, 2024 — additional funding for VA compensation, pensions, and readjustment benefits | 7 |
-| `examples/hr5860/` | H.R. 5860 | Continuing Appropriations Act, 2024 — temporary funding at prior-year rates with 13 CR substitutions (anomalies) and mandatory spending extensions | 130 |
-| `examples/hr4366/` | H.R. 4366 | Consolidated Appropriations Act, 2024 — the FY2024 omnibus covering MilCon-VA, Agriculture, CJS, Energy-Water, Interior, THUD, and other matters | 2,364 |
+**118th Congress (FY2024/FY2025):**
 
-Each directory contains the source XML, extracted provisions, and verification report. All query commands (`search`, `summary`, `compare`, `audit`) work against these directories. The goal is to eventually include all enacted appropriations bills so users can query without running the LLM extraction themselves.
+| Directory | Bill | Type | Provisions | Budget Auth |
+|-----------|------|------|-----------|------------|
+| `examples/hr4366/` | H.R. 4366 | FY2024 omnibus (MilCon-VA, Ag, CJS, E&W, Interior, THUD) | 2,364 | $846B |
+| `examples/hr5860/` | H.R. 5860 | FY2024 initial CR + 13 anomalies | 130 | $16B |
+| `examples/hr9468/` | H.R. 9468 | VA supplemental | 7 | $2.9B |
+| `examples/hr815/` | H.R. 815 | Ukraine/Israel/Taiwan supplemental | 303 | $95B |
+| `examples/hr2872/` | H.R. 2872 | Further CR (FY2024) | 31 | $0 |
+| `examples/hr6363/` | H.R. 6363 | Further CR + extensions | 74 | ~$0 |
+| `examples/hr7463/` | H.R. 7463 | CR extension | 10 | $0 |
+| `examples/hr9747/` | H.R. 9747 | CR + extensions (FY2025) | 114 | $383M |
+| `examples/s870/` | S. 870 | Fire Admin authorization | 49 | $0 |
+
+**119th Congress (FY2025/FY2026):**
+
+| Directory | Bill | Type | Provisions | Budget Auth |
+|-----------|------|------|-----------|------------|
+| `examples/hr1968/` | H.R. 1968 | Full-year CR with appropriations (FY2025) | 526 | $1,786B |
+| `examples/hr5371/` | H.R. 5371 | Minibus: CR + Ag + LegBranch + MilCon-VA | 1,048 | $681B |
+| `examples/hr6938/` | H.R. 6938 | Minibus: CJS + Energy-Water + Interior | 1,061 | $196B |
+| `examples/hr7148/` | H.R. 7148 | Omnibus: Defense + Labor-HHS + THUD + FinServ + State | 2,837 | $2,788B |
+
+**Totals:** 8,554 provisions, $6.4 trillion in budget authority, 0 unverifiable dollar amounts. All twelve appropriations subcommittees are covered for FY2026.
+
+Each directory contains the source XML, extracted provisions, verification report, bill metadata (`bill_meta.json` from `enrich`), and pre-computed embeddings. All query commands (`search`, `summary`, `compare`, `audit`, `relate`) work against these directories. Embedding vectors (`vectors.bin`) are included in the git repository but excluded from the crates.io package — run `congress-approp embed --dir examples` to regenerate them if you installed via `cargo install`.
 
 ## How Federal Appropriations Work
 

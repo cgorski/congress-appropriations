@@ -10,6 +10,31 @@
 
 This book ships with **thirteen pre-extracted bills** covering FY2024 through FY2026 — omnibus packages, minibus bills, continuing resolutions, supplementals, and authorizations. All twelve appropriations subcommittees are represented for FY2026. You don't need any API keys to explore them — just install the tool and start querying.
 
+### 118th Congress (FY2024/FY2025)
+
+| Bill | Classification | Subcommittees | Provisions | Budget Auth |
+|------|---------------|---------------|-----------|------------|
+| H.R. 4366 | Omnibus | MilCon-VA, Ag, CJS, E&W, Interior, THUD | 2,364 | $846B |
+| H.R. 5860 | Continuing Resolution | (all, at prior-year rates) | 130 | $16B |
+| H.R. 9468 | Supplemental | VA | 7 | $2.9B |
+| H.R. 815 | Supplemental | Defense, State (Ukraine/Israel/Taiwan) | 303 | $95B |
+| H.R. 2872 | Continuing Resolution | (further CR) | 31 | $0 |
+| H.R. 6363 | Continuing Resolution | (further CR + extensions) | 74 | ~$0 |
+| H.R. 7463 | Continuing Resolution | (CR extension) | 10 | $0 |
+| H.R. 9747 | Continuing Resolution | (CR + extensions, FY2025) | 114 | $383M |
+| S. 870 | Authorization | Fire administration | 49 | $0 |
+
+### 119th Congress (FY2025/FY2026)
+
+| Bill | Classification | Subcommittees | Provisions | Budget Auth |
+|------|---------------|---------------|-----------|------------|
+| H.R. 1968 | Full-Year CR with Appropriations | Defense, Homeland, Labor-HHS, others | 526 | $1,786B |
+| H.R. 5371 | Minibus | CR + Ag + LegBranch + MilCon-VA | 1,048 | $681B |
+| H.R. 6938 | Minibus | CJS + Energy-Water + Interior | 1,061 | $196B |
+| H.R. 7148 | Omnibus | Defense + Labor-HHS + THUD + FinServ + State | 2,837 | $2,788B |
+
+**Totals:** 8,554 provisions, $6.4 trillion in budget authority, 0 unverifiable dollar amounts.
+
 ## What Can You Do?
 
 **"How did THUD funding change from FY2024 to FY2026?"**
