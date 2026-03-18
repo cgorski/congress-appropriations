@@ -702,7 +702,7 @@ const SUB_AGENCY_TO_PARENT: &[(&str, &str)] = &[
 /// First applies comma-based extraction (e.g., "Office of Inspector General,
 /// Department of Defense" → "Department of Defense"), then looks up the result
 /// in the sub-agency-to-parent table.
-fn normalize_agency(agency: &str) -> String {
+pub fn normalize_agency(agency: &str) -> String {
     let mut lower = agency.to_lowercase();
     lower = lower.trim().to_string();
 

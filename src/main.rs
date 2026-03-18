@@ -181,6 +181,9 @@ enum Commands {
         /// Scope comparison to one subcommittee jurisdiction. Requires `enrich`.
         #[arg(long)]
         subcommittee: Option<String>,
+        /// Use accepted links for matching across renames
+        #[arg(long)]
+        use_links: bool,
         /// Output format: table, json, csv
         #[arg(long, default_value = "table")]
         format: String,
@@ -234,6 +237,11 @@ enum Commands {
         #[arg(long)]
         force: bool,
     },
+    /// Manage cross-bill provision links
+    Link {
+        #[command(subcommand)]
+        action: LinkCommands,
+    },
     /// Deep-dive on one provision across all bills (requires embeddings)
     Relate {
         /// Provision reference: bill_directory:index (e.g., hr9468:0)
@@ -250,6 +258,62 @@ enum Commands {
         /// Show fiscal year timeline with advance/current/supplemental split
         #[arg(long)]
         fy_timeline: bool,
+    },
+}
+
+#[derive(Subcommand)]
+enum LinkCommands {
+    /// Compute link candidates from embeddings
+    Suggest {
+        /// Data directory
+        #[arg(long, default_value = "./examples")]
+        dir: String,
+        /// Minimum similarity threshold
+        #[arg(long, default_value = "0.55")]
+        threshold: f32,
+        /// Scope: intra (within-FY), cross (across-FY), all
+        #[arg(long, default_value = "all")]
+        scope: String,
+        /// Max candidates
+        #[arg(long, default_value = "100")]
+        limit: usize,
+        /// Output format: table, json, hashes
+        #[arg(long, default_value = "table")]
+        format: String,
+    },
+    /// Accept link candidates by hash
+    Accept {
+        /// Data directory
+        #[arg(long, default_value = "./examples")]
+        dir: String,
+        /// Link hashes to accept
+        hashes: Vec<String>,
+        /// Optional annotation
+        #[arg(long)]
+        note: Option<String>,
+        /// Accept all verified + high-confidence candidates
+        #[arg(long)]
+        auto: bool,
+    },
+    /// Remove accepted links by hash
+    Remove {
+        /// Data directory
+        #[arg(long, default_value = "./examples")]
+        dir: String,
+        /// Link hashes to remove
+        hashes: Vec<String>,
+    },
+    /// Show accepted links
+    List {
+        /// Data directory
+        #[arg(long, default_value = "./examples")]
+        dir: String,
+        /// Output format: table, json
+        #[arg(long, default_value = "table")]
+        format: String,
+        /// Filter to links involving this bill
+        #[arg(long)]
+        bill: Option<String>,
     },
 }
 
@@ -410,6 +474,7 @@ async fn main() -> Result<()> {
             dir,
             agency,
             subcommittee,
+            use_links,
             format,
         } => handle_compare(
             base.as_deref(),
@@ -419,6 +484,7 @@ async fn main() -> Result<()> {
             dir.as_deref(),
             agency.as_deref(),
             subcommittee.as_deref(),
+            use_links,
             &format,
         ),
         Commands::Audit { dir, verbose } => handle_audit(&dir, verbose),
@@ -430,6 +496,7 @@ async fn main() -> Result<()> {
             batch_size,
             dry_run,
         } => handle_embed(&dir, &model, dimensions, batch_size, dry_run).await,
+        Commands::Link { action } => handle_link(action).await,
         Commands::Enrich {
             dir,
             dry_run,
@@ -443,6 +510,265 @@ async fn main() -> Result<()> {
             fy_timeline,
         } => handle_relate(&source, &dir, top, &format, fy_timeline),
     }
+}
+
+// ─── Link Handler ────────────────────────────────────────────────────────────
+
+async fn handle_link(action: LinkCommands) -> Result<()> {
+    use congress_appropriations::approp::embeddings;
+    use congress_appropriations::approp::links;
+
+    match action {
+        LinkCommands::Suggest {
+            dir,
+            threshold,
+            scope,
+            limit,
+            format,
+        } => {
+            let link_scope = links::LinkScope::parse(&scope).ok_or_else(|| {
+                anyhow::anyhow!("Invalid scope: '{scope}'. Valid values: intra, cross, all")
+            })?;
+
+            let bills = loading::load_bills(std::path::Path::new(&dir))?;
+            if bills.is_empty() {
+                anyhow::bail!("No extracted bills found in directory: {dir}");
+            }
+
+            let mut bill_embeddings: Vec<Option<embeddings::LoadedEmbeddings>> = Vec::new();
+            for bill in &bills {
+                bill_embeddings.push(embeddings::load(&bill.dir)?);
+            }
+
+            let existing = links::load_links(std::path::Path::new(&dir))?;
+            let candidates = links::suggest(
+                &bills,
+                &bill_embeddings,
+                threshold,
+                link_scope,
+                &existing,
+                limit,
+            );
+
+            match format.as_str() {
+                "json" => {
+                    println!("{}", serde_json::to_string_pretty(&candidates)?);
+                }
+                "hashes" => {
+                    for c in &candidates {
+                        if !c.already_accepted {
+                            println!("{}", c.hash);
+                        }
+                    }
+                }
+                _ => {
+                    if candidates.is_empty() {
+                        println!("No link candidates found above threshold {threshold}.");
+                        return Ok(());
+                    }
+
+                    let mut table = Table::new();
+                    table.load_preset(UTF8_FULL_CONDENSED);
+                    table.set_header(vec![
+                        Cell::new("Hash"),
+                        Cell::new("Sim"),
+                        Cell::new("Conf"),
+                        Cell::new("Source"),
+                        Cell::new("Target"),
+                        Cell::new("Accepted"),
+                    ]);
+
+                    let mut verified = 0usize;
+                    let mut high = 0usize;
+                    let mut uncertain = 0usize;
+                    let mut already = 0usize;
+
+                    for c in &candidates {
+                        match c.confidence {
+                            links::LinkConfidence::Verified => verified += 1,
+                            links::LinkConfidence::High => high += 1,
+                            links::LinkConfidence::Uncertain => uncertain += 1,
+                        }
+                        if c.already_accepted {
+                            already += 1;
+                        }
+
+                        let accepted_str = if c.already_accepted { "✓" } else { "" };
+                        table.add_row(vec![
+                            Cell::new(&c.hash),
+                            Cell::new(format!("{:.2}", c.similarity)),
+                            Cell::new(format!("{}", c.confidence)),
+                            Cell::new(truncate(&c.source_label, 35)),
+                            Cell::new(truncate(&c.target_label, 35)),
+                            Cell::new(accepted_str),
+                        ]);
+                    }
+
+                    println!("{table}");
+                    println!();
+                    println!(
+                        "{} candidates ({verified} verified, {high} high, {uncertain} uncertain, {already} already accepted)",
+                        candidates.len()
+                    );
+                }
+            }
+        }
+
+        LinkCommands::Accept {
+            dir,
+            hashes,
+            note,
+            auto,
+        } => {
+            let dir_path = std::path::Path::new(&dir);
+            let bills = loading::load_bills(dir_path)?;
+            if bills.is_empty() {
+                anyhow::bail!("No extracted bills found in directory: {dir}");
+            }
+
+            let mut bill_embeddings: Vec<Option<embeddings::LoadedEmbeddings>> = Vec::new();
+            for bill in &bills {
+                bill_embeddings.push(embeddings::load(&bill.dir)?);
+            }
+
+            // Load or create links file
+            let mut links_file = links::load_links(dir_path)?.unwrap_or_else(|| {
+                let model = bill_embeddings
+                    .iter()
+                    .flatten()
+                    .next()
+                    .map(|e| e.metadata.model.as_str())
+                    .unwrap_or("unknown");
+                links::LinksFile::new(model)
+            });
+
+            // Compute candidates to match against hashes
+            let existing_for_suggest = Some(links_file.clone());
+            let candidates = links::suggest(
+                &bills,
+                &bill_embeddings,
+                0.50,
+                links::LinkScope::All,
+                &existing_for_suggest,
+                10000,
+            );
+
+            let hash_refs: Vec<&str> = hashes.iter().map(|s| s.as_str()).collect();
+            let accepted = links::accept_links(
+                &mut links_file,
+                &candidates,
+                &hash_refs,
+                note.as_deref(),
+                auto,
+            );
+
+            links::save_links(dir_path, &links_file)?;
+
+            if auto {
+                eprintln!(
+                    "Auto-accepted {accepted} links ({} total)",
+                    links_file.accepted.len()
+                );
+            } else {
+                eprintln!(
+                    "Accepted {accepted} links ({} total)",
+                    links_file.accepted.len()
+                );
+            }
+        }
+
+        LinkCommands::Remove { dir, hashes } => {
+            let dir_path = std::path::Path::new(&dir);
+            let mut links_file = links::load_links(dir_path)?
+                .ok_or_else(|| anyhow::anyhow!("No links file found in {dir}/links/"))?;
+
+            let hash_refs: Vec<&str> = hashes.iter().map(|s| s.as_str()).collect();
+            let removed = links::remove_links(&mut links_file, &hash_refs);
+
+            links::save_links(dir_path, &links_file)?;
+            eprintln!(
+                "Removed {removed} links ({} remaining)",
+                links_file.accepted.len()
+            );
+        }
+
+        LinkCommands::List { dir, format, bill } => {
+            let dir_path = std::path::Path::new(&dir);
+            let links_file = links::load_links(dir_path)?;
+
+            let Some(links_file) = links_file else {
+                println!(
+                    "No links file found. Run `link suggest` then `link accept` to create links."
+                );
+                return Ok(());
+            };
+
+            let filtered: Vec<&links::AcceptedLink> = links_file
+                .accepted
+                .iter()
+                .filter(|l| {
+                    if let Some(ref b) = bill {
+                        let b_lower = b.to_lowercase();
+                        l.source.bill_dir.to_lowercase().contains(&b_lower)
+                            || l.target.bill_dir.to_lowercase().contains(&b_lower)
+                    } else {
+                        true
+                    }
+                })
+                .collect();
+
+            match format.as_str() {
+                "json" => {
+                    println!("{}", serde_json::to_string_pretty(&filtered)?);
+                }
+                _ => {
+                    if filtered.is_empty() {
+                        println!("No accepted links found.");
+                        return Ok(());
+                    }
+
+                    let mut table = Table::new();
+                    table.load_preset(UTF8_FULL_CONDENSED);
+                    table.set_header(vec![
+                        Cell::new("Hash"),
+                        Cell::new("Sim"),
+                        Cell::new("Relationship"),
+                        Cell::new("Source"),
+                        Cell::new("Target"),
+                        Cell::new("Note"),
+                    ]);
+
+                    for l in &filtered {
+                        let src = format!(
+                            "{}:{} ({})",
+                            l.source.bill_dir,
+                            l.source.provision_index,
+                            truncate(&l.source.label, 25)
+                        );
+                        let tgt = format!(
+                            "{}:{} ({})",
+                            l.target.bill_dir,
+                            l.target.provision_index,
+                            truncate(&l.target.label, 25)
+                        );
+                        table.add_row(vec![
+                            Cell::new(&l.hash),
+                            Cell::new(format!("{:.2}", l.similarity)),
+                            Cell::new(format!("{}", l.relationship)),
+                            Cell::new(&src),
+                            Cell::new(&tgt),
+                            Cell::new(l.note.as_deref().unwrap_or("")),
+                        ]);
+                    }
+
+                    println!("{table}");
+                    println!("{} accepted links", filtered.len());
+                }
+            }
+        }
+    }
+
+    Ok(())
 }
 
 // ─── Relate Handler ──────────────────────────────────────────────────────────
@@ -2769,6 +3095,7 @@ fn handle_compare(
     dir: Option<&str>,
     agency_filter: Option<&str>,
     subcommittee: Option<&str>,
+    use_links: bool,
     format: &str,
 ) -> Result<()> {
     use congress_appropriations::approp::bill_meta::Jurisdiction;
@@ -2834,7 +3161,71 @@ fn handle_compare(
         (base_bills, current_bills)
     };
 
-    let result = query::compare(&base_filtered, &current_filtered, agency_filter);
+    let mut result = query::compare(&base_filtered, &current_filtered, agency_filter);
+
+    // If --use-links, load accepted links and rescue orphans that have a link
+    // connecting them across bills (handles renames and reorganizations).
+    if use_links {
+        let data_dir = dir.unwrap_or("./examples");
+        if let Ok(Some(links_file)) =
+            congress_appropriations::approp::links::load_links(std::path::Path::new(data_dir))
+        {
+            // Collect bill directories for each side of the comparison
+            let base_dirs: std::collections::HashSet<String> = base_filtered
+                .iter()
+                .filter_map(|b| b.dir.file_name().map(|n| n.to_string_lossy().to_string()))
+                .collect();
+            let current_dirs: std::collections::HashSet<String> = current_filtered
+                .iter()
+                .filter_map(|b| b.dir.file_name().map(|n| n.to_string_lossy().to_string()))
+                .collect();
+
+            // For each "only in base" orphan, check if any provision in the base
+            // bills has a link to a provision in the current bills
+            // This is a best-effort match — we check link targets against current dirs
+            let link_rescued: usize = result
+                .rows
+                .iter_mut()
+                .filter(|r| r.status == "only in base" || r.status == "only in current")
+                .filter_map(|r| {
+                    // Try to find the provision in the link map
+                    // We check by account name match in the link targets
+                    let _is_base_orphan = r.status == "only in base";
+                    for link in &links_file.accepted {
+                        let src_name = link.source.label.to_lowercase();
+                        let tgt_name = link.target.label.to_lowercase();
+                        let row_name = r.account_name.to_lowercase();
+
+                        if (src_name.contains(&row_name) || row_name.contains(&src_name))
+                            && (base_dirs.contains(&link.source.bill_dir)
+                                || current_dirs.contains(&link.source.bill_dir))
+                            && (base_dirs.contains(&link.target.bill_dir)
+                                || current_dirs.contains(&link.target.bill_dir))
+                        {
+                            r.status = format!("linked ({})", link.relationship);
+                            return Some(());
+                        }
+                        if (tgt_name.contains(&row_name) || row_name.contains(&tgt_name))
+                            && (base_dirs.contains(&link.source.bill_dir)
+                                || current_dirs.contains(&link.source.bill_dir))
+                            && (base_dirs.contains(&link.target.bill_dir)
+                                || current_dirs.contains(&link.target.bill_dir))
+                        {
+                            r.status = format!("linked ({})", link.relationship);
+                            return Some(());
+                        }
+                    }
+                    None
+                })
+                .count();
+
+            if link_rescued > 0 {
+                eprintln!("  {link_rescued} orphan(s) rescued via accepted links");
+            }
+        } else {
+            eprintln!("  hint: no links file found. Run `link suggest` then `link accept` first.");
+        }
+    }
 
     if let Some(ref warning) = result.cross_type_warning {
         eprintln!("⚠  {warning}");
