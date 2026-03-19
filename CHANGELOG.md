@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [4.2.1] — 2026-03-19
+
+### Added
+- **H.R. 2882 (FY2024 second omnibus)** — extracted, enriched, and embedded. Covers Defense, Financial Services, Homeland Security, Labor-HHS, Legislative Branch, and State-Foreign Operations. 2,582 provisions, $2.45 trillion in budget authority, 0 unverifiable dollar amounts, 95.3% coverage. FY2024 now has 12/12 appropriations subcommittees covered. Dataset totals: 14 bills, 11,136 provisions, $8.9 trillion.
+- Updated `enrich_skips_existing` test to reflect 14-bill dataset.
+
 ## [4.2.0] — 2026-03-19
 
 ### Added
