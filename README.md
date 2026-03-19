@@ -442,6 +442,23 @@ Use `--verbose` to see each individual problematic provision.
 
 **The key metric: across 8,554 provisions from thirteen bills, every extracted dollar amount was found in the source bill text** (NotFound = 0 for every bill). Verification confirms amounts exist in the bill, not that they are attributed to the correct provision — for 95.5% of provisions, the raw text excerpt also matches verbatim, providing strong attribution confidence. The tool may be incomplete on large bills (Coverage < 100%), but what it does extract checks out against the source.
 
+## Export Data
+
+Every query command supports `--format csv`, `--format json`, and `--format jsonl` for getting data into other tools.
+
+```bash
+# Export appropriations to a spreadsheet
+congress-approp search --dir examples --type appropriation --format csv > provisions.csv
+
+# Budget totals as JSON
+congress-approp summary --dir examples --format json
+
+# Full nested data via jq
+cat examples/hr7148/extraction.json | jq '.provisions[] | select(.provision_type=="appropriation")'
+```
+
+> ⚠️ **CSV includes sub-allocations and reference amounts.** Don't sum the `dollars` column directly — filter to `semantics=new_budget_authority` and exclude `detail_level=sub_allocation` for correct totals. Or use `congress-approp summary` which does this automatically. See [Export Data for Spreadsheets and Scripts](https://cgorski.github.io/congress-appropriations/tutorials/export-data.html) for details.
+
 ## CLI Reference
 
 | Subcommand | Description |

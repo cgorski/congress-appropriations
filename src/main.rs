@@ -1812,6 +1812,9 @@ async fn handle_search(
         verified: Option<String>,
         match_tier: Option<String>,
         quality: String,
+        fiscal_year: Option<u32>,
+        detail_level: String,
+        confidence: f32,
     }
 
     let mut matches: Vec<Match> = Vec::new();
@@ -1920,6 +1923,9 @@ async fn handle_search(
                 verified,
                 match_tier: tier.map(|s| s.to_string()),
                 quality: quality_val.to_string(),
+                fiscal_year: provision.fiscal_year(),
+                detail_level: provision.detail_level().to_string(),
+                confidence: provision.confidence(),
             });
         }
     }
@@ -1946,6 +1952,9 @@ async fn handle_search(
                         "amount_status": m.verified,
                         "quality": m.quality,
                         "match_tier": m.match_tier,
+                        "fiscal_year": m.fiscal_year,
+                        "detail_level": m.detail_level,
+                        "confidence": m.confidence,
                     })
                 })
                 .collect();
@@ -1969,6 +1978,9 @@ async fn handle_search(
                     "amount_status": m.verified,
                     "quality": m.quality,
                     "match_tier": m.match_tier,
+                    "fiscal_year": m.fiscal_year,
+                    "detail_level": m.detail_level,
+                    "confidence": m.confidence,
                 });
                 println!("{}", serde_json::to_string(&obj)?);
             }
@@ -1989,6 +2001,11 @@ async fn handle_search(
                 "amount_status",
                 "quality",
                 "raw_text",
+                "provision_index",
+                "match_tier",
+                "fiscal_year",
+                "detail_level",
+                "confidence",
             ])?;
             for m in &matches {
                 wtr.write_record([
@@ -2005,6 +2022,11 @@ async fn handle_search(
                     &m.verified.clone().unwrap_or_else(|| "n/a".to_string()),
                     &m.quality,
                     &m.raw_text,
+                    &m.provision_index.to_string(),
+                    &m.match_tier.clone().unwrap_or_default(),
+                    &m.fiscal_year.map(|y| y.to_string()).unwrap_or_default(),
+                    &m.detail_level,
+                    &format!("{:.2}", m.confidence),
                 ])?;
             }
             wtr.flush()?;
@@ -2247,6 +2269,38 @@ async fn handle_search(
                 );
                 println!("Run 'report' for full verification details.");
             }
+        }
+    }
+
+    // Smart stderr footer for non-table formats: warn about mixed semantics
+    if format != "table" && !matches.is_empty() {
+        let mut ba_count = 0usize;
+        let mut ba_total = 0i64;
+        let mut ref_count = 0usize;
+        let mut other_sem_count = 0usize;
+        for m in &matches {
+            match m.semantics.as_str() {
+                "new_budget_authority" => {
+                    ba_count += 1;
+                    ba_total += m.dollars.unwrap_or(0);
+                }
+                "reference_amount" => ref_count += 1,
+                _ => other_sem_count += 1,
+            }
+        }
+        if ref_count > 0 || other_sem_count > 0 {
+            eprintln!(
+                "{} provisions exported: {} new_budget_authority (${:.1}B), {} reference_amount, {} other semantics",
+                matches.len(),
+                ba_count,
+                ba_total as f64 / 1e9,
+                ref_count,
+                other_sem_count
+            );
+            eprintln!(
+                "⚠ To compute budget authority totals, filter to semantics=new_budget_authority and detail_level!=sub_allocation."
+            );
+            eprintln!("  Or use `congress-approp summary` which does this automatically.");
         }
     }
 
@@ -2799,6 +2853,7 @@ fn handle_summary(
             if show_advance && summaries.iter().any(|s| s.current_year_ba.is_some()) {
                 table.set_header(vec![
                     Cell::new("Bill"),
+                    Cell::new("FYs"),
                     Cell::new("Classification"),
                     Cell::new("Provisions").set_alignment(CellAlignment::Right),
                     Cell::new("Current ($)").set_alignment(CellAlignment::Right),
@@ -2810,6 +2865,7 @@ fn handle_summary(
             } else {
                 table.set_header(vec![
                     Cell::new("Bill"),
+                    Cell::new("FYs"),
                     Cell::new("Classification"),
                     Cell::new("Provisions").set_alignment(CellAlignment::Right),
                     Cell::new("Budget Auth ($)").set_alignment(CellAlignment::Right),
@@ -2839,9 +2895,16 @@ fn handle_summary(
                     total_advance += a;
                 }
 
+                let fy_str = s
+                    .fiscal_years
+                    .iter()
+                    .map(|y| y.to_string())
+                    .collect::<Vec<_>>()
+                    .join(", ");
                 if has_advance_data {
                     table.add_row(vec![
                         Cell::new(&s.identifier),
+                        Cell::new(&fy_str),
                         Cell::new(&s.classification),
                         Cell::new(s.provisions).set_alignment(CellAlignment::Right),
                         Cell::new(format_dollars(
@@ -2859,6 +2922,7 @@ fn handle_summary(
                 } else {
                     table.add_row(vec![
                         Cell::new(&s.identifier),
+                        Cell::new(&fy_str),
                         Cell::new(&s.classification),
                         Cell::new(s.provisions).set_alignment(CellAlignment::Right),
                         Cell::new(format_dollars(s.budget_authority))
@@ -2874,6 +2938,7 @@ fn handle_summary(
             if has_advance_data {
                 table.add_row(vec![
                     Cell::new("TOTAL").fg(Color::White),
+                    Cell::new(""),
                     Cell::new(""),
                     Cell::new(total_provs)
                         .set_alignment(CellAlignment::Right)
@@ -2897,6 +2962,7 @@ fn handle_summary(
             } else {
                 table.add_row(vec![
                     Cell::new("TOTAL").fg(Color::White),
+                    Cell::new(""),
                     Cell::new(""),
                     Cell::new(total_provs)
                         .set_alignment(CellAlignment::Right)

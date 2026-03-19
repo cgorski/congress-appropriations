@@ -640,6 +640,25 @@ impl Provision {
     }
 
     /// The confidence score (0.0–1.0).
+    /// The fiscal year this provision is for, if applicable.
+    /// Only `Appropriation` provisions carry a fiscal year.
+    pub fn fiscal_year(&self) -> Option<u32> {
+        match self {
+            Provision::Appropriation { fiscal_year, .. } => *fiscal_year,
+            _ => None,
+        }
+    }
+
+    /// The detail level: "top_level", "line_item", "sub_allocation", "proviso_amount", or "".
+    /// Only `Appropriation` and `DirectedSpending` provisions carry a detail level.
+    pub fn detail_level(&self) -> &str {
+        match self {
+            Provision::Appropriation { detail_level, .. }
+            | Provision::DirectedSpending { detail_level, .. } => detail_level,
+            _ => "",
+        }
+    }
+
     pub fn confidence(&self) -> f32 {
         match self {
             Provision::Appropriation { confidence, .. }

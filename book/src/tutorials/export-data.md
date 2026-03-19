@@ -26,7 +26,7 @@ H.R. 9468,appropriation,Readjustment Benefits,Readjustment Benefits,Department o
 
 ### Columns in CSV output
 
-The CSV includes every field the JSON output has, flattened into columns:
+The CSV includes the same fields as the JSON output, flattened into columns:
 
 | Column | Description |
 |--------|-------------|
@@ -38,14 +38,54 @@ The CSV includes every field the JSON output has, flattened into columns:
 | `dollars` | Dollar amount as a plain integer (no commas or $) |
 | `old_dollars` | For CR substitutions: the old amount being replaced |
 | `semantics` | What the amount means: new_budget_authority, rescission, reference_amount, etc. |
-| `detail_level` | Structural granularity: top_level, line_item, sub_allocation, proviso_amount |
 | `section` | Section reference (e.g., "SEC. 101") |
 | `division` | Division letter for omnibus bills (e.g., "A") |
-| `raw_text` | Excerpt of the actual bill language |
 | `amount_status` | Verification result: found, found_multiple, not_found |
-| `match_tier` | How raw_text matched the source: exact, normalized, spaceless, no_match |
 | `quality` | Overall quality: strong, moderate, weak, n/a |
+| `raw_text` | Excerpt of the actual bill language |
 | `provision_index` | Position in the bill's provision array (zero-indexed) |
+| `match_tier` | How raw_text matched the source: exact, normalized, spaceless, no_match |
+| `fiscal_year` | Fiscal year the provision is for (appropriations only) |
+| `detail_level` | Structural granularity: top_level, line_item, sub_allocation, proviso_amount |
+| `confidence` | LLM confidence score (0.00–1.00) |
+
+> ⚠️ **Don't sum the `dollars` column directly.** The export includes sub-allocations
+> and reference amounts that would double-count money already in a parent line item.
+> Without filtering, a naive sum can overcount budget authority by **2x or more**.
+>
+> To compute correct budget authority totals:
+> - Filter to `semantics == new_budget_authority`
+> - Exclude `detail_level == sub_allocation` and `detail_level == proviso_amount`
+>
+> Or use `congress-approp summary` which does this correctly and automatically.
+
+### Computing totals correctly
+
+**In Excel or Google Sheets:**
+1. Open the CSV
+2. Add a filter on the `semantics` column → select only `new_budget_authority`
+3. Add a filter on the `detail_level` column → deselect `sub_allocation` and `proviso_amount`
+4. Sum the filtered `dollars` column
+
+**With jq (command line):**
+```bash
+congress-approp search --dir examples --type appropriation --format jsonl \
+  | jq -s '[.[] | select(.semantics == "new_budget_authority" and .detail_level != "sub_allocation" and .detail_level != "proviso_amount") | .dollars] | add'
+```
+
+**With Python:**
+```python
+import csv
+with open("provisions.csv") as f:
+    rows = list(csv.DictReader(f))
+ba = sum(int(r["dollars"]) for r in rows
+         if r["dollars"]
+         and r["semantics"] == "new_budget_authority"
+         and r["detail_level"] not in ("sub_allocation", "proviso_amount"))
+print(f"Budget Authority: ${ba:,}")
+```
+
+> **Tip:** When you export to CSV/JSON/JSONL, the tool prints a summary to stderr showing how many provisions have each semantics type and the budget authority total. Watch for this — it tells you immediately whether filtering is needed.
 
 ### Opening in Excel
 

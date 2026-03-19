@@ -19,6 +19,7 @@ use std::collections::HashMap;
 pub struct BillSummary {
     pub identifier: String,
     pub classification: String,
+    pub fiscal_years: Vec<u32>,
     pub provisions: usize,
     pub budget_authority: i64,
     pub rescissions: i64,
@@ -57,6 +58,7 @@ pub fn summarize(bills: &[LoadedBill]) -> Vec<BillSummary> {
             BillSummary {
                 identifier: loaded.extraction.bill.identifier.clone(),
                 classification,
+                fiscal_years: loaded.extraction.bill.fiscal_years.clone(),
                 provisions: loaded.extraction.provisions.len(),
                 budget_authority: ba,
                 rescissions,

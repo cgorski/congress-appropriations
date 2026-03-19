@@ -216,6 +216,125 @@ fn search_csv_has_correct_headers() {
         first_line.contains("provision_type"),
         "CSV should have provision_type column"
     );
+    assert!(
+        first_line.contains("fiscal_year"),
+        "CSV should have fiscal_year column"
+    );
+    assert!(
+        first_line.contains("detail_level"),
+        "CSV should have detail_level column"
+    );
+    assert!(
+        first_line.contains("confidence"),
+        "CSV should have confidence column"
+    );
+    assert!(
+        first_line.contains("provision_index"),
+        "CSV should have provision_index column"
+    );
+    assert!(
+        first_line.contains("match_tier"),
+        "CSV should have match_tier column"
+    );
+}
+
+#[test]
+fn search_csv_new_columns_populated() {
+    let output = cmd()
+        .args([
+            "search",
+            "--dir",
+            "examples/hr9468",
+            "--type",
+            "appropriation",
+            "--format",
+            "csv",
+        ])
+        .output()
+        .unwrap();
+
+    assert!(output.status.success());
+    let stdout = str::from_utf8(&output.stdout).unwrap();
+    // Should have header + 2 data rows (hr9468 has 2 appropriations)
+    let lines: Vec<&str> = stdout.lines().collect();
+    assert!(lines.len() >= 2, "Expected header + at least 1 data row");
+
+    // Parse as CSV and check new column values
+    let mut reader = csv::ReaderBuilder::new().from_reader(stdout.as_bytes());
+    let headers = reader.headers().unwrap().clone();
+
+    let fy_idx = headers.iter().position(|h| h == "fiscal_year").unwrap();
+    let dl_idx = headers.iter().position(|h| h == "detail_level").unwrap();
+    let conf_idx = headers.iter().position(|h| h == "confidence").unwrap();
+    let pi_idx = headers.iter().position(|h| h == "provision_index").unwrap();
+
+    let first_row = reader.records().next().unwrap().unwrap();
+    assert_eq!(
+        &first_row[fy_idx], "2024",
+        "fiscal_year should be 2024 for hr9468"
+    );
+    assert_eq!(
+        &first_row[dl_idx], "top_level",
+        "detail_level should be top_level"
+    );
+    assert!(
+        !first_row[conf_idx].is_empty(),
+        "confidence should not be empty"
+    );
+    assert_eq!(&first_row[pi_idx], "0", "first provision_index should be 0");
+}
+
+#[test]
+fn search_csv_stderr_warns_mixed_semantics() {
+    // Search all examples for appropriations — this includes reference_amount provisions
+    let output = cmd()
+        .args([
+            "search",
+            "--dir",
+            "examples",
+            "--type",
+            "appropriation",
+            "--format",
+            "csv",
+        ])
+        .output()
+        .unwrap();
+
+    assert!(output.status.success());
+    let stderr = str::from_utf8(&output.stderr).unwrap();
+    assert!(
+        stderr.contains("reference_amount"),
+        "stderr should warn about reference_amount provisions: {stderr}"
+    );
+    assert!(
+        stderr.contains("filter to semantics"),
+        "stderr should suggest filtering by semantics: {stderr}"
+    );
+}
+
+#[test]
+fn summary_table_shows_fiscal_years() {
+    let output = cmd()
+        .args(["summary", "--dir", "examples"])
+        .output()
+        .unwrap();
+
+    assert!(output.status.success());
+    let stdout = str::from_utf8(&output.stdout).unwrap();
+    assert!(
+        stdout.contains("FYs"),
+        "Summary table should have FYs column header"
+    );
+    // H.R. 4366 covers FY2024
+    assert!(
+        stdout.contains("2024"),
+        "Summary should show fiscal year 2024"
+    );
+    // H.R. 7148 covers FY2026
+    assert!(
+        stdout.contains("2026"),
+        "Summary should show fiscal year 2026"
+    );
 }
 
 #[test]

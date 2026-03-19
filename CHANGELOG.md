@@ -4,6 +4,20 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [4.2.0] — 2026-03-19
+
+### Added
+- **`fiscal_year`, `detail_level`, `confidence`, `provision_index`, and `match_tier` columns** in `search --format csv` output. These fields were previously available only in JSON output (except `fiscal_year`, `detail_level`, and `confidence` which are new to all formats). The CSV now matches the documented column set.
+- **`fiscal_year()` and `detail_level()` accessor methods** on the `Provision` enum in the library API, following the same pattern as existing accessors like `account_name()` and `agency()`.
+- **`fiscal_years` field** in `BillSummary` struct and a new "FYs" column in the `summary` table output showing which fiscal years each bill covers (e.g., "2024", "2026", "2024, 2025, 2026, 2027, 2028").
+- **Smart export warning** — when exporting search results to CSV/JSON/JSONL, a stderr summary shows the count of provisions by semantics type and total budget authority. When the export includes sub-allocations or reference amounts, a warning reminds users to filter by `semantics=new_budget_authority` for correct totals. The warning does not fire when all exported provisions are `new_budget_authority`.
+- **Export Data section in README** — quick cheat sheet with three common export patterns and a prominent warning about the sub-allocation summing trap.
+- **3 new integration tests** (`search_csv_new_columns_populated`, `search_csv_stderr_warns_mixed_semantics`, `summary_table_shows_fiscal_years`) plus 5 new assertions on existing `search_csv_has_correct_headers` test. Total: 191 tests (146 unit + 45 integration).
+
+### Fixed
+- **Documentation:** The export tutorial listed `detail_level`, `provision_index`, and `match_tier` as CSV columns, but the CLI did not emit them. The code now matches the documentation. Added bold warning about the sub-allocation summing trap and a "Computing Totals Correctly" subsection with Excel, jq, and Python examples.
+- **Documentation:** Fixed claim that "The CSV includes every field the JSON output has" — changed to "The CSV includes the same fields as the JSON output, flattened into columns."
+
 ## [4.1.0] — 2026-03-19
 
 ### Added

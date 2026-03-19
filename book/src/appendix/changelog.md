@@ -6,6 +6,31 @@ For the full changelog with technical details, see [CHANGELOG.md](https://github
 
 ---
 
+## [4.2.0] — 2026-03-19
+
+### Added
+- **`fiscal_year`, `detail_level`, `confidence`, `provision_index`, and `match_tier` columns** in `search --format csv` output. The CSV now matches the documented column set.
+- **`fiscal_year()` and `detail_level()` accessor methods** on the `Provision` enum in the library API.
+- **`fiscal_years` field** in `BillSummary` and a new "FYs" column in the `summary` table showing which fiscal years each bill covers.
+- **Smart export warning** — when exporting to CSV/JSON/JSONL, stderr shows a breakdown by semantics type and warns about sub-allocation summing when mixed semantics are present.
+- **Export Data section in README** with quick export patterns and a sub-allocation warning.
+- **3 new integration tests** plus 5 new assertions on existing tests. Total: 191 tests (146 unit + 45 integration).
+
+### Fixed
+- **Documentation:** Export tutorial listed CSV columns that didn't exist. Code now matches docs. Added bold warning about sub-allocation summing trap and "Computing Totals Correctly" subsection.
+
+## [4.1.0] — 2026-03-19
+
+### Added
+- **`--real` flag on `compare`** — inflation-adjusted "Real Δ %*" column using CPI-U data from the Bureau of Labor Statistics.
+- **`--cpi-file <PATH>` flag on `compare`** — override bundled CPI-U data with a custom price index file.
+- **`inflation.rs` module** — CPI data loading, fiscal-year-weighted averages, inflation rate calculation, real delta computation. 16 unit tests.
+- **Bundled CPI data** (`cpi.json`) — monthly CPI-U values from Jan 2013 through Feb 2026. No network access required at runtime.
+- **Inflation flags** — ▲ (real increase), ▼ (real cut or inflation erosion), — (unchanged) in compare output.
+- **Inflation-aware CSV and JSON output** with `real_delta_pct` and `inflation_flag` columns/fields.
+- **Staleness warning** when bundled CPI data is more than 60 days old.
+- **Inflation adjustment how-to chapter** in the documentation book.
+
 ## [4.0.0] — 2026-03-19
 
 ### Added
