@@ -496,6 +496,12 @@ pub struct CompareRow {
     pub delta_pct: Option<f64>,
     /// One of `"changed"`, `"only in base"`, `"only in current"`, `"unchanged"`, `"reclassified"`.
     pub status: String,
+    /// Inflation-adjusted percentage change. Present when `--real` is used.
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub real_delta_pct: Option<f64>,
+    /// Inflation flag: real_increase, real_cut, inflation_erosion, unchanged.
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub inflation_flag: Option<String>,
 }
 
 /// The full result of comparing two sets of bills.
@@ -613,6 +619,8 @@ pub fn compare(
             delta,
             delta_pct,
             status: status.to_string(),
+            real_delta_pct: None,
+            inflation_flag: None,
         });
     }
 

@@ -184,6 +184,12 @@ enum Commands {
         /// Use accepted links for matching across renames
         #[arg(long)]
         use_links: bool,
+        /// Show inflation-adjusted "Real Δ %" column using CPI-U
+        #[arg(long)]
+        real: bool,
+        /// Path to custom CPI/deflator JSON file (overrides bundled CPI-U data)
+        #[arg(long)]
+        cpi_file: Option<String>,
         /// Output format: table, json, csv
         #[arg(long, default_value = "table")]
         format: String,
@@ -475,6 +481,8 @@ async fn main() -> Result<()> {
             agency,
             subcommittee,
             use_links,
+            real,
+            cpi_file,
             format,
         } => handle_compare(
             base.as_deref(),
@@ -485,6 +493,8 @@ async fn main() -> Result<()> {
             agency.as_deref(),
             subcommittee.as_deref(),
             use_links,
+            real,
+            cpi_file.as_deref(),
             &format,
         ),
         Commands::Audit { dir, verbose } => handle_audit(&dir, verbose),
@@ -2980,9 +2990,12 @@ fn handle_compare(
     agency_filter: Option<&str>,
     subcommittee: Option<&str>,
     use_links: bool,
+    real: bool,
+    cpi_file: Option<&str>,
     format: &str,
 ) -> Result<()> {
     use congress_appropriations::approp::bill_meta::Jurisdiction;
+    use congress_appropriations::approp::inflation;
     use congress_appropriations::approp::query;
 
     // Resolve which bills to compare: either --base/--current dirs or --base-fy/--current-fy
@@ -3046,6 +3059,58 @@ fn handle_compare(
     };
 
     let mut result = query::compare(&base_filtered, &current_filtered, agency_filter);
+
+    // If --real, compute inflation-adjusted deltas
+    let inflation_ctx = if real {
+        let cpi_path = cpi_file.map(std::path::Path::new);
+        let cpi_data = inflation::load_cpi(cpi_path)?;
+
+        // Check staleness of bundled data
+        if cpi_file.is_none()
+            && let Some(warning) = inflation::check_staleness(&cpi_data)
+        {
+            eprintln!("⚠  {warning}");
+        }
+
+        // Determine fiscal years for the comparison
+        let effective_base_fy = base_fy.or_else(|| {
+            base_filtered
+                .first()
+                .and_then(|b| b.extraction.bill.fiscal_years.first().copied())
+        });
+        let effective_current_fy = current_fy.or_else(|| {
+            current_filtered
+                .first()
+                .and_then(|b| b.extraction.bill.fiscal_years.first().copied())
+        });
+
+        if let (Some(bfy), Some(cfy)) = (effective_base_fy, effective_current_fy) {
+            if let Some(ctx) = inflation::compute_inflation_context(&cpi_data, bfy, cfy) {
+                // Apply inflation adjustment to each row
+                for row in &mut result.rows {
+                    if let Some(nominal_pct) = row.delta_pct {
+                        let real_pct = inflation::real_delta_pct(nominal_pct, ctx.rate);
+                        let flag = inflation::compute_flag(Some(nominal_pct), ctx.rate);
+                        row.real_delta_pct = Some((real_pct * 10.0).round() / 10.0);
+                        row.inflation_flag = Some(flag.slug().to_string());
+                    } else if row.status == "only in base" || row.status == "only in current" {
+                        row.inflation_flag = Some("n/a".to_string());
+                    }
+                }
+                Some(ctx)
+            } else {
+                eprintln!(
+                    "⚠  Could not compute inflation rate: CPI data not available for FY{bfy} or FY{cfy}"
+                );
+                None
+            }
+        } else {
+            eprintln!("⚠  Could not determine fiscal years for inflation adjustment");
+            None
+        }
+    } else {
+        None
+    };
 
     // If --use-links, load accepted links and rescue orphans that have a link
     // connecting them across bills (handles renames and reorganizations).
@@ -3118,29 +3183,99 @@ fn handle_compare(
 
     match format {
         "json" => {
-            println!("{}", serde_json::to_string_pretty(&result.rows)?);
+            if let Some(ref ctx) = inflation_ctx {
+                #[derive(serde::Serialize)]
+                struct InflationCompareOutput<'a> {
+                    inflation: &'a inflation::InflationContext,
+                    rows: &'a [query::CompareRow],
+                    summary: InflationSummary,
+                }
+                #[derive(serde::Serialize)]
+                struct InflationSummary {
+                    beat_inflation: usize,
+                    fell_behind: usize,
+                    inflation_rate_pct: f64,
+                }
+                let beat = result
+                    .rows
+                    .iter()
+                    .filter(|r| r.inflation_flag.as_deref() == Some("real_increase"))
+                    .count();
+                let behind = result
+                    .rows
+                    .iter()
+                    .filter(|r| {
+                        matches!(
+                            r.inflation_flag.as_deref(),
+                            Some("real_cut") | Some("inflation_erosion")
+                        )
+                    })
+                    .count();
+                let output = InflationCompareOutput {
+                    inflation: ctx,
+                    rows: &result.rows,
+                    summary: InflationSummary {
+                        beat_inflation: beat,
+                        fell_behind: behind,
+                        inflation_rate_pct: (ctx.rate * 1000.0).round() / 10.0,
+                    },
+                };
+                println!("{}", serde_json::to_string_pretty(&output)?);
+            } else {
+                println!("{}", serde_json::to_string_pretty(&result.rows)?);
+            }
         }
         "csv" => {
             let mut wtr = csv::Writer::from_writer(std::io::stdout());
-            wtr.write_record([
-                "agency",
-                "account_name",
-                "base_dollars",
-                "current_dollars",
-                "delta",
-                "delta_pct",
-                "status",
-            ])?;
-            for d in &result.rows {
+            if inflation_ctx.is_some() {
                 wtr.write_record([
-                    &d.agency,
-                    &d.account_name,
-                    &d.base_dollars.to_string(),
-                    &d.current_dollars.to_string(),
-                    &d.delta.to_string(),
-                    &d.delta_pct.map(|p| format!("{p:.1}")).unwrap_or_default(),
-                    &d.status,
+                    "agency",
+                    "account_name",
+                    "base_dollars",
+                    "current_dollars",
+                    "delta",
+                    "delta_pct",
+                    "status",
+                    "real_delta_pct",
+                    "inflation_flag",
                 ])?;
+            } else {
+                wtr.write_record([
+                    "agency",
+                    "account_name",
+                    "base_dollars",
+                    "current_dollars",
+                    "delta",
+                    "delta_pct",
+                    "status",
+                ])?;
+            }
+            for d in &result.rows {
+                if inflation_ctx.is_some() {
+                    wtr.write_record([
+                        &d.agency,
+                        &d.account_name,
+                        &d.base_dollars.to_string(),
+                        &d.current_dollars.to_string(),
+                        &d.delta.to_string(),
+                        &d.delta_pct.map(|p| format!("{p:.1}")).unwrap_or_default(),
+                        &d.status,
+                        &d.real_delta_pct
+                            .map(|p| format!("{p:.1}"))
+                            .unwrap_or_default(),
+                        d.inflation_flag.as_deref().unwrap_or(""),
+                    ])?;
+                } else {
+                    wtr.write_record([
+                        &d.agency,
+                        &d.account_name,
+                        &d.base_dollars.to_string(),
+                        &d.current_dollars.to_string(),
+                        &d.delta.to_string(),
+                        &d.delta_pct.map(|p| format!("{p:.1}")).unwrap_or_default(),
+                        &d.status,
+                    ])?;
+                }
             }
             wtr.flush()?;
         }
@@ -3158,15 +3293,29 @@ fn handle_compare(
 
             let mut table = Table::new();
             table.load_preset(UTF8_FULL_CONDENSED);
-            table.set_header(vec![
-                Cell::new("Account"),
-                Cell::new("Agency"),
-                Cell::new("Base ($)").set_alignment(CellAlignment::Right),
-                Cell::new("Current ($)").set_alignment(CellAlignment::Right),
-                Cell::new("Delta ($)").set_alignment(CellAlignment::Right),
-                Cell::new("Δ %").set_alignment(CellAlignment::Right),
-                Cell::new("Status"),
-            ]);
+            if inflation_ctx.is_some() {
+                table.set_header(vec![
+                    Cell::new("Account"),
+                    Cell::new("Agency"),
+                    Cell::new("Base ($)").set_alignment(CellAlignment::Right),
+                    Cell::new("Current ($)").set_alignment(CellAlignment::Right),
+                    Cell::new("Delta ($)").set_alignment(CellAlignment::Right),
+                    Cell::new("Δ %").set_alignment(CellAlignment::Right),
+                    Cell::new("Real Δ %*").set_alignment(CellAlignment::Right),
+                    Cell::new(""),
+                    Cell::new("Status"),
+                ]);
+            } else {
+                table.set_header(vec![
+                    Cell::new("Account"),
+                    Cell::new("Agency"),
+                    Cell::new("Base ($)").set_alignment(CellAlignment::Right),
+                    Cell::new("Current ($)").set_alignment(CellAlignment::Right),
+                    Cell::new("Delta ($)").set_alignment(CellAlignment::Right),
+                    Cell::new("Δ %").set_alignment(CellAlignment::Right),
+                    Cell::new("Status"),
+                ]);
+            }
 
             for d in &result.rows {
                 let delta_color = if d.delta > 0 {
@@ -3182,23 +3331,96 @@ fn handle_compare(
                     .map(|p| format!("{p:+.1}%"))
                     .unwrap_or_else(|| "—".to_string());
 
-                table.add_row(vec![
-                    Cell::new(truncate(&d.account_name, 35)),
-                    Cell::new(truncate(&d.agency, 20)),
-                    Cell::new(format_dollars(d.base_dollars)).set_alignment(CellAlignment::Right),
-                    Cell::new(format_dollars(d.current_dollars))
-                        .set_alignment(CellAlignment::Right),
-                    Cell::new(format_dollars_signed(d.delta))
-                        .set_alignment(CellAlignment::Right)
-                        .fg(delta_color),
-                    Cell::new(&pct_str)
-                        .set_alignment(CellAlignment::Right)
-                        .fg(delta_color),
-                    Cell::new(&d.status),
-                ]);
+                if inflation_ctx.is_some() {
+                    let real_pct_str = d
+                        .real_delta_pct
+                        .map(|p| format!("{p:+.1}%"))
+                        .unwrap_or_else(|| "—".to_string());
+                    let flag_str = d
+                        .inflation_flag
+                        .as_deref()
+                        .map(|f| match f {
+                            "real_increase" => "▲",
+                            "real_cut" | "inflation_erosion" => "▼",
+                            _ => "—",
+                        })
+                        .unwrap_or("—");
+                    let real_color = match d.inflation_flag.as_deref() {
+                        Some("real_increase") => Color::Green,
+                        Some("real_cut") | Some("inflation_erosion") => Color::Red,
+                        _ => Color::Reset,
+                    };
+                    table.add_row(vec![
+                        Cell::new(truncate(&d.account_name, 35)),
+                        Cell::new(truncate(&d.agency, 20)),
+                        Cell::new(format_dollars(d.base_dollars))
+                            .set_alignment(CellAlignment::Right),
+                        Cell::new(format_dollars(d.current_dollars))
+                            .set_alignment(CellAlignment::Right),
+                        Cell::new(format_dollars_signed(d.delta))
+                            .set_alignment(CellAlignment::Right)
+                            .fg(delta_color),
+                        Cell::new(&pct_str)
+                            .set_alignment(CellAlignment::Right)
+                            .fg(delta_color),
+                        Cell::new(&real_pct_str)
+                            .set_alignment(CellAlignment::Right)
+                            .fg(real_color),
+                        Cell::new(flag_str).fg(real_color),
+                        Cell::new(&d.status),
+                    ]);
+                } else {
+                    table.add_row(vec![
+                        Cell::new(truncate(&d.account_name, 35)),
+                        Cell::new(truncate(&d.agency, 20)),
+                        Cell::new(format_dollars(d.base_dollars))
+                            .set_alignment(CellAlignment::Right),
+                        Cell::new(format_dollars(d.current_dollars))
+                            .set_alignment(CellAlignment::Right),
+                        Cell::new(format_dollars_signed(d.delta))
+                            .set_alignment(CellAlignment::Right)
+                            .fg(delta_color),
+                        Cell::new(&pct_str)
+                            .set_alignment(CellAlignment::Right)
+                            .fg(delta_color),
+                        Cell::new(&d.status),
+                    ]);
+                }
             }
 
             println!("{table}");
+
+            // Inflation footer
+            if let Some(ref ctx) = inflation_ctx {
+                let beat = result
+                    .rows
+                    .iter()
+                    .filter(|r| r.inflation_flag.as_deref() == Some("real_increase"))
+                    .count();
+                let behind = result
+                    .rows
+                    .iter()
+                    .filter(|r| {
+                        matches!(
+                            r.inflation_flag.as_deref(),
+                            Some("real_cut") | Some("inflation_erosion")
+                        )
+                    })
+                    .count();
+                println!(
+                    "{beat} beat inflation, {behind} fell behind | {} FY{}→FY{}: {:.1}% ({})",
+                    ctx.source.split(',').next().unwrap_or(&ctx.source),
+                    ctx.base_fy,
+                    ctx.current_fy,
+                    ctx.rate * 100.0,
+                    ctx.note
+                );
+                println!(
+                    "* Real Δ % is computed from an external price index, not verified against bill text."
+                );
+                println!();
+            }
+
             println!(
                 "{} accounts compared ({} changed, {} only in current, {} only in base, {} unchanged)",
                 result.rows.len(),

@@ -239,6 +239,8 @@ congress-approp compare --base-fy <YEAR> --current-fy <YEAR> --dir <DIR> [OPTION
 | `--dir` | | path | `./data` | Data directory (required with `--base-fy`/`--current-fy`) |
 | `--subcommittee` | | string | — | Scope comparison to one subcommittee jurisdiction. Requires `enrich`. |
 | `--agency` | `-a` | string | — | Filter by agency name (case-insensitive substring) |
+| `--real` | | flag | — | Add inflation-adjusted "Real Δ %*" column using CPI-U. Shows which programs beat inflation (▲) and which fell behind (▼). |
+| `--cpi-file` | | path | — | Path to a custom CPI/deflator JSON file. Overrides the bundled CPI-U data. See [Adjust for Inflation](../how-to/inflation-adjustment.md) for the file format. |
 | `--format` | | string | `table` | Output format: `table`, `json`, `csv` |
 
 You must provide either `--base` + `--current` (directory paths) or `--base-fy` + `--current-fy` + `--dir`.
@@ -254,6 +256,9 @@ congress-approp compare --base-fy 2024 --current-fy 2026 --subcommittee thud --d
 
 # Compare all FY2024 vs FY2026 (no subcommittee scope)
 congress-approp compare --base-fy 2024 --current-fy 2026 --dir examples
+
+# Show inflation-adjusted changes (which programs beat inflation?)
+congress-approp compare --base-fy 2024 --current-fy 2026 --subcommittee thud --dir examples --real
 
 # Filter to VA accounts only
 congress-approp compare --base examples/hr4366 --current examples/hr9468 --agency "Veterans"

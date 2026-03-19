@@ -4,6 +4,18 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [4.1.0] — 2026-03-19
+
+### Added
+- **`--real` flag on `compare`** — adds an inflation-adjusted "Real Δ %*" column showing which programs received real increases (▲) and which lost purchasing power to inflation (▼). Uses CPI-U (Consumer Price Index for All Urban Consumers) from the Bureau of Labor Statistics, with fiscal-year-weighted averages computed from monthly data. The asterisk marks these as computed values based on an external price index, not numbers verified against bill text.
+- **`--cpi-file <PATH>` flag on `compare`** — overrides the bundled CPI-U data with a user-provided JSON file containing any price index (GDP deflator, PCE, sector-specific indices). The output footer automatically displays the source from the provided file.
+- **`inflation.rs` module** — CPI data loading (bundled via `include_str!` or from file), fiscal-year-weighted average computation, inflation rate calculation, real delta computation, and inflation flags (real_increase, real_cut, inflation_erosion, unchanged). 16 unit tests.
+- **Bundled CPI data** (`data/cpi.json`) — monthly CPI-U values from Jan 2013 through Feb 2026, sourced from the BLS Public Data API. Updated with each release. No network access required at runtime.
+- **Inflation flags in output** — each compared account shows ▲ (real increase), ▼ (real cut or inflation erosion), or — (unchanged). Summary line counts programs that beat inflation vs fell behind.
+- **Inflation-aware CSV and JSON output** — CSV adds `real_delta_pct` and `inflation_flag` columns. JSON wraps rows in an `inflation` metadata object with source, rates, and data completeness.
+- **Staleness warning** — when bundled CPI data is more than 60 days old, prints a hint to use `--cpi-file` for more recent data.
+- **Inflation adjustment how-to chapter** (`book/src/how-to/inflation-adjustment.md`) — 218-line guide covering quick start, methodology, custom deflator files, output interpretation, caveats about CPI-U vs sector-specific inflation, and partial-year data handling.
+
 ## [4.0.0] — 2026-03-19
 
 ### Added
