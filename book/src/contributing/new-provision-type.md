@@ -275,7 +275,7 @@ Run the full test cycle:
 cargo fmt                           # Format code
 cargo fmt --check                   # Verify formatting
 cargo clippy -- -D warnings         # Lint (CI treats warnings as errors)
-cargo test                          # Run all tests (77 unit + 18 integration)
+cargo test                          # Run all tests (130 unit + 42 integration)
 ```
 
 All four must pass before committing.

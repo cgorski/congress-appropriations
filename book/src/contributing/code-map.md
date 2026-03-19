@@ -6,7 +6,7 @@ A file-by-file guide to the codebase — where each module lives, what it does, 
 
 ```text
 src/
-├── main.rs                          ← CLI entry point (~2,800 lines)
+├── main.rs                          ← CLI entry point (~4,200 lines)
 ├── lib.rs                           ← Library re-exports (5 lines)
 ├── api/
 │   ├── mod.rs                       ← pub mod anthropic; pub mod congress; pub mod openai;
@@ -23,16 +23,18 @@ src/
 └── approp/
     ├── mod.rs                       ← pub mod for all submodules
     ├── ontology.rs                  ← All data types (~960 lines)
+    ├── bill_meta.rs                 ← Bill metadata + classification (~1,280 lines)
     ├── extraction.rs                ← Extraction pipeline (~840 lines)
     ├── from_value.rs                ← Resilient JSON parsing (~690 lines)
     ├── xml.rs                       ← Congressional XML parser (~590 lines)
     ├── text_index.rs                ← Dollar amount indexing (~670 lines)
     ├── prompts.rs                   ← LLM system prompt (~310 lines)
     ├── verification.rs              ← Deterministic verification (~370 lines)
-    ├── loading.rs                   ← Directory walking, bill loading (~300 lines)
-    ├── query.rs                     ← Library API (~840 lines)
+    ├── links.rs                     ← Cross-bill link persistence (~790 lines)
+    ├── loading.rs                   ← Directory walking, bill loading (~340 lines)
+    ├── query.rs                     ← Library API (~1,300 lines)
     ├── embeddings.rs                ← Embedding storage (~260 lines)
-    ├── staleness.rs                 ← Hash chain checking (~165 lines)
+    ├── staleness.rs                 ← Hash chain checking incl bill_meta (~165 lines)
     └── progress.rs                  ← Extraction progress bar (~170 lines)
 ```
 
@@ -40,7 +42,7 @@ src/
 
 ```text
 tests/
-└── cli_tests.rs                     ← 18 integration tests (~411 lines)
+└── cli_tests.rs                     ← 42 integration tests (~1,200 lines)
 
 docs/
 ├── ARCHITECTURE.md                  ← Architecture doc (~416 lines)
@@ -61,7 +63,7 @@ examples/
 
 | File | Lines | Purpose | When to Edit |
 |------|-------|---------|-------------|
-| `src/main.rs` | ~2,800 | CLI entry point. Clap argument definitions, command handlers, output formatting (table/JSON/CSV/JSONL). Contains `handle_search`, `handle_summary`, `handle_compare`, `handle_audit`, `handle_extract`, `handle_embed`, `handle_download`, `handle_upgrade`, and helper functions. | Adding new CLI commands or flags; changing output formatting; wiring new library functions to the CLI. |
+| `src/main.rs` | ~4,200 | CLI entry point. Clap argument definitions, command handlers, output formatting (table/JSON/CSV/JSONL). Contains handlers for all commands: `handle_search`, `handle_summary`, `handle_compare`, `handle_audit`, `handle_extract`, `handle_embed`, `handle_download`, `handle_upgrade`, `handle_enrich`, `handle_relate`, `handle_link`, and helper functions including `filter_bills_to_subcommittee`. | Adding new CLI commands or flags; changing output formatting; wiring new library functions to the CLI. |
 | `src/lib.rs` | 5 | Library re-exports: `pub mod api; pub mod approp;` plus `pub use approp::loading::{LoadedBill, load_bills}; pub use approp::query;` | Adding new top-level re-exports for library consumers. |
 
 ### Core: Data Types
@@ -92,8 +94,8 @@ examples/
 
 | File | Lines | Purpose | When to Edit |
 |------|-------|---------|-------------|
-| `src/approp/query.rs` | ~840 | **Library API.** Pure functions: `summarize()`, `search()`, `compare()`, `audit()`, `rollup_by_department()`, `build_embedding_text()`. All take `&[LoadedBill]` and return plain data structs. No I/O, no formatting, no side effects. | Adding new query functions (e.g., `relate()`); adding new search filter fields; changing budget authority logic; adding new output fields. |
-| `src/approp/loading.rs` | ~300 | **Directory walking and bill loading.** `load_bills()` recursively finds `extraction.json` files, deserializes them along with sibling `verification.json` and `metadata.json`, and returns `Vec<LoadedBill>`. | Adding new artifact types to load (e.g., embeddings, links); changing discovery logic. |
+| `src/approp/query.rs` | ~1,300 | **Library API.** Pure functions: `summarize()`, `search()`, `compare()`, `audit()`, `relate()`, `rollup_by_department()`, `build_embedding_text()`, `compute_link_hash()`. Also contains `normalize_agency()` (35-entry sub-agency lookup) and `normalize_account_name()`. The `compare()` function includes cross-semantics orphan rescue. All functions take `&[LoadedBill]` and return plain data structs. No I/O, no formatting, no side effects. | Adding new query functions; adding new search filter fields; changing budget authority logic; adding new output fields. |
+| `src/approp/loading.rs` | ~340 | **Directory walking and bill loading.** `load_bills()` recursively finds `extraction.json` files, deserializes them along with sibling `verification.json`, `metadata.json`, and `bill_meta.json`, and returns `Vec<LoadedBill>`. | Adding new artifact types to load; changing discovery logic. |
 | `src/approp/embeddings.rs` | ~260 | **Embedding storage.** `load()` / `save()` for the JSON metadata + binary vectors format. `cosine_similarity()`, `normalize()`, `top_n_similar()`. The split JSON+binary format is optimized for fast loading (~2ms for 29 MB). | Adding new similarity functions; changing storage format; adding batch operations. |
 
 ### API Clients
@@ -108,7 +110,7 @@ examples/
 
 | File | Lines | Purpose | When to Edit |
 |------|-------|---------|-------------|
-| `tests/cli_tests.rs` | ~411 | **18 integration tests.** Runs the actual `congress-approp` binary against `examples/` data and checks stdout/stderr. Includes budget authority total pinning ($846,137,099,554 / $16,000,000,000 / $2,882,482,000), search output validation, format tests, and command-specific tests. | Adding tests for new CLI commands or flags; updating expected output when behavior changes intentionally. |
+| `tests/cli_tests.rs` | ~1,200 | **42 integration tests.** Runs the actual `congress-approp` binary against `examples/` data and checks stdout/stderr. Includes budget authority total pinning, search output validation, format tests, enrich/relate/link workflow tests, FY/subcommittee filtering tests, --show-advance verification, and case-insensitive compare tests. | Adding tests for new CLI commands or flags; updating expected output when behavior changes intentionally. |
 
 In addition to integration tests, most modules contain inline unit tests in `#[cfg(test)] mod tests { }` blocks at the bottom of the file.
 
@@ -224,8 +226,9 @@ These modules are designed but not implemented — they appear in the roadmap:
 
 | File | Purpose | Status |
 |------|---------|--------|
-| `src/approp/links.rs` | Cross-bill relationship persistence (link suggest/accept/remove/list) | Designed, not built |
-| `relate` command | Tiered related-provisions report for a single provision | Designed, not built |
+| `src/approp/bill_meta.rs` | Bill metadata types, XML parsing, jurisdiction classification, FY-aware advance detection, account normalization (33 unit tests) | Shipped in v4.0 |
+| `src/approp/links.rs` | Cross-bill link types, suggest algorithm, accept/remove, load/save for `links/links.json` (10 unit tests) | Shipped in v4.0 |
+| `relate` command | Deep-dive on one provision across all bills with FY timeline, confidence tiers, and deterministic link hashes | Shipped in v4.0 |
 
 See `NEXT_STEPS.md` (gitignored) for detailed implementation plans.
 

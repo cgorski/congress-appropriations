@@ -6,6 +6,38 @@ For the full changelog with technical details, see [CHANGELOG.md](https://github
 
 ---
 
+## [4.0.0] — 2026-03-19
+
+### Added
+- **`enrich` command** — generates `bill_meta.json` per bill with fiscal year metadata, subcommittee/jurisdiction mappings, advance appropriation classification, bill nature enrichment, and canonical account names. No API keys required.
+- **`relate` command** — deep-dive on one provision across all bills with embedding similarity, confidence tiers, fiscal year timeline (`--fy-timeline`), and deterministic link hashes (`--format hashes`).
+- **`link suggest` / `link accept` / `link remove` / `link list`** — persistent cross-bill provision links. Discover candidates via embedding similarity, accept by hash, manage saved relationships.
+- **`--fy <YEAR>`** on `summary`, `search`, `compare` — filter to bills covering a specific fiscal year.
+- **`--subcommittee <SLUG>`** on `summary`, `search`, `compare` — filter by appropriations subcommittee jurisdiction (requires `enrich`).
+- **`--show-advance`** on `summary` — separates current-year from advance appropriations in the output.
+- **`--base-fy` / `--current-fy`** on `compare` — compare all bills for one fiscal year against another.
+- **`compare --use-links`** — uses accepted links for matching across renames.
+- **Advance appropriation detection** — fiscal-year-aware classification identifying $1.49 trillion in advance appropriations across the 13-bill dataset.
+- **Cross-semantics orphan rescue** in compare — recovers provisions like Transit Formula Grants ($14.6B) that have different semantics across bills.
+- **Sub-agency normalization** — 35-entry lookup table resolving agency granularity mismatches in compare (e.g., "Maritime Administration" ↔ "Department of Transportation").
+- Pre-enriched `bill_meta.json` for all 13 example bills.
+
+### Changed
+- **Compare uses case-insensitive account matching** — resolves 52 false orphans from capitalization differences.
+- **Summary displays enriched bill classification** when `bill_meta.json` is available (e.g., "Full-Year CR with Appropriations" instead of "Continuing Resolution").
+- **Summary handler consolidated** to call `query::summarize()` instead of reimplementing inline.
+- **Hash chain extended** to cover `bill_meta.json`.
+- Version bumped to 4.0.0.
+
+## [3.2.0] — 2026-03-18
+
+### Added
+- **`--continue-on-error` flag on `extract`** — opt-in to saving partial results when some chunks fail.
+
+### Changed
+- **Extract aborts on chunk failure by default.** Prevents garbage partial extractions.
+- **Per-bill error handling** in multi-bill extraction runs.
+
 ## [3.1.0] — 2026-03-18
 
 ### Added

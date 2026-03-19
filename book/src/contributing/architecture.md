@@ -4,7 +4,7 @@ This chapter provides a high-level map of how `congress-approp` is structured �
 
 ## The Pipeline
 
-Every bill flows through five stages. Each stage is implemented by a distinct set of modules:
+Every bill flows through six stages. Each stage is implemented by a distinct set of modules:
 
 ```text
 Stage 1: Download    →  api/congress/       →  BILLS-*.xml
@@ -43,13 +43,13 @@ src/
     text_index.rs            ← Dollar amount indexing, section detection (~670 lines)
     prompts.rs               ← System prompt for Claude (~310 lines)
     verification.rs          ← Deterministic verification (~370 lines)
-    loading.rs               ← Directory walking, JSON loading (~300 lines)
-    query.rs                 ← Library API: search, compare, summarize, audit (~840 lines)
+    loading.rs               ← Directory walking, JSON loading, bill_meta (~340 lines)
+    query.rs                 ← Library API: search, compare, summarize, audit, relate (~1,300 lines)
     embeddings.rs            ← Embedding storage, cosine similarity (~260 lines)
-    staleness.rs             ← Hash chain checking (~100 lines)
+    staleness.rs             ← Hash chain checking (~165 lines)
     progress.rs              ← Extraction progress bar (~170 lines)
 tests/
-  cli_tests.rs               ← 18 integration tests against examples/ data (~411 lines)
+  cli_tests.rs               ← 42 integration tests against examples/ data (~1,200 lines)
 ```
 
 Total: approximately 9,500 lines of Rust.

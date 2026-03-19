@@ -97,7 +97,7 @@ The leftmost column tells you the verification status of each provision's dollar
 |--------|---------|-------------------|
 | **✓** | The exact dollar string (e.g., `$2,285,513,000`) was found at **one unique position** in the source bill text. | No — this is the best result. |
 | **≈** | The dollar string was found at **multiple positions** in the source text. The amount is correct, but it can't be pinned to a single location. | No — very common for round numbers like `$5,000,000` which may appear 50 times in an omnibus. |
-| **✗** | The dollar string was **not found** in the source text. | **Yes** — this provision needs manual review. Across the included example data, this never occurs (0 of 2,501). |
+| **✗** | The dollar string was **not found** in the source text. | **Yes** — this provision needs manual review. Across the included example data, this never occurs (0 of 8,554). |
 | *(blank)* | The provision doesn't carry a dollar amount (riders, directives, some policy provisions). | No — nothing to verify. |
 
 ### CR substitution table
@@ -190,7 +190,7 @@ These check whether the `raw_text` excerpt (the first ~150 characters of the bil
 
 | Column | Match Method | What It Means |
 |--------|-------------|---------------|
-| **Exact** | Byte-identical substring match | The raw text was copied verbatim from the source — best case. 2,392 of 2,501 provisions (95.6%). |
+| **Exact** | Byte-identical substring match | The raw text was copied verbatim from the source — best case. 95.5% of provisions across the 13-bill dataset. |
 | **NormText** | Matches after normalizing whitespace, curly quotes (`"` → `"`), and em-dashes (`—` → `-`) | Minor formatting differences from XML-to-text conversion. Content is correct. |
 | **Spaceless** | Matches only after removing all spaces | Catches word-joining artifacts. Zero occurrences in the example data. |
 | **TextMiss** | Not found at any matching tier | The raw text may be paraphrased or truncated. In the example data, all 38 TextMiss cases are non-dollar provisions (statutory amendments) where the LLM slightly reformatted section references. |
@@ -330,10 +330,22 @@ The continuing resolution (H.R. 5860) has a very different profile: 49 riders, 4
 
 For detailed documentation of each provision type including all fields and real examples, see [Provision Types](../reference/provision-types.md).
 
+## Enriched Output
+
+When you run `congress-approp enrich --dir examples` (no API key needed), the tool generates bill metadata that enhances the output:
+
+- **Enriched classifications** — the summary table shows "Full-Year CR with Appropriations" instead of "Continuing Resolution" for hybrid bills like H.R. 1968, and "Minibus" instead of "Omnibus" for bills covering only 2–4 subcommittees.
+- **Advance appropriation split** — use `--show-advance` on `summary` to separate current-year spending from advance appropriations (money enacted now but available in a future fiscal year). This is critical for VA accounts where 79.5% of MilCon-VA budget authority is advance.
+- **Fiscal year and subcommittee filtering** — use `--fy 2026` and `--subcommittee thud` to scope any command to a specific year and jurisdiction, automatically resolving division letters across bills.
+
+See [Enrich Bills with Metadata](../how-to/enrich-data.md) for the full guide.
+
 ## Next Steps
 
 You now know how to read every type of output the tool produces. Time to put it to use:
 
+- **[Enrich Bills with Metadata](../how-to/enrich-data.md)** — enable FY filtering, subcommittee scoping, and advance splits
 - **[Find How Much Congress Spent on a Topic](../tutorials/find-spending-on-topic.md)** — your first real research task
 - **[Compare Two Bills](../tutorials/compare-two-bills.md)** — see what changed between bills
+- **[Track a Program Across Bills](../tutorials/track-program-across-bills.md)** — trace one account across fiscal years
 - **[Filter and Search Provisions](../how-to/filter-and-search.md)** — all the search flags in one place

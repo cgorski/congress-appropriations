@@ -52,7 +52,7 @@ This is a lot of information. Let's break it down column by column.
 | **1–5** | A small number of amounts couldn't be verified. | Run `audit --verbose` to identify which provisions; manually check them against the source XML. |
 | **> 5** | Significant number of unverifiable amounts. | Investigate whether extraction used the wrong source file, the model hallucinated amounts, or the XML is corrupted. Consider re-extracting. |
 
-Across the included example data: **NotFound = 0 for every bill.** All 2,501 extracted dollar amounts were confirmed to exist in the source text.
+Across the included example data: **NotFound = 0 for every bill.** All 8,554 extracted dollar amounts were confirmed to exist in the source text.
 
 ### Verified vs. Ambiguous
 
@@ -81,7 +81,7 @@ The right side of the audit table checks whether each provision's `raw_text` exc
 
 The `raw_text` is a **byte-identical** substring of the source bill text. This means the LLM copied the text perfectly — not a single character was changed.
 
-In the example data: 2,392 of 2,501 provisions (95.6%) match at the Exact tier. This is excellent and provides strong evidence that the provision is attributed to the correct location in the bill.
+In the example data: approximately 95.5% of provisions match at the Exact tier across the 13-bill dataset. This is excellent and provides strong evidence that the provision is attributed to the correct location in the bill.
 
 ### Tier 2: Normalized
 

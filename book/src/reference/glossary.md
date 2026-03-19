@@ -80,7 +80,7 @@ Definitions of key terms used throughout this documentation and in the tool's ou
 
 **Net Budget Authority (Net BA)** — Budget authority minus rescissions. This is the net new spending authority enacted by a bill. Displayed in the "Net BA ($)" column of the summary table. For most reporting purposes, this is the number to cite.
 
-**Not Found** (verification status) — A dollar amount verification result indicating that the `text_as_written` dollar string was **not found anywhere** in the source bill text. This is the most serious verification failure — the LLM may have hallucinated the amount. Displayed as `✗` in the search table's `$` column. Across the included example data: 0 occurrences out of 2,501 provisions. **Should always be 0.** See [How Verification Works](../explanation/verification.md).
+**Not Found** (verification status) — A dollar amount verification result indicating that the `text_as_written` dollar string was **not found anywhere** in the source bill text. This is the most serious verification failure — the LLM may have hallucinated the amount. Displayed as `✗` in the search table's `$` column. Across the included example data: 0 occurrences out of 8,554 provisions. **Should always be 0.** See [How Verification Works](../explanation/verification.md).
 
 **Omnibus** — A single bill packaging multiple (often all twelve) annual appropriations bills together, organized into lettered divisions. Congress frequently uses omnibuses when individual bills stall. H.R. 4366 in the example data is an omnibus covering seven of twelve appropriations subcommittee jurisdictions. See [How Federal Appropriations Work](../introduction/appropriations-primer.md).
 
@@ -96,7 +96,7 @@ Definitions of key terms used throughout this documentation and in the tool's ou
 
 **Rescission** — A provision that cancels previously enacted budget authority. A rescission of $500 million reduces the net budget authority by that amount. In the summary table, rescissions appear in their own column and are subtracted from gross budget authority to produce Net BA. See [Provision Types](./provision-types.md).
 
-**Rider** — A policy provision that doesn't directly appropriate, rescind, or limit funds. Riders establish rules, extend authorities, set policy conditions, or make legislative findings. They don't carry dollar amounts and don't affect budget authority calculations. The second most common provision type in the example data (336 of 2,501). See [Provision Types](./provision-types.md).
+**Rider** — A policy provision that doesn't directly appropriate, rescind, or limit funds. Riders establish rules, extend authorities, set policy conditions, or make legislative findings. They don't carry dollar amounts and don't affect budget authority calculations. The second most common provision type in the example data (the second most common provision type across the dataset). See [Provision Types](./provision-types.md).
 
 **Semantic Search** — A search method that finds provisions by meaning rather than exact keywords. Uses embedding vectors to understand that "school lunch programs for kids" means "Child Nutrition Programs" even though the words don't overlap. Invoked with `--semantic "your query"` on the search command. Requires pre-computed embeddings and `OPENAI_API_KEY`. See [How Semantic Search Works](../explanation/semantic-search.md).
 

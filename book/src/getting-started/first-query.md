@@ -253,12 +253,40 @@ The JSON output includes every field for each provision — more detail than the
 
 Other output formats are also available: `--format csv` for spreadsheets, `--format jsonl` for streaming one-object-per-line output. See [Output Formats](../reference/output-formats.md) for details.
 
+## Enrich for Fiscal Year and Subcommittee Filtering
+
+The example data includes pre-enriched metadata, but if you extract your own bills, run `enrich` to enable fiscal year and subcommittee filtering:
+
+```bash
+congress-approp enrich --dir examples      # No API key needed — runs offline
+```
+
+Once enriched, you can scope any command to a specific fiscal year and subcommittee:
+
+```bash
+# FY2026 THUD subcommittee only
+congress-approp summary --dir examples --fy 2026 --subcommittee thud
+
+# See advance vs current-year spending
+congress-approp summary --dir examples --fy 2026 --subcommittee milcon-va --show-advance
+
+# Compare THUD across fiscal years
+congress-approp compare --base-fy 2024 --current-fy 2026 --subcommittee thud --dir examples
+
+# Trace one provision across all bills
+congress-approp relate hr9468:0 --dir examples --fy-timeline
+```
+
+See [Enrich Bills with Metadata](../how-to/enrich-data.md) for the full guide.
+
 ## What's Next
 
 Now that you know the basics, choose your path:
 
+- **Want to filter by fiscal year or subcommittee?** → [Enrich Bills with Metadata](../how-to/enrich-data.md)
 - **Want to find specific spending?** → [Find How Much Congress Spent on a Topic](../tutorials/find-spending-on-topic.md)
-- **Want to compare bills?** → [Compare Two Bills](../tutorials/compare-two-bills.md)
+- **Want to compare bills across fiscal years?** → [Compare Two Bills](../tutorials/compare-two-bills.md)
+- **Want to track a program across all bills?** → [Track a Program Across Bills](../tutorials/track-program-across-bills.md)
 - **Want to export data to Excel or Python?** → [Export Data for Spreadsheets and Scripts](../tutorials/export-data.md)
 - **Want to understand the output better?** → [Understanding the Output](./understanding-output.md) (next chapter)
 - **Want to extract your own bills?** → [Extract Your Own Bill](../tutorials/extract-your-own-bill.md)

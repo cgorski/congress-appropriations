@@ -8,18 +8,20 @@ All metrics are deterministic — computed by code against the source bill text,
 
 | Metric | Value |
 |--------|-------|
-| **Total provisions extracted** | 2,501 |
-| **Total provisions with dollar amounts** | 1,522 |
+| **Total provisions extracted** | 8,554 (across 13 bills) |
+| **Total budget authority** | $6.4 trillion |
 | **Dollar amounts NOT found in source** | **0** |
 | **Dollar amount internal consistency mismatches** | **0** |
-| **CR substitution pairs fully verified** | **13 / 13 (100%)** |
+| **Raw text exact match rate** | 95.5% |
+| **Advance appropriations detected** | $1.49 trillion (18% of total BA) |
+| **FY2026 subcommittee coverage** | All 12 subcommittees |
 | **Raw text byte-identical to source** | **2,392 (95.6%)** |
 | **Raw text not found at any tier** | 38 (1.5%) |
 | **Total budget authority (computed from provisions)** | $865,019,581,554 |
 | **Total rescissions** | $24,659,349,709 |
 | **Total net budget authority** | $840,360,231,845 |
 
-The single most important number: **0 dollar amounts not found in source across 2,501 provisions.** Every extracted dollar amount was confirmed to exist in the source bill text.
+The single most important number: **0 dollar amounts not found in source across 8,554 provisions from thirteen bills.** Every extracted dollar amount was confirmed to exist in the source bill text.
 
 ---
 
@@ -213,6 +215,8 @@ The LLM included text from the next line, creating a raw_text that doesn't appea
 | H.R. 5860 | 102 (78.5%) | 12 (9.2%) | 0 (0.0%) | 16 (12.3%) | 130 |
 | H.R. 9468 | 5 (71.4%) | 0 (0.0%) | 0 (0.0%) | 2 (28.6%) | 7 |
 | **Total** | **2,392 (95.6%)** | **71 (2.8%)** | **0 (0.0%)** | **38 (1.5%)** | **2,501** |
+
+> **Note:** The detailed per-bill breakdown above covers the original three FY2024 example bills. The aggregate metrics at the top of this page reflect all thirteen bills in the current dataset (8,554 provisions). The same verification methodology applies to all bills — 0 NotFound amounts across the entire dataset.
 
 The omnibus has the highest exact match rate (96.7%), which makes sense — it's the most straightforward appropriations text. The CR and supplemental have more statutory amendments (which are harder to quote exactly), contributing to their higher no-match rates.
 

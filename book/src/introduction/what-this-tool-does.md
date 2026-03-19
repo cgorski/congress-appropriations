@@ -30,7 +30,7 @@ The verification pipeline runs after extraction and checks every claim the LLM m
 
 | Metric | Result |
 |--------|--------|
-| Total provisions extracted | 2,501 |
+| Total provisions extracted | 8,554 |
 | Dollar amounts not found in source | **0** |
 | Raw text byte-identical to source | **95.6%** (2,392 of 2,501) |
 | CR substitution pairs verified | 13/13 (100%) |
@@ -42,7 +42,7 @@ The remaining 4.4% of provisions where `raw_text` isn't a byte-identical substri
 
 ## What's Included
 
-The tool ships with three pre-extracted bills from the 118th Congress (FY2024), covering the major appropriations bill types:
+The tool ships with thirteen pre-extracted bills from the 118th and 119th Congresses (FY2024–FY2026), covering all major appropriations bill types:
 
 | Bill | Title | Classification | Provisions | Budget Authority |
 |------|-------|----------------|------------|------------------|

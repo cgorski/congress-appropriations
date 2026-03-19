@@ -9,12 +9,13 @@ The hash chain is a simple mechanism that detects this staleness automatically. 
 ```text
 BILLS-*.xml ──sha256──▶ metadata.json (source_xml_sha256)
                               │
+extraction.json ──sha256──▶ bill_meta.json (extraction_sha256)
 extraction.json ──sha256──▶ embeddings.json (extraction_sha256)
                               │
 vectors.bin ──sha256──▶ embeddings.json (vectors_sha256)
 ```
 
-Three links, each connecting an input to the artifact that records its hash:
+Four links, each connecting an input to the artifact that records its hash:
 
 ### Link 1: Source XML → Metadata
 
@@ -117,7 +118,7 @@ Hash computation is fast:
 | SHA-256 of H.R. 9468 extraction.json (~15 KB) | <1ms |
 | SHA-256 of H.R. 4366 extraction.json (~12 MB) | ~5ms |
 | SHA-256 of H.R. 4366 vectors.bin (~29 MB) | ~8ms |
-| **Total for 3 example bills** | **~15ms** |
+| **Total for 13 example bills** | **~50ms** |
 
 At scale (20 congresses, ~60 bills), total hashing time would be ~50ms — still negligible compared to the ~10ms JSON parsing time. There is no performance reason to skip or cache hash checks.
 
@@ -235,6 +236,6 @@ The hash chain is simple by design — three links, SHA-256, advisory warnings, 
 
 ## Next Steps
 
-- **[The Extraction Pipeline](./pipeline.md)** — the five stages that produce the artifacts in the hash chain
+- **[The Extraction Pipeline](./pipeline.md)** — the six stages that produce the artifacts in the hash chain
 - **[Generate Embeddings](../how-to/generate-embeddings.md)** — how the embed command uses the hash chain to skip up-to-date bills
 - **[Data Directory Layout](../reference/data-directory.md)** — where each file lives and what it contains

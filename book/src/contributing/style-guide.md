@@ -32,7 +32,7 @@ Clippy warnings are treated as errors in CI. Fix every warning at its root cause
 cargo test
 ```
 
-All ~95 tests (77 unit + 18 integration) must pass. See [Testing Strategy](./testing.md) for details.
+All ~172 tests (130 unit + 42 integration) must pass. See [Testing Strategy](./testing.md) for details.
 
 ### The full cycle
 
@@ -372,7 +372,7 @@ for MilCon-VA in the FY2024 omnibus). Uses case-insensitive exact
 match against the provision's division field.
 
 Verified:
-- cargo fmt/clippy/test: clean, 97 tests pass
+- cargo fmt/clippy/test: clean, 172 tests pass
 - Budget totals unchanged: $846B/$16B/$2.9B
 ```
 

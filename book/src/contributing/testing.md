@@ -8,9 +8,9 @@ The project has two categories of tests:
 
 | Category | Location | Count | What They Test |
 |----------|----------|-------|----------------|
-| **Unit tests** | Inline `#[cfg(test)] mod tests` in each module | ~77 | Individual functions, type round-trips, parsing logic |
-| **Integration tests** | `tests/cli_tests.rs` | 18 | Full CLI commands against the `examples/` data |
-| **Total** | | **~95** | |
+| **Unit tests** | Inline `#[cfg(test)] mod tests` in each module | ~130 | Individual functions, type round-trips, parsing logic, classification, link management |
+| **Integration tests** | `tests/cli_tests.rs` | 42 | Full CLI commands against the `examples/` data, including enrich, relate, link workflow, FY/subcommittee filtering, --show-advance, case-insensitive compare |
+| **Total** | | **~172** | |
 
 All tests run with `cargo test` and must pass before every commit.
 

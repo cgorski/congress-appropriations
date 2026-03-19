@@ -1,16 +1,37 @@
 # Included Example Bills
 
-The `examples/` directory ships with three pre-extracted FY2024 appropriations bills covering the major bill types. These are real enacted laws with real data — no API keys are needed to query them. All examples, tutorials, and verification metrics in this documentation are based on these bills.
+The `examples/` directory ships with **thirteen pre-extracted enacted appropriations bills** across the 118th and 119th Congresses, covering FY2024 through FY2026. These are real enacted laws with real data — no API keys are needed to query them. All twelve appropriations subcommittees are represented for FY2026.
+
+Each bill directory contains the source XML, extraction.json, verification.json, metadata.json, bill_meta.json (from `enrich`), embeddings.json, and vectors.bin (pre-computed embeddings for semantic search).
 
 ## Bill Summary
 
-| Directory | Bill | Full Title | Classification | Public Law | Enacted | Provisions | Budget Authority | Rescissions | Net BA |
-|-----------|------|-----------|----------------|------------|---------|------------|-----------------|-------------|--------|
-| `examples/hr4366/` | H.R. 4366 | Consolidated Appropriations Act, 2024 | Omnibus | P.L. 118-47 | March 23, 2024 | 2,364 | $846,137,099,554 | $24,659,349,709 | $821,477,749,845 |
-| `examples/hr5860/` | H.R. 5860 | Continuing Appropriations Act, 2024 and Other Extensions Act | Continuing Resolution | P.L. 118-15 | November 16, 2023 | 130 | $16,000,000,000 | $0 | $16,000,000,000 |
-| `examples/hr9468/` | H.R. 9468 | Veterans Benefits Continuity and Accountability Supplemental Appropriations Act, 2024 | Supplemental | P.L. 118-158 | December 23, 2024 | 7 | $2,882,482,000 | $0 | $2,882,482,000 |
+### 118th Congress (FY2024/FY2025)
 
-All three bills are from the **118th Congress** (2023–2024) and fund **fiscal year 2024** programs.
+| Directory | Bill | Classification | Subcommittees | Provisions | Budget Auth |
+|-----------|------|---------------|---------------|-----------|------------|
+| `examples/hr4366/` | H.R. 4366 | Omnibus | MilCon-VA, Ag, CJS, E&W, Interior, THUD | 2,364 | $846B |
+| `examples/hr5860/` | H.R. 5860 | Continuing Resolution | (all, at prior-year rates) | 130 | $16B |
+| `examples/hr9468/` | H.R. 9468 | Supplemental | VA | 7 | $2.9B |
+| `examples/hr815/` | H.R. 815 | Supplemental | Defense, State (Ukraine/Israel/Taiwan) | 303 | $95B |
+| `examples/hr2872/` | H.R. 2872 | Continuing Resolution | (further CR) | 31 | $0 |
+| `examples/hr6363/` | H.R. 6363 | Continuing Resolution | (further CR + extensions) | 74 | ~$0 |
+| `examples/hr7463/` | H.R. 7463 | Continuing Resolution | (CR extension) | 10 | $0 |
+| `examples/hr9747/` | H.R. 9747 | Continuing Resolution | (CR + extensions, FY2025) | 114 | $383M |
+| `examples/s870/` | S. 870 | Authorization | Fire administration | 49 | $0 |
+
+### 119th Congress (FY2025/FY2026)
+
+| Directory | Bill | Classification | Subcommittees | Provisions | Budget Auth |
+|-----------|------|---------------|---------------|-----------|------------|
+| `examples/hr1968/` | H.R. 1968 | Full-Year CR with Appropriations | Defense, Homeland, Labor-HHS, others | 526 | $1,786B |
+| `examples/hr5371/` | H.R. 5371 | Minibus | CR + Ag + LegBranch + MilCon-VA | 1,048 | $681B |
+| `examples/hr6938/` | H.R. 6938 | Minibus | CJS + Energy-Water + Interior | 1,061 | $196B |
+| `examples/hr7148/` | H.R. 7148 | Omnibus | Defense + Labor-HHS + THUD + FinServ + State | 2,837 | $2,788B |
+
+**Totals:** 8,554 provisions, $6.4 trillion in budget authority, 0 unverifiable dollar amounts, 95.5% raw text exact match.
+
+**Missing:** H.R. 2882 (FY2024 second omnibus covering Defense, Labor-HHS, Homeland, State, FinServ, LegBranch). Extraction failed due to 15 persistent chunk failures. The enrolled XML is available on Congress.gov if someone wants to retry with a future extraction resume feature.
 
 ---
 
@@ -311,20 +332,19 @@ See [Data Directory Layout](../reference/data-directory.md) for the complete fil
 
 ---
 
-## Aggregate Metrics Across All Three Bills
+## Aggregate Metrics Across All Thirteen Bills
 
-| Metric | H.R. 4366 | H.R. 5860 | H.R. 9468 | Total |
-|--------|-----------|-----------|-----------|-------|
-| **Provisions** | 2,364 | 130 | 7 | **2,501** |
-| **Budget Authority** | $846,137,099,554 | $16,000,000,000 | $2,882,482,000 | **$865,019,581,554** |
-| **Rescissions** | $24,659,349,709 | $0 | $0 | **$24,659,349,709** |
-| **Net BA** | $821,477,749,845 | $16,000,000,000 | $2,882,482,000 | **$840,360,231,845** |
-| **Amounts Not Found** | 0 | 0 | 0 | **0** |
-| **Raw Text Exact** | 2,285 | 102 | 5 | **2,392 (95.6%)** |
-| **Raw Text No Match** | 20 | 16 | 2 | **38 (1.5%)** |
-| **CR Substitutions** | — | 13 | — | **13** |
+| Metric | Value |
+|--------|-------|
+| **Total provisions** | 8,554 |
+| **Total budget authority** | $6,412,476,574,673 |
+| **Total rescissions** | $84,074,524,379 |
+| **Amounts NOT found in source** | **0** |
+| **Raw text exact match rate** | 95.5% |
+| **Advance appropriations detected** | $1.49 trillion (18% of total BA) |
+| **FY2026 subcommittee coverage** | All 12 subcommittees |
 
-The headline number: **0 dollar amounts unverifiable across 2,501 provisions from three bills.** Every extracted dollar amount was found in the source bill text.
+The headline number: **0 dollar amounts unverifiable across 8,554 provisions from thirteen bills.** Every extracted dollar amount was found in the source bill text.
 
 ---
 

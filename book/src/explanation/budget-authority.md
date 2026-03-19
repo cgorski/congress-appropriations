@@ -243,7 +243,7 @@ The budget authority number has several layers of protection against errors:
 
 1. **Computed from provisions, not LLM summaries.** The `compute_totals()` function sums individual provisions. The LLM's self-reported totals are diagnostic only.
 
-2. **Dollar amounts are verified against source text.** Every `text_as_written` dollar string is searched for in the bill XML. Across 2,501 provisions in the example data: 0 amounts not found.
+2. **Dollar amounts are verified against source text.** Every `text_as_written` dollar string is searched for in the bill XML. Across 8,554 provisions in the example data: 0 amounts not found.
 
 3. **Sub-allocation exclusion prevents double-counting.** The `detail_level` filter is deterministic and applied in Rust code, not by the LLM.
 
@@ -259,7 +259,7 @@ For high-stakes analysis, spot-check a sample of provisions with `search --forma
 
 | Component | Computation | Example Data Total |
 |-----------|------------|-------------------|
-| **Budget Authority** | Sum of appropriation provisions with `new_budget_authority` semantics at `top_level` or `line_item` detail | $865,019,581,554 (across all 3 bills) |
+| **Budget Authority** | Sum of appropriation provisions with `new_budget_authority` semantics at `top_level` or `line_item` detail | $6,412,476,574,673 (across all 13 bills) |
 | **Rescissions** | Sum of rescission provisions (absolute value) | $24,659,349,709 |
 | **Net BA** | Budget Authority − Rescissions | $840,360,231,845 |
 
