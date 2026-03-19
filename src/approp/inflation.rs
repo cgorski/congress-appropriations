@@ -15,7 +15,7 @@ use std::path::Path;
 // ─── Embedded CPI Data ───────────────────────────────────────────────────────
 
 /// Bundled CPI-U data, embedded at compile time from data/cpi.json.
-const BUNDLED_CPI_JSON: &str = include_str!("../../data/cpi.json");
+const BUNDLED_CPI_JSON: &str = include_str!("cpi.json");
 
 // ─── Types ───────────────────────────────────────────────────────────────────
 
