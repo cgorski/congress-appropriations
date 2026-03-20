@@ -547,7 +547,7 @@ async fn main() -> Result<()> {
             &format,
             exact,
         ),
-        Commands::Normalize { action } => handle_normalize(action),
+        Commands::Normalize { action } => handle_normalize(action).await,
         Commands::Audit { dir, verbose } => handle_audit(&dir, verbose),
         Commands::Upgrade { dir, dry_run } => handle_upgrade(&dir, dry_run),
         Commands::Embed {
@@ -575,7 +575,7 @@ async fn main() -> Result<()> {
 
 // ─── Normalize Handler ───────────────────────────────────────────────────────
 
-fn handle_normalize(action: NormalizeCommands) -> Result<()> {
+async fn handle_normalize(action: NormalizeCommands) -> Result<()> {
     use congress_appropriations::approp::normalize;
 
     match action {
@@ -664,15 +664,247 @@ fn handle_normalize(action: NormalizeCommands) -> Result<()> {
         NormalizeCommands::SuggestLlm {
             dir,
             dry_run,
-            batch_size: _,
-            format: _,
+            batch_size,
+            format,
         } => {
-            let _ = dir;
-            let _ = dry_run;
-            anyhow::bail!(
-                "normalize suggest-llm is not yet implemented.\n\
-                 Use `normalize suggest-text-match` for local analysis, or see\n\
-                 the documentation for how to use the Python prototype in tmp/test_normalize_llm.py"
+            use congress_appropriations::api::anthropic::{AnthropicClient, MessageBuilder};
+            use std::collections::HashSet;
+
+            let dir_path = std::path::Path::new(&dir);
+            let bills = loading::load_bills(dir_path)?;
+            if bills.is_empty() {
+                anyhow::bail!("No extracted bills found in directory: {dir}");
+            }
+
+            // Step 1: Find unresolved pairs using text-match as the starting point
+            let text_suggestions = normalize::suggest_text_match(&bills);
+            if text_suggestions.is_empty() {
+                println!("No unresolved agency naming variants found.");
+                return Ok(());
+            }
+
+            // Step 2: Filter to pairs not already in dataset.json
+            let existing = normalize::load_dataset(dir_path)?.unwrap_or_default();
+            let existing_agencies: HashSet<String> = existing
+                .entities
+                .agency_groups
+                .iter()
+                .flat_map(|g| {
+                    std::iter::once(g.canonical.to_lowercase())
+                        .chain(g.members.iter().map(|m| m.to_lowercase()))
+                })
+                .collect();
+
+            let unresolved: Vec<&normalize::SuggestedGroup> = text_suggestions
+                .iter()
+                .filter(|s| {
+                    !existing_agencies.contains(&s.canonical.to_lowercase())
+                        && !s
+                            .members
+                            .iter()
+                            .any(|m| existing_agencies.contains(&m.to_lowercase()))
+                })
+                .collect();
+
+            if unresolved.is_empty() {
+                println!("All agency variants are already resolved in dataset.json.");
+                return Ok(());
+            }
+
+            eprintln!(
+                "Found {} unresolved agency pairs. Building clusters with XML context...",
+                unresolved.len()
+            );
+
+            // Step 3: Build clusters with XML context
+            let owned_unresolved: Vec<normalize::SuggestedGroup> =
+                unresolved.iter().map(|s| (*s).clone()).collect();
+            let clusters = normalize::build_llm_clusters(&bills, &owned_unresolved);
+
+            if clusters.is_empty() {
+                println!("No clusters could be built (provisions may lack XML context).");
+                return Ok(());
+            }
+
+            eprintln!(
+                "Built {} clusters. Sending to Claude in batches of {batch_size}...",
+                clusters.len()
+            );
+
+            // Step 4: Send to Claude in batches
+            let client = AnthropicClient::from_env().map_err(|_| {
+                anyhow::anyhow!("ANTHROPIC_API_KEY not set. Required for suggest-llm.")
+            })?;
+
+            let mut all_accepted_groups: Vec<normalize::SuggestedGroup> = Vec::new();
+
+            for (batch_idx, batch) in clusters.chunks(batch_size).enumerate() {
+                let user_prompt = normalize::format_llm_prompt(batch);
+
+                eprintln!(
+                    "  Batch {}/{}: {} clusters, ~{} tokens...",
+                    batch_idx + 1,
+                    clusters.len().div_ceil(batch_size),
+                    batch.len(),
+                    user_prompt.len() / 4,
+                );
+
+                let request = MessageBuilder::new("claude-sonnet-4-20250514")
+                    .system(normalize::LLM_SYSTEM_PROMPT)
+                    .user(&user_prompt)
+                    .max_tokens(4000)
+                    .build();
+
+                let response = client
+                    .send_message(&request)
+                    .await
+                    .map_err(|e| anyhow::anyhow!("LLM API call failed: {e}"))?;
+
+                // Extract text from response
+                let response_text: String = response
+                    .content
+                    .iter()
+                    .filter_map(|block| match block {
+                        congress_appropriations::api::anthropic::types::ContentBlock::Text {
+                            text,
+                            ..
+                        } => Some(text.as_str()),
+                        _ => None,
+                    })
+                    .collect::<Vec<_>>()
+                    .join("");
+
+                eprintln!(
+                    "  Received: {} tokens in, {} tokens out",
+                    response.usage.input_tokens, response.usage.output_tokens,
+                );
+
+                // Parse JSON from response (handle markdown code block wrapping)
+                let json_text = if let Some(start) = response_text.find("```") {
+                    let after_ticks = &response_text[start + 3..];
+                    // Skip optional language tag
+                    let json_start = after_ticks.find('{').unwrap_or(0);
+                    if let Some(end) = after_ticks.find("```") {
+                        &after_ticks[json_start..end]
+                    } else {
+                        &after_ticks[json_start..]
+                    }
+                } else if let Some(start) = response_text.find('{') {
+                    &response_text[start..]
+                } else {
+                    eprintln!("  Warning: Could not find JSON in response. Skipping batch.");
+                    continue;
+                };
+
+                match serde_json::from_str::<serde_json::Value>(json_text) {
+                    Ok(parsed) => {
+                        // Extract SAME groups from response
+                        if let Some(groups) = parsed.get("groups").and_then(|g| g.as_array()) {
+                            for group in groups {
+                                let verdict =
+                                    group.get("verdict").and_then(|v| v.as_str()).unwrap_or("");
+                                if verdict != "SAME" {
+                                    continue;
+                                }
+                                let canonical = group
+                                    .get("canonical")
+                                    .and_then(|c| c.as_str())
+                                    .unwrap_or("")
+                                    .to_string();
+                                let members: Vec<String> = group
+                                    .get("members")
+                                    .and_then(|m| m.as_array())
+                                    .map(|arr| {
+                                        arr.iter()
+                                            .filter_map(|v| v.as_str().map(|s| s.to_string()))
+                                            .filter(|s| {
+                                                s.to_lowercase() != canonical.to_lowercase()
+                                            })
+                                            .collect()
+                                    })
+                                    .unwrap_or_default();
+                                let reasoning = group
+                                    .get("reasoning")
+                                    .and_then(|r| r.as_str())
+                                    .unwrap_or("")
+                                    .to_string();
+
+                                if !canonical.is_empty() && !members.is_empty() {
+                                    println!("  [SAME] \"{}\"", canonical);
+                                    for m in &members {
+                                        println!("     = \"{}\"", m);
+                                    }
+                                    println!("     Reasoning: {}", reasoning);
+                                    println!();
+
+                                    all_accepted_groups.push(normalize::SuggestedGroup {
+                                        canonical,
+                                        members,
+                                        evidence: normalize::SuggestionEvidence::RegexPattern {
+                                            pattern: format!("llm: {}", reasoning),
+                                        },
+                                        example_accounts: Vec::new(),
+                                        orphan_pairs_resolved: 0,
+                                    });
+                                }
+                            }
+                        }
+
+                        // Report DIFFERENT verdicts
+                        if let Some(separates) = parsed.get("separate").and_then(|s| s.as_array()) {
+                            for sep in separates {
+                                let agency =
+                                    sep.get("agency").and_then(|a| a.as_str()).unwrap_or("?");
+                                let reasoning =
+                                    sep.get("reasoning").and_then(|r| r.as_str()).unwrap_or("");
+                                println!("  [DIFF] \"{}\"", agency);
+                                println!("     Reasoning: {}", reasoning);
+                                println!();
+                            }
+                        }
+                    }
+                    Err(e) => {
+                        eprintln!("  Warning: Failed to parse LLM response as JSON: {e}");
+                        eprintln!(
+                            "  Raw response (first 500 chars): {}",
+                            &json_text[..json_text.len().min(500)]
+                        );
+                    }
+                }
+            }
+
+            // Step 5: Output summary
+            match format.as_str() {
+                "json" => {
+                    println!("{}", serde_json::to_string_pretty(&all_accepted_groups)?);
+                }
+                _ => {
+                    println!(
+                        "\nSummary: {} SAME groups identified by LLM.",
+                        all_accepted_groups.len()
+                    );
+                }
+            }
+
+            if dry_run {
+                eprintln!("Dry run — no changes written.");
+                return Ok(());
+            }
+
+            if all_accepted_groups.is_empty() {
+                eprintln!("No SAME groups to write.");
+                return Ok(());
+            }
+
+            // Write to dataset.json
+            let mut dataset =
+                normalize::load_dataset(dir_path)?.unwrap_or_else(normalize::DatasetFile::new);
+            normalize::merge_groups(&mut dataset, &all_accepted_groups);
+            normalize::save_dataset(dir_path, &dataset)?;
+            eprintln!(
+                "Wrote {} agency groups to {}/dataset.json",
+                dataset.entities.agency_groups.len(),
+                dir
             );
         }
 

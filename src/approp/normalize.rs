@@ -8,9 +8,11 @@
 //! `dataset.json` contains **only** knowledge that cannot be derived
 //! from scanning per-bill files. No cached or derived data.
 
+use crate::approp::bill_meta;
 use crate::approp::loading::LoadedBill;
 use crate::approp::ontology::{AmountSemantics, Provision};
 use anyhow::{Context, Result};
+use regex::Regex;
 use serde::{Deserialize, Serialize};
 use std::collections::{HashMap, HashSet};
 use std::path::Path;
@@ -508,6 +510,303 @@ fn check_us_abbreviation(a: &str, b: &str) -> bool {
         .replace("u.s. ", "united states ")
         .replace("u.s.", "united states");
     a != b && a_expanded == b_expanded
+}
+
+// ─── LLM Suggest Support ─────────────────────────────────────────────────────
+
+/// A cluster of provisions for one account, ready to send to the LLM.
+#[derive(Debug, Clone, Serialize)]
+pub struct LlmCluster {
+    /// The account name shared across all provisions in this cluster.
+    pub account_name: String,
+    /// Agency variants found for this account.
+    pub agency_variants: Vec<String>,
+    /// Individual provision appearances with context.
+    pub provisions: Vec<LlmClusterEntry>,
+}
+
+/// One provision appearance within an LLM cluster.
+#[derive(Debug, Clone, Serialize)]
+pub struct LlmClusterEntry {
+    pub bill_identifier: String,
+    pub bill_dir: String,
+    pub fiscal_years: Vec<u32>,
+    pub agency: String,
+    pub dollars: i64,
+    pub xml_context: String,
+}
+
+/// Extract ~800 chars of XML context around a search string, preserving
+/// appropriations heading structure as `[MAJOR]` and `[SUBHEADING]` markers.
+pub fn get_xml_context(xml_content: &str, search_text: &str, window: usize) -> String {
+    if search_text.is_empty() {
+        return "(no search text)".to_string();
+    }
+
+    let pos = xml_content.find(search_text).or_else(|| {
+        let lower_xml = xml_content.to_lowercase();
+        let lower_search = search_text.to_lowercase();
+        lower_xml.find(&lower_search)
+    });
+
+    let pos = match pos {
+        Some(p) => p,
+        None => return "(not found in XML)".to_string(),
+    };
+
+    let start = pos.saturating_sub(window);
+    let end = (pos + 400).min(xml_content.len());
+    let raw = &xml_content[start..end];
+
+    // Preserve heading structure with markers
+    let re_major_open = Regex::new(r"<appropriations-major[^>]*>").unwrap();
+    let re_major_close = Regex::new(r"</appropriations-major>").unwrap();
+    let re_inter_open = Regex::new(r"<appropriations-intermediate[^>]*>").unwrap();
+    let re_inter_close = Regex::new(r"</appropriations-intermediate>").unwrap();
+    let re_header_open = Regex::new(r"<header[^>]*>").unwrap();
+    let re_header_close = Regex::new(r"</header>").unwrap();
+    let re_any_tag = Regex::new(r"<[^>]+>").unwrap();
+    let re_whitespace = Regex::new(r"[ \t]+").unwrap();
+    let re_blank_lines = Regex::new(r"\n\s*\n").unwrap();
+
+    let mut cleaned = raw.to_string();
+    cleaned = re_major_open
+        .replace_all(&cleaned, "\n[MAJOR] ")
+        .to_string();
+    cleaned = re_major_close
+        .replace_all(&cleaned, " [/MAJOR]")
+        .to_string();
+    cleaned = re_inter_open
+        .replace_all(&cleaned, "\n  [SUBHEADING] ")
+        .to_string();
+    cleaned = re_inter_close
+        .replace_all(&cleaned, " [/SUBHEADING]")
+        .to_string();
+    cleaned = re_header_open.replace_all(&cleaned, "").to_string();
+    cleaned = re_header_close.replace_all(&cleaned, "").to_string();
+    cleaned = re_any_tag.replace_all(&cleaned, "").to_string();
+    cleaned = re_whitespace.replace_all(&cleaned, " ").to_string();
+    cleaned = re_blank_lines.replace_all(&cleaned, "\n").to_string();
+
+    let lines: Vec<&str> = cleaned
+        .trim()
+        .split('\n')
+        .filter(|l| !l.trim().is_empty())
+        .collect();
+    lines
+        .iter()
+        .rev()
+        .take(8)
+        .rev()
+        .cloned()
+        .collect::<Vec<_>>()
+        .join("\n")
+}
+
+/// Build LLM clusters from unresolved orphan pairs.
+///
+/// Takes the output of `suggest_text_match` and enriches each suggestion
+/// with XML context from the bill files. Groups by department for efficient
+/// batching.
+pub fn build_llm_clusters(
+    bills: &[LoadedBill],
+    unresolved_pairs: &[SuggestedGroup],
+) -> Vec<LlmCluster> {
+    // Cache XML content per bill directory to avoid re-reading
+    let mut xml_cache: HashMap<String, String> = HashMap::new();
+
+    // Build provision lookup: (account_lower, agency) → Vec<provision info>
+    struct ProvInfo {
+        bill_id: String,
+        bill_dir: String,
+        fiscal_years: Vec<u32>,
+        agency: String,
+        account: String,
+        dollars: i64,
+        text_as_written: String,
+    }
+
+    let mut all_provs: Vec<ProvInfo> = Vec::new();
+    for bill in bills {
+        let bill_dir = bill
+            .dir
+            .file_name()
+            .map(|n| n.to_string_lossy().to_string())
+            .unwrap_or_default();
+        let bill_id = bill.extraction.bill.identifier.clone();
+        let fys = bill.extraction.bill.fiscal_years.clone();
+
+        // Load XML if not cached
+        if !xml_cache.contains_key(&bill_dir)
+            && let Some(xml_path) = bill_meta::find_xml_in_dir(&bill.dir)
+            && let Ok(content) = std::fs::read_to_string(&xml_path)
+        {
+            xml_cache.insert(bill_dir.clone(), content);
+        }
+
+        for p in &bill.extraction.provisions {
+            if !matches!(p, Provision::Appropriation { .. }) {
+                continue;
+            }
+            if let Some(amt) = p.amount() {
+                if !matches!(amt.semantics, AmountSemantics::NewBudgetAuthority) {
+                    continue;
+                }
+                let dl = p.detail_level();
+                if dl == "sub_allocation" || dl == "proviso_amount" {
+                    continue;
+                }
+                let acct = p.account_name();
+                let agency = p.agency();
+                if acct.is_empty() || agency.is_empty() {
+                    continue;
+                }
+                all_provs.push(ProvInfo {
+                    bill_id: bill_id.clone(),
+                    bill_dir: bill_dir.clone(),
+                    fiscal_years: fys.clone(),
+                    agency: agency.to_string(),
+                    account: acct.to_string(),
+                    dollars: amt.dollars().unwrap_or(0),
+                    text_as_written: amt.text_as_written.clone(),
+                });
+            }
+        }
+    }
+
+    let mut clusters: Vec<LlmCluster> = Vec::new();
+
+    for suggestion in unresolved_pairs {
+        let target_agencies: HashSet<String> = std::iter::once(suggestion.canonical.to_lowercase())
+            .chain(suggestion.members.iter().map(|m| m.to_lowercase()))
+            .collect();
+
+        // Find all provisions under any of the target agencies for shared accounts
+        let mut cluster_entries: Vec<LlmClusterEntry> = Vec::new();
+        let mut seen_accounts: HashSet<String> = HashSet::new();
+
+        for prov in &all_provs {
+            if !target_agencies.contains(&prov.agency.to_lowercase()) {
+                continue;
+            }
+            // Only include accounts from the suggestion's example list
+            let acct_lower = prov.account.to_lowercase();
+            if !suggestion.example_accounts.iter().any(|e| e == &acct_lower) {
+                // Also include if any example account is a substring
+                if !suggestion
+                    .example_accounts
+                    .iter()
+                    .any(|e| acct_lower.contains(e) || e.contains(&acct_lower))
+                {
+                    continue;
+                }
+            }
+
+            seen_accounts.insert(acct_lower);
+
+            // Get XML context
+            let xml_ctx = xml_cache
+                .get(&prov.bill_dir)
+                .map(|xml| {
+                    let search = if !prov.text_as_written.is_empty() {
+                        &prov.text_as_written
+                    } else {
+                        &prov.account
+                    };
+                    get_xml_context(xml, search, 800)
+                })
+                .unwrap_or_else(|| "(no XML available)".to_string());
+
+            cluster_entries.push(LlmClusterEntry {
+                bill_identifier: prov.bill_id.clone(),
+                bill_dir: prov.bill_dir.clone(),
+                fiscal_years: prov.fiscal_years.clone(),
+                agency: prov.agency.clone(),
+                dollars: prov.dollars,
+                xml_context: xml_ctx,
+            });
+        }
+
+        if cluster_entries.len() >= 2 {
+            let agency_variants: Vec<String> = cluster_entries
+                .iter()
+                .map(|e| e.agency.clone())
+                .collect::<HashSet<_>>()
+                .into_iter()
+                .collect();
+
+            clusters.push(LlmCluster {
+                account_name: suggestion
+                    .example_accounts
+                    .first()
+                    .cloned()
+                    .unwrap_or_default(),
+                agency_variants,
+                provisions: cluster_entries,
+            });
+        }
+    }
+
+    clusters
+}
+
+/// The system prompt for LLM-based entity resolution.
+pub const LLM_SYSTEM_PROMPT: &str = r#"You are an expert on U.S. federal government organizational structure and appropriations.
+
+You will see CLUSTERS of provisions — each cluster groups appearances of an account across multiple appropriations bills from different fiscal years. Each appearance shows the agency name extracted by an LLM, the dollar amount, and the XML heading context from the enrolled bill.
+
+Your task: For each cluster, determine which agency name variants refer to the SAME organizational entity for the purpose of year-over-year budget comparison.
+
+Key considerations:
+- The XML heading hierarchy ([MAJOR] and [SUBHEADING] markers) is ground truth from Congress
+- Similar dollar amounts across fiscal years suggest the same budget line
+- Sub-agencies within the same department may have SEPARATE budget lines — do not merge them unless the XML evidence shows they are the same line
+- "Department of Defense—Army" and "Department of Defense—Department of the Army" are naming variants for the SAME entity
+- But "Department of the Army" RDT&E and "Department of the Navy" RDT&E are DIFFERENT entities
+
+Return JSON:
+{"groups": [{"canonical": "preferred agency name", "members": ["variant1", "variant2"], "verdict": "SAME", "reasoning": "brief explanation citing XML/dollar evidence"}], "separate": [{"agency": "name", "verdict": "DIFFERENT", "reasoning": "brief"}]}
+
+CRITICAL: When in doubt, say DIFFERENT. False merges silently corrupt budget totals. False orphans are visible and fixable."#;
+
+/// Format clusters into a user prompt for the LLM.
+pub fn format_llm_prompt(clusters: &[LlmCluster]) -> String {
+    let mut parts = Vec::new();
+    parts.push("Analyze these account clusters and classify agency pairs:\n".to_string());
+
+    for (i, cluster) in clusters.iter().enumerate() {
+        let sep = "=".repeat(20);
+        parts.push(format!(
+            "\n{sep} CLUSTER {}: \"{}\" ({} agencies) {sep}\n",
+            i + 1,
+            cluster.account_name,
+            cluster.agency_variants.len(),
+        ));
+
+        for entry in &cluster.provisions {
+            let dollars_str = {
+                let s = entry.dollars.to_string();
+                let mut result = String::new();
+                for (i, c) in s.chars().rev().enumerate() {
+                    if i > 0 && i % 3 == 0 {
+                        result.insert(0, ',');
+                    }
+                    result.insert(0, c);
+                }
+                result
+            };
+            parts.push(format!(
+                "  {} FY{:?}  agency=\"{}\"\n  ${dollars_str}\n  XML context:\n",
+                entry.bill_identifier, entry.fiscal_years, entry.agency,
+            ));
+            for line in entry.xml_context.split('\n') {
+                parts.push(format!("    {}\n", line));
+            }
+            parts.push("\n".to_string());
+        }
+    }
+
+    parts.join("")
 }
 
 // ─── Merge Logic ─────────────────────────────────────────────────────────────
