@@ -37,6 +37,7 @@
 - [Upgrade Extraction Data](./how-to/upgrade-data.md)
 - [Enrich Bills with Metadata](./how-to/enrich-data.md)
 - [Adjust for Inflation](./how-to/inflation-adjustment.md)
+- [Resolve Agency and Account Name Differences](./how-to/entity-resolution.md)
 
 # Explanation
 

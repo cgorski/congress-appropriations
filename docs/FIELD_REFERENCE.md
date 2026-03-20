@@ -437,6 +437,45 @@ Persistent cross-bill provision links stored at the data root directory (not ins
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `bill_dir` | string | Bill directory name (e.g., `"hr4366"`, `"hr7148"`) |
+| `bill_dir` | string | Bill directory name (e.g., `"118-hr4366"`, `"119-hr7148"`) |
 | `provision_index` | integer | Index into the bill's `provisions` array in `extraction.json` (0-based) |
 | `label` | string | Human-readable label (typically the account name) |
+
+---
+
+## dataset.json
+
+User-managed entity resolution rules stored at the data root directory (alongside bill directories). Created by `normalize accept` and consumed by `compare`, `relate`, and `link suggest`. Contains only knowledge that cannot be derived from scanning per-bill files.
+
+### Top-Level Fields
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `schema_version` | string | Always `"1.0"` |
+| `entities` | object | Entity resolution rules (see below) |
+
+### entities.agency_groups
+
+An array of agency equivalence groups. During matching, if a provision's agency matches the canonical OR any member of a group, it is normalized to the canonical name.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `canonical` | string | The preferred agency name shown in output |
+| `members` | array of strings | Variant names treated as equivalent to the canonical name |
+
+### entities.account_aliases
+
+An array of account name equivalences.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `canonical` | string | The preferred account name |
+| `aliases` | array of strings | Variant spellings treated as equivalent to the canonical name |
+
+### File Lifecycle
+
+- **Created by:** `normalize accept` (from cached `suggest-text-match` or `suggest-llm` results)
+- **Also editable by hand** — simple JSON format
+- **Read by:** `compare`, `relate`, `link suggest`
+- **Ignored by:** `compare --exact`
+- **Never auto-generated or overwritten** by `enrich`, `extract`, `embed`, or any other command. Contains only user decisions.

@@ -96,7 +96,7 @@ pub enum LinkEvidence {
 // ─── Link Candidates (output of suggest) ─────────────────────────────────────
 
 /// A candidate link produced by `link suggest` — not yet accepted.
-#[derive(Debug, Clone, Serialize)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct LinkCandidate {
     pub hash: String,
     pub source: ProvisionRef,

@@ -1336,6 +1336,21 @@ fn link_accept_auto() {
         copy_dir_with_vectors(&src, &dst);
     }
 
+    // Must run link suggest first to populate the cache
+    cmd()
+        .args([
+            "link",
+            "suggest",
+            "--dir",
+            dir.path().to_str().unwrap(),
+            "--scope",
+            "all",
+            "--limit",
+            "10",
+        ])
+        .assert()
+        .success();
+
     cmd()
         .args([
             "link",

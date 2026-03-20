@@ -343,6 +343,9 @@ enum NormalizeCommands {
         /// Output format: table, json, hashes
         #[arg(long, default_value = "table")]
         format: String,
+        /// Minimum shared accounts to include a suggestion (higher = stronger evidence)
+        #[arg(long, default_value = "1")]
+        min_accounts: usize,
     },
     /// Discover agency/account naming variants using LLM classification with XML context
     #[command(name = "suggest-llm")]
@@ -585,14 +588,22 @@ async fn handle_normalize(action: NormalizeCommands) -> Result<()> {
     use congress_appropriations::approp::normalize;
 
     match action {
-        NormalizeCommands::SuggestTextMatch { dir, format } => {
+        NormalizeCommands::SuggestTextMatch {
+            dir,
+            format,
+            min_accounts,
+        } => {
             let dir_path = std::path::Path::new(&dir);
             let bills = loading::load_bills(dir_path)?;
             if bills.is_empty() {
                 anyhow::bail!("No extracted bills found in directory: {dir}");
             }
 
-            let suggestions = normalize::suggest_text_match(&bills);
+            let all_suggestions = normalize::suggest_text_match(&bills);
+            let suggestions: Vec<_> = all_suggestions
+                .into_iter()
+                .filter(|s| s.orphan_pairs_resolved >= min_accounts)
+                .collect();
 
             if suggestions.is_empty() {
                 println!("No agency naming variants detected across bills.");
@@ -1098,6 +1109,7 @@ async fn handle_normalize(action: NormalizeCommands) -> Result<()> {
 // ─── Link Handler ────────────────────────────────────────────────────────────
 
 fn handle_link(action: LinkCommands) -> Result<()> {
+    use congress_appropriations::approp::cache;
     use congress_appropriations::approp::embeddings;
     use congress_appropriations::approp::links;
 
@@ -1113,7 +1125,8 @@ fn handle_link(action: LinkCommands) -> Result<()> {
                 anyhow::anyhow!("Invalid scope: '{scope}'. Valid values: intra, cross, all")
             })?;
 
-            let bills = loading::load_bills(std::path::Path::new(&dir))?;
+            let dir_path = std::path::Path::new(&dir);
+            let bills = loading::load_bills(dir_path)?;
             if bills.is_empty() {
                 anyhow::bail!("No extracted bills found in directory: {dir}");
             }
@@ -1123,7 +1136,7 @@ fn handle_link(action: LinkCommands) -> Result<()> {
                 bill_embeddings.push(embeddings::load(&bill.dir)?);
             }
 
-            let existing = links::load_links(std::path::Path::new(&dir))?;
+            let existing = links::load_links(dir_path)?;
             let candidates = links::suggest(
                 &bills,
                 &bill_embeddings,
@@ -1132,6 +1145,21 @@ fn handle_link(action: LinkCommands) -> Result<()> {
                 &existing,
                 limit,
             );
+
+            // Cache candidates for the accept command
+            let cache_values: Vec<serde_json::Value> = candidates
+                .iter()
+                .map(|c| serde_json::to_value(c).unwrap_or_default())
+                .collect();
+            if let Ok(cache_path) =
+                cache::write_suggestions(dir_path, "link-suggest", &cache_values)
+            {
+                eprintln!(
+                    "Cached {} candidates to {}",
+                    candidates.len(),
+                    cache_path.display()
+                );
+            }
 
             match format.as_str() {
                 "json" => {
@@ -1204,37 +1232,37 @@ fn handle_link(action: LinkCommands) -> Result<()> {
             auto,
         } => {
             let dir_path = std::path::Path::new(&dir);
-            let bills = loading::load_bills(dir_path)?;
-            if bills.is_empty() {
-                anyhow::bail!("No extracted bills found in directory: {dir}");
-            }
 
-            let mut bill_embeddings: Vec<Option<embeddings::LoadedEmbeddings>> = Vec::new();
-            for bill in &bills {
-                bill_embeddings.push(embeddings::load(&bill.dir)?);
+            // Read candidates from cache — no implicit recomputation
+            let cached = cache::read_suggestions(dir_path, "link-suggest")?;
+            let cached_values = match cached {
+                Some(values) => values,
+                None => {
+                    anyhow::bail!(
+                        "No cached link candidates found. Run first:\n  \
+                         congress-approp link suggest --dir {dir}"
+                    );
+                }
+            };
+
+            // Parse cached candidates back into LinkCandidate structs
+            let candidates: Vec<links::LinkCandidate> = cached_values
+                .iter()
+                .filter_map(|v| serde_json::from_value(v.clone()).ok())
+                .collect();
+
+            if candidates.is_empty() {
+                anyhow::bail!(
+                    "Cached link candidates are empty or unparseable. Re-run:\n  \
+                     congress-approp link suggest --dir {dir}"
+                );
             }
 
             // Load or create links file
             let mut links_file = links::load_links(dir_path)?.unwrap_or_else(|| {
-                let model = bill_embeddings
-                    .iter()
-                    .flatten()
-                    .next()
-                    .map(|e| e.metadata.model.as_str())
-                    .unwrap_or("unknown");
-                links::LinksFile::new(model)
+                // Get embedding model from first candidate's metadata or default
+                links::LinksFile::new("unknown")
             });
-
-            // Compute candidates to match against hashes
-            let existing_for_suggest = Some(links_file.clone());
-            let candidates = links::suggest(
-                &bills,
-                &bill_embeddings,
-                0.50,
-                links::LinkScope::All,
-                &existing_for_suggest,
-                10000,
-            );
 
             let hash_refs: Vec<&str> = hashes.iter().map(|s| s.as_str()).collect();
             let accepted = links::accept_links(
@@ -1244,6 +1272,21 @@ fn handle_link(action: LinkCommands) -> Result<()> {
                 note.as_deref(),
                 auto,
             );
+
+            if accepted == 0 && !auto {
+                let not_found: Vec<&str> = hashes
+                    .iter()
+                    .map(|s| s.as_str())
+                    .filter(|h| !candidates.iter().any(|c| c.hash == *h))
+                    .collect();
+                if !not_found.is_empty() {
+                    eprintln!(
+                        "Hash(es) not found in cached candidates: {}",
+                        not_found.join(", ")
+                    );
+                    eprintln!("Re-run `link suggest --dir {dir}` to see current candidates.");
+                }
+            }
 
             links::save_links(dir_path, &links_file)?;
 
