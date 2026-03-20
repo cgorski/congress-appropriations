@@ -190,6 +190,9 @@ enum Commands {
         /// Path to custom CPI/deflator JSON file (overrides bundled CPI-U data)
         #[arg(long)]
         cpi_file: Option<String>,
+        /// Disable all normalization from dataset.json — use exact matching only
+        #[arg(long)]
+        exact: bool,
         /// Output format: table, json, csv
         #[arg(long, default_value = "table")]
         format: String,
@@ -247,6 +250,11 @@ enum Commands {
     Link {
         #[command(subcommand)]
         action: LinkCommands,
+    },
+    /// Manage entity resolution rules (agency groups, account aliases)
+    Normalize {
+        #[command(subcommand)]
+        action: NormalizeCommands,
     },
     /// Deep-dive on one provision across all bills (requires embeddings)
     Relate {
@@ -320,6 +328,46 @@ enum LinkCommands {
         /// Filter to links involving this bill
         #[arg(long)]
         bill: Option<String>,
+    },
+}
+
+/// Subcommands for `normalize`.
+#[derive(Subcommand)]
+enum NormalizeCommands {
+    /// Discover agency/account naming variants using orphan-pair analysis and regex patterns
+    #[command(name = "suggest-text-match")]
+    SuggestTextMatch {
+        /// Data directory
+        #[arg(long, default_value = "./data")]
+        dir: String,
+        /// Preview suggestions without writing dataset.json
+        #[arg(long)]
+        dry_run: bool,
+        /// Output format: table, json
+        #[arg(long, default_value = "table")]
+        format: String,
+    },
+    /// Discover agency/account naming variants using LLM classification with XML context
+    #[command(name = "suggest-llm")]
+    SuggestLlm {
+        /// Data directory
+        #[arg(long, default_value = "./data")]
+        dir: String,
+        /// Preview suggestions without writing dataset.json
+        #[arg(long)]
+        dry_run: bool,
+        /// Maximum clusters per API call
+        #[arg(long, default_value = "15")]
+        batch_size: usize,
+        /// Output format: table, json
+        #[arg(long, default_value = "table")]
+        format: String,
+    },
+    /// Show current entity resolution rules from dataset.json
+    List {
+        /// Data directory
+        #[arg(long, default_value = "./data")]
+        dir: String,
     },
 }
 
@@ -483,6 +531,7 @@ async fn main() -> Result<()> {
             use_links,
             real,
             cpi_file,
+            exact,
             format,
         } => handle_compare(
             base.as_deref(),
@@ -496,7 +545,9 @@ async fn main() -> Result<()> {
             real,
             cpi_file.as_deref(),
             &format,
+            exact,
         ),
+        Commands::Normalize { action } => handle_normalize(action),
         Commands::Audit { dir, verbose } => handle_audit(&dir, verbose),
         Commands::Upgrade { dir, dry_run } => handle_upgrade(&dir, dry_run),
         Commands::Embed {
@@ -520,6 +571,157 @@ async fn main() -> Result<()> {
             fy_timeline,
         } => handle_relate(&source, &dir, top, &format, fy_timeline),
     }
+}
+
+// ─── Normalize Handler ───────────────────────────────────────────────────────
+
+fn handle_normalize(action: NormalizeCommands) -> Result<()> {
+    use congress_appropriations::approp::normalize;
+
+    match action {
+        NormalizeCommands::SuggestTextMatch {
+            dir,
+            dry_run,
+            format,
+        } => {
+            let dir_path = std::path::Path::new(&dir);
+            let bills = loading::load_bills(dir_path)?;
+            if bills.is_empty() {
+                anyhow::bail!("No extracted bills found in directory: {dir}");
+            }
+
+            let suggestions = normalize::suggest_text_match(&bills);
+
+            if suggestions.is_empty() {
+                println!("No agency naming variants detected across bills.");
+                println!("All cross-FY account matches use exact agency names.");
+                return Ok(());
+            }
+
+            match format.as_str() {
+                "json" => {
+                    println!("{}", serde_json::to_string_pretty(&suggestions)?);
+                }
+                _ => {
+                    println!(
+                        "Found {} suggested agency groups ({} orphan pairs resolvable):\n",
+                        suggestions.len(),
+                        suggestions
+                            .iter()
+                            .map(|s| s.orphan_pairs_resolved)
+                            .sum::<usize>()
+                    );
+
+                    for (i, s) in suggestions.iter().enumerate() {
+                        let evidence_tag = match &s.evidence {
+                            normalize::SuggestionEvidence::OrphanPair => "orphan-pair",
+                            normalize::SuggestionEvidence::RegexPattern { pattern } => {
+                                pattern.as_str()
+                            }
+                        };
+                        println!("  {}. [{}] \"{}\"", i + 1, evidence_tag, s.canonical);
+                        for m in &s.members {
+                            println!("     = \"{}\"", m);
+                        }
+                        if !s.example_accounts.is_empty() {
+                            println!(
+                                "     Evidence: {} shared accounts (e.g., {})",
+                                s.orphan_pairs_resolved,
+                                s.example_accounts
+                                    .iter()
+                                    .take(3)
+                                    .cloned()
+                                    .collect::<Vec<_>>()
+                                    .join(", ")
+                            );
+                        }
+                        println!();
+                    }
+                }
+            }
+
+            if dry_run {
+                eprintln!("Dry run — no changes written.");
+                return Ok(());
+            }
+
+            // Load existing dataset.json or create new
+            let mut dataset =
+                normalize::load_dataset(dir_path)?.unwrap_or_else(normalize::DatasetFile::new);
+
+            // Merge suggestions
+            normalize::merge_groups(&mut dataset, &suggestions);
+
+            // Write
+            normalize::save_dataset(dir_path, &dataset)?;
+            eprintln!(
+                "Wrote {} agency groups to {}/dataset.json",
+                dataset.entities.agency_groups.len(),
+                dir
+            );
+        }
+
+        NormalizeCommands::SuggestLlm {
+            dir,
+            dry_run,
+            batch_size: _,
+            format: _,
+        } => {
+            let _ = dir;
+            let _ = dry_run;
+            anyhow::bail!(
+                "normalize suggest-llm is not yet implemented.\n\
+                 Use `normalize suggest-text-match` for local analysis, or see\n\
+                 the documentation for how to use the Python prototype in tmp/test_normalize_llm.py"
+            );
+        }
+
+        NormalizeCommands::List { dir } => {
+            let dir_path = std::path::Path::new(&dir);
+            let dataset = normalize::load_dataset(dir_path)?;
+
+            match dataset {
+                None => {
+                    println!("No dataset.json found in {dir}");
+                    println!();
+                    println!("To create one, run:");
+                    println!("  congress-approp normalize suggest-text-match --dir {dir}");
+                }
+                Some(ds) => {
+                    if ds.entities.agency_groups.is_empty()
+                        && ds.entities.account_aliases.is_empty()
+                    {
+                        println!("dataset.json exists but contains no entity resolution rules.");
+                        return Ok(());
+                    }
+
+                    if !ds.entities.agency_groups.is_empty() {
+                        println!("Agency groups ({}):\n", ds.entities.agency_groups.len());
+                        for (i, g) in ds.entities.agency_groups.iter().enumerate() {
+                            println!("  {}. \"{}\"", i + 1, g.canonical);
+                            for m in &g.members {
+                                println!("     = \"{}\"", m);
+                            }
+                            println!();
+                        }
+                    }
+
+                    if !ds.entities.account_aliases.is_empty() {
+                        println!("Account aliases ({}):\n", ds.entities.account_aliases.len());
+                        for (i, a) in ds.entities.account_aliases.iter().enumerate() {
+                            println!("  {}. \"{}\"", i + 1, a.canonical);
+                            for alias in &a.aliases {
+                                println!("     = \"{}\"", alias);
+                            }
+                            println!();
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    Ok(())
 }
 
 // ─── Link Handler ────────────────────────────────────────────────────────────
@@ -3090,9 +3292,11 @@ fn handle_compare(
     real: bool,
     cpi_file: Option<&str>,
     format: &str,
+    exact: bool,
 ) -> Result<()> {
     use congress_appropriations::approp::bill_meta::Jurisdiction;
     use congress_appropriations::approp::inflation;
+    use congress_appropriations::approp::normalize;
     use congress_appropriations::approp::query;
 
     // Resolve which bills to compare: either --base/--current dirs or --base-fy/--current-fy
@@ -3155,7 +3359,29 @@ fn handle_compare(
         (base_bills, current_bills)
     };
 
-    let mut result = query::compare(&base_filtered, &current_filtered, agency_filter);
+    // Load entity resolution rules from dataset.json (unless --exact)
+    let dataset = if exact {
+        None
+    } else {
+        let data_dir = dir.or(base_dir).unwrap_or("./data");
+        normalize::load_dataset(std::path::Path::new(data_dir)).unwrap_or(None)
+    };
+    let agency_groups = dataset
+        .as_ref()
+        .map(|d| d.entities.agency_groups.as_slice())
+        .unwrap_or(&[]);
+    let account_aliases = dataset
+        .as_ref()
+        .map(|d| d.entities.account_aliases.as_slice())
+        .unwrap_or(&[]);
+
+    let mut result = query::compare(
+        &base_filtered,
+        &current_filtered,
+        agency_filter,
+        agency_groups,
+        account_aliases,
+    );
 
     // If --real, compute inflation-adjusted deltas
     let inflation_ctx = if real {
@@ -3356,7 +3582,11 @@ fn handle_compare(
                         &d.current_dollars.to_string(),
                         &d.delta.to_string(),
                         &d.delta_pct.map(|p| format!("{p:.1}")).unwrap_or_default(),
-                        &d.status,
+                        &if d.normalized {
+                            format!("{} (normalized)", d.status)
+                        } else {
+                            d.status.clone()
+                        },
                         &d.real_delta_pct
                             .map(|p| format!("{p:.1}"))
                             .unwrap_or_default(),
@@ -3370,7 +3600,11 @@ fn handle_compare(
                         &d.current_dollars.to_string(),
                         &d.delta.to_string(),
                         &d.delta_pct.map(|p| format!("{p:.1}")).unwrap_or_default(),
-                        &d.status,
+                        &if d.normalized {
+                            format!("{} (normalized)", d.status)
+                        } else {
+                            d.status.clone()
+                        },
                     ])?;
                 }
             }
@@ -3464,7 +3698,11 @@ fn handle_compare(
                             .set_alignment(CellAlignment::Right)
                             .fg(real_color),
                         Cell::new(flag_str).fg(real_color),
-                        Cell::new(&d.status),
+                        Cell::new(if d.normalized {
+                            format!("{} (normalized)", d.status)
+                        } else {
+                            d.status.clone()
+                        }),
                     ]);
                 } else {
                     table.add_row(vec![
@@ -3480,7 +3718,11 @@ fn handle_compare(
                         Cell::new(&pct_str)
                             .set_alignment(CellAlignment::Right)
                             .fg(delta_color),
-                        Cell::new(&d.status),
+                        Cell::new(if d.normalized {
+                            format!("{} (normalized)", d.status)
+                        } else {
+                            d.status.clone()
+                        }),
                     ]);
                 }
             }

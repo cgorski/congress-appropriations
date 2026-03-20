@@ -329,92 +329,53 @@ pub fn suggest_text_match(bills: &[LoadedBill]) -> Vec<SuggestedGroup> {
         }
     }
 
-    // Convert to SuggestedGroup
+    // Convert to SuggestedGroup — one per agency PAIR (no transitive closure).
+    //
+    // Transitive closure would merge all agencies that share any account name,
+    // which creates mega-groups through generic names like "Salaries and Expenses."
+    // Instead, each pair is a separate suggestion. The user decides which to accept.
     let mut suggestions: Vec<SuggestedGroup> = Vec::new();
 
-    // Group agency pairs into larger groups (transitive closure)
-    // E.g., if (A, B) and (B, C) are both pairs, group as {A, B, C}
-    let mut groups: Vec<HashSet<String>> = Vec::new();
-
-    for (a, b) in agency_pair_evidence.keys() {
-        // Find existing group containing a or b
-        let mut found_group = None;
-        for (idx, group) in groups.iter().enumerate() {
-            if group.contains(a) || group.contains(b) {
-                found_group = Some(idx);
-                break;
-            }
-        }
-        if let Some(idx) = found_group {
-            groups[idx].insert(a.clone());
-            groups[idx].insert(b.clone());
-        } else {
-            let mut group = HashSet::new();
-            group.insert(a.clone());
-            group.insert(b.clone());
-            groups.push(group);
-        }
-    }
-
-    // Merge overlapping groups (second pass for transitive closure)
-    let mut merged = true;
-    while merged {
-        merged = false;
-        let mut i = 0;
-        while i < groups.len() {
-            let mut j = i + 1;
-            while j < groups.len() {
-                if groups[i].intersection(&groups[j]).count() > 0 {
-                    let other = groups.remove(j);
-                    groups[i].extend(other);
-                    merged = true;
+    for ((a, b), accounts) in &agency_pair_evidence {
+        // Skip pairs connected only through very generic account names
+        // (accounts that appear under 5+ different agencies are too generic
+        // to be evidence of agency equivalence)
+        let non_generic_accounts: Vec<&String> = accounts
+            .iter()
+            .filter(|acct| {
+                let clean = if let Some(pos) = acct.find(" [regex:") {
+                    &acct[..pos]
                 } else {
-                    j += 1;
-                }
-            }
-            i += 1;
-        }
-    }
+                    acct.as_str()
+                };
+                // Count how many distinct agencies have this account
+                let agency_count = by_account
+                    .get(clean)
+                    .map(|provs| {
+                        provs
+                            .iter()
+                            .map(|p| p.agency.as_str())
+                            .collect::<HashSet<_>>()
+                            .len()
+                    })
+                    .unwrap_or(0);
+                agency_count < 5
+            })
+            .collect();
 
-    for group in &groups {
-        if group.len() < 2 {
+        if non_generic_accounts.is_empty() {
             continue;
         }
 
-        // Collect all evidence accounts for this group
-        let mut all_accounts: Vec<String> = Vec::new();
-        let mut orphan_count = 0;
-        let group_vec: Vec<&String> = group.iter().collect();
-
-        for i in 0..group_vec.len() {
-            for j in (i + 1)..group_vec.len() {
-                let key = if group_vec[i] < group_vec[j] {
-                    (group_vec[i].clone(), group_vec[j].clone())
-                } else {
-                    (group_vec[j].clone(), group_vec[i].clone())
-                };
-                if let Some(accounts) = agency_pair_evidence.get(&key) {
-                    orphan_count += accounts.len();
-                    for a in accounts {
-                        if !all_accounts.contains(a) {
-                            all_accounts.push(a.clone());
-                        }
-                    }
-                }
-            }
-        }
-
-        // Pick canonical: prefer the longest name (usually the most specific)
-        let canonical = group
-            .iter()
-            .max_by_key(|s| s.len())
-            .cloned()
-            .unwrap_or_default();
-
-        let members: Vec<String> = group.iter().filter(|s| **s != canonical).cloned().collect();
+        // Pick canonical: prefer the longer name (usually more specific)
+        let (canonical, member) = if a.len() >= b.len() {
+            (a.clone(), b.clone())
+        } else {
+            (b.clone(), a.clone())
+        };
 
         // Determine evidence type
-        let has_regex = all_accounts.iter().any(|a| a.contains("[regex:"));
+        let has_regex = accounts.iter().any(|acct| acct.contains("[regex:"));
         let evidence = if has_regex {
             SuggestionEvidence::RegexPattern {
                 pattern: "mixed (orphan-pair + regex)".to_string(),
@@ -423,14 +384,14 @@ pub fn suggest_text_match(bills: &[LoadedBill]) -> Vec<SuggestedGroup> {
             SuggestionEvidence::OrphanPair
         };
 
-        // Clean account names (remove regex tags for display)
-        let example_accounts: Vec<String> = all_accounts
+        // Clean account names for display
+        let example_accounts: Vec<String> = non_generic_accounts
             .iter()
             .map(|a| {
                 if let Some(pos) = a.find(" [regex:") {
                     a[..pos].to_string()
                 } else {
-                    a.clone()
+                    (*a).clone()
                 }
             })
             .collect::<HashSet<_>>()
@@ -440,10 +401,10 @@ pub fn suggest_text_match(bills: &[LoadedBill]) -> Vec<SuggestedGroup> {
 
         suggestions.push(SuggestedGroup {
             canonical,
-            members,
+            members: vec![member],
             evidence,
             example_accounts,
-            orphan_pairs_resolved: orphan_count,
+            orphan_pairs_resolved: non_generic_accounts.len(),
         });
     }
 

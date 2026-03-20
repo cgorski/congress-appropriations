@@ -6,6 +6,7 @@
 use crate::approp::bill_meta::{self, FundingTiming};
 use crate::approp::embeddings::{self, LoadedEmbeddings};
 use crate::approp::loading::LoadedBill;
+use crate::approp::normalize::{self, AccountAlias, AgencyGroup};
 use crate::approp::ontology::{AmountSemantics, Provision};
 use crate::approp::verification::{CheckResult, MatchTier};
 use serde::Serialize;
@@ -521,6 +522,9 @@ pub struct CompareRow {
     /// Inflation flag: real_increase, real_cut, inflation_erosion, unchanged.
     #[serde(skip_serializing_if = "Option::is_none")]
     pub inflation_flag: Option<String>,
+    /// True if this match was produced by agency normalization from dataset.json.
+    #[serde(skip_serializing_if = "std::ops::Not::not")]
+    pub normalized: bool,
 }
 
 /// The full result of comparing two sets of bills.
@@ -538,10 +542,14 @@ pub struct CompareResult {
 ///
 /// Includes cross-type warning logic when the bill classifications differ.
 /// The optional `agency_filter` narrows both sides to matching agencies.
+/// The optional `agency_groups` and `account_aliases` apply entity resolution
+/// from `dataset.json`. Pass empty slices for exact matching (no normalization).
 pub fn compare(
     base: &[LoadedBill],
     current: &[LoadedBill],
     agency_filter: Option<&str>,
+    agency_groups: &[AgencyGroup],
+    account_aliases: &[AccountAlias],
 ) -> CompareResult {
     let base_description = describe_bills(base);
     let current_description = describe_bills(current);
@@ -564,8 +572,9 @@ pub fn compare(
     };
 
     // Build account maps: (agency, account_name) → total dollars
-    let base_accounts = build_account_map(base, agency_filter);
-    let current_accounts = build_account_map(current, agency_filter);
+    let base_accounts = build_account_map(base, agency_filter, agency_groups, account_aliases);
+    let current_accounts =
+        build_account_map(current, agency_filter, agency_groups, account_aliases);
 
     // Collect the union of all keys
     let mut all_keys: Vec<(String, String)> = Vec::new();
@@ -614,6 +623,11 @@ pub fn compare(
             None
         };
 
+        // Track whether this match used normalization
+        let base_was_normalized = base_entry.map(|e| e.was_normalized).unwrap_or(false);
+        let current_was_normalized = current_entry.map(|e| e.was_normalized).unwrap_or(false);
+        let row_normalized = base_was_normalized || current_was_normalized;
+
         let status = if base_val == 0 {
             "only in current"
         } else if current_val == 0 {
@@ -640,6 +654,7 @@ pub fn compare(
             status: status.to_string(),
             real_delta_pct: None,
             inflation_flag: None,
+            normalized: row_normalized,
         });
     }
 
@@ -650,17 +665,17 @@ pub fn compare(
     // (e.g., Transit Formula Grants classified as "limitation" in one bill
     // and "new_budget_authority" in the other). If found, change status to
     // "reclassified" and fill in the missing dollars.
-    let base_wide = build_any_semantics_map(base, agency_filter);
-    let current_wide = build_any_semantics_map(current, agency_filter);
+    let base_wide = build_any_semantics_map(base, agency_filter, agency_groups, account_aliases);
+    let current_wide =
+        build_any_semantics_map(current, agency_filter, agency_groups, account_aliases);
 
     for row in &mut rows {
         if row.status == "only in base" {
             // Base has it, current doesn't (under BA semantics).
             // Check if current has it under ANY semantics.
-            let key = (
-                normalize_agency(&row.agency),
-                normalize_account_name(&row.account_name),
-            );
+            let (norm_ag, _) = normalize_agency_with_groups(&row.agency, agency_groups);
+            let (norm_acct, _) = normalize::normalize_account(&row.account_name, account_aliases);
+            let key = (norm_ag, norm_acct);
             if let Some(wide_entry) = current_wide.get(&key) {
                 row.current_dollars = wide_entry.dollars;
                 row.delta = row.current_dollars - row.base_dollars;
@@ -674,10 +689,9 @@ pub fn compare(
         } else if row.status == "only in current" {
             // Current has it, base doesn't (under BA semantics).
             // Check if base has it under ANY semantics.
-            let key = (
-                normalize_agency(&row.agency),
-                normalize_account_name(&row.account_name),
-            );
+            let (norm_ag, _) = normalize_agency_with_groups(&row.agency, agency_groups);
+            let (norm_acct, _) = normalize::normalize_account(&row.account_name, account_aliases);
+            let key = (norm_ag, norm_acct);
             if let Some(wide_entry) = base_wide.get(&key) {
                 row.base_dollars = wide_entry.dollars;
                 row.delta = row.current_dollars - row.base_dollars;
@@ -704,180 +718,22 @@ pub fn compare(
 
 // ─── Private helpers ─────────────────────────────────────────────────────────
 
-/// Map of known sub-agency names to their parent department.
+/// Normalize an agency name using explicit groups from `dataset.json`.
 ///
-/// Used by `normalize_agency` to resolve cases where the LLM uses different
-/// granularities across bills — e.g., "Maritime Administration" in one bill
-/// and "Department of Transportation" in another for the same account.
-///
-/// This is a static lookup because the agency hierarchy is stable across
-/// congresses. The trade-off: within-bill entries under different sub-agencies
-/// of the same department with the same account name (e.g., two different
-/// "Salaries and Expenses" lines under DOT) will be merged. In practice this
-/// affects ~7 entries across the 13-bill dataset, all for administrative
-/// accounts where the merged total is still directionally correct.
-const SUB_AGENCY_TO_PARENT: &[(&str, &str)] = &[
-    // Department of Transportation
-    ("maritime administration", "department of transportation"),
-    (
-        "federal highway administration",
-        "department of transportation",
-    ),
-    (
-        "federal aviation administration",
-        "department of transportation",
-    ),
-    (
-        "federal transit administration",
-        "department of transportation",
-    ),
-    (
-        "federal railroad administration",
-        "department of transportation",
-    ),
-    (
-        "national highway traffic safety administration",
-        "department of transportation",
-    ),
-    (
-        "great lakes st. lawrence seaway development corporation",
-        "department of transportation",
-    ),
-    (
-        "pipeline and hazardous materials safety administration",
-        "department of transportation",
-    ),
-    // Department of the Interior
-    ("national park service", "department of the interior"),
-    ("bureau of land management", "department of the interior"),
-    (
-        "u.s. fish and wildlife service",
-        "department of the interior",
-    ),
-    (
-        "united states fish and wildlife service",
-        "department of the interior",
-    ),
-    ("bureau of indian affairs", "department of the interior"),
-    ("bureau of indian education", "department of the interior"),
-    ("bureau of reclamation", "department of the interior"),
-    ("u.s. geological survey", "department of the interior"),
-    (
-        "united states geological survey",
-        "department of the interior",
-    ),
-    (
-        "office of surface mining reclamation and enforcement",
-        "department of the interior",
-    ),
-    (
-        "bureau of ocean energy management",
-        "department of the interior",
-    ),
-    (
-        "bureau of safety and environmental enforcement",
-        "department of the interior",
-    ),
-    (
-        "bureau of trust funds administration",
-        "department of the interior",
-    ),
-    // Department of Housing and Urban Development
-    (
-        "government national mortgage association",
-        "department of housing and urban development",
-    ),
-    (
-        "federal housing administration",
-        "department of housing and urban development",
-    ),
-    (
-        "neighborhood reinvestment corporation",
-        "department of housing and urban development",
-    ),
-    // Department of Justice
-    ("federal bureau of investigation", "department of justice"),
-    ("drug enforcement administration", "department of justice"),
-    (
-        "bureau of alcohol, tobacco, firearms and explosives",
-        "department of justice",
-    ),
-    ("u.s. marshals service", "department of justice"),
-    ("federal bureau of prisons", "department of justice"),
-    ("bureau of justice assistance", "department of justice"),
-    // Department of Commerce
-    (
-        "national oceanic and atmospheric administration",
-        "department of commerce",
-    ),
-    (
-        "national institute of standards and technology",
-        "department of commerce",
-    ),
-    ("u.s. patent and trademark office", "department of commerce"),
-    (
-        "international trade administration",
-        "department of commerce",
-    ),
-    ("bureau of industry and security", "department of commerce"),
-    (
-        "economic development administration",
-        "department of commerce",
-    ),
-    (
-        "minority business development agency",
-        "department of commerce",
-    ),
-    // Department of Defense (civil)
-    (
-        "department of the army, corps of engineers—civil",
-        "department of defense—civil",
-    ),
-];
-
-/// Normalize an agency name to its parent department for cross-bill matching.
-///
-/// First applies comma-based extraction (e.g., "Office of Inspector General,
-/// Department of Defense" → "Department of Defense"), then looks up the result
-/// in the sub-agency-to-parent table.
+/// This is a thin wrapper around `normalize::normalize_agency` that provides
+/// backward compatibility for call sites that only need the normalized name.
+/// For call sites that need to know whether normalization was applied, use
+/// `normalize::normalize_agency` directly.
 pub fn normalize_agency(agency: &str) -> String {
-    let mut lower = agency.to_lowercase();
-    lower = lower.trim().to_string();
+    // With no groups, just lowercases and trims — no implicit normalization.
+    let (name, _) = normalize::normalize_agency(agency, &[]);
+    name
+}
 
-    // Step 1: separator-based parent extraction
-    // Handle both comma-separated ("Office of Inspector General, DOT") and
-    // slash-separated ("Department of Energy / NNSA") agency names.
-    if let Some(comma_pos) = lower.find(',') {
-        let before = lower[..comma_pos].trim().to_string();
-        let after = lower[comma_pos + 1..].trim().to_string();
-        if before == "office of inspector general" {
-            lower = after;
-        } else {
-            lower = before;
-        }
-    } else if let Some(slash_pos) = lower.find(" / ") {
-        // "Department of Energy / National Nuclear Security Administration"
-        // → try the part after the slash as a sub-agency lookup first
-        let after = lower[slash_pos + 3..].trim().to_string();
-        let before = lower[..slash_pos].trim().to_string();
-        // Check if the part after the slash is a known sub-agency
-        for (sub, parent) in SUB_AGENCY_TO_PARENT {
-            if after == *sub {
-                return parent.to_string();
-            }
-        }
-        // If not in table, use the part before the slash (the parent)
-        lower = before;
-    }
-
-    // Step 2: sub-agency lookup
-    for (sub, parent) in SUB_AGENCY_TO_PARENT {
-        if lower == *sub {
-            return parent.to_string();
-        }
-    }
-
-    lower
+/// Normalize an agency name with explicit groups, returning both the
+/// normalized name and whether a group rule was applied.
+pub fn normalize_agency_with_groups(agency: &str, groups: &[AgencyGroup]) -> (String, bool) {
+    normalize::normalize_agency(agency, groups)
 }
 
 /// An entry in the account comparison map, holding the aggregated dollar total
@@ -888,6 +744,8 @@ struct AccountMapEntry {
     display_agency: String,
     /// Original account name as extracted (before normalization).
     display_account: String,
+    /// Whether this entry's agency was normalized via dataset.json groups.
+    was_normalized: bool,
 }
 
 /// Build a map of `(normalized_agency, normalized_account) → AccountMapEntry`
@@ -898,6 +756,8 @@ struct AccountMapEntry {
 fn build_account_map(
     bills: &[LoadedBill],
     agency_filter: Option<&str>,
+    agency_groups: &[AgencyGroup],
+    account_aliases: &[AccountAlias],
 ) -> HashMap<(String, String), AccountMapEntry> {
     let mut accounts: HashMap<(String, String), AccountMapEntry> = HashMap::new();
     for loaded in bills {
@@ -916,14 +776,15 @@ fn build_account_map(
                 {
                     continue;
                 }
-                let key = (
-                    normalize_agency(ag),
-                    normalize_account_name(p.account_name()),
-                );
+                let (norm_ag, ag_normalized) = normalize_agency_with_groups(ag, agency_groups);
+                let (norm_acct, _) =
+                    normalize::normalize_account(p.account_name(), account_aliases);
+                let key = (norm_ag, norm_acct);
                 let entry = accounts.entry(key).or_insert_with(|| AccountMapEntry {
                     dollars: 0,
                     display_agency: ag.to_string(),
                     display_account: p.account_name().to_string(),
+                    was_normalized: ag_normalized,
                 });
                 entry.dollars += amt.dollars().unwrap_or(0);
             }
@@ -942,6 +803,8 @@ fn build_account_map(
 fn build_any_semantics_map(
     bills: &[LoadedBill],
     agency_filter: Option<&str>,
+    agency_groups: &[AgencyGroup],
+    account_aliases: &[AccountAlias],
 ) -> HashMap<(String, String), AccountMapEntry> {
     let mut accounts: HashMap<(String, String), AccountMapEntry> = HashMap::new();
     for loaded in bills {
@@ -961,14 +824,15 @@ fn build_any_semantics_map(
                 {
                     continue;
                 }
-                let key = (
-                    normalize_agency(ag),
-                    normalize_account_name(p.account_name()),
-                );
+                let (norm_ag, ag_normalized) = normalize_agency_with_groups(ag, agency_groups);
+                let (norm_acct, _) =
+                    normalize::normalize_account(p.account_name(), account_aliases);
+                let key = (norm_ag, norm_acct);
                 let entry = accounts.entry(key).or_insert_with(|| AccountMapEntry {
                     dollars: 0,
                     display_agency: ag.to_string(),
                     display_account: p.account_name().to_string(),
+                    was_normalized: ag_normalized,
                 });
                 entry.dollars += amt.dollars().unwrap_or(0);
             }
@@ -1484,15 +1348,25 @@ mod tests {
     // ── Agency Normalization ──
 
     #[test]
-    fn test_normalize_agency_parent_department() {
+    fn test_normalize_agency_no_implicit_mapping() {
+        // With no groups, normalize_agency just lowercases — no implicit table lookups.
+        // Sub-agencies pass through unchanged (users resolve via dataset.json).
         assert_eq!(
             normalize_agency("Maritime Administration"),
-            "department of transportation"
+            "maritime administration"
+        );
+        assert_eq!(
+            normalize_agency("National Park Service"),
+            "national park service"
+        );
+        assert_eq!(
+            normalize_agency("Bureau of Land Management"),
+            "bureau of land management"
         );
     }
 
     #[test]
-    fn test_normalize_agency_already_parent() {
+    fn test_normalize_agency_lowercases() {
         assert_eq!(
             normalize_agency("Department of Transportation"),
             "department of transportation"
@@ -1500,42 +1374,44 @@ mod tests {
     }
 
     #[test]
-    fn test_normalize_agency_comma_oig() {
-        assert_eq!(
-            normalize_agency("Office of Inspector General, Department of Transportation"),
-            "department of transportation"
-        );
-    }
-
-    #[test]
-    fn test_normalize_agency_comma_secretary() {
-        // "Department of Transportation, Office of the Secretary" →
-        // comma extraction takes "Department of Transportation" →
-        // not in sub-agency table → stays as is
-        assert_eq!(
-            normalize_agency("Department of Transportation, Office of the Secretary"),
-            "department of transportation"
-        );
-    }
-
-    #[test]
-    fn test_normalize_agency_interior_sub() {
-        assert_eq!(
-            normalize_agency("National Park Service"),
-            "department of the interior"
-        );
-        assert_eq!(
-            normalize_agency("Bureau of Land Management"),
-            "department of the interior"
-        );
-    }
-
-    #[test]
-    fn test_normalize_agency_unknown_passthrough() {
+    fn test_normalize_agency_passthrough() {
+        // Agencies not in any group pass through as lowercase
         assert_eq!(
             normalize_agency("Environmental Protection Agency"),
             "environmental protection agency"
         );
+        // Comma-separated names pass through unchanged (no implicit splitting)
+        assert_eq!(
+            normalize_agency("Office of Inspector General, Department of Transportation"),
+            "office of inspector general, department of transportation"
+        );
+        assert_eq!(
+            normalize_agency("Department of Transportation, Office of the Secretary"),
+            "department of transportation, office of the secretary"
+        );
+    }
+
+    #[test]
+    fn test_normalize_agency_with_explicit_groups() {
+        use super::normalize_agency_with_groups;
+        use crate::approp::normalize::AgencyGroup;
+
+        let groups = vec![AgencyGroup {
+            canonical: "Department of Defense".to_string(),
+            members: vec![
+                "Department of the Army".to_string(),
+                "Department of Defense—Army".to_string(),
+            ],
+        }];
+
+        let (name, normalized) = normalize_agency_with_groups("Department of the Army", &groups);
+        assert_eq!(name, "department of defense");
+        assert!(normalized);
+
+        let (name, normalized) =
+            normalize_agency_with_groups("Environmental Protection Agency", &groups);
+        assert_eq!(name, "environmental protection agency");
+        assert!(!normalized);
     }
 
     // ── Account Normalization ──
@@ -1652,7 +1528,7 @@ mod tests {
     fn test_compare_empty() {
         let base: Vec<LoadedBill> = Vec::new();
         let current: Vec<LoadedBill> = Vec::new();
-        let result = compare(&base, &current, None);
+        let result = compare(&base, &current, None, &[], &[]);
         assert!(result.rows.is_empty());
         assert!(result.cross_type_warning.is_none());
     }
