@@ -751,7 +751,7 @@ async fn handle_normalize(action: NormalizeCommands) -> Result<()> {
                     user_prompt.len() / 4,
                 );
 
-                let request = MessageBuilder::new("claude-sonnet-4-20250514")
+                let request = MessageBuilder::new("claude-opus-4-6")
                     .system(normalize::LLM_SYSTEM_PROMPT)
                     .user(&user_prompt)
                     .max_tokens(4000)
