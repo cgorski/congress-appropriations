@@ -2426,6 +2426,7 @@ async fn handle_semantic_search(
     // Score all provisions
     struct ScoredProvision<'a> {
         bill_id: &'a str,
+        congress: Option<u32>,
         #[allow(dead_code)]
         bill_dir_name: String,
         provision_index: usize,
@@ -2439,6 +2440,16 @@ async fn handle_semantic_search(
             continue;
         };
         let bill_id = bill.extraction.bill.identifier.as_str();
+        let bill_congress: Option<u32> =
+            bill.bill_meta
+                .as_ref()
+                .and_then(|m| m.congress)
+                .or_else(|| {
+                    bill.dir
+                        .file_name()
+                        .and_then(|n| n.to_str())
+                        .and_then(|name| name.split('-').next().and_then(|s| s.parse::<u32>().ok()))
+                });
         let bill_dir_name = bill
             .dir
             .file_name()
@@ -2542,6 +2553,7 @@ async fn handle_semantic_search(
             let sim = embeddings::cosine_similarity(&query_vec, emb.vector(idx));
             scored.push(ScoredProvision {
                 bill_id,
+                congress: bill_congress,
                 bill_dir_name: bill_dir_name.clone(),
                 provision_index: idx,
                 provision,
@@ -2571,7 +2583,8 @@ async fn handle_semantic_search(
                 .map(|s| {
                     let dollars = s.provision.amount().and_then(|a| a.dollars());
                     serde_json::json!({
-                        "bill": s.bill_id,
+                        "bill": format_bill_id(s.bill_id, s.congress),
+                        "congress": s.congress,
                         "provision_index": s.provision_index,
                         "similarity": (s.similarity * 1000.0).round() / 1000.0,
                         "provision_type": s.provision.type_str(),
@@ -2591,7 +2604,8 @@ async fn handle_semantic_search(
             for s in &scored {
                 let dollars = s.provision.amount().and_then(|a| a.dollars());
                 let obj = serde_json::json!({
-                    "bill": s.bill_id,
+                    "bill": format_bill_id(s.bill_id, s.congress),
+                    "congress": s.congress,
                     "provision_index": s.provision_index,
                     "similarity": (s.similarity * 1000.0).round() / 1000.0,
                     "provision_type": s.provision.type_str(),
@@ -2623,7 +2637,7 @@ async fn handle_semantic_search(
             for s in &scored {
                 let dollars = s.provision.amount().and_then(|a| a.dollars());
                 wtr.write_record([
-                    s.bill_id,
+                    &format_bill_id(s.bill_id, s.congress),
                     &s.provision_index.to_string(),
                     &format!("{:.3}", s.similarity),
                     s.provision.type_str(),
@@ -2666,7 +2680,7 @@ async fn handle_semantic_search(
                 let div = s.provision.division().unwrap_or("");
                 table.add_row(vec![
                     Cell::new(format!("{:.2}", s.similarity)),
-                    Cell::new(s.bill_id),
+                    Cell::new(format_bill_id(s.bill_id, s.congress)),
                     Cell::new(s.provision.type_str()),
                     Cell::new(desc),
                     Cell::new(dollars_str).set_alignment(CellAlignment::Right),
