@@ -1412,18 +1412,13 @@ fn normalize_list_with_dataset() {
 }
 
 #[test]
-fn normalize_suggest_text_match_dry_run() {
+fn normalize_suggest_text_match_outputs_hashes() {
     if !has_full_data() {
         return;
     }
+    // suggest-text-match is read-only — it caches results but never writes dataset.json
     let output = cmd()
-        .args([
-            "normalize",
-            "suggest-text-match",
-            "--dir",
-            "data",
-            "--dry-run",
-        ])
+        .args(["normalize", "suggest-text-match", "--dir", "data"])
         .output()
         .unwrap();
 
@@ -1433,16 +1428,52 @@ fn normalize_suggest_text_match_dry_run() {
         stdout.contains("suggested agency groups"),
         "Should report suggestions: {stdout}"
     );
-    let stderr = str::from_utf8(&output.stderr).unwrap();
+    // Should show hashes in the output
     assert!(
-        stderr.contains("Dry run"),
-        "Should indicate dry run: {stderr}"
+        stdout.contains('['),
+        "Should show hash brackets in table output: {stdout}"
     );
-    // Verify no dataset.json was created
+    let stderr = str::from_utf8(&output.stderr).unwrap();
+    // Should suggest using accept command
+    assert!(
+        stderr.contains("normalize accept"),
+        "Should suggest accept command: {stderr}"
+    );
+    // Verify no dataset.json was created (suggest is read-only)
     assert!(
         !std::path::Path::new("data/dataset.json").exists(),
-        "Dry run should not create dataset.json"
+        "suggest should not create dataset.json"
     );
+
+    // Test --format hashes outputs clean hash list
+    let output2 = cmd()
+        .args([
+            "normalize",
+            "suggest-text-match",
+            "--dir",
+            "data",
+            "--format",
+            "hashes",
+        ])
+        .output()
+        .unwrap();
+
+    assert!(output2.status.success());
+    let stdout2 = str::from_utf8(&output2.stdout).unwrap();
+    let lines: Vec<&str> = stdout2.lines().collect();
+    assert!(
+        lines.len() > 5,
+        "Should output many hashes, got {}",
+        lines.len()
+    );
+    // Each line should be an 8-char hex hash
+    for line in &lines[..3] {
+        assert_eq!(line.len(), 8, "Hash should be 8 chars: '{line}'");
+        assert!(
+            line.chars().all(|c| c.is_ascii_hexdigit()),
+            "Hash should be hex: '{line}'"
+        );
+    }
 }
 
 #[test]

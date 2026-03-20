@@ -340,10 +340,7 @@ enum NormalizeCommands {
         /// Data directory
         #[arg(long, default_value = "./data")]
         dir: String,
-        /// Preview suggestions without writing dataset.json
-        #[arg(long)]
-        dry_run: bool,
-        /// Output format: table, json
+        /// Output format: table, json, hashes
         #[arg(long, default_value = "table")]
         format: String,
     },
@@ -353,15 +350,23 @@ enum NormalizeCommands {
         /// Data directory
         #[arg(long, default_value = "./data")]
         dir: String,
-        /// Preview suggestions without writing dataset.json
-        #[arg(long)]
-        dry_run: bool,
         /// Maximum clusters per API call
         #[arg(long, default_value = "15")]
         batch_size: usize,
-        /// Output format: table, json
+        /// Output format: table, json, hashes
         #[arg(long, default_value = "table")]
         format: String,
+    },
+    /// Accept suggested normalizations by hash (from suggest-text-match or suggest-llm)
+    Accept {
+        /// Suggestion hashes to accept
+        hashes: Vec<String>,
+        /// Data directory
+        #[arg(long, default_value = "./data")]
+        dir: String,
+        /// Accept all cached suggestions without specifying hashes
+        #[arg(long)]
+        auto: bool,
     },
     /// Show current entity resolution rules from dataset.json
     List {
@@ -576,14 +581,11 @@ async fn main() -> Result<()> {
 // ─── Normalize Handler ───────────────────────────────────────────────────────
 
 async fn handle_normalize(action: NormalizeCommands) -> Result<()> {
+    use congress_appropriations::approp::cache;
     use congress_appropriations::approp::normalize;
 
     match action {
-        NormalizeCommands::SuggestTextMatch {
-            dir,
-            dry_run,
-            format,
-        } => {
+        NormalizeCommands::SuggestTextMatch { dir, format } => {
             let dir_path = std::path::Path::new(&dir);
             let bills = loading::load_bills(dir_path)?;
             if bills.is_empty() {
@@ -598,9 +600,27 @@ async fn handle_normalize(action: NormalizeCommands) -> Result<()> {
                 return Ok(());
             }
 
+            // Write to cache for the accept command
+            let cache_values: Vec<serde_json::Value> = suggestions
+                .iter()
+                .map(|s| serde_json::to_value(s).unwrap_or_default())
+                .collect();
+            let cache_path =
+                cache::write_suggestions(dir_path, "suggest-text-match", &cache_values)?;
+            eprintln!(
+                "Cached {} suggestions to {}",
+                suggestions.len(),
+                cache_path.display()
+            );
+
             match format.as_str() {
                 "json" => {
                     println!("{}", serde_json::to_string_pretty(&suggestions)?);
+                }
+                "hashes" => {
+                    for s in &suggestions {
+                        println!("{}", s.hash);
+                    }
                 }
                 _ => {
                     println!(
@@ -619,7 +639,13 @@ async fn handle_normalize(action: NormalizeCommands) -> Result<()> {
                                 pattern.as_str()
                             }
                         };
-                        println!("  {}. [{}] \"{}\"", i + 1, evidence_tag, s.canonical);
+                        println!(
+                            "  {}. [{}] [{}] \"{}\"",
+                            i + 1,
+                            s.hash,
+                            evidence_tag,
+                            s.canonical
+                        );
                         for m in &s.members {
                             println!("     = \"{}\"", m);
                         }
@@ -637,33 +663,17 @@ async fn handle_normalize(action: NormalizeCommands) -> Result<()> {
                         }
                         println!();
                     }
+
+                    eprintln!("To accept specific suggestions:");
+                    eprintln!("  congress-approp normalize accept HASH1 HASH2 --dir {dir}");
+                    eprintln!("To accept all:");
+                    eprintln!("  congress-approp normalize accept --auto --dir {dir}");
                 }
             }
-
-            if dry_run {
-                eprintln!("Dry run — no changes written.");
-                return Ok(());
-            }
-
-            // Load existing dataset.json or create new
-            let mut dataset =
-                normalize::load_dataset(dir_path)?.unwrap_or_else(normalize::DatasetFile::new);
-
-            // Merge suggestions
-            normalize::merge_groups(&mut dataset, &suggestions);
-
-            // Write
-            normalize::save_dataset(dir_path, &dataset)?;
-            eprintln!(
-                "Wrote {} agency groups to {}/dataset.json",
-                dataset.entities.agency_groups.len(),
-                dir
-            );
         }
 
         NormalizeCommands::SuggestLlm {
             dir,
-            dry_run,
             batch_size,
             format,
         } => {
@@ -839,7 +849,10 @@ async fn handle_normalize(action: NormalizeCommands) -> Result<()> {
                                     println!("     Reasoning: {}", reasoning);
                                     println!();
 
+                                    let sg_hash =
+                                        normalize::compute_suggestion_hash(&canonical, &members);
                                     all_accepted_groups.push(normalize::SuggestedGroup {
+                                        hash: sg_hash,
                                         canonical,
                                         members,
                                         evidence: normalize::SuggestionEvidence::RegexPattern {
@@ -875,38 +888,162 @@ async fn handle_normalize(action: NormalizeCommands) -> Result<()> {
                 }
             }
 
-            // Step 5: Output summary
+            // Step 5: Cache results and output
+            if !all_accepted_groups.is_empty() {
+                // Add hashes to LLM suggestions
+                for s in &mut all_accepted_groups {
+                    if s.hash.is_empty() {
+                        s.hash = normalize::compute_suggestion_hash(&s.canonical, &s.members);
+                    }
+                }
+
+                // Write to cache
+                let cache_values: Vec<serde_json::Value> = all_accepted_groups
+                    .iter()
+                    .map(|s| serde_json::to_value(s).unwrap_or_default())
+                    .collect();
+                let cache_path = cache::write_suggestions(dir_path, "suggest-llm", &cache_values)?;
+                eprintln!(
+                    "Cached {} LLM suggestions to {}",
+                    all_accepted_groups.len(),
+                    cache_path.display()
+                );
+            }
+
             match format.as_str() {
                 "json" => {
                     println!("{}", serde_json::to_string_pretty(&all_accepted_groups)?);
                 }
+                "hashes" => {
+                    for s in &all_accepted_groups {
+                        println!("{}", s.hash);
+                    }
+                }
                 _ => {
-                    println!(
-                        "\nSummary: {} SAME groups identified by LLM.",
-                        all_accepted_groups.len()
-                    );
+                    if all_accepted_groups.is_empty() {
+                        println!("No SAME groups identified by LLM.");
+                    } else {
+                        println!(
+                            "\n{} SAME groups identified by LLM.\n",
+                            all_accepted_groups.len()
+                        );
+                        eprintln!("To accept specific suggestions:");
+                        eprintln!("  congress-approp normalize accept HASH1 HASH2 --dir {dir}");
+                        eprintln!("To accept all:");
+                        eprintln!("  congress-approp normalize accept --auto --dir {dir}");
+                    }
                 }
             }
+        }
 
-            if dry_run {
-                eprintln!("Dry run — no changes written.");
-                return Ok(());
-            }
+        NormalizeCommands::Accept { hashes, dir, auto } => {
+            let dir_path = std::path::Path::new(&dir);
 
-            if all_accepted_groups.is_empty() {
-                eprintln!("No SAME groups to write.");
-                return Ok(());
-            }
+            // Read from cache — try both text-match and llm caches
+            let cached =
+                cache::read_any_suggestions(dir_path, &["suggest-text-match", "suggest-llm"])?;
 
-            // Write to dataset.json
+            let (source_cmd, all_suggestions) = match cached {
+                Some((cmd, sugs)) => (cmd, sugs),
+                None => {
+                    anyhow::bail!(
+                        "No cached suggestions found. Run one of:\n  \
+                         congress-approp normalize suggest-text-match --dir {dir}\n  \
+                         congress-approp normalize suggest-llm --dir {dir}"
+                    );
+                }
+            };
+
+            // Determine which suggestions to accept
+            let to_accept: Vec<serde_json::Value> = if auto {
+                eprintln!(
+                    "Auto-accepting all {} suggestions from {source_cmd}.",
+                    all_suggestions.len()
+                );
+                all_suggestions
+            } else {
+                if hashes.is_empty() {
+                    anyhow::bail!(
+                        "Provide hashes to accept, or use --auto to accept all.\n  \
+                         Run `normalize suggest-text-match --dir {dir}` to see available hashes."
+                    );
+                }
+                let mut accepted = Vec::new();
+                let mut not_found = Vec::new();
+                for hash in &hashes {
+                    let matched: Vec<_> = all_suggestions
+                        .iter()
+                        .filter(|s| s.get("hash").and_then(|h| h.as_str()) == Some(hash.as_str()))
+                        .cloned()
+                        .collect();
+                    if matched.is_empty() {
+                        not_found.push(hash.as_str());
+                    } else {
+                        accepted.extend(matched);
+                    }
+                }
+                if !not_found.is_empty() {
+                    eprintln!(
+                        "Warning: {} hash(es) not found in cached suggestions: {}",
+                        not_found.len(),
+                        not_found.join(", ")
+                    );
+                    eprintln!(
+                        "Re-run `normalize suggest-text-match --dir {dir}` to see current suggestions."
+                    );
+                }
+                if accepted.is_empty() {
+                    anyhow::bail!("No matching suggestions found to accept.");
+                }
+                accepted
+            };
+
+            // Convert to SuggestedGroup and merge into dataset.json
             let mut dataset =
                 normalize::load_dataset(dir_path)?.unwrap_or_else(normalize::DatasetFile::new);
-            normalize::merge_groups(&mut dataset, &all_accepted_groups);
+
+            let mut accepted_count = 0;
+            for value in &to_accept {
+                let canonical = value
+                    .get("canonical")
+                    .and_then(|c| c.as_str())
+                    .unwrap_or("");
+                let members: Vec<String> = value
+                    .get("members")
+                    .and_then(|m| m.as_array())
+                    .map(|arr| {
+                        arr.iter()
+                            .filter_map(|v| v.as_str().map(|s| s.to_string()))
+                            .collect()
+                    })
+                    .unwrap_or_default();
+
+                if canonical.is_empty() || members.is_empty() {
+                    continue;
+                }
+
+                let suggestion = normalize::SuggestedGroup {
+                    hash: value
+                        .get("hash")
+                        .and_then(|h| h.as_str())
+                        .unwrap_or("")
+                        .to_string(),
+                    canonical: canonical.to_string(),
+                    members: members.clone(),
+                    evidence: normalize::SuggestionEvidence::OrphanPair,
+                    example_accounts: Vec::new(),
+                    orphan_pairs_resolved: 0,
+                };
+
+                normalize::merge_groups(&mut dataset, &[suggestion]);
+                accepted_count += 1;
+            }
+
             normalize::save_dataset(dir_path, &dataset)?;
-            eprintln!(
-                "Wrote {} agency groups to {}/dataset.json",
-                dataset.entities.agency_groups.len(),
-                dir
+            println!(
+                "Accepted {} suggestions. dataset.json now has {} agency groups.",
+                accepted_count,
+                dataset.entities.agency_groups.len()
             );
         }
 

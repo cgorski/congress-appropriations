@@ -14,6 +14,7 @@ use crate::approp::ontology::{AmountSemantics, Provision};
 use anyhow::{Context, Result};
 use regex::Regex;
 use serde::{Deserialize, Serialize};
+use sha2::{Digest, Sha256};
 use std::collections::{HashMap, HashSet};
 use std::path::Path;
 use std::sync::LazyLock;
@@ -94,9 +95,12 @@ pub struct AccountAlias {
     pub aliases: Vec<String>,
 }
 
-/// A suggestion produced by `suggest-text-match`.
+/// A suggestion produced by `suggest-text-match` or `suggest-llm`.
 #[derive(Debug, Clone, Serialize)]
 pub struct SuggestedGroup {
+    /// Deterministic 8-char hex hash for the suggest/accept workflow.
+    /// Computed from SHA-256 of canonical + sorted members.
+    pub hash: String,
     /// The proposed canonical name.
     pub canonical: String,
     /// The variant that should be grouped with the canonical.
@@ -107,6 +111,20 @@ pub struct SuggestedGroup {
     pub example_accounts: Vec<String>,
     /// Number of orphan pairs this group would resolve.
     pub orphan_pairs_resolved: usize,
+}
+
+/// Compute a deterministic 8-char hex hash for a normalization suggestion.
+///
+/// The hash is derived from the canonical name and sorted members,
+/// ensuring that the same suggestion always produces the same hash
+/// regardless of member order. This enables the suggest/accept workflow
+/// where users reference suggestions by hash.
+pub fn compute_suggestion_hash(canonical: &str, members: &[String]) -> String {
+    let mut sorted_members: Vec<String> = members.iter().map(|m| m.to_lowercase()).collect();
+    sorted_members.sort();
+    let data = format!("{}:{}", canonical.to_lowercase(), sorted_members.join(","));
+    let digest = Sha256::digest(data.as_bytes());
+    format!("{:x}", digest)[..8].to_string()
 }
 
 /// How a normalization suggestion was discovered.
@@ -418,7 +436,9 @@ pub fn suggest_text_match(bills: &[LoadedBill]) -> Vec<SuggestedGroup> {
             .take(5)
             .collect();
 
+        let hash = compute_suggestion_hash(&canonical, std::slice::from_ref(&member));
         suggestions.push(SuggestedGroup {
+            hash,
             canonical,
             members: vec![member],
             evidence,
@@ -977,6 +997,10 @@ mod tests {
     fn test_merge_groups_new() {
         let mut dataset = DatasetFile::new();
         let suggestions = vec![SuggestedGroup {
+            hash: compute_suggestion_hash(
+                "Department of Defense",
+                &["Department of the Army".to_string()],
+            ),
             canonical: "Department of Defense".to_string(),
             members: vec!["Department of the Army".to_string()],
             evidence: SuggestionEvidence::OrphanPair,
@@ -998,6 +1022,10 @@ mod tests {
         });
 
         let suggestions = vec![SuggestedGroup {
+            hash: compute_suggestion_hash(
+                "Department of Defense",
+                &["Department of the Navy".to_string()],
+            ),
             canonical: "Department of Defense".to_string(),
             members: vec!["Department of the Navy".to_string()],
             evidence: SuggestionEvidence::OrphanPair,
@@ -1041,6 +1069,28 @@ mod tests {
             "united states army",
             "united states navy"
         ));
+    }
+
+    #[test]
+    fn test_compute_suggestion_hash_deterministic() {
+        let h1 = compute_suggestion_hash("Dept of Defense", &["Dept of Army".to_string()]);
+        let h2 = compute_suggestion_hash("Dept of Defense", &["Dept of Army".to_string()]);
+        assert_eq!(h1, h2, "Same input should produce same hash");
+        assert_eq!(h1.len(), 8, "Hash should be 8 hex chars");
+    }
+
+    #[test]
+    fn test_compute_suggestion_hash_order_independent() {
+        let h1 = compute_suggestion_hash("DoD", &["Army".to_string(), "Navy".to_string()]);
+        let h2 = compute_suggestion_hash("DoD", &["Navy".to_string(), "Army".to_string()]);
+        assert_eq!(h1, h2, "Member order should not affect hash");
+    }
+
+    #[test]
+    fn test_compute_suggestion_hash_differs() {
+        let h1 = compute_suggestion_hash("A", &["B".to_string()]);
+        let h2 = compute_suggestion_hash("C", &["D".to_string()]);
+        assert_ne!(h1, h2, "Different inputs should produce different hashes");
     }
 
     #[test]
