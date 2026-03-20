@@ -1,6 +1,6 @@
 [package]
 name = "congress-appropriations"
-version = "4.2.1"
+version = "5.0.0"
 edition = "2024"
 rust-version = "1.93"
 license = "MIT OR Apache-2.0"
@@ -10,7 +10,7 @@ homepage = "https://github.com/cgorski/congress-appropriations"
 readme = "README.md"
 keywords = ["congress", "appropriations", "federal-budget", "legislation", "government"]
 categories = ["command-line-utilities", "parser-implementations"]
-exclude = ["examples/*/vectors.bin"]
+exclude = ["data/", "tmp/", "scripts/"]
 
 [lib]
 name = "congress_appropriations"

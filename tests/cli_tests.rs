@@ -1,6 +1,6 @@
 //! CLI integration tests.
 //!
-//! These tests run the actual binary against the `examples/` data
+//! These tests run the actual binary against the `data/` and `test-data/` data
 //! to guard against regressions in output format and data integrity.
 
 use assert_cmd::Command;
@@ -10,12 +10,22 @@ fn cmd() -> Command {
     Command::cargo_bin("congress-approp").unwrap()
 }
 
+/// Returns true if the full `data/` directory is available (git clone).
+/// Tier 2 tests call this and return early if false.
+fn has_full_data() -> bool {
+    // Check for a bill that only exists in the full dataset, not test-data/
+    std::path::Path::new("data/118-hr4366/extraction.json").exists()
+}
+
 // ─── Budget Authority Totals (critical regression guard) ─────────────────────
 
 #[test]
 fn budget_authority_totals_match_expected() {
+    if !has_full_data() {
+        return;
+    }
     let output = cmd()
-        .args(["summary", "--dir", "examples", "--format", "json"])
+        .args(["summary", "--dir", "data", "--format", "json"])
         .output()
         .unwrap();
 
@@ -29,7 +39,7 @@ fn budget_authority_totals_match_expected() {
         ("H.R. 9468", 2_882_482_000, 0),
     ];
 
-    // examples/ may contain more bills than the original 3;
+    // data/ may contain more bills than the original 3;
     // verify the original 3 are present with correct totals.
     assert!(
         data.len() >= expected.len(),
@@ -57,13 +67,12 @@ fn budget_authority_totals_match_expected() {
 #[test]
 fn summary_table_runs_successfully() {
     cmd()
-        .args(["summary", "--dir", "examples"])
+        .args(["summary", "--dir", "test-data"])
         .assert()
         .success()
-        .stdout(predicates::str::contains("H.R. 4366"))
         .stdout(predicates::str::contains("H.R. 5860"))
         .stdout(predicates::str::contains("H.R. 9468"))
-        .stdout(predicates::str::contains("Omnibus"))
+        .stdout(predicates::str::contains("H.R. 2872"))
         .stdout(predicates::str::contains("Continuing Resolution"))
         .stdout(predicates::str::contains("Supplemental"))
         .stdout(predicates::str::contains("Provisions"))
@@ -73,7 +82,7 @@ fn summary_table_runs_successfully() {
 #[test]
 fn summary_json_is_valid() {
     let output = cmd()
-        .args(["summary", "--dir", "examples", "--format", "json"])
+        .args(["summary", "--dir", "test-data", "--format", "json"])
         .output()
         .unwrap();
 
@@ -92,7 +101,7 @@ fn summary_json_is_valid() {
 #[test]
 fn audit_shows_zero_not_found() {
     cmd()
-        .args(["audit", "--dir", "examples"])
+        .args(["audit", "--dir", "test-data"])
         .assert()
         .success()
         .stdout(predicates::str::contains("Verified"))
@@ -100,14 +109,17 @@ fn audit_shows_zero_not_found() {
         .stdout(predicates::str::contains("Coverage"));
 
     // Parse the table output and verify NotFound column is 0 for all rows
-    let output = cmd().args(["audit", "--dir", "examples"]).output().unwrap();
+    let output = cmd()
+        .args(["audit", "--dir", "test-data"])
+        .output()
+        .unwrap();
     let _stdout = str::from_utf8(&output.stdout).unwrap();
 
     // The TOTAL row should show 0 in the NotFound column
     // Table format: │ TOTAL ... ┆ ... ┆ 0 ┆ ...
     // We verify by checking the verbose output doesn't list any NOT FOUND amounts
     let verbose_output = cmd()
-        .args(["audit", "--dir", "examples", "--verbose"])
+        .args(["audit", "--dir", "test-data", "--verbose"])
         .output()
         .unwrap();
     let verbose_stdout = str::from_utf8(&verbose_output.stdout).unwrap();
@@ -121,7 +133,7 @@ fn audit_shows_zero_not_found() {
 fn audit_report_alias_works() {
     // The old "report" command should still work as an alias
     cmd()
-        .args(["report", "--dir", "examples"])
+        .args(["report", "--dir", "test-data"])
         .assert()
         .success()
         .stdout(predicates::str::contains("Verified"));
@@ -132,7 +144,7 @@ fn audit_report_alias_works() {
 #[test]
 fn search_appropriations_returns_results() {
     cmd()
-        .args(["search", "--dir", "examples", "--type", "appropriation"])
+        .args(["search", "--dir", "test-data", "--type", "appropriation"])
         .assert()
         .success()
         .stdout(predicates::str::contains("$")) // column header
@@ -145,7 +157,7 @@ fn search_json_has_correct_fields() {
         .args([
             "search",
             "--dir",
-            "examples/hr9468",
+            "test-data/118-hr9468",
             "--type",
             "appropriation",
             "--format",
@@ -181,7 +193,7 @@ fn search_json_has_correct_fields() {
 
     // Verify the actual values
     assert_eq!(first["amount_status"].as_str().unwrap(), "found");
-    assert_eq!(first["bill"].as_str().unwrap(), "H.R. 9468");
+    assert_eq!(first["bill"].as_str().unwrap(), "H.R. 9468 (118th)");
     assert_eq!(first["dollars"].as_i64().unwrap(), 2_285_513_000);
 }
 
@@ -191,7 +203,7 @@ fn search_csv_has_correct_headers() {
         .args([
             "search",
             "--dir",
-            "examples/hr9468",
+            "test-data/118-hr9468",
             "--type",
             "appropriation",
             "--format",
@@ -244,7 +256,7 @@ fn search_csv_new_columns_populated() {
         .args([
             "search",
             "--dir",
-            "examples/hr9468",
+            "test-data/118-hr9468",
             "--type",
             "appropriation",
             "--format",
@@ -286,12 +298,12 @@ fn search_csv_new_columns_populated() {
 
 #[test]
 fn search_csv_stderr_warns_mixed_semantics() {
-    // Search all examples for appropriations — this includes reference_amount provisions
+    // Search all bills for appropriations — this includes reference_amount provisions
     let output = cmd()
         .args([
             "search",
             "--dir",
-            "examples",
+            "test-data",
             "--type",
             "appropriation",
             "--format",
@@ -315,7 +327,7 @@ fn search_csv_stderr_warns_mixed_semantics() {
 #[test]
 fn summary_table_shows_fiscal_years() {
     let output = cmd()
-        .args(["summary", "--dir", "examples"])
+        .args(["summary", "--dir", "test-data"])
         .output()
         .unwrap();
 
@@ -325,15 +337,10 @@ fn summary_table_shows_fiscal_years() {
         stdout.contains("FYs"),
         "Summary table should have FYs column header"
     );
-    // H.R. 4366 covers FY2024
+    // All test-data bills cover FY2024
     assert!(
         stdout.contains("2024"),
         "Summary should show fiscal year 2024"
-    );
-    // H.R. 7148 covers FY2026
-    assert!(
-        stdout.contains("2026"),
-        "Summary should show fiscal year 2026"
     );
 }
 
@@ -344,7 +351,7 @@ fn search_shows_ambiguous_marker() {
         .args([
             "search",
             "--dir",
-            "examples/hr4366",
+            "data/118-hr4366",
             "--type",
             "appropriation",
             "--agency",
@@ -373,7 +380,7 @@ fn search_cr_substitution_table_format() {
         .args([
             "search",
             "--dir",
-            "examples/hr5860",
+            "test-data/118-hr5860",
             "--type",
             "cr_substitution",
         ])
@@ -388,7 +395,13 @@ fn search_cr_substitution_table_format() {
 #[test]
 fn search_empty_result_no_error() {
     cmd()
-        .args(["search", "--dir", "examples", "--keyword", "XYZNONEXISTENT"])
+        .args([
+            "search",
+            "--dir",
+            "test-data",
+            "--keyword",
+            "XYZNONEXISTENT",
+        ])
         .assert()
         .success()
         .stdout(predicates::str::contains("No matching provisions found"));
@@ -399,7 +412,7 @@ fn search_empty_result_no_error() {
 #[test]
 fn search_unknown_type_warns() {
     let output = cmd()
-        .args(["search", "--dir", "examples", "--type", "apppropriation"])
+        .args(["search", "--dir", "test-data", "--type", "apppropriation"])
         .output()
         .unwrap();
 
@@ -420,9 +433,9 @@ fn compare_cross_type_shows_warning() {
         .args([
             "compare",
             "--base",
-            "examples/hr5860",
+            "test-data/118-hr5860",
             "--current",
-            "examples/hr9468",
+            "test-data/118-hr9468",
         ])
         .output()
         .unwrap();
@@ -451,9 +464,9 @@ fn compare_same_type_no_warning() {
         .args([
             "compare",
             "--base",
-            "examples/hr4366",
+            "data/118-hr4366",
             "--current",
-            "examples/hr4366",
+            "data/118-hr4366",
         ])
         .output()
         .unwrap();
@@ -473,7 +486,7 @@ fn compare_same_type_no_warning() {
 fn extract_dry_run_works_without_api_key() {
     // Unset API key to verify dry-run doesn't need it
     let output = cmd()
-        .args(["extract", "--dry-run", "--dir", "examples/hr9468"])
+        .args(["extract", "--dry-run", "--dir", "test-data/118-hr9468"])
         .env_remove("ANTHROPIC_API_KEY")
         .output()
         .unwrap();
@@ -488,7 +501,14 @@ fn extract_dry_run_works_without_api_key() {
 
 #[test]
 fn example_data_has_schema_version() {
-    for dir in &["examples/hr4366", "examples/hr5860", "examples/hr9468"] {
+    if !has_full_data() {
+        return;
+    }
+    for dir in &[
+        "data/118-hr4366",
+        "test-data/118-hr5860",
+        "test-data/118-hr9468",
+    ] {
         let ext_path = format!("{dir}/extraction.json");
         let ext_text = std::fs::read_to_string(&ext_path)
             .unwrap_or_else(|_| panic!("Failed to read {ext_path}"));
@@ -544,10 +564,10 @@ fn audit_empty_dir_no_crash() {
 
 #[test]
 fn enrich_dry_run_writes_nothing() {
-    // Copy a small bill to a temp dir so we don't modify examples/
+    // Copy a small bill to a temp dir so we don't modify test-data/
     let dir = tempfile::tempdir().unwrap();
-    let src = std::path::Path::new("examples/hr9468");
-    let dst = dir.path().join("hr9468");
+    let src = std::path::Path::new("test-data/118-hr9468");
+    let dst = dir.path().join("118-hr9468");
     copy_dir(src, &dst);
 
     // Remove bill_meta.json if it was copied
@@ -573,8 +593,8 @@ fn enrich_dry_run_writes_nothing() {
 #[test]
 fn enrich_creates_bill_meta() {
     let dir = tempfile::tempdir().unwrap();
-    let src = std::path::Path::new("examples/hr9468");
-    let dst = dir.path().join("hr9468");
+    let src = std::path::Path::new("test-data/118-hr9468");
+    let dst = dir.path().join("118-hr9468");
     copy_dir(src, &dst);
 
     // Remove bill_meta.json if copied
@@ -600,9 +620,12 @@ fn enrich_creates_bill_meta() {
 
 #[test]
 fn enrich_skips_existing() {
-    // Run against examples/ which already have bill_meta.json
+    if !has_full_data() {
+        return;
+    }
+    // Run against data/ which already have bill_meta.json
     cmd()
-        .args(["enrich", "--dir", "examples"])
+        .args(["enrich", "--dir", "data"])
         .assert()
         .success()
         .stderr(predicates::str::contains("skip"))
@@ -612,8 +635,8 @@ fn enrich_skips_existing() {
 #[test]
 fn enrich_force_re_enriches() {
     let dir = tempfile::tempdir().unwrap();
-    let src = std::path::Path::new("examples/hr9468");
-    let dst = dir.path().join("hr9468");
+    let src = std::path::Path::new("test-data/118-hr9468");
+    let dst = dir.path().join("118-hr9468");
     copy_dir(src, &dst);
 
     // First enrich
@@ -641,9 +664,12 @@ fn enrich_force_re_enriches() {
 
 #[test]
 fn summary_fy_filter_narrows_bills() {
+    if !has_full_data() {
+        return;
+    }
     let output = cmd()
         .args([
-            "summary", "--dir", "examples", "--fy", "2026", "--format", "json",
+            "summary", "--dir", "data", "--fy", "2026", "--format", "json",
         ])
         .output()
         .unwrap();
@@ -680,11 +706,14 @@ fn summary_fy_filter_narrows_bills() {
 
 #[test]
 fn search_fy_filter_excludes_other_years() {
+    if !has_full_data() {
+        return;
+    }
     let output = cmd()
         .args([
             "search",
             "--dir",
-            "examples",
+            "data",
             "--type",
             "appropriation",
             "--fy",
@@ -719,11 +748,14 @@ fn search_fy_filter_excludes_other_years() {
 
 #[test]
 fn summary_subcommittee_filter() {
+    if !has_full_data() {
+        return;
+    }
     let output = cmd()
         .args([
             "summary",
             "--dir",
-            "examples",
+            "data",
             "--fy",
             "2026",
             "--subcommittee",
@@ -757,10 +789,13 @@ fn summary_subcommittee_filter() {
 
 #[test]
 fn subcommittee_without_enrich_gives_clear_error() {
+    if !has_full_data() {
+        return;
+    }
     // Use a temp dir with a bill that has no bill_meta.json
     let dir = tempfile::tempdir().unwrap();
-    let src = std::path::Path::new("examples/hr9468");
-    let dst = dir.path().join("hr9468");
+    let src = std::path::Path::new("test-data/118-hr9468");
+    let dst = dir.path().join("118-hr9468");
     copy_dir(src, &dst);
 
     // Remove bill_meta.json
@@ -781,14 +816,11 @@ fn subcommittee_without_enrich_gives_clear_error() {
 
 #[test]
 fn subcommittee_invalid_slug_gives_error() {
+    if !has_full_data() {
+        return;
+    }
     cmd()
-        .args([
-            "summary",
-            "--dir",
-            "examples",
-            "--subcommittee",
-            "nonexistent",
-        ])
+        .args(["summary", "--dir", "data", "--subcommittee", "nonexistent"])
         .assert()
         .failure()
         .stderr(predicates::str::contains("Unknown subcommittee"));
@@ -798,11 +830,14 @@ fn subcommittee_invalid_slug_gives_error() {
 
 #[test]
 fn summary_show_advance_milcon_va() {
+    if !has_full_data() {
+        return;
+    }
     let output = cmd()
         .args([
             "summary",
             "--dir",
-            "examples",
+            "data",
             "--fy",
             "2026",
             "--subcommittee",
@@ -857,6 +892,9 @@ fn summary_show_advance_milcon_va() {
 
 #[test]
 fn compare_base_fy_current_fy() {
+    if !has_full_data() {
+        return;
+    }
     let output = cmd()
         .args([
             "compare",
@@ -867,7 +905,7 @@ fn compare_base_fy_current_fy() {
             "--subcommittee",
             "thud",
             "--dir",
-            "examples",
+            "data",
         ])
         .output()
         .unwrap();
@@ -904,6 +942,9 @@ fn compare_requires_base_and_current() {
 
 #[test]
 fn compare_case_insensitive_grants_in_aid() {
+    if !has_full_data() {
+        return;
+    }
     // Compare FY2024→FY2026 THUD and verify Grants-in-Aid for Airports matches
     // (it has case variants: "Grants-In-Aid" vs "Grants-in-Aid" vs "Grants-in-aid")
     let output = cmd()
@@ -916,7 +957,7 @@ fn compare_case_insensitive_grants_in_aid() {
             "--subcommittee",
             "thud",
             "--dir",
-            "examples",
+            "data",
             "--format",
             "json",
         ])
@@ -952,9 +993,12 @@ fn compare_case_insensitive_grants_in_aid() {
 
 #[test]
 fn budget_totals_unchanged_after_phase1() {
+    if !has_full_data() {
+        return;
+    }
     // Re-verify the critical regression guard after all Phase 1 changes
     let output = cmd()
-        .args(["summary", "--dir", "examples", "--format", "json"])
+        .args(["summary", "--dir", "data", "--format", "json"])
         .output()
         .unwrap();
 
@@ -964,8 +1008,8 @@ fn budget_totals_unchanged_after_phase1() {
 
     // The unfiltered summary should still show all 13 bills
     assert!(
-        data.len() >= 13,
-        "Expected at least 13 bills, found {}",
+        data.len() >= 14,
+        "Expected at least 14 bills, found {}",
         data.len()
     );
 
@@ -990,8 +1034,11 @@ fn budget_totals_unchanged_after_phase1() {
 
 #[test]
 fn relate_table_output() {
+    if !has_full_data() {
+        return;
+    }
     let output = cmd()
-        .args(["relate", "hr9468:0", "--dir", "examples"])
+        .args(["relate", "118-hr9468:0", "--dir", "data"])
         .output()
         .unwrap();
 
@@ -1015,15 +1062,18 @@ fn relate_table_output() {
     );
     // Should have 8-char hashes
     assert!(
-        stdout.contains("b7e688d7"),
+        stdout.contains("004929ba"),
         "Should show deterministic hash for first match"
     );
 }
 
 #[test]
 fn relate_with_fy_timeline() {
+    if !has_full_data() {
+        return;
+    }
     let output = cmd()
-        .args(["relate", "hr9468:0", "--dir", "examples", "--fy-timeline"])
+        .args(["relate", "118-hr9468:0", "--dir", "data", "--fy-timeline"])
         .output()
         .unwrap();
 
@@ -1040,12 +1090,15 @@ fn relate_with_fy_timeline() {
 
 #[test]
 fn relate_json_output() {
+    if !has_full_data() {
+        return;
+    }
     let output = cmd()
         .args([
             "relate",
-            "hr9468:0",
+            "118-hr9468:0",
             "--dir",
-            "examples",
+            "data",
             "--format",
             "json",
             "--fy-timeline",
@@ -1069,9 +1122,17 @@ fn relate_json_output() {
 
 #[test]
 fn relate_hashes_output() {
+    if !has_full_data() {
+        return;
+    }
     let output = cmd()
         .args([
-            "relate", "hr9468:0", "--dir", "examples", "--format", "hashes",
+            "relate",
+            "118-hr9468:0",
+            "--dir",
+            "data",
+            "--format",
+            "hashes",
         ])
         .output()
         .unwrap();
@@ -1088,7 +1149,12 @@ fn relate_hashes_output() {
     // Hashes should be deterministic
     let output2 = cmd()
         .args([
-            "relate", "hr9468:0", "--dir", "examples", "--format", "hashes",
+            "relate",
+            "118-hr9468:0",
+            "--dir",
+            "data",
+            "--format",
+            "hashes",
         ])
         .output()
         .unwrap();
@@ -1101,28 +1167,41 @@ fn relate_hashes_output() {
 
 #[test]
 fn relate_invalid_reference() {
-    // Missing colon
+    if !has_full_data() {
+        return;
+    }
+    // Missing colon — no index separator
     cmd()
-        .args(["relate", "hr9468", "--dir", "examples"])
+        .args(["relate", "118-hr9468", "--dir", "data"])
         .assert()
         .failure()
         .stderr(predicates::str::contains("Invalid provision reference"));
 
     // Non-existent bill
     cmd()
-        .args(["relate", "nonexistent:0", "--dir", "examples"])
+        .args(["relate", "nonexistent:0", "--dir", "data"])
         .assert()
         .failure()
         .stderr(predicates::str::contains("not found"));
+
+    // Out-of-range provision index
+    cmd()
+        .args(["relate", "118-hr9468:99", "--dir", "data"])
+        .assert()
+        .failure()
+        .stderr(predicates::str::contains("out of range"));
 }
 
 // ─── Link Commands ───────────────────────────────────────────────────────────
 
 #[test]
 fn link_suggest_produces_candidates() {
+    if !has_full_data() {
+        return;
+    }
     let output = cmd()
         .args([
-            "link", "suggest", "--dir", "examples", "--scope", "cross", "--limit", "5", "--format",
+            "link", "suggest", "--dir", "data", "--scope", "cross", "--limit", "5", "--format",
             "json",
         ])
         .output()
@@ -1145,11 +1224,14 @@ fn link_suggest_produces_candidates() {
 
 #[test]
 fn link_full_workflow() {
-    // Use a temp dir to avoid polluting examples/
+    if !has_full_data() {
+        return;
+    }
+    // Use a temp dir to avoid polluting data/
     let dir = tempfile::tempdir().unwrap();
     // Copy two small bills with embeddings
-    for bill in &["hr9468", "hr5860"] {
-        let src = std::path::Path::new("examples").join(bill);
+    for bill in &["118-hr9468", "118-hr5860"] {
+        let src = std::path::Path::new("data").join(bill);
         let dst = dir.path().join(bill);
         copy_dir_with_vectors(&src, &dst);
     }
@@ -1244,9 +1326,12 @@ fn link_full_workflow() {
 
 #[test]
 fn link_accept_auto() {
+    if !has_full_data() {
+        return;
+    }
     let dir = tempfile::tempdir().unwrap();
-    for bill in &["hr9468", "hr4366"] {
-        let src = std::path::Path::new("examples").join(bill);
+    for bill in &["118-hr9468", "118-hr4366"] {
+        let src = std::path::Path::new("data").join(bill);
         let dst = dir.path().join(bill);
         copy_dir_with_vectors(&src, &dst);
     }
@@ -1276,8 +1361,11 @@ fn link_list_empty_no_crash() {
 
 #[test]
 fn link_suggest_invalid_scope() {
+    if !has_full_data() {
+        return;
+    }
     cmd()
-        .args(["link", "suggest", "--dir", "examples", "--scope", "invalid"])
+        .args(["link", "suggest", "--dir", "data", "--scope", "invalid"])
         .assert()
         .failure()
         .stderr(predicates::str::contains("Invalid scope"));

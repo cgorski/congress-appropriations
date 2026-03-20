@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0",
+  "congress": 118,
+  "fiscal_years": [
+    2024
+  ],
+  "bill_nature": "continuing_resolution",
+  "subcommittees": [
+    {
+      "division": "A",
+      "jurisdiction": "continuing_resolution",
+      "title": "FURTHER ADDITIONAL CONTINUING APPROPRIATIONS ACT, 2024",
+      "source": {
+        "type": "pattern_match",
+        "pattern": "continuing appropriations"
+      }
+    },
+    {
+      "division": "B",
+      "jurisdiction": "other",
+      "title": "Other Matters",
+      "source": {
+        "type": "pattern_match",
+        "pattern": "other matters"
+      }
+    }
+  ],
+  "provision_timing": [],
+  "canonical_accounts": [
+    {
+      "provision_index": 4,
+      "canonical_name": "weapons activities"
+    }
+  ],
+  "extraction_sha256": "c4fece22e18fff076462523b31212a72662f4ad7b66a2c71249d0211821773b5"
+}

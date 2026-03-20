@@ -253,7 +253,7 @@ enum Commands {
         /// Provision reference: bill_directory:index (e.g., hr9468:0)
         source: String,
         /// Data directory
-        #[arg(long, default_value = "./examples")]
+        #[arg(long, default_value = "./data")]
         dir: String,
         /// Max related provisions per tier
         #[arg(long, default_value = "10")]
@@ -272,7 +272,7 @@ enum LinkCommands {
     /// Compute link candidates from embeddings
     Suggest {
         /// Data directory
-        #[arg(long, default_value = "./examples")]
+        #[arg(long, default_value = "./data")]
         dir: String,
         /// Minimum similarity threshold
         #[arg(long, default_value = "0.55")]
@@ -290,7 +290,7 @@ enum LinkCommands {
     /// Accept link candidates by hash
     Accept {
         /// Data directory
-        #[arg(long, default_value = "./examples")]
+        #[arg(long, default_value = "./data")]
         dir: String,
         /// Link hashes to accept
         hashes: Vec<String>,
@@ -304,7 +304,7 @@ enum LinkCommands {
     /// Remove accepted links by hash
     Remove {
         /// Data directory
-        #[arg(long, default_value = "./examples")]
+        #[arg(long, default_value = "./data")]
         dir: String,
         /// Link hashes to remove
         hashes: Vec<String>,
@@ -312,7 +312,7 @@ enum LinkCommands {
     /// Show accepted links
     List {
         /// Data directory
-        #[arg(long, default_value = "./examples")]
+        #[arg(long, default_value = "./data")]
         dir: String,
         /// Output format: table, json
         #[arg(long, default_value = "table")]
@@ -797,7 +797,7 @@ fn handle_relate(
     let parts: Vec<&str> = source_ref.splitn(2, ':').collect();
     if parts.len() != 2 {
         anyhow::bail!(
-            "Invalid provision reference: '{source_ref}'. Expected format: bill_dir:index (e.g., hr9468:0)"
+            "Invalid provision reference: '{source_ref}'. Expected format: bill_dir:index (e.g., 118-hr9468:0)"
         );
     }
     let source_bill_dir = parts[0];
@@ -1798,6 +1798,7 @@ async fn handle_search(
     // Collect matching provisions
     struct Match {
         bill_id: String,
+        congress: Option<u32>,
         provision_index: usize,
         provision_type: String,
         account_name: String,
@@ -1821,6 +1822,17 @@ async fn handle_search(
 
     for loaded in &bills {
         let bill_id = &loaded.extraction.bill.identifier;
+        let bill_congress: Option<u32> = loaded
+            .bill_meta
+            .as_ref()
+            .and_then(|m| m.congress)
+            .or_else(|| {
+                loaded
+                    .dir
+                    .file_name()
+                    .and_then(|n| n.to_str())
+                    .and_then(|name| name.split('-').next().and_then(|s| s.parse::<u32>().ok()))
+            });
 
         // Bill filter
         if let Some(bill_filter) = bill
@@ -1909,6 +1921,7 @@ async fn handle_search(
 
             matches.push(Match {
                 bill_id: bill_id.clone(),
+                congress: bill_congress,
                 provision_index: idx,
                 provision_type: ptype.to_string(),
                 account_name: paccount.to_string(),
@@ -1937,7 +1950,8 @@ async fn handle_search(
                 .iter()
                 .map(|m| {
                     serde_json::json!({
-                        "bill": m.bill_id,
+                        "bill": format_bill_id(&m.bill_id, m.congress),
+                        "congress": m.congress,
                         "provision_index": m.provision_index,
                         "provision_type": m.provision_type,
                         "account_name": m.account_name,
@@ -1963,7 +1977,8 @@ async fn handle_search(
         "jsonl" => {
             for m in &matches {
                 let obj = serde_json::json!({
-                    "bill": m.bill_id,
+                    "bill": format_bill_id(&m.bill_id, m.congress),
+                    "congress": m.congress,
                     "provision_index": m.provision_index,
                     "provision_type": m.provision_type,
                     "account_name": m.account_name,
@@ -1989,6 +2004,7 @@ async fn handle_search(
             let mut wtr = csv::Writer::from_writer(std::io::stdout());
             wtr.write_record([
                 "bill",
+                "congress",
                 "provision_type",
                 "account_name",
                 "description",
@@ -2009,7 +2025,8 @@ async fn handle_search(
             ])?;
             for m in &matches {
                 wtr.write_record([
-                    &m.bill_id,
+                    &format_bill_id(&m.bill_id, m.congress),
+                    &m.congress.map(|c| c.to_string()).unwrap_or_default(),
                     &m.provision_type,
                     &m.account_name,
                     &m.description,
@@ -2372,7 +2389,7 @@ async fn handle_semantic_search(
         let parts: Vec<&str> = similar_ref.splitn(2, ':').collect();
         anyhow::ensure!(
             parts.len() == 2,
-            "Invalid --similar format. Use bill_dir:index (e.g., hr4366:42)"
+            "Invalid --similar format. Use bill_dir:index (e.g., 118-hr4366:42)"
         );
         let target_dir = parts[0];
         let target_idx: usize = parts[1]
@@ -2903,7 +2920,7 @@ fn handle_summary(
                     .join(", ");
                 if has_advance_data {
                     table.add_row(vec![
-                        Cell::new(&s.identifier),
+                        Cell::new(format_bill_id(&s.identifier, s.congress)),
                         Cell::new(&fy_str),
                         Cell::new(&s.classification),
                         Cell::new(s.provisions).set_alignment(CellAlignment::Right),
@@ -2921,7 +2938,7 @@ fn handle_summary(
                     ]);
                 } else {
                     table.add_row(vec![
-                        Cell::new(&s.identifier),
+                        Cell::new(format_bill_id(&s.identifier, s.congress)),
                         Cell::new(&fy_str),
                         Cell::new(&s.classification),
                         Cell::new(s.provisions).set_alignment(CellAlignment::Right),
@@ -3952,7 +3969,7 @@ async fn handle_download(opts: DownloadOptions<'_>) -> Result<()> {
                     continue;
                 }
                 let filename = fmt.url.split('/').next_back().unwrap_or("file");
-                let dir = format!("{}/{}/{}/{}", output_dir, c.number(), bt.api_slug(), num);
+                let dir = format!("{}/{}-{}{}", output_dir, c.number(), bt.api_slug(), num);
                 std::fs::create_dir_all(&dir)?;
                 let out_path = format!("{dir}/{filename}");
 
@@ -3986,7 +4003,7 @@ async fn handle_download(opts: DownloadOptions<'_>) -> Result<()> {
         let elapsed = total_start.elapsed();
         tracing::info!("Download complete: {downloaded} files [{elapsed:.1?}]");
         tracing::info!(
-            "  Output: {output_dir}/{}/{}/{}",
+            "  Output: {output_dir}/{}-{}{}",
             c.number(),
             bt.api_slug(),
             num
@@ -4326,6 +4343,16 @@ fn title_matches_appropriations(title: &str) -> bool {
     low.contains("appropriation")
         || low.contains("continuing resolution")
         || low.contains("omnibus")
+}
+
+/// Format a bill identifier with congress number for display.
+/// "H.R. 7148" + Some(119) → "H.R. 7148 (119th)"
+/// "H.R. 7148" + None → "H.R. 7148"
+fn format_bill_id(identifier: &str, congress: Option<u32>) -> String {
+    match congress {
+        Some(c) => format!("{identifier} ({c}th)"),
+        None => identifier.to_string(),
+    }
 }
 
 /// Human-readable byte size.

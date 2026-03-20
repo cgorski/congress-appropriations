@@ -18,6 +18,9 @@ use std::collections::HashMap;
 #[derive(Debug, Serialize)]
 pub struct BillSummary {
     pub identifier: String,
+    /// Congress number (e.g., 118, 119). From bill_meta or directory name.
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub congress: Option<u32>,
     pub classification: String,
     pub fiscal_years: Vec<u32>,
     pub provisions: usize,
@@ -55,8 +58,22 @@ pub fn summarize(bills: &[LoadedBill]) -> Vec<BillSummary> {
             // Compute advance/current split from bill_meta if available
             let (current_year_ba, advance_ba) = compute_advance_split(loaded);
 
+            // Congress number: prefer bill_meta, fall back to directory name parsing
+            let congress = loaded
+                .bill_meta
+                .as_ref()
+                .and_then(|m| m.congress)
+                .or_else(|| {
+                    loaded
+                        .dir
+                        .file_name()
+                        .and_then(|n| n.to_str())
+                        .and_then(|name| name.split('-').next().and_then(|s| s.parse::<u32>().ok()))
+                });
+
             BillSummary {
                 identifier: loaded.extraction.bill.identifier.clone(),
+                congress,
                 classification,
                 fiscal_years: loaded.extraction.bill.fiscal_years.clone(),
                 provisions: loaded.extraction.provisions.len(),
@@ -976,17 +993,30 @@ pub fn normalize_account_name(name: &str) -> String {
 }
 
 /// Create a short human-readable description of a set of loaded bills.
+/// Includes congress number when available for disambiguation.
 fn describe_bills(bills: &[LoadedBill]) -> String {
     if bills.is_empty() {
         return String::new();
     }
+
+    let format_one = |b: &LoadedBill| -> String {
+        let id = &b.extraction.bill.identifier;
+        let congress = b.bill_meta.as_ref().and_then(|m| m.congress).or_else(|| {
+            b.dir
+                .file_name()
+                .and_then(|n| n.to_str())
+                .and_then(|name| name.split('-').next().and_then(|s| s.parse::<u32>().ok()))
+        });
+        match congress {
+            Some(c) => format!("{id} ({c}th)"),
+            None => id.clone(),
+        }
+    };
+
     if bills.len() == 1 {
-        return bills[0].extraction.bill.identifier.clone();
+        return format_one(&bills[0]);
     }
-    let ids: Vec<&str> = bills
-        .iter()
-        .map(|b| b.extraction.bill.identifier.as_str())
-        .collect();
+    let ids: Vec<String> = bills.iter().map(format_one).collect();
     if ids.len() <= 3 {
         ids.join(", ")
     } else {

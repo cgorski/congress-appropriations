@@ -1,0 +1,908 @@
+{
+  "schema_version": "1.0",
+  "bill": {
+    "identifier": "H.R. 2872",
+    "classification": "continuing_resolution",
+    "short_title": "Further Additional Continuing Appropriations and Other Extensions Act, 2024",
+    "fiscal_years": [
+      2024
+    ],
+    "divisions": [
+      "A",
+      "B"
+    ],
+    "public_law": null
+  },
+  "provisions": [
+    {
+      "provision_type": "other",
+      "llm_classification": "other",
+      "description": "Extends the continuing resolution end date specified in section 106(3) of the Continuing Appropriations Act, 2024, to March 8, 2024.",
+      "amounts": [],
+      "references": [],
+      "metadata": {
+        "llm_classification": "cr_extension_date_change"
+      },
+      "section": "SEC. 101",
+      "division": "A",
+      "title": null,
+      "confidence": 0.96,
+      "raw_text": "by striking the date specified in section 106(3) and inserting ''March 8, 2024''",
+      "notes": [
+        "SEC. 101(1) of this bill amends P.L. 118-15 Division A section 106(3)",
+        "This changes the expiration date for the first tranche of CR-funded accounts"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "P.L. 118-15, Division A, Section 106(3)",
+          "description": "Changes expiration date to March 8, 2024"
+        }
+      ]
+    },
+    {
+      "provision_type": "other",
+      "llm_classification": "other",
+      "description": "Changes the date specified in section 106(4) of the Continuing Appropriations Act, 2024, to March 1, 2024.",
+      "amounts": [],
+      "references": [],
+      "metadata": {
+        "llm_classification": "cr_extension_date_change"
+      },
+      "section": "SEC. 101",
+      "division": "A",
+      "title": null,
+      "confidence": 0.96,
+      "raw_text": "by striking the date specified in section 106(4) and inserting ''March 1, 2024''",
+      "notes": [
+        "SEC. 101(2) of this bill amends P.L. 118-15 Division A section 106(4)",
+        "This changes the expiration date for the second tranche of CR-funded accounts (the 'laddered' CR structure)"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "P.L. 118-15, Division A, Section 106(4)",
+          "description": "Changes expiration date to March 1, 2024"
+        }
+      ]
+    },
+    {
+      "provision_type": "other",
+      "llm_classification": "other",
+      "description": "Amends section 123 of the Continuing Appropriations Act, 2024, to change the duration from 94 days to 129 days and from 94-day to 129-day.",
+      "amounts": [],
+      "references": [],
+      "metadata": {
+        "llm_classification": "cr_duration_modification"
+      },
+      "section": "SEC. 101",
+      "division": "A",
+      "title": null,
+      "confidence": 0.95,
+      "raw_text": "in section 123, by striking ''94 days'' and inserting ''129 days'' and by striking ''94-day'' and inserting ''129-day''",
+      "notes": [
+        "SEC. 101(3) of this bill amends P.L. 118-15 Division A section 123",
+        "Extends a duration parameter from 94 days to 129 days, consistent with the extended CR period"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "P.L. 118-15, Division A, Section 123",
+          "description": "Extends duration from 94 days to 129 days"
+        }
+      ]
+    },
+    {
+      "provision_type": "cr_substitution",
+      "reference_act": "P.L. 118-15",
+      "reference_section": "Division A, Section 124",
+      "new_amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 2199260000
+        },
+        "semantics": "cr_substitution_new",
+        "text_as_written": "$2,199,260,000"
+      },
+      "old_amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 663070000
+        },
+        "semantics": "cr_substitution_old",
+        "text_as_written": "$663,070,000"
+      },
+      "account_name": null,
+      "section": "SEC. 101",
+      "division": "A",
+      "title": null,
+      "confidence": 0.93,
+      "raw_text": "on section 124, by striking ''$663,070,000'' and inserting ''$2,199,260,000''",
+      "notes": [
+        "SEC. 101(4) of this bill amends section 124 of P.L. 118-15 Division A",
+        "Increases the dollar amount in section 124 from $663,070,000 to $2,199,260,000, a net increase of $1,536,190,000",
+        "The specific account governed by section 124 is not named in this amendment text; it is defined in the original section 124 of P.L. 118-15"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "P.L. 118-15, Division A, Section 124",
+          "description": "Increases dollar amount from $663,070,000 to $2,199,260,000"
+        }
+      ]
+    },
+    {
+      "provision_type": "limitation",
+      "description": "Allows amounts for NNSA Weapons Activities to be apportioned up to the rate necessary to mitigate issuing WARN notices for the Uranium Processing Facility at Y-12, not to exceed $760,000,000.",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 760000000
+        },
+        "semantics": "limitation",
+        "text_as_written": "$760,000,000"
+      },
+      "account_name": "Department of Energy—Atomic Energy Defense Activities—National Nuclear Security Administration—Weapons Activities",
+      "section": "SEC. 147",
+      "division": "A",
+      "title": null,
+      "confidence": 0.95,
+      "raw_text": "Amounts made available by section 101 for ''Department of Energy—Atomic Energy Defense Activities—National Nuclear Security Administration—Weapons Acti",
+      "notes": [
+        "Added to P.L. 118-15 Division A as new section 147 by SEC. 101(5) of this bill",
+        "This is a CR anomaly allowing higher apportionment rate for a specific construction project",
+        "The $760,000,000 is a ceiling ('not to exceed'), not new budget authority",
+        "Purpose is to prevent issuance of WARN Act layoff notices for the Uranium Processing Facility project at Y-12 National Security Complex"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "see_also",
+          "target": "P.L. 118-15, Division A, Section 101",
+          "description": "Amounts made available under the CR baseline"
+        }
+      ],
+      "parent_account": null
+    },
+    {
+      "provision_type": "directive",
+      "description": "Requires the OMB Director to notify the Appropriations Committees within 3 days of each use of SEC. 147 authority, and requires the Secretary of Energy to provide weekly reports specifying obligations incurred for the Uranium Processing Facility purposes.",
+      "deadlines": [
+        "3 days after each use of SEC. 147 authority",
+        "weekly"
+      ],
+      "section": "SEC. 147",
+      "division": "A",
+      "title": null,
+      "confidence": 0.96,
+      "raw_text": "The Director of the Office of Management and Budget shall notify the Committees on Appropriations of the House of Representatives and the Senate not la",
+      "notes": [
+        "SEC. 147(b), added to P.L. 118-15 Division A by SEC. 101(5) of this bill",
+        "Two separate reporting requirements: OMB notification within 3 days of each use, and DOE weekly obligation reports"
+      ],
+      "cross_references": []
+    },
+    {
+      "provision_type": "other",
+      "llm_classification": "other",
+      "description": "Allows amounts for FAA Operations to be apportioned up to the rate necessary to fund mandatory pay increases, inflationary adjustments, maintain and improve air traffic services, hire and train air traffic controllers, and continue aviation safety oversight, while avoiding service reductions.",
+      "amounts": [],
+      "references": [],
+      "metadata": {
+        "agency": "Department of Transportation",
+        "llm_classification": "cr_anomaly_rate_adjustment",
+        "account_name": "Department of Transportation—Federal Aviation Administration—Operations",
+        "program": null
+      },
+      "section": "SEC. 148",
+      "division": "A",
+      "title": null,
+      "confidence": 0.95,
+      "raw_text": "Amounts made available by section 101 for ''Department of Transportation—Federal Aviation Administration—Operations'' may be apportioned up to the rate",
+      "notes": [
+        "Added to P.L. 118-15 Division A as new section 148 by SEC. 101(5) of this bill",
+        "This is a CR anomaly allowing higher apportionment rate for FAA Operations without a specific dollar ceiling",
+        "Permits spending above the standard CR rate for enumerated purposes: pay raises, inflation, air traffic services, controller hiring/training, safety oversight",
+        "Classified as 'other' rather than 'limitation' because no specific dollar ceiling is stated"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "see_also",
+          "target": "P.L. 118-15, Division A, Section 101",
+          "description": "Amounts made available under the CR baseline"
+        }
+      ]
+    },
+    {
+      "provision_type": "mandatory_spending_extension",
+      "program_name": "Teaching Health Centers That Operate Graduate Medical Education Programs",
+      "statutory_reference": "Section 340H(g)(1) of the Public Health Service Act (42 U.S.C. 256h(g))",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 16982192
+        },
+        "semantics": "mandatory_spending",
+        "text_as_written": "$16,982,192"
+      },
+      "period": "beginning on January 20, 2024, and ending on March 8, 2024",
+      "extends_through": "March 8, 2024",
+      "section": "SEC. 101",
+      "division": "B",
+      "title": "I",
+      "confidence": 0.97,
+      "raw_text": "Section 340H(g)(1) of the Public Health Service Act (42 U.S.C. 256h(g)) is amended by striking ''and $21,834,247 for the period beginning on November 18",
+      "notes": [
+        "Subsection (a). Extends teaching health center GME funding through March 8, 2024 with $16,982,192 for the Jan 20–Mar 8 period"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 340H(g)(1) of the Public Health Service Act (42 U.S.C. 256h(g))",
+          "description": null
+        }
+      ]
+    },
+    {
+      "provision_type": "mandatory_spending_extension",
+      "program_name": "Community Health Centers",
+      "statutory_reference": "Section 10503(b)(1)(F) of the Patient Protection and Affordable Care Act (42 U.S.C. 254b–2(b)(1)(F))",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 536986301
+        },
+        "semantics": "mandatory_spending",
+        "text_as_written": "$536,986,301"
+      },
+      "period": "beginning on January 20, 2024, and ending on March 8, 2024",
+      "extends_through": "March 8, 2024",
+      "section": "SEC. 101",
+      "division": "B",
+      "title": "I",
+      "confidence": 0.97,
+      "raw_text": "Section 10503(b)(1)(F) of the Patient Protection and Affordable Care Act (42 U.S.C. 254b–2(b)(1)(F)) is amended by striking ''and $690,410,959 for the p",
+      "notes": [
+        "Subsection (b). Extends community health center mandatory funding through March 8, 2024 with $536,986,301 for the Jan 20–Mar 8 period"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 10503(b)(1)(F) of the Patient Protection and Affordable Care Act (42 U.S.C. 254b–2(b)(1)(F))",
+          "description": null
+        }
+      ]
+    },
+    {
+      "provision_type": "mandatory_spending_extension",
+      "program_name": "National Health Service Corps",
+      "statutory_reference": "Section 10503(b)(2)(I) of the Patient Protection and Affordable Care Act (42 U.S.C. 254b–2(b)(2)(I))",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 41616438
+        },
+        "semantics": "mandatory_spending",
+        "text_as_written": "$41,616,438"
+      },
+      "period": "beginning on January 20, 2024, and ending on March 8, 2024",
+      "extends_through": "March 8, 2024",
+      "section": "SEC. 101",
+      "division": "B",
+      "title": "I",
+      "confidence": 0.97,
+      "raw_text": "Section 10503(b)(2)(I) of the Patient Protection and Affordable Care Act (42 U.S.C. 254b–2(b)(2)(I)) is amended by striking ''and $53,506,849 for the pe",
+      "notes": [
+        "Subsection (c). Extends NHSC mandatory funding through March 8, 2024 with $41,616,438 for the Jan 20–Mar 8 period"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 10503(b)(2)(I) of the Patient Protection and Affordable Care Act (42 U.S.C. 254b–2(b)(2)(I))",
+          "description": null
+        }
+      ]
+    },
+    {
+      "provision_type": "rider",
+      "description": "Requires that amounts appropriated pursuant to the amendments in SEC. 101 be subject to requirements in Public Law 117–328 for programs authorized under sections 330 through 340 of the Public Health Service Act.",
+      "policy_area": "Public Health",
+      "section": "SEC. 101",
+      "division": "B",
+      "title": "I",
+      "confidence": 0.95,
+      "raw_text": "Amounts appropriated pursuant to the amendments made by this section shall be subject to the requirements contained in Public Law 117–328 for funds for pr",
+      "notes": [
+        "Subsection (d). Application of provisions clause requiring compliance with P.L. 117-328 requirements for health center programs"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "subject_to",
+          "target": "Public Law 117–328",
+          "description": "Requirements for programs authorized under sections 330 through 340 of the PHS Act"
+        },
+        {
+          "ref_type": "see_also",
+          "target": "Sections 330 through 340 of the Public Health Service Act (42 U.S.C. 254b et seq.)",
+          "description": null
+        }
+      ]
+    },
+    {
+      "provision_type": "rider",
+      "description": "Conforming amendment to Section 3014(h)(4) of title 18, United States Code, to add cross-reference to section 101(d) of this Act.",
+      "policy_area": "Criminal Justice",
+      "section": "SEC. 101",
+      "division": "B",
+      "title": "I",
+      "confidence": 0.93,
+      "raw_text": "Section 3014(h)(4) of title 18, United States Code, is amended by striking ''and section 201(d) of the Further Continuing Appropriations and Other Extens",
+      "notes": [
+        "Subsection (e). Conforming amendment to Crime Victims Fund provision, adding reference to this Act's application-of-provisions clause"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 3014(h)(4) of title 18, United States Code",
+          "description": null
+        },
+        {
+          "ref_type": "see_also",
+          "target": "Section 201(d) of the Further Continuing Appropriations and Other Extensions Act, 2024",
+          "description": null
+        }
+      ]
+    },
+    {
+      "provision_type": "mandatory_spending_extension",
+      "program_name": "Special Diabetes Programs for Type I Diabetes",
+      "statutory_reference": "Section 330B(b)(2)(E) of the Public Health Service Act (42 U.S.C. 254c–2(b)(2)(E))",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 20136986
+        },
+        "semantics": "mandatory_spending",
+        "text_as_written": "$20,136,986"
+      },
+      "period": "beginning on January 20, 2024, and ending on March 8, 2024",
+      "extends_through": "March 8, 2024",
+      "section": "SEC. 102",
+      "division": "B",
+      "title": "I",
+      "confidence": 0.97,
+      "raw_text": "Section 330B(b)(2)(E) of the Public Health Service Act (42 U.S.C. 254c–2(b)(2)(E)) is amended by striking ''and $25,890,411 for the period beginning on N",
+      "notes": [
+        "Subsection (a). Extends special diabetes programs for Type I diabetes with $20,136,986 for the Jan 20–Mar 8 period"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 330B(b)(2)(E) of the Public Health Service Act (42 U.S.C. 254c–2(b)(2)(E))",
+          "description": null
+        }
+      ]
+    },
+    {
+      "provision_type": "mandatory_spending_extension",
+      "program_name": "Special Diabetes Programs for Indians",
+      "statutory_reference": "Section 330C(c)(2)(E) of the Public Health Service Act (42 U.S.C. 254c–3(c)(2)(E))",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 20136986
+        },
+        "semantics": "mandatory_spending",
+        "text_as_written": "$20,136,986"
+      },
+      "period": "beginning on January 20, 2024, and ending on March 8, 2024",
+      "extends_through": "March 8, 2024",
+      "section": "SEC. 102",
+      "division": "B",
+      "title": "I",
+      "confidence": 0.97,
+      "raw_text": "Section 330C(c)(2)(E) of the Public Health Service Act (42 U.S.C. 254c–3(c)(2)(E)) is amended by striking ''and $25,890,411 for the period beginning on N",
+      "notes": [
+        "Subsection (b). Extends special diabetes programs for Indians with $20,136,986 for the Jan 20–Mar 8 period"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 330C(c)(2)(E) of the Public Health Service Act (42 U.S.C. 254c–3(c)(2)(E))",
+          "description": null
+        }
+      ]
+    },
+    {
+      "provision_type": "mandatory_spending_extension",
+      "program_name": "Public Health Emergency Fund",
+      "statutory_reference": "Section 319(e)(8) of the Public Health Service Act (42 U.S.C. 247d(e)(8))",
+      "amount": null,
+      "period": null,
+      "extends_through": "March 8, 2024",
+      "section": "SEC. 103",
+      "division": "B",
+      "title": "I",
+      "confidence": 0.95,
+      "raw_text": "Section 319(e)(8) of the Public Health Service Act (42 U.S.C. 247d(e)(8)) is amended by striking ''January 19, 2024'' and inserting ''March 8, 2024''.",
+      "notes": [
+        "Subsection (a). Extends the sunset date for the Public Health Emergency Fund authority from January 19, 2024 to March 8, 2024"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 319(e)(8) of the Public Health Service Act (42 U.S.C. 247d(e)(8))",
+          "description": null
+        }
+      ]
+    },
+    {
+      "provision_type": "mandatory_spending_extension",
+      "program_name": "Biomedical Advanced Research and Development Authority (BARDA)",
+      "statutory_reference": "Section 319L(e)(1)(D) of the Public Health Service Act (42 U.S.C. 247d–7e(e)(1)(D))",
+      "amount": null,
+      "period": null,
+      "extends_through": "March 8, 2024",
+      "section": "SEC. 103",
+      "division": "B",
+      "title": "I",
+      "confidence": 0.95,
+      "raw_text": "Section 319L(e)(1)(D) of the Public Health Service Act (42 U.S.C. 247d–7e(e)(1)(D)) is amended by striking ''January 19, 2024'' and inserting ''March 8, ",
+      "notes": [
+        "Subsection (b). Extends BARDA transaction authority sunset from January 19, 2024 to March 8, 2024"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 319L(e)(1)(D) of the Public Health Service Act (42 U.S.C. 247d–7e(e)(1)(D))",
+          "description": null
+        }
+      ]
+    },
+    {
+      "provision_type": "mandatory_spending_extension",
+      "program_name": "BARDA Countermeasures Innovation",
+      "statutory_reference": "Section 319L–1(b) of the Public Health Service Act (42 U.S.C. 247d–7f(b))",
+      "amount": null,
+      "period": null,
+      "extends_through": "March 8, 2024",
+      "section": "SEC. 103",
+      "division": "B",
+      "title": "I",
+      "confidence": 0.94,
+      "raw_text": "Section 319L–1(b) of the Public Health Service Act (42 U.S.C. 247d–7f(b)) is amended by striking ''January 19, 2024'' and inserting ''March 8, 2024''.",
+      "notes": [
+        "Subsection (c). Extends sunset for the CIC/countermeasures innovation partnership program from January 19, 2024 to March 8, 2024"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 319L–1(b) of the Public Health Service Act (42 U.S.C. 247d–7f(b))",
+          "description": null
+        }
+      ]
+    },
+    {
+      "provision_type": "mandatory_spending_extension",
+      "program_name": "Regional Health Care Coalitions",
+      "statutory_reference": "Section 2811A(g) of the Public Health Service Act (42 U.S.C. 300hh–10b(g))",
+      "amount": null,
+      "period": null,
+      "extends_through": "March 8, 2024",
+      "section": "SEC. 103",
+      "division": "B",
+      "title": "I",
+      "confidence": 0.95,
+      "raw_text": "Section 2811A(g) of the Public Health Service Act (42 U.S.C. 300hh–10b(g)) is amended by striking ''January 19, 2024'' and inserting ''March 8, 2024''.",
+      "notes": [
+        "Subsection (d)(1). Extends sunset for Regional Health Care Coalitions program from January 19, 2024 to March 8, 2024"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 2811A(g) of the Public Health Service Act (42 U.S.C. 300hh–10b(g))",
+          "description": null
+        }
+      ]
+    },
+    {
+      "provision_type": "mandatory_spending_extension",
+      "program_name": "National Advisory Committee on Children and Disasters",
+      "statutory_reference": "Section 2811B(g)(1) of the Public Health Service Act (42 U.S.C. 300hh–10c(g)(1))",
+      "amount": null,
+      "period": null,
+      "extends_through": "March 8, 2024",
+      "section": "SEC. 103",
+      "division": "B",
+      "title": "I",
+      "confidence": 0.95,
+      "raw_text": "Section 2811B(g)(1) of the Public Health Service Act (42 U.S.C. 300hh–10c(g)(1)) is amended by striking ''January 19, 2024'' and inserting ''March 8, 202",
+      "notes": [
+        "Subsection (d)(2). Extends sunset for National Advisory Committee on Children and Disasters from January 19, 2024 to March 8, 2024"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 2811B(g)(1) of the Public Health Service Act (42 U.S.C. 300hh–10c(g)(1))",
+          "description": null
+        }
+      ]
+    },
+    {
+      "provision_type": "mandatory_spending_extension",
+      "program_name": "National Advisory Committee on Seniors and Disasters",
+      "statutory_reference": "Section 2811C(g)(1) of the Public Health Service Act (42 U.S.C. 300hh–10d(g)(1))",
+      "amount": null,
+      "period": null,
+      "extends_through": "March 8, 2024",
+      "section": "SEC. 103",
+      "division": "B",
+      "title": "I",
+      "confidence": 0.95,
+      "raw_text": "Section 2811C(g)(1) of the Public Health Service Act (42 U.S.C. 300hh–10d(g)(1)) is amended by striking ''January 19, 2024'' and inserting ''March 8, 202",
+      "notes": [
+        "Subsection (d)(3). Extends sunset for National Advisory Committee on Seniors and Disasters from January 19, 2024 to March 8, 2024"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 2811C(g)(1) of the Public Health Service Act (42 U.S.C. 300hh–10d(g)(1))",
+          "description": null
+        }
+      ]
+    },
+    {
+      "provision_type": "mandatory_spending_extension",
+      "program_name": "National Disaster Medical System",
+      "statutory_reference": "Section 2812(c)(4)(B) of the Public Health Service Act (42 U.S.C. 300hh–11(c)(4)(B))",
+      "amount": null,
+      "period": null,
+      "extends_through": "March 8, 2024",
+      "section": "SEC. 103",
+      "division": "B",
+      "title": "I",
+      "confidence": 0.95,
+      "raw_text": "Section 2812(c)(4)(B) of the Public Health Service Act (42 U.S.C. 300hh–11(c)(4)(B)) is amended by striking ''January 19, 2024'' and inserting ''March 8,",
+      "notes": [
+        "Subsection (e). Extends the National Disaster Medical System enhanced authorities sunset from January 19, 2024 to March 8, 2024"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 2812(c)(4)(B) of the Public Health Service Act (42 U.S.C. 300hh–11(c)(4)(B))",
+          "description": null
+        }
+      ]
+    },
+    {
+      "provision_type": "mandatory_spending_extension",
+      "program_name": "Medicaid Disproportionate Share Hospital (DSH) Payment Cuts Delay",
+      "statutory_reference": "Section 1923(f)(7)(A) of the Social Security Act (42 U.S.C. 1396r–4(f)(7)(A))",
+      "amount": null,
+      "period": null,
+      "extends_through": "March 9, 2024",
+      "section": "SEC. 121",
+      "division": "B",
+      "title": "I",
+      "confidence": 0.96,
+      "raw_text": "Section 1923(f)(7)(A) of the Social Security Act (42 U.S.C. 1396r–4(f)(7)(A)) is amended by striking ''January 20, 2024'' each place it appears and inser",
+      "notes": [
+        "Delays Medicaid DSH allotment reduction from January 20, 2024 to March 9, 2024"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 1923(f)(7)(A) of the Social Security Act (42 U.S.C. 1396r–4(f)(7)(A))",
+          "description": null
+        }
+      ]
+    },
+    {
+      "provision_type": "mandatory_spending_extension",
+      "program_name": "Medicaid Improvement Fund",
+      "statutory_reference": "Section 1941(b)(3)(A) of the Social Security Act (42 U.S.C. 1396w–1(b)(3)(A))",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 5140428729
+        },
+        "semantics": "mandatory_spending",
+        "text_as_written": "$5,140,428,729"
+      },
+      "period": null,
+      "extends_through": null,
+      "section": "SEC. 122",
+      "division": "B",
+      "title": "I",
+      "confidence": 0.97,
+      "raw_text": "Section 1941(b)(3)(A) of the Social Security Act (42 U.S.C. 1396w–1(b)(3)(A)) is amended by striking ''$5,796,117,810'' and inserting ''$5,140,428,729''.",
+      "notes": [
+        "Reduces Medicaid Improvement Fund from $5,796,117,810 to $5,140,428,729, a net reduction of $655,689,081 used as a budget offset"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 1941(b)(3)(A) of the Social Security Act (42 U.S.C. 1396w–1(b)(3)(A))",
+          "description": null
+        }
+      ]
+    },
+    {
+      "provision_type": "mandatory_spending_extension",
+      "program_name": "Medicare Work Geographic Index Floor",
+      "statutory_reference": "Section 1848(e)(1)(E) of the Social Security Act (42 U.S.C. 1395w–4(e)(1)(E))",
+      "amount": null,
+      "period": null,
+      "extends_through": "March 9, 2024",
+      "section": "SEC. 131",
+      "division": "B",
+      "title": "I",
+      "confidence": 0.96,
+      "raw_text": "Section 1848(e)(1)(E) of the Social Security Act (42 U.S.C. 1395w–4(e)(1)(E)) is amended by striking ''January 20, 2024'' and inserting ''March 9, 2024''.",
+      "notes": [
+        "Extends the work geographic index floor for Medicare physician payments from January 20, 2024 to March 9, 2024"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 1848(e)(1)(E) of the Social Security Act (42 U.S.C. 1395w–4(e)(1)(E))",
+          "description": null
+        }
+      ]
+    },
+    {
+      "provision_type": "mandatory_spending_extension",
+      "program_name": "Medicare Improvement Fund",
+      "statutory_reference": "Section 1898(b)(1) of the Social Security Act (42 U.S.C. 1395iii(b)(1))",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 2197795056
+        },
+        "semantics": "mandatory_spending",
+        "text_as_written": "$2,197,795,056"
+      },
+      "period": null,
+      "extends_through": null,
+      "section": "SEC. 132",
+      "division": "B",
+      "title": "I",
+      "confidence": 0.97,
+      "raw_text": "Section 1898(b)(1) of the Social Security Act (42 U.S.C. 1395iii(b)(1)) is amended by striking ''$2,250,795,056'' and inserting ''$2,197,795,056''.",
+      "notes": [
+        "Reduces Medicare Improvement Fund from $2,250,795,056 to $2,197,795,056, a net reduction of $53,000,000 used as a budget offset"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 1898(b)(1) of the Social Security Act (42 U.S.C. 1395iii(b)(1))",
+          "description": null
+        }
+      ]
+    },
+    {
+      "provision_type": "mandatory_spending_extension",
+      "program_name": "Child and Family Services Programs (Title IV-B of the Social Security Act)",
+      "statutory_reference": "Part B of title IV of the Social Security Act",
+      "amount": null,
+      "period": "through March 8, 2024",
+      "extends_through": "March 8, 2024",
+      "section": "SEC. 141",
+      "division": "B",
+      "title": "I",
+      "confidence": 0.95,
+      "raw_text": "Activities authorized by part B of title IV of the Social Security Act shall continue through March 8, 2024, in the manner authorized for fiscal year 2023",
+      "notes": [
+        "Extends child and family services programs through March 8, 2024 in the manner authorized for FY2023. Appropriates such sums as may be necessary from the Treasury."
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Part B of title IV of the Social Security Act",
+          "description": "Continues activities authorized under this part"
+        }
+      ]
+    },
+    {
+      "provision_type": "mandatory_spending_extension",
+      "program_name": "Sexual Risk Avoidance Education",
+      "statutory_reference": "Section 510 of the Social Security Act (42 U.S.C. 710)",
+      "amount": null,
+      "period": "beginning on January 20, 2024, and ending on March 8, 2024",
+      "extends_through": "March 8, 2024",
+      "section": "SEC. 142",
+      "division": "B",
+      "title": "I",
+      "confidence": 0.95,
+      "raw_text": "Section 510 of the Social Security Act (42 U.S.C. 710) is amended— (1) in <br/>in subsection (a)(1)—",
+      "notes": [
+        "Extends sexual risk avoidance education funding through March 8, 2024 at a pro rata portion of the FY2023 appropriated amount"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 510 of the Social Security Act (42 U.S.C. 710)",
+          "description": null
+        }
+      ]
+    },
+    {
+      "provision_type": "mandatory_spending_extension",
+      "program_name": "Personal Responsibility Education",
+      "statutory_reference": "Section 513 of the Social Security Act (42 U.S.C. 713)",
+      "amount": null,
+      "period": "beginning on January 20, 2024, and ending on March 8, 2024",
+      "extends_through": "March 8, 2024",
+      "section": "SEC. 143",
+      "division": "B",
+      "title": "I",
+      "confidence": 0.95,
+      "raw_text": "Section 513 of the Social Security Act (42 U.S.C. 713) is amended— (1) in subsection (a)(1)—",
+      "notes": [
+        "Extends personal responsibility education program funding through March 8, 2024 at a pro rata portion of the FY2023 appropriated amount"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 513 of the Social Security Act (42 U.S.C. 713)",
+          "description": null
+        }
+      ]
+    },
+    {
+      "provision_type": "mandatory_spending_extension",
+      "program_name": "Compacts of Free Association with the Federated States of Micronesia and the Republic of the Marshall Islands",
+      "statutory_reference": "Section 2101(a)(1) of the Continuing Appropriations Act, 2024 and Other Extensions Act (Public Law 118–15; 137 Stat. 81; 137 Stat. 114)",
+      "amount": null,
+      "period": null,
+      "extends_through": "March 8, 2024",
+      "section": "SEC. 201",
+      "division": "B",
+      "title": "II",
+      "confidence": 0.94,
+      "raw_text": "Section 2101(a)(1) of the Continuing Appropriations Act, 2024 and Other Extensions Act (Public Law 118–15; 137 Stat. 81; 137 Stat. 114) is amended by str",
+      "notes": [
+        "Extends certain Compact of Free Association provisions from February 2, 2024 to March 8, 2024 by amending the prior CR extension"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 2101(a)(1) of the Continuing Appropriations Act, 2024 and Other Extensions Act (Public Law 118–15)",
+          "description": null
+        }
+      ]
+    },
+    {
+      "provision_type": "rider",
+      "description": "Extends the Department of Homeland Security's counter-unmanned aircraft systems (counter-UAS) authorities by changing the sunset date from February 3, 2024 to March 9, 2024.",
+      "policy_area": "Homeland Security",
+      "section": "SEC. 301",
+      "division": "B",
+      "title": "III",
+      "confidence": 0.95,
+      "raw_text": "Section 210G(i) of the Homeland Security Act of 2002 (6 U.S.C. 124n(i)) is amended by striking ''February 3, 2024'' and inserting ''March 9, 2024''.",
+      "notes": [
+        "Extends DHS counter-UAS authority sunset from February 3, 2024 to March 9, 2024"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 210G(i) of the Homeland Security Act of 2002 (6 U.S.C. 124n(i))",
+          "description": null
+        }
+      ]
+    },
+    {
+      "provision_type": "rider",
+      "description": "Exempts the budgetary effects of Division B from statutory PAYGO scorecards, Senate PAYGO scorecards, and budget scorekeeping under the Balanced Budget and Emergency Deficit Control Act and the Congressional Budget Act.",
+      "policy_area": "Budget Process",
+      "section": "SEC. 401",
+      "division": "B",
+      "title": "IV",
+      "confidence": 0.96,
+      "raw_text": "The budgetary effects of this division shall not be entered on either PAYGO scorecard maintained pursuant to section 4(d) of the Statutory Pay-As-You-Go A",
+      "notes": [
+        "Subsections (a)-(c). Standard PAYGO/budget scorekeeping exemption for the division. Exempts from statutory PAYGO, Senate PAYGO, and CBO/OMB baseline scorekeeping."
+      ],
+      "cross_references": [
+        {
+          "ref_type": "notwithstanding",
+          "target": "Section 4(d) of the Statutory Pay-As-You-Go Act of 2010",
+          "description": "Statutory PAYGO exemption"
+        },
+        {
+          "ref_type": "notwithstanding",
+          "target": "Section 4106 of H. Con. Res. 71 (115th Congress)",
+          "description": "Senate PAYGO exemption"
+        },
+        {
+          "ref_type": "notwithstanding",
+          "target": "Section 251 of the Balanced Budget and Emergency Deficit Control Act of 1985",
+          "description": "Budget enforcement exemption"
+        },
+        {
+          "ref_type": "notwithstanding",
+          "target": "Section 302(a) of the Congressional Budget Act of 1974",
+          "description": "Committee allocation exemption"
+        },
+        {
+          "ref_type": "notwithstanding",
+          "target": "Section 3, paragraph (4)(C) of the Statutory Pay-As-You-Go Act of 2010",
+          "description": null
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "total_provisions": 31,
+    "by_division": {
+      "A": 7,
+      "B": 24
+    },
+    "by_type": {
+      "mandatory_spending_extension": 20,
+      "rider": 4,
+      "directive": 1,
+      "limitation": 1,
+      "cr_substitution": 1,
+      "other": 4
+    },
+    "total_budget_authority": 0,
+    "total_rescissions": 0,
+    "sections_with_no_provisions": [],
+    "flagged_issues": [
+      "SEC. 101(4) amends section 124 of P.L. 118-15 by increasing dollar amount from $663,070,000 to $2,199,260,000; the specific account governed by that section is not identifiable from this bill's text alone",
+      "SEC. 148 allows higher apportionment rate for FAA Operations without specifying a dollar ceiling, making it an open-ended CR anomaly",
+      "All substantive provisions in Division A are amendments to the Continuing Appropriations Act, 2024 (P.L. 118-15 Division A), not freestanding appropriations",
+      "SEC. 122 reduces Medicaid Improvement Fund by $655,689,081 (from $5,796,117,810 to $5,140,428,729) as a budget offset",
+      "SEC. 132 reduces Medicare Improvement Fund by $53,000,000 (from $2,250,795,056 to $2,197,795,056) as a budget offset",
+      "SEC. 141 appropriates 'such sums as may be necessary' with no specific dollar amount",
+      "SEC. 142 and SEC. 143 appropriate pro rata portions of FY2023 amounts with no specific dollar figures",
+      "No provisions with semantics 'new_budget_authority' — all spending provisions are mandatory_spending_extension type; total new mandatory spending for SEC. 101-102 is approximately $635,858,903"
+    ]
+  },
+  "chunk_map": [
+    {
+      "chunk_id": "01KKZJCB6JEWJ7FAPNNWF6BHD1",
+      "label": "[1/2] A",
+      "provision_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "chunk_id": "01KKZJCB6JZK7968X08NYSTSBQ",
+      "label": "[2/2] B",
+      "provision_indices": [
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ]
+    }
+  ]
+}

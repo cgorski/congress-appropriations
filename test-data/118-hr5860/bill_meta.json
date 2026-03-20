@@ -1,0 +1,105 @@
+{
+  "schema_version": "1.0",
+  "congress": 118,
+  "fiscal_years": [
+    2024
+  ],
+  "bill_nature": "continuing_resolution",
+  "subcommittees": [
+    {
+      "division": "A",
+      "jurisdiction": "continuing_resolution",
+      "title": "Continuing Appropriations Act, 2024",
+      "source": {
+        "type": "pattern_match",
+        "pattern": "continuing appropriations"
+      }
+    },
+    {
+      "division": "B",
+      "jurisdiction": "other",
+      "title": "Other Matters",
+      "source": {
+        "type": "pattern_match",
+        "pattern": "other matters"
+      }
+    }
+  ],
+  "provision_timing": [
+    {
+      "provision_index": 38,
+      "timing": "supplemental",
+      "available_fy": null,
+      "source": {
+        "type": "note_text"
+      }
+    }
+  ],
+  "canonical_accounts": [
+    {
+      "provision_index": 1,
+      "canonical_name": "rural community facilities program account"
+    },
+    {
+      "provision_index": 2,
+      "canonical_name": "rural water and waste disposal program account"
+    },
+    {
+      "provision_index": 4,
+      "canonical_name": "stem education"
+    },
+    {
+      "provision_index": 5,
+      "canonical_name": "operations, research, and facilities"
+    },
+    {
+      "provision_index": 6,
+      "canonical_name": "research and related activities"
+    },
+    {
+      "provision_index": 7,
+      "canonical_name": "diplomatic programs"
+    },
+    {
+      "provision_index": 8,
+      "canonical_name": "international disaster assistance"
+    },
+    {
+      "provision_index": 9,
+      "canonical_name": "migration and refugee assistance"
+    },
+    {
+      "provision_index": 10,
+      "canonical_name": "international narcotics control and law enforcement"
+    },
+    {
+      "provision_index": 33,
+      "canonical_name": "shipbuilding and conversion, navy"
+    },
+    {
+      "provision_index": 35,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 38,
+      "canonical_name": "disaster relief fund"
+    },
+    {
+      "provision_index": 39,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 40,
+      "canonical_name": "disaster relief fund"
+    },
+    {
+      "provision_index": 48,
+      "canonical_name": "facilities and equipment"
+    },
+    {
+      "provision_index": 49,
+      "canonical_name": "facilities and equipment"
+    }
+  ],
+  "extraction_sha256": "7409745a3be6ea5e59cb7e60557ed4559acceb27dff847ee1e8fe26028f1522b"
+}
