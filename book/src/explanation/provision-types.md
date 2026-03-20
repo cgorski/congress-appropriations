@@ -46,7 +46,7 @@ Not every bill contains every type. The distribution reflects the nature of each
 | `directed_spending` | 8 | — | — | 8 |
 | `cr_substitution` | — | 13 | — | 13 |
 | `continuing_resolution_baseline` | — | 1 | — | 1 |
-| **Total** | — | — | — | **8,554 (across 13 bills)** | |
+| **Total** | — | — | — | **11,136 (across 14 bills)** | |
 
 Key patterns:
 - **The omnibus** is dominated by appropriations (51%), limitations (19%), and riders (12%)

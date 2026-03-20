@@ -347,7 +347,7 @@ All query commands (`search`, `summary`, `compare`, `audit`) read `extraction.js
 ```python
 import json
 
-with open("examples/hr9468/extraction.json") as f:
+with open("data/118-hr9468/extraction.json") as f:
     data = json.load(f)
 
 # Bill info

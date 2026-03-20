@@ -1,6 +1,6 @@
 # Included Example Bills
 
-The `examples/` directory ships with **thirteen pre-extracted enacted appropriations bills** across the 118th and 119th Congresses, covering FY2024 through FY2026. These are real enacted laws with real data — no API keys are needed to query them. All twelve appropriations subcommittees are represented for FY2026.
+The `data/` directory ships with **fourteen bills** across the 118th and 119th Congresses, covering FY2024 through FY2026. These are real enacted laws with real data — no API keys are needed to query them. All twelve appropriations subcommittees are represented for FY2026.
 
 Each bill directory contains the source XML, extraction.json, verification.json, metadata.json, bill_meta.json (from `enrich`), embeddings.json, and vectors.bin (pre-computed embeddings for semantic search).
 
@@ -10,26 +10,26 @@ Each bill directory contains the source XML, extraction.json, verification.json,
 
 | Directory | Bill | Classification | Subcommittees | Provisions | Budget Auth |
 |-----------|------|---------------|---------------|-----------|------------|
-| `examples/hr4366/` | H.R. 4366 | Omnibus | MilCon-VA, Ag, CJS, E&W, Interior, THUD | 2,364 | $846B |
-| `examples/hr5860/` | H.R. 5860 | Continuing Resolution | (all, at prior-year rates) | 130 | $16B |
-| `examples/hr9468/` | H.R. 9468 | Supplemental | VA | 7 | $2.9B |
-| `examples/hr815/` | H.R. 815 | Supplemental | Defense, State (Ukraine/Israel/Taiwan) | 303 | $95B |
-| `examples/hr2872/` | H.R. 2872 | Continuing Resolution | (further CR) | 31 | $0 |
-| `examples/hr6363/` | H.R. 6363 | Continuing Resolution | (further CR + extensions) | 74 | ~$0 |
-| `examples/hr7463/` | H.R. 7463 | Continuing Resolution | (CR extension) | 10 | $0 |
-| `examples/hr9747/` | H.R. 9747 | Continuing Resolution | (CR + extensions, FY2025) | 114 | $383M |
-| `examples/s870/` | S. 870 | Authorization | Fire administration | 49 | $0 |
+| `data/hr4366/` | H.R. 4366 | Omnibus | MilCon-VA, Ag, CJS, E&W, Interior, THUD | 2,364 | $846B |
+| `data/hr5860/` | H.R. 5860 | Continuing Resolution | (all, at prior-year rates) | 130 | $16B |
+| `data/hr9468/` | H.R. 9468 | Supplemental | VA | 7 | $2.9B |
+| `data/hr815/` | H.R. 815 | Supplemental | Defense, State (Ukraine/Israel/Taiwan) | 303 | $95B |
+| `data/hr2872/` | H.R. 2872 | Continuing Resolution | (further CR) | 31 | $0 |
+| `data/hr6363/` | H.R. 6363 | Continuing Resolution | (further CR + extensions) | 74 | ~$0 |
+| `data/hr7463/` | H.R. 7463 | Continuing Resolution | (CR extension) | 10 | $0 |
+| `data/hr9747/` | H.R. 9747 | Continuing Resolution | (CR + extensions, FY2025) | 114 | $383M |
+| `data/s870/` | S. 870 | Authorization | Fire administration | 49 | $0 |
 
 ### 119th Congress (FY2025/FY2026)
 
 | Directory | Bill | Classification | Subcommittees | Provisions | Budget Auth |
 |-----------|------|---------------|---------------|-----------|------------|
-| `examples/hr1968/` | H.R. 1968 | Full-Year CR with Appropriations | Defense, Homeland, Labor-HHS, others | 526 | $1,786B |
-| `examples/hr5371/` | H.R. 5371 | Minibus | CR + Ag + LegBranch + MilCon-VA | 1,048 | $681B |
-| `examples/hr6938/` | H.R. 6938 | Minibus | CJS + Energy-Water + Interior | 1,061 | $196B |
-| `examples/hr7148/` | H.R. 7148 | Omnibus | Defense + Labor-HHS + THUD + FinServ + State | 2,837 | $2,788B |
+| `data/hr1968/` | H.R. 1968 | Full-Year CR with Appropriations | Defense, Homeland, Labor-HHS, others | 526 | $1,786B |
+| `data/hr5371/` | H.R. 5371 | Minibus | CR + Ag + LegBranch + MilCon-VA | 1,048 | $681B |
+| `data/hr6938/` | H.R. 6938 | Minibus | CJS + Energy-Water + Interior | 1,061 | $196B |
+| `data/hr7148/` | H.R. 7148 | Omnibus | Defense + Labor-HHS + THUD + FinServ + State | 2,837 | $2,788B |
 
-**Totals:** 8,554 provisions, $6.4 trillion in budget authority, 0 unverifiable dollar amounts, 95.5% raw text exact match.
+**Totals:** 11,136 provisions, $6.4 trillion in budget authority, 0 unverifiable dollar amounts, 95.5% raw text exact match.
 
 **Missing:** H.R. 2882 (FY2024 second omnibus covering Defense, Labor-HHS, Homeland, State, FinServ, LegBranch). Extraction failed due to 15 persistent chunk failures. The enrolled XML is available on Congress.gov if someone wants to retry with a future extraction resume feature.
 
@@ -118,22 +118,22 @@ The 20 "no match" provisions are all non-dollar statutory amendments where the L
 
 ```bash
 # Summary
-congress-approp summary --dir examples/hr4366
+congress-approp summary --dir data/hr4366
 
 # All appropriations in Division A (MilCon-VA)
-congress-approp search --dir examples/hr4366 --type appropriation --division A
+congress-approp search --dir data/hr4366 --type appropriation --division A
 
 # Rescissions over $1 billion
-congress-approp search --dir examples/hr4366 --type rescission --min-dollars 1000000000
+congress-approp search --dir data/hr4366 --type rescission --min-dollars 1000000000
 
 # Everything about the FBI
-congress-approp search --dir examples/hr4366 --account "Federal Bureau of Investigation"
+congress-approp search --dir data/hr4366 --account "Federal Bureau of Investigation"
 
 # Budget authority by department
-congress-approp summary --dir examples/hr4366 --by-agency
+congress-approp summary --dir data/hr4366 --by-agency
 
 # Full audit
-congress-approp audit --dir examples/hr4366
+congress-approp audit --dir data/hr4366
 ```
 
 ---
@@ -210,22 +210,22 @@ The lower coverage (61.1%) is expected for a CR — most dollar strings in the t
 
 ```bash
 # Summary
-congress-approp summary --dir examples/hr5860
+congress-approp summary --dir data/hr5860
 
 # All CR substitutions (table auto-adapts to show New/Old/Delta)
-congress-approp search --dir examples/hr5860 --type cr_substitution
+congress-approp search --dir data/hr5860 --type cr_substitution
 
 # The core CR mechanism
-congress-approp search --dir examples/hr5860 --type continuing_resolution_baseline
+congress-approp search --dir data/hr5860 --type continuing_resolution_baseline
 
 # Mandatory programs extended
-congress-approp search --dir examples/hr5860 --type mandatory_spending_extension
+congress-approp search --dir data/hr5860 --type mandatory_spending_extension
 
 # Standalone appropriations (FEMA, etc.)
-congress-approp search --dir examples/hr5860 --type appropriation
+congress-approp search --dir data/hr5860 --type appropriation
 
 # Full audit
-congress-approp audit --dir examples/hr5860
+congress-approp audit --dir data/hr5860
 ```
 
 ---
@@ -289,25 +289,25 @@ The VA Supplemental is used throughout this documentation as the primary teachin
 
 ```bash
 # See all 7 provisions
-congress-approp search --dir examples/hr9468
+congress-approp search --dir data/hr9468
 
 # Just the two appropriations
-congress-approp search --dir examples/hr9468 --type appropriation
+congress-approp search --dir data/hr9468 --type appropriation
 
 # The three directives (reporting requirements)
-congress-approp search --dir examples/hr9468 --type directive
+congress-approp search --dir data/hr9468 --type directive
 
 # Full JSON for the complete picture
-congress-approp search --dir examples/hr9468 --format json
+congress-approp search --dir data/hr9468 --format json
 
 # Compare to the omnibus — see the same accounts in both
-congress-approp compare --base examples/hr4366 --current examples/hr9468 --agency "Veterans"
+congress-approp compare --base data/118-hr4366 --current data/118-hr9468 --agency "Veterans"
 
 # Find the omnibus counterpart of the Comp & Pensions provision
-congress-approp search --dir examples --similar hr9468:0 --top 5
+congress-approp search --dir data --similar 118-hr9468:0 --top 5
 
 # Audit
-congress-approp audit --dir examples/hr9468
+congress-approp audit --dir data/hr9468
 ```
 
 ---
@@ -317,7 +317,7 @@ congress-approp audit --dir examples/hr9468
 Every bill directory in the example data has the same file structure:
 
 ```text
-examples/hr9468/
+data/118-hr9468/
 ├── BILLS-118hr9468enr.xml     ← Source XML from Congress.gov (enrolled version)
 ├── extraction.json            ← All provisions with structured fields
 ├── verification.json          ← Deterministic verification against source text
@@ -336,7 +336,7 @@ See [Data Directory Layout](../reference/data-directory.md) for the complete fil
 
 | Metric | Value |
 |--------|-------|
-| **Total provisions** | 8,554 |
+| **Total provisions** | 11,136 |
 | **Total budget authority** | $6,412,476,574,673 |
 | **Total rescissions** | $84,074,524,379 |
 | **Amounts NOT found in source** | **0** |
@@ -344,7 +344,7 @@ See [Data Directory Layout](../reference/data-directory.md) for the complete fil
 | **Advance appropriations detected** | $1.49 trillion (18% of total BA) |
 | **FY2026 subcommittee coverage** | All 12 subcommittees |
 
-The headline number: **0 dollar amounts unverifiable across 8,554 provisions from thirteen bills.** Every extracted dollar amount was found in the source bill text.
+The headline number: **0 dollar amounts unverifiable across 11,136 provisions from fourteen bills.** Every extracted dollar amount was found in the source bill text.
 
 ---
 
@@ -354,7 +354,7 @@ The example data serves multiple purposes:
 
 ### As test fixtures
 
-The integration test suite (`tests/cli_tests.rs`) runs against `examples/` and hardcodes exact budget authority totals. Any change to the example data or to the budget authority calculation logic that would alter these numbers is caught immediately.
+The integration test suite (`tests/cli_tests.rs`) runs against `data/` and hardcodes exact budget authority totals. Any change to the example data or to the budget authority calculation logic that would alter these numbers is caught immediately.
 
 ### As documentation source
 
@@ -362,7 +362,7 @@ Every command example, output table, and JSON snippet in this documentation was 
 
 ### As training data for understanding
 
-If you're new to appropriations, reading through `examples/hr9468/extraction.json` (just 7 provisions) is the fastest way to understand what the tool produces. Then explore `examples/hr5860` for CR-specific patterns, and `examples/hr4366` for the full complexity of an omnibus.
+If you're new to appropriations, reading through `data/hr9468/extraction.json` (just 7 provisions) is the fastest way to understand what the tool produces. Then explore `data/hr5860` for CR-specific patterns, and `data/hr4366` for the full complexity of an omnibus.
 
 ### As baseline for comparison
 
@@ -370,10 +370,10 @@ When you extract your own bills, you can compare them to the examples:
 
 ```bash
 # Compare your FY2025 omnibus to the FY2024 omnibus
-congress-approp compare --base examples/hr4366 --current data/119/hr/YOUR_BILL
+congress-approp compare --base data/118-hr4366 --current data/119/hr/YOUR_BILL
 
 # Find similar provisions across fiscal years
-congress-approp search --dir examples --dir data --similar hr9468:0 --top 5
+congress-approp search --dir data --dir data --similar 118-hr9468:0 --top 5
 ```
 
 ---
@@ -382,9 +382,9 @@ congress-approp search --dir examples --dir data --similar hr9468:0 --top 5
 
 The example data is checked into the git repository and should only be updated deliberately. The update process:
 
-1. Run extraction against the source XML: `congress-approp extract --dir examples/hrNNNN`
-2. Run the audit to verify quality: `congress-approp audit --dir examples/hrNNNN`
-3. Regenerate embeddings: `congress-approp embed --dir examples/hrNNNN`
+1. Run extraction against the source XML: `congress-approp extract --dir data/hrNNNN`
+2. Run the audit to verify quality: `congress-approp audit --dir data/hrNNNN`
+3. Regenerate embeddings: `congress-approp embed --dir data/hrNNNN`
 4. Run the full test suite: `cargo test`
 5. Verify budget authority totals match expected values
 6. Update the hardcoded test values in `tests/cli_tests.rs` if totals changed (with justification)

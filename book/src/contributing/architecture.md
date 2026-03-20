@@ -49,7 +49,7 @@ src/
     staleness.rs             ← Hash chain checking (~165 lines)
     progress.rs              ← Extraction progress bar (~170 lines)
 tests/
-  cli_tests.rs               ← 42 integration tests against examples/ data (~1,200 lines)
+  cli_tests.rs               ← 42 integration tests against test-data/ and data/ (~1,200 lines)
 ```
 
 Total: approximately 9,500 lines of Rust.
@@ -226,9 +226,9 @@ All API clients use `rustls-tls` — no OpenSSL dependency.
 
 | Operation | Time | Notes |
 |-----------|------|-------|
-| Load 13 bills (JSON parsing) | ~40ms | |
-| Load embeddings (13 bills, binary) | ~8ms | Memory read |
-| SHA-256 hash all files (13 bills) | ~8ms | |
+| Load 14 bills (JSON parsing) | ~40ms | |
+| Load embeddings (14 bills, binary) | ~8ms | Memory read |
+| SHA-256 hash all files (14 bills) | ~8ms | |
 | Cosine search (8,500 provisions) | <0.5ms | Dot products |
 | **Total cold-start query** | **~50ms** | Load + hash + search |
 | Embed query text (OpenAI API) | ~100ms | Network round-trip |

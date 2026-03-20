@@ -32,25 +32,25 @@ congress-approp summary [OPTIONS]
 
 ```bash
 # FY2026 bills only
-congress-approp summary --dir examples --fy 2026
+congress-approp summary --dir data --fy 2026
 
 # FY2026 THUD subcommittee only (requires enrich)
-congress-approp summary --dir examples --fy 2026 --subcommittee thud
+congress-approp summary --dir data --fy 2026 --subcommittee thud
 ```
 
 
 ```bash
 # Basic summary of included example data
-congress-approp summary --dir examples
+congress-approp summary --dir data
 
 # JSON output for scripting
-congress-approp summary --dir examples --format json
+congress-approp summary --dir data --format json
 
 # Show department-level rollup
-congress-approp summary --dir examples --by-agency
+congress-approp summary --dir data --by-agency
 
 # CSV for spreadsheet import
-congress-approp summary --dir examples --format csv > bill_summary.csv
+congress-approp summary --dir data --format csv > bill_summary.csv
 ```
 
 ### Output
@@ -107,7 +107,7 @@ All filters use **AND logic** — every provision in the result must match every
 | Flag | Type | Description |
 |------|------|-------------|
 | `--semantic` | string | Rank results by meaning similarity to this query text. Requires pre-computed embeddings and `OPENAI_API_KEY`. |
-| `--similar` | string | Find provisions similar to the one specified. Format: `<bill_directory>:<provision_index>` (e.g., `hr9468:0`). Uses stored vectors — **no API call needed**. |
+| `--similar` | string | Find provisions similar to the one specified. Format: `<bill_directory>:<provision_index>` (e.g., `118-hr9468:0`). Uses stored vectors — **no API call needed**. |
 | `--top` | integer | Maximum number of results for `--semantic` or `--similar` searches. Default: `20`. Has no effect on non-semantic searches (which return all matching provisions). |
 
 ### Output Flags
@@ -121,37 +121,37 @@ All filters use **AND logic** — every provision in the result must match every
 
 ```bash
 # All appropriations across all example bills
-congress-approp search --dir examples --type appropriation
+congress-approp search --dir data --type appropriation
 
 # VA appropriations over $1 billion in Division A
-congress-approp search --dir examples --type appropriation --agency "Veterans" --division A --min-dollars 1000000000
+congress-approp search --dir data --type appropriation --agency "Veterans" --division A --min-dollars 1000000000
 
 # FEMA-related provisions by keyword
-congress-approp search --dir examples --keyword "Federal Emergency Management"
+congress-approp search --dir data --keyword "Federal Emergency Management"
 
 # CR substitutions (table auto-adapts to show New/Old/Delta columns)
-congress-approp search --dir examples/hr5860 --type cr_substitution
+congress-approp search --dir data/hr5860 --type cr_substitution
 
 # All directives in the VA supplemental
-congress-approp search --dir examples/hr9468 --type directive
+congress-approp search --dir data/hr9468 --type directive
 
 # Semantic search — find by meaning, not keywords
-congress-approp search --dir examples --semantic "school lunch programs for kids" --top 5
+congress-approp search --dir data --semantic "school lunch programs for kids" --top 5
 
 # Find provisions similar to a specific one across all bills
-congress-approp search --dir examples --similar hr9468:0 --top 5
+congress-approp search --dir data --similar 118-hr9468:0 --top 5
 
 # Combine semantic with hard filters
-congress-approp search --dir examples --semantic "clean energy" --type appropriation --min-dollars 100000000 --top 10
+congress-approp search --dir data --semantic "clean energy" --type appropriation --min-dollars 100000000 --top 10
 
 # Export to CSV for spreadsheet analysis
-congress-approp search --dir examples --type appropriation --format csv > appropriations.csv
+congress-approp search --dir data --type appropriation --format csv > appropriations.csv
 
 # Export to JSON for programmatic use
-congress-approp search --dir examples --type rescission --format json
+congress-approp search --dir data --type rescission --format json
 
 # List all valid provision types
-congress-approp search --dir examples --list-types
+congress-approp search --dir data --list-types
 ```
 
 ### Available Provision Types
@@ -249,22 +249,22 @@ You must provide either `--base` + `--current` (directory paths) or `--base-fy` 
 
 ```bash
 # Compare omnibus to supplemental (directory-based)
-congress-approp compare --base examples/hr4366 --current examples/hr9468
+congress-approp compare --base data/118-hr4366 --current data/118-hr9468
 
 # Compare THUD funding: FY2024 → FY2026 (FY-based with subcommittee scope)
-congress-approp compare --base-fy 2024 --current-fy 2026 --subcommittee thud --dir examples
+congress-approp compare --base-fy 2024 --current-fy 2026 --subcommittee thud --dir data
 
 # Compare all FY2024 vs FY2026 (no subcommittee scope)
-congress-approp compare --base-fy 2024 --current-fy 2026 --dir examples
+congress-approp compare --base-fy 2024 --current-fy 2026 --dir data
 
 # Show inflation-adjusted changes (which programs beat inflation?)
-congress-approp compare --base-fy 2024 --current-fy 2026 --subcommittee thud --dir examples --real
+congress-approp compare --base-fy 2024 --current-fy 2026 --subcommittee thud --dir data --real
 
 # Filter to VA accounts only
-congress-approp compare --base examples/hr4366 --current examples/hr9468 --agency "Veterans"
+congress-approp compare --base data/118-hr4366 --current data/118-hr9468 --agency "Veterans"
 
 # Export comparison to CSV
-congress-approp compare --base-fy 2024 --current-fy 2026 --subcommittee thud --dir examples --format csv > thud_compare.csv
+congress-approp compare --base-fy 2024 --current-fy 2026 --subcommittee thud --dir data --format csv > thud_compare.csv
 ```
 
 ### Matching Behavior
@@ -309,10 +309,10 @@ congress-approp audit [OPTIONS]
 
 ```bash
 # Standard audit
-congress-approp audit --dir examples
+congress-approp audit --dir data
 
 # Verbose — see individual problematic provisions
-congress-approp audit --dir examples --verbose
+congress-approp audit --dir data --verbose
 ```
 
 ### Output
@@ -536,13 +536,13 @@ For each bill directory, `enrich` creates a `bill_meta.json` file containing:
 
 ```bash
 # Enrich all bills
-congress-approp enrich --dir examples
+congress-approp enrich --dir data
 
 # Preview without writing files
-congress-approp enrich --dir examples --dry-run
+congress-approp enrich --dir data --dry-run
 
 # Force re-enrichment
-congress-approp enrich --dir examples --force
+congress-approp enrich --dir data --force
 ```
 
 ### When to Run
@@ -563,7 +563,7 @@ Deep-dive on one provision across all bills. Finds similar provisions by embeddi
 congress-approp relate <SOURCE> [OPTIONS]
 ```
 
-The `<SOURCE>` argument is a provision reference in the format `bill_directory:index` (e.g., `hr9468:0`). Use the `provision_index` from search output.
+The `<SOURCE>` argument is a provision reference in the format `bill_directory:index` (e.g., `118-hr9468:0`). Use the `provision_index` from search output.
 
 | Flag | Type | Default | Description |
 |------|------|---------|-------------|
@@ -585,13 +585,13 @@ With `--fy-timeline`, a third section shows the fiscal year timeline: current-ye
 
 ```bash
 # Deep-dive on VA Compensation and Pensions
-congress-approp relate hr9468:0 --dir examples --fy-timeline
+congress-approp relate 118-hr9468:0 --dir data --fy-timeline
 
 # Get just the link hashes for piping to `link accept`
-congress-approp relate hr9468:0 --dir examples --format hashes
+congress-approp relate 118-hr9468:0 --dir data --format hashes
 
 # JSON output with timeline
-congress-approp relate hr9468:0 --dir examples --format json --fy-timeline
+congress-approp relate 118-hr9468:0 --dir data --format json --fy-timeline
 ```
 
 ### Link Hashes
@@ -599,8 +599,8 @@ congress-approp relate hr9468:0 --dir examples --format json --fy-timeline
 Each match includes a deterministic 8-character hex hash (e.g., `b7e688d7`). These hashes are computed from the source provision, target provision, and embedding model — the same inputs always produce the same hash. Use `--format hashes` to output just the hashes of same-account matches, suitable for piping to `link accept`:
 
 ```bash
-congress-approp relate hr9468:0 --dir examples --format hashes | \
-  xargs congress-approp link accept --dir examples
+congress-approp relate 118-hr9468:0 --dir data --format hashes | \
+  xargs congress-approp link accept --dir data
 ```
 
 ---
@@ -635,13 +635,13 @@ Based on empirically calibrated thresholds from analysis of 6.7M pairwise compar
 
 ```bash
 # Cross-fiscal-year candidates (year-over-year tracking)
-congress-approp link suggest --dir examples --scope cross --limit 20
+congress-approp link suggest --dir data --scope cross --limit 20
 
 # All candidates above 0.65 similarity
-congress-approp link suggest --dir examples --threshold 0.65 --limit 50
+congress-approp link suggest --dir data --threshold 0.65 --limit 50
 
 # Output just the hashes of new (un-accepted) candidates
-congress-approp link suggest --dir examples --format hashes
+congress-approp link suggest --dir data --format hashes
 ```
 
 ---
@@ -665,17 +665,17 @@ congress-approp link accept [OPTIONS] [HASHES...]
 
 ```bash
 # Accept specific links by hash
-congress-approp link accept --dir examples a3f7b2c4 e5d1c8a9
+congress-approp link accept --dir data a3f7b2c4 e5d1c8a9
 
 # Accept with a note
-congress-approp link accept --dir examples a3f7b2c4 --note "Same VA account, different bill vehicles"
+congress-approp link accept --dir data a3f7b2c4 --note "Same VA account, different bill vehicles"
 
 # Auto-accept all verified and high-confidence candidates
-congress-approp link accept --dir examples --auto
+congress-approp link accept --dir data --auto
 
 # Pipe from relate output
-congress-approp relate hr9468:0 --dir examples --format hashes | \
-  xargs congress-approp link accept --dir examples
+congress-approp relate 118-hr9468:0 --dir data --format hashes | \
+  xargs congress-approp link accept --dir data
 ```
 
 ---
@@ -696,7 +696,7 @@ congress-approp link remove --dir <DIR> <HASHES...>
 ### Example
 
 ```bash
-congress-approp link remove --dir examples a3f7b2c4
+congress-approp link remove --dir data a3f7b2c4
 ```
 
 ---
@@ -719,13 +719,13 @@ congress-approp link list [OPTIONS]
 
 ```bash
 # Show all accepted links
-congress-approp link list --dir examples
+congress-approp link list --dir data
 
 # Filter to links involving H.R. 4366
-congress-approp link list --dir examples --bill hr4366
+congress-approp link list --dir data --bill hr4366
 
 # JSON output for programmatic use
-congress-approp link list --dir examples --format json
+congress-approp link list --dir data --format json
 ```
 
 ---
@@ -849,10 +849,10 @@ congress-approp api bill text --congress 118 --type hr --number 4366
 ### Query pre-extracted example data (no API keys needed)
 
 ```bash
-congress-approp summary --dir examples
-congress-approp search --dir examples --type appropriation
-congress-approp audit --dir examples
-congress-approp compare --base examples/hr4366 --current examples/hr9468
+congress-approp summary --dir data
+congress-approp search --dir data --type appropriation
+congress-approp audit --dir data
+congress-approp compare --base data/118-hr4366 --current data/118-hr9468
 ```
 
 ### Full extraction pipeline
@@ -873,13 +873,13 @@ congress-approp summary --dir data
 
 ```bash
 # All appropriations to CSV
-congress-approp search --dir examples --type appropriation --format csv > all.csv
+congress-approp search --dir data --type appropriation --format csv > all.csv
 
 # JSON for jq processing
-congress-approp search --dir examples --format json | jq '.[].account_name' | sort -u
+congress-approp search --dir data --format json | jq '.[].account_name' | sort -u
 
 # JSONL for streaming
-congress-approp search --dir examples --format jsonl | while IFS= read -r line; do echo "$line" | jq '.dollars'; done
+congress-approp search --dir data --format jsonl | while IFS= read -r line; do echo "$line" | jq '.dollars'; done
 ```
 
 ## Environment Variables

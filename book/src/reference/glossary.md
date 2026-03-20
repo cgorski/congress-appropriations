@@ -80,7 +80,7 @@ Definitions of key terms used throughout this documentation and in the tool's ou
 
 **Net Budget Authority (Net BA)** — Budget authority minus rescissions. This is the net new spending authority enacted by a bill. Displayed in the "Net BA ($)" column of the summary table. For most reporting purposes, this is the number to cite.
 
-**Not Found** (verification status) — A dollar amount verification result indicating that the `text_as_written` dollar string was **not found anywhere** in the source bill text. This is the most serious verification failure — the LLM may have hallucinated the amount. Displayed as `✗` in the search table's `$` column. Across the included example data: 0 occurrences out of 8,554 provisions. **Should always be 0.** See [How Verification Works](../explanation/verification.md).
+**Not Found** (verification status) — A dollar amount verification result indicating that the `text_as_written` dollar string was **not found anywhere** in the source bill text. This is the most serious verification failure — the LLM may have hallucinated the amount. Displayed as `✗` in the search table's `$` column. Across the included example data: 0 occurrences out of 11,136 provisions. **Should always be 0.** See [How Verification Works](../explanation/verification.md).
 
 **Omnibus** — A single bill packaging multiple (often all twelve) annual appropriations bills together, organized into lettered divisions. Congress frequently uses omnibuses when individual bills stall. H.R. 4366 in the example data is an omnibus covering seven of twelve appropriations subcommittee jurisdictions. See [How Federal Appropriations Work](../introduction/appropriations-primer.md).
 

@@ -278,7 +278,7 @@ You don't need to read this file directly — the `audit` and `search` commands 
 ```python
 import json
 
-with open("examples/hr9468/verification.json") as f:
+with open("data/118-hr9468/verification.json") as f:
     v = json.load(f)
 
 # Summary metrics

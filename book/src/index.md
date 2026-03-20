@@ -4,11 +4,11 @@
 
 `congress-approp` is a Rust command-line tool that downloads U.S. federal appropriations bills from Congress.gov, extracts every spending provision into structured JSON using Claude, verifies each dollar amount against the source bill text, and gives you tools to search, compare, summarize, and audit the results. No more hunting through 1,500 pages of legislative text to find out how much Congress appropriated for a program.
 
-> **Trust callout:** Across 8,554 provisions extracted from thirteen enacted appropriations bills, every single dollar amount was found verbatim in the source bill text. Zero unverifiable amounts. The LLM extracts; deterministic code verifies.
+> **Trust callout:** Across 11,136 provisions extracted from fourteen bills, every single dollar amount was found verbatim in the source bill text. Zero unverifiable amounts. The LLM extracts; deterministic code verifies.
 
 ## What's Included
 
-This book ships with **thirteen pre-extracted bills** covering FY2024 through FY2026 — omnibus packages, minibus bills, continuing resolutions, supplementals, and authorizations. All twelve appropriations subcommittees are represented for FY2026. You don't need any API keys to explore them — just install the tool and start querying.
+This book ships with **fourteen bills, continuing resolutions, supplementals, and authorizations. All twelve appropriations subcommittees are represented for FY2026. You don't need any API keys to explore them — just install the tool and start querying.
 
 ### 118th Congress (FY2024/FY2025)
 
@@ -33,7 +33,7 @@ This book ships with **thirteen pre-extracted bills** covering FY2024 through FY
 | H.R. 6938 | Minibus | CJS + Energy-Water + Interior | 1,061 | $196B |
 | H.R. 7148 | Omnibus | Defense + Labor-HHS + THUD + FinServ + State | 2,837 | $2,788B |
 
-**Totals:** 8,554 provisions, $6.4 trillion in budget authority, 0 unverifiable dollar amounts.
+**Totals:** 11,136 provisions, $6.4 trillion in budget authority, 0 unverifiable dollar amounts.
 
 ## What Can You Do?
 

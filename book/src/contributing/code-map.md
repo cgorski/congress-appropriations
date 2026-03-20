@@ -51,7 +51,7 @@ docs/
 book/
 └── src/                             ← This mdbook documentation
 
-examples/
+data/
 ├── hr4366/                          ← FY2024 omnibus (2,364 provisions)
 ├── hr5860/                          ← FY2024 continuing resolution (130 provisions)
 └── hr9468/                          ← VA supplemental (7 provisions)
@@ -110,7 +110,7 @@ examples/
 
 | File | Lines | Purpose | When to Edit |
 |------|-------|---------|-------------|
-| `tests/cli_tests.rs` | ~1,200 | **42 integration tests.** Runs the actual `congress-approp` binary against `examples/` data and checks stdout/stderr. Includes budget authority total pinning, search output validation, format tests, enrich/relate/link workflow tests, FY/subcommittee filtering tests, --show-advance verification, and case-insensitive compare tests. | Adding tests for new CLI commands or flags; updating expected output when behavior changes intentionally. |
+| `tests/cli_tests.rs` | ~1,200 | **42 integration tests.** Runs the actual `congress-approp` binary against `data/` data and checks stdout/stderr. Includes budget authority total pinning, search output validation, format tests, enrich/relate/link workflow tests, FY/subcommittee filtering tests, --show-advance verification, and case-insensitive compare tests. | Adding tests for new CLI commands or flags; updating expected output when behavior changes intentionally. |
 
 In addition to integration tests, most modules contain inline unit tests in `#[cfg(test)] mod tests { }` blocks at the bottom of the file.
 

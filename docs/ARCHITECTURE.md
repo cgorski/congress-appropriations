@@ -143,7 +143,7 @@ Links are consumed by `compare --use-links` (rescues orphans via accepted links)
 Every bill lives in its own directory. Files are discovered by walking recursively for `extraction.json` — that's the anchor file. Everything else is optional. Cross-bill links live at the data root in `links/links.json`.
 
 ```
-examples/                          ← any --dir path works
+data/                              ← any --dir path works
 ├── hr4366/                        ← bill directory
 │   ├── BILLS-118hr4366enr.xml     ← source XML from Congress.gov
 │   ├── extraction.json            ← structured provisions (REQUIRED)
@@ -179,7 +179,7 @@ examples/                          ← any --dir path works
 
 **Every file is write-once.** Once a bill is extracted and embedded, its files are never modified. The system is read-dominated: writes happen ~15 times per year (when Congress enacts bills), reads happen hundreds to thousands of times.
 
-Nesting is flexible — `data/congress/118/hr4366/extraction.json` works just as well as `examples/hr4366/extraction.json`. The loader walks recursively from whatever `--dir` you point it at.
+Nesting is flexible — `data/congress/118/hr4366/extraction.json` works just as well as `data/hr4366/extraction.json`. The loader walks recursively from whatever `--dir` you point it at.
 
 ---
 
@@ -259,7 +259,7 @@ OpenAI embedding vectors are L2-normalized (norm = 1.0), so cosine similarity eq
 
 ### Find-similar
 
-`--similar hr4366:42` takes provision #42's embedding vector and finds the most similar provisions across all loaded bills. This enables:
+`--similar 118-hr4366:42` takes provision #42's embedding vector and finds the most similar provisions across all loaded bills. This enables:
 - **Cross-bill matching:** find the same program in a different bill
 - **Year-over-year tracking:** find last year's version of this provision
 - **Conference tracking:** match House and Senate versions

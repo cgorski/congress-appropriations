@@ -1,6 +1,6 @@
 # Compare Two Bills
 
-> **You will need:** `congress-approp` installed, access to the `examples/` directory.
+> **You will need:** `congress-approp` installed, access to the `data/` directory.
 >
 > **You will learn:** How to use the `compare` command to see which accounts gained, lost, or changed funding between two sets of bills.
 
@@ -13,7 +13,7 @@ The `compare` command answers these questions by matching accounts across two se
 Let's compare the FY2024 omnibus (H.R. 4366) to the VA supplemental (H.R. 9468) to see which accounts got additional emergency funding:
 
 ```bash
-congress-approp compare --base examples/hr4366 --current examples/hr9468
+congress-approp compare --base data/118-hr4366 --current data/118-hr9468
 ```
 
 The tool first prints a warning:
@@ -77,7 +77,7 @@ The comparison above — omnibus vs. supplemental — is instructive but require
 To focus on just the accounts that matter, use `--agency` to narrow the comparison:
 
 ```bash
-congress-approp compare --base examples/hr4366 --current examples/hr9468 --agency "Veterans"
+congress-approp compare --base data/118-hr4366 --current data/118-hr9468 --agency "Veterans"
 ```
 
 This filters both sides to only show accounts from the Department of Veterans Affairs, making the comparison much easier to read. You'll see the two "changed" accounts (Comp & Pensions and Readjustment Benefits) plus the VA accounts that are "only in base."
@@ -106,7 +106,7 @@ The compare command matches accounts by exact normalized name. If Congress renam
 For accounts with different names that represent the same program, use the `--similar` flag on `search` to find the semantic match:
 
 ```bash
-congress-approp search --dir examples --similar hr9468:0 --top 5
+congress-approp search --dir data --similar 118-hr9468:0 --top 5
 ```
 
 This uses embedding vectors to match by meaning rather than account name. See [Track a Program Across Bills](./track-program-across-bills.md) for details.
@@ -119,10 +119,10 @@ Like all query commands, `compare` supports multiple output formats:
 
 ```bash
 # CSV for Excel analysis
-congress-approp compare --base examples/hr4366 --current examples/hr9468 --format csv > comparison.csv
+congress-approp compare --base data/118-hr4366 --current data/118-hr9468 --format csv > comparison.csv
 
 # JSON for programmatic processing
-congress-approp compare --base examples/hr4366 --current examples/hr9468 --format json
+congress-approp compare --base data/118-hr4366 --current data/118-hr9468 --format json
 ```
 
 The JSON output includes every field for each account delta:

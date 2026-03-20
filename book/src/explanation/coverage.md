@@ -22,7 +22,7 @@ The denominator counts **every** dollar-sign pattern in the source text — incl
 | H.R. 4366 (omnibus) | 2,364 | **94.2%** | Most captured; 5.8% are dollar strings that aren't independent provisions |
 | H.R. 5860 (CR) | 130 | **61.1%** | Many dollar strings are prior-year references in the CR text, not new provisions |
 
-Notice that all thirteen bills have **0 unverifiable dollar amounts** (NotFound = 0 in the audit). Coverage and accuracy are independent metrics:
+Notice that all fourteen bills have **0 unverifiable dollar amounts** (NotFound = 0 in the audit). Coverage and accuracy are independent metrics:
 
 - **Accuracy** (NotFound) answers: "Are the extracted amounts real?" → Yes, all of them.
 - **Coverage** answers: "Did we capture every dollar amount in the bill?" → Not necessarily, and that's often fine.

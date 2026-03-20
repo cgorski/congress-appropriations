@@ -1,6 +1,6 @@
 # Track a Program Across Bills
 
-> **You will need:** `congress-approp` installed, access to the `examples/` directory. Optionally: `OPENAI_API_KEY` for semantic search.
+> **You will need:** `congress-approp` installed, access to the `data/` directory. Optionally: `OPENAI_API_KEY` for semantic search.
 >
 > **You will learn:** How to follow a specific program's funding across multiple bills using `--similar`, and how to interpret cross-bill matching results.
 
@@ -17,7 +17,7 @@ H.R. 9468 (the VA Supplemental) appropriated $2,285,513,000 for "Compensation an
 First, find the provision you want to track. You can use any search command to locate it:
 
 ```bash
-congress-approp search --dir examples/hr9468 --type appropriation
+congress-approp search --dir data/hr9468 --type appropriation
 ```
 
 ```text
@@ -30,12 +30,12 @@ congress-approp search --dir examples/hr9468 --type appropriation
 2 provisions found
 ```
 
-Compensation and Pensions is the first provision listed. To use `--similar`, you need the **bill directory name** and **provision index**. The directory is `hr9468` (the directory name inside `examples/`), and the index is `0` (first provision, zero-indexed).
+Compensation and Pensions is the first provision listed. To use `--similar`, you need the **bill directory name** and **provision index**. The directory is `hr9468` (the directory name inside `data/`), and the index is `0` (first provision, zero-indexed).
 
 You can also see the index in JSON output:
 
 ```bash
-congress-approp search --dir examples/hr9468 --type appropriation --format json
+congress-approp search --dir data/hr9468 --type appropriation --format json
 ```
 
 Look for the `"provision_index": 0` field in the first result.
@@ -45,7 +45,7 @@ Look for the `"provision_index": 0` field in the first result.
 Now use `--similar` to find the closest matches across every loaded bill:
 
 ```bash
-congress-approp search --dir examples --similar hr9468:0 --top 10
+congress-approp search --dir data --similar 118-hr9468:0 --top 10
 ```
 
 ```text
@@ -77,7 +77,7 @@ The continuing resolution (H.R. 5860) doesn't have a specific Comp & Pensions pr
 
 The `--similar` flag does **not** make any API calls. Here's what happens:
 
-1. It looks up the embedding vector for `hr9468:0` from the pre-computed `vectors.bin` file
+1. It looks up the embedding vector for `118-hr9468:0` from the pre-computed `vectors.bin` file
 2. It loads the embedding vectors for every provision in every bill under `--dir`
 3. It computes the cosine similarity between the source vector and every other vector
 4. It ranks by similarity descending and returns the top N results
@@ -102,7 +102,7 @@ For cross-bill tracking, focus on matches **above 0.75** — these are very like
 Repeat for Readjustment Benefits (provision index 1 in the supplemental):
 
 ```bash
-congress-approp search --dir examples --similar hr9468:1 --top 5
+congress-approp search --dir data --similar 118-hr9468:1 --top 5
 ```
 
 ```text
@@ -130,11 +130,11 @@ To demonstrate, let's find the omnibus counterparts of the CR substitutions that
 
 ```bash
 # First, find a CR substitution provision index
-congress-approp search --dir examples/hr5860 --type cr_substitution --format json
+congress-approp search --dir data/hr5860 --type cr_substitution --format json
 # Note: the first CR substitution (Rural Housing) is at some index — check provision_index
 
 # Then find similar provisions in the omnibus
-congress-approp search --dir examples --similar hr5860:<INDEX> --top 3
+congress-approp search --dir data --similar hr5860:<INDEX> --top 3
 ```
 
 Even though "Rural Housing Service—Rural Community Facilities Program Account" and "Rural Community Facilities Program Account" are different strings, the embedding similarity will be in the 0.75–0.80 range — high enough to confidently identify them as the same program.
@@ -158,7 +158,7 @@ The `relate` command provides a focused view of one provision across all bills, 
 
 ```bash
 # Trace VA Compensation and Pensions across all fiscal years
-congress-approp relate hr9468:0 --dir examples --fy-timeline
+congress-approp relate 118-hr9468:0 --dir data --fy-timeline
 ```
 
 Each match includes a deterministic 8-character hash that you can use to persist the relationship.
@@ -169,20 +169,20 @@ You can save cross-bill relationships using the link system, so they persist acr
 
 ```bash
 # Discover link candidates from embeddings
-congress-approp link suggest --dir examples --scope cross --limit 20
+congress-approp link suggest --dir data --scope cross --limit 20
 
 # Accept specific matches by hash (from relate or link suggest output)
-congress-approp link accept --dir examples a3f7b2c4 e5d1c8a9
+congress-approp link accept --dir data a3f7b2c4 e5d1c8a9
 
 # Or batch-accept all verified + high-confidence candidates
-congress-approp link accept --dir examples --auto
+congress-approp link accept --dir data --auto
 
 # Use accepted links in compare to handle renames
-congress-approp compare --base-fy 2024 --current-fy 2026 --subcommittee thud --dir examples --use-links
+congress-approp compare --base-fy 2024 --current-fy 2026 --subcommittee thud --dir data --use-links
 
 # View and manage saved links
-congress-approp link list --dir examples
-congress-approp link remove --dir examples a3f7b2c4
+congress-approp link list --dir data
+congress-approp link remove --dir data a3f7b2c4
 ```
 
 Links are stored at `<dir>/links/links.json` and are indexed by deterministic hashes — the same provision pair always produces the same hash, so you can script the workflow reliably. See [Enrich Bills with Metadata](../how-to/enrich-data.md) and the [CLI Reference](../reference/cli.md) for details.
@@ -198,7 +198,7 @@ This will enable automatic cross-year matching even when account names change, w
 3. **Combine with `--type` for precision.** If you're matching appropriations, add `--type appropriation` to exclude riders, directives, and other provision types from the results:
 
    ```bash
-   congress-approp search --dir examples --similar hr9468:0 --type appropriation --top 5
+   congress-approp search --dir data --similar 118-hr9468:0 --type appropriation --top 5
    ```
 
 4. **Check both directions.** If provision A in bill X matches provision B in bill Y at 0.85, provision B in bill Y should also match provision A in bill X at a similar score. If it doesn't, something is off.
@@ -209,10 +209,10 @@ This will enable automatic cross-year matching even when account names change, w
 
 | Task | Command |
 |------|---------|
-| Find the omnibus version of a supplemental provision | `search --dir examples --similar hr9468:0 --top 3` |
-| Find related provisions across all bills | `search --dir examples --similar hr4366:42 --top 10` |
-| Restrict matches to appropriations only | `search --dir examples --similar hr9468:0 --type appropriation --top 5` |
-| Find provisions in a specific bill | `search --dir examples/hr4366 --similar hr9468:0 --top 5` |
+| Find the omnibus version of a supplemental provision | `search --dir data --similar 118-hr9468:0 --top 3` |
+| Find related provisions across all bills | `search --dir data --similar 118-hr4366:42 --top 10` |
+| Restrict matches to appropriations only | `search --dir data --similar 118-hr9468:0 --type appropriation --top 5` |
+| Find provisions in a specific bill | `search --dir data/hr4366 --similar 118-hr9468:0 --top 5` |
 
 ## Next Steps
 

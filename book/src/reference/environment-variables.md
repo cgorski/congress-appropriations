@@ -55,15 +55,15 @@ congress-approp extract --dir data/118/hr/9468 --model claude-sonnet-4-20250514
 
 ### Querying pre-extracted data (no keys needed)
 
-These commands work with the included `examples/` data and any previously extracted bills — **no API keys required**:
+These commands work with the included `data/` data and any previously extracted bills — **no API keys required**:
 
 ```bash
-congress-approp summary --dir examples
-congress-approp search --dir examples --type appropriation
-congress-approp search --dir examples --keyword "Veterans"
-congress-approp audit --dir examples
-congress-approp compare --base examples/hr4366 --current examples/hr9468
-congress-approp upgrade --dir examples --dry-run
+congress-approp summary --dir data
+congress-approp search --dir data --type appropriation
+congress-approp search --dir data --keyword "Veterans"
+congress-approp audit --dir data
+congress-approp compare --base data/118-hr4366 --current data/118-hr9468
+congress-approp upgrade --dir data --dry-run
 ```
 
 ### Semantic search (OPENAI_API_KEY only)
@@ -72,14 +72,14 @@ Semantic search requires one API call to embed your query text (~100ms, costs fr
 
 ```bash
 export OPENAI_API_KEY="your-key"
-congress-approp search --dir examples --semantic "school lunch programs" --top 5
+congress-approp search --dir data --semantic "school lunch programs" --top 5
 ```
 
 The `--similar` flag does **not** require an API key — it uses pre-computed vectors stored locally:
 
 ```bash
 # No API key needed for --similar
-congress-approp search --dir examples --similar hr9468:0 --top 5
+congress-approp search --dir data --similar 118-hr9468:0 --top 5
 ```
 
 ### Downloading bills (CONGRESS_API_KEY only)

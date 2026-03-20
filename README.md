@@ -10,7 +10,7 @@ A command-line tool that downloads U.S. federal appropriations bills from Congre
 
 The goal: make the ~1,500 pages of annual appropriations bills searchable, sortable, and machine-readable — so you can quickly answer questions like "how much did Congress appropriate for VA Compensation and Pensions?" or "which programs got cut in the continuing resolution?"
 
-**Pre-processed data available:** The [`examples/`](examples/) directory includes completed extractions for thirteen enacted appropriations bills across the 118th and 119th Congresses (FY2024–FY2026), covering all twelve appropriations subcommittees. 8,554 provisions, $6.4 trillion in budget authority, pre-enriched metadata, and pre-computed embeddings. No API keys required to query these.
+**Pre-processed data available:** The [`data/`](data/) directory includes completed extractions for fourteen enacted appropriations bills across the 118th and 119th Congresses (FY2024–FY2026), covering all twelve appropriations subcommittees. 11,136 provisions, $8.9 trillion in budget authority, pre-enriched metadata, and pre-computed embeddings. No API keys required to query these.
 
 ## Quick Start — Try It Now
 
@@ -26,16 +26,16 @@ This places the `congress-approp` binary on your PATH. You need **Rust 1.93+** (
 
 ### Explore the Example Data (No API Keys Required)
 
-The `examples/` directory contains pre-extracted data from thirteen bills, with pre-computed embeddings for semantic search and pre-enriched metadata for fiscal year and subcommittee filtering. Try these commands right away:
+The `data/` directory contains pre-extracted data from fourteen bills, with pre-computed embeddings for semantic search and pre-enriched metadata for fiscal year and subcommittee filtering. Try these commands right away:
 
 ```bash
 # See what bills are available and their budget authority totals
-congress-approp summary --dir examples
+congress-approp summary --dir data
 
 # Semantic search — find provisions by meaning, not just keywords.
 # "school lunch programs for kids" has zero keyword overlap with the result,
 # but semantic search finds it instantly:
-congress-approp search --dir examples --semantic "school lunch programs for kids" --top 5
+congress-approp search --dir data --semantic "school lunch programs for kids" --top 5
 ```
 
 ```text
@@ -52,19 +52,19 @@ Semantic search requires pre-computed embeddings (included for example data) and
 
 ```bash
 # Find all appropriations across every bill
-congress-approp search --dir examples --type appropriation
+congress-approp search --dir data --type appropriation
 
 # What programs got funding changes in the continuing resolution?
-congress-approp search --dir examples/hr5860 --type cr_substitution
+congress-approp search --dir data/hr5860 --type cr_substitution
 
 # Find all FEMA-related provisions
-congress-approp search --dir examples --keyword "Federal Emergency Management"
+congress-approp search --dir data --keyword "Federal Emergency Management"
 
 # Find a provision in the supplemental, then see what matches in the omnibus
-congress-approp search --dir examples --similar hr9468:0 --top 5
+congress-approp search --dir data --similar 118-hr9468:0 --top 5
 
 # Export everything to CSV for Excel
-congress-approp search --dir examples --type appropriation --format csv > appropriations.csv
+congress-approp search --dir data --type appropriation --format csv > appropriations.csv
 ```
 
 ### Enrich Bills for Fiscal Year and Subcommittee Filtering
@@ -73,16 +73,16 @@ The `enrich` command generates metadata that enables fiscal year and subcommitte
 
 ```bash
 # Generate bill metadata (no API keys needed)
-congress-approp enrich --dir examples
+congress-approp enrich --dir data
 
 # Now you can filter by fiscal year
-congress-approp summary --dir examples --fy 2026
+congress-approp summary --dir data --fy 2026
 
 # Filter by subcommittee jurisdiction
-congress-approp search --dir examples --semantic "housing assistance" --fy 2026 --subcommittee thud --top 5
+congress-approp search --dir data --semantic "housing assistance" --fy 2026 --subcommittee thud --top 5
 
 # Compare across fiscal years for a specific subcommittee
-congress-approp compare --base-fy 2024 --current-fy 2026 --subcommittee thud --dir examples
+congress-approp compare --base-fy 2024 --current-fy 2026 --subcommittee thud --dir data
 ```
 
 Without `enrich`, the `--fy` flag still works for basic filtering (using fiscal year data from the extraction). The `--subcommittee` flag requires `enrich` because it needs the division-to-jurisdiction mapping that `enrich` generates.
@@ -95,28 +95,28 @@ The `enrich` command also classifies each budget authority provision as current-
 
 | Directory | Bill | Type | Provisions | Budget Auth |
 |-----------|------|------|-----------|------------|
-| `examples/hr4366/` | H.R. 4366 | FY2024 omnibus (MilCon-VA, Ag, CJS, E&W, Interior, THUD) | 2,364 | $846B |
-| `examples/hr5860/` | H.R. 5860 | FY2024 initial CR + 13 anomalies | 130 | $16B |
-| `examples/hr9468/` | H.R. 9468 | VA supplemental | 7 | $2.9B |
-| `examples/hr815/` | H.R. 815 | Ukraine/Israel/Taiwan supplemental | 303 | $95B |
-| `examples/hr2872/` | H.R. 2872 | Further CR (FY2024) | 31 | $0 |
-| `examples/hr6363/` | H.R. 6363 | Further CR + extensions | 74 | ~$0 |
-| `examples/hr7463/` | H.R. 7463 | CR extension | 10 | $0 |
-| `examples/hr9747/` | H.R. 9747 | CR + extensions (FY2025) | 114 | $383M |
-| `examples/s870/` | S. 870 | Fire Admin authorization | 49 | $0 |
+| `data/hr4366/` | H.R. 4366 | FY2024 omnibus (MilCon-VA, Ag, CJS, E&W, Interior, THUD) | 2,364 | $846B |
+| `data/hr5860/` | H.R. 5860 | FY2024 initial CR + 13 anomalies | 130 | $16B |
+| `data/hr9468/` | H.R. 9468 | VA supplemental | 7 | $2.9B |
+| `data/hr815/` | H.R. 815 | Ukraine/Israel/Taiwan supplemental | 303 | $95B |
+| `data/hr2872/` | H.R. 2872 | Further CR (FY2024) | 31 | $0 |
+| `data/hr6363/` | H.R. 6363 | Further CR + extensions | 74 | ~$0 |
+| `data/hr7463/` | H.R. 7463 | CR extension | 10 | $0 |
+| `data/hr9747/` | H.R. 9747 | CR + extensions (FY2025) | 114 | $383M |
+| `data/s870/` | S. 870 | Fire Admin authorization | 49 | $0 |
 
 **119th Congress (FY2025/FY2026):**
 
 | Directory | Bill | Type | Provisions | Budget Auth |
 |-----------|------|------|-----------|------------|
-| `examples/hr1968/` | H.R. 1968 | Full-year CR with appropriations (FY2025) | 526 | $1,786B |
-| `examples/hr5371/` | H.R. 5371 | Minibus: CR + Ag + LegBranch + MilCon-VA | 1,048 | $681B |
-| `examples/hr6938/` | H.R. 6938 | Minibus: CJS + Energy-Water + Interior | 1,061 | $196B |
-| `examples/hr7148/` | H.R. 7148 | Omnibus: Defense + Labor-HHS + THUD + FinServ + State | 2,837 | $2,788B |
+| `data/hr1968/` | H.R. 1968 | Full-year CR with appropriations (FY2025) | 526 | $1,786B |
+| `data/hr5371/` | H.R. 5371 | Minibus: CR + Ag + LegBranch + MilCon-VA | 1,048 | $681B |
+| `data/hr6938/` | H.R. 6938 | Minibus: CJS + Energy-Water + Interior | 1,061 | $196B |
+| `data/hr7148/` | H.R. 7148 | Omnibus: Defense + Labor-HHS + THUD + FinServ + State | 2,837 | $2,788B |
 
-**Totals:** 8,554 provisions, $6.4 trillion in budget authority, 0 unverifiable dollar amounts. All twelve appropriations subcommittees are covered for FY2026.
+**Totals:** 11,136 provisions, $8.9 trillion in budget authority, 0 unverifiable dollar amounts. All twelve appropriations subcommittees are covered for FY2026.
 
-Each directory contains the source XML, extracted provisions, verification report, bill metadata (`bill_meta.json` from `enrich`), and pre-computed embeddings. All query commands (`search`, `summary`, `compare`, `audit`, `relate`) work against these directories. Embedding vectors (`vectors.bin`) are included in the git repository but excluded from the crates.io package — run `congress-approp embed --dir examples` to regenerate them if you installed via `cargo install`.
+Each directory contains the source XML, extracted provisions, verification report, bill metadata (`bill_meta.json` from `enrich`), and pre-computed embeddings. All query commands (`search`, `summary`, `compare`, `audit`, `relate`) work against these directories. Embedding vectors (`vectors.bin`) are included in the git repository but excluded from the crates.io package — run `congress-approp embed --dir data` to regenerate them if you installed via `cargo install`.
 
 ## How Federal Appropriations Work
 
@@ -190,7 +190,7 @@ Congress.gov   XML Parser    Claude Opus 4.6   Verification      Query
 | **Congress.gov API key** | Access to bill metadata and XML | Free — [sign up here](https://api.congress.gov/sign-up/) |
 | **Anthropic API key** | LLM extraction of provisions | [Sign up here](https://console.anthropic.com/) |
 
-> **Note:** The Anthropic key is only needed for extraction — exploring pre-extracted data (the `examples/` directory or any previously extracted bills) is completely free.
+> **Note:** The Anthropic key is only needed for extraction — exploring pre-extracted data (the `data/` directory or any previously extracted bills) is completely free.
 
 ```bash
 # Set your API keys
@@ -257,7 +257,7 @@ The `extract` command parses the XML, sends text to the LLM, and runs determinis
 
 ```bash
 # See all FY2026 bills (uses --fy to filter; run `enrich` first for enriched classifications)
-congress-approp summary --dir examples --fy 2026
+congress-approp summary --dir data --fy 2026
 ```
 
 ```text
@@ -274,7 +274,7 @@ congress-approp summary --dir examples --fy 2026
 0 dollar amounts unverified across all bills. Run `congress-approp audit` for detailed verification.
 ```
 
-Without `--fy`, the summary shows all 13 bills across FY2024–FY2026 ($6.4 trillion total). Use `--subcommittee thud` to narrow further to a specific jurisdiction, and `--show-advance` to separate current-year from advance appropriations.
+Without `--fy`, the summary shows all 14 bills across FY2024–FY2026 ($8.9 trillion total). Use `--subcommittee thud` to narrow further to a specific jurisdiction, and `--show-advance` to separate current-year from advance appropriations.
 
 Budget authority is computed from the actual provisions, not the LLM's self-reported summary.
 
@@ -289,7 +289,7 @@ Tables adapt automatically to the provision type you're searching for.
 **Find all appropriations:**
 
 ```bash
-congress-approp search --dir examples --type appropriation
+congress-approp search --dir data --type appropriation
 ```
 
 ```text
@@ -307,7 +307,7 @@ The **$** column shows verification status: ✓ means the dollar amount string w
 **Find CR anomalies (which programs got funding changes):**
 
 ```bash
-congress-approp search --dir examples/hr5860 --type cr_substitution
+congress-approp search --dir data/hr5860 --type cr_substitution
 ```
 
 ```text
@@ -326,7 +326,7 @@ The CR substitution table automatically shows **New**, **Old**, and **Delta** co
 **Find reporting requirements:**
 
 ```bash
-congress-approp search --dir examples/hr9468 --type directive
+congress-approp search --dir data/hr9468 --type directive
 ```
 
 ```text
@@ -342,7 +342,7 @@ congress-approp search --dir examples/hr9468 --type directive
 **Export to CSV for Excel:**
 
 ```bash
-congress-approp search --dir examples --type appropriation --format csv > appropriations.csv
+congress-approp search --dir data --type appropriation --format csv > appropriations.csv
 ```
 
 ```text
@@ -356,7 +356,7 @@ The CSV includes `description`, `raw_text`, and all other fields for filtering i
 **Export to JSON for programmatic use:**
 
 ```bash
-congress-approp search --dir examples/hr9468 --type directive --format json
+congress-approp search --dir data/hr9468 --type directive --format json
 ```
 
 ```json
@@ -409,7 +409,7 @@ congress-approp search --dir data --type mandatory_spending_extension --format j
 ### `compare` — What changed between two sets of bills?
 
 ```bash
-congress-approp compare --base examples/hr5860 --current examples/hr9468
+congress-approp compare --base data/118-hr5860 --current data/118-hr9468
 ```
 
 Compares appropriation accounts between any two directories. Matches by `(agency, account_name)` with automatic normalization for hierarchical CR names. Results sorted by largest change first.
@@ -417,10 +417,10 @@ Compares appropriation accounts between any two directories. Matches by `(agency
 ### `audit` — Can I trust these numbers?
 
 ```bash
-congress-approp audit --dir examples
+congress-approp audit --dir data
 ```
 
-The audit table shows verification metrics for all 13 bills — Verified (unique attribution), Ambiguous (multiple positions), NotFound, and raw text match tiers (Exact, Normalized, Spaceless, NoMatch). Across all 8,554 provisions: **0 NotFound** amounts.
+The audit table shows verification metrics for all 14 bills — Verified (unique attribution), Ambiguous (multiple positions), NotFound, and raw text match tiers (Exact, Normalized, Spaceless, NoMatch). Across all 11,136 provisions: **0 NotFound** amounts.
 
 ```text
 Column Guide:
@@ -440,7 +440,7 @@ Key:
 
 Use `--verbose` to see each individual problematic provision.
 
-**The key metric: across 8,554 provisions from thirteen bills, every extracted dollar amount was found in the source bill text** (NotFound = 0 for every bill). Verification confirms amounts exist in the bill, not that they are attributed to the correct provision — for 95.5% of provisions, the raw text excerpt also matches verbatim, providing strong attribution confidence. The tool may be incomplete on large bills (Coverage < 100%), but what it does extract checks out against the source.
+**The key metric: across 11,136 provisions from fourteen bills, every extracted dollar amount was found in the source bill text** (NotFound = 0 for every bill). Verification confirms amounts exist in the bill, not that they are attributed to the correct provision — for 95.5% of provisions, the raw text excerpt also matches verbatim, providing strong attribution confidence. The tool may be incomplete on large bills (Coverage < 100%), but what it does extract checks out against the source.
 
 ## Export Data
 
@@ -448,13 +448,13 @@ Every query command supports `--format csv`, `--format json`, and `--format json
 
 ```bash
 # Export appropriations to a spreadsheet
-congress-approp search --dir examples --type appropriation --format csv > provisions.csv
+congress-approp search --dir data --type appropriation --format csv > provisions.csv
 
 # Budget totals as JSON
-congress-approp summary --dir examples --format json
+congress-approp summary --dir data --format json
 
 # Full nested data via jq
-cat examples/hr7148/extraction.json | jq '.provisions[] | select(.provision_type=="appropriation")'
+cat data/118-hr7148/extraction.json | jq '.provisions[] | select(.provision_type=="appropriation")'
 ```
 
 > ⚠️ **CSV includes sub-allocations and reference amounts.** Don't sum the `dollars` column directly — filter to `semantics=new_budget_authority` and exclude `detail_level=sub_allocation` for correct totals. Or use `congress-approp summary` which does this automatically. See [Export Data for Spreadsheets and Scripts](https://cgorski.github.io/congress-appropriations/tutorials/export-data.html) for details.
@@ -499,7 +499,7 @@ Semantic search finds provisions by meaning, not just keywords. It uses OpenAI e
 ```bash
 # Generate embeddings (one-time, ~30 seconds per bill)
 export OPENAI_API_KEY="your-key"
-congress-approp embed --dir examples
+congress-approp embed --dir data
 
 # Embeddings are pre-generated for the example data if you cloned the git repo.
 # If you installed via `cargo install`, run `embed` to generate them (~30 sec per bill).
@@ -509,18 +509,18 @@ congress-approp embed --dir examples
 
 ```bash
 # Find provisions about a topic — works even when keywords don't match
-congress-approp search --dir examples --semantic "opioid crisis drug treatment"
+congress-approp search --dir data --semantic "opioid crisis drug treatment"
 
 # Combine semantic search with filters
-congress-approp search --dir examples --semantic "clean energy" --type appropriation --min-dollars 100000000
+congress-approp search --dir data --semantic "clean energy" --type appropriation --min-dollars 100000000
 
 # Find provisions similar to a specific one across all bills
-congress-approp search --dir examples --similar hr9468:0 --top 5
+congress-approp search --dir data --similar 118-hr9468:0 --top 5
 ```
 
 The `embed` command writes `embeddings.json` (metadata) and `vectors.bin` (binary float32 vectors) to each bill directory. It skips bills whose embeddings are already up to date. Use `--dry-run` to preview token counts before calling the API.
 
-> **Note on embedding availability:** The `vectors.bin` files are included in the git repository so that `git clone` users can use semantic search immediately. However, they are excluded from the crates.io package (they exceed the 10 MB upload limit). If you installed via `cargo install`, run `congress-approp embed --dir examples` to generate embeddings for the example data. This takes approximately 30 seconds per bill and requires an `OPENAI_API_KEY`.
+> **Note on embedding availability:** The `vectors.bin` files are included in the git repository so that `git clone` users can use semantic search immediately. However, they are excluded from the crates.io package (they exceed the 10 MB upload limit). If you installed via `cargo install`, run `congress-approp embed --dir data` to generate embeddings for the example data. This takes approximately 30 seconds per bill and requires an `OPENAI_API_KEY`.
 
 ### Output Files
 
@@ -568,11 +568,11 @@ Every extraction produces per-chunk artifacts in `chunks/` with ULIDs. Each arti
 
 ### Accuracy
 
-Across 8,554 provisions from thirteen enacted appropriations bills (118th and 119th Congress, FY2024–FY2026):
+Across 11,136 provisions from fourteen enacted appropriations bills (118th and 119th Congress, FY2024–FY2026):
 
 | Metric | Result |
 |--------|--------|
-| Provisions extracted | 8,554 across 13 bills |
+| Provisions extracted | 11,136 across 14 bills |
 | Dollar amounts not found in source | **0** |
 | Dollar amount internal consistency | **0 mismatches** across all provisions with parsed amounts |
 | CR substitution pairs verified | **100%** |

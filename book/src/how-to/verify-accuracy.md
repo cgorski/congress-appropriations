@@ -1,6 +1,6 @@
 # Verify Extraction Accuracy
 
-> **You will need:** `congress-approp` installed, access to extracted bill data (the `examples/` directory works).
+> **You will need:** `congress-approp` installed, access to extracted bill data (the `data/` directory works).
 >
 > **You will learn:** How to run a full verification audit, interpret every metric, trace individual provisions back to source XML, and decide whether extraction quality is sufficient for your use case.
 
@@ -11,7 +11,7 @@ Extraction uses an LLM to classify and structure provisions from bill text. Veri
 The `audit` command is your primary verification tool:
 
 ```bash
-congress-approp audit --dir examples
+congress-approp audit --dir data
 ```
 
 ```text
@@ -52,7 +52,7 @@ This is a lot of information. Let's break it down column by column.
 | **1–5** | A small number of amounts couldn't be verified. | Run `audit --verbose` to identify which provisions; manually check them against the source XML. |
 | **> 5** | Significant number of unverifiable amounts. | Investigate whether extraction used the wrong source file, the model hallucinated amounts, or the XML is corrupted. Consider re-extracting. |
 
-Across the included example data: **NotFound = 0 for every bill.** All 8,554 extracted dollar amounts were confirmed to exist in the source text.
+Across the included example data: **NotFound = 0 for every bill.** All 11,136 extracted dollar amounts were confirmed to exist in the source text.
 
 ### Verified vs. Ambiguous
 
@@ -116,7 +116,7 @@ In the example data: 38 provisions (1.5%) are TextMiss. Examining them reveals t
 When any metric raises a concern, use `--verbose` to see specific problematic provisions:
 
 ```bash
-congress-approp audit --dir examples --verbose
+congress-approp audit --dir data --verbose
 ```
 
 This adds a list of individual provisions that didn't pass verification at the highest tier. For each one, you'll see:
@@ -135,7 +135,7 @@ For any provision you want to verify yourself — perhaps one you plan to cite i
 ### 1. Get the provision details
 
 ```bash
-congress-approp search --dir examples/hr9468 --type appropriation --format json
+congress-approp search --dir data/hr9468 --type appropriation --format json
 ```
 
 Look for the provision you're interested in. Note the `dollars`, `raw_text`, and `provision_index` fields.
@@ -157,7 +157,7 @@ For example, provision 0 of H.R. 9468:
 Search for the `text_as_written` dollar string in the source file:
 
 ```bash
-grep '$2,285,513,000' examples/hr9468/BILLS-118hr9468enr.xml
+grep '$2,285,513,000' data/118-hr9468/BILLS-118hr9468enr.xml
 ```
 
 If it's found (and `amount_status` is "found"), the amount is verified. If found exactly once, the attribution is unambiguous.
@@ -167,7 +167,7 @@ If it's found (and `amount_status` is "found"), the amount is verified. If found
 To see what the bill actually says around that dollar amount:
 
 ```bash
-grep -B2 -A5 '2,285,513,000' examples/hr9468/BILLS-118hr9468enr.xml
+grep -B2 -A5 '2,285,513,000' data/118-hr9468/BILLS-118hr9468enr.xml
 ```
 
 Or in Python for cleaner output:
@@ -175,7 +175,7 @@ Or in Python for cleaner output:
 ```python
 import re
 
-with open("examples/hr9468/BILLS-118hr9468enr.xml") as f:
+with open("data/118-hr9468/BILLS-118hr9468enr.xml") as f:
     text = f.read()
 
 idx = text.find("2,285,513,000")
@@ -275,7 +275,7 @@ For CI/CD or automated pipelines, you can check verification programmatically:
 
 ```bash
 # Check that no dollar amounts are unverifiable across all bills
-congress-approp summary --dir examples --format json | python3 -c "
+congress-approp summary --dir data --format json | python3 -c "
 import sys, json
 bills = json.load(sys.stdin)
 # The summary footer reports unverified count
@@ -294,12 +294,12 @@ This is the same check used in the project's integration test suite to guard aga
 
 | I need to... | Command |
 |--------------|---------|
-| Run a full audit | `audit --dir examples` |
-| See individual problematic provisions | `audit --dir examples --verbose` |
-| Check a specific provision's dollar amount | `grep '$AMOUNT' examples/hr4366/BILLS-*.xml` |
+| Run a full audit | `audit --dir data` |
+| See individual problematic provisions | `audit --dir data --verbose` |
+| Check a specific provision's dollar amount | `grep '$AMOUNT' data/118-hr4366/BILLS-*.xml` |
 | Verify a provision's raw text | Compare `raw_text` from JSON output to source XML |
-| Check budget authority totals | `summary --dir examples --format json` |
-| Compare to external sources | `summary --dir examples --by-agency` for department-level totals |
+| Check budget authority totals | `summary --dir data --format json` |
+| Compare to external sources | `summary --dir data --by-agency` for department-level totals |
 
 ## Next Steps
 

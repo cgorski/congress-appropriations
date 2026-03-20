@@ -6,7 +6,7 @@ The `enrich` command generates `bill_meta.json` for each bill directory, enablin
 
 ```bash
 # Enrich all bills in the examples directory
-congress-approp enrich --dir examples
+congress-approp enrich --dir data
 ```
 
 This creates a `bill_meta.json` file in each bill directory. You only need to run it once per bill — the tool skips bills that already have metadata unless you pass `--force`.
@@ -17,21 +17,21 @@ After enriching, you can use these filtering options on `summary`, `search`, and
 
 ```bash
 # See only FY2026 bills
-congress-approp summary --dir examples --fy 2026
+congress-approp summary --dir data --fy 2026
 
 # Search within a specific subcommittee
-congress-approp search --dir examples --type appropriation --fy 2026 --subcommittee thud
+congress-approp search --dir data --type appropriation --fy 2026 --subcommittee thud
 
 # Combine semantic search with FY and subcommittee filtering
-congress-approp search --dir examples --semantic "housing assistance" --fy 2026 --subcommittee thud --top 5
+congress-approp search --dir data --semantic "housing assistance" --fy 2026 --subcommittee thud --top 5
 
 # Compare THUD funding across fiscal years
-congress-approp compare --base-fy 2024 --current-fy 2026 --subcommittee thud --dir examples
+congress-approp compare --base-fy 2024 --current-fy 2026 --subcommittee thud --dir data
 ```
 
 > **Note:** The `--fy` flag works without `enrich` — it uses the fiscal year data already in `extraction.json`. But `--subcommittee` requires the division-to-jurisdiction mapping that only `enrich` provides.
 
-> **Note on embeddings:** Semantic search (the `--semantic` flag) requires embedding vectors. If you cloned the git repository, pre-generated `vectors.bin` files are included for all example bills. If you installed via `cargo install`, the embedding files are not included (they exceed the crates.io size limit) — run `congress-approp embed --dir examples` to generate them (~30 seconds per bill, requires `OPENAI_API_KEY`). The `enrich` command itself does not require embeddings and does not use any API keys.
+> **Note on embeddings:** Semantic search (the `--semantic` flag) requires embedding vectors. If you cloned the git repository, pre-generated `vectors.bin` files are included for all example bills. If you installed via `cargo install`, the embedding files are not included (they exceed the crates.io size limit) — run `congress-approp embed --dir data` to generate them (~30 seconds per bill, requires `OPENAI_API_KEY`). The `enrich` command itself does not require embeddings and does not use any API keys.
 
 ## What It Generates
 
@@ -160,7 +160,7 @@ Run `enrich --force` to regenerate metadata for all bills.
 Use `--dry-run` to see what the enrich command would produce without writing any files:
 
 ```bash
-congress-approp enrich --dir examples --dry-run
+congress-approp enrich --dir data --dry-run
 ```
 
 ```text
@@ -176,10 +176,10 @@ The `compare` command benefits most from enrichment. Without `enrich`, comparing
 
 ```bash
 # Before: 759 orphans (mixing Defense with Agriculture)
-congress-approp compare --base examples/hr4366 --current examples/hr7148
+congress-approp compare --base data/118-hr4366 --current data/118-hr7148
 
 # After: 43 meaningful changes, 12 unchanged
-congress-approp compare --base-fy 2024 --current-fy 2026 --subcommittee thud --dir examples
+congress-approp compare --base-fy 2024 --current-fy 2026 --subcommittee thud --dir data
 ```
 
 The `--base-fy` and `--current-fy` flags automatically select the right bills for each fiscal year and the `--subcommittee` flag scopes to the correct division in each bill.

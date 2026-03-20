@@ -27,7 +27,7 @@ rustc --version
 
 ## Install from Source (Recommended)
 
-Cloning the repository gives you the full example data — thirteen pre-extracted appropriations bills (FY2024–FY2026) with pre-computed embeddings, ready to query with no API keys.
+Cloning the repository gives you the full example data — fourteen bills (FY2024–FY2026) with pre-computed embeddings, ready to query with no API keys.
 
 ```bash
 git clone https://github.com/cgorski/congress-appropriations.git
@@ -70,7 +70,7 @@ You should see:
 0 dollar amounts unverified across all bills. Run `congress-approp audit` for detailed verification.
 ```
 
-If you see this table with thirteen bills and 8,554 total provisions, everything is working. You're ready to start querying.
+If you see this table with fourteen bills and 11,136 total provisions, everything is working. You're ready to start querying.
 
 > **Tip:** If you're running from the cloned repo directory, `examples` is a relative path that points to the included example data. If you installed via `cargo install` and are running from a different directory, provide the full path to the examples directory inside your clone.
 

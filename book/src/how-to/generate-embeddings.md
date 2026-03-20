@@ -17,7 +17,7 @@ You only need to generate embeddings once per bill. After that, all semantic ope
 export OPENAI_API_KEY="your-key-here"
 ```
 
-> **Note:** The included example data (`examples/hr4366`, `examples/hr5860`, `examples/hr9468`) ships with pre-generated embeddings. You don't need to run `embed` for the examples unless you want to regenerate them.
+> **Note:** The included example data (`data/hr4366`, `data/hr5860`, `data/hr9468`) ships with pre-generated embeddings. You don't need to run `embed` for the examples unless you want to regenerate them.
 
 ## Generate Embeddings
 
@@ -209,14 +209,14 @@ import json
 import struct
 
 # Load metadata
-with open("examples/hr9468/embeddings.json") as f:
+with open("data/118-hr9468/embeddings.json") as f:
     meta = json.load(f)
 
 dims = meta["dimensions"]  # 3072
 count = meta["count"]       # 7
 
 # Load vectors
-with open("examples/hr9468/vectors.bin", "rb") as f:
+with open("data/118-hr9468/vectors.bin", "rb") as f:
     raw = f.read()
 
 # Parse into list of vectors
@@ -251,7 +251,7 @@ similarity_matrix = vectors @ vectors.T
 Once embeddings are generated, you can use:
 
 - **Semantic search:** `congress-approp search --dir data --semantic "your query" --top 10`
-- **Similar provisions:** `congress-approp search --dir data --similar hr9468:0 --top 5`
+- **Similar provisions:** `congress-approp search --dir data --similar 118-hr9468:0 --top 5`
 
 The `--similar` flag does not make any API calls — it uses the stored vectors directly. The `--semantic` flag makes one API call to embed your query text (~100ms).
 

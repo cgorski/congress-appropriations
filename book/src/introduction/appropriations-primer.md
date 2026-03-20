@@ -50,7 +50,7 @@ When none of the twelve are done by October 1, Congress passes a **continuing re
 
 ## Bill Types
 
-The included example data covers thirteen enacted bills spanning all major bill types. Here's what each one is, with the real example from this tool:
+The included example data covers fourteen bills spanning all major bill types. Here's what each one is, with the real example from this tool:
 
 ### Regular / Omnibus
 

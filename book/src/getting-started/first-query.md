@@ -1,6 +1,6 @@
 # Your First Query
 
-> **You will need:** `congress-approp` installed ([Installation](./installation.md)), access to the `examples/` directory from the cloned repository.
+> **You will need:** `congress-approp` installed ([Installation](./installation.md)), access to the `data/` directory from the cloned repository.
 >
 > **You will learn:** How to explore the included FY2024 appropriations data using five core commands — no API keys required.
 
@@ -11,7 +11,7 @@ This chapter is a guided tour. Every command runs against the included example d
 Start with the `summary` command to get an overview:
 
 ```bash
-congress-approp summary --dir examples
+congress-approp summary --dir data
 ```
 
 ```text
@@ -45,13 +45,13 @@ The footer line — "0 dollar amounts unverified" — tells you that every extra
 The `search` command finds provisions matching your criteria. Let's start broad — all appropriation-type provisions across all bills:
 
 ```bash
-congress-approp search --dir examples --type appropriation
+congress-approp search --dir data --type appropriation
 ```
 
 This returns a table with hundreds of rows. Let's narrow it down. Find all provisions mentioning FEMA:
 
 ```bash
-congress-approp search --dir examples --keyword "Federal Emergency Management"
+congress-approp search --dir data --keyword "Federal Emergency Management"
 ```
 
 ```text
@@ -79,7 +79,7 @@ Understanding the **$** column — the verification status for each provision's 
 Now try searching by account name. This matches against the structured `account_name` field rather than searching the full text:
 
 ```bash
-congress-approp search --dir examples --account "Child Nutrition"
+congress-approp search --dir data --account "Child Nutrition"
 ```
 
 ```text
@@ -97,7 +97,7 @@ The top result — $33.27 billion for Child Nutrition Programs — is the top-le
 You can combine filters. For example, find all appropriations over $1 billion in Division A (MilCon-VA):
 
 ```bash
-congress-approp search --dir examples/hr4366 --type appropriation --division A --min-dollars 1000000000
+congress-approp search --dir data/hr4366 --type appropriation --division A --min-dollars 1000000000
 ```
 
 ## Step 3: Look at the VA Supplemental
@@ -105,7 +105,7 @@ congress-approp search --dir examples/hr4366 --type appropriation --division A -
 The smallest bill, H.R. 9468, is a good place to see the full picture. It has only 7 provisions:
 
 ```bash
-congress-approp search --dir examples/hr9468
+congress-approp search --dir data/hr9468
 ```
 
 ```text
@@ -132,7 +132,7 @@ Notice how the two appropriations have ✓ in the dollar column, while the rider
 Continuing resolutions normally fund agencies at prior-year rates, but specific programs can get different treatment through "anomalies" — formally called CR substitutions. These are provisions that say "substitute $X for $Y," setting a new level instead of continuing the old one.
 
 ```bash
-congress-approp search --dir examples/hr5860 --type cr_substitution
+congress-approp search --dir data/hr5860 --type cr_substitution
 ```
 
 ```text
@@ -167,7 +167,7 @@ Notice how the table automatically changes shape for CR substitutions — it sho
 The `audit` command shows how well the extraction held up against the source text:
 
 ```bash
-congress-approp audit --dir examples
+congress-approp audit --dir data
 ```
 
 ```text
@@ -200,7 +200,7 @@ For a deeper dive into what these numbers mean, see [Verify Extraction Accuracy]
 Every command supports `--format json` for machine-readable output. This is useful for piping to `jq`, loading into Python, or just seeing the full data:
 
 ```bash
-congress-approp search --dir examples/hr9468 --type appropriation --format json
+congress-approp search --dir data/hr9468 --type appropriation --format json
 ```
 
 ```json
@@ -258,23 +258,23 @@ Other output formats are also available: `--format csv` for spreadsheets, `--for
 The example data includes pre-enriched metadata, but if you extract your own bills, run `enrich` to enable fiscal year and subcommittee filtering:
 
 ```bash
-congress-approp enrich --dir examples      # No API key needed — runs offline
+congress-approp enrich --dir data      # No API key needed — runs offline
 ```
 
 Once enriched, you can scope any command to a specific fiscal year and subcommittee:
 
 ```bash
 # FY2026 THUD subcommittee only
-congress-approp summary --dir examples --fy 2026 --subcommittee thud
+congress-approp summary --dir data --fy 2026 --subcommittee thud
 
 # See advance vs current-year spending
-congress-approp summary --dir examples --fy 2026 --subcommittee milcon-va --show-advance
+congress-approp summary --dir data --fy 2026 --subcommittee milcon-va --show-advance
 
 # Compare THUD across fiscal years
-congress-approp compare --base-fy 2024 --current-fy 2026 --subcommittee thud --dir examples
+congress-approp compare --base-fy 2024 --current-fy 2026 --subcommittee thud --dir data
 
 # Trace one provision across all bills
-congress-approp relate hr9468:0 --dir examples --fy-timeline
+congress-approp relate 118-hr9468:0 --dir data --fy-timeline
 ```
 
 See [Enrich Bills with Metadata](../how-to/enrich-data.md) for the full guide.

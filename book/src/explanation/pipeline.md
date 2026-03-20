@@ -269,9 +269,9 @@ All of this is fast:
 
 | Operation | Time | Notes |
 |-----------|------|-------|
-| Load 13 bills (extraction.json) | ~40ms | JSON parsing |
-| Load embeddings (13 bills, binary) | ~8ms | Memory read |
-| Hash all files (13 bills) | ~8ms | SHA-256 |
+| Load 14 bills (extraction.json) | ~40ms | JSON parsing |
+| Load embeddings (14 bills, binary) | ~8ms | Memory read |
+| Hash all files (14 bills) | ~8ms | SHA-256 |
 | Cosine search (8,500 provisions) | <0.5ms | Dot products |
 | **Total cold-start query** | **~50ms** | Load + hash + search |
 | Embed query text (OpenAI API) | ~100ms | Network round-trip |
@@ -310,7 +310,7 @@ If you re-download the XML (producing a new file), `metadata.json` still referen
 ⚠ H.R. 4366: embeddings are stale (extraction.json has changed)
 ```
 
-Warnings are advisory — they never block execution. Hashing all files for 13 bills takes ~8ms, so there's no performance reason to skip checks.
+Warnings are advisory — they never block execution. Hashing all files for 14 bills takes ~8ms, so there's no performance reason to skip checks.
 
 See [Data Integrity and the Hash Chain](./hash-chain.md) for more details.
 

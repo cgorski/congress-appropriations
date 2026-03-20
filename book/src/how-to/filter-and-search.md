@@ -1,6 +1,6 @@
 # Filter and Search Provisions
 
-> **You will need:** `congress-approp` installed, access to the `examples/` directory. For semantic search: `OPENAI_API_KEY`.
+> **You will need:** `congress-approp` installed, access to the `data/` directory. For semantic search: `OPENAI_API_KEY`.
 >
 > **You will learn:** Every filter flag available on the `search` command, how to combine them, and practical recipes for common queries.
 
@@ -31,19 +31,19 @@ The most common filter. Restricts results to a single provision type.
 
 ```bash
 # All appropriations across all bills
-congress-approp search --dir examples --type appropriation
+congress-approp search --dir data --type appropriation
 
 # All rescissions
-congress-approp search --dir examples --type rescission
+congress-approp search --dir data --type rescission
 
 # CR substitutions (anomalies) — table auto-adapts to show New/Old/Delta columns
-congress-approp search --dir examples --type cr_substitution
+congress-approp search --dir data --type cr_substitution
 
 # Reporting requirements and instructions to agencies
-congress-approp search --dir examples --type directive
+congress-approp search --dir data --type directive
 
 # Policy provisions (no direct spending)
-congress-approp search --dir examples --type rider
+congress-approp search --dir data --type rider
 ```
 
 ### Available provision types
@@ -51,7 +51,7 @@ congress-approp search --dir examples --type rider
 Use `--list-types` to see all valid values:
 
 ```bash
-congress-approp search --dir examples --list-types
+congress-approp search --dir data --list-types
 ```
 
 ```text
@@ -93,16 +93,16 @@ Matches the `agency` field using a case-insensitive substring search:
 
 ```bash
 # All provisions from the Department of Veterans Affairs
-congress-approp search --dir examples --agency "Veterans"
+congress-approp search --dir data --agency "Veterans"
 
 # All provisions from the Department of Energy
-congress-approp search --dir examples --agency "Energy"
+congress-approp search --dir data --agency "Energy"
 
 # All NASA provisions
-congress-approp search --dir examples --agency "Aeronautics"
+congress-approp search --dir data --agency "Aeronautics"
 
 # All DOJ provisions
-congress-approp search --dir examples --agency "Justice"
+congress-approp search --dir data --agency "Justice"
 ```
 
 The `--agency` flag matches against the structured `agency` field that the LLM extracted — typically the full department name (e.g., "Department of Veterans Affairs"). You only need to provide a substring; the match is case-insensitive.
@@ -113,13 +113,13 @@ The `--agency` flag matches against the structured `agency` field that the LLM e
 
 ```bash
 # Only VA appropriations
-congress-approp search --dir examples --agency "Veterans" --type appropriation
+congress-approp search --dir data --agency "Veterans" --type appropriation
 
 # Only VA rescissions
-congress-approp search --dir examples --agency "Veterans" --type rescission
+congress-approp search --dir data --agency "Veterans" --type rescission
 
 # DOJ directives
-congress-approp search --dir examples --agency "Justice" --type directive
+congress-approp search --dir data --agency "Justice" --type directive
 ```
 
 ## Filter by Account Name (`--account`)
@@ -128,16 +128,16 @@ Matches the `account_name` field using a case-insensitive substring search. This
 
 ```bash
 # All provisions for Child Nutrition Programs
-congress-approp search --dir examples --account "Child Nutrition"
+congress-approp search --dir data --account "Child Nutrition"
 
 # All provisions for the FBI
-congress-approp search --dir examples --account "Federal Bureau of Investigation"
+congress-approp search --dir data --account "Federal Bureau of Investigation"
 
 # All provisions for Disaster Relief
-congress-approp search --dir examples --account "Disaster Relief"
+congress-approp search --dir data --account "Disaster Relief"
 
 # All provisions for Medical Services (VA)
-congress-approp search --dir examples --account "Medical Services"
+congress-approp search --dir data --account "Medical Services"
 ```
 
 The account name is extracted from the bill text — it's usually the text between `''` delimiters in the legislative language (e.g., `''Compensation and Pensions''`).
@@ -156,7 +156,7 @@ Many provisions under the same agency have different account names. Use `--agenc
 The account name "Salaries and Expenses" appears under dozens of different agencies. If you search `--account "Salaries and Expenses"` without an agency filter, you'll get results from across the entire government. Combine with `--agency` to narrow:
 
 ```bash
-congress-approp search --dir examples --account "Salaries and Expenses" --agency "Justice"
+congress-approp search --dir data --account "Salaries and Expenses" --agency "Justice"
 ```
 
 ## Filter by Keyword in Bill Text (`--keyword`)
@@ -165,19 +165,19 @@ Searches the `raw_text` field — the actual bill language excerpt stored with e
 
 ```bash
 # Find provisions mentioning FEMA
-congress-approp search --dir examples --keyword "Federal Emergency Management"
+congress-approp search --dir data --keyword "Federal Emergency Management"
 
 # Find provisions with "notwithstanding" (often signals important policy exceptions)
-congress-approp search --dir examples --keyword "notwithstanding"
+congress-approp search --dir data --keyword "notwithstanding"
 
 # Find provisions about transfer authority
-congress-approp search --dir examples --keyword "may transfer"
+congress-approp search --dir data --keyword "may transfer"
 
 # Find provisions about reporting requirements
-congress-approp search --dir examples --keyword "shall submit a report"
+congress-approp search --dir data --keyword "shall submit a report"
 
 # Find provisions referencing a specific public law
-congress-approp search --dir examples --keyword "Public Law 118"
+congress-approp search --dir data --keyword "Public Law 118"
 ```
 
 ### Keyword vs. Account vs. Semantic
@@ -196,10 +196,10 @@ Restricts results to a specific bill by its identifier string:
 
 ```bash
 # Only provisions from H.R. 4366
-congress-approp search --dir examples --bill "H.R. 4366"
+congress-approp search --dir data --bill "H.R. 4366"
 
 # Only provisions from H.R. 9468
-congress-approp search --dir examples --bill "H.R. 9468"
+congress-approp search --dir data --bill "H.R. 9468"
 ```
 
 The value must match the bill identifier as it appears in the data (e.g., "H.R. 4366", including the space and period). This is a case-sensitive exact match.
@@ -208,8 +208,8 @@ The value must match the bill identifier as it appears in the data (e.g., "H.R. 
 
 ```bash
 # These are equivalent for single-bill searches:
-congress-approp search --dir examples --bill "H.R. 4366"
-congress-approp search --dir examples/hr4366
+congress-approp search --dir data --bill "H.R. 4366"
+congress-approp search --dir data/hr4366
 ```
 
 The `--dir` approach is simpler for single-bill searches. The `--bill` flag is useful when you have multiple bills loaded via a parent directory and want to filter to one.
@@ -220,16 +220,16 @@ Omnibus bills are organized into lettered divisions (Division A, Division B, etc
 
 ```bash
 # Division A = MilCon-VA in H.R. 4366
-congress-approp search --dir examples/hr4366 --division A
+congress-approp search --dir data/hr4366 --division A
 
 # Division B = Agriculture in H.R. 4366
-congress-approp search --dir examples/hr4366 --division B
+congress-approp search --dir data/hr4366 --division B
 
 # Division C = Commerce, Justice, Science in H.R. 4366
-congress-approp search --dir examples/hr4366 --division C
+congress-approp search --dir data/hr4366 --division C
 
 # Division D = Energy and Water in H.R. 4366
-congress-approp search --dir examples/hr4366 --division D
+congress-approp search --dir data/hr4366 --division D
 ```
 
 The division letter is a single character (A, B, C, etc.). Bills without divisions (like the VA supplemental H.R. 9468) have no division field, so `--division` effectively returns no results for those bills.
@@ -238,13 +238,13 @@ The division letter is a single character (A, B, C, etc.). Bills without divisio
 
 ```bash
 # All appropriations in MilCon-VA (Division A) over $1 billion
-congress-approp search --dir examples/hr4366 --division A --type appropriation --min-dollars 1000000000
+congress-approp search --dir data/hr4366 --division A --type appropriation --min-dollars 1000000000
 
 # All rescissions in Commerce-Justice-Science (Division C)
-congress-approp search --dir examples/hr4366 --division C --type rescission
+congress-approp search --dir data/hr4366 --division C --type rescission
 
 # All riders in Agriculture (Division B)
-congress-approp search --dir examples/hr4366 --division B --type rider
+congress-approp search --dir data/hr4366 --division B --type rider
 ```
 
 ## Filter by Dollar Range (`--min-dollars`, `--max-dollars`)
@@ -253,16 +253,16 @@ Filters provisions by the absolute value of their dollar amount:
 
 ```bash
 # Provisions of $1 billion or more
-congress-approp search --dir examples --min-dollars 1000000000
+congress-approp search --dir data --min-dollars 1000000000
 
 # Provisions between $100 million and $500 million
-congress-approp search --dir examples --min-dollars 100000000 --max-dollars 500000000
+congress-approp search --dir data --min-dollars 100000000 --max-dollars 500000000
 
 # Small provisions under $1 million
-congress-approp search --dir examples --max-dollars 1000000
+congress-approp search --dir data --max-dollars 1000000
 
 # Large rescissions
-congress-approp search --dir examples --type rescission --min-dollars 1000000000
+congress-approp search --dir data --type rescission --min-dollars 1000000000
 ```
 
 The filter uses the **absolute value** of the dollar amount, so rescissions (which may be stored as negative values internally) are compared by their magnitude.
@@ -275,25 +275,25 @@ All filters use **AND logic** — every filter must match for a provision to app
 
 ```bash
 # VA appropriations over $1 billion in Division A
-congress-approp search --dir examples \
+congress-approp search --dir data \
   --agency "Veterans" \
   --type appropriation \
   --division A \
   --min-dollars 1000000000
 
 # DOJ rescissions in Division C
-congress-approp search --dir examples \
+congress-approp search --dir data \
   --agency "Justice" \
   --type rescission \
   --division C
 
 # Provisions mentioning "notwithstanding" in the omnibus under $10 million
-congress-approp search --dir examples/hr4366 \
+congress-approp search --dir data/hr4366 \
   --keyword "notwithstanding" \
   --max-dollars 10000000
 
 # Energy-related appropriations in Division D between $100M and $1B
-congress-approp search --dir examples/hr4366 \
+congress-approp search --dir data/hr4366 \
   --division D \
   --type appropriation \
   --min-dollars 100000000 \
@@ -305,8 +305,8 @@ congress-approp search --dir examples/hr4366 \
 The tool applies filters in the order that's most efficient internally. The command-line order of flags has no effect on results — these two commands produce identical output:
 
 ```bash
-congress-approp search --dir examples --type appropriation --agency "Veterans"
-congress-approp search --dir examples --agency "Veterans" --type appropriation
+congress-approp search --dir data --type appropriation --agency "Veterans"
+congress-approp search --dir data --agency "Veterans" --type appropriation
 ```
 
 ## Semantic Search (`--semantic`)
@@ -317,10 +317,10 @@ Semantic search ranks provisions by meaning similarity instead of keyword matchi
 export OPENAI_API_KEY="your-key"
 
 # Find provisions about school lunch programs (no keyword overlap with "Child Nutrition Programs")
-congress-approp search --dir examples --semantic "school lunch programs for kids" --top 5
+congress-approp search --dir data --semantic "school lunch programs for kids" --top 5
 
 # Find provisions about road and bridge infrastructure
-congress-approp search --dir examples --semantic "money for fixing roads and bridges" --top 5
+congress-approp search --dir data --semantic "money for fixing roads and bridges" --top 5
 ```
 
 ### Combining semantic search with hard filters
@@ -329,7 +329,7 @@ Hard filters apply first (constraining which provisions are eligible), then sema
 
 ```bash
 # Appropriations about clean energy, at least $100M
-congress-approp search --dir examples \
+congress-approp search --dir data \
   --semantic "clean energy research" \
   --type appropriation \
   --min-dollars 100000000 \
@@ -344,10 +344,10 @@ Find provisions most similar to a specific one across all loaded bills. The synt
 
 ```bash
 # Find provisions similar to VA Supplemental provision 0 (Comp & Pensions)
-congress-approp search --dir examples --similar hr9468:0 --top 5
+congress-approp search --dir data --similar 118-hr9468:0 --top 5
 
 # Find provisions similar to omnibus provision 620 (FBI Salaries and Expenses)
-congress-approp search --dir examples --similar hr4366:620 --top 5
+congress-approp search --dir data --similar hr4366:620 --top 5
 ```
 
 Unlike `--semantic`, the `--similar` flag does **not** make any API calls — it uses pre-computed vectors directly. This makes it instant and free.
@@ -356,7 +356,7 @@ You can also combine `--similar` with hard filters:
 
 ```bash
 # Find appropriations similar to a specific provision
-congress-approp search --dir examples --similar hr9468:0 --type appropriation --top 5
+congress-approp search --dir data --similar 118-hr9468:0 --type appropriation --top 5
 ```
 
 For a full tutorial, see [Track a Program Across Bills](../tutorials/track-program-across-bills.md).
@@ -367,10 +367,10 @@ The `--top` flag limits results for semantic and similar searches (default 20). 
 
 ```bash
 # Top 3 results
-congress-approp search --dir examples --semantic "veterans health care" --top 3
+congress-approp search --dir data --semantic "veterans health care" --top 3
 
 # Top 50 results
-congress-approp search --dir examples --semantic "veterans health care" --top 50
+congress-approp search --dir data --semantic "veterans health care" --top 50
 ```
 
 ## Output Formats (`--format`)
@@ -379,16 +379,16 @@ All search results can be output in four formats:
 
 ```bash
 # Human-readable table (default)
-congress-approp search --dir examples --type appropriation --format table
+congress-approp search --dir data --type appropriation --format table
 
 # JSON array (full fields, for programmatic use)
-congress-approp search --dir examples --type appropriation --format json
+congress-approp search --dir data --type appropriation --format json
 
 # JSON Lines (one object per line, for streaming)
-congress-approp search --dir examples --type appropriation --format jsonl
+congress-approp search --dir data --type appropriation --format jsonl
 
 # CSV (for spreadsheets)
-congress-approp search --dir examples --type appropriation --format csv > provisions.csv
+congress-approp search --dir data --type appropriation --format csv > provisions.csv
 ```
 
 JSON and CSV include **more fields** than the table view — notably `raw_text`, `semantics`, `detail_level`, `amount_status`, `match_tier`, `quality`, and `provision_index`.
@@ -402,53 +402,53 @@ Here are battle-tested queries for common analysis tasks:
 ### Find the biggest appropriations in a bill
 
 ```bash
-congress-approp search --dir examples/hr4366 --type appropriation --min-dollars 10000000000 --format table
+congress-approp search --dir data/hr4366 --type appropriation --min-dollars 10000000000 --format table
 ```
 
 ### Find all provisions for a specific agency
 
 ```bash
-congress-approp search --dir examples --agency "Department of Energy" --format table
+congress-approp search --dir data --agency "Department of Energy" --format table
 ```
 
 ### Export all rescissions to a spreadsheet
 
 ```bash
-congress-approp search --dir examples --type rescission --format csv > rescissions.csv
+congress-approp search --dir data --type rescission --format csv > rescissions.csv
 ```
 
 ### Find reporting requirements for the VA
 
 ```bash
-congress-approp search --dir examples --keyword "Veterans Affairs" --type directive
+congress-approp search --dir data --keyword "Veterans Affairs" --type directive
 ```
 
 ### Find all provisions that override other law
 
 ```bash
-congress-approp search --dir examples --keyword "notwithstanding"
+congress-approp search --dir data --keyword "notwithstanding"
 ```
 
 ### Find which mandatory programs were extended in the CR
 
 ```bash
-congress-approp search --dir examples/hr5860 --type mandatory_spending_extension --format json
+congress-approp search --dir data/hr5860 --type mandatory_spending_extension --format json
 ```
 
 ### Find provisions in a specific dollar range
 
 ```bash
 # "Small" appropriations: $1M to $10M
-congress-approp search --dir examples --type appropriation --min-dollars 1000000 --max-dollars 10000000
+congress-approp search --dir data --type appropriation --min-dollars 1000000 --max-dollars 10000000
 
 # "Large" appropriations: over $10B
-congress-approp search --dir examples --type appropriation --min-dollars 10000000000
+congress-approp search --dir data --type appropriation --min-dollars 10000000000
 ```
 
 ### Count provisions by type across all bills
 
 ```bash
-congress-approp search --dir examples --format json | \
+congress-approp search --dir data --format json | \
   jq 'group_by(.provision_type) | map({type: .[0].provision_type, count: length}) | sort_by(-.count)'
 ```
 
@@ -458,10 +458,10 @@ If you're not sure what you need yet, export all provisions and filter in your a
 
 ```bash
 # All provisions, all fields, all bills
-congress-approp search --dir examples --format json > all_provisions.json
+congress-approp search --dir data --format json > all_provisions.json
 
 # Or as CSV for Excel
-congress-approp search --dir examples --format csv > all_provisions.csv
+congress-approp search --dir data --format csv > all_provisions.csv
 ```
 
 ## Tips
@@ -470,7 +470,7 @@ congress-approp search --dir examples --format csv > all_provisions.csv
 
 2. **Use `--format json` to see all fields.** The table view truncates long text and hides some fields. JSON shows everything.
 
-3. **Use `--dir` scoping for single-bill searches.** Instead of `--bill "H.R. 4366"`, use `--dir examples/hr4366` — it's simpler and slightly faster.
+3. **Use `--dir` scoping for single-bill searches.** Instead of `--bill "H.R. 4366"`, use `--dir data/hr4366` — it's simpler and slightly faster.
 
 4. **Combine keyword and account searches.** An account name search finds provisions *named* after a program. A keyword search finds provisions that *mention* a program in their text. Use both for completeness.
 

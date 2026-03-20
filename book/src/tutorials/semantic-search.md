@@ -1,6 +1,6 @@
 # Use Semantic Search
 
-> **You will need:** `congress-approp` installed, access to the `examples/` directory, `OPENAI_API_KEY` environment variable set.
+> **You will need:** `congress-approp` installed, access to the `data/` directory, `OPENAI_API_KEY` environment variable set.
 >
 > **You will learn:** How to find provisions by meaning instead of keywords, how to interpret similarity scores, how to use `--similar` for cross-bill matching, and when semantic search is (and isn't) the right tool.
 
@@ -32,7 +32,7 @@ See [Generate Embeddings](../how-to/generate-embeddings.md) for details.
 Let's start with the headline example — searching for a concept using everyday language that has zero keyword overlap with the actual provision:
 
 ```bash
-congress-approp search --dir examples --semantic "school lunch programs for kids" --top 5
+congress-approp search --dir data --semantic "school lunch programs for kids" --top 5
 ```
 
 ```text
@@ -53,7 +53,7 @@ Not a single word in "school lunch programs for kids" appears in "Child Nutritio
 Compare this to a keyword search for the same phrase:
 
 ```bash
-congress-approp search --dir examples --keyword "school lunch"
+congress-approp search --dir data --keyword "school lunch"
 ```
 
 ```text
@@ -86,16 +86,16 @@ The most common use case — you know what you want in plain English, but the bi
 
 ```bash
 # Plain language → official program names
-congress-approp search --dir examples --semantic "money for fixing roads and bridges" --top 5
+congress-approp search --dir data --semantic "money for fixing roads and bridges" --top 5
 # → Highway Infrastructure Programs, Federal-Aid Highways, National Infrastructure Investments
 
-congress-approp search --dir examples --semantic "space exploration and rockets" --top 5
+congress-approp search --dir data --semantic "space exploration and rockets" --top 5
 # → Exploration (NASA), Space Operations, Space Technology
 
-congress-approp search --dir examples --semantic "fighting wildfires" --top 5
+congress-approp search --dir data --semantic "fighting wildfires" --top 5
 # → Wildland Fire Management, Wildfire Suppression Operations Reserve Fund
 
-congress-approp search --dir examples --semantic "help for homeless veterans" --top 5
+congress-approp search --dir data --semantic "help for homeless veterans" --top 5
 # → Homeless Assistance Grants, various VA provisions
 ```
 
@@ -105,13 +105,13 @@ When you're exploring a policy area without knowing specific program names:
 
 ```bash
 # What's in the bill about clean energy?
-congress-approp search --dir examples --semantic "clean energy research" --top 10
+congress-approp search --dir data --semantic "clean energy research" --top 10
 
 # What about drug enforcement?
-congress-approp search --dir examples --semantic "drug enforcement and narcotics control" --top 10
+congress-approp search --dir data --semantic "drug enforcement and narcotics control" --top 10
 
 # Nuclear weapons and defense?
-congress-approp search --dir examples --semantic "nuclear weapons maintenance and modernization" --top 10
+congress-approp search --dir data --semantic "nuclear weapons maintenance and modernization" --top 10
 ```
 
 ### News Story → Provisions
@@ -120,13 +120,13 @@ Paste a phrase from a news article to find the relevant provisions:
 
 ```bash
 # From a headline about the opioid crisis
-congress-approp search --dir examples --semantic "opioid crisis drug treatment" --top 5
+congress-approp search --dir data --semantic "opioid crisis drug treatment" --top 5
 
 # From a story about border security
-congress-approp search --dir examples --semantic "border wall construction and immigration enforcement" --top 5
+congress-approp search --dir data --semantic "border wall construction and immigration enforcement" --top 5
 
 # From a story about scientific research funding
-congress-approp search --dir examples --semantic "federal funding for scientific research grants" --top 10
+congress-approp search --dir data --semantic "federal funding for scientific research grants" --top 10
 ```
 
 ## Combining Semantic Search with Filters
@@ -138,7 +138,7 @@ Semantic search provides the *ranking* (which provisions are most relevant to yo
 If you only want appropriation-type provisions (not riders, directives, or limitations):
 
 ```bash
-congress-approp search --dir examples --semantic "clean energy" --type appropriation --top 5
+congress-approp search --dir data --semantic "clean energy" --type appropriation --top 5
 ```
 
 This is useful because semantic search doesn't distinguish provision types — a rider about clean energy policy scores as high as an appropriation for clean energy funding. Adding `--type appropriation` ensures you only see provisions with dollar amounts.
@@ -148,7 +148,7 @@ This is useful because semantic search doesn't distinguish provision types — a
 Find large provisions about a topic:
 
 ```bash
-congress-approp search --dir examples --semantic "scientific research" --type appropriation --min-dollars 1000000000 --top 5
+congress-approp search --dir data --semantic "scientific research" --type appropriation --min-dollars 1000000000 --top 5
 ```
 
 This returns only appropriations of $1 billion or more that are semantically related to scientific research.
@@ -159,16 +159,16 @@ Focus on a specific part of the omnibus:
 
 ```bash
 # Only Division A (MilCon-VA)
-congress-approp search --dir examples --semantic "veterans health care" --division A --top 5
+congress-approp search --dir data --semantic "veterans health care" --division A --top 5
 
 # Only Division B (Agriculture)
-congress-approp search --dir examples --semantic "farm subsidies" --division B --top 5
+congress-approp search --dir data --semantic "farm subsidies" --division B --top 5
 ```
 
 ### Combine multiple filters
 
 ```bash
-congress-approp search --dir examples \
+congress-approp search --dir data \
   --semantic "renewable energy and climate" \
   --type appropriation \
   --min-dollars 100000000 \
@@ -187,7 +187,7 @@ While `--semantic` embeds a *text query* and searches for matching provisions, `
 The syntax is `--similar <bill_directory>:<provision_index>`:
 
 ```bash
-congress-approp search --dir examples --similar hr9468:0 --top 5
+congress-approp search --dir data --similar 118-hr9468:0 --top 5
 ```
 
 ```text
@@ -203,7 +203,7 @@ congress-approp search --dir examples --similar hr9468:0 --top 5
 5 provisions found
 ```
 
-Here `hr9468:0` means "provision index 0 in the `hr9468` directory" — that's the VA Supplemental's Compensation and Pensions appropriation. The top match in the omnibus is the same account at 0.86 similarity.
+Here `118-hr9468:0` means "provision index 0 in the `hr9468` directory" — that's the VA Supplemental's Compensation and Pensions appropriation. The top match in the omnibus is the same account at 0.86 similarity.
 
 ### Key difference from --semantic
 
@@ -223,7 +223,7 @@ To use `--similar`, you need the provision index. There are several ways to find
 **Method 1:** Use `--format json` and look for the `provision_index` field:
 
 ```bash
-congress-approp search --dir examples/hr9468 --type appropriation --format json | \
+congress-approp search --dir data/hr9468 --type appropriation --format json | \
   jq '.[] | "\(.provision_index): \(.account_name) $\(.dollars)"'
 ```
 
@@ -255,7 +255,7 @@ If you know the precise account name, `--account` is faster, deterministic, and 
 
 ```bash
 # Better than semantic search for exact lookups
-congress-approp search --dir examples --account "Child Nutrition Programs"
+congress-approp search --dir data --account "Child Nutrition Programs"
 ```
 
 ### No conceptual match in the dataset
@@ -263,7 +263,7 @@ congress-approp search --dir examples --account "Child Nutrition Programs"
 If you search for a topic that genuinely isn't in the bills, similarity scores will be low — and that's the correct answer:
 
 ```bash
-congress-approp search --dir examples --semantic "cryptocurrency regulation bitcoin blockchain" --top 3
+congress-approp search --dir data --semantic "cryptocurrency regulation bitcoin blockchain" --top 3
 ```
 
 ```text
@@ -289,7 +289,7 @@ If provision type matters, always combine semantic search with `--type`:
 
 ```bash
 # Find appropriations about reproductive health, not policy riders
-congress-approp search --dir examples --semantic "reproductive health" --type appropriation --top 5
+congress-approp search --dir data --semantic "reproductive health" --type appropriation --top 5
 ```
 
 ### Query instability
@@ -339,7 +339,7 @@ For a detailed technical explanation, see [How Semantic Search Works](../explana
 
 3. **Combine with hard filters.** Semantic search ranks; filters constrain. Use them together:
    ```bash
-   congress-approp search --dir examples --semantic "your query" --type appropriation --min-dollars 1000000 --top 10
+   congress-approp search --dir data --semantic "your query" --type appropriation --min-dollars 1000000 --top 10
    ```
 
 4. **Try both `--semantic` and `--similar`.** If you find one good provision via semantic search, switch to `--similar` with that provision's index to find related provisions across other bills without additional API calls.
@@ -349,7 +349,7 @@ For a detailed technical explanation, see [How Semantic Search Works](../explana
 6. **Check results with keyword search.** After semantic search finds a promising account, verify with `--account` or `--keyword` to make sure you're seeing the complete picture:
    ```bash
    # Semantic search found "Child Nutrition Programs" — now get everything for that account
-   congress-approp search --dir examples --account "Child Nutrition"
+   congress-approp search --dir data --account "Child Nutrition"
    ```
 
 ## Quick Reference
@@ -359,8 +359,8 @@ For a detailed technical explanation, see [How Semantic Search Works](../explana
 | Search by meaning | `search --semantic "your query" --top 10` |
 | Search by meaning, only appropriations | `search --semantic "your query" --type appropriation --top 10` |
 | Search by meaning, large provisions only | `search --semantic "your query" --min-dollars 1000000000 --top 10` |
-| Find similar provisions across bills | `search --similar hr9468:0 --top 5` |
-| Find similar appropriations only | `search --similar hr9468:0 --type appropriation --top 5` |
+| Find similar provisions across bills | `search --similar 118-hr9468:0 --top 5` |
+| Find similar appropriations only | `search --similar 118-hr9468:0 --type appropriation --top 5` |
 
 ## Next Steps
 

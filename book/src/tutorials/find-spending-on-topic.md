@@ -1,6 +1,6 @@
 # Find How Much Congress Spent on a Topic
 
-> **You will need:** `congress-approp` installed, access to the `examples/` directory. For semantic search: `OPENAI_API_KEY`.
+> **You will need:** `congress-approp` installed, access to the `data/` directory. For semantic search: `OPENAI_API_KEY`.
 >
 > **You will learn:** Three ways to find spending provisions — by account name, by keyword, and by semantic meaning — and when to use each one.
 
@@ -11,7 +11,7 @@ Imagine your editor asks: *"How much did Congress give the VA in the FY2024 omni
 If your question is about an entire department, the fastest answer is the by-agency summary:
 
 ```bash
-congress-approp summary --dir examples --by-agency
+congress-approp summary --dir data --by-agency
 ```
 
 This prints the standard bill summary table, followed by a second table breaking down budget authority by parent department. Here's the top of that second table:
@@ -38,7 +38,7 @@ So the answer to "how much did the VA get?" is approximately $343 billion in bud
 When you know the program's official name (or part of it), `--account` is the most precise filter. It matches against the structured `account_name` field:
 
 ```bash
-congress-approp search --dir examples --account "Child Nutrition"
+congress-approp search --dir data --account "Child Nutrition"
 ```
 
 ```text
@@ -73,7 +73,7 @@ Sometimes the account name doesn't contain the term you're looking for, but the 
 The `--keyword` flag searches the `raw_text` field — the excerpt of actual bill language stored with each provision. This finds provisions where the term appears anywhere in the source text, regardless of account name:
 
 ```bash
-congress-approp search --dir examples --keyword "Federal Emergency Management"
+congress-approp search --dir data --keyword "Federal Emergency Management"
 ```
 
 ```text
@@ -108,13 +108,13 @@ All search filters are combined with AND logic. Every provision in the result mu
 
 ```bash
 # Appropriations over $1 billion in Division A (MilCon-VA)
-congress-approp search --dir examples --type appropriation --division A --min-dollars 1000000000
+congress-approp search --dir data --type appropriation --division A --min-dollars 1000000000
 
 # Rescissions from the Department of Justice
-congress-approp search --dir examples --type rescission --agency "Justice"
+congress-approp search --dir data --type rescission --agency "Justice"
 
 # Directives in the VA supplemental
-congress-approp search --dir examples/hr9468 --type directive
+congress-approp search --dir data/hr9468 --type directive
 ```
 
 ## Search by Meaning (Semantic Search)
@@ -127,7 +127,7 @@ Semantic search solves this. It uses embedding vectors to understand the *meanin
 
 ```bash
 export OPENAI_API_KEY="your-key-here"
-congress-approp search --dir examples --semantic "school lunch programs for kids" --top 5
+congress-approp search --dir data --semantic "school lunch programs for kids" --top 5
 ```
 
 ```text
@@ -151,13 +151,13 @@ Try these queries against the example data to get a feel for how semantic search
 
 ```bash
 # "Fixing roads and bridges" → finds Highway Infrastructure Programs, Federal-Aid Highways
-congress-approp search --dir examples --semantic "money for fixing roads and bridges" --top 5
+congress-approp search --dir data --semantic "money for fixing roads and bridges" --top 5
 
 # "Space exploration" → finds NASA Exploration, Space Operations, Space Technology
-congress-approp search --dir examples --semantic "space exploration" --top 5
+congress-approp search --dir data --semantic "space exploration" --top 5
 
 # "Clean energy" → finds Energy Efficiency and Renewable Energy, Nuclear Energy
-congress-approp search --dir examples --semantic "clean energy research" --top 5
+congress-approp search --dir data --semantic "clean energy research" --top 5
 ```
 
 ### Combining semantic search with filters
@@ -165,7 +165,7 @@ congress-approp search --dir examples --semantic "clean energy research" --top 5
 You can narrow semantic results with hard filters. For example, find only appropriation-type provisions about clean energy with at least $100 million:
 
 ```bash
-congress-approp search --dir examples --semantic "clean energy" --type appropriation --min-dollars 100000000 --top 10
+congress-approp search --dir data --semantic "clean energy" --type appropriation --min-dollars 100000000 --top 10
 ```
 
 The filters are applied first (hard constraints that must match), then the remaining provisions are ranked by semantic similarity.
@@ -183,7 +183,7 @@ Semantic search is not always the right tool:
 Once you've found interesting provisions in the table view, switch to JSON to see every field:
 
 ```bash
-congress-approp search --dir examples --account "Child Nutrition" --type appropriation --format json
+congress-approp search --dir data --account "Child Nutrition" --type appropriation --format json
 ```
 
 This returns the full structured data for each matching provision, including fields the table truncates: `raw_text` (the full excerpt), `semantics`, `detail_level`, `agency`, `division`, `notes`, `cross_references`, and more.
@@ -219,7 +219,7 @@ For any provision you plan to cite, you can verify it directly against the bill 
 
 ```bash
 # Find the dollar string in the source XML
-grep '33,266,226,000' examples/hr4366/BILLS-118hr4366enr.xml
+grep '33,266,226,000' data/118-hr4366/BILLS-118hr4366enr.xml
 ```
 
 If the string is found (which it will be — the audit confirms this), you know the extraction is accurate. For a full verification procedure, see [Verify Extraction Accuracy](../how-to/verify-accuracy.md).
@@ -230,10 +230,10 @@ Once you've identified the provisions you care about, export them for further wo
 
 ```bash
 # CSV for Excel or Google Sheets
-congress-approp search --dir examples --account "Child Nutrition" --format csv > child_nutrition.csv
+congress-approp search --dir data --account "Child Nutrition" --format csv > child_nutrition.csv
 
 # JSON for Python, R, or jq
-congress-approp search --dir examples --agency "Veterans" --type appropriation --format json > va_appropriations.json
+congress-approp search --dir data --agency "Veterans" --type appropriation --format json > va_appropriations.json
 ```
 
 See [Export Data for Spreadsheets and Scripts](./export-data.md) for detailed recipes.

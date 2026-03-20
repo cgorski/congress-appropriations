@@ -1,6 +1,6 @@
 # Work with CR Substitutions
 
-> **You will need:** `congress-approp` installed, access to the `examples/` directory.
+> **You will need:** `congress-approp` installed, access to the `data/` directory.
 >
 > **You will learn:** What CR substitutions are in legislative context, how to find and interpret them, how to match them to their omnibus counterparts, and how to export them for analysis.
 
@@ -45,7 +45,7 @@ Both dollar amounts — the new and the old — are independently verified again
 The `--type cr_substitution` filter finds every anomaly in a continuing resolution:
 
 ```bash
-congress-approp search --dir examples/hr5860 --type cr_substitution
+congress-approp search --dir data/hr5860 --type cr_substitution
 ```
 
 ```text
@@ -117,7 +117,7 @@ Section 521(d)(1) refers to the rental assistance voucher program under the Hous
 You can see the full details in JSON:
 
 ```bash
-congress-approp search --dir examples/hr5860 --type cr_substitution --format json
+congress-approp search --dir data/hr5860 --type cr_substitution --format json
 ```
 
 The `raw_text` field will show the full excerpt for each provision, including the statutory reference.
@@ -127,7 +127,7 @@ The `raw_text` field will show the full excerpt for each provision, including th
 ### CSV for spreadsheets
 
 ```bash
-congress-approp search --dir examples/hr5860 --type cr_substitution --format csv > cr_anomalies.csv
+congress-approp search --dir data/hr5860 --type cr_substitution --format csv > cr_anomalies.csv
 ```
 
 The CSV includes the `dollars` column (new amount), `old_dollars` column (old amount), and all other fields. You can compute the delta in Excel as `=A2-B2` or use the `dollars` and `old_dollars` columns directly.
@@ -135,7 +135,7 @@ The CSV includes the `dollars` column (new amount), `old_dollars` column (old am
 ### JSON for scripts
 
 ```bash
-congress-approp search --dir examples/hr5860 --type cr_substitution --format json > cr_anomalies.json
+congress-approp search --dir data/hr5860 --type cr_substitution --format json > cr_anomalies.json
 ```
 
 JSON output includes every field:
@@ -162,7 +162,7 @@ JSON output includes every field:
 ### Sort by largest cut using jq
 
 ```bash
-congress-approp search --dir examples/hr5860 --type cr_substitution --format json | \
+congress-approp search --dir data/hr5860 --type cr_substitution --format json | \
   jq 'map(. + {delta: (.dollars - .old_dollars)}) | sort_by(.delta) | .[] |
     "\(.delta)\t\(.account_name // "unnamed")"'
 ```
@@ -176,14 +176,14 @@ A natural follow-up question is: *"This CR cut Rural Water from $325M to $60M. W
 If embeddings are available, use `--similar` to find the omnibus counterpart. First, find the CR substitution's provision index:
 
 ```bash
-congress-approp search --dir examples/hr5860 --type cr_substitution --format json | \
+congress-approp search --dir data/hr5860 --type cr_substitution --format json | \
   jq '.[] | select(.account_name | test("Rural.*Water"; "i")) | .provision_index'
 ```
 
 Then find similar provisions across all bills:
 
 ```bash
-congress-approp search --dir examples --similar hr5860:<INDEX> --type appropriation --top 3
+congress-approp search --dir data --similar hr5860:<INDEX> --type appropriation --top 3
 ```
 
 Even though the CR names accounts differently than the omnibus (e.g., "Rural Utilities Service—Rural Water and Waste Disposal Program Account" vs. "Rural Water and Waste Disposal Program Account"), the embedding similarity is typically in the 0.75–0.80 range — well above the threshold for confident matching.
@@ -193,7 +193,7 @@ Even though the CR names accounts differently than the omnibus (e.g., "Rural Uti
 If the names are close enough, a substring search works:
 
 ```bash
-congress-approp search --dir examples/hr4366 --account "Rural Water" --type appropriation
+congress-approp search --dir data/hr4366 --account "Rural Water" --type appropriation
 ```
 
 This will find the omnibus appropriation for the same program, letting you compare the CR anomaly level to the full-year funding.
@@ -219,16 +219,16 @@ To see the full picture:
 
 ```bash
 # All provisions in the CR
-congress-approp search --dir examples/hr5860
+congress-approp search --dir data/hr5860
 
 # The baseline mechanism
-congress-approp search --dir examples/hr5860 --type continuing_resolution_baseline
+congress-approp search --dir data/hr5860 --type continuing_resolution_baseline
 
 # Mandatory programs extended
-congress-approp search --dir examples/hr5860 --type mandatory_spending_extension
+congress-approp search --dir data/hr5860 --type mandatory_spending_extension
 
 # Standalone appropriations (FEMA, etc.)
-congress-approp search --dir examples/hr5860 --type appropriation
+congress-approp search --dir data/hr5860 --type appropriation
 ```
 
 ## Verify CR Substitution Amounts
@@ -236,7 +236,7 @@ congress-approp search --dir examples/hr5860 --type appropriation
 Both dollar amounts in each CR substitution are independently verified. You can confirm this in the audit:
 
 ```bash
-congress-approp audit --dir examples/hr5860
+congress-approp audit --dir data/hr5860
 ```
 
 The audit shows `NotFound = 0` for H.R. 5860, meaning every dollar string — including both the "new" and "old" amounts in all 13 CR substitutions — was found in the source bill text.
@@ -245,8 +245,8 @@ To verify a specific pair manually:
 
 ```bash
 # Check that both amounts from the Migration and Refugee Assistance anomaly exist
-grep '915,048,000' examples/hr5860/BILLS-118hr5860enr.xml
-grep '1,535,048,000' examples/hr5860/BILLS-118hr5860enr.xml
+grep '915,048,000' data/118-hr5860/BILLS-118hr5860enr.xml
+grep '1,535,048,000' data/118-hr5860/BILLS-118hr5860enr.xml
 ```
 
 Both should return matches. The source text will show them adjacent to each other in a "substituting X for Y" pattern.
@@ -267,22 +267,22 @@ Both should return matches. The source text will show them adjacent to each othe
 
 ```bash
 # Find all CR substitutions
-congress-approp search --dir examples/hr5860 --type cr_substitution
+congress-approp search --dir data/hr5860 --type cr_substitution
 
 # Export to CSV
-congress-approp search --dir examples/hr5860 --type cr_substitution --format csv > cr_subs.csv
+congress-approp search --dir data/hr5860 --type cr_substitution --format csv > cr_subs.csv
 
 # Export to JSON
-congress-approp search --dir examples/hr5860 --type cr_substitution --format json
+congress-approp search --dir data/hr5860 --type cr_substitution --format json
 
 # Find the full-year omnibus equivalent of a CR account
-congress-approp search --dir examples --similar hr5860:<INDEX> --type appropriation --top 3
+congress-approp search --dir data --similar hr5860:<INDEX> --type appropriation --top 3
 
 # See all CR provisions (not just substitutions)
-congress-approp search --dir examples/hr5860
+congress-approp search --dir data/hr5860
 
 # Audit CR verification
-congress-approp audit --dir examples/hr5860
+congress-approp audit --dir data/hr5860
 ```
 
 ## Next Steps

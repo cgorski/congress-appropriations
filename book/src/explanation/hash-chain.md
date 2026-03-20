@@ -162,12 +162,12 @@ You can verify the hash chain yourself using standard tools:
 
 ```bash
 # Compute the current SHA-256 of the source XML
-shasum -a 256 examples/hr9468/BILLS-118hr9468enr.xml
+shasum -a 256 data/118-hr9468/BILLS-118hr9468enr.xml
 
 # Compare to what metadata.json recorded
 python3 -c "
 import json
-meta = json.load(open('examples/hr9468/metadata.json'))
+meta = json.load(open('data/118-hr9468/metadata.json'))
 print(f'Recorded: {meta.get(\"source_xml_sha256\", \"NOT SET\")}')
 "
 ```
@@ -176,12 +176,12 @@ print(f'Recorded: {meta.get(\"source_xml_sha256\", \"NOT SET\")}')
 
 ```bash
 # Compute the current SHA-256 of extraction.json
-shasum -a 256 examples/hr9468/extraction.json
+shasum -a 256 data/118-hr9468/extraction.json
 
 # Compare to what embeddings.json recorded
 python3 -c "
 import json
-emb = json.load(open('examples/hr9468/embeddings.json'))
+emb = json.load(open('data/118-hr9468/embeddings.json'))
 print(f'Recorded: {emb[\"extraction_sha256\"]}')
 "
 ```
@@ -190,12 +190,12 @@ print(f'Recorded: {emb[\"extraction_sha256\"]}')
 
 ```bash
 # Compute the current SHA-256 of vectors.bin
-shasum -a 256 examples/hr9468/vectors.bin
+shasum -a 256 data/118-hr9468/vectors.bin
 
 # Compare to what embeddings.json recorded
 python3 -c "
 import json
-emb = json.load(open('examples/hr9468/embeddings.json'))
+emb = json.load(open('data/118-hr9468/embeddings.json'))
 print(f'Recorded: {emb[\"vectors_sha256\"]}')
 "
 ```

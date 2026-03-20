@@ -48,7 +48,7 @@ When you run `search --semantic "school lunch programs for kids"`:
 
 ### At Query Time (`--similar`)
 
-When you run `search --similar hr9468:0`:
+When you run `search --similar 118-hr9468:0`:
 
 1. The tool looks up provision 0's pre-computed vector from the `hr9468` directory's `vectors.bin`
 2. It computes cosine similarity against every other provision's vector across all loaded bills
@@ -200,20 +200,20 @@ import struct
 import numpy as np
 
 # Load metadata
-with open("examples/hr4366/embeddings.json") as f:
+with open("data/118-hr4366/embeddings.json") as f:
     meta = json.load(f)
 
 dims = meta["dimensions"]  # 3072
 count = meta["count"]       # 2364
 
 # Option 1: Using struct (standard library)
-with open("examples/hr4366/vectors.bin", "rb") as f:
+with open("data/118-hr4366/vectors.bin", "rb") as f:
     raw = f.read()
 for i in range(count):
     vec = struct.unpack(f"<{dims}f", raw[i*dims*4 : (i+1)*dims*4])
 
 # Option 2: Using numpy (much faster for large files)
-vectors = np.fromfile("examples/hr4366/vectors.bin", dtype=np.float32).reshape(count, dims)
+vectors = np.fromfile("data/118-hr4366/vectors.bin", dtype=np.float32).reshape(count, dims)
 
 # Compute cosine similarity (vectors are already normalized)
 similarity = vectors[0] @ vectors[1]  # dot product = cosine for unit vectors
@@ -223,7 +223,7 @@ similarity = vectors[0] @ vectors[1]  # dot product = cosine for unit vectors
 
 | Operation | Time | Notes |
 |-----------|------|-------|
-| Load vectors from disk (13 bills) | ~8ms | Binary file I/O |
+| Load vectors from disk (14 bills) | ~8ms | Binary file I/O |
 | Cosine similarity (one query vs. 8,500 provisions) | <0.5ms | 8,500 dot products of 3,072 dimensions |
 | Embed query text (OpenAI API) | ~100ms | Network round-trip |
 | **Total `--semantic` search** | **~110ms** | Dominated by the API call |

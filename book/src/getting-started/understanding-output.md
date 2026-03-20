@@ -1,6 +1,6 @@
 # Understanding the Output
 
-> **You will need:** `congress-approp` installed, access to the `examples/` directory.
+> **You will need:** `congress-approp` installed, access to the `data/` directory.
 >
 > **You will learn:** How to read every table the tool produces — what each column means, what the symbols indicate, and how to interpret the numbers.
 
@@ -11,7 +11,7 @@ Before diving into tutorials and specific tasks, let's build a solid understandi
 The `summary` command gives you the bird's-eye view:
 
 ```bash
-congress-approp summary --dir examples
+congress-approp summary --dir data
 ```
 
 ```text
@@ -47,7 +47,7 @@ The line below the table — "0 dollar amounts unverified across all bills" — 
 Add `--by-agency` to see budget authority broken down by parent department:
 
 ```bash
-congress-approp summary --dir examples --by-agency
+congress-approp summary --dir data --by-agency
 ```
 
 This appends a second table showing every agency, its total budget authority, rescissions, and provision count, sorted by budget authority descending. For example, Department of Veterans Affairs shows ~$343B (which includes mandatory programs like Compensation and Pensions that appear as appropriation lines in the bill text).
@@ -61,7 +61,7 @@ The `search` command produces tables that **adapt their columns based on what yo
 For most searches, you see this layout:
 
 ```bash
-congress-approp search --dir examples/hr9468
+congress-approp search --dir data/hr9468
 ```
 
 ```text
@@ -97,7 +97,7 @@ The leftmost column tells you the verification status of each provision's dollar
 |--------|---------|-------------------|
 | **✓** | The exact dollar string (e.g., `$2,285,513,000`) was found at **one unique position** in the source bill text. | No — this is the best result. |
 | **≈** | The dollar string was found at **multiple positions** in the source text. The amount is correct, but it can't be pinned to a single location. | No — very common for round numbers like `$5,000,000` which may appear 50 times in an omnibus. |
-| **✗** | The dollar string was **not found** in the source text. | **Yes** — this provision needs manual review. Across the included example data, this never occurs (0 of 8,554). |
+| **✗** | The dollar string was **not found** in the source text. | **Yes** — this provision needs manual review. Across the included example data, this never occurs (0 of 11,136). |
 | *(blank)* | The provision doesn't carry a dollar amount (riders, directives, some policy provisions). | No — nothing to verify. |
 
 ### CR substitution table
@@ -105,7 +105,7 @@ The leftmost column tells you the verification status of each provision's dollar
 When you search for `cr_substitution` type provisions, the table automatically changes shape to show the old and new amounts:
 
 ```bash
-congress-approp search --dir examples/hr5860 --type cr_substitution
+congress-approp search --dir data/hr5860 --type cr_substitution
 ```
 
 ```text
@@ -156,7 +156,7 @@ Results are sorted by similarity descending and limited to `--top N` (default 20
 The `audit` command provides the most detailed quality view:
 
 ```bash
-congress-approp audit --dir examples
+congress-approp audit --dir data
 ```
 
 ```text
@@ -221,7 +221,7 @@ After running `audit`, here's how to interpret the results:
 The `compare` command shows account-level differences between two sets of bills:
 
 ```bash
-congress-approp compare --base examples/hr4366 --current examples/hr9468
+congress-approp compare --base data/118-hr4366 --current data/118-hr9468
 ```
 
 ```text
@@ -256,7 +256,7 @@ Every query command supports four output formats via `--format`:
 ### Table (default)
 
 ```bash
-congress-approp search --dir examples/hr9468 --format table
+congress-approp search --dir data/hr9468 --format table
 ```
 
 Human-readable formatted table. Best for interactive use and quick exploration. Column widths adapt to content. Long text is truncated.
@@ -264,7 +264,7 @@ Human-readable formatted table. Best for interactive use and quick exploration. 
 ### JSON
 
 ```bash
-congress-approp search --dir examples/hr9468 --format json
+congress-approp search --dir data/hr9468 --format json
 ```
 
 A JSON array of objects. **Includes every field** for each matching provision — more data than the table shows. Best for programmatic consumption, piping to `jq`, or loading into scripts.
@@ -272,7 +272,7 @@ A JSON array of objects. **Includes every field** for each matching provision �
 ### JSONL (JSON Lines)
 
 ```bash
-congress-approp search --dir examples/hr9468 --format jsonl
+congress-approp search --dir data/hr9468 --format jsonl
 ```
 
 One JSON object per line, no enclosing array. Best for streaming processing, piping to `while read`, or working with very large result sets. Each line is independently parseable.
@@ -280,7 +280,7 @@ One JSON object per line, no enclosing array. Best for streaming processing, pip
 ### CSV
 
 ```bash
-congress-approp search --dir examples/hr9468 --format csv > provisions.csv
+congress-approp search --dir data/hr9468 --format csv > provisions.csv
 ```
 
 Comma-separated values suitable for importing into Excel, Google Sheets, R, or pandas. Includes a header row. Dollar amounts are plain integers (not formatted with commas).
@@ -294,7 +294,7 @@ For a detailed guide with examples and recipes for each format, see [Output Form
 You'll encounter these provision types throughout the tool. Use `--list-types` for a quick reference:
 
 ```bash
-congress-approp search --dir examples --list-types
+congress-approp search --dir data --list-types
 ```
 
 ```text
@@ -332,7 +332,7 @@ For detailed documentation of each provision type including all fields and real 
 
 ## Enriched Output
 
-When you run `congress-approp enrich --dir examples` (no API key needed), the tool generates bill metadata that enhances the output:
+When you run `congress-approp enrich --dir data` (no API key needed), the tool generates bill metadata that enhances the output:
 
 - **Enriched classifications** — the summary table shows "Full-Year CR with Appropriations" instead of "Continuing Resolution" for hybrid bills like H.R. 1968, and "Minibus" instead of "Omnibus" for bills covering only 2–4 subcommittees.
 - **Advance appropriation split** — use `--show-advance` on `summary` to separate current-year spending from advance appropriations (money enacted now but available in a future fiscal year). This is critical for VA accounts where 79.5% of MilCon-VA budget authority is advance.

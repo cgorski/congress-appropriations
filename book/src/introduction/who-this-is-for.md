@@ -12,7 +12,7 @@
 - **Comparing spending across fiscal years.** "How did THUD funding change from FY2024 to FY2026?" Use `compare --base-fy 2024 --current-fy 2026 --subcommittee thud` and get a per-account comparison: Tenant-Based Rental Assistance up $6.1B (+18.7%), Capital Investment Grants down $505M. No need to know which bills or divisions to look at — the tool resolves that automatically.
 - **Finding provisions by topic.** You're writing a story about opioid treatment funding. Semantic search finds relevant provisions even when the bill text says "Substance Use Treatment and Prevention" instead of "opioid." Combine with `--fy 2026 --subcommittee labor-hhs` to scope results to a specific year and jurisdiction.
 - **Separating advance from current-year spending.** 79.5% of MilCon-VA budget authority is advance appropriations for the next fiscal year. Without `--show-advance`, a reporter comparing year-over-year VA spending would be off by hundreds of billions of dollars. The tool flags this automatically.
-- **Tracing a program across all bills.** Use `relate hr9468:0 --fy-timeline` to see VA Compensation and Pensions across FY2024–FY2026, with current/advance/supplemental split per year and links to every matching provision.
+- **Tracing a program across all bills.** Use `relate 118-hr9468:0 --fy-timeline` to see VA Compensation and Pensions across FY2024–FY2026, with current/advance/supplemental split per year and links to every matching provision.
 
 **Start here:** [Getting Started](../getting-started/installation.md) → [Find Spending on a Topic](../tutorials/find-spending-on-topic.md) → [Compare Two Bills](../tutorials/compare-two-bills.md) → [Enrich Bills with Metadata](../how-to/enrich-data.md)
 
@@ -24,11 +24,11 @@
 
 **What you'd use this for:**
 
-- **Tracking program funding across bills.** Use `relate` to trace a specific account — say, VA Compensation and Pensions — across all 13 bills with a fiscal year timeline showing the current-year, advance, and supplemental split. Save the matches as persistent links with `link accept` so you can reuse them in future comparisons.
+- **Tracking program funding across bills.** Use `relate` to trace a specific account — say, VA Compensation and Pensions — across all 14 bills with a fiscal year timeline showing the current-year, advance, and supplemental split. Save the matches as persistent links with `link accept` so you can reuse them in future comparisons.
 - **Subcommittee-level analysis.** "What's the FY2026 Defense budget?" Use `summary --fy 2026 --subcommittee defense` and get $836B in budget authority from H.R. 7148 Division A. The tool maps division letters to canonical jurisdictions automatically — Division A means Defense in H.R. 7148 but CJS in H.R. 6938.
-- **Identifying CR anomalies.** Continuing resolutions fund the government at prior-year rates *except* for specific anomalies. The tool extracts every `cr_substitution` as structured data so you can see exactly which programs got different treatment: `congress-approp search --dir examples/hr5860 --type cr_substitution`.
+- **Identifying CR anomalies.** Continuing resolutions fund the government at prior-year rates *except* for specific anomalies. The tool extracts every `cr_substitution` as structured data so you can see exactly which programs got different treatment: `congress-approp search --dir data/hr5860 --type cr_substitution`.
 - **Enriched bill classifications.** The tool distinguishes omnibus (5+ subcommittees), minibus (2–4), full-year CR with appropriations (like H.R. 1968 with $1.786T in appropriations alongside a CR mechanism), and supplementals — not just the raw LLM classification.
-- **Exporting for briefings and spreadsheets.** Every query command supports `--format csv` output. Pipe it to a file and open it in Excel: `congress-approp compare --base-fy 2024 --current-fy 2026 --subcommittee thud --dir examples --format csv > thud_compare.csv`.
+- **Exporting for briefings and spreadsheets.** Every query command supports `--format csv` output. Pipe it to a file and open it in Excel: `congress-approp compare --base-fy 2024 --current-fy 2026 --subcommittee thud --dir data --format csv > thud_compare.csv`.
 
 **Start here:** [Getting Started](../getting-started/installation.md) → [Compare Two Bills](../tutorials/compare-two-bills.md) → [Enrich Bills with Metadata](../how-to/enrich-data.md) → [Track a Program Across Bills](../tutorials/track-program-across-bills.md)
 

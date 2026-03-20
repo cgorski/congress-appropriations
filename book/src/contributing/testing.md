@@ -9,7 +9,7 @@ The project has two categories of tests:
 | Category | Location | Count | What They Test |
 |----------|----------|-------|----------------|
 | **Unit tests** | Inline `#[cfg(test)] mod tests` in each module | ~130 | Individual functions, type round-trips, parsing logic, classification, link management |
-| **Integration tests** | `tests/cli_tests.rs` | 42 | Full CLI commands against the `examples/` data, including enrich, relate, link workflow, FY/subcommittee filtering, --show-advance, case-insensitive compare |
+| **Integration tests** | `tests/cli_tests.rs` | 42 | Full CLI commands against the `data/` data, including enrich, relate, link workflow, FY/subcommittee filtering, --show-advance, case-insensitive compare |
 | **Total** | | **~172** | |
 
 All tests run with `cargo test` and must pass before every commit.
@@ -177,7 +177,7 @@ mod tests {
 
 ## Integration Test Patterns
 
-Integration tests live in `tests/cli_tests.rs` and run the actual compiled binary against the `examples/` data:
+Integration tests live in `tests/cli_tests.rs` and run the actual compiled binary against the `data/` data:
 
 ```rust
 use assert_cmd::Command;
@@ -254,7 +254,7 @@ fn my_new_command_works() {
 
 ### Integration test conventions
 
-1. **Always use `--dir examples`** — the included example data is the test fixture
+1. **Always use `--dir data`** — the included example data is the test fixture
 2. **Test all output formats** (`table`, `json`, `csv`) for new commands
 3. **Parse JSON output and verify structure** — don't just check for substring matches on JSON
 4. **Check for specific expected values** where possible (like the budget authority totals)
@@ -290,7 +290,7 @@ There are no automated performance tests. The performance characteristics docume
 In addition to `cargo test`, the project includes a manual data integrity check that can be run as a shell command:
 
 ```bash
-./target/release/congress-approp summary --dir examples --format json | python3 -c "
+./target/release/congress-approp summary --dir data --format json | python3 -c "
 import sys, json
 expected = {'H.R. 4366': 846137099554, 'H.R. 5860': 16000000000, 'H.R. 9468': 2882482000}
 for b in json.load(sys.stdin):
@@ -340,7 +340,7 @@ The CI does NOT:
 ### For a new CLI command
 
 1. Add at least three integration tests:
-   - Basic execution with `--dir examples` succeeds
+   - Basic execution with `--dir data` succeeds
    - JSON output parses correctly with expected fields
    - Filters work as expected
 2. Add unit tests for the library function it calls
@@ -377,7 +377,7 @@ Investigation steps:
 
 ```bash
 # Check the actual values
-./target/release/congress-approp summary --dir examples --format json | python3 -c "
+./target/release/congress-approp summary --dir data --format json | python3 -c "
 import sys, json
 for b in json.load(sys.stdin):
     print(f\"{b['identifier']}: BA={b['budget_authority']}, Resc={b['rescissions']}\")

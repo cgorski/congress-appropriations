@@ -30,7 +30,7 @@ The verification pipeline runs after extraction and checks every claim the LLM m
 
 | Metric | Result |
 |--------|--------|
-| Total provisions extracted | 8,554 |
+| Total provisions extracted | 11,136 |
 | Dollar amounts not found in source | **0** |
 | Raw text byte-identical to source | **95.6%** (2,392 of 2,501) |
 | CR substitution pairs verified | 13/13 (100%) |
@@ -42,7 +42,7 @@ The remaining 4.4% of provisions where `raw_text` isn't a byte-identical substri
 
 ## What's Included
 
-The tool ships with thirteen pre-extracted bills from the 118th and 119th Congresses (FY2024–FY2026), covering all major appropriations bill types:
+The tool ships with fourteen bills from the 118th and 119th Congresses (FY2024–FY2026), covering all major appropriations bill types:
 
 | Bill | Title | Classification | Provisions | Budget Authority |
 |------|-------|----------------|------------|------------------|
@@ -59,7 +59,7 @@ All of these work immediately with the included example data — no API keys nee
 **1. See budget totals for all included bills:**
 
 ```bash
-congress-approp summary --dir examples
+congress-approp summary --dir data
 ```
 
 Shows each bill's provision count, gross budget authority, rescissions, and net budget authority in a formatted table.
@@ -67,7 +67,7 @@ Shows each bill's provision count, gross budget authority, rescissions, and net 
 **2. Search all appropriations provisions:**
 
 ```bash
-congress-approp search --dir examples --type appropriation
+congress-approp search --dir data --type appropriation
 ```
 
 Lists every appropriation-type provision across all three bills with account name, amount, division, and agency.
@@ -75,7 +75,7 @@ Lists every appropriation-type provision across all three bills with account nam
 **3. Find FEMA funding:**
 
 ```bash
-congress-approp search --dir examples --keyword "Federal Emergency Management"
+congress-approp search --dir data --keyword "Federal Emergency Management"
 ```
 
 Searches provision text for any mention of FEMA across all bills.
@@ -83,7 +83,7 @@ Searches provision text for any mention of FEMA across all bills.
 **4. See what the continuing resolution changed:**
 
 ```bash
-congress-approp search --dir examples/hr5860 --type cr_substitution
+congress-approp search --dir data/hr5860 --type cr_substitution
 ```
 
 Shows the 13 "anomalies" — programs where the CR set a different funding level instead of continuing at the prior-year rate.
@@ -91,7 +91,7 @@ Shows the 13 "anomalies" — programs where the CR set a different funding level
 **5. Audit verification status:**
 
 ```bash
-congress-approp audit --dir examples
+congress-approp audit --dir data
 ```
 
 Displays a detailed verification breakdown for each bill: how many dollar amounts were verified, how many raw text excerpts matched the source, and the completeness coverage metric.

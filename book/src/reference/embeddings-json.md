@@ -103,13 +103,13 @@ All vectors are **L2-normalized** — each vector has a Euclidean norm of approx
 import json
 import struct
 
-with open("examples/hr9468/embeddings.json") as f:
+with open("data/118-hr9468/embeddings.json") as f:
     meta = json.load(f)
 
 dims = meta["dimensions"]  # 3072
 count = meta["count"]       # 7
 
-with open("examples/hr9468/vectors.bin", "rb") as f:
+with open("data/118-hr9468/vectors.bin", "rb") as f:
     raw = f.read()
 
 # Verify file size
@@ -134,11 +134,11 @@ print(f"Vector 0 L2 norm: {norm:.6f}")  # Should be ~1.000000
 import numpy as np
 import json
 
-with open("examples/hr4366/embeddings.json") as f:
+with open("data/118-hr4366/embeddings.json") as f:
     meta = json.load(f)
 
 vectors = np.fromfile(
-    "examples/hr4366/vectors.bin",
+    "data/118-hr4366/vectors.bin",
     dtype=np.float32
 ).reshape(meta["count"], meta["dimensions"])
 
@@ -172,7 +172,7 @@ The `congress-approp` library provides the `embeddings` module:
 use congress_appropriations::approp::embeddings;
 use std::path::Path;
 
-if let Some(loaded) = embeddings::load(Path::new("examples/hr9468"))? {
+if let Some(loaded) = embeddings::load(Path::new("data/118-hr9468"))? {
     println!("Model: {}", loaded.metadata.model);
     println!("Dimensions: {}", loaded.dimensions());
     println!("Count: {}", loaded.count());
@@ -271,14 +271,14 @@ The `count` field should equal the number of provisions in `extraction.json`. If
 The `vectors.bin` files are excluded from the crates.io package via the `exclude` field in `Cargo.toml`:
 
 ```toml
-exclude = ["examples/*/vectors.bin"]
+exclude = ["data/"]
 ```
 
 This is because the omnibus bill's `vectors.bin` (29 MB) exceeds crates.io's 10 MB upload limit. Users who install from crates.io can generate embeddings themselves:
 
 ```bash
 export OPENAI_API_KEY="your-key"
-congress-approp embed --dir examples
+congress-approp embed --dir data
 ```
 
 Users who clone the GitHub repository get the pre-generated `vectors.bin` files.

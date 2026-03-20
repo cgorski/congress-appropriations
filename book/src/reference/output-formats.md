@@ -20,7 +20,7 @@ All formats are available on `search`, `summary`, and `compare`. The `audit` com
 Human-readable formatted table with Unicode box-drawing characters. Columns adapt to content width. Long text is truncated with `…`.
 
 ```bash
-congress-approp search --dir examples/hr9468
+congress-approp search --dir data/hr9468
 ```
 
 ```text
@@ -74,7 +74,7 @@ The table changes its column structure depending on what you're searching for:
 A JSON array of objects. Every matching provision is included with **all available fields** — more data than the table can show.
 
 ```bash
-congress-approp search --dir examples/hr9468 --type appropriation --format json
+congress-approp search --dir data/hr9468 --type appropriation --format json
 ```
 
 ```json
@@ -139,7 +139,7 @@ congress-approp search --dir examples/hr9468 --type appropriation --format json
 ### JSON fields (summary output)
 
 ```bash
-congress-approp summary --dir examples --format json
+congress-approp summary --dir data --format json
 ```
 
 ```json
@@ -169,7 +169,7 @@ congress-approp summary --dir examples --format json
 ### JSON fields (compare output)
 
 ```bash
-congress-approp compare --base examples/hr4366 --current examples/hr9468 --format json
+congress-approp compare --base data/118-hr4366 --current data/118-hr9468 --format json
 ```
 
 | Field | Type | Description |
@@ -188,19 +188,19 @@ JSON output is designed for piping to [`jq`](https://jqlang.github.io/jq/):
 
 ```bash
 # Total budget authority
-congress-approp search --dir examples --type appropriation --format json | \
+congress-approp search --dir data --type appropriation --format json | \
   jq '[.[] | select(.semantics == "new_budget_authority") | .dollars] | add'
 
 # Top 5 by dollars
-congress-approp search --dir examples --type appropriation --format json | \
+congress-approp search --dir data --type appropriation --format json | \
   jq 'sort_by(-.dollars) | .[:5] | .[] | "\(.dollars)\t\(.account_name)"'
 
 # Unique account names
-congress-approp search --dir examples --type appropriation --format json | \
+congress-approp search --dir data --type appropriation --format json | \
   jq '[.[].account_name] | unique | sort | .[]'
 
 # Group by agency
-congress-approp search --dir examples --type appropriation --format json | \
+congress-approp search --dir data --type appropriation --format json | \
   jq 'group_by(.agency) | map({agency: .[0].agency, count: length, total: [.[].dollars // 0] | add}) | sort_by(-.total)'
 ```
 
@@ -248,7 +248,7 @@ provisions <- fromJSON("provisions.json")
 One JSON object per line, with no enclosing array brackets. Each line is independently parseable.
 
 ```bash
-congress-approp search --dir examples/hr9468 --type appropriation --format jsonl
+congress-approp search --dir data/hr9468 --type appropriation --format jsonl
 ```
 
 ```text
@@ -267,17 +267,17 @@ congress-approp search --dir examples/hr9468 --type appropriation --format jsonl
 
 ```bash
 # Count provisions per bill
-congress-approp search --dir examples --format jsonl | \
+congress-approp search --dir data --format jsonl | \
   jq -r '.bill' | sort | uniq -c | sort -rn
 
 # Line-by-line processing
-congress-approp search --dir examples --type appropriation --format jsonl | \
+congress-approp search --dir data --type appropriation --format jsonl | \
   while IFS= read -r line; do
     echo "$line" | jq -r '"\(.bill)\t\(.account_name)\t\(.dollars)"'
   done
 
 # Filter with jq (works identically to JSON since jq handles JSONL natively)
-congress-approp search --dir examples --format jsonl | \
+congress-approp search --dir data --format jsonl | \
   jq -r 'select(.dollars > 1000000000) | "\(.bill)\t$\(.dollars)\t\(.account_name)"'
 ```
 
@@ -300,7 +300,7 @@ congress-approp search --dir examples --format jsonl | \
 Comma-separated values with a header row. Suitable for import into any spreadsheet application or data analysis tool.
 
 ```bash
-congress-approp search --dir examples/hr9468 --type appropriation --format csv
+congress-approp search --dir data/hr9468 --type appropriation --format csv
 ```
 
 ```text
@@ -334,7 +334,7 @@ The CSV output includes all the same fields as JSON, flattened into columns:
 
 ### Opening in Excel
 
-1. Save the output to a file: `congress-approp search --dir examples --format csv > provisions.csv`
+1. Save the output to a file: `congress-approp search --dir data --format csv > provisions.csv`
 2. Open Excel → File → Open → navigate to `provisions.csv`
 3. If columns aren't detected automatically, use Data → From Text/CSV and select:
    - **Encoding:** UTF-8 (important for em-dashes and other Unicode characters)
@@ -425,19 +425,19 @@ All formats can be redirected to a file using standard shell redirection:
 
 ```bash
 # Save table output (includes Unicode characters)
-congress-approp search --dir examples --type appropriation > results.txt
+congress-approp search --dir data --type appropriation > results.txt
 
 # Save JSON
-congress-approp search --dir examples --type appropriation --format json > results.json
+congress-approp search --dir data --type appropriation --format json > results.json
 
 # Save JSONL
-congress-approp search --dir examples --type appropriation --format jsonl > results.jsonl
+congress-approp search --dir data --type appropriation --format jsonl > results.jsonl
 
 # Save CSV
-congress-approp search --dir examples --type appropriation --format csv > results.csv
+congress-approp search --dir data --type appropriation --format csv > results.csv
 ```
 
-> **Note:** The tool writes output to stdout and warnings/errors to stderr. Redirecting with `>` captures only stdout, so warnings (like "embeddings are stale") still appear on the terminal. To capture everything: `congress-approp search --dir examples --format json > results.json 2> warnings.txt`
+> **Note:** The tool writes output to stdout and warnings/errors to stderr. Redirecting with `>` captures only stdout, so warnings (like "embeddings are stale") still appear on the terminal. To capture everything: `congress-approp search --dir data --format json > results.json 2> warnings.txt`
 
 ---
 

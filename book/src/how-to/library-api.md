@@ -186,8 +186,8 @@ let filter = SearchFilter {
 The `compare` function computes account-level deltas between two sets of bills:
 
 ```rust
-let base_bills = load_bills(Path::new("examples/hr4366"))?;
-let current_bills = load_bills(Path::new("examples/hr9468"))?;
+let base_bills = load_bills(Path::new("data/118-hr4366"))?;
+let current_bills = load_bills(Path::new("data/118-hr9468"))?;
 
 let deltas = query::compare(&base_bills, &current_bills, None);
 
@@ -419,7 +419,7 @@ use congress_appropriations::approp::query::SearchFilter;
 use std::path::Path;
 
 fn main() -> anyhow::Result<()> {
-    // Load all bills under examples/
+    // Load all bills under data/
     let bills = load_bills(Path::new("examples"))?;
     println!("Loaded {} bills with {} total provisions\n",
         bills.len(),
@@ -484,7 +484,7 @@ use congress_appropriations::approp::embeddings;
 use std::path::Path;
 
 // Load embeddings for a bill
-if let Some(loaded) = embeddings::load(Path::new("examples/hr9468"))? {
+if let Some(loaded) = embeddings::load(Path::new("data/118-hr9468"))? {
     println!("Loaded {} vectors of {} dimensions",
         loaded.count(), loaded.dimensions());
 

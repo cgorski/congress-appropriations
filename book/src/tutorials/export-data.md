@@ -1,6 +1,6 @@
 # Export Data for Spreadsheets and Scripts
 
-> **You will need:** `congress-approp` installed, access to the `examples/` directory.
+> **You will need:** `congress-approp` installed, access to the `data/` directory.
 >
 > **You will learn:** How to get appropriations data into Excel, Google Sheets, Python, R, and shell pipelines using the four output formats: CSV, JSON, JSONL, and table.
 
@@ -13,7 +13,7 @@ CSV is the most portable format for getting data into Excel, Google Sheets, Libr
 ### Basic export
 
 ```bash
-congress-approp search --dir examples --type appropriation --format csv > appropriations.csv
+congress-approp search --dir data --type appropriation --format csv > appropriations.csv
 ```
 
 This writes a file with a header row and one row per matching provision. Here's what the first few lines look like:
@@ -69,7 +69,7 @@ The CSV includes the same fields as the JSON output, flattened into columns:
 
 **With jq (command line):**
 ```bash
-congress-approp search --dir examples --type appropriation --format jsonl \
+congress-approp search --dir data --type appropriation --format jsonl \
   | jq -s '[.[] | select(.semantics == "new_budget_authority" and .detail_level != "sub_allocation" and .detail_level != "proviso_amount") | .dollars] | add'
 ```
 
@@ -113,22 +113,22 @@ print(f"Budget Authority: ${ba:,}")
 
 ```bash
 # All appropriations across all example bills
-congress-approp search --dir examples --type appropriation --format csv > all_appropriations.csv
+congress-approp search --dir data --type appropriation --format csv > all_appropriations.csv
 
 # Just the VA accounts
-congress-approp search --dir examples --agency "Veterans" --format csv > va_provisions.csv
+congress-approp search --dir data --agency "Veterans" --format csv > va_provisions.csv
 
 # Rescissions over $100 million
-congress-approp search --dir examples --type rescission --min-dollars 100000000 --format csv > big_rescissions.csv
+congress-approp search --dir data --type rescission --min-dollars 100000000 --format csv > big_rescissions.csv
 
 # CR substitutions with old and new amounts
-congress-approp search --dir examples --type cr_substitution --format csv > cr_anomalies.csv
+congress-approp search --dir data --type cr_substitution --format csv > cr_anomalies.csv
 
 # Everything in Division A (MilCon-VA)
-congress-approp search --dir examples/hr4366 --division A --format csv > milcon_va.csv
+congress-approp search --dir data/hr4366 --division A --format csv > milcon_va.csv
 
 # Summary table as CSV
-congress-approp summary --dir examples --format csv > bill_summary.csv
+congress-approp summary --dir data --format csv > bill_summary.csv
 ```
 
 ## JSON for Programmatic Use
@@ -138,7 +138,7 @@ JSON output includes every field for each matching provision as an array of obje
 ### Basic export
 
 ```bash
-congress-approp search --dir examples/hr9468 --type appropriation --format json
+congress-approp search --dir data/hr9468 --type appropriation --format json
 ```
 
 ```json
@@ -187,7 +187,7 @@ If you have [`jq`](https://jqlang.github.io/jq/) installed (a lightweight JSON p
 **1. Total budget authority across all appropriations:**
 
 ```bash
-congress-approp search --dir examples --type appropriation --format json | \
+congress-approp search --dir data --type appropriation --format json | \
   jq '[.[] | select(.semantics == "new_budget_authority") | .dollars] | add'
 ```
 
@@ -198,14 +198,14 @@ congress-approp search --dir examples --type appropriation --format json | \
 **2. Top 10 accounts by dollar amount:**
 
 ```bash
-congress-approp search --dir examples --type appropriation --format json | \
+congress-approp search --dir data --type appropriation --format json | \
   jq '[.[] | select(.dollars != null)] | sort_by(-.dollars) | .[:10] | .[] | "\(.dollars)\t\(.account_name)"'
 ```
 
 **3. Group by agency and sum budget authority:**
 
 ```bash
-congress-approp search --dir examples --type appropriation --format json | \
+congress-approp search --dir data --type appropriation --format json | \
   jq 'group_by(.agency) | map({
     agency: .[0].agency,
     total: [.[] | .dollars // 0] | add,
@@ -216,14 +216,14 @@ congress-approp search --dir examples --type appropriation --format json | \
 **4. Find all provisions in Division A over $1 billion:**
 
 ```bash
-congress-approp search --dir examples --format json | \
+congress-approp search --dir data --format json | \
   jq '[.[] | select(.division == "A" and (.dollars // 0) > 1000000000)]'
 ```
 
 **5. Extract just account names (unique, sorted):**
 
 ```bash
-congress-approp search --dir examples --type appropriation --format json | \
+congress-approp search --dir data --type appropriation --format json | \
   jq '[.[].account_name] | unique | sort | .[]'
 ```
 
@@ -293,7 +293,7 @@ JSONL (JSON Lines) outputs one JSON object per line, with no enclosing array bra
 ### Basic usage
 
 ```bash
-congress-approp search --dir examples --type appropriation --format jsonl
+congress-approp search --dir data --type appropriation --format jsonl
 ```
 
 Each line is a complete JSON object:
@@ -308,17 +308,17 @@ Each line is a complete JSON object:
 
 ```bash
 # Count provisions per bill
-congress-approp search --dir examples --format jsonl | \
+congress-approp search --dir data --format jsonl | \
   jq -r '.bill' | sort | uniq -c | sort -rn
 
 # Extract account names line by line
-congress-approp search --dir examples --type appropriation --format jsonl | \
+congress-approp search --dir data --type appropriation --format jsonl | \
   while IFS= read -r line; do
     echo "$line" | jq -r '.account_name'
   done
 
 # Filter and reformat in one pipeline
-congress-approp search --dir examples --type rescission --format jsonl | \
+congress-approp search --dir data --type rescission --format jsonl | \
   jq -r 'select(.dollars > 1000000000) | "\(.bill)\t$\(.dollars)\t\(.account_name)"'
 ```
 
@@ -392,7 +392,7 @@ Key differences from CLI JSON output:
 import json
 import pandas as pd
 
-with open("examples/hr9468/extraction.json") as f:
+with open("data/118-hr9468/extraction.json") as f:
     data = json.load(f)
 
 # Flatten provisions with nested amounts
@@ -430,7 +430,7 @@ The `notes` field contains useful annotations that the CLI doesn't display:
 ```python
 import json
 
-with open("examples/hr4366/extraction.json") as f:
+with open("data/118-hr4366/extraction.json") as f:
     data = json.load(f)
 
 # Find all provisions noted as advance appropriations

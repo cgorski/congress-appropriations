@@ -246,7 +246,7 @@ congress-approp summary --dir data/118/hr/9468
 congress-approp search --dir data/118/hr/9468 --type appropriation
 
 # Compare with the examples
-congress-approp compare --base examples/hr4366 --current data/118/hr/9468
+congress-approp compare --base data/118-hr4366 --current data/118/hr/9468
 ```
 
 You can also point `--dir` at a parent directory to load multiple bills at once:
@@ -286,7 +286,7 @@ Now semantic search works on your bill:
 
 ```bash
 congress-approp search --dir data --semantic "school lunch programs" --top 5
-congress-approp search --dir data --similar hr9468:0 --top 5
+congress-approp search --dir data --similar 118-hr9468:0 --top 5
 ```
 
 The `embed` command writes two files:

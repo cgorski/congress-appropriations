@@ -8,7 +8,7 @@ All metrics are deterministic — computed by code against the source bill text,
 
 | Metric | Value |
 |--------|-------|
-| **Total provisions extracted** | 8,554 (across 13 bills) |
+| **Total provisions extracted** | 11,136 (across 14 bills) |
 | **Total budget authority** | $6.4 trillion |
 | **Dollar amounts NOT found in source** | **0** |
 | **Dollar amount internal consistency mismatches** | **0** |
@@ -21,7 +21,7 @@ All metrics are deterministic — computed by code against the source bill text,
 | **Total rescissions** | $24,659,349,709 |
 | **Total net budget authority** | $840,360,231,845 |
 
-The single most important number: **0 dollar amounts not found in source across 8,554 provisions from thirteen bills.** Every extracted dollar amount was confirmed to exist in the source bill text.
+The single most important number: **0 dollar amounts not found in source across 11,136 provisions from fourteen bills.** Every extracted dollar amount was confirmed to exist in the source bill text.
 
 ---
 
@@ -216,7 +216,7 @@ The LLM included text from the next line, creating a raw_text that doesn't appea
 | H.R. 9468 | 5 (71.4%) | 0 (0.0%) | 0 (0.0%) | 2 (28.6%) | 7 |
 | **Total** | **2,392 (95.6%)** | **71 (2.8%)** | **0 (0.0%)** | **38 (1.5%)** | **2,501** |
 
-> **Note:** The detailed per-bill breakdown above covers the original three FY2024 example bills. The aggregate metrics at the top of this page reflect all thirteen bills in the current dataset (8,554 provisions). The same verification methodology applies to all bills — 0 NotFound amounts across the entire dataset.
+> **Note:** The detailed per-bill breakdown above covers the original three FY2024 example bills. The aggregate metrics at the top of this page reflect all fourteen bills — 0 NotFound amounts across the entire dataset.
 
 The omnibus has the highest exact match rate (96.7%), which makes sense — it's the most straightforward appropriations text. The CR and supplemental have more statutory amendments (which are harder to quote exactly), contributing to their higher no-match rates.
 
@@ -329,7 +329,7 @@ The budget authority calculation can be independently reproduced in Python:
 ```python
 import json
 
-with open("examples/hr4366/extraction.json") as f:
+with open("data/118-hr4366/extraction.json") as f:
     data = json.load(f)
 
 ba = 0
@@ -396,23 +396,23 @@ You can reproduce every metric in this appendix using the included example data:
 
 ```bash
 # The full audit table
-congress-approp audit --dir examples
+congress-approp audit --dir data
 
 # Budget authority totals
-congress-approp summary --dir examples --format json
+congress-approp summary --dir data --format json
 
 # Provision type counts
-congress-approp search --dir examples --format json | \
+congress-approp search --dir data --format json | \
   jq 'group_by(.provision_type) | map({type: .[0].provision_type, count: length}) | sort_by(-.count)'
 
 # CR substitution verification
-congress-approp search --dir examples/hr5860 --type cr_substitution --format json | jq length
+congress-approp search --dir data/hr5860 --type cr_substitution --format json | jq length
 
 # Detailed verification data
-cat examples/hr9468/verification.json | python3 -m json.tool | head -50
+cat data/118-hr9468/verification.json | python3 -m json.tool | head -50
 ```
 
-All of these commands work with no API keys against the included `examples/` directory.
+All of these commands work with no API keys against the included `data/` directory.
 
 ---
 
