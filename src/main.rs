@@ -17,7 +17,7 @@ use tracing_subscriber::EnvFilter;
     name = "congress-approp",
     version,
     about = "Download and analyze U.S. appropriations bills",
-    after_help = "Quick start: congress-approp summary --dir examples\nExplore included FY2024 bill data without any API keys."
+    after_help = "Quick start: congress-approp summary --dir data\nExplore included bill data without any API keys."
 )]
 struct Cli {
     #[command(subcommand)]
@@ -711,12 +711,17 @@ async fn handle_normalize(action: NormalizeCommands) -> Result<()> {
                 return Ok(());
             }
 
+            // Step 3: Check API key early — fail fast before expensive cluster building
+            let client = AnthropicClient::from_env().map_err(|_| {
+                anyhow::anyhow!("ANTHROPIC_API_KEY not set. Required for suggest-llm.")
+            })?;
+
             eprintln!(
                 "Found {} unresolved agency pairs. Building clusters with XML context...",
                 unresolved.len()
             );
 
-            // Step 3: Build clusters with XML context
+            // Step 4: Build clusters with XML context
             let owned_unresolved: Vec<normalize::SuggestedGroup> =
                 unresolved.iter().map(|s| (*s).clone()).collect();
             let clusters = normalize::build_llm_clusters(&bills, &owned_unresolved);
@@ -731,10 +736,7 @@ async fn handle_normalize(action: NormalizeCommands) -> Result<()> {
                 clusters.len()
             );
 
-            // Step 4: Send to Claude in batches
-            let client = AnthropicClient::from_env().map_err(|_| {
-                anyhow::anyhow!("ANTHROPIC_API_KEY not set. Required for suggest-llm.")
-            })?;
+            // Step 5: Send to Claude in batches
 
             let mut all_accepted_groups: Vec<normalize::SuggestedGroup> = Vec::new();
 
@@ -3670,7 +3672,7 @@ fn handle_compare(
     // If --use-links, load accepted links and rescue orphans that have a link
     // connecting them across bills (handles renames and reorganizations).
     if use_links {
-        let data_dir = dir.unwrap_or("./examples");
+        let data_dir = dir.unwrap_or("./data");
         if let Ok(Some(links_file)) =
             congress_appropriations::approp::links::load_links(std::path::Path::new(data_dir))
         {
@@ -3791,6 +3793,7 @@ fn handle_compare(
                     "delta",
                     "delta_pct",
                     "status",
+                    "normalized",
                     "real_delta_pct",
                     "inflation_flag",
                 ])?;
@@ -3803,6 +3806,7 @@ fn handle_compare(
                     "delta",
                     "delta_pct",
                     "status",
+                    "normalized",
                 ])?;
             }
             for d in &result.rows {
@@ -3814,10 +3818,11 @@ fn handle_compare(
                         &d.current_dollars.to_string(),
                         &d.delta.to_string(),
                         &d.delta_pct.map(|p| format!("{p:.1}")).unwrap_or_default(),
+                        &d.status,
                         &if d.normalized {
-                            format!("{} (normalized)", d.status)
+                            "true".to_string()
                         } else {
-                            d.status.clone()
+                            "false".to_string()
                         },
                         &d.real_delta_pct
                             .map(|p| format!("{p:.1}"))
@@ -3832,10 +3837,11 @@ fn handle_compare(
                         &d.current_dollars.to_string(),
                         &d.delta.to_string(),
                         &d.delta_pct.map(|p| format!("{p:.1}")).unwrap_or_default(),
+                        &d.status,
                         &if d.normalized {
-                            format!("{} (normalized)", d.status)
+                            "true".to_string()
                         } else {
-                            d.status.clone()
+                            "false".to_string()
                         },
                     ])?;
                 }
@@ -4012,6 +4018,26 @@ fn handle_compare(
                     .filter(|d| d.status == "unchanged")
                     .count(),
             );
+
+            // Orphan-pair hint: suggest normalize when unresolved orphans exist
+            let orphan_count = result
+                .rows
+                .iter()
+                .filter(|d| d.status == "only in base" || d.status == "only in current")
+                .count();
+            if orphan_count > 0 {
+                let data_dir = dir.or(base_dir).unwrap_or("./data");
+                let has_dataset = std::path::Path::new(data_dir).join("dataset.json").exists();
+                if has_dataset {
+                    eprintln!(
+                        "\n{orphan_count} unresolved orphan pairs remain. Run `normalize suggest-text-match --dir {data_dir}` to discover more agency naming variants."
+                    );
+                } else {
+                    eprintln!(
+                        "\n{orphan_count} orphan pairs detected. Run `normalize suggest-text-match --dir {data_dir}` to discover agency naming variants."
+                    );
+                }
+            }
         }
     }
 

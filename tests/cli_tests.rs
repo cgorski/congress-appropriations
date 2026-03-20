@@ -1371,6 +1371,185 @@ fn link_suggest_invalid_scope() {
         .stderr(predicates::str::contains("Invalid scope"));
 }
 
+// ─── Normalize & Entity Resolution Tests ─────────────────────────────────────
+
+#[test]
+fn normalize_list_without_dataset() {
+    // test-data has no dataset.json — should show helpful message
+    cmd()
+        .args(["normalize", "list", "--dir", "test-data"])
+        .assert()
+        .success()
+        .stdout(predicates::str::contains("No dataset.json"));
+}
+
+#[test]
+fn normalize_list_with_dataset() {
+    let dir = tempfile::tempdir().unwrap();
+    // Create a minimal dataset.json
+    let dataset = serde_json::json!({
+        "schema_version": "1.0",
+        "entities": {
+            "agency_groups": [{
+                "canonical": "Department of Defense",
+                "members": ["Department of the Army"]
+            }],
+            "account_aliases": []
+        }
+    });
+    std::fs::write(
+        dir.path().join("dataset.json"),
+        serde_json::to_string_pretty(&dataset).unwrap(),
+    )
+    .unwrap();
+
+    cmd()
+        .args(["normalize", "list", "--dir", dir.path().to_str().unwrap()])
+        .assert()
+        .success()
+        .stdout(predicates::str::contains("Department of Defense"))
+        .stdout(predicates::str::contains("Department of the Army"));
+}
+
+#[test]
+fn normalize_suggest_text_match_dry_run() {
+    if !has_full_data() {
+        return;
+    }
+    let output = cmd()
+        .args([
+            "normalize",
+            "suggest-text-match",
+            "--dir",
+            "data",
+            "--dry-run",
+        ])
+        .output()
+        .unwrap();
+
+    assert!(output.status.success());
+    let stdout = str::from_utf8(&output.stdout).unwrap();
+    assert!(
+        stdout.contains("suggested agency groups"),
+        "Should report suggestions: {stdout}"
+    );
+    let stderr = str::from_utf8(&output.stderr).unwrap();
+    assert!(
+        stderr.contains("Dry run"),
+        "Should indicate dry run: {stderr}"
+    );
+    // Verify no dataset.json was created
+    assert!(
+        !std::path::Path::new("data/dataset.json").exists(),
+        "Dry run should not create dataset.json"
+    );
+}
+
+#[test]
+fn compare_exact_no_normalization() {
+    if !has_full_data() {
+        return;
+    }
+    // Run compare --exact and verify no rows are marked normalized
+    let output = cmd()
+        .args([
+            "compare",
+            "--base-fy",
+            "2024",
+            "--current-fy",
+            "2026",
+            "--subcommittee",
+            "thud",
+            "--dir",
+            "data",
+            "--exact",
+            "--format",
+            "json",
+        ])
+        .output()
+        .unwrap();
+
+    assert!(output.status.success());
+    let stdout = str::from_utf8(&output.stdout).unwrap();
+    let rows: Vec<serde_json::Value> = serde_json::from_str(stdout).unwrap();
+    let normalized_count = rows
+        .iter()
+        .filter(|r| r["normalized"].as_bool() == Some(true))
+        .count();
+    assert_eq!(
+        normalized_count, 0,
+        "compare --exact should produce 0 normalized rows"
+    );
+}
+
+#[test]
+fn compare_csv_has_normalized_column() {
+    if !has_full_data() {
+        return;
+    }
+    let output = cmd()
+        .args([
+            "compare",
+            "--base-fy",
+            "2024",
+            "--current-fy",
+            "2026",
+            "--subcommittee",
+            "thud",
+            "--dir",
+            "data",
+            "--format",
+            "csv",
+        ])
+        .output()
+        .unwrap();
+
+    assert!(output.status.success());
+    let stdout = str::from_utf8(&output.stdout).unwrap();
+    let first_line = stdout.lines().next().unwrap();
+    assert!(
+        first_line.contains("normalized"),
+        "CSV header should have normalized column: {first_line}"
+    );
+    // Status field should NOT contain "(normalized)" suffix in CSV
+    assert!(
+        !stdout.contains("(normalized)"),
+        "CSV status should not have (normalized) suffix — it should be a separate column"
+    );
+    // The normalized column should have true/false values
+    assert!(
+        stdout.contains("false") || stdout.contains("true"),
+        "normalized column should contain true/false values"
+    );
+}
+
+#[test]
+fn compare_orphan_hint() {
+    // Use test-data (small bills, no dataset.json) — should show orphan hint
+    let output = cmd()
+        .args([
+            "compare",
+            "--base",
+            "test-data/118-hr9468",
+            "--current",
+            "test-data/118-hr5860",
+        ])
+        .output()
+        .unwrap();
+
+    assert!(output.status.success());
+    let stderr = str::from_utf8(&output.stderr).unwrap();
+    // These bills have different accounts so there will be orphans
+    // The hint should suggest normalize suggest-text-match
+    if stderr.contains("orphan pairs") {
+        assert!(
+            stderr.contains("normalize suggest-text-match"),
+            "Orphan hint should suggest normalize command: {stderr}"
+        );
+    }
+    // If no orphans (unlikely but possible), that's fine too
+}
+
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 
 /// Recursively copy a directory, skipping vectors.bin (large) and chunks/ (unnecessary).

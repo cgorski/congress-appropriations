@@ -16,6 +16,23 @@ use regex::Regex;
 use serde::{Deserialize, Serialize};
 use std::collections::{HashMap, HashSet};
 use std::path::Path;
+use std::sync::LazyLock;
+
+// ─── XML Context Regexes (compiled once) ─────────────────────────────────────
+
+static RE_MAJOR_OPEN: LazyLock<Regex> =
+    LazyLock::new(|| Regex::new(r"<appropriations-major[^>]*>").unwrap());
+static RE_MAJOR_CLOSE: LazyLock<Regex> =
+    LazyLock::new(|| Regex::new(r"</appropriations-major>").unwrap());
+static RE_INTER_OPEN: LazyLock<Regex> =
+    LazyLock::new(|| Regex::new(r"<appropriations-intermediate[^>]*>").unwrap());
+static RE_INTER_CLOSE: LazyLock<Regex> =
+    LazyLock::new(|| Regex::new(r"</appropriations-intermediate>").unwrap());
+static RE_HEADER_OPEN: LazyLock<Regex> = LazyLock::new(|| Regex::new(r"<header[^>]*>").unwrap());
+static RE_HEADER_CLOSE: LazyLock<Regex> = LazyLock::new(|| Regex::new(r"</header>").unwrap());
+static RE_ANY_TAG: LazyLock<Regex> = LazyLock::new(|| Regex::new(r"<[^>]+>").unwrap());
+static RE_WHITESPACE: LazyLock<Regex> = LazyLock::new(|| Regex::new(r"[ \t]+").unwrap());
+static RE_BLANK_LINES: LazyLock<Regex> = LazyLock::new(|| Regex::new(r"\n\s*\n").unwrap());
 
 // ─── Types ───────────────────────────────────────────────────────────────────
 
@@ -558,35 +575,25 @@ pub fn get_xml_context(xml_content: &str, search_text: &str, window: usize) -> S
     let end = (pos + 400).min(xml_content.len());
     let raw = &xml_content[start..end];
 
-    // Preserve heading structure with markers
-    let re_major_open = Regex::new(r"<appropriations-major[^>]*>").unwrap();
-    let re_major_close = Regex::new(r"</appropriations-major>").unwrap();
-    let re_inter_open = Regex::new(r"<appropriations-intermediate[^>]*>").unwrap();
-    let re_inter_close = Regex::new(r"</appropriations-intermediate>").unwrap();
-    let re_header_open = Regex::new(r"<header[^>]*>").unwrap();
-    let re_header_close = Regex::new(r"</header>").unwrap();
-    let re_any_tag = Regex::new(r"<[^>]+>").unwrap();
-    let re_whitespace = Regex::new(r"[ \t]+").unwrap();
-    let re_blank_lines = Regex::new(r"\n\s*\n").unwrap();
-
+    // Preserve heading structure with markers (regexes compiled once via LazyLock)
     let mut cleaned = raw.to_string();
-    cleaned = re_major_open
+    cleaned = RE_MAJOR_OPEN
         .replace_all(&cleaned, "\n[MAJOR] ")
         .to_string();
-    cleaned = re_major_close
+    cleaned = RE_MAJOR_CLOSE
         .replace_all(&cleaned, " [/MAJOR]")
         .to_string();
-    cleaned = re_inter_open
+    cleaned = RE_INTER_OPEN
         .replace_all(&cleaned, "\n  [SUBHEADING] ")
         .to_string();
-    cleaned = re_inter_close
+    cleaned = RE_INTER_CLOSE
         .replace_all(&cleaned, " [/SUBHEADING]")
         .to_string();
-    cleaned = re_header_open.replace_all(&cleaned, "").to_string();
-    cleaned = re_header_close.replace_all(&cleaned, "").to_string();
-    cleaned = re_any_tag.replace_all(&cleaned, "").to_string();
-    cleaned = re_whitespace.replace_all(&cleaned, " ").to_string();
-    cleaned = re_blank_lines.replace_all(&cleaned, "\n").to_string();
+    cleaned = RE_HEADER_OPEN.replace_all(&cleaned, "").to_string();
+    cleaned = RE_HEADER_CLOSE.replace_all(&cleaned, "").to_string();
+    cleaned = RE_ANY_TAG.replace_all(&cleaned, "").to_string();
+    cleaned = RE_WHITESPACE.replace_all(&cleaned, " ").to_string();
+    cleaned = RE_BLANK_LINES.replace_all(&cleaned, "\n").to_string();
 
     let lines: Vec<&str> = cleaned
         .trim()

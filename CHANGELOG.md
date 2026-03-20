@@ -4,6 +4,43 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [5.1.0] — 2026-03-20
+
+### Breaking Changes
+- **`examples/` renamed to `data/`** with congress-prefixed directory naming. Bill directories are now `{congress}-{type}{number}` (e.g., `118-hr4366`, `119-hr7148`). This format is globally unique, collision-free across congresses, and matches the Congress.gov identifier scheme. The `test-data/` directory (3 small bills, ~500KB) ships with the crate for tests; `data/` (14 bills, 186MB) is in git only.
+- **Default `--dir` changed from `./examples` to `./data`** across all commands. If you have scripts using the old default, update them.
+- **Provision references now use congress prefix:** `118-hr9468:0` instead of `hr9468:0` for `relate`, `--similar`, and `link` commands.
+- **Implicit agency normalization removed.** The hardcoded `SUB_AGENCY_TO_PARENT` lookup table (35 entries) and comma-splitting logic have been removed from `query.rs`. These produced 109 potential silent wrong merges (e.g., merging DOT headquarters S&E with DOT Inspector General S&E into one $300M number). Compare now uses exact lowercased matching by default. To restore cross-bill agency matching with explicit, auditable rules, run `normalize suggest-text-match`.
+- **`compare()` library API** gains `agency_groups: &[AgencyGroup]` and `account_aliases: &[AccountAlias]` parameters. Pass empty slices for exact matching.
+- **`CompareRow` struct** gains `normalized: bool` field indicating whether the match used entity resolution rules.
+- **Crate no longer includes bill data.** Package size reduced from 5.4MB to ~500KB compressed. Install via `git clone` for the full 14-bill dataset with embeddings, or use `download` + `extract` to process your own bills.
+
+### Added
+- **`dataset.json`** — user-managed entity resolution file at the data root. Contains agency groups and account aliases for cross-bill matching. No cached or derived data — only knowledge that cannot be computed from scanning bill files. Created by `normalize` commands or hand-edited.
+- **`normalize suggest-text-match` command** — discovers agency naming variants by analyzing cross-FY orphan pairs and structural regex patterns (prefix expansion, preposition variants, US abbreviations). No API calls, runs in milliseconds. Filters out generic account names to avoid false groupings.
+- **`normalize suggest-llm` command** — sends unresolved ambiguous account clusters to Claude with XML heading context for SAME/DIFFERENT classification. Each cluster includes all appearances of an account across all bills with dollar amounts and structural XML markers. Batched API calls (configurable `--batch-size`). Requires `ANTHROPIC_API_KEY`.
+- **`normalize list` command** — displays current agency groups and account aliases from `dataset.json`.
+- **`compare --exact` flag** — disables all normalization from `dataset.json`, uses exact lowercased string matching only. Useful for verifying raw matching results.
+- **`(normalized)` marker** in compare table output on rows where agency groups from `dataset.json` were applied. CSV output has a separate `normalized` column (`true`/`false`) instead of a status suffix.
+- **Orphan-pair hint** in compare output — when unresolved orphans exist, stderr suggests running `normalize suggest-text-match`.
+- **Congress number in all output** — summary table shows `H.R. 7148 (119th)`, compare header shows `Comparing: H.R. 4366 (118th) → H.R. 7148 (119th)`, search CSV/JSON includes `congress` field, semantic search table includes congress.
+- **`congress` field** in `BillSummary` struct and search output JSON/CSV.
+- **`format_bill_id()` helper** for consistent congress number display.
+- **`fiscal_year()` and `detail_level()` accessor methods** on the `Provision` enum.
+- **`fiscal_years` field** in `BillSummary` and "FYs" column in summary table.
+- **`fiscal_year`, `detail_level`, `confidence`, `provision_index`, `match_tier`** columns in search CSV output. Search JSON also includes these fields.
+- **Smart export warning** — stderr shows provision count by semantics type when exporting CSV/JSON/JSONL with mixed semantics.
+- **`test-data/` directory** with 3 small bills (118-hr9468, 118-hr5860, 118-hr2872) for crate integration tests. Tier 1 tests use `test-data/` (always available), Tier 2 tests use `data/` (auto-skip if absent).
+- **Download command creates flat directories** — `{congress}-{type}{number}` format (e.g., `118-hr9468`) instead of nested `{congress}/{type}/{number}`.
+- **H.R. 2882 (FY2024 second omnibus)** — 2,582 provisions covering Defense, Financial Services, Homeland Security, Labor-HHS, Legislative Branch, State-Foreign Operations. FY2024 now has all 12 subcommittees. Dataset totals: 14 bills, 11,136 provisions, $8.9 trillion.
+- **Export Data section in README** with quick export patterns and sub-allocation warning.
+- **6 new integration tests** for normalize commands, `--exact` flag, CSV normalized column, and orphan hint. Total: 207 tests (156 unit + 51 integration).
+
+### Fixed
+- **Documentation:** Export tutorial column table now matches actual CSV output. Bold warning about sub-allocation summing trap added. "Computing Totals Correctly" subsection with Excel, jq, and Python examples.
+- **Documentation:** All references updated from `examples/` to `data/` across README and ~30 book chapters. Dataset stats updated to 14 bills, 11,136 provisions, $8.9 trillion.
+- **Inconsistent `--dir` defaults** — previously 8 commands defaulted to `./data` and 5 to `./examples`. All 13 now default to `./data`.
+
 ## [4.2.1] — 2026-03-19
 
 ### Added

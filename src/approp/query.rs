@@ -523,7 +523,6 @@ pub struct CompareRow {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub inflation_flag: Option<String>,
     /// True if this match was produced by agency normalization from dataset.json.
-    #[serde(skip_serializing_if = "std::ops::Not::not")]
     pub normalized: bool,
 }
 
