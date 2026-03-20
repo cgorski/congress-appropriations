@@ -2,6 +2,7 @@ pub mod bill_meta;
 pub mod extraction;
 pub mod inflation;
 pub mod links;
+pub mod normalize;
 pub mod ontology;
 pub mod query;
 
