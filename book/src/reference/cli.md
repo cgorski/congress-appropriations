@@ -130,10 +130,10 @@ congress-approp search --dir data --type appropriation --agency "Veterans" --div
 congress-approp search --dir data --keyword "Federal Emergency Management"
 
 # CR substitutions (table auto-adapts to show New/Old/Delta columns)
-congress-approp search --dir data/hr5860 --type cr_substitution
+congress-approp search --dir data/118-hr5860 --type cr_substitution
 
 # All directives in the VA supplemental
-congress-approp search --dir data/hr9468 --type directive
+congress-approp search --dir data/118-hr9468 --type directive
 
 # Semantic search — find by meaning, not keywords
 congress-approp search --dir data --semantic "school lunch programs for kids" --top 5

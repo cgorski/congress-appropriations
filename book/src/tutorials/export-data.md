@@ -125,7 +125,7 @@ congress-approp search --dir data --type rescission --min-dollars 100000000 --fo
 congress-approp search --dir data --type cr_substitution --format csv > cr_anomalies.csv
 
 # Everything in Division A (MilCon-VA)
-congress-approp search --dir data/hr4366 --division A --format csv > milcon_va.csv
+congress-approp search --dir data/118-hr4366 --division A --format csv > milcon_va.csv
 
 # Summary table as CSV
 congress-approp summary --dir data --format csv > bill_summary.csv
@@ -138,7 +138,7 @@ JSON output includes every field for each matching provision as an array of obje
 ### Basic export
 
 ```bash
-congress-approp search --dir data/hr9468 --type appropriation --format json
+congress-approp search --dir data/118-hr9468 --type appropriation --format json
 ```
 
 ```json

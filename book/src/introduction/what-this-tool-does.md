@@ -83,7 +83,7 @@ Searches provision text for any mention of FEMA across all bills.
 **4. See what the continuing resolution changed:**
 
 ```bash
-congress-approp search --dir data/hr5860 --type cr_substitution
+congress-approp search --dir data/118-hr5860 --type cr_substitution
 ```
 
 Shows the 13 "anomalies" — programs where the CR set a different funding level instead of continuing at the prior-year rate.

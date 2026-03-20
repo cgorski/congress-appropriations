@@ -55,7 +55,7 @@ Semantic search requires pre-computed embeddings (included for example data) and
 congress-approp search --dir data --type appropriation
 
 # What programs got funding changes in the continuing resolution?
-congress-approp search --dir data/hr5860 --type cr_substitution
+congress-approp search --dir data/118-hr5860 --type cr_substitution
 
 # Find all FEMA-related provisions
 congress-approp search --dir data --keyword "Federal Emergency Management"
@@ -95,24 +95,24 @@ The `enrich` command also classifies each budget authority provision as current-
 
 | Directory | Bill | Type | Provisions | Budget Auth |
 |-----------|------|------|-----------|------------|
-| `data/hr4366/` | H.R. 4366 | FY2024 omnibus (MilCon-VA, Ag, CJS, E&W, Interior, THUD) | 2,364 | $846B |
-| `data/hr5860/` | H.R. 5860 | FY2024 initial CR + 13 anomalies | 130 | $16B |
-| `data/hr9468/` | H.R. 9468 | VA supplemental | 7 | $2.9B |
-| `data/hr815/` | H.R. 815 | Ukraine/Israel/Taiwan supplemental | 303 | $95B |
-| `data/hr2872/` | H.R. 2872 | Further CR (FY2024) | 31 | $0 |
-| `data/hr6363/` | H.R. 6363 | Further CR + extensions | 74 | ~$0 |
-| `data/hr7463/` | H.R. 7463 | CR extension | 10 | $0 |
-| `data/hr9747/` | H.R. 9747 | CR + extensions (FY2025) | 114 | $383M |
-| `data/s870/` | S. 870 | Fire Admin authorization | 49 | $0 |
+| `data/118-hr4366/` | H.R. 4366 | FY2024 omnibus (MilCon-VA, Ag, CJS, E&W, Interior, THUD) | 2,364 | $846B |
+| `data/118-hr5860/` | H.R. 5860 | FY2024 initial CR + 13 anomalies | 130 | $16B |
+| `data/118-hr9468/` | H.R. 9468 | VA supplemental | 7 | $2.9B |
+| `data/118-hr815/` | H.R. 815 | Ukraine/Israel/Taiwan supplemental | 303 | $95B |
+| `data/118-hr2872/` | H.R. 2872 | Further CR (FY2024) | 31 | $0 |
+| `data/118-hr6363/` | H.R. 6363 | Further CR + extensions | 74 | ~$0 |
+| `data/118-hr7463/` | H.R. 7463 | CR extension | 10 | $0 |
+| `data/118-hr9747/` | H.R. 9747 | CR + extensions (FY2025) | 114 | $383M |
+| `data/118-s870/` | S. 870 | Fire Admin authorization | 49 | $0 |
 
 **119th Congress (FY2025/FY2026):**
 
 | Directory | Bill | Type | Provisions | Budget Auth |
 |-----------|------|------|-----------|------------|
-| `data/hr1968/` | H.R. 1968 | Full-year CR with appropriations (FY2025) | 526 | $1,786B |
-| `data/hr5371/` | H.R. 5371 | Minibus: CR + Ag + LegBranch + MilCon-VA | 1,048 | $681B |
-| `data/hr6938/` | H.R. 6938 | Minibus: CJS + Energy-Water + Interior | 1,061 | $196B |
-| `data/hr7148/` | H.R. 7148 | Omnibus: Defense + Labor-HHS + THUD + FinServ + State | 2,837 | $2,788B |
+| `data/119-hr1968/` | H.R. 1968 | Full-year CR with appropriations (FY2025) | 526 | $1,786B |
+| `data/119-hr5371/` | H.R. 5371 | Minibus: CR + Ag + LegBranch + MilCon-VA | 1,048 | $681B |
+| `data/119-hr6938/` | H.R. 6938 | Minibus: CJS + Energy-Water + Interior | 1,061 | $196B |
+| `data/119-hr7148/` | H.R. 7148 | Omnibus: Defense + Labor-HHS + THUD + FinServ + State | 2,837 | $2,788B |
 
 **Totals:** 11,136 provisions, $8.9 trillion in budget authority, 0 unverifiable dollar amounts. All twelve appropriations subcommittees are covered for FY2026.
 
@@ -307,7 +307,7 @@ The **$** column shows verification status: ✓ means the dollar amount string w
 **Find CR anomalies (which programs got funding changes):**
 
 ```bash
-congress-approp search --dir data/hr5860 --type cr_substitution
+congress-approp search --dir data/118-hr5860 --type cr_substitution
 ```
 
 ```text
@@ -326,7 +326,7 @@ The CR substitution table automatically shows **New**, **Old**, and **Delta** co
 **Find reporting requirements:**
 
 ```bash
-congress-approp search --dir data/hr9468 --type directive
+congress-approp search --dir data/118-hr9468 --type directive
 ```
 
 ```text
@@ -356,7 +356,7 @@ The CSV includes `description`, `raw_text`, and all other fields for filtering i
 **Export to JSON for programmatic use:**
 
 ```bash
-congress-approp search --dir data/hr9468 --type directive --format json
+congress-approp search --dir data/118-hr9468 --type directive --format json
 ```
 
 ```json

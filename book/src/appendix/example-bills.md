@@ -10,24 +10,24 @@ Each bill directory contains the source XML, extraction.json, verification.json,
 
 | Directory | Bill | Classification | Subcommittees | Provisions | Budget Auth |
 |-----------|------|---------------|---------------|-----------|------------|
-| `data/hr4366/` | H.R. 4366 | Omnibus | MilCon-VA, Ag, CJS, E&W, Interior, THUD | 2,364 | $846B |
-| `data/hr5860/` | H.R. 5860 | Continuing Resolution | (all, at prior-year rates) | 130 | $16B |
-| `data/hr9468/` | H.R. 9468 | Supplemental | VA | 7 | $2.9B |
-| `data/hr815/` | H.R. 815 | Supplemental | Defense, State (Ukraine/Israel/Taiwan) | 303 | $95B |
-| `data/hr2872/` | H.R. 2872 | Continuing Resolution | (further CR) | 31 | $0 |
-| `data/hr6363/` | H.R. 6363 | Continuing Resolution | (further CR + extensions) | 74 | ~$0 |
-| `data/hr7463/` | H.R. 7463 | Continuing Resolution | (CR extension) | 10 | $0 |
-| `data/hr9747/` | H.R. 9747 | Continuing Resolution | (CR + extensions, FY2025) | 114 | $383M |
-| `data/s870/` | S. 870 | Authorization | Fire administration | 49 | $0 |
+| `data/118-hr4366/` | H.R. 4366 | Omnibus | MilCon-VA, Ag, CJS, E&W, Interior, THUD | 2,364 | $846B |
+| `data/118-hr5860/` | H.R. 5860 | Continuing Resolution | (all, at prior-year rates) | 130 | $16B |
+| `data/118-hr9468/` | H.R. 9468 | Supplemental | VA | 7 | $2.9B |
+| `data/118-hr815/` | H.R. 815 | Supplemental | Defense, State (Ukraine/Israel/Taiwan) | 303 | $95B |
+| `data/118-hr2872/` | H.R. 2872 | Continuing Resolution | (further CR) | 31 | $0 |
+| `data/118-hr6363/` | H.R. 6363 | Continuing Resolution | (further CR + extensions) | 74 | ~$0 |
+| `data/118-hr7463/` | H.R. 7463 | Continuing Resolution | (CR extension) | 10 | $0 |
+| `data/118-hr9747/` | H.R. 9747 | Continuing Resolution | (CR + extensions, FY2025) | 114 | $383M |
+| `data/118-s870/` | S. 870 | Authorization | Fire administration | 49 | $0 |
 
 ### 119th Congress (FY2025/FY2026)
 
 | Directory | Bill | Classification | Subcommittees | Provisions | Budget Auth |
 |-----------|------|---------------|---------------|-----------|------------|
-| `data/hr1968/` | H.R. 1968 | Full-Year CR with Appropriations | Defense, Homeland, Labor-HHS, others | 526 | $1,786B |
-| `data/hr5371/` | H.R. 5371 | Minibus | CR + Ag + LegBranch + MilCon-VA | 1,048 | $681B |
-| `data/hr6938/` | H.R. 6938 | Minibus | CJS + Energy-Water + Interior | 1,061 | $196B |
-| `data/hr7148/` | H.R. 7148 | Omnibus | Defense + Labor-HHS + THUD + FinServ + State | 2,837 | $2,788B |
+| `data/119-hr1968/` | H.R. 1968 | Full-Year CR with Appropriations | Defense, Homeland, Labor-HHS, others | 526 | $1,786B |
+| `data/119-hr5371/` | H.R. 5371 | Minibus | CR + Ag + LegBranch + MilCon-VA | 1,048 | $681B |
+| `data/119-hr6938/` | H.R. 6938 | Minibus | CJS + Energy-Water + Interior | 1,061 | $196B |
+| `data/119-hr7148/` | H.R. 7148 | Omnibus | Defense + Labor-HHS + THUD + FinServ + State | 2,837 | $2,788B |
 
 **Totals:** 11,136 provisions, $6.4 trillion in budget authority, 0 unverifiable dollar amounts, 95.5% raw text exact match.
 
@@ -118,22 +118,22 @@ The 20 "no match" provisions are all non-dollar statutory amendments where the L
 
 ```bash
 # Summary
-congress-approp summary --dir data/hr4366
+congress-approp summary --dir data/118-hr4366
 
 # All appropriations in Division A (MilCon-VA)
-congress-approp search --dir data/hr4366 --type appropriation --division A
+congress-approp search --dir data/118-hr4366 --type appropriation --division A
 
 # Rescissions over $1 billion
-congress-approp search --dir data/hr4366 --type rescission --min-dollars 1000000000
+congress-approp search --dir data/118-hr4366 --type rescission --min-dollars 1000000000
 
 # Everything about the FBI
-congress-approp search --dir data/hr4366 --account "Federal Bureau of Investigation"
+congress-approp search --dir data/118-hr4366 --account "Federal Bureau of Investigation"
 
 # Budget authority by department
-congress-approp summary --dir data/hr4366 --by-agency
+congress-approp summary --dir data/118-hr4366 --by-agency
 
 # Full audit
-congress-approp audit --dir data/hr4366
+congress-approp audit --dir data/118-hr4366
 ```
 
 ---
@@ -210,22 +210,22 @@ The lower coverage (61.1%) is expected for a CR — most dollar strings in the t
 
 ```bash
 # Summary
-congress-approp summary --dir data/hr5860
+congress-approp summary --dir data/118-hr5860
 
 # All CR substitutions (table auto-adapts to show New/Old/Delta)
-congress-approp search --dir data/hr5860 --type cr_substitution
+congress-approp search --dir data/118-hr5860 --type cr_substitution
 
 # The core CR mechanism
-congress-approp search --dir data/hr5860 --type continuing_resolution_baseline
+congress-approp search --dir data/118-hr5860 --type continuing_resolution_baseline
 
 # Mandatory programs extended
-congress-approp search --dir data/hr5860 --type mandatory_spending_extension
+congress-approp search --dir data/118-hr5860 --type mandatory_spending_extension
 
 # Standalone appropriations (FEMA, etc.)
-congress-approp search --dir data/hr5860 --type appropriation
+congress-approp search --dir data/118-hr5860 --type appropriation
 
 # Full audit
-congress-approp audit --dir data/hr5860
+congress-approp audit --dir data/118-hr5860
 ```
 
 ---
@@ -289,16 +289,16 @@ The VA Supplemental is used throughout this documentation as the primary teachin
 
 ```bash
 # See all 7 provisions
-congress-approp search --dir data/hr9468
+congress-approp search --dir data/118-hr9468
 
 # Just the two appropriations
-congress-approp search --dir data/hr9468 --type appropriation
+congress-approp search --dir data/118-hr9468 --type appropriation
 
 # The three directives (reporting requirements)
-congress-approp search --dir data/hr9468 --type directive
+congress-approp search --dir data/118-hr9468 --type directive
 
 # Full JSON for the complete picture
-congress-approp search --dir data/hr9468 --format json
+congress-approp search --dir data/118-hr9468 --format json
 
 # Compare to the omnibus — see the same accounts in both
 congress-approp compare --base data/118-hr4366 --current data/118-hr9468 --agency "Veterans"
@@ -307,7 +307,7 @@ congress-approp compare --base data/118-hr4366 --current data/118-hr9468 --agenc
 congress-approp search --dir data --similar 118-hr9468:0 --top 5
 
 # Audit
-congress-approp audit --dir data/hr9468
+congress-approp audit --dir data/118-hr9468
 ```
 
 ---
@@ -362,7 +362,7 @@ Every command example, output table, and JSON snippet in this documentation was 
 
 ### As training data for understanding
 
-If you're new to appropriations, reading through `data/hr9468/extraction.json` (just 7 provisions) is the fastest way to understand what the tool produces. Then explore `data/hr5860` for CR-specific patterns, and `data/hr4366` for the full complexity of an omnibus.
+If you're new to appropriations, reading through `data/118-hr9468/extraction.json` (just 7 provisions) is the fastest way to understand what the tool produces. Then explore `data/118-hr5860` for CR-specific patterns, and `data/118-hr4366` for the full complexity of an omnibus.
 
 ### As baseline for comparison
 

@@ -17,7 +17,7 @@ You only need to generate embeddings once per bill. After that, all semantic ope
 export OPENAI_API_KEY="your-key-here"
 ```
 
-> **Note:** The included example data (`data/hr4366`, `data/hr5860`, `data/hr9468`) ships with pre-generated embeddings. You don't need to run `embed` for the examples unless you want to regenerate them.
+> **Note:** The included example data (`data/118-hr4366`, `data/118-hr5860`, `data/118-hr9468`) ships with pre-generated embeddings. You don't need to run `embed` for the examples unless you want to regenerate them.
 
 ## Generate Embeddings
 

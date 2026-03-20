@@ -406,7 +406,7 @@ congress-approp search --dir data --format json | \
   jq 'group_by(.provision_type) | map({type: .[0].provision_type, count: length}) | sort_by(-.count)'
 
 # CR substitution verification
-congress-approp search --dir data/hr5860 --type cr_substitution --format json | jq length
+congress-approp search --dir data/118-hr5860 --type cr_substitution --format json | jq length
 
 # Detailed verification data
 cat data/118-hr9468/verification.json | python3 -m json.tool | head -50

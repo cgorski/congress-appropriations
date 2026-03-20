@@ -20,7 +20,7 @@ All formats are available on `search`, `summary`, and `compare`. The `audit` com
 Human-readable formatted table with Unicode box-drawing characters. Columns adapt to content width. Long text is truncated with `…`.
 
 ```bash
-congress-approp search --dir data/hr9468
+congress-approp search --dir data/118-hr9468
 ```
 
 ```text
@@ -74,7 +74,7 @@ The table changes its column structure depending on what you're searching for:
 A JSON array of objects. Every matching provision is included with **all available fields** — more data than the table can show.
 
 ```bash
-congress-approp search --dir data/hr9468 --type appropriation --format json
+congress-approp search --dir data/118-hr9468 --type appropriation --format json
 ```
 
 ```json
@@ -248,7 +248,7 @@ provisions <- fromJSON("provisions.json")
 One JSON object per line, with no enclosing array brackets. Each line is independently parseable.
 
 ```bash
-congress-approp search --dir data/hr9468 --type appropriation --format jsonl
+congress-approp search --dir data/118-hr9468 --type appropriation --format jsonl
 ```
 
 ```text
@@ -300,7 +300,7 @@ congress-approp search --dir data --format jsonl | \
 Comma-separated values with a header row. Suitable for import into any spreadsheet application or data analysis tool.
 
 ```bash
-congress-approp search --dir data/hr9468 --type appropriation --format csv
+congress-approp search --dir data/118-hr9468 --type appropriation --format csv
 ```
 
 ```text

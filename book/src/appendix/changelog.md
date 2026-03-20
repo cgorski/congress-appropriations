@@ -6,6 +6,40 @@ For the full changelog with technical details, see [CHANGELOG.md](https://github
 
 ---
 
+## [5.1.0] — 2026-03-20
+
+### Breaking Changes
+- **`examples/` renamed to `data/`** with congress-prefixed directory naming (`118-hr4366`, `119-hr7148`). Default `--dir` changed to `./data`. Provision references use congress prefix: `118-hr9468:0`.
+- **Implicit agency normalization removed.** The hardcoded `SUB_AGENCY_TO_PARENT` lookup table has been replaced with explicit, user-managed `dataset.json` rules. Compare uses exact matching by default.
+- **`compare()` library API** gains `agency_groups` and `account_aliases` parameters.
+- **Crate no longer includes bill data.** Package size reduced from 5.4MB to ~500KB. Use `git clone` for the full dataset.
+
+### Added
+- **`dataset.json`** — user-managed entity resolution file for agency groups and account aliases.
+- **`normalize suggest-text-match`** — discovers agency naming variants via orphan-pair analysis and regex patterns. Caches results for the accept command.
+- **`normalize suggest-llm`** — LLM-assisted entity resolution with XML heading context. Caches results for the accept command.
+- **`normalize accept`** — accepts suggestions by hash from cached suggest results. Supports `--auto` for accepting all.
+- **`normalize list`** — displays current entity resolution rules.
+- **`compare --exact`** — disables all normalization from `dataset.json`.
+- **`(normalized)` marker** in compare table output; separate `normalized` column in CSV.
+- **Orphan-pair hint** in compare stderr suggesting `normalize suggest-text-match`.
+- **Congress number in all output** — `H.R. 7148 (119th)` in summary, search, compare, semantic search.
+- **Cache system** (`~/.congress-approp/cache/`) for suggest/accept workflows with automatic invalidation.
+- **H.R. 2882** (FY2024 second omnibus) — completes FY2024 with all 12 subcommittees. Dataset: 14 bills, 11,136 provisions, $8.9 trillion.
+- **`test-data/`** directory with 3 small bills for crate integration tests.
+- **Download command** creates flat `{congress}-{type}{number}` directories.
+- 220 tests (169 unit + 51 integration).
+
+### Fixed
+- Documentation updated from `examples/` to `data/` across README and ~30 book chapters.
+- Inconsistent `--dir` defaults unified to `./data`.
+- Export tutorial column table now matches actual CSV output.
+
+## [4.2.1] — 2026-03-19
+
+### Added
+- **H.R. 2882 (FY2024 second omnibus)** — 2,582 provisions, $2.45 trillion, covering Defense, Financial Services, Homeland Security, Labor-HHS, Legislative Branch, State-Foreign Operations.
+
 ## [4.2.0] — 2026-03-19
 
 ### Added

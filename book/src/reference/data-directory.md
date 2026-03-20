@@ -247,7 +247,7 @@ congress-approp summary --dir ~/my-appropriations-project/fy2024
 # Finds all extraction.json files anywhere under that path
 ```
 
-The directory name is used as the bill identifier for `--similar` references. For example, if the path is `data/hr9468/extraction.json`, the bill directory name is `hr9468`, and you'd reference it as `--similar 118-hr9468:0`.
+The directory name is used as the bill identifier for `--similar` references. For example, if the path is `data/118-hr9468/extraction.json`, the bill directory name is `hr9468`, and you'd reference it as `--similar 118-hr9468:0`.
 
 ---
 

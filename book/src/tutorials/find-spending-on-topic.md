@@ -114,7 +114,7 @@ congress-approp search --dir data --type appropriation --division A --min-dollar
 congress-approp search --dir data --type rescission --agency "Justice"
 
 # Directives in the VA supplemental
-congress-approp search --dir data/hr9468 --type directive
+congress-approp search --dir data/118-hr9468 --type directive
 ```
 
 ## Search by Meaning (Semantic Search)

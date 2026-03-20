@@ -40,7 +40,7 @@ pub struct CachedSuggestions {
 pub fn cache_dir() -> Result<PathBuf> {
     let home = std::env::var("HOME")
         .or_else(|_| std::env::var("USERPROFILE"))
-        .context("Could not determine home directory (HOME or USERPROFILE not set)")?;
+        .unwrap_or_else(|_| std::env::temp_dir().to_string_lossy().to_string());
     Ok(PathBuf::from(home).join(".congress-approp").join("cache"))
 }
 

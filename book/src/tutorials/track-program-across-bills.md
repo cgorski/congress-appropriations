@@ -17,7 +17,7 @@ H.R. 9468 (the VA Supplemental) appropriated $2,285,513,000 for "Compensation an
 First, find the provision you want to track. You can use any search command to locate it:
 
 ```bash
-congress-approp search --dir data/hr9468 --type appropriation
+congress-approp search --dir data/118-hr9468 --type appropriation
 ```
 
 ```text
@@ -35,7 +35,7 @@ Compensation and Pensions is the first provision listed. To use `--similar`, you
 You can also see the index in JSON output:
 
 ```bash
-congress-approp search --dir data/hr9468 --type appropriation --format json
+congress-approp search --dir data/118-hr9468 --type appropriation --format json
 ```
 
 Look for the `"provision_index": 0` field in the first result.
@@ -130,7 +130,7 @@ To demonstrate, let's find the omnibus counterparts of the CR substitutions that
 
 ```bash
 # First, find a CR substitution provision index
-congress-approp search --dir data/hr5860 --type cr_substitution --format json
+congress-approp search --dir data/118-hr5860 --type cr_substitution --format json
 # Note: the first CR substitution (Rural Housing) is at some index — check provision_index
 
 # Then find similar provisions in the omnibus
@@ -212,7 +212,7 @@ This will enable automatic cross-year matching even when account names change, w
 | Find the omnibus version of a supplemental provision | `search --dir data --similar 118-hr9468:0 --top 3` |
 | Find related provisions across all bills | `search --dir data --similar 118-hr4366:42 --top 10` |
 | Restrict matches to appropriations only | `search --dir data --similar 118-hr9468:0 --type appropriation --top 5` |
-| Find provisions in a specific bill | `search --dir data/hr4366 --similar 118-hr9468:0 --top 5` |
+| Find provisions in a specific bill | `search --dir data/118-hr4366 --similar 118-hr9468:0 --top 5` |
 
 ## Next Steps
 

@@ -61,7 +61,7 @@ The `search` command produces tables that **adapt their columns based on what yo
 For most searches, you see this layout:
 
 ```bash
-congress-approp search --dir data/hr9468
+congress-approp search --dir data/118-hr9468
 ```
 
 ```text
@@ -105,7 +105,7 @@ The leftmost column tells you the verification status of each provision's dollar
 When you search for `cr_substitution` type provisions, the table automatically changes shape to show the old and new amounts:
 
 ```bash
-congress-approp search --dir data/hr5860 --type cr_substitution
+congress-approp search --dir data/118-hr5860 --type cr_substitution
 ```
 
 ```text
@@ -256,7 +256,7 @@ Every query command supports four output formats via `--format`:
 ### Table (default)
 
 ```bash
-congress-approp search --dir data/hr9468 --format table
+congress-approp search --dir data/118-hr9468 --format table
 ```
 
 Human-readable formatted table. Best for interactive use and quick exploration. Column widths adapt to content. Long text is truncated.
@@ -264,7 +264,7 @@ Human-readable formatted table. Best for interactive use and quick exploration. 
 ### JSON
 
 ```bash
-congress-approp search --dir data/hr9468 --format json
+congress-approp search --dir data/118-hr9468 --format json
 ```
 
 A JSON array of objects. **Includes every field** for each matching provision â€” more data than the table shows. Best for programmatic consumption, piping to `jq`, or loading into scripts.
@@ -272,7 +272,7 @@ A JSON array of objects. **Includes every field** for each matching provision â€
 ### JSONL (JSON Lines)
 
 ```bash
-congress-approp search --dir data/hr9468 --format jsonl
+congress-approp search --dir data/118-hr9468 --format jsonl
 ```
 
 One JSON object per line, no enclosing array. Best for streaming processing, piping to `while read`, or working with very large result sets. Each line is independently parseable.
@@ -280,7 +280,7 @@ One JSON object per line, no enclosing array. Best for streaming processing, pip
 ### CSV
 
 ```bash
-congress-approp search --dir data/hr9468 --format csv > provisions.csv
+congress-approp search --dir data/118-hr9468 --format csv > provisions.csv
 ```
 
 Comma-separated values suitable for importing into Excel, Google Sheets, R, or pandas. Includes a header row. Dollar amounts are plain integers (not formatted with commas).

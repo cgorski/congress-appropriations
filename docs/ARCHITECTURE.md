@@ -179,7 +179,7 @@ data/                              ← any --dir path works
 
 **Every file is write-once.** Once a bill is extracted and embedded, its files are never modified. The system is read-dominated: writes happen ~15 times per year (when Congress enacts bills), reads happen hundreds to thousands of times.
 
-Nesting is flexible — `data/congress/118/hr4366/extraction.json` works just as well as `data/hr4366/extraction.json`. The loader walks recursively from whatever `--dir` you point it at.
+Nesting is flexible — `data/congress/118/hr4366/extraction.json` works just as well as `data/118-hr4366/extraction.json`. The loader walks recursively from whatever `--dir` you point it at.
 
 ---
 

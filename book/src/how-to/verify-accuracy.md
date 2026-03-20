@@ -135,7 +135,7 @@ For any provision you want to verify yourself — perhaps one you plan to cite i
 ### 1. Get the provision details
 
 ```bash
-congress-approp search --dir data/hr9468 --type appropriation --format json
+congress-approp search --dir data/118-hr9468 --type appropriation --format json
 ```
 
 Look for the provision you're interested in. Note the `dollars`, `raw_text`, and `provision_index` fields.

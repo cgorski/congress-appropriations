@@ -209,7 +209,7 @@ The value must match the bill identifier as it appears in the data (e.g., "H.R. 
 ```bash
 # These are equivalent for single-bill searches:
 congress-approp search --dir data --bill "H.R. 4366"
-congress-approp search --dir data/hr4366
+congress-approp search --dir data/118-hr4366
 ```
 
 The `--dir` approach is simpler for single-bill searches. The `--bill` flag is useful when you have multiple bills loaded via a parent directory and want to filter to one.
@@ -220,16 +220,16 @@ Omnibus bills are organized into lettered divisions (Division A, Division B, etc
 
 ```bash
 # Division A = MilCon-VA in H.R. 4366
-congress-approp search --dir data/hr4366 --division A
+congress-approp search --dir data/118-hr4366 --division A
 
 # Division B = Agriculture in H.R. 4366
-congress-approp search --dir data/hr4366 --division B
+congress-approp search --dir data/118-hr4366 --division B
 
 # Division C = Commerce, Justice, Science in H.R. 4366
-congress-approp search --dir data/hr4366 --division C
+congress-approp search --dir data/118-hr4366 --division C
 
 # Division D = Energy and Water in H.R. 4366
-congress-approp search --dir data/hr4366 --division D
+congress-approp search --dir data/118-hr4366 --division D
 ```
 
 The division letter is a single character (A, B, C, etc.). Bills without divisions (like the VA supplemental H.R. 9468) have no division field, so `--division` effectively returns no results for those bills.
@@ -238,13 +238,13 @@ The division letter is a single character (A, B, C, etc.). Bills without divisio
 
 ```bash
 # All appropriations in MilCon-VA (Division A) over $1 billion
-congress-approp search --dir data/hr4366 --division A --type appropriation --min-dollars 1000000000
+congress-approp search --dir data/118-hr4366 --division A --type appropriation --min-dollars 1000000000
 
 # All rescissions in Commerce-Justice-Science (Division C)
-congress-approp search --dir data/hr4366 --division C --type rescission
+congress-approp search --dir data/118-hr4366 --division C --type rescission
 
 # All riders in Agriculture (Division B)
-congress-approp search --dir data/hr4366 --division B --type rider
+congress-approp search --dir data/118-hr4366 --division B --type rider
 ```
 
 ## Filter by Dollar Range (`--min-dollars`, `--max-dollars`)
@@ -288,12 +288,12 @@ congress-approp search --dir data \
   --division C
 
 # Provisions mentioning "notwithstanding" in the omnibus under $10 million
-congress-approp search --dir data/hr4366 \
+congress-approp search --dir data/118-hr4366 \
   --keyword "notwithstanding" \
   --max-dollars 10000000
 
 # Energy-related appropriations in Division D between $100M and $1B
-congress-approp search --dir data/hr4366 \
+congress-approp search --dir data/118-hr4366 \
   --division D \
   --type appropriation \
   --min-dollars 100000000 \
@@ -402,7 +402,7 @@ Here are battle-tested queries for common analysis tasks:
 ### Find the biggest appropriations in a bill
 
 ```bash
-congress-approp search --dir data/hr4366 --type appropriation --min-dollars 10000000000 --format table
+congress-approp search --dir data/118-hr4366 --type appropriation --min-dollars 10000000000 --format table
 ```
 
 ### Find all provisions for a specific agency
@@ -432,7 +432,7 @@ congress-approp search --dir data --keyword "notwithstanding"
 ### Find which mandatory programs were extended in the CR
 
 ```bash
-congress-approp search --dir data/hr5860 --type mandatory_spending_extension --format json
+congress-approp search --dir data/118-hr5860 --type mandatory_spending_extension --format json
 ```
 
 ### Find provisions in a specific dollar range
@@ -470,7 +470,7 @@ congress-approp search --dir data --format csv > all_provisions.csv
 
 2. **Use `--format json` to see all fields.** The table view truncates long text and hides some fields. JSON shows everything.
 
-3. **Use `--dir` scoping for single-bill searches.** Instead of `--bill "H.R. 4366"`, use `--dir data/hr4366` — it's simpler and slightly faster.
+3. **Use `--dir` scoping for single-bill searches.** Instead of `--bill "H.R. 4366"`, use `--dir data/118-hr4366` — it's simpler and slightly faster.
 
 4. **Combine keyword and account searches.** An account name search finds provisions *named* after a program. A keyword search finds provisions that *mention* a program in their text. Use both for completeness.
 

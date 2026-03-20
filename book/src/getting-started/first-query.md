@@ -97,7 +97,7 @@ The top result — $33.27 billion for Child Nutrition Programs — is the top-le
 You can combine filters. For example, find all appropriations over $1 billion in Division A (MilCon-VA):
 
 ```bash
-congress-approp search --dir data/hr4366 --type appropriation --division A --min-dollars 1000000000
+congress-approp search --dir data/118-hr4366 --type appropriation --division A --min-dollars 1000000000
 ```
 
 ## Step 3: Look at the VA Supplemental
@@ -105,7 +105,7 @@ congress-approp search --dir data/hr4366 --type appropriation --division A --min
 The smallest bill, H.R. 9468, is a good place to see the full picture. It has only 7 provisions:
 
 ```bash
-congress-approp search --dir data/hr9468
+congress-approp search --dir data/118-hr9468
 ```
 
 ```text
@@ -132,7 +132,7 @@ Notice how the two appropriations have ✓ in the dollar column, while the rider
 Continuing resolutions normally fund agencies at prior-year rates, but specific programs can get different treatment through "anomalies" — formally called CR substitutions. These are provisions that say "substitute $X for $Y," setting a new level instead of continuing the old one.
 
 ```bash
-congress-approp search --dir data/hr5860 --type cr_substitution
+congress-approp search --dir data/118-hr5860 --type cr_substitution
 ```
 
 ```text
@@ -200,7 +200,7 @@ For a deeper dive into what these numbers mean, see [Verify Extraction Accuracy]
 Every command supports `--format json` for machine-readable output. This is useful for piping to `jq`, loading into Python, or just seeing the full data:
 
 ```bash
-congress-approp search --dir data/hr9468 --type appropriation --format json
+congress-approp search --dir data/118-hr9468 --type appropriation --format json
 ```
 
 ```json

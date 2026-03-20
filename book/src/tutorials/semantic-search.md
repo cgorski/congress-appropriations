@@ -223,7 +223,7 @@ To use `--similar`, you need the provision index. There are several ways to find
 **Method 1:** Use `--format json` and look for the `provision_index` field:
 
 ```bash
-congress-approp search --dir data/hr9468 --type appropriation --format json | \
+congress-approp search --dir data/118-hr9468 --type appropriation --format json | \
   jq '.[] | "\(.provision_index): \(.account_name) $\(.dollars)"'
 ```
 
