@@ -629,7 +629,7 @@ fn enrich_skips_existing() {
         .assert()
         .success()
         .stderr(predicates::str::contains("skip"))
-        .stderr(predicates::str::contains("skipped 14"));
+        .stderr(predicates::str::contains("skipped 25"));
 }
 
 #[test]

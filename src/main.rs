@@ -4942,7 +4942,7 @@ async fn handle_download(opts: DownloadOptions<'_>) -> Result<()> {
         let filename = item.url.split('/').next_back().unwrap_or("file");
 
         let dir = format!(
-            "{}/{}/{}/{}",
+            "{}/{}-{}{}",
             output_dir,
             c.number(),
             item.id.bill_type.api_slug(),
