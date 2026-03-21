@@ -973,4 +973,12 @@ pub struct ExtractionMetadata {
     pub source_xml_sha256: Option<String>,
     pub extracted_text_sha256: String,
     pub timestamp: String,
+    /// Total number of chunks the bill was split into for extraction.
+    /// If None, this is a pre-v5.1 extraction without completeness tracking.
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub chunks_total: Option<usize>,
+    /// Number of chunks that completed successfully.
+    /// If chunks_completed < chunks_total, the extraction is partial.
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub chunks_completed: Option<usize>,
 }

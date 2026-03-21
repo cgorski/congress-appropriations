@@ -199,6 +199,12 @@ impl ExtractionPipeline {
     /// in parallel with bounded concurrency, then merges all results.
     /// Progress events are sent through a channel for live logging.
     #[allow(clippy::too_many_arguments)]
+    /// Extract provisions from all chunks in parallel, returning the merged
+    /// extraction, conversion report, and chunk completion counts.
+    ///
+    /// The returned tuple is `(extraction, conversion_report, chunks_total, chunks_completed)`.
+    /// If `chunks_completed < chunks_total`, the extraction is partial (only possible
+    /// when `continue_on_error` is true).
     pub async fn extract_bill_parallel(
         &mut self,
         bill_id: &str,
@@ -208,7 +214,7 @@ impl ExtractionPipeline {
         max_parallel: usize,
         bill_dir: &Path,
         continue_on_error: bool,
-    ) -> Result<(BillExtraction, ConversionReport)> {
+    ) -> Result<(BillExtraction, ConversionReport, usize, usize)> {
         let total_chunks = chunks.len();
 
         info!(
@@ -524,7 +530,13 @@ impl ExtractionPipeline {
             merged_report.warnings.len()
         );
 
-        Ok((final_extraction, merged_report))
+        let chunks_completed = total_chunks - chunk_labels_failed.len();
+        Ok((
+            final_extraction,
+            merged_report,
+            total_chunks,
+            chunks_completed,
+        ))
     }
 
     /// Build extraction metadata for provenance tracking.
@@ -533,6 +545,8 @@ impl ExtractionPipeline {
         &self,
         text: &str,
         source_path: Option<&std::path::Path>,
+        chunks_total: Option<usize>,
+        chunks_completed: Option<usize>,
     ) -> ExtractionMetadata {
         use crate::approp::text_index::TextIndex;
         use sha2::{Digest, Sha256};
@@ -550,6 +564,8 @@ impl ExtractionPipeline {
             source_xml_sha256,
             extracted_text_sha256: TextIndex::text_hash(text),
             timestamp: chrono::Utc::now().to_rfc3339(),
+            chunks_total,
+            chunks_completed,
         }
     }
 }

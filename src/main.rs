@@ -2054,7 +2054,7 @@ async fn handle_extract(
             max_parallel,
             est_tokens
         );
-        let (extraction, conversion_report) = match pipeline
+        let (extraction, conversion_report, chunks_total, chunks_completed) = match pipeline
             .extract_bill_parallel(
                 label,
                 &bill_text,
@@ -2090,8 +2090,13 @@ async fn handle_extract(
             serde_json::to_string_pretty(&conversion_report)?,
         )?;
 
-        // Save metadata
-        let metadata = pipeline.build_metadata(&bill_text, Some(source_path));
+        // Save metadata (includes chunk completion tracking for integrity verification)
+        let metadata = pipeline.build_metadata(
+            &bill_text,
+            Some(source_path),
+            Some(chunks_total),
+            Some(chunks_completed),
+        );
         std::fs::write(
             bill_dir.join("metadata.json"),
             serde_json::to_string_pretty(&metadata)?,
