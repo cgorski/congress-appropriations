@@ -33,15 +33,15 @@ This book ships with **fourteen bills, continuing resolutions, supplementals, an
 | H.R. 6938 | Minibus | CJS + Energy-Water + Interior | 1,061 | $196B |
 | H.R. 7148 | Omnibus | Defense + Labor-HHS + THUD + FinServ + State | 2,837 | $2,788B |
 
-**Totals:** 11,136 provisions, $6.4 trillion in budget authority, 0 unverifiable dollar amounts.
+**Totals:** 11,136 provisions, $8.9 trillion in budget authority, 0 unverifiable dollar amounts.
 
 ## What Can You Do?
 
 **"How did THUD funding change from FY2024 to FY2026?"**
 
 ```bash
-congress-approp enrich --dir examples                    # Generate metadata (once, no API key)
-congress-approp compare --base-fy 2024 --current-fy 2026 --subcommittee thud --dir examples
+congress-approp enrich --dir data                    # Generate metadata (once, no API key)
+congress-approp compare --base-fy 2024 --current-fy 2026 --subcommittee thud --dir data
 ```
 
 82 accounts matched across fiscal years — Tenant-Based Rental Assistance up $6.1B (+18.7%), Transit Formula Grants reclassified at $14.6B, Capital Investment Grants down $505M.
@@ -49,7 +49,7 @@ congress-approp compare --base-fy 2024 --current-fy 2026 --subcommittee thud --d
 **"What's the FY2026 MilCon-VA budget, and how much is advance?"**
 
 ```bash
-congress-approp summary --dir examples --fy 2026 --subcommittee milcon-va --show-advance
+congress-approp summary --dir data --fy 2026 --subcommittee milcon-va --show-advance
 ```
 
 ```text
@@ -65,7 +65,7 @@ congress-approp summary --dir examples --fy 2026 --subcommittee milcon-va --show
 **"Trace VA Compensation and Pensions across all fiscal years"**
 
 ```bash
-congress-approp relate hr9468:0 --dir examples --fy-timeline
+congress-approp relate 118-hr9468:0 --dir data --fy-timeline
 ```
 
 Shows every matching provision across FY2024–FY2026 with current/advance/supplemental split, plus deterministic hashes you can save as persistent links for future comparisons.
@@ -73,7 +73,7 @@ Shows every matching provision across FY2024–FY2026 with current/advance/suppl
 **"Find everything about FEMA disaster relief"**
 
 ```bash
-congress-approp search --dir examples --semantic "FEMA disaster relief funding" --top 5
+congress-approp search --dir data --semantic "FEMA disaster relief funding" --top 5
 ```
 
 Finds FEMA provisions across 5 different bills by *meaning*, not just keywords — even when the bill text says "Federal Emergency Management Agency—Disaster Relief Fund" instead of "FEMA."

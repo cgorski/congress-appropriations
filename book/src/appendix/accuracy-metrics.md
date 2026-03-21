@@ -9,7 +9,7 @@ All metrics are deterministic — computed by code against the source bill text,
 | Metric | Value |
 |--------|-------|
 | **Total provisions extracted** | 11,136 (across 14 bills) |
-| **Total budget authority** | $6.4 trillion |
+| **Total budget authority** | $8.9 trillion |
 | **Dollar amounts NOT found in source** | **0** |
 | **Dollar amount internal consistency mismatches** | **0** |
 | **Raw text exact match rate** | 95.5% |

@@ -459,6 +459,35 @@ cat data/118-hr7148/extraction.json | jq '.provisions[] | select(.provision_type
 
 > ⚠️ **CSV includes sub-allocations and reference amounts.** Don't sum the `dollars` column directly — filter to `semantics=new_budget_authority` and exclude `detail_level=sub_allocation` for correct totals. Or use `congress-approp summary` which does this automatically. See [Export Data for Spreadsheets and Scripts](https://cgorski.github.io/congress-appropriations/tutorials/export-data.html) for details.
 
+## Entity Resolution
+
+When comparing bills across fiscal years, the same program may appear under different agency names (e.g., "Department of Defense—Army" vs "Department of Defense—Department of the Army"). The tool matches by exact name by default — no implicit normalization.
+
+To discover and resolve naming differences:
+
+```bash
+# Find obvious naming variants (free, instant, no API key)
+congress-approp normalize suggest-text-match --dir data
+
+# Review suggestions — each has an 8-char hash
+# Accept specific ones:
+congress-approp normalize accept a3f7b201 c92de445 --dir data
+
+# Or accept all:
+congress-approp normalize accept --auto --dir data
+
+# For ambiguous cases, use LLM analysis (requires ANTHROPIC_API_KEY)
+congress-approp normalize suggest-llm --dir data
+
+# View current rules:
+congress-approp normalize list --dir data
+
+# Re-run comparison — orphans are now matched:
+congress-approp compare --base-fy 2024 --current-fy 2026 --subcommittee defense --dir data
+```
+
+Normalizations are stored in `dataset.json` — a small, human-editable JSON file at the data root. Use `--exact` on compare to disable all normalization and see raw matching results. See [Resolving Agency and Account Name Differences](https://cgorski.github.io/congress-appropriations/how-to/entity-resolution.html) for the full workflow.
+
 ## CLI Reference
 
 | Subcommand | Description |
@@ -466,11 +495,16 @@ cat data/118-hr7148/extraction.json | jq '.provisions[] | select(.provision_type
 | `download` | Download bill XML from Congress.gov |
 | `extract` | Extract provisions from bill XML using the LLM |
 | `enrich` | Generate bill metadata for FY/subcommittee filtering (no API key needed) |
+| `embed` | Generate embeddings for semantic search (requires `OPENAI_API_KEY`) |
 | `search` | Search provisions across all extracted bills |
 | `summary` | Show summary of all extracted bills |
-| `compare` | Compare provisions between two sets of bills |
+| `compare` | Compare provisions between two sets of bills (use `--exact` to disable normalization) |
 | `audit` | Show verification and quality report |
-| `embed` | Generate embeddings for semantic search (requires `OPENAI_API_KEY`) |
+| `relate` | Deep-dive on one provision across all bills (requires embeddings) |
+| `normalize suggest-text-match` | Discover agency naming variants using local analysis |
+| `normalize suggest-llm` | Discover agency naming variants using LLM with XML context |
+| `normalize accept` | Accept suggestions by hash, write to `dataset.json` |
+| `normalize list` | Show current entity resolution rules |
 | `upgrade` | Upgrade extraction data to the latest schema version (re-verifies, no LLM needed) |
 | `api test` | Test API connectivity (Congress.gov + Anthropic) |
 | `api bill list` | List appropriations bills for a Congress |
@@ -481,7 +515,9 @@ cat data/118-hr7148/extraction.json | jq '.provisions[] | select(.provision_type
 - `--parallel N` on `extract` controls concurrent LLM calls (default 5)
 - `--format table|json|jsonl|csv` on `search` and `summary` controls output format
 - `--semantic <query>` on `search` ranks results by meaning similarity (requires embeddings)
-- `--similar <bill:index>` on `search` finds provisions similar to a specific one
+- `--similar <bill:index>` on `search` finds provisions similar to a specific one (e.g., `118-hr9468:0`)
+- `--exact` on `compare` disables all normalization from `dataset.json`
+- `--min-accounts N` on `normalize suggest-text-match` filters to stronger suggestions
 - `--by-agency` on `summary` shows budget authority by parent department
 - `--fy <YEAR>` on `summary`, `search`, `compare` filters to bills covering that fiscal year
 - `--subcommittee <SLUG>` on `summary`, `search`, `compare` filters by jurisdiction (requires `enrich`)

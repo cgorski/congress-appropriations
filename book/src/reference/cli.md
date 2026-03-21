@@ -216,7 +216,7 @@ JSON and CSV output include more fields than the table:
 
 ## compare
 
-Compare provisions between two sets of bills. Matches accounts by `(agency, account_name)` and computes dollar deltas. Account names are matched case-insensitively with em-dash prefix stripping, and sub-agencies are normalized to their parent department for matching (e.g., "Maritime Administration" matches "Department of Transportation").
+Compare provisions between two sets of bills. Matches accounts by `(agency, account_name)` and computes dollar deltas. Account names are matched case-insensitively with em-dash prefix stripping. If a `dataset.json` file exists in the data directory, agency groups and account aliases are applied for cross-bill matching. Use `--exact` to disable all normalization and match on exact lowercased strings only. See [Resolve Agency and Account Name Differences](../how-to/entity-resolution.md) for details.
 
 There are two ways to specify what to compare:
 
@@ -552,6 +552,69 @@ Run `enrich` once after extracting bills, before using `--subcommittee` filters.
 The tool warns when `bill_meta.json` is stale (when `extraction.json` has changed since enrichment). Run `enrich --force` to regenerate.
 
 See [Enrich Bills with Metadata](../how-to/enrich-data.md) for a detailed guide including subcommittee slugs, advance classification algorithm, and provenance tracking.
+
+---
+
+## normalize suggest-text-match
+
+Discover agency and account naming variants using orphan-pair analysis and structural regex patterns. Scans all bills for cross-FY orphan pairs (same account name, different agency) and common naming patterns (prefix expansion, preposition variants, abbreviation differences). Results are cached for the `normalize accept` command.
+
+No API calls. No network access. Runs in milliseconds.
+
+```text
+congress-approp normalize suggest-text-match [OPTIONS]
+  --dir <DIR>            Data directory [default: ./data]
+  --format <FORMAT>      Output format: table, json, hashes [default: table]
+  --min-accounts <N>     Minimum shared accounts to include a suggestion [default: 1]
+```
+
+Use `--format hashes` to output one hash per line for scripting. Use `--min-accounts 3` to filter to stronger suggestions (pairs sharing 3+ account names).
+
+Suggestions are cached in `~/.congress-approp/cache/` and consumed by `normalize accept`.
+
+---
+
+## normalize suggest-llm
+
+Discover agency and account naming variants using LLM classification with XML heading context. Sends unresolved ambiguous account clusters to Claude with the bill's XML organizational structure, dollar amounts, and fiscal year information. The LLM classifies agency pairs as SAME or DIFFERENT.
+
+Requires `ANTHROPIC_API_KEY`. Uses Claude Opus.
+
+```text
+congress-approp normalize suggest-llm [OPTIONS]
+  --dir <DIR>            Data directory [default: ./data]
+  --batch-size <N>       Maximum clusters per API call [default: 15]
+  --format <FORMAT>      Output format: table, json, hashes [default: table]
+```
+
+Only processes clusters not already resolved by `suggest-text-match` or existing `dataset.json` entries. Results are cached for the `normalize accept` command.
+
+---
+
+## normalize accept
+
+Accept suggested normalizations by hash. Reads from the suggestion cache populated by `suggest-text-match` or `suggest-llm`, matches the specified hashes, and writes the accepted groups to `dataset.json`.
+
+```text
+congress-approp normalize accept [OPTIONS] [HASHES]...
+  --dir <DIR>            Data directory [default: ./data]
+  --auto                 Accept all cached suggestions without specifying hashes
+```
+
+If no cache exists, prints an error suggesting to run `suggest-text-match` first.
+
+---
+
+## normalize list
+
+Display current entity resolution rules from `dataset.json`.
+
+```text
+congress-approp normalize list [OPTIONS]
+  --dir <DIR>            Data directory [default: ./data]
+```
+
+Shows all agency groups and account aliases. If no `dataset.json` exists, shows a helpful message suggesting how to create one.
 
 ---
 

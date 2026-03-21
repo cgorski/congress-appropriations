@@ -204,7 +204,7 @@ The `staleness.rs` module checks this chain on commands that use embeddings. If 
 ⚠ H.R. 4366: embeddings are stale (extraction.json has changed)
 ```
 
-Hashing all files for 13 bills takes ~8ms. At 60 bills, ~40ms. There is no performance reason to skip or cache hash checks.
+Hashing all files for 25 bills takes ~8ms. At 60 bills, ~40ms. There is no performance reason to skip or cache hash checks.
 
 ---
 
@@ -244,7 +244,7 @@ Semantic search lets users find provisions by meaning rather than keywords. The 
 
 2. **At query time:** The user's search query is embedded using the same model (single API call, ~100ms). The query vector is compared to every provision vector using cosine similarity (dot product of normalized vectors). Results are ranked by similarity and filtered by any hard constraints (--type, --division, --min-dollars, --fy, --subcommittee, etc.).
 
-3. **Performance:** Cosine similarity over 8,500 vectors takes <0.5ms. The bottleneck is loading the binary files (~8ms for 13 bills) and the single API call to embed the query (~100ms). Total: ~110ms per search.
+3. **Performance:** Cosine similarity over 11,000+ vectors takes <0.5ms. The bottleneck is loading the binary files (~8ms for 25 bills) and the single API call to embed the query (~100ms). Total: ~110ms per search.
 
 ### Similarity scores
 
@@ -437,12 +437,12 @@ All artifacts except `links/links.json` are immutable after creation. The links 
 
 | Operation | Time | Notes |
 |-----------|------|-------|
-| Load 13 bills (extraction.json) | ~40ms | JSON parsing |
-| Load embeddings (13 bills, binary) | ~8ms | Raw byte read |
-| Hash all files (13 bills) | ~8ms | SHA-256 |
+| Load 25 bills (extraction.json) | ~40ms | JSON parsing |
+| Load embeddings (25 bills, binary) | ~8ms | Raw byte read |
+| Hash all files (25 bills) | ~8ms | SHA-256 |
 | Cosine search (8,500 provisions) | <0.5ms | Dot product |
-| Enrich all 13 bills | <1s | XML parsing + classification |
-| Link suggest (13 bills, all scope) | ~4s | O(n²) pairwise comparison |
+| Enrich all 25 bills | <1s | XML parsing + classification |
+| Link suggest (25 bills, all scope) | ~4s | O(n²) pairwise comparison |
 | **Total cold-start query** | **~50ms** | Load + hash + search |
 | Embed query text (OpenAI API) | ~100ms | Network round-trip |
 | Full extraction (omnibus, 75 chunks) | ~60 min | Parallel LLM calls |

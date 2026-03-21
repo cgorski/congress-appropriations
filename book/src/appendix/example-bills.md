@@ -29,7 +29,7 @@ Each bill directory contains the source XML, extraction.json, verification.json,
 | `data/119-hr6938/` | H.R. 6938 | Minibus | CJS + Energy-Water + Interior | 1,061 | $196B |
 | `data/119-hr7148/` | H.R. 7148 | Omnibus | Defense + Labor-HHS + THUD + FinServ + State | 2,837 | $2,788B |
 
-**Totals:** 11,136 provisions, $6.4 trillion in budget authority, 0 unverifiable dollar amounts, 95.5% raw text exact match.
+**Totals:** 11,136 provisions, $8.9 trillion in budget authority, 0 unverifiable dollar amounts, 95.5% raw text exact match.
 
 **Missing:** H.R. 2882 (FY2024 second omnibus covering Defense, Labor-HHS, Homeland, State, FinServ, LegBranch). Extraction failed due to 15 persistent chunk failures. The enrolled XML is available on Congress.gov if someone wants to retry with a future extraction resume feature.
 

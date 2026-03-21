@@ -118,7 +118,7 @@ Hash computation is fast:
 | SHA-256 of H.R. 9468 extraction.json (~15 KB) | <1ms |
 | SHA-256 of H.R. 4366 extraction.json (~12 MB) | ~5ms |
 | SHA-256 of H.R. 4366 vectors.bin (~29 MB) | ~8ms |
-| **Total for 13 example bills** | **~50ms** |
+| **Total for all example bills** | **~50ms** |
 
 At scale (20 congresses, ~60 bills), total hashing time would be ~50ms — still negligible compared to the ~10ms JSON parsing time. There is no performance reason to skip or cache hash checks.
 
