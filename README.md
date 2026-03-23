@@ -191,6 +191,29 @@ The `enrich` command also classifies each budget authority provision as current-
 
 Each bill directory contains the enrolled XML, extracted provisions (`extraction.json`), verification report, extraction metadata, bill metadata, TAS mapping, embeddings, and clean source text. Every provision carries a `source_span` pointing to its exact byte position in the enrolled bill.
 
+## Recipes & Demos
+
+> 📖 **[Full cookbook with 10+ recipes, Python examples, and interactive visualizations →](https://cgorski.github.io/congress-appropriations/tutorials/cookbook.html)**
+
+Quick taste — these all work immediately with `data/`, no API keys:
+
+```bash
+# Track any account across all fiscal years (by FAS code or name search)
+congress-approp trace "child nutrition" --dir data
+
+# Compare THUD FY2024 → FY2026 with inflation adjustment and TAS matching
+congress-approp compare --base-fy 2024 --current-fy 2026 --subcommittee thud \
+    --dir data --use-authorities --real
+
+# See which programs the CR funded above or below prior-year rates
+congress-approp search --dir data --type cr_substitution
+
+# Separate advance from current-year VA spending (79% is advance)
+congress-approp summary --dir data --fy 2026 --subcommittee milcon-va --show-advance
+```
+
+The cookbook includes recipes for journalists (track programs, find cuts, verify sources), staffers (subcommittee scorecards, CR impact, inflation), and data scientists (load JSON in Python/pandas, CLI→CSV export, source span verification). Charts and interactive treemaps are included — no setup required to view them.
+
 ## How It Works
 
 ```text

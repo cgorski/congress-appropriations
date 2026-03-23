@@ -18,6 +18,7 @@
 
 # Tutorials
 
+- [Recipes & Demos](./tutorials/cookbook.md)
 - [Find How Much Congress Spent on a Topic](./tutorials/find-spending-on-topic.md)
 - [Compare Two Bills](./tutorials/compare-two-bills.md)
 - [Track a Program Across Bills](./tutorials/track-program-across-bills.md)
