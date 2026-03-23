@@ -1,0 +1,295 @@
+{
+  "schema_version": "1.0",
+  "bill": {
+    "identifier": "H.R. 4373",
+    "classification": "continuing_resolution",
+    "short_title": "Further Additional Continuing Appropriations and Extensions Act, 2023",
+    "fiscal_years": [
+      2023
+    ],
+    "divisions": [
+      "A",
+      "B"
+    ],
+    "public_law": null
+  },
+  "provisions": [
+    {
+      "provision_type": "continuing_resolution_baseline",
+      "reference_year": 2023,
+      "reference_laws": [
+        "P.L. 117-180"
+      ],
+      "rate": "at a rate for operations as provided in the Continuing Appropriations Act, 2023 (division A of Public Law 117-180)",
+      "duration": "through December 30, 2022",
+      "anomalies": [],
+      "section": "SEC. 101",
+      "division": "A",
+      "title": null,
+      "confidence": 0.96,
+      "raw_text": "SEC. 101. The Continuing Appropriations Act, 2023 (division A of Public Law 117\u2013180) is amended by striking the date specified in section 106(3) and inserting ''December 30, 2022''.",
+      "notes": [
+        "Extends the existing CR (P.L. 117-180, Division A) by amending the expiration date in section 106(3) to December 30, 2022.",
+        "This is a simple date extension of the prior CR; no new appropriations or anomalies are introduced in Division A.",
+        "Division A contains no individual account-level appropriations \u2014 it operates by extending the baseline CR mechanism already enacted."
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "P.L. 117-180, Division A, Section 106(3)",
+          "description": "Strikes the prior expiration date and inserts December 30, 2022"
+        },
+        {
+          "ref_type": "baseline_from",
+          "target": "P.L. 117-180",
+          "description": "Continuing Appropriations Act, 2023 \u2014 the CR being extended"
+        }
+      ],
+      "source_span": {
+        "start": 754,
+        "end": 935,
+        "file": "BILLS-117hr4373enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "mandatory_spending_extension",
+      "program_name": "FCC Spectrum Auction Authority",
+      "statutory_reference": "Section 309(j)(11) of the Communications Act of 1934 (47 U.S.C. 309(j)(11))",
+      "amount": null,
+      "period": "through December 30, 2022",
+      "extends_through": "December 30, 2022",
+      "section": "SEC. 101",
+      "division": "B",
+      "title": "I",
+      "confidence": 0.93,
+      "raw_text": "Section 309(j)(11) of the Communications Act of 1934 (47 U.S.C. 309(j)(11)) shall be applied by substituting ''December 30, 2022'' for ''December 23,",
+      "notes": [
+        "Extends FCC spectrum auction authority by 7 days, from December 23, 2022 to December 30, 2022",
+        "Date substitution provision, no dollar amount involved"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 309(j)(11) of the Communications Act of 1934 (47 U.S.C. 309(j)(11))",
+          "description": "Substitutes expiration date"
+        }
+      ],
+      "source_span": {
+        "start": 1109,
+        "end": 1258,
+        "file": "BILLS-117hr4373enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "mandatory_spending_extension",
+      "program_name": "Special Assessment for Domestic Trafficking Victims' Fund",
+      "statutory_reference": "Section 3014(a) of title 18, United States Code",
+      "amount": null,
+      "period": "through December 30, 2022",
+      "extends_through": "December 30, 2022",
+      "section": "SEC. 102",
+      "division": "B",
+      "title": "I",
+      "confidence": 0.93,
+      "raw_text": "Section 3014(a) of title 18, United States Code, shall be applied, in the matter preceding paragraph (1), by substituting ''December 30, 2022'' for ''D",
+      "notes": [
+        "Extends authorization for special assessment for Domestic Trafficking Victims' Fund by 7 days, from December 23, 2022 to December 30, 2022"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 3014(a) of title 18, United States Code",
+          "description": "Substitutes expiration date in the matter preceding paragraph (1)"
+        }
+      ],
+      "source_span": {
+        "start": 1368,
+        "end": 1519,
+        "file": "BILLS-117hr4373enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "mandatory_spending_extension",
+      "program_name": "United States Parole Commission",
+      "statutory_reference": "Section 235(b) of the Sentencing Reform Act of 1984 (18 U.S.C. 3551 note; Public Law 98\u2013473; 98 Stat. 2032)",
+      "amount": null,
+      "period": "35 years and 60 days from the original enactment of the Sentencing Reform Act",
+      "extends_through": null,
+      "section": "SEC. 103",
+      "division": "B",
+      "title": "I",
+      "confidence": 0.92,
+      "raw_text": "(b) \nAmendment of sentencing reform act of 1984\nFor purposes of section 235(b) of the Sentencing Reform Act of 1984 (18 U.S.C. 3551 note; Public Law 9",
+      "notes": [
+        "May be cited as the United States Parole Commission Further Additional Extension Act of 2022",
+        "Changes references from '35 years and 46 days' to '35 years and 60 days', extending the Parole Commission by 14 additional days",
+        "Subsection (c) makes this effective as though enacted as part of the Further Continuing Appropriations and Extensions Act, 2023",
+        "Subsection (d) supersedes Section 103 of division B of the Further Continuing Appropriations and Extensions Act, 2023"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 235(b) of the Sentencing Reform Act of 1984 (Public Law 98-473)",
+          "description": "Extends Parole Commission authorization from 35 years and 46 days to 35 years and 60 days"
+        },
+        {
+          "ref_type": "other",
+          "target": "Further Continuing Appropriations and Extensions Act, 2023",
+          "description": "Subsection (c) takes effect as though enacted as part of that Act; subsection (d) supersedes Section 103 of division B of that Act"
+        }
+      ],
+      "source_span": {
+        "start": 1722,
+        "end": 1872,
+        "file": "BILLS-117hr4373enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "mandatory_spending_extension",
+      "program_name": "Commodity Futures Trading Commission Customer Protection Fund Expenses Account",
+      "statutory_reference": "Section 1(b) of Public Law 117\u201325 (135 Stat. 297)",
+      "amount": null,
+      "period": "through December 30, 2022",
+      "extends_through": "December 30, 2022",
+      "section": "SEC. 104",
+      "division": "B",
+      "title": "I",
+      "confidence": 0.93,
+      "raw_text": "Section 1(b) of Public Law 117\u201325 (135 Stat. 297) shall be applied by substituting ''December 30, 2022'' for ''December 23, 2022'' each place it appea",
+      "notes": [
+        "Extends CFTC Customer Protection Fund expenses account authorization by 7 days, from December 23, 2022 to December 30, 2022",
+        "Substitution applies 'each place it appears' in the referenced section"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 1(b) of Public Law 117-25 (135 Stat. 297)",
+          "description": "Substitutes expiration date each place it appears"
+        }
+      ],
+      "source_span": {
+        "start": 2619,
+        "end": 2769,
+        "file": "BILLS-117hr4373enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "rider",
+      "description": "Extends a moratorium established under Section 424(a) of title IV of division G of Public Law 113-76 by substituting 'December 31, 2022' for 'December 24, 2022'.",
+      "policy_area": "moratorium extension",
+      "section": "SEC. 105",
+      "division": "B",
+      "title": "I",
+      "confidence": 0.9,
+      "raw_text": "Section 424(a) of title IV of division G of Public Law 113\u201376 shall be applied by substituting ''December 31, 2022'' for ''December 24, 2022''.",
+      "notes": [
+        "Extends an unspecified moratorium by 7 days, from December 24, 2022 to December 31, 2022",
+        "Public Law 113-76 is the Consolidated Appropriations Act, 2014; Division G is the Financial Services and General Government Appropriations Act, 2014; Section 424 relates to a moratorium provision"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 424(a) of title IV of division G of Public Law 113-76",
+          "description": "Substitutes moratorium expiration date"
+        }
+      ],
+      "source_span": {
+        "start": 2809,
+        "end": 2952,
+        "file": "BILLS-117hr4373enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "rider",
+      "description": "Exempts the budgetary effects of Division B from statutory PAYGO scorecards, Senate PAYGO scorecards, and budget scorekeeping under the Balanced Budget and Emergency Deficit Control Act of 1985, the Congressional Budget Act of 1974, and the Statutory Pay-As-You-Go Act of 2010.",
+      "policy_area": "budgetary effects and scorekeeping",
+      "section": "SEC. 201",
+      "division": "B",
+      "title": "II",
+      "confidence": 0.95,
+      "raw_text": "The budgetary effects of this division shall not be entered on either PAYGO scorecard maintained pursuant to section 4(d) of the Statutory Pay-As-You-Go",
+      "notes": [
+        "Standard PAYGO and budget scorekeeping exemption provision for the division",
+        "Subsection (a) exempts from Statutory PAYGO scorecards under section 4(d) of the Statutory Pay-As-You-Go Act of 2010",
+        "Subsection (b) exempts from Senate PAYGO scorecards under section 4106 of H. Con. Res. 71 (115th Congress)",
+        "Subsection (c) exempts from section 251 of BBEDCA, section 302(a) allocations under CBA, and paragraph (4)(C) of section 3 of Statutory PAYGO"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "notwithstanding",
+          "target": "Rule 3 of the Budget Scorekeeping Guidelines (Conference Report 105-217)",
+          "description": "Overrides scorekeeping rules"
+        },
+        {
+          "ref_type": "see_also",
+          "target": "Section 4(d) of the Statutory Pay-As-You-Go Act of 2010",
+          "description": "PAYGO scorecard exemption"
+        },
+        {
+          "ref_type": "see_also",
+          "target": "Section 4106 of H. Con. Res. 71 (115th Congress)",
+          "description": "Senate PAYGO scorecard exemption"
+        },
+        {
+          "ref_type": "see_also",
+          "target": "Section 250(c)(8) of the Balanced Budget and Emergency Deficit Control Act of 1985",
+          "description": "Budget classification exemption"
+        }
+      ],
+      "source_span": {
+        "start": 3038,
+        "end": 3190,
+        "file": "BILLS-117hr4373enr.txt",
+        "verified": true
+      }
+    }
+  ],
+  "summary": {
+    "total_provisions": 7,
+    "by_division": {
+      "B": 6,
+      "A": 1
+    },
+    "by_type": {
+      "mandatory_spending_extension": 4,
+      "rider": 2,
+      "continuing_resolution_baseline": 1
+    },
+    "total_budget_authority": 0,
+    "total_rescissions": 0,
+    "sections_with_no_provisions": [],
+    "flagged_issues": [
+      "Division A contains only a single section (SEC. 101) that extends the existing CR through December 30, 2022. No new dollar amounts or anomalies are specified in this division.",
+      "Division B contains no dollar-amount provisions; all are short-term date extensions (7-14 days) and budgetary exemptions",
+      "SEC. 103(d) supersedes Section 103 of division B of the Further Continuing Appropriations and Extensions Act, 2023",
+      "SEC. 105 references a moratorium under P.L. 113-76 Division G Title IV Section 424(a) \u2014 the specific moratorium subject is not named in this bill text"
+    ]
+  },
+  "chunk_map": [
+    {
+      "chunk_id": "01KM8F71N0WZW81ZN6BYNRHN8X",
+      "label": "[1/2] A",
+      "provision_indices": [
+        0
+      ]
+    },
+    {
+      "chunk_id": "01KM8F71N01MMFN255YMGFVNKE",
+      "label": "[2/2] B",
+      "provision_indices": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    }
+  ]
+}

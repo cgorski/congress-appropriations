@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "congress": 117,
+  "fiscal_years": [
+    2023
+  ],
+  "bill_nature": "continuing_resolution",
+  "subcommittees": [
+    {
+      "division": "A",
+      "jurisdiction": "continuing_resolution",
+      "title": "FURTHER ADDITIONAL CONTINUING APPROPRIATIONS ACT, 2023",
+      "source": {
+        "type": "pattern_match",
+        "pattern": "continuing appropriations"
+      }
+    },
+    {
+      "division": "B",
+      "jurisdiction": "other",
+      "title": "OTHER MATTERS",
+      "source": {
+        "type": "pattern_match",
+        "pattern": "other matters"
+      }
+    }
+  ],
+  "provision_timing": [],
+  "canonical_accounts": [],
+  "extraction_sha256": "f60703050f31d5801d7911a43b2c3f2945231a98beffb9906dc15b434b71ce31"
+}

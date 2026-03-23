@@ -1,0 +1,1907 @@
+{
+  "schema_version": "1.0",
+  "bill": {
+    "identifier": "H.R. 6074",
+    "classification": "regular",
+    "short_title": "Coronavirus Preparedness and Response Supplemental Appropriations Act, 2020",
+    "fiscal_years": [
+      2020
+    ],
+    "divisions": [
+      "A",
+      "B"
+    ],
+    "public_law": null
+  },
+  "provisions": [
+    {
+      "provision_type": "appropriation",
+      "account_name": "Salaries and Expenses",
+      "agency": "Department of Health and Human Services, Food and Drug Administration",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 61000000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$61,000,000"
+      },
+      "fiscal_year": 2020,
+      "availability": "to remain available until expended",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": "A",
+      "title": "I",
+      "confidence": 0.97,
+      "raw_text": "For an additional amount for ''Salaries and Expenses'', $61,000,000, to remain available until expended, to prevent, prepare for, and respond to coronavirus",
+      "notes": [
+        "Supplemental appropriation for coronavirus response under FDA heading",
+        "Purposes include development of medical countermeasures and vaccines, advanced manufacturing for medical products, monitoring of medical product supply chains, and related administrative activities",
+        "Emergency designation under BCA section 251(b)(2)(A)(i)"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "subject_to",
+          "target": "Section 251(b)(2)(A)(i) of the Balanced Budget and Emergency Deficit Control Act of 1985",
+          "description": "Emergency spending designation"
+        }
+      ],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 590,
+        "end": 746,
+        "file": "BILLS-116hr6074enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Disaster Loans Program Account",
+      "agency": "Small Business Administration",
+      "program": "Administrative expenses for disaster loan program under section 7(b) of the Small Business Act",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 20000000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$20,000,000"
+      },
+      "fiscal_year": 2020,
+      "availability": "to remain available until expended",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": "A",
+      "title": "II",
+      "confidence": 0.97,
+      "raw_text": "For an additional amount for the ''Disaster Loans Program Account'' for administrative expenses to carry out the disaster loan program authorized by sect",
+      "notes": [
+        "Supplemental appropriation for SBA disaster loans in response to coronavirus",
+        "Heading includes '(Including Transfers of Funds)'"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "subject_to",
+          "target": "Section 7(b) of the Small Business Act",
+          "description": "Authorizing statute for the disaster loan program"
+        },
+        {
+          "ref_type": "subject_to",
+          "target": "Section 251(b)(2)(A)(i) of the Balanced Budget and Emergency Deficit Control Act of 1985",
+          "description": "Emergency designation"
+        }
+      ],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 1284,
+        "end": 1437,
+        "file": "BILLS-116hr6074enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "transfer_authority",
+      "from_scope": "",
+      "to_scope": "",
+      "limit": "unknown",
+      "conditions": [],
+      "section": "",
+      "division": "A",
+      "title": "II",
+      "confidence": 0.93,
+      "raw_text": "Provided, That such amounts may be transferred to and merged with \u201cSmall Business Administration\u2014Salaries and Expenses\u201d",
+      "notes": [
+        "Transfer ceiling equals the full $20,000,000 appropriation ('such amounts' refers to the entire appropriated amount)",
+        "Uses permissive 'may be transferred' language"
+      ],
+      "cross_references": [],
+      "source_span": {
+        "start": 1522,
+        "end": 1641,
+        "file": "BILLS-116hr6074enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "rider",
+      "description": "For purposes of section 7(b)(2)(D) of the Small Business Act, coronavirus shall be deemed to be a disaster. Amounts available under the Disaster Loans Program Account for the cost of direct loans in any fiscal year may be used to make economic injury disaster loans under such section in response to the coronavirus.",
+      "policy_area": "Disaster assistance / Coronavirus response",
+      "section": "",
+      "division": "A",
+      "title": "II",
+      "confidence": 0.96,
+      "raw_text": "Provided further, That for purposes of section 7(b)(2)(D) of the Small Business Act, coronavirus shall be deemed to be a disaster and amounts available",
+      "notes": [
+        "Key policy provision: legally deems coronavirus a 'disaster' for SBA economic injury disaster loan (EIDL) purposes",
+        "Expands eligible uses of Disaster Loans Program Account funds to include coronavirus economic injury disaster loans"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 7(b)(2)(D) of the Small Business Act",
+          "description": "Deems coronavirus a disaster for purposes of economic injury disaster loans"
+        }
+      ],
+      "source_span": {
+        "start": 1643,
+        "end": 1794,
+        "file": "BILLS-116hr6074enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "limitation",
+      "description": "Prohibits use of funds provided under this heading in this Act for indirect administrative expenses.",
+      "amount": null,
+      "account_name": "Disaster Loans Program Account",
+      "section": "",
+      "division": "A",
+      "title": "II",
+      "confidence": 0.97,
+      "raw_text": "Provided further, That none of the funds provided under this heading in this Act may be used for indirect administrative expenses",
+      "notes": [
+        "Ensures the $20M is spent only on direct administrative costs of the disaster loan program"
+      ],
+      "cross_references": [],
+      "parent_account": "Disaster Loans Program Account",
+      "source_span": {
+        "start": 1986,
+        "end": 2115,
+        "file": "BILLS-116hr6074enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "rider",
+      "description": "Designates the appropriated amount as an emergency requirement pursuant to section 251(b)(2)(A)(i) of the Balanced Budget and Emergency Deficit Control Act of 1985.",
+      "policy_area": "Budget enforcement / Emergency designation",
+      "section": "",
+      "division": "A",
+      "title": "II",
+      "confidence": 0.97,
+      "raw_text": "Provided further, That such amount is designated by the Congress as being for an emergency requirement pursuant to section 251(b)(2)(A)(i) of the Balanc",
+      "notes": [
+        "Emergency designation exempts the spending from discretionary spending caps under the BBEDCA"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "subject_to",
+          "target": "Section 251(b)(2)(A)(i) of the Balanced Budget and Emergency Deficit Control Act of 1985",
+          "description": "Emergency designation provision"
+        }
+      ],
+      "source_span": {
+        "start": 2117,
+        "end": 2269,
+        "file": "BILLS-116hr6074enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "rider",
+      "description": "Re-designates amounts repurposed under this heading that were previously designated as emergency requirements under BBEDCA as emergency requirements pursuant to section 251(b)(2)(A)(i) of the BBEDCA.",
+      "policy_area": "Budget enforcement / Emergency designation",
+      "section": "",
+      "division": "A",
+      "title": "II",
+      "confidence": 0.94,
+      "raw_text": "Provided further, That amounts repurposed under this heading that were previously designated by the Congress as an emergency requirement pursuant to the",
+      "notes": [
+        "Ensures repurposed prior-year emergency funds retain their emergency designation under current BBEDCA authority"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "subject_to",
+          "target": "Section 251(b)(2)(A)(i) of the Balanced Budget and Emergency Deficit Control Act of 1985",
+          "description": "Emergency re-designation of repurposed amounts"
+        }
+      ],
+      "source_span": {
+        "start": 2322,
+        "end": 2474,
+        "file": "BILLS-116hr6074enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "CDC\u2013Wide Activities and Program Support",
+      "agency": "Department of Health and Human Services",
+      "program": "Centers for Disease Control and Prevention",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 2200000000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$2,200,000,000"
+      },
+      "fiscal_year": 2020,
+      "availability": "to remain available until September 30, 2022",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": "A",
+      "title": "III",
+      "confidence": 0.97,
+      "raw_text": "For an additional amount for ''CDC\u2013Wide Activities and Program Support'', $2,200,000,000, to remain available until September 30, 2022, to prevent, pre",
+      "notes": [
+        "Supplemental appropriation for coronavirus preparedness and response, domestically or internationally",
+        "Includes transfer of funds authority",
+        "Designated as emergency spending under BBEDCA"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "see_also",
+          "target": "section 231 of division B of Public Law 115-245",
+          "description": "Infectious Diseases Rapid Response Reserve Fund"
+        },
+        {
+          "ref_type": "other",
+          "target": "section 251(b)(2)(A)(i) of the Balanced Budget and Emergency Deficit Control Act of 1985",
+          "description": "Emergency spending designation"
+        }
+      ],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 2852,
+        "end": 3003,
+        "file": "BILLS-116hr6074enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "CDC\u2013Wide Activities and Program Support",
+      "agency": "Department of Health and Human Services",
+      "program": "Grants to States, localities, territories, tribes for preparedness and response",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 950000000
+        },
+        "semantics": "reference_amount",
+        "text_as_written": "$950,000,000"
+      },
+      "fiscal_year": 2020,
+      "availability": null,
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": "A",
+      "title": "III",
+      "confidence": 0.97,
+      "raw_text": "not less than $950,000,000 of the amount provided shall be for grants to or cooperative agreements with States, localities, territories, tribes, tribal",
+      "notes": [
+        "Sub-allocation of the $2,200,000,000 CDC appropriation",
+        "Minimum floor ('not less than'), not a ceiling",
+        "For surveillance, epidemiology, laboratory capacity, infection control, mitigation, communications, and other preparedness and response activities"
+      ],
+      "cross_references": [],
+      "detail_level": "sub_allocation",
+      "parent_account": "CDC\u2013Wide Activities and Program Support",
+      "source_span": {
+        "start": 3089,
+        "end": 3240,
+        "file": "BILLS-116hr6074enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "directive",
+      "description": "$475,000,000 of the State/local grant funds shall be allocated within 30 days of enactment",
+      "deadlines": [
+        "30 days after enactment"
+      ],
+      "section": "",
+      "division": "A",
+      "title": "III",
+      "confidence": 0.96,
+      "raw_text": "$475,000,000 of the funds made available in the preceding proviso shall be allocated within 30 days of the date of enactment of this Act",
+      "notes": [
+        "Timing requirement: half of the $950M grant allocation must be disbursed within 30 days",
+        "This is a sub-portion of the $950M grants sub-allocation, not additional money"
+      ],
+      "cross_references": [],
+      "source_span": {
+        "start": 3510,
+        "end": 3646,
+        "file": "BILLS-116hr6074enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "CDC\u2013Wide Activities and Program Support",
+      "agency": "Department of Health and Human Services",
+      "program": "Grants to tribes, tribal organizations, urban Indian health organizations, or health service providers to tribes",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 40000000
+        },
+        "semantics": "reference_amount",
+        "text_as_written": "$40,000,000"
+      },
+      "fiscal_year": 2020,
+      "availability": null,
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": "A",
+      "title": "III",
+      "confidence": 0.96,
+      "raw_text": "not less than $40,000,000 of such funds shall be allocated to tribes, tribal organizations, urban Indian health organizations, or health service provid",
+      "notes": [
+        "Sub-allocation within the $950,000,000 grant allocation",
+        "Minimum floor for tribal entities",
+        "Part of the first proviso grant funds"
+      ],
+      "cross_references": [],
+      "detail_level": "sub_allocation",
+      "parent_account": "CDC\u2013Wide Activities and Program Support",
+      "source_span": {
+        "start": 3901,
+        "end": 4052,
+        "file": "BILLS-116hr6074enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "CDC\u2013Wide Activities and Program Support",
+      "agency": "Department of Health and Human Services",
+      "program": "Global disease detection and emergency response",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 300000000
+        },
+        "semantics": "reference_amount",
+        "text_as_written": "$300,000,000"
+      },
+      "fiscal_year": 2020,
+      "availability": null,
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": "A",
+      "title": "III",
+      "confidence": 0.97,
+      "raw_text": "of the amount provided under this heading in this Act, not less than $300,000,000 shall be for global disease detection and emergency response",
+      "notes": [
+        "Sub-allocation of the $2,200,000,000 CDC appropriation",
+        "Minimum floor for international disease detection and emergency response"
+      ],
+      "cross_references": [],
+      "detail_level": "sub_allocation",
+      "parent_account": "CDC\u2013Wide Activities and Program Support",
+      "source_span": {
+        "start": 4529,
+        "end": 4671,
+        "file": "BILLS-116hr6074enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Infectious Diseases Rapid Response Reserve Fund",
+      "agency": "Department of Health and Human Services",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 300000000
+        },
+        "semantics": "reference_amount",
+        "text_as_written": "$300,000,000"
+      },
+      "fiscal_year": 2020,
+      "availability": null,
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": "A",
+      "title": "III",
+      "confidence": 0.97,
+      "raw_text": "of the amount provided under this heading in this Act, $300,000,000 shall be transferred to and merged with amounts in the Infectious Diseases Rapid Re",
+      "notes": [
+        "Transfer from CDC-Wide Activities to the Infectious Diseases Rapid Response Reserve Fund",
+        "Reserve Fund established by section 231 of division B of Public Law 115-245",
+        "Funds transferred and merged"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "see_also",
+          "target": "section 231 of division B of Public Law 115-245",
+          "description": "Establishes the Infectious Diseases Rapid Response Reserve Fund"
+        }
+      ],
+      "detail_level": "sub_allocation",
+      "parent_account": "CDC\u2013Wide Activities and Program Support",
+      "source_span": {
+        "start": 4696,
+        "end": 4847,
+        "file": "BILLS-116hr6074enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "directive",
+      "description": "Secretary of HHS, in consultation with CDC Director, shall provide a report to the Appropriations Committees every 14 days for one year on Reserve Fund commitment and obligation information, as long as obligations exceed $5,000,000 and upon Committee request",
+      "deadlines": [
+        "every 14 days for one year from declaration or determination under section 231 of division B of P.L. 115-245"
+      ],
+      "section": "",
+      "division": "A",
+      "title": "III",
+      "confidence": 0.95,
+      "raw_text": "the Secretary of Health and Human Services, in consultation with the Director of the CDC, shall provide a report to the Committees on Appropriations of",
+      "notes": [
+        "Reporting continues for one year from any declaration or determination described in the third proviso of section 231 of division B of P.L. 115-245",
+        "Reports detail commitment and obligation information for the Reserve Fund during the prior two weeks",
+        "Reporting threshold: obligations in excess of $5,000,000"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "see_also",
+          "target": "section 231 of division B of Public Law 115-245",
+          "description": "Infectious Diseases Rapid Response Reserve Fund declaration/determination provisions"
+        }
+      ],
+      "source_span": {
+        "start": 4972,
+        "end": 5123,
+        "file": "BILLS-116hr6074enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "rider",
+      "description": "Funds appropriated under the CDC heading may be used for grants for the construction, alteration, or renovation of non-Federally owned facilities to improve preparedness and response capability at the State and local level",
+      "policy_area": "State and local facility construction for preparedness",
+      "section": "",
+      "division": "A",
+      "title": "III",
+      "confidence": 0.95,
+      "raw_text": "funds appropriated under this heading in this Act may be used for grants for the construction, alteration, or renovation of non-Federally owned facilit",
+      "notes": [
+        "Unusual authority for CDC funds to be used for non-Federal facility construction",
+        "Limited to improving preparedness and response capability"
+      ],
+      "cross_references": [],
+      "source_span": {
+        "start": 5573,
+        "end": 5724,
+        "file": "BILLS-116hr6074enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "National Institute of Allergy and Infectious Diseases",
+      "agency": "Department of Health and Human Services",
+      "program": "National Institutes of Health",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 836000000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$836,000,000"
+      },
+      "fiscal_year": 2020,
+      "availability": "to remain available until September 30, 2024",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": "A",
+      "title": "III",
+      "confidence": 0.97,
+      "raw_text": "For an additional amount for ''National Institute of Allergy and Infectious Diseases'', $836,000,000, to remain available until September 30, 2024, to ",
+      "notes": [
+        "Supplemental appropriation for coronavirus preparedness and response",
+        "Available for both domestic and international activities",
+        "Includes transfer of funds authority",
+        "Designated as emergency spending under BBEDCA"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "other",
+          "target": "section 251(b)(2)(A)(i) of the Balanced Budget and Emergency Deficit Control Act of 1985",
+          "description": "Emergency spending designation"
+        }
+      ],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 6242,
+        "end": 6393,
+        "file": "BILLS-116hr6074enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "National Institute of Environmental Health Sciences",
+      "agency": "Department of Health and Human Services",
+      "program": "Worker-based training to prevent and reduce coronavirus exposure",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 10000000
+        },
+        "semantics": "reference_amount",
+        "text_as_written": "$10,000,000"
+      },
+      "fiscal_year": 2020,
+      "availability": null,
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": "A",
+      "title": "III",
+      "confidence": 0.97,
+      "raw_text": "not less than $10,000,000 shall be transferred to ''National Institute of Environmental Health Sciences'' for worker-based training to prevent and redu",
+      "notes": [
+        "Transfer from NIAID to NIEHS",
+        "For hospital employees, emergency first responders, and other workers at risk of exposure through work duties",
+        "Minimum floor ('not less than')"
+      ],
+      "cross_references": [],
+      "detail_level": "sub_allocation",
+      "parent_account": "National Institute of Allergy and Infectious Diseases",
+      "source_span": {
+        "start": 6550,
+        "end": 6701,
+        "file": "BILLS-116hr6074enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Public Health and Social Services Emergency Fund",
+      "agency": "Department of Health and Human Services",
+      "program": "Office of the Secretary \u2014 countermeasures, vaccines, therapeutics, diagnostics",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 3100000000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$3,100,000,000"
+      },
+      "fiscal_year": 2020,
+      "availability": "to remain available until September 30, 2024",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": "A",
+      "title": "III",
+      "confidence": 0.97,
+      "raw_text": "For an additional amount for ''Public Health and Social Services Emergency Fund'', $3,100,000,000, to remain available until September 30, 2024, to pre",
+      "notes": [
+        "First of two paragraphs under this heading",
+        "Prioritizes platform-based technologies with U.S.-based manufacturing capabilities",
+        "Covers vaccines, therapeutics, diagnostics, medical supplies, medical surge capacity, and related admin",
+        "Includes transfer of funds authority",
+        "Designated as emergency spending under BBEDCA"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "see_also",
+          "target": "section 319F-2 of the Public Health Service Act",
+          "description": "Strategic National Stockpile"
+        },
+        {
+          "ref_type": "see_also",
+          "target": "section 319F-4 of the Public Health Service Act",
+          "description": "Covered Countermeasure Process Fund"
+        },
+        {
+          "ref_type": "see_also",
+          "target": "section 330 of the Public Health Service Act",
+          "description": "Health Centers Program"
+        },
+        {
+          "ref_type": "other",
+          "target": "section 251(b)(2)(A)(i) of the Balanced Budget and Emergency Deficit Control Act of 1985",
+          "description": "Emergency spending designation"
+        }
+      ],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 7160,
+        "end": 7311,
+        "file": "BILLS-116hr6074enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "limitation",
+      "description": "Products purchased by the Federal government with funds made available under this heading, including vaccines, therapeutics, and diagnostics, shall be purchased in accordance with Federal Acquisition Regulation guidance on fair and reasonable pricing",
+      "amount": null,
+      "account_name": "Public Health and Social Services Emergency Fund",
+      "section": "",
+      "division": "A",
+      "title": "III",
+      "confidence": 0.95,
+      "raw_text": "products purchased by the Federal government with funds made available under this heading, including vaccines, therapeutics, and diagnostics, shall be p",
+      "notes": [
+        "Requires FAR-compliant fair and reasonable pricing for all product purchases",
+        "Applies to vaccines, therapeutics, and diagnostics"
+      ],
+      "cross_references": [],
+      "parent_account": "Public Health and Social Services Emergency Fund",
+      "source_span": {
+        "start": 8178,
+        "end": 8330,
+        "file": "BILLS-116hr6074enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "directive",
+      "description": "Secretary shall purchase vaccines developed using these funds in quantities determined adequate to address the public health need, and may take measures to ensure products will be affordable in the commercial market, but shall not take actions that delay development",
+      "deadlines": [],
+      "section": "",
+      "division": "A",
+      "title": "III",
+      "confidence": 0.95,
+      "raw_text": "the Secretary of Health and Human Services shall purchase vaccines developed using funds made available under this heading in this Act to respond to an ",
+      "notes": [
+        "Three interconnected provisos: mandatory purchase, affordability measures, and no-delay constraint",
+        "Balances public health access goals against development speed"
+      ],
+      "cross_references": [],
+      "source_span": {
+        "start": 7867,
+        "end": 8019,
+        "file": "BILLS-116hr6074enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "transfer_authority",
+      "from_scope": "",
+      "to_scope": "",
+      "limit": "unknown",
+      "conditions": [],
+      "section": "",
+      "division": "A",
+      "title": "III",
+      "confidence": 0.95,
+      "raw_text": "funds appropriated under this heading in this Act may be transferred to, and merged with, the fund authorized by section 319F\u20134, the Covered Countermea",
+      "notes": [
+        "No specific dollar ceiling on the transfer",
+        "Authorizes transfer from PHSSF to the Covered Countermeasure Process Fund"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "see_also",
+          "target": "section 319F-4 of the Public Health Service Act",
+          "description": "Covered Countermeasure Process Fund"
+        }
+      ],
+      "source_span": {
+        "start": 9085,
+        "end": 9236,
+        "file": "BILLS-116hr6074enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Health Resources and Services Administration\u2014Primary Health Care",
+      "agency": "Department of Health and Human Services",
+      "program": "Health Centers Program (section 330 of PHS Act)",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 100000000
+        },
+        "semantics": "reference_amount",
+        "text_as_written": "$100,000,000"
+      },
+      "fiscal_year": 2020,
+      "availability": null,
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": "A",
+      "title": "III",
+      "confidence": 0.97,
+      "raw_text": "of the amount provided under this heading in this Act, $100,000,000 shall be transferred to ''Health Resources and Services Administration\u2014Primary Heal",
+      "notes": [
+        "Transfer from PHSSF to HRSA Primary Health Care",
+        "For grants under the Health Centers Program to prevent, prepare for, and respond to coronavirus"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "see_also",
+          "target": "section 330 of the Public Health Service Act",
+          "description": "Health Centers Program"
+        }
+      ],
+      "detail_level": "sub_allocation",
+      "parent_account": "Public Health and Social Services Emergency Fund",
+      "source_span": {
+        "start": 9909,
+        "end": 10060,
+        "file": "BILLS-116hr6074enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Public Health and Social Services Emergency Fund",
+      "agency": "Department of Health and Human Services",
+      "program": "Office of the Secretary \u2014 purchase of vaccines, therapeutics, diagnostics (conditional)",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 300000000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$300,000,000"
+      },
+      "fiscal_year": 2020,
+      "availability": "to remain available until September 30, 2024",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": "A",
+      "title": "III",
+      "confidence": 0.96,
+      "raw_text": "For an additional amount for ''Public Health and Social Services Emergency Fund'', $300,000,000, to remain available until September 30, 2024, for prod",
+      "notes": [
+        "Second paragraph under this heading; conditional appropriation",
+        "Contingent on Secretary's certification that first-paragraph product purchase funds will be obligated imminently",
+        "Subject to same terms and conditions as first paragraph under this heading",
+        "Designated as emergency spending under BBEDCA"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "other",
+          "target": "section 251(b)(2)(A)(i) of the Balanced Budget and Emergency Deficit Control Act of 1985",
+          "description": "Emergency spending designation"
+        }
+      ],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 10432,
+        "end": 10583,
+        "file": "BILLS-116hr6074enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "limitation",
+      "description": "The $300,000,000 second-paragraph PHSSF funds shall only be made available if the Secretary of HHS certifies to the Appropriations Committees that first-paragraph product purchase funds will be obligated imminently and additional funds are necessary for vaccines, therapeutics, or diagnostics in adequate quantities",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 300000000
+        },
+        "semantics": "reference_amount",
+        "text_as_written": "$300,000,000"
+      },
+      "account_name": "Public Health and Social Services Emergency Fund",
+      "section": "",
+      "division": "A",
+      "title": "III",
+      "confidence": 0.95,
+      "raw_text": "the amount made available in this paragraph shall only be made available if the Secretary of Health and Human Services certifies to the Committees on Ap",
+      "notes": [
+        "Certification requirement makes the second PHSSF paragraph conditional",
+        "Secretary must certify to both House and Senate Appropriations Committees",
+        "Certification must show first-paragraph funds are about to be obligated and more are needed"
+      ],
+      "cross_references": [],
+      "parent_account": "Public Health and Social Services Emergency Fund",
+      "source_span": {
+        "start": 10861,
+        "end": 11013,
+        "file": "BILLS-116hr6074enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "rider",
+      "description": "Funds in this title may restore pre-enactment HHS obligations for coronavirus response. Grants to States/localities/tribes shall reimburse costs incurred since January 20, 2020. Does not apply to Reserve Fund. Funds reprogrammed/transferred per the February 2, 2020 Secretary notification shall be returned to their original appropriation within 45 days of enactment.",
+      "policy_area": "Coronavirus preparedness funding flexibility and restoration",
+      "section": "SEC. 301",
+      "division": "A",
+      "title": "III",
+      "confidence": 0.95,
+      "raw_text": "(a) Funds appropriated in this title may be made available to restore amounts, either directly or through reimbursement, for obligations incurred by ag",
+      "notes": [
+        "Subsection (a): Allows restoration of pre-enactment HHS obligations, except Reserve Fund obligations",
+        "Subsection (b): Grants shall include reimbursement for costs incurred between January 20, 2020, and enactment",
+        "Subsection (c): Reprogrammed/transferred funds per Feb 2, 2020 notification must be returned within 45 days of enactment"
+      ],
+      "cross_references": [],
+      "source_span": {
+        "start": 11848,
+        "end": 11999,
+        "file": "BILLS-116hr6074enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "rider",
+      "description": "Secretary of HHS may appoint candidates for critical coronavirus positions without regard to competitive examination requirements of 5 U.S.C. 3309-3319, provided public notice has been given and the Secretary has determined a public health threat exists.",
+      "policy_area": "Federal hiring authority for coronavirus response",
+      "section": "SEC. 302",
+      "division": "A",
+      "title": "III",
+      "confidence": 0.95,
+      "raw_text": "Funds appropriated by this title may be used by the Secretary of the Health and Human Services to appoint, without regard to the provisions of sections",
+      "notes": [
+        "Waives competitive examination requirements for critical coronavirus positions",
+        "Two conditions: (1) public notice given, (2) Secretary determined public health threat exists"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "notwithstanding",
+          "target": "sections 3309 through 3319 of title 5 of the United States Code",
+          "description": "Competitive examination requirements waived for coronavirus hiring"
+        }
+      ],
+      "source_span": {
+        "start": 13291,
+        "end": 13442,
+        "file": "BILLS-116hr6074enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "rider",
+      "description": "Funds may be used to enter into personal services contracts to support coronavirus prevention, preparation, or response domestically and internationally. Contractors are not deemed Federal employees. Authority expires September 30, 2024.",
+      "policy_area": "Personal services contracts for coronavirus response",
+      "section": "SEC. 303",
+      "division": "A",
+      "title": "III",
+      "confidence": 0.95,
+      "raw_text": "Funds made available by this title may be used to enter into contracts with individuals for the provision of personal services (as described in section ",
+      "notes": [
+        "Subject to prior notification to Appropriations Committees",
+        "Individuals not deemed Federal employees for OPM purposes",
+        "Authority expires September 30, 2024"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "see_also",
+          "target": "section 104 of part 37 of title 48, Code of Federal Regulations (48 CFR 37.104)",
+          "description": "Definition of personal services contracts"
+        }
+      ],
+      "source_span": {
+        "start": 13715,
+        "end": 13867,
+        "file": "BILLS-116hr6074enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "transfer_authority",
+      "from_scope": "",
+      "to_scope": "",
+      "limit": "unknown",
+      "conditions": [],
+      "section": "SEC. 304",
+      "division": "A",
+      "title": "III",
+      "confidence": 0.95,
+      "raw_text": "Funds appropriated by this title may be transferred to, and merged with, other appropriation accounts under the headings ''Centers for Disease Control ",
+      "notes": [
+        "Broad intra-HHS transfer authority limited to CDC, PHSSF, and NIH accounts",
+        "Requires OMB consultation and 10-day advance notification to Appropriations Committees",
+        "Transfer-back permitted if funds determined unnecessary",
+        "Explicitly prohibits use of section 205 of div. A of P.L. 116-94 or section 241(a) of PHS Act transfer authorities"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "other",
+          "target": "section 205 of division A of Public Law 116-94",
+          "description": "Transfer authority explicitly prohibited for these funds"
+        },
+        {
+          "ref_type": "other",
+          "target": "section 241(a) of the Public Health Service Act",
+          "description": "Transfer authority explicitly prohibited for these funds"
+        }
+      ],
+      "source_span": {
+        "start": 14447,
+        "end": 14598,
+        "file": "BILLS-116hr6074enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "directive",
+      "description": "Requires the Secretary of Health and Human Services to provide a detailed spend plan of anticipated uses of funds made available to HHS in this Act, including estimated personnel and administrative costs, to the Committees on Appropriations within 30 days of enactment; plan must be updated every 60 days until September 30, 2024; spend plans must be accompanied by a listing of each contract obligation exceeding $5,000,000 not previously reported.",
+      "deadlines": [
+        "30 days after enactment",
+        "every 60 days until September 30, 2024"
+      ],
+      "section": "SEC. 305",
+      "division": "A",
+      "title": "III",
+      "confidence": 0.97,
+      "raw_text": "Not later than 30 days after the date of enactment of this Act, the Secretary of Health and Human Services shall provide a detailed spend plan of anticip",
+      "notes": [
+        "Reporting requirement covering all HHS funds in this Act",
+        "Contract obligation reporting threshold is $5,000,000",
+        "Updates required through September 30, 2024, unusually long for a FY2020 supplemental"
+      ],
+      "cross_references": [],
+      "source_span": {
+        "start": 15442,
+        "end": 15595,
+        "file": "BILLS-116hr6074enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "transfer_authority",
+      "from_scope": "",
+      "to_scope": "",
+      "limit": "unknown",
+      "conditions": [],
+      "section": "SEC. 306",
+      "division": "A",
+      "title": "III",
+      "confidence": 0.96,
+      "raw_text": "Of the funds appropriated by this title under the heading ''Public Health and Social Services Emergency Fund'', up to $2,000,000 shall be transferred to",
+      "notes": [
+        "Transfer from Public Health and Social Services Emergency Fund to HHS OIG",
+        "Funds are for oversight of HHS activities supported by titles I and III of this Act",
+        "Transfer authority is additive to any other existing transfer authority"
+      ],
+      "cross_references": [],
+      "source_span": {
+        "start": 16175,
+        "end": 16327,
+        "file": "BILLS-116hr6074enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Diplomatic Programs",
+      "agency": "Department of State",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 264000000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$264,000,000"
+      },
+      "fiscal_year": 2020,
+      "availability": "to remain available until September 30, 2022",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": "A",
+      "title": "IV",
+      "confidence": 0.97,
+      "raw_text": "For an additional amount for ''Diplomatic Programs'', $264,000,000, to remain available until September 30, 2022, for necessary expenses to prevent, pre",
+      "notes": [
+        "Under Administration of Foreign Affairs heading",
+        "Supplemental appropriation for coronavirus response including consular operations, evacuation reimbursement, and emergency preparedness"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "subject_to",
+          "target": "Section 251(b)(2)(A)(i) of the Balanced Budget and Emergency Deficit Control Act of 1985",
+          "description": "Emergency designation"
+        }
+      ],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 17044,
+        "end": 17196,
+        "file": "BILLS-116hr6074enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Office of Inspector General",
+      "agency": "United States Agency for International Development",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 1000000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$1,000,000"
+      },
+      "fiscal_year": 2020,
+      "availability": "to remain available until September 30, 2022",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": "A",
+      "title": "IV",
+      "confidence": 0.97,
+      "raw_text": "For an additional amount for ''Office of Inspector General'', $1,000,000, to remain available until September 30, 2022, for oversight of activities fund",
+      "notes": [
+        "Under Funds Appropriated to the President heading within United States Agency for International Development",
+        "For oversight of activities funded by this title and administered by USAID"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "subject_to",
+          "target": "Section 251(b)(2)(A)(i) of the Balanced Budget and Emergency Deficit Control Act of 1985",
+          "description": "Emergency designation"
+        }
+      ],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 17659,
+        "end": 17811,
+        "file": "BILLS-116hr6074enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Global Health Programs",
+      "agency": "United States Agency for International Development",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 435000000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$435,000,000"
+      },
+      "fiscal_year": 2020,
+      "availability": "to remain available until September 30, 2022",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": "A",
+      "title": "IV",
+      "confidence": 0.97,
+      "raw_text": "For an additional amount for ''Global Health Programs'', $435,000,000, to remain available until September 30, 2022, for necessary expenses to prevent, p",
+      "notes": [
+        "Under Bilateral Economic Assistance / Funds Appropriated to the President heading",
+        "Supplemental appropriation for coronavirus response",
+        "Administered by the USAID Administrator"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "subject_to",
+          "target": "Section 251(b)(2)(A)(i) of the Balanced Budget and Emergency Deficit Control Act of 1985",
+          "description": "Emergency designation"
+        },
+        {
+          "ref_type": "see_also",
+          "target": "Section 7058(c)(1) of division J of Public Law 115-31",
+          "description": "Emergency Reserve Fund establishment"
+        }
+      ],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 18190,
+        "end": 18343,
+        "file": "BILLS-116hr6074enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Emergency Reserve Fund",
+      "agency": "United States Agency for International Development",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 200000000
+        },
+        "semantics": "reference_amount",
+        "text_as_written": "$200,000,000"
+      },
+      "fiscal_year": 2020,
+      "availability": "to remain available until September 30, 2022",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": "A",
+      "title": "IV",
+      "confidence": 0.95,
+      "raw_text": "not less than $200,000,000 shall be transferred to, and merged with, funds made available for the Emergency Reserve Fund established pursuant to section",
+      "notes": [
+        "Sub-allocation of the $435,000,000 Global Health Programs appropriation; mandated transfer to the Emergency Reserve Fund",
+        "Floor amount ('not less than'), not a ceiling",
+        "Funds subject to terms and conditions of section 7058(c)(1) of division J of P.L. 115-31"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "see_also",
+          "target": "Section 7058(c)(1) of division J of Public Law 115-31",
+          "description": "Emergency Reserve Fund establishment authority"
+        }
+      ],
+      "detail_level": "sub_allocation",
+      "parent_account": "Global Health Programs",
+      "source_span": {
+        "start": 18592,
+        "end": 18744,
+        "file": "BILLS-116hr6074enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "International Disaster Assistance",
+      "agency": "United States Agency for International Development",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 300000000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$300,000,000"
+      },
+      "fiscal_year": 2020,
+      "availability": "to remain available until expended",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": "A",
+      "title": "IV",
+      "confidence": 0.97,
+      "raw_text": "For an additional amount for ''International Disaster Assistance'', $300,000,000, to remain available until expended, for necessary expenses to prevent,",
+      "notes": [
+        "Under Bilateral Economic Assistance / Funds Appropriated to the President heading",
+        "No-year funds (available until expended)"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "subject_to",
+          "target": "Section 251(b)(2)(A)(i) of the Balanced Budget and Emergency Deficit Control Act of 1985",
+          "description": "Emergency designation"
+        }
+      ],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 19285,
+        "end": 19437,
+        "file": "BILLS-116hr6074enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Economic Support Fund",
+      "agency": "Department of State",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 250000000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$250,000,000"
+      },
+      "fiscal_year": 2020,
+      "availability": "to remain available until September 30, 2022",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": "A",
+      "title": "IV",
+      "confidence": 0.97,
+      "raw_text": "For an additional amount for ''Economic Support Fund'', $250,000,000, to remain available until September 30, 2022, for necessary expenses to prevent, pr",
+      "notes": [
+        "Under Bilateral Economic Assistance / Funds Appropriated to the President heading",
+        "Includes economic, security, and stabilization requirements related to coronavirus"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "subject_to",
+          "target": "Section 251(b)(2)(A)(i) of the Balanced Budget and Emergency Deficit Control Act of 1985",
+          "description": "Emergency designation"
+        }
+      ],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 19698,
+        "end": 19851,
+        "file": "BILLS-116hr6074enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "limitation",
+      "description": "Funds appropriated by this title shall only be made available for obligation subject to the regular notification procedures of the Committees on Appropriations, except funds under International Disaster Assistance.",
+      "amount": null,
+      "account_name": null,
+      "section": "SEC. 401",
+      "division": "A",
+      "title": "IV",
+      "confidence": 0.95,
+      "raw_text": "Funds appropriated by this title shall only be made available for obligation subject to the regular notification procedures of the Committees on Appropr",
+      "notes": [
+        "Exempts International Disaster Assistance from the notification requirement"
+      ],
+      "cross_references": [],
+      "parent_account": null,
+      "source_span": {
+        "start": 20239,
+        "end": 20391,
+        "file": "BILLS-116hr6074enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "transfer_authority",
+      "from_scope": "",
+      "to_scope": "",
+      "limit": "unknown",
+      "conditions": [],
+      "section": "SEC. 402",
+      "division": "A",
+      "title": "IV",
+      "confidence": 0.95,
+      "raw_text": "Funds appropriated by this title under the heading ''Diplomatic Programs'' may be transferred to, and merged with, funds available under the ''Consular ",
+      "notes": [
+        "SEC. 402(a); no dollar ceiling specified; full amount of Diplomatic Programs is potentially transferable",
+        "Purpose limited to maintaining consular operations impacted by coronavirus"
+      ],
+      "cross_references": [],
+      "source_span": {
+        "start": 20619,
+        "end": 20771,
+        "file": "BILLS-116hr6074enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "transfer_authority",
+      "from_scope": "",
+      "to_scope": "",
+      "limit": "unknown",
+      "conditions": [],
+      "section": "SEC. 402",
+      "division": "A",
+      "title": "IV",
+      "confidence": 0.96,
+      "raw_text": "Of the funds appropriated by this title under the heading ''Economic Support Fund'', up to $7,000,000 may be transferred to, and merged with, funds appr",
+      "notes": [
+        "SEC. 402(b); $7,000,000 ceiling on transfer from ESF to Operating Expenses",
+        "Operating Expenses in Acts making appropriations for Department of State, foreign operations, and related programs"
+      ],
+      "cross_references": [],
+      "source_span": {
+        "start": 20871,
+        "end": 21023,
+        "file": "BILLS-116hr6074enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "transfer_authority",
+      "from_scope": "",
+      "to_scope": "",
+      "limit": "unknown",
+      "conditions": [],
+      "section": "SEC. 402",
+      "division": "A",
+      "title": "IV",
+      "confidence": 0.95,
+      "raw_text": "Funds appropriated by this title under the headings ''Global Health Programs'', ''International Disaster Assistance'', and ''Economic Support Fund'' may ",
+      "notes": [
+        "SEC. 402(c); allows cross-transfer among GHP, IDA, and ESF within this title",
+        "No dollar ceiling specified"
+      ],
+      "cross_references": [],
+      "source_span": {
+        "start": 21231,
+        "end": 21384,
+        "file": "BILLS-116hr6074enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "rider",
+      "description": "Transfer authorities in SEC. 402 are in addition to any other transfer authority provided by law. Funds transferred that are not necessary may be transferred back. No transfer may occur unless 5 days prior written notification is provided to the Committees on Appropriations.",
+      "policy_area": "transfer authority conditions",
+      "section": "SEC. 402",
+      "division": "A",
+      "title": "IV",
+      "confidence": 0.93,
+      "raw_text": "The transfer authorities of this section are in addition to any other transfer authority provided by law.",
+      "notes": [
+        "SEC. 402(d)-(f); establishes that these are additive transfer authorities, allows reverse transfers, and requires 5-day advance written notification"
+      ],
+      "cross_references": [],
+      "source_span": {
+        "start": 21530,
+        "end": 21635,
+        "file": "BILLS-116hr6074enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "rider",
+      "description": "Amends paragraph (6)(B) under Diplomatic Programs in P.L. 116-94 to increase transfer authority ceiling from $10,000,000 to $100,000,000 for Worldwide Security Protection, with a prohibition on transferring funds designated for OCO/GWOT, subject to prior consultation with Appropriations Committees.",
+      "policy_area": "transfer authority modification",
+      "section": "SEC. 403",
+      "division": "A",
+      "title": "IV",
+      "confidence": 0.94,
+      "raw_text": "Paragraph (6)(B) under the heading ''Administration of Foreign Affairs, Diplomatic Programs'' of the Department of State, Foreign Operations, and Relat",
+      "notes": [
+        "Amends P.L. 116-94 (Division G) to increase transfer authority from $10M to $100M for Worldwide Security Protection",
+        "Prohibits transfers from OCO/GWOT-designated amounts",
+        "Subject to prior consultation with Appropriations Committees"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Division G of Public Law 116-94, Administration of Foreign Affairs, Diplomatic Programs, paragraph (6)(B)",
+          "description": "Increases transfer authority ceiling from $10,000,000 to $100,000,000 for Worldwide Security Protection"
+        }
+      ],
+      "source_span": {
+        "start": 22234,
+        "end": 22385,
+        "file": "BILLS-116hr6074enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "rider",
+      "description": "Funds under Global Health Programs and Economic Support Fund may be made available as contributions to international organizations to prevent, prepare for, and respond to coronavirus, following consultation with Appropriations Committees.",
+      "policy_area": "international organization contributions",
+      "section": "SEC. 404",
+      "division": "A",
+      "title": "IV",
+      "confidence": 0.95,
+      "raw_text": "Funds appropriated by this title under the headings ''Global Health Programs'' and ''Economic Support Fund'' may be made available as contributions to in",
+      "notes": [
+        "Allows use of GHP and ESF funds as contributions to international organizations for coronavirus response"
+      ],
+      "cross_references": [],
+      "source_span": {
+        "start": 23152,
+        "end": 23305,
+        "file": "BILLS-116hr6074enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "rider",
+      "description": "Funds under Diplomatic Programs, Global Health Programs, International Disaster Assistance, and Economic Support Fund may be used to reimburse accounts for obligations incurred to prevent, prepare for, and respond to coronavirus prior to the date of enactment, except for obligations incurred by the Emergency Reserve Fund.",
+      "policy_area": "reimbursement authority",
+      "section": "SEC. 405",
+      "division": "A",
+      "title": "IV",
+      "confidence": 0.95,
+      "raw_text": "Funds appropriated by this title under the headings ''Diplomatic Programs'', ''Global Health Programs'', ''International Disaster Assistance'', and ''Eco",
+      "notes": [
+        "Permits retroactive reimbursement for pre-enactment coronavirus obligations",
+        "Explicitly excludes obligations incurred by the Emergency Reserve Fund established pursuant to section 7058(c)(1) of division J of P.L. 115-31"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "see_also",
+          "target": "Section 7058(c)(1) of division J of Public Law 115-31",
+          "description": "Emergency Reserve Fund excluded from reimbursement authority"
+        }
+      ],
+      "source_span": {
+        "start": 23504,
+        "end": 23657,
+        "file": "BILLS-116hr6074enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "directive",
+      "description": "Requires the Secretary of State and USAID Administrator to jointly submit a strategy to prevent, prepare for, and respond to coronavirus abroad within 15 days of enactment, and a report on proposed uses of funds on a country and project basis within 30 days of enactment, updated every 60 days until September 30, 2022, and every 180 days thereafter until all funds are expended.",
+      "deadlines": [
+        "15 days after enactment (strategy)",
+        "30 days after enactment (initial report)",
+        "Every 60 days thereafter until September 30, 2022",
+        "Every 180 days thereafter until all funds expended"
+      ],
+      "section": "SEC. 406",
+      "division": "A",
+      "title": "IV",
+      "confidence": 0.96,
+      "raw_text": "Not later than 15 days after the date of enactment of this Act, the Secretary of State and the Administrator of the United States Agency for Internatio",
+      "notes": [
+        "SEC. 406(a) requires joint strategy within 15 days",
+        "SEC. 406(b) requires report on proposed uses of funds on a country and project basis within 30 days, with periodic updates including changes to estimates and assumptions, obligations, and expenditures"
+      ],
+      "cross_references": [],
+      "source_span": {
+        "start": 24229,
+        "end": 24380,
+        "file": "BILLS-116hr6074enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "rider",
+      "description": "Establishes that each amount appropriated or made available by this Act is in addition to amounts otherwise appropriated for the fiscal year involved.",
+      "policy_area": "supplemental appropriations",
+      "section": "SEC. 501",
+      "division": "A",
+      "title": "V",
+      "confidence": 0.97,
+      "raw_text": "Each amount appropriated or made available by this Act is in addition to amounts otherwise appropriated for the fiscal year involved.",
+      "notes": [
+        "Standard supplemental boilerplate clarifying these are additional funds, not replacements."
+      ],
+      "cross_references": [],
+      "source_span": {
+        "start": 25451,
+        "end": 25584,
+        "file": "BILLS-116hr6074enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "limitation",
+      "description": "Prohibits any appropriation in this Act from remaining available for obligation beyond the current fiscal year unless expressly provided.",
+      "amount": null,
+      "account_name": null,
+      "section": "SEC. 502",
+      "division": "A",
+      "title": "V",
+      "confidence": 0.97,
+      "raw_text": "No part of any appropriation contained in this Act shall remain available for obligation beyond the current fiscal year unless expressly so provided herei",
+      "notes": [
+        "Standard single-year availability default for supplemental appropriations."
+      ],
+      "cross_references": [],
+      "parent_account": null,
+      "source_span": {
+        "start": 25596,
+        "end": 25750,
+        "file": "BILLS-116hr6074enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "rider",
+      "description": "Unless otherwise provided, additional amounts appropriated by this Act are available under the same authorities and conditions applicable to such appropriations accounts for fiscal year 2020.",
+      "policy_area": "appropriations administration",
+      "section": "SEC. 503",
+      "division": "A",
+      "title": "V",
+      "confidence": 0.97,
+      "raw_text": "Unless otherwise provided for by this Act, the additional amounts appropriated by this Act to appropriations accounts shall be available under the author",
+      "notes": [
+        "Ensures supplemental funds follow the same rules as existing FY2020 appropriations for each account."
+      ],
+      "cross_references": [],
+      "source_span": {
+        "start": 25764,
+        "end": 25917,
+        "file": "BILLS-116hr6074enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "limitation",
+      "description": "Restricts use of all funds made available or transferred under this Act to preventing, preparing for, and responding to coronavirus, subject to specified exceptions in subsection (b) for section 301(c), reimbursements, the Emergency Reserve Fund (P.L. 115-31), and the Infectious Diseases Rapid Response Reserve Fund (P.L. 115-245).",
+      "amount": null,
+      "account_name": null,
+      "section": "SEC. 504",
+      "division": "A",
+      "title": "V",
+      "confidence": 0.96,
+      "raw_text": "(a) Subject to subsection (b), and notwithstanding any other provision of law, funds made available in this Act, or transferred pursuant to authorizatio",
+      "notes": [
+        "Subsection (a) is a blanket restriction on use of funds to coronavirus purposes only.",
+        "Subsection (b) carves out exceptions for section 301(c), reimbursements, Emergency Reserve Fund (P.L. 115-31 sec. 7058(c)(1)), and Infectious Diseases Rapid Response Reserve Fund (P.L. 115-245 sec. 231).",
+        "Contains notwithstanding clause overriding other provisions of law."
+      ],
+      "cross_references": [
+        {
+          "ref_type": "notwithstanding",
+          "target": "any other provision of law",
+          "description": "Overrides other law to restrict funds to coronavirus use"
+        },
+        {
+          "ref_type": "see_also",
+          "target": "SEC. 301(c) of this Act",
+          "description": "Exempted from the coronavirus-only restriction"
+        },
+        {
+          "ref_type": "see_also",
+          "target": "Section 7058(c)(1) of division J of Public Law 115-31",
+          "description": "Emergency Reserve Fund exempted from restriction"
+        },
+        {
+          "ref_type": "see_also",
+          "target": "Section 231 of division B of Public Law 115-245",
+          "description": "Infectious Diseases Rapid Response Reserve Fund exempted from restriction"
+        }
+      ],
+      "parent_account": null,
+      "source_span": {
+        "start": 26014,
+        "end": 26166,
+        "file": "BILLS-116hr6074enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "directive",
+      "description": "Requires the Comptroller General of the United States to consult with the Committees on Appropriations of the House and Senate on oversight of activities supported with funds appropriated by this Act, not later than 60 days after enactment.",
+      "deadlines": [
+        "60 days after enactment"
+      ],
+      "section": "SEC. 505",
+      "division": "A",
+      "title": "V",
+      "confidence": 0.97,
+      "raw_text": "Not later than 60 days after the date of enactment of this Act, the Comptroller General of the United States shall consult with the Committees on Approp",
+      "notes": [
+        "GAO oversight consultation requirement for supplemental coronavirus funds."
+      ],
+      "cross_references": [],
+      "source_span": {
+        "start": 26717,
+        "end": 26869,
+        "file": "BILLS-116hr6074enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "other",
+      "llm_classification": "other",
+      "description": "Defines the term 'coronavirus' as used in this Act to mean SARS-CoV-2 or another coronavirus with pandemic potential.",
+      "amounts": [],
+      "references": [],
+      "metadata": {
+        "llm_classification": "definition"
+      },
+      "section": "SEC. 506",
+      "division": "A",
+      "title": "V",
+      "confidence": 0.97,
+      "raw_text": "In this Act, the term coronavirus means SARS\u2013CoV\u20132 or another coronavirus with pandemic potential.",
+      "notes": [
+        "Statutory definition that scopes the use-of-funds restriction in SEC. 504 and other provisions."
+      ],
+      "cross_references": [],
+      "source_span": {
+        "start": 27010,
+        "end": 27108,
+        "file": "BILLS-116hr6074enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "rider",
+      "description": "Conditions availability of each emergency-designated amount in this Act on the President subsequently designating all such amounts and transmitting such designations to Congress, pursuant to section 251(b)(2)(A)(i) of the Balanced Budget and Emergency Deficit Control Act of 1985.",
+      "policy_area": "budget enforcement",
+      "section": "SEC. 507",
+      "division": "A",
+      "title": "V",
+      "confidence": 0.96,
+      "raw_text": "Each amount designated in this Act by the Congress as being for an emergency requirement pursuant to section 251(b)(2)(A)(i) of the Balanced Budget and ",
+      "notes": [
+        "Standard emergency designation provision requiring presidential concurrence for funds to become available.",
+        "Applies to appropriations, rescissions, and transfers designated as emergency."
+      ],
+      "cross_references": [
+        {
+          "ref_type": "subject_to",
+          "target": "Section 251(b)(2)(A)(i) of the Balanced Budget and Emergency Deficit Control Act of 1985",
+          "description": "Emergency designation under BBEDCA"
+        }
+      ],
+      "source_span": {
+        "start": 27120,
+        "end": 27272,
+        "file": "BILLS-116hr6074enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "rider",
+      "description": "Provides that any amount appropriated by this Act that is designated as an emergency requirement and subsequently designated by the President shall retain its emergency designation when transferred pursuant to transfer authorities in this Act.",
+      "policy_area": "budget enforcement",
+      "section": "SEC. 508",
+      "division": "A",
+      "title": "V",
+      "confidence": 0.96,
+      "raw_text": "Any amount appropriated by this Act, designated by the Congress as an emergency requirement pursuant to section 251(b)(2)(A)(i) of the Balanced Budget a",
+      "notes": [
+        "Ensures emergency designation survives transfers between accounts, preserving budget cap exemption."
+      ],
+      "cross_references": [
+        {
+          "ref_type": "subject_to",
+          "target": "Section 251(b)(2)(A)(i) of the Balanced Budget and Emergency Deficit Control Act of 1985",
+          "description": "Emergency designation under BBEDCA"
+        }
+      ],
+      "source_span": {
+        "start": 27500,
+        "end": 27652,
+        "file": "BILLS-116hr6074enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "rider",
+      "description": "Amends Section 1135(b) of the Social Security Act to grant the Secretary of HHS authority to waive or modify certain Medicare telehealth requirements (originating site and telephone restrictions) during emergency periods for services furnished by qualified providers. Adds a definition of 'qualified provider' to Section 1135(g). Authorizes implementation by program instruction or otherwise.",
+      "policy_area": "Medicare telehealth",
+      "section": "SEC. 102",
+      "division": "B",
+      "title": null,
+      "confidence": 0.95,
+      "raw_text": "SEC. 102. \nSecretarial authority to temporarily waive or modify application of certain Medicare requirements with respect to telehealth services furnished",
+      "notes": [
+        "Subsection (a)(1) amends Section 1135(b) to add new paragraph (8) allowing waiver of telehealth originating-site requirements and telephone restrictions during emergencies",
+        "Subsection (a)(2) amends Section 1135(g) to add definition of 'qualified provider' \u2014 a physician/practitioner who furnished a paid item/service to the individual within the prior 3 years, or is in the same practice as one who did",
+        "Subsection (a)(3) permits implementation by program instruction",
+        "Subsection (b) clarifies definitions of 'emergency area' and 'emergency period' for purposes of new paragraph (8), tying them specifically to the January 31, 2020 COVID-19 public health emergency declaration and renewals"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 1135(b) of the Social Security Act (42 U.S.C. 1320b-5(b))",
+          "description": "Adds new paragraph (8) re: telehealth waiver authority during emergencies"
+        },
+        {
+          "ref_type": "amends",
+          "target": "Section 1135(g) of the Social Security Act (42 U.S.C. 1320b-5(g))",
+          "description": "Adds definition of qualified provider and clarifies emergency area/period definitions"
+        },
+        {
+          "ref_type": "see_also",
+          "target": "Section 1834(m) of the Social Security Act",
+          "description": "Defines telehealth services referenced in new waiver authority"
+        },
+        {
+          "ref_type": "see_also",
+          "target": "Section 319 of the Public Health Service Act",
+          "description": "Public health emergency declaration authority referenced for emergency period definition"
+        }
+      ],
+      "source_span": {
+        "start": 28144,
+        "end": 28298,
+        "file": "BILLS-116hr6074enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "rider",
+      "description": "Exempts the budgetary effects of Division B from statutory PAYGO scorecards (Statutory Pay-As-You-Go Act of 2010), Senate PAYGO scorecards (H. Con. Res. 71, 115th Congress), and from estimation under Section 251 of the Balanced Budget and Emergency Deficit Control Act of 1985 and certain provisions of the Statutory Pay-As-You-Go Act of 2010.",
+      "policy_area": "Budget enforcement / PAYGO exemption",
+      "section": "SEC. 103",
+      "division": "B",
+      "title": null,
+      "confidence": 0.95,
+      "raw_text": "SEC. 103. \nBudgetary effects\n\n(a) \nStatutory PAYGO scorecards\nThe budgetary effects of this division shall not be entered on either PAYGO",
+      "notes": [
+        "Subsection (a) exempts from statutory PAYGO scorecards under section 4(d) of the Statutory Pay-As-You-Go Act of 2010",
+        "Subsection (b) exempts from Senate PAYGO scorecards under section 4106 of H. Con. Res. 71 (115th Congress)",
+        "Subsection (c) exempts from budget scorekeeping under Section 251 of the Balanced Budget and Emergency Deficit Control Act of 1985 and section 3(4)(C) of the Statutory Pay-As-You-Go Act of 2010",
+        "Standard emergency-designated budgetary treatment provision"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "notwithstanding",
+          "target": "Budget Scorekeeping Guidelines, Conference Report 105-217",
+          "description": "Overrides Rule 3 of the Budget Scorekeeping Guidelines"
+        },
+        {
+          "ref_type": "notwithstanding",
+          "target": "Section 250(c)(8) of the Balanced Budget and Emergency Deficit Control Act of 1985",
+          "description": null
+        },
+        {
+          "ref_type": "see_also",
+          "target": "Section 4(d) of the Statutory Pay-As-You-Go Act of 2010",
+          "description": "Statutory PAYGO scorecard"
+        },
+        {
+          "ref_type": "see_also",
+          "target": "Section 4106 of H. Con. Res. 71 (115th Congress)",
+          "description": "Senate PAYGO scorecard"
+        },
+        {
+          "ref_type": "see_also",
+          "target": "Section 251 of the Balanced Budget and Emergency Deficit Control Act of 1985",
+          "description": null
+        }
+      ],
+      "source_span": {
+        "start": 31693,
+        "end": 31830,
+        "file": "BILLS-116hr6074enr.txt",
+        "verified": true
+      }
+    }
+  ],
+  "summary": {
+    "total_provisions": 55,
+    "by_division": {
+      "A": 53,
+      "B": 2
+    },
+    "by_type": {
+      "directive": 6,
+      "limitation": 6,
+      "transfer_authority": 7,
+      "other": 1,
+      "appropriation": 18,
+      "rider": 17
+    },
+    "total_budget_authority": 7767000000,
+    "total_rescissions": 0,
+    "sections_with_no_provisions": [
+      "SEC. 101"
+    ],
+    "flagged_issues": [
+      "Only Title II of Division A was provided for extraction; other titles/divisions of H.R. 6074 are not included in this input",
+      "Second PHSSF paragraph ($300,000,000) is conditional on Secretary certification \u2014 may not ultimately become available",
+      "CDC sub-allocations total $1,590,000,000 ($950M grants + $300M global + $300M Reserve Fund; $40M is within the $950M), leaving $610M for other CDC-directed coronavirus activities",
+      "SEC. 304 provides broad transfer authority among CDC, PHSSF, and NIH accounts with no specific dollar ceiling",
+      "All appropriations designated as emergency spending under BBEDCA section 251(b)(2)(A)(i)",
+      "SEC. 306 transfers up to $2,000,000 from Public Health and Social Services Emergency Fund to OIG; this is a ceiling on transfers from funds appropriated elsewhere in Title III, not new budget authority",
+      "Only SEC. 305 and SEC. 306 were provided from Title III; other sections in this title (e.g., appropriation accounts) were not included in the excerpt",
+      "All appropriations designated as emergency requirements under the Balanced Budget and Emergency Deficit Control Act",
+      "SEC. 403 increases an existing transfer authority ceiling from $10M to $100M in P.L. 116-94",
+      "$200M of the $435M Global Health Programs is mandated to transfer to the Emergency Reserve Fund",
+      "Title V contains only general provisions with no new appropriations \u2014 all spending is in other titles of the Act.",
+      "SEC. 504 restricts all funds in the Act to coronavirus purposes with limited exceptions.",
+      "SEC. 507 conditions availability of all emergency-designated funds on presidential designation.",
+      "Division B contains no appropriations \u2014 it is entirely policy riders amending Medicare telehealth law and exempting budgetary effects from PAYGO",
+      "SEC. 101 is a short title clause and was not extracted per instructions"
+    ]
+  },
+  "chunk_map": [
+    {
+      "chunk_id": "01KM84GB969MHAEQ38FABNFVEB",
+      "label": "[1/7] A-I",
+      "provision_indices": [
+        0
+      ]
+    },
+    {
+      "chunk_id": "01KM84GB96GETYKT2MCJR60BKH",
+      "label": "[2/7] A-II",
+      "provision_indices": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "chunk_id": "01KM84GB96TEHRQM4S7NZ9ZQFM",
+      "label": "[3/7] A-IIIa",
+      "provision_indices": [
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27
+      ]
+    },
+    {
+      "chunk_id": "01KM84GB96V62Y4DMBZCHXX18J",
+      "label": "[4/7] A-IIIb",
+      "provision_indices": [
+        28,
+        29
+      ]
+    },
+    {
+      "chunk_id": "01KM84GB97C3JWKPCP5EFBC8N5",
+      "label": "[5/7] A-IV",
+      "provision_indices": [
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44
+      ]
+    },
+    {
+      "chunk_id": "01KM84GQJ8PTW1YF5DSV9W83GA",
+      "label": "[6/7] A-V",
+      "provision_indices": [
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52
+      ]
+    },
+    {
+      "chunk_id": "01KM84H372KE5ZKMC1CTGBJM7C",
+      "label": "[7/7] B",
+      "provision_indices": [
+        53,
+        54
+      ]
+    }
+  ]
+}

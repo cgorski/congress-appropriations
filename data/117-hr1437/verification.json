@@ -1,0 +1,324 @@
+{
+  "schema_version": "1.0",
+  "amount_checks": [
+    {
+      "provision_index": 11,
+      "text_as_written": "$7,278,000,000",
+      "found_in_source": true,
+      "source_positions": [
+        7220
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 14,
+      "text_as_written": "$1,380,822",
+      "found_in_source": true,
+      "source_positions": [
+        8404
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 15,
+      "text_as_written": "$5,753,425",
+      "found_in_source": true,
+      "source_positions": [
+        8776
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 17,
+      "text_as_written": "$1,610,959",
+      "found_in_source": true,
+      "source_positions": [
+        9447
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 20,
+      "text_as_written": "$6,904,110",
+      "found_in_source": true,
+      "source_positions": [
+        10258
+      ],
+      "status": "verified"
+    }
+  ],
+  "raw_text_checks": [
+    {
+      "provision_index": 0,
+      "raw_text_preview": "SEC. 101. The Continuing Appropriations Act, 2023 (division A of Public Law 117...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 1312
+    },
+    {
+      "provision_index": 1,
+      "raw_text_preview": "(2) by adding after section 157 the following new section: SEC. 158. During the ...",
+      "is_verbatim_substring": false,
+      "match_tier": "normalized",
+      "found_at_position": null
+    },
+    {
+      "provision_index": 2,
+      "raw_text_preview": "Section 309(j)(11) of the Communications Act of 1934 (47 U.S.C. 309(j)(11)) is a...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 1878
+    },
+    {
+      "provision_index": 3,
+      "raw_text_preview": "Section 3014(a) of title 18, United States Code, is amended, in the matter prece...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 2139
+    },
+    {
+      "provision_index": 4,
+      "raw_text_preview": "For purposes of section 235(b) of the Sentencing Reform Act of 1984 (18 U.S.C. 3...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 2530
+    },
+    {
+      "provision_index": 5,
+      "raw_text_preview": "Section 1(b) of Public Law 117–25 (135 Stat. 297), as amended by section 104 o...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 3047
+    },
+    {
+      "provision_index": 6,
+      "raw_text_preview": "The budgetary effects of this division and each succeeding division shall not be...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 3413
+    },
+    {
+      "provision_index": 7,
+      "raw_text_preview": "Section 1886(d)(12) of the Social Security Act (42 U.S.C. 1395ww(d)(12)) is amen...",
+      "is_verbatim_substring": false,
+      "match_tier": "no_match",
+      "found_at_position": null
+    },
+    {
+      "provision_index": 8,
+      "raw_text_preview": "Notwithstanding any other provision of law, the Secretary of Health and Human Se...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 5549
+    },
+    {
+      "provision_index": 9,
+      "raw_text_preview": "Section 1886(d)(5)(G) of the Social Security Act (42 U.S.C. 1395ww(d)(5)(G)) is ...",
+      "is_verbatim_substring": false,
+      "match_tier": "no_match",
+      "found_at_position": null
+    },
+    {
+      "provision_index": 10,
+      "raw_text_preview": "Section 1905(ff) of the Social Security Act (42 U.S.C. 1396d(ff)) is amended— ...",
+      "is_verbatim_substring": false,
+      "match_tier": "no_match",
+      "found_at_position": null
+    },
+    {
+      "provision_index": 11,
+      "raw_text_preview": "Section 1898(b)(1) of the Social Security Act (42 U.S.C. 1395iii(b)(1)) is amend...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 7090
+    },
+    {
+      "provision_index": 12,
+      "raw_text_preview": "Activities authorized by section 511 of the Social Security Act shall continue t...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 7344
+    },
+    {
+      "provision_index": 13,
+      "raw_text_preview": "Activities authorized by part B of title IV of the Social Security Act shall con...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 7751
+    },
+    {
+      "provision_index": 14,
+      "raw_text_preview": "Section 566(f) of the Federal Food, Drug, and Cosmetic Act (21 U.S.C. 360bbb–5...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 8189
+    },
+    {
+      "provision_index": 15,
+      "raw_text_preview": "Section 409I(d)(1) of the Public Health Service Act (42 U.S.C. 284m(d)(1)) is am...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 8571
+    },
+    {
+      "provision_index": 16,
+      "raw_text_preview": "Section 520(m)(6)(A)(iv) of the Federal Food, Drug, and Cosmetic Act (21 U.S.C. ...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 8941
+    },
+    {
+      "provision_index": 17,
+      "raw_text_preview": "Section 305(e) of the Pediatric Medical Device Safety and Improvement Act of 200...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 9192
+    },
+    {
+      "provision_index": 18,
+      "raw_text_preview": "Section 505(u)(4) of the Federal Food, Drug, and Cosmetic Act (21 U.S.C. 355(u)(...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 9628
+    },
+    {
+      "provision_index": 19,
+      "raw_text_preview": "Section 704(g)(11) of the Federal Food, Drug, and Cosmetic Act (21 U.S.C. 374(g)...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 9852
+    },
+    {
+      "provision_index": 20,
+      "raw_text_preview": "Section 5(c) of the Orphan Drug Act (21 U.S.C. 360ee(c)) is amended by striking ...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 10070
+    },
+    {
+      "provision_index": 21,
+      "raw_text_preview": "Section 807 of the FDA Reauthorization Act of 2017 (Public Law 115–52) is amen...",
+      "is_verbatim_substring": false,
+      "match_tier": "no_match",
+      "found_at_position": null
+    },
+    {
+      "provision_index": 22,
+      "raw_text_preview": "Section 523(c) of the Federal Food, Drug, and Cosmetic Act (21 U.S.C. 360m(c)) i...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 10733
+    },
+    {
+      "provision_index": 23,
+      "raw_text_preview": "Section 424(a) of title IV of division G of Public Law 113–76 is amended by st...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 10949
+    },
+    {
+      "provision_index": 24,
+      "raw_text_preview": "The Weather Research and Forecasting Innovation Act of 2017 (15 U.S.C. 8501 et s...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 11408
+    },
+    {
+      "provision_index": 25,
+      "raw_text_preview": "Not later than 90 days after the date of enactment of the PRECIP Act, the Admini...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 11651
+    },
+    {
+      "provision_index": 26,
+      "raw_text_preview": "There is authorized $1,500,000 to the National Oceanic and Atmospheric Administr...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 14482
+    },
+    {
+      "provision_index": 27,
+      "raw_text_preview": "Not later than 90 days after the date on which the National Academies makes publ...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 14673
+    },
+    {
+      "provision_index": 28,
+      "raw_text_preview": "The Administrator, in collaboration with Federal agencies, State, territorial, T...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 16105
+    },
+    {
+      "provision_index": 29,
+      "raw_text_preview": "Section 1(b) of the Weather Research and Forecasting Innovation Act of 2017 (15 ...",
+      "is_verbatim_substring": false,
+      "match_tier": "no_match",
+      "found_at_position": null
+    }
+  ],
+  "completeness": {
+    "total_dollar_amounts_in_text": 12,
+    "accounted_for": 5,
+    "unaccounted": [
+      {
+        "text": "$174,000",
+        "value": 174000,
+        "position": 1254,
+        "context": "Aston Donald McEachin, late a Representative from the Commonwealth of Virginia, $174,000. A  Further Continuing Appropriations Act, 2023  SEC. 101. The Continui"
+      },
+      {
+        "text": "$7,308,000,000",
+        "value": 7308000000,
+        "position": 7187,
+        "context": ") of the Social Security Act (42 U.S.C. 1395iii(b)(1)) is amended by striking ''$7,308,000,000'' and inserting ''$7,278,000,000''.  II  Human Services  SEC. 201"
+      },
+      {
+        "text": "$1,265,753",
+        "value": 1265753,
+        "position": 8299,
+        "context": "Food, Drug, and Cosmetic Act (21 U.S.C. 360bbb–5(f)) is amended by striking ''$1,265,753 for the period beginning on October 1, 2022 and ending on December 16"
+      },
+      {
+        "text": "$5,273,973",
+        "value": 5273973,
+        "position": 8671,
+        "context": "f the Public Health Service Act (42 U.S.C. 284m(d)(1)) is amended by striking ''$5,273,973 for the period beginning on October 1, 2022 and ending on December 16"
+      },
+      {
+        "text": "$1,107,534",
+        "value": 1107534,
+        "position": 9341,
+        "context": "Act of 2007 (Public Law 110–85; 42 U.S.C. 282 note) is amended by striking ''$1,107,534 for the period beginning on October 1, 2022, and ending on December 1"
+      },
+      {
+        "text": "$6,328,767",
+        "value": 6328767,
+        "position": 10152,
+        "context": "ction 5(c) of the Orphan Drug Act (21 U.S.C. 360ee(c)) is amended by striking ''$6,328,767 for the period beginning on October 1, 2022, and ending on December 1"
+      },
+      {
+        "text": "$1,500,000",
+        "value": 1500000,
+        "position": 14502,
+        "context": "expand such datasets. (c)  Authorization of appropriations There is authorized $1,500,000 to the National Oceanic and Atmospheric Administration to carry out t"
+      }
+    ]
+  },
+  "summary": {
+    "total_provisions": 30,
+    "amounts_verified": 5,
+    "amounts_not_found": 0,
+    "amounts_ambiguous": 0,
+    "raw_text_exact": 24,
+    "raw_text_normalized": 1,
+    "raw_text_spaceless": 0,
+    "raw_text_no_match": 5,
+    "completeness_pct": 41.66666666666667,
+    "provisions_by_detail_level": {
+      "n/a": 30
+    }
+  }
+}

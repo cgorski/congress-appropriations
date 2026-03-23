@@ -4,36 +4,57 @@
 
 `congress-approp` is a Rust command-line tool that downloads U.S. federal appropriations bills from Congress.gov, extracts every spending provision into structured JSON using Claude, verifies each dollar amount against the source bill text, and gives you tools to search, compare, summarize, and audit the results. No more hunting through 1,500 pages of legislative text to find out how much Congress appropriated for a program.
 
-> **Trust callout:** Across 11,136 provisions extracted from fourteen bills, every single dollar amount was found verbatim in the source bill text. Zero unverifiable amounts. The LLM extracts; deterministic code verifies.
+> **Trust callout:** Across 34,568 provisions extracted from 32 bills, 99.995% of dollar amounts were confirmed verbatim in the source bill text (18,583 of 18,584). Every provision has exact byte-level source spans in the enrolled bill. The LLM extracts; deterministic code verifies.
 
 ## What's Included
 
-This book ships with **fourteen bills, continuing resolutions, supplementals, and authorizations. All twelve appropriations subcommittees are represented for FY2026. You don't need any API keys to explore them — just install the tool and start querying.
+This book ships with **32 enacted appropriations bills** across 4 congresses (116th–119th), covering FY2019 through FY2026. All twelve appropriations subcommittees are represented for FY2020–FY2024 and FY2026. You don't need any API keys to explore them — just install the tool and start querying.
 
-### 118th Congress (FY2024/FY2025)
+### 116th Congress (FY2019–FY2021) — 11 bills
 
-| Bill | Classification | Subcommittees | Provisions | Budget Auth |
-|------|---------------|---------------|-----------|------------|
-| H.R. 4366 | Omnibus | MilCon-VA, Ag, CJS, E&W, Interior, THUD | 2,364 | $846B |
-| H.R. 5860 | Continuing Resolution | (all, at prior-year rates) | 130 | $16B |
-| H.R. 9468 | Supplemental | VA | 7 | $2.9B |
-| H.R. 815 | Supplemental | Defense, State (Ukraine/Israel/Taiwan) | 303 | $95B |
-| H.R. 2872 | Continuing Resolution | (further CR) | 31 | $0 |
-| H.R. 6363 | Continuing Resolution | (further CR + extensions) | 74 | ~$0 |
-| H.R. 7463 | Continuing Resolution | (CR extension) | 10 | $0 |
-| H.R. 9747 | Continuing Resolution | (CR + extensions, FY2025) | 114 | $383M |
-| S. 870 | Authorization | Fire administration | 49 | $0 |
+| Bill | Classification | Provisions | Budget Auth |
+|------|---------------|-----------|------------|
+| H.R. 1865 | Omnibus (FY2020, 8 subcommittees) | 3,338 | $1,710B |
+| H.R. 1158 | Minibus (FY2020, Defense + CJS + FinServ + Homeland) | 1,519 | $887B |
+| H.R. 133 | Omnibus (FY2021, all 12 subcommittees) | 6,739 | $3,378B |
+| H.R. 2157 | Supplemental (FY2019, disaster relief) | 116 | $19B |
+| H.R. 3401 | Supplemental (FY2019, humanitarian) | 55 | $5B |
+| H.R. 6074 | Supplemental (FY2020, COVID preparedness) | 55 | $8B |
+| + 5 CRs | Continuing resolutions | 351 | $31B |
 
-### 119th Congress (FY2025/FY2026)
+### 117th Congress (FY2021–FY2023) — 7 bills
 
-| Bill | Classification | Subcommittees | Provisions | Budget Auth |
-|------|---------------|---------------|-----------|------------|
-| H.R. 1968 | Full-Year CR with Appropriations | Defense, Homeland, Labor-HHS, others | 526 | $1,786B |
-| H.R. 5371 | Minibus | CR + Ag + LegBranch + MilCon-VA | 1,048 | $681B |
-| H.R. 6938 | Minibus | CJS + Energy-Water + Interior | 1,061 | $196B |
-| H.R. 7148 | Omnibus | Defense + Labor-HHS + THUD + FinServ + State | 2,837 | $2,788B |
+| Bill | Classification | Provisions | Budget Auth |
+|------|---------------|-----------|------------|
+| H.R. 2471 | Omnibus (FY2022) | 5,063 | $3,031B |
+| H.R. 2617 | Omnibus (FY2023) | 5,910 | $3,379B |
+| H.R. 3237 | Supplemental (FY2021, Capitol security) | 47 | $2B |
+| H.R. 7691 | Supplemental (FY2022, Ukraine) | 67 | $40B |
+| H.R. 6833 | CR + Ukraine supplemental | 240 | $46B |
+| + 2 CRs | Continuing resolutions | 37 | $0 |
 
-**Totals:** 11,136 provisions, $8.9 trillion in budget authority, 0 unverifiable dollar amounts.
+### 118th Congress (FY2024/FY2025) — 10 bills
+
+| Bill | Classification | Provisions | Budget Auth |
+|------|---------------|-----------|------------|
+| H.R. 4366 | Omnibus (MilCon-VA, Ag, CJS, E&W, Interior, THUD) | 2,323 | $921B |
+| H.R. 2882 | Omnibus (Defense, FinServ, Homeland, Labor-HHS, LegBranch, State) | 2,608 | $2,451B |
+| H.R. 815 | Supplemental (Ukraine/Israel/Taiwan) | 306 | $95B |
+| H.R. 9468 | Supplemental (VA) | 7 | $3B |
+| H.R. 5860 | Continuing Resolution + 13 anomalies | 136 | $16B |
+| S. 870 | Authorization (Fire Admin) | 51 | $0 |
+| + 4 CRs | Continuing resolutions | 233 | $0 |
+
+### 119th Congress (FY2025/FY2026) — 4 bills
+
+| Bill | Classification | Provisions | Budget Auth |
+|------|---------------|-----------|------------|
+| H.R. 7148 | Omnibus (Defense + Labor-HHS + THUD + FinServ + State) | 2,774 | $2,841B |
+| H.R. 5371 | Minibus (CR + Ag + LegBranch + MilCon-VA) | 1,051 | $681B |
+| H.R. 6938 | Minibus (CJS + Energy-Water + Interior) | 1,028 | $196B |
+| H.R. 1968 | Full-Year CR with Appropriations (FY2025) | 514 | $1,786B |
+
+**Totals:** 32 bills, 34,568 provisions, $21.5 trillion in budget authority, 1,051 accounts tracked by Treasury Account Symbol across FY2019–FY2026.
 
 ## What Can You Do?
 

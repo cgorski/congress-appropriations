@@ -1,0 +1,632 @@
+{
+  "schema_version": "1.0",
+  "amount_checks": [
+    {
+      "provision_index": 0,
+      "text_as_written": "$61,000,000",
+      "found_in_source": true,
+      "source_positions": [
+        646
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 1,
+      "text_as_written": "$20,000,000",
+      "found_in_source": true,
+      "source_positions": [
+        1473
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 7,
+      "text_as_written": "$2,200,000,000",
+      "found_in_source": true,
+      "source_positions": [
+        2936
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 8,
+      "text_as_written": "$950,000,000",
+      "found_in_source": true,
+      "source_positions": [
+        3113
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 10,
+      "text_as_written": "$40,000,000",
+      "found_in_source": true,
+      "source_positions": [
+        3925
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 11,
+      "text_as_written": "$300,000,000",
+      "found_in_source": true,
+      "source_positions": [
+        4608,
+        4761,
+        10539,
+        19385
+      ],
+      "status": "ambiguous"
+    },
+    {
+      "provision_index": 12,
+      "text_as_written": "$300,000,000",
+      "found_in_source": true,
+      "source_positions": [
+        4608,
+        4761,
+        10539,
+        19385
+      ],
+      "status": "ambiguous"
+    },
+    {
+      "provision_index": 15,
+      "text_as_written": "$836,000,000",
+      "found_in_source": true,
+      "source_positions": [
+        6348
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 16,
+      "text_as_written": "$10,000,000",
+      "found_in_source": true,
+      "source_positions": [
+        6582,
+        22533
+      ],
+      "status": "ambiguous"
+    },
+    {
+      "provision_index": 17,
+      "text_as_written": "$3,100,000,000",
+      "found_in_source": true,
+      "source_positions": [
+        7261
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 21,
+      "text_as_written": "$100,000,000",
+      "found_in_source": true,
+      "source_positions": [
+        9986,
+        22628
+      ],
+      "status": "ambiguous"
+    },
+    {
+      "provision_index": 22,
+      "text_as_written": "$300,000,000",
+      "found_in_source": true,
+      "source_positions": [
+        4608,
+        4761,
+        10539,
+        19385
+      ],
+      "status": "ambiguous"
+    },
+    {
+      "provision_index": 23,
+      "text_as_written": "$300,000,000",
+      "found_in_source": true,
+      "source_positions": [
+        4608,
+        4761,
+        10539,
+        19385
+      ],
+      "status": "ambiguous"
+    },
+    {
+      "provision_index": 30,
+      "text_as_written": "$264,000,000",
+      "found_in_source": true,
+      "source_positions": [
+        17128
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 31,
+      "text_as_written": "$1,000,000",
+      "found_in_source": true,
+      "source_positions": [
+        17751
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 32,
+      "text_as_written": "$435,000,000",
+      "found_in_source": true,
+      "source_positions": [
+        18277
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 33,
+      "text_as_written": "$200,000,000",
+      "found_in_source": true,
+      "source_positions": [
+        18636
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 34,
+      "text_as_written": "$300,000,000",
+      "found_in_source": true,
+      "source_positions": [
+        4608,
+        4761,
+        10539,
+        19385
+      ],
+      "status": "ambiguous"
+    },
+    {
+      "provision_index": 35,
+      "text_as_written": "$250,000,000",
+      "found_in_source": true,
+      "source_positions": [
+        19786
+      ],
+      "status": "verified"
+    }
+  ],
+  "raw_text_checks": [
+    {
+      "provision_index": 0,
+      "raw_text_preview": "For an additional amount for ''Salaries and Expenses'', $61,000,000, to remain a...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 590
+    },
+    {
+      "provision_index": 1,
+      "raw_text_preview": "For an additional amount for the ''Disaster Loans Program Account'' for administ...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 1284
+    },
+    {
+      "provision_index": 2,
+      "raw_text_preview": "Provided, That such amounts may be transferred to and merged with “Small Busin...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 1522
+    },
+    {
+      "provision_index": 3,
+      "raw_text_preview": "Provided further, That for purposes of section 7(b)(2)(D) of the Small Business ...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 1649
+    },
+    {
+      "provision_index": 4,
+      "raw_text_preview": "Provided further, That none of the funds provided under this heading in this Act...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 1992
+    },
+    {
+      "provision_index": 5,
+      "raw_text_preview": "Provided further, That such amount is designated by the Congress as being for an...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 2123
+    },
+    {
+      "provision_index": 6,
+      "raw_text_preview": "Provided further, That amounts repurposed under this heading that were previousl...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 2328
+    },
+    {
+      "provision_index": 7,
+      "raw_text_preview": "For an additional amount for ''CDC–Wide Activities and Program Support'', $2,2...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 2860
+    },
+    {
+      "provision_index": 8,
+      "raw_text_preview": "not less than $950,000,000 of the amount provided shall be for grants to or coop...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 3099
+    },
+    {
+      "provision_index": 9,
+      "raw_text_preview": "$475,000,000 of the funds made available in the preceding proviso shall be alloc...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 3520
+    },
+    {
+      "provision_index": 10,
+      "raw_text_preview": "not less than $40,000,000 of such funds shall be allocated to tribes, tribal org...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 3911
+    },
+    {
+      "provision_index": 11,
+      "raw_text_preview": "of the amount provided under this heading in this Act, not less than $300,000,00...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 4539
+    },
+    {
+      "provision_index": 12,
+      "raw_text_preview": "of the amount provided under this heading in this Act, $300,000,000 shall be tra...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 4706
+    },
+    {
+      "provision_index": 13,
+      "raw_text_preview": "the Secretary of Health and Human Services, in consultation with the Director of...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 4988
+    },
+    {
+      "provision_index": 14,
+      "raw_text_preview": "funds appropriated under this heading in this Act may be used for grants for the...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 5591
+    },
+    {
+      "provision_index": 15,
+      "raw_text_preview": "For an additional amount for ''National Institute of Allergy and Infectious Dise...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 6260
+    },
+    {
+      "provision_index": 16,
+      "raw_text_preview": "not less than $10,000,000 shall be transferred to ''National Institute of Enviro...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 6568
+    },
+    {
+      "provision_index": 17,
+      "raw_text_preview": "For an additional amount for ''Public Health and Social Services Emergency Fund'...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 7178
+    },
+    {
+      "provision_index": 18,
+      "raw_text_preview": "products purchased by the Federal government with funds made available under thi...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 8196
+    },
+    {
+      "provision_index": 19,
+      "raw_text_preview": "the Secretary of Health and Human Services shall purchase vaccines developed usi...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 7885
+    },
+    {
+      "provision_index": 20,
+      "raw_text_preview": "funds appropriated under this heading in this Act may be transferred to, and mer...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 9105
+    },
+    {
+      "provision_index": 21,
+      "raw_text_preview": "of the amount provided under this heading in this Act, $100,000,000 shall be tra...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 9931
+    },
+    {
+      "provision_index": 22,
+      "raw_text_preview": "For an additional amount for ''Public Health and Social Services Emergency Fund'...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 10456
+    },
+    {
+      "provision_index": 23,
+      "raw_text_preview": "the amount made available in this paragraph shall only be made available if the ...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 10885
+    },
+    {
+      "provision_index": 24,
+      "raw_text_preview": "(a) Funds appropriated in this title may be made available to restore amounts, e...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 11874
+    },
+    {
+      "provision_index": 25,
+      "raw_text_preview": "Funds appropriated by this title may be used by the Secretary of the Health and ...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 13317
+    },
+    {
+      "provision_index": 26,
+      "raw_text_preview": "Funds made available by this title may be used to enter into contracts with indi...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 13743
+    },
+    {
+      "provision_index": 27,
+      "raw_text_preview": "Funds appropriated by this title may be transferred to, and merged with, other a...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 14475
+    },
+    {
+      "provision_index": 28,
+      "raw_text_preview": "Not later than 30 days after the date of enactment of this Act, the Secretary of...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 15472
+    },
+    {
+      "provision_index": 29,
+      "raw_text_preview": "Of the funds appropriated by this title under the heading ''Public Health and So...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 16205
+    },
+    {
+      "provision_index": 30,
+      "raw_text_preview": "For an additional amount for ''Diplomatic Programs'', $264,000,000, to remain av...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 17074
+    },
+    {
+      "provision_index": 31,
+      "raw_text_preview": "For an additional amount for ''Office of Inspector General'', $1,000,000, to rem...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 17689
+    },
+    {
+      "provision_index": 32,
+      "raw_text_preview": "For an additional amount for ''Global Health Programs'', $435,000,000, to remain...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 18220
+    },
+    {
+      "provision_index": 33,
+      "raw_text_preview": "not less than $200,000,000 shall be transferred to, and merged with, funds made ...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 18622
+    },
+    {
+      "provision_index": 34,
+      "raw_text_preview": "For an additional amount for ''International Disaster Assistance'', $300,000,000...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 19317
+    },
+    {
+      "provision_index": 35,
+      "raw_text_preview": "For an additional amount for ''Economic Support Fund'', $250,000,000, to remain ...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 19730
+    },
+    {
+      "provision_index": 36,
+      "raw_text_preview": "Funds appropriated by this title shall only be made available for obligation sub...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 20273
+    },
+    {
+      "provision_index": 37,
+      "raw_text_preview": "Funds appropriated by this title under the heading ''Diplomatic Programs'' may b...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 20653
+    },
+    {
+      "provision_index": 38,
+      "raw_text_preview": "Of the funds appropriated by this title under the heading ''Economic Support Fun...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 20905
+    },
+    {
+      "provision_index": 39,
+      "raw_text_preview": "Funds appropriated by this title under the headings ''Global Health Programs'', ...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 21265
+    },
+    {
+      "provision_index": 40,
+      "raw_text_preview": "The transfer authorities of this section are in addition to any other transfer a...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 21564
+    },
+    {
+      "provision_index": 41,
+      "raw_text_preview": "Paragraph (6)(B) under the heading ''Administration of Foreign Affairs, Diplomat...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 22268
+    },
+    {
+      "provision_index": 42,
+      "raw_text_preview": "Funds appropriated by this title under the headings ''Global Health Programs'' a...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 23188
+    },
+    {
+      "provision_index": 43,
+      "raw_text_preview": "Funds appropriated by this title under the headings ''Diplomatic Programs'', ''G...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 23540
+    },
+    {
+      "provision_index": 44,
+      "raw_text_preview": "Not later than 15 days after the date of enactment of this Act, the Secretary of...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 24267
+    },
+    {
+      "provision_index": 45,
+      "raw_text_preview": "Each amount appropriated or made available by this Act is in addition to amounts...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 25491
+    },
+    {
+      "provision_index": 46,
+      "raw_text_preview": "No part of any appropriation contained in this Act shall remain available for ob...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 25636
+    },
+    {
+      "provision_index": 47,
+      "raw_text_preview": "Unless otherwise provided for by this Act, the additional amounts appropriated b...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 25804
+    },
+    {
+      "provision_index": 48,
+      "raw_text_preview": "(a) Subject to subsection (b), and notwithstanding any other provision of law, f...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 26054
+    },
+    {
+      "provision_index": 49,
+      "raw_text_preview": "Not later than 60 days after the date of enactment of this Act, the Comptroller ...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 26761
+    },
+    {
+      "provision_index": 50,
+      "raw_text_preview": "In this Act, the term coronavirus means SARS–CoV–2 or another coronavirus wi...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 27054
+    },
+    {
+      "provision_index": 51,
+      "raw_text_preview": "Each amount designated in this Act by the Congress as being for an emergency req...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 27168
+    },
+    {
+      "provision_index": 52,
+      "raw_text_preview": "Any amount appropriated by this Act, designated by the Congress as an emergency ...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 27548
+    },
+    {
+      "provision_index": 53,
+      "raw_text_preview": "SEC. 102. \nSecretarial authority to temporarily waive or modify application of c...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 28192
+    },
+    {
+      "provision_index": 54,
+      "raw_text_preview": "SEC. 103. \nBudgetary effects\n\n(a) \nStatutory PAYGO scorecards\nThe budgetary effe...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 31757
+    }
+  ],
+  "completeness": {
+    "total_dollar_amounts_in_text": 25,
+    "accounted_for": 20,
+    "unaccounted": [
+      {
+        "text": "$475,000,000",
+        "value": 475000000,
+        "position": 3520,
+        "context": "cations, and other preparedness and response activities: Provided further, That $475,000,000 of the funds made available in the preceding proviso shall be alloc"
+      },
+      {
+        "text": "$5,000,000",
+        "value": 5000000,
+        "position": 5515,
+        "context": "e prior two weeks, as long as such report would detail obligations in excess of $5,000,000, and upon the request by such Committees: Provided further, That fund"
+      },
+      {
+        "text": "$5,000,000",
+        "value": 5000000,
+        "position": 16097,
+        "context": "l be accompanied by a listing of each contract obligation incurred that exceeds $5,000,000 which has not previously been reported, including the amount of each"
+      },
+      {
+        "text": "$2,000,000",
+        "value": 2000000,
+        "position": 16323,
+        "context": "e under the heading ''Public Health and Social Services Emergency Fund'', up to $2,000,000 shall be transferred to, and merged with, funds made available under"
+      },
+      {
+        "text": "$7,000,000",
+        "value": 7000000,
+        "position": 20996,
+        "context": "s appropriated by this title under the heading ''Economic Support Fund'', up to $7,000,000 may be transferred to, and merged with, funds appropriated under the"
+      }
+    ]
+  },
+  "summary": {
+    "total_provisions": 55,
+    "amounts_verified": 12,
+    "amounts_not_found": 0,
+    "amounts_ambiguous": 7,
+    "raw_text_exact": 55,
+    "raw_text_normalized": 0,
+    "raw_text_spaceless": 0,
+    "raw_text_no_match": 0,
+    "completeness_pct": 80.0,
+    "provisions_by_detail_level": {
+      "top_level": 11,
+      "sub_allocation": 7,
+      "n/a": 37
+    }
+  }
+}

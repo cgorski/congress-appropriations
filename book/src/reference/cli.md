@@ -22,7 +22,7 @@ congress-approp summary [OPTIONS]
 
 | Flag | Type | Default | Description |
 |------|------|---------|-------------|
-| `--dir` | path | `./data` | Data directory containing extracted bills. Try `examples` for included FY2024 data. Walks recursively to find all `extraction.json` files. |
+| `--dir` | path | `./data` | Data directory containing extracted bills. Try `data` for included FY2019–FY2026 dataset. Walks recursively to find all `extraction.json` files. |
 | `--format` | string | `table` | Output format: `table`, `json`, `jsonl`, `csv` |
 | `--by-agency` | flag | — | Append a second table showing budget authority totals by parent department, sorted descending |
 | `--fy` | integer | — | Filter to bills covering this fiscal year (e.g., `2026`). Uses `bill.fiscal_years` from extraction data — works without `enrich`. |
@@ -302,7 +302,7 @@ congress-approp audit [OPTIONS]
 
 | Flag | Type | Default | Description |
 |------|------|---------|-------------|
-| `--dir` | path | `./data` | Data directory to audit. Try `examples` for included FY2024 data. |
+| `--dir` | path | `./data` | Data directory to audit. Try `data` for included FY2019–FY2026 dataset. |
 | `--verbose` | flag | — | Show individual problematic provisions (those with `not_found` amounts or `no_match` raw text) |
 
 ### Examples
@@ -819,7 +819,7 @@ The `<SOURCE>` argument is a provision reference in the format `bill_directory:i
 
 | Flag | Type | Default | Description |
 |------|------|---------|-------------|
-| `--dir` | path | `./examples` | Data directory |
+| `--dir` | path | `./data` | Data directory |
 | `--top` | integer | `10` | Max related provisions per confidence tier |
 | `--format` | string | `table` | Output format: `table`, `json`, `hashes` |
 | `--fy-timeline` | flag | — | Show fiscal year timeline with advance/current/supplemental split |
@@ -867,7 +867,7 @@ congress-approp link suggest [OPTIONS]
 
 | Flag | Type | Default | Description |
 |------|------|---------|-------------|
-| `--dir` | path | `./examples` | Data directory |
+| `--dir` | path | `./data` | Data directory |
 | `--threshold` | float | `0.55` | Minimum similarity for candidates |
 | `--scope` | string | `all` | Which bill pairs to compare: `intra` (within same FY), `cross` (across FYs), `all` |
 | `--limit` | integer | `100` | Max candidates to output |
@@ -908,7 +908,7 @@ congress-approp link accept [OPTIONS] [HASHES...]
 
 | Flag | Type | Default | Description |
 |------|------|---------|-------------|
-| `--dir` | path | `./examples` | Data directory |
+| `--dir` | path | `./data` | Data directory |
 | `--note` | string | — | Optional annotation (e.g., "Account renamed from X to Y") |
 | `--auto` | flag | — | Accept all verified + high-confidence candidates without specifying hashes |
 | `HASHES` | positional | — | One or more 8-char link hashes to accept |
@@ -942,7 +942,7 @@ congress-approp link remove --dir <DIR> <HASHES...>
 
 | Flag | Type | Default | Description |
 |------|------|---------|-------------|
-| `--dir` | path | `./examples` | Data directory |
+| `--dir` | path | `./data` | Data directory |
 | `HASHES` | positional | *(required)* | One or more 8-char link hashes to remove |
 
 ### Example
@@ -963,7 +963,7 @@ congress-approp link list [OPTIONS]
 
 | Flag | Type | Default | Description |
 |------|------|---------|-------------|
-| `--dir` | path | `./examples` | Data directory |
+| `--dir` | path | `./data` | Data directory |
 | `--format` | string | `table` | Output format: `table`, `json` |
 | `--bill` | string | — | Filter to links involving this bill (case-insensitive substring) |
 

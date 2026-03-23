@@ -1,0 +1,11 @@
+{
+  "provisions_parsed": 200,
+  "provisions_failed": 0,
+  "null_to_default": 7,
+  "type_coercions": 0,
+  "unknown_provision_types": 25,
+  "warnings": [
+    "SEC SEC. 4602: missing amount on appropriation",
+    "SEC SEC. 4603: missing amount on appropriation"
+  ]
+}

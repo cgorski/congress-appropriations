@@ -1,0 +1,242 @@
+{
+  "schema_version": "1.0",
+  "congress": 116,
+  "fiscal_years": [
+    2019
+  ],
+  "bill_nature": "supplemental",
+  "subcommittees": [],
+  "provision_timing": [
+    {
+      "provision_index": 0,
+      "timing": "supplemental",
+      "available_fy": null,
+      "source": {
+        "type": "note_text"
+      }
+    },
+    {
+      "provision_index": 4,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 5,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 6,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 7,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 8,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 9,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 15,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 16,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 24,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 31,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    }
+  ],
+  "canonical_accounts": [
+    {
+      "provision_index": 0,
+      "canonical_name": "executive office for immigration review"
+    },
+    {
+      "provision_index": 1,
+      "canonical_name": "executive office for immigration review"
+    },
+    {
+      "provision_index": 2,
+      "canonical_name": "executive office for immigration review"
+    },
+    {
+      "provision_index": 3,
+      "canonical_name": "executive office for immigration review"
+    },
+    {
+      "provision_index": 4,
+      "canonical_name": "federal prisoner detention"
+    },
+    {
+      "provision_index": 5,
+      "canonical_name": "operation and maintenance, army"
+    },
+    {
+      "provision_index": 6,
+      "canonical_name": "operation and maintenance, marine corps"
+    },
+    {
+      "provision_index": 7,
+      "canonical_name": "operation and maintenance, air force"
+    },
+    {
+      "provision_index": 8,
+      "canonical_name": "operation and maintenance, army national guard"
+    },
+    {
+      "provision_index": 9,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 10,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 11,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 12,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 13,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 14,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 15,
+      "canonical_name": "procurement, construction, and improvements"
+    },
+    {
+      "provision_index": 16,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 17,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 18,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 19,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 20,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 21,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 22,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 23,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 24,
+      "canonical_name": "federal assistance"
+    },
+    {
+      "provision_index": 27,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 31,
+      "canonical_name": "refugee and entrant assistance"
+    },
+    {
+      "provision_index": 32,
+      "canonical_name": "refugee and entrant assistance"
+    },
+    {
+      "provision_index": 33,
+      "canonical_name": "refugee and entrant assistance"
+    },
+    {
+      "provision_index": 34,
+      "canonical_name": "refugee and entrant assistance"
+    },
+    {
+      "provision_index": 35,
+      "canonical_name": "refugee and entrant assistance"
+    },
+    {
+      "provision_index": 36,
+      "canonical_name": "refugee and entrant assistance"
+    },
+    {
+      "provision_index": 37,
+      "canonical_name": "refugee and entrant assistance"
+    },
+    {
+      "provision_index": 38,
+      "canonical_name": "office of inspector general"
+    },
+    {
+      "provision_index": 42,
+      "canonical_name": "refugee and entrant assistance"
+    }
+  ],
+  "extraction_sha256": "d42180d0f1f7736cc127fa478bf72fe34b664919235eb05350bb36afe29d7097"
+}

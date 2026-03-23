@@ -1,0 +1,2921 @@
+{
+  "schema_version": "1.0",
+  "bill": {
+    "identifier": "H.R. 4378",
+    "classification": "continuing_resolution",
+    "short_title": "Continuing Appropriations Act, 2020, and Health Extenders Act of 2019",
+    "fiscal_years": [
+      2020
+    ],
+    "divisions": [
+      "A",
+      "B"
+    ],
+    "public_law": "P.L. 116-59"
+  },
+  "provisions": [
+    {
+      "provision_type": "continuing_resolution_baseline",
+      "reference_year": 2019,
+      "reference_laws": [
+        "P.L. 116-6",
+        "P.L. 115-245",
+        "P.L. 115-244"
+      ],
+      "rate": "at a rate for operations as provided in the applicable appropriations Acts for fiscal year 2019",
+      "duration": "through November 21, 2019",
+      "anomalies": [],
+      "section": "SEC. 101",
+      "division": "A",
+      "title": null,
+      "confidence": 0.97,
+      "raw_text": "Such amounts as may be necessary, at a rate for operations as provided in the applicable appropriations Acts for fiscal year 2019 and under the authori",
+      "notes": [
+        "Core CR mechanism funding all accounts at FY2019 rates through November 21, 2019",
+        "References 12 FY2019 appropriations acts across three public laws",
+        "(1) Agriculture (Div B of P.L. 116-6); (2) CJS (Div C of P.L. 116-6); (3) Defense (Div A of P.L. 115-245); (4) Energy-Water (Div A of P.L. 115-244); (5) FSGG (Div D of P.L. 116-6); (6) DHS (Div A of P.L. 116-6 as amended + Title I Div H of P.L. 116-6); (7) Interior (Div E of P.L. 116-6); (8) Labor-HHS (Div B of P.L. 115-245); (9) Leg Branch (Div B of P.L. 115-244); (10) MilCon-VA (Div C of P.L. 115-244); (11) State-FO (Div F of P.L. 116-6); (12) THUD (Div G of P.L. 116-6)"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "baseline_from",
+          "target": "P.L. 116-6",
+          "description": "FY2019: Agriculture (B), CJS (C), FSGG (D), Interior (E), State-FO (F), THUD (G), DHS (A + Title I of H)"
+        },
+        {
+          "ref_type": "baseline_from",
+          "target": "P.L. 115-245",
+          "description": "FY2019: Defense (A), Labor-HHS (B)"
+        },
+        {
+          "ref_type": "baseline_from",
+          "target": "P.L. 115-244",
+          "description": "FY2019: Energy-Water (A), Legislative Branch (B), MilCon-VA (C)"
+        }
+      ],
+      "source_span": {
+        "start": 1269,
+        "end": 1420,
+        "file": "BILLS-116hr4378enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "limitation",
+      "description": "Prohibits DoD appropriations under the CR from being used for new production of items not funded in FY2019, increased production rates above FY2019 levels, or initiation/resumption of any project, activity, or organization not available in FY2019. Also prohibits initiating multi-year procurements utilizing advance procurement funding for economic order quantity unless specifically appropriated later.",
+      "amount": null,
+      "account_name": null,
+      "section": "SEC. 102",
+      "division": "A",
+      "title": null,
+      "confidence": 0.95,
+      "raw_text": "(a) No appropriation or funds made available or authority granted pursuant to section 101 for the Department of Defense shall be used for: \n(1) the new",
+      "notes": [
+        "Subsection (a) covers three categories: new production, increased rates, and new projects/activities/organizations",
+        "Subsection (b) separately prohibits multi-year procurements with advance procurement funding"
+      ],
+      "cross_references": [],
+      "parent_account": null,
+      "source_span": {
+        "start": 3673,
+        "end": 3824,
+        "file": "BILLS-116hr4378enr.txt",
+        "verified": true,
+        "match_tier": "repaired_normalized"
+      }
+    },
+    {
+      "provision_type": "rider",
+      "description": "Appropriations made by section 101 shall be available to the extent and in the manner that would be provided by the pertinent appropriations Act.",
+      "policy_area": null,
+      "section": "SEC. 103",
+      "division": "A",
+      "title": null,
+      "confidence": 0.95,
+      "raw_text": "Appropriations made by section 101 shall be available to the extent and in the manner that would be provided by the pertinent appropriations Act.",
+      "notes": [
+        "Standard CR boilerplate ensuring same terms and conditions as underlying FY2019 acts"
+      ],
+      "cross_references": [],
+      "source_span": {
+        "start": 4835,
+        "end": 4980,
+        "file": "BILLS-116hr4378enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "limitation",
+      "description": "Prohibits use of CR funds to initiate or resume any project or activity for which appropriations, funds, or other authority were not available during fiscal year 2019, except as provided in section 102.",
+      "amount": null,
+      "account_name": null,
+      "section": "SEC. 104",
+      "division": "A",
+      "title": null,
+      "confidence": 0.95,
+      "raw_text": "Except as otherwise provided in section 102, no appropriation or funds made available or authority granted pursuant to section 101 shall be used to ini",
+      "notes": [
+        "General prohibition on new starts under the CR",
+        "Section 102 provides the DoD-specific version of this limitation"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "subject_to",
+          "target": "SEC. 102",
+          "description": "DoD-specific limitations take precedence"
+        }
+      ],
+      "parent_account": null,
+      "source_span": {
+        "start": 4992,
+        "end": 5143,
+        "file": "BILLS-116hr4378enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "rider",
+      "description": "CR appropriations and authority shall cover all obligations or expenditures incurred for any project or activity during the period for which funds or authority are available under this Act.",
+      "policy_area": null,
+      "section": "SEC. 105",
+      "division": "A",
+      "title": null,
+      "confidence": 0.95,
+      "raw_text": "Appropriations made and authority granted pursuant to this Act shall cover all obligations or expenditures incurred for any project or activity during ",
+      "notes": [
+        "Standard CR boilerplate"
+      ],
+      "cross_references": [],
+      "source_span": {
+        "start": 5290,
+        "end": 5441,
+        "file": "BILLS-116hr4378enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "rider",
+      "description": "Sets CR duration: funds available until enactment of specific appropriation, enactment of the applicable full-year FY2020 act without provision for such project or activity, or November 21, 2019, whichever occurs first.",
+      "policy_area": null,
+      "section": "SEC. 106",
+      "division": "A",
+      "title": null,
+      "confidence": 0.97,
+      "raw_text": "Unless otherwise provided for in this Act or in the applicable appropriations Act for fiscal year 2020, appropriations and funds made available and aut",
+      "notes": [
+        "CR expiration date is November 21, 2019 (section 106(3))",
+        "Three termination triggers: (1) specific appropriation enacted, (2) full-year act without provision, (3) date reached"
+      ],
+      "cross_references": [],
+      "source_span": {
+        "start": 5551,
+        "end": 5702,
+        "file": "BILLS-116hr4378enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "rider",
+      "description": "Expenditures made pursuant to this Act shall be charged to the applicable appropriation, fund, or authorization when the full-year bill is enacted into law.",
+      "policy_area": null,
+      "section": "SEC. 107",
+      "division": "A",
+      "title": null,
+      "confidence": 0.95,
+      "raw_text": "Expenditures made pursuant to this Act shall be charged to the applicable appropriation, fund, or authorization whenever a bill in which such applicabl",
+      "notes": [
+        "Standard CR accounting treatment provision"
+      ],
+      "cross_references": [],
+      "source_span": {
+        "start": 6078,
+        "end": 6229,
+        "file": "BILLS-116hr4378enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "rider",
+      "description": "CR funds may be used without regard to apportionment time limitations in 31 U.S.C. 1513, but does not waive other apportionment provisions.",
+      "policy_area": null,
+      "section": "SEC. 108",
+      "division": "A",
+      "title": null,
+      "confidence": 0.95,
+      "raw_text": "Appropriations made and funds made available by or authority granted pursuant to this Act may be used without regard to the time limitations for submiss",
+      "notes": [
+        "Waives apportionment submission and approval deadlines only"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "notwithstanding",
+          "target": "31 U.S.C. 1513",
+          "description": "Apportionment time limitations"
+        }
+      ],
+      "source_span": {
+        "start": 6314,
+        "end": 6466,
+        "file": "BILLS-116hr4378enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "limitation",
+      "description": "Programs with high initial rates of operation or complete distribution of appropriations at the beginning of FY2020 (distributions to states, foreign countries, grantees, or others) shall not make such distributions, and no grants shall be awarded that would impinge on final funding prerogatives.",
+      "amount": null,
+      "account_name": null,
+      "section": "SEC. 109",
+      "division": "A",
+      "title": null,
+      "confidence": 0.95,
+      "raw_text": "Notwithstanding any other provision of this Act, except section 106, for those programs that would otherwise have high initial rates of operation or co",
+      "notes": [
+        "Prevents front-loading of CR funds for formula grants and similar programs",
+        "Exception for section 106 (duration provision)"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "notwithstanding",
+          "target": "this Act (except SEC. 106)",
+          "description": null
+        }
+      ],
+      "parent_account": null,
+      "source_span": {
+        "start": 6686,
+        "end": 6837,
+        "file": "BILLS-116hr4378enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "rider",
+      "description": "The Act shall be implemented so that only the most limited funding action permitted shall be taken in order to provide for continuation of projects and activities.",
+      "policy_area": null,
+      "section": "SEC. 110",
+      "division": "A",
+      "title": null,
+      "confidence": 0.95,
+      "raw_text": "This Act shall be implemented so that only the most limited funding action of that permitted in the Act shall be taken in order to provide for continua",
+      "notes": [
+        "Standard CR directive to minimize spending during the CR period"
+      ],
+      "cross_references": [],
+      "source_span": {
+        "start": 7209,
+        "end": 7360,
+        "file": "BILLS-116hr4378enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "other",
+      "llm_classification": "other",
+      "description": "Entitlements and other mandatory payments with budget authority from FY2019 appropriations acts, and Food and Nutrition Act of 2008 activities, shall continue at rates to maintain current law program levels through November 21, 2019. Obligations for mandatory payments due on or about the first day of any month after October 2019 but within 30 days of November 21, 2019 may continue.",
+      "amounts": [],
+      "references": [],
+      "metadata": {
+        "detail_level": "",
+        "llm_classification": "mandatory_payments_continuation"
+      },
+      "section": "SEC. 111",
+      "division": "A",
+      "title": null,
+      "confidence": 0.95,
+      "raw_text": "(a) For entitlements and other mandatory payments whose budget authority was provided in appropriations Acts for fiscal year 2019, and for activities u",
+      "notes": [
+        "Subsection (a): mandatory payments continue at current law program levels through Nov 21, 2019",
+        "Subsection (b): allows monthly payment obligations due after October 2019 but within 30 days of Nov 21, 2019",
+        "Includes SNAP (Food and Nutrition Act of 2008) activities"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "see_also",
+          "target": "Food and Nutrition Act of 2008",
+          "description": "SNAP benefits continuation"
+        }
+      ],
+      "source_span": {
+        "start": 7404,
+        "end": 7555,
+        "file": "BILLS-116hr4378enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "other",
+      "llm_classification": "other",
+      "description": "Civilian personnel compensation and benefits in each department and agency may be apportioned up to the rate necessary to avoid furloughs, consistent with FY2019 appropriations, but only after reducing or deferring non-personnel-related administrative expenses.",
+      "amounts": [],
+      "references": [],
+      "metadata": {
+        "detail_level": "",
+        "llm_classification": "cr_anomaly_apportionment_authority"
+      },
+      "section": "SEC. 112",
+      "division": "A",
+      "title": null,
+      "confidence": 0.95,
+      "raw_text": "Amounts made available under section 101 for civilian personnel compensation and benefits in each department and agency may be apportioned up to the ra",
+      "notes": [
+        "General provision applying to all departments and agencies",
+        "Requires agencies to first reduce/defer non-personnel administrative expenses before using this authority"
+      ],
+      "cross_references": [],
+      "source_span": {
+        "start": 8146,
+        "end": 8297,
+        "file": "BILLS-116hr4378enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "rider",
+      "description": "Funds may be obligated and expended notwithstanding four foreign affairs statutory restrictions.",
+      "policy_area": "foreign_affairs",
+      "section": "SEC. 113",
+      "division": "A",
+      "title": null,
+      "confidence": 0.95,
+      "raw_text": "Funds appropriated by this Act may be obligated and expended notwithstanding section 10 of Public Law 91\u2013672 (22 U.S.C. 2412), section 15 of the State",
+      "notes": [
+        "Overrides 22 U.S.C. 2412, 22 U.S.C. 2680, 22 U.S.C. 6212, and 50 U.S.C. 3094(a)(1)"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "notwithstanding",
+          "target": "22 U.S.C. 2412",
+          "description": "Section 10 of P.L. 91-672"
+        },
+        {
+          "ref_type": "notwithstanding",
+          "target": "22 U.S.C. 2680",
+          "description": "Section 15 of State Department Basic Authorities Act of 1956"
+        },
+        {
+          "ref_type": "notwithstanding",
+          "target": "22 U.S.C. 6212",
+          "description": "Section 313 of Foreign Relations Authorization Act, FY1994-1995"
+        },
+        {
+          "ref_type": "notwithstanding",
+          "target": "50 U.S.C. 3094(a)(1)",
+          "description": "Section 504(a)(1) of National Security Act of 1947"
+        }
+      ],
+      "source_span": {
+        "start": 8669,
+        "end": 8819,
+        "file": "BILLS-116hr4378enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "rider",
+      "description": "Preserves OCO/GWOT, emergency, and disaster relief budget designations from FY2019 acts as incorporated by the CR. Applies section 5 of P.L. 116-6 to OCO/GWOT amounts including section 124. Effective immediately upon enactment through November 21, 2019.",
+      "policy_area": "budget_enforcement",
+      "section": "SEC. 114",
+      "division": "A",
+      "title": null,
+      "confidence": 0.95,
+      "raw_text": "(a) Each amount incorporated by reference in this Act that was previously designated by the Congress for Overseas Contingency Operations/Global War on ",
+      "notes": [
+        "Subsection (a): carries forward OCO/GWOT, emergency, and disaster relief designations",
+        "Subsection (b): applies P.L. 116-6 section 5 to OCO/GWOT amounts including SEC. 124",
+        "Subsection (c): effective immediately through November 21, 2019"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "see_also",
+          "target": "Section 251(b)(2)(A) of the Balanced Budget and Emergency Deficit Control Act of 1985",
+          "description": "Emergency/OCO designation"
+        },
+        {
+          "ref_type": "see_also",
+          "target": "Section 251(b)(2)(D) of the Balanced Budget and Emergency Deficit Control Act of 1985",
+          "description": "Disaster relief designation"
+        },
+        {
+          "ref_type": "see_also",
+          "target": "Section 5 of P.L. 116-6",
+          "description": "OCO/GWOT designation procedures"
+        }
+      ],
+      "source_span": {
+        "start": 9074,
+        "end": 9225,
+        "file": "BILLS-116hr4378enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "other",
+      "llm_classification": "other",
+      "description": "Establishes how rescissions or cancellations from FY2019 acts continue under the CR, allowing redirection to current TAFS and limiting amounts to the lesser of the specified amount or available balances as of October 1, 2019.",
+      "amounts": [],
+      "references": [],
+      "metadata": {
+        "detail_level": "",
+        "llm_classification": "rescission_cancellation_mechanics"
+      },
+      "section": "SEC. 115",
+      "division": "A",
+      "title": null,
+      "confidence": 0.93,
+      "raw_text": "(a) Rescissions or cancellations of discretionary budget authority that continue pursuant to section 101 in Treasury Appropriations Fund Symbols (TAFS)",
+      "notes": [
+        "Subsection (a): rescissions in TAFS with current applicable accounts may be redirected",
+        "Subsection (b): amount limited to lesser of specified or available balances as of Oct 1, 2019",
+        "Does not impinge on final funding prerogatives of Congress"
+      ],
+      "cross_references": [],
+      "source_span": {
+        "start": 10030,
+        "end": 10181,
+        "file": "BILLS-116hr4378enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "directive",
+      "description": "Director of OMB shall provide to Appropriations Committees a comprehensive list of rescissions or cancellations continuing under the CR, with periodic updates upon request.",
+      "deadlines": [
+        "November 11, 2019"
+      ],
+      "section": "SEC. 115",
+      "division": "A",
+      "title": null,
+      "confidence": 0.93,
+      "raw_text": "No later than November 11, 2019, the Director of the Office of Management and Budget shall provide to the Committees on Appropriations of the House of",
+      "notes": [
+        "Embedded in SEC. 115(c)",
+        "List must reflect balances available as of October 1, 2019",
+        "Updates transmitted upon request from Appropriations Committees"
+      ],
+      "cross_references": [],
+      "source_span": {
+        "start": 11085,
+        "end": 11235,
+        "file": "BILLS-116hr4378enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "rider",
+      "description": "Amends the Additional Supplemental Appropriations for Disaster Relief Act, 2019 (P.L. 116-20) to add cooperative processors for reduced quantity and quality sugar beets to eligible recipients for Department of Agriculture disaster assistance. Repurposed amounts retain emergency designation.",
+      "policy_area": "agriculture_disaster_relief",
+      "section": "SEC. 116",
+      "division": "A",
+      "title": null,
+      "confidence": 0.94,
+      "raw_text": "Title I of the Additional Supplemental Appropriations for Disaster Relief Act, 2019 (Public Law 116\u201320) is amended in the matter under the heading ''D",
+      "notes": [
+        "Inserts 'to cooperative processors for reduced quantity and quality sugar beets,' after 'planting in 2019,'",
+        "Repurposed amounts designated as emergency requirement under BBEDCA section 251(b)(2)(A)(i)",
+        "Presidential designation required for repurposed amounts to become available"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "P.L. 116-20, Title I",
+          "description": "Additional Supplemental Appropriations for Disaster Relief Act, 2019, Department of Agriculture\u2014Office of the Secretary heading"
+        }
+      ],
+      "source_span": {
+        "start": 11816,
+        "end": 11966,
+        "file": "BILLS-116hr4378enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "rider",
+      "description": "Secretary of Agriculture may waive the matching funds requirement under Section 412(g) of the Agricultural Research, Extension, and Education Reform Act of 1998.",
+      "policy_area": "agriculture_research",
+      "section": "SEC. 117",
+      "division": "A",
+      "title": null,
+      "confidence": 0.95,
+      "raw_text": "The Secretary of Agriculture may waive the matching funds requirement under Section 412(g) of the Agricultural Research, Extension, and Education Refor",
+      "notes": [
+        "Permissive waiver authority for USDA research matching requirements"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "7 U.S.C. 7632(g)",
+          "description": "Section 412(g) of Agricultural Research, Extension, and Education Reform Act of 1998"
+        }
+      ],
+      "source_span": {
+        "start": 12653,
+        "end": 12804,
+        "file": "BILLS-116hr4378enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "other",
+      "llm_classification": "other",
+      "description": "Child Nutrition Programs amounts for section 749(g) of P.L. 111-80 may be apportioned up to the rate necessary to ensure the program is fully operational by May 2020.",
+      "amounts": [],
+      "references": [],
+      "metadata": {
+        "account_name": "Department of Agriculture\u2014Food and Nutrition Service\u2014Child Nutrition Programs",
+        "llm_classification": "cr_anomaly_apportionment_authority",
+        "detail_level": "",
+        "agency": "Department of Agriculture"
+      },
+      "section": "SEC. 118",
+      "division": "A",
+      "title": null,
+      "confidence": 0.94,
+      "raw_text": "Amounts made available by section 101 for ''Department of Agriculture\u2014Food and Nutrition Service\u2014Child Nutrition Programs'' to carry out section 749(g)",
+      "notes": [
+        "Allows higher apportionment rate for school meal programs to be operational by May 2020",
+        "References section 749(g) of P.L. 111-80 (Agriculture Appropriations Act, 2010)"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "see_also",
+          "target": "Section 749(g) of P.L. 111-80",
+          "description": "Agriculture, Rural Development, FDA, and Related Agencies Appropriations Act, 2010"
+        }
+      ],
+      "source_span": {
+        "start": 12849,
+        "end": 13000,
+        "file": "BILLS-116hr4378enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "other",
+      "llm_classification": "other",
+      "description": "Allows amounts from section 111 for CCC Reimbursement for Net Realized Losses to be used prior to the required report to reimburse CCC for net realized losses not previously reimbursed as of September 17, 2019. Requires Secretary of Agriculture to submit a report on Market Facilitation Program payments by October 31, 2019.",
+      "amounts": [],
+      "references": [],
+      "metadata": {
+        "account_name": "Corporations\u2014Commodity Credit Corporation Fund\u2014Reimbursement for Net Realized Losses",
+        "agency": "Department of Agriculture",
+        "detail_level": "",
+        "llm_classification": "spending_authority_with_directive"
+      },
+      "section": "SEC. 119",
+      "division": "A",
+      "title": null,
+      "confidence": 0.93,
+      "raw_text": "Amounts provided by section 111 to the Department of Agriculture for ''Corporations\u2014Commodity Credit Corporation Fund\u2014Reimbursement for Net Realized Lo",
+      "notes": [
+        "Allows CCC reimbursement prior to completion of report under 15 U.S.C. 713a-11",
+        "Proviso requires detailed report by October 31, 2019 on Market Facilitation Program payments",
+        "Report must include state-by-state, commodity-by-commodity analysis of trade damage from retaliatory tariffs and non-tariff barriers",
+        "Must account for purchases from substantially foreign-owned companies"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "see_also",
+          "target": "15 U.S.C. 713a-11",
+          "description": "Act of August 17, 1961 - CCC reporting requirement"
+        },
+        {
+          "ref_type": "see_also",
+          "target": "SEC. 111",
+          "description": "Mandatory payments continuation"
+        }
+      ],
+      "source_span": {
+        "start": 13271,
+        "end": 13422,
+        "file": "BILLS-116hr4378enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Department of Agriculture\u2014Agricultural Marketing Service\u2014Marketing Services",
+      "agency": "Department of Agriculture",
+      "program": "Hemp Production Program (section 10113 of P.L. 115-334)",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 16496000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$16,496,000"
+      },
+      "fiscal_year": 2020,
+      "availability": null,
+      "provisos": [],
+      "earmarks": [],
+      "section": "SEC. 120",
+      "division": "A",
+      "title": null,
+      "confidence": 0.97,
+      "raw_text": "In addition to amounts provided by section 101, amounts are provided for ''Department of Agriculture\u2014Agricultural Marketing Service\u2014Marketing Services'",
+      "notes": [
+        "Additional amount above the CR baseline rate",
+        "For implementation of Hemp Production Program under the 2018 Farm Bill"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "see_also",
+          "target": "Section 10113 of P.L. 115-334",
+          "description": "Hemp Production Program authorization in the Agriculture Improvement Act of 2018"
+        }
+      ],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 14421,
+        "end": 14572,
+        "file": "BILLS-116hr4378enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "other",
+      "llm_classification": "other",
+      "description": "International Trade Commission Salaries and Expenses may be apportioned up to the rate necessary to carry out responsibilities under the American Manufacturing Competitiveness Act of 2016.",
+      "amounts": [],
+      "references": [],
+      "metadata": {
+        "agency": "International Trade Commission",
+        "llm_classification": "cr_anomaly_apportionment_authority",
+        "account_name": "International Trade Commission\u2014Salaries and Expenses",
+        "detail_level": ""
+      },
+      "section": "SEC. 121",
+      "division": "A",
+      "title": null,
+      "confidence": 0.95,
+      "raw_text": "Amounts made available by section 101 for ''International Trade Commission\u2014Salaries and Expenses'' may be apportioned up to the rate for operations nec",
+      "notes": [
+        "Allows higher apportionment rate for ITC to implement P.L. 114-159"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "see_also",
+          "target": "P.L. 114-159",
+          "description": "American Manufacturing Competitiveness Act of 2016"
+        }
+      ],
+      "source_span": {
+        "start": 14726,
+        "end": 14877,
+        "file": "BILLS-116hr4378enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "other",
+      "llm_classification": "other",
+      "description": "Bureau of the Census Periodic Censuses and Programs may be apportioned up to the rate necessary to maintain the 2020 Decennial Census schedule and deliver required data by statutory deadlines.",
+      "amounts": [],
+      "references": [],
+      "metadata": {
+        "agency": "Department of Commerce",
+        "llm_classification": "cr_anomaly_apportionment_authority",
+        "detail_level": "",
+        "account_name": "Bureau of the Census\u2014Periodic Censuses and Programs"
+      },
+      "section": "SEC. 122",
+      "division": "A",
+      "title": null,
+      "confidence": 0.95,
+      "raw_text": "Amounts made available by section 101 to the Department of Commerce for ''Bureau of the Census\u2014Periodic Censuses and Programs'' may be apportioned up t",
+      "notes": [
+        "Critical anomaly allowing Census Bureau to ramp up for 2020 Census on schedule"
+      ],
+      "cross_references": [],
+      "source_span": {
+        "start": 15008,
+        "end": 15159,
+        "file": "BILLS-116hr4378enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "rider",
+      "description": "During the CR period, advanced billing for background investigation services purchased from Defense Working Capital Funds shall be excluded from the cumulative advance billing calculation under 10 U.S.C. 2208(l)(3).",
+      "policy_area": "defense",
+      "section": "SEC. 123",
+      "division": "A",
+      "title": null,
+      "confidence": 0.95,
+      "raw_text": "Notwithstanding section 2208(l)(3) of title 10, United States Code, during the period covered by this Act, any advanced billing for background investig",
+      "notes": [
+        "Excludes background investigation services from Defense Working Capital Fund advance billing limits"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "notwithstanding",
+          "target": "10 U.S.C. 2208(l)(3)",
+          "description": "Defense Working Capital Fund cumulative advance billing calculation"
+        }
+      ],
+      "source_span": {
+        "start": 15336,
+        "end": 15487,
+        "file": "BILLS-116hr4378enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "rescission",
+      "account_name": "Ukraine Security Assistance Initiative",
+      "agency": "Department of Defense",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 0
+        },
+        "semantics": "rescission",
+        "text_as_written": ""
+      },
+      "reference_law": "P.L. 115-245, Division A, Section 9013",
+      "fiscal_years": "2019",
+      "section": "SEC. 124",
+      "division": "A",
+      "title": null,
+      "confidence": 0.92,
+      "raw_text": "(a) The remaining unobligated balances of funds as of September 30, 2019, from amounts provided by section 9013 of division A of Public Law 115\u2013245 ar",
+      "notes": [
+        "Rescinds remaining unobligated balances as of September 30, 2019",
+        "Dollar amount not specified \u2014 equals whatever was unobligated on Sept 30, 2019",
+        "Amounts retain OCO/GWOT designation under BBEDCA section 251(b)(2)(A)(ii)",
+        "Effective immediately upon enactment (subsection c); retroactive to Sept 30, 2019 (subsection d)"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "rescinds_from",
+          "target": "P.L. 115-245, Division A, Section 9013",
+          "description": "Ukraine Security Assistance Initiative FY2019 funds"
+        }
+      ],
+      "source_span": {
+        "start": 15835,
+        "end": 15985,
+        "file": "BILLS-116hr4378enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Ukraine Security Assistance Initiative",
+      "agency": "Department of Defense",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 0
+        },
+        "semantics": "indefinite",
+        "text_as_written": ""
+      },
+      "fiscal_year": 2019,
+      "availability": "until September 30, 2020",
+      "provisos": [],
+      "earmarks": [],
+      "section": "SEC. 124",
+      "division": "A",
+      "title": null,
+      "confidence": 0.9,
+      "raw_text": "(b) In addition to the amount otherwise provided by section 101 for the ''Ukraine Security Assistance Initiative'', there is appropriated on September",
+      "notes": [
+        "Appropriates amount equal to the unobligated balances rescinded under subsection (a)",
+        "Technically a FY2019 supplemental appropriation (appropriated on September 30, 2019)",
+        "Dollar amount not explicitly stated \u2014 equals the rescission amount from subsection (a)",
+        "Effective immediately and retroactive to Sept 30, 2019 per subsections (c) and (d)"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "see_also",
+          "target": "P.L. 115-245",
+          "description": "Original Ukraine Security Assistance Initiative authorization and appropriation"
+        },
+        {
+          "ref_type": "see_also",
+          "target": "SEC. 124(a)",
+          "description": "Rescission providing the equivalent amount"
+        }
+      ],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 16391,
+        "end": 16541,
+        "file": "BILLS-116hr4378enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "limitation",
+      "description": "No funds shall be transferred directly from Colorado River Basins Power Marketing Fund, Western Area Power Administration to the general fund of the Treasury in fiscal year 2019.",
+      "amount": null,
+      "account_name": "Department of Energy\u2014Power Marketing Administration\u2014Colorado River Basins Power Marketing Fund, Western Area Power Administration",
+      "section": "SEC. 125",
+      "division": "A",
+      "title": null,
+      "confidence": 0.95,
+      "raw_text": "(a) No funds shall be transferred directly from ''Department of Energy\u2014Power Marketing Administration\u2014Colorado River Basins Power Marketing Fund, West",
+      "notes": [
+        "Effective immediately upon enactment (subsection b)",
+        "Applies specifically to FY2019"
+      ],
+      "cross_references": [],
+      "parent_account": null,
+      "source_span": {
+        "start": 17486,
+        "end": 17636,
+        "file": "BILLS-116hr4378enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "rider",
+      "description": "During the CR period, the Calfed Bay-Delta Authorization Act (title I of P.L. 108-361, as amended) shall be applied by substituting '2020' for '2019' each place it appears.",
+      "policy_area": "water_resources",
+      "section": "SEC. 126",
+      "division": "A",
+      "title": null,
+      "confidence": 0.95,
+      "raw_text": "During the period covered by this Act, title I of Public Law 108\u2013361, as amended (the Calfed Bay-Delta Authorization Act) (118 Stat. 1681), shall be a",
+      "notes": [
+        "Extends Calfed Bay-Delta authorization through 2020 during the CR period"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Title I of P.L. 108-361",
+          "description": "Calfed Bay-Delta Authorization Act"
+        }
+      ],
+      "source_span": {
+        "start": 17817,
+        "end": 17967,
+        "file": "BILLS-116hr4378enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Committee on Foreign Investment in the United States Fund",
+      "agency": "Department of the Treasury",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 15000000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$15,000,000"
+      },
+      "fiscal_year": 2020,
+      "availability": "to remain available until expended",
+      "provisos": [],
+      "earmarks": [],
+      "section": "SEC. 127",
+      "division": "A",
+      "title": null,
+      "confidence": 0.95,
+      "raw_text": "Notwithstanding section 101, title I of division D of Public Law 116\u20136 shall be applied by adding the following new heading and appropriation language",
+      "notes": [
+        "Creates new account under Department of the Treasury\u2014Departmental Offices heading",
+        "Notwithstanding section 101 \u2014 adds heading not present in FY2019 acts",
+        "Gross appropriation is $15,000,000 but net general fund cost estimated at not more than $5,000,000 after fee offsets",
+        "Implements CFIUS modernization under FIRRMA"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "notwithstanding",
+          "target": "SEC. 101",
+          "description": null
+        },
+        {
+          "ref_type": "amends",
+          "target": "P.L. 116-6, Division D, Title I",
+          "description": "Financial Services and General Government Appropriations Act, 2019"
+        },
+        {
+          "ref_type": "see_also",
+          "target": "50 U.S.C. 4565",
+          "description": "Section 721 of the Defense Production Act of 1950 (CFIUS authority)"
+        }
+      ],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 18046,
+        "end": 18196,
+        "file": "BILLS-116hr4378enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "rider",
+      "description": "District of Columbia may expend local funds at the rate set forth in the Fiscal Year 2020 Local Budget Act of 2019 (D.C. Act 23-78), as modified as of the date of enactment, rather than the FY2019 CR rate.",
+      "policy_area": "district_of_columbia",
+      "section": "SEC. 128",
+      "division": "A",
+      "title": null,
+      "confidence": 0.95,
+      "raw_text": "Notwithstanding any other provision of this Act, except section 106, the District of Columbia may expend local funds made available under the heading '",
+      "notes": [
+        "Allows DC to spend local funds at FY2020 locally-enacted levels rather than FY2019 CR rate"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "notwithstanding",
+          "target": "this Act (except SEC. 106)",
+          "description": null
+        },
+        {
+          "ref_type": "see_also",
+          "target": "D.C. Act 23-78",
+          "description": "Fiscal Year 2020 Local Budget Act of 2019"
+        },
+        {
+          "ref_type": "see_also",
+          "target": "P.L. 116-6, Division D, Title IV",
+          "description": "District of Columbia Appropriations Act, 2019"
+        }
+      ],
+      "source_span": {
+        "start": 19473,
+        "end": 19624,
+        "file": "BILLS-116hr4378enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Salaries and Expenses",
+      "agency": "Office of Personnel Management",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 48000000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$48,000,000"
+      },
+      "fiscal_year": 2020,
+      "availability": null,
+      "provisos": [],
+      "earmarks": [],
+      "section": "SEC. 129",
+      "division": "A",
+      "title": null,
+      "confidence": 0.96,
+      "raw_text": "In addition to amounts provided by section 101, amounts are provided to the Office of Personnel Management for ''Salaries and Expenses'' at a rate for",
+      "notes": [
+        "Additional amount above CR baseline for OPM administrative expenses",
+        "$29,760,000 of the $48,000,000 comes from OPM trust funds, not general fund",
+        "Net general fund cost is approximately $18,240,000"
+      ],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 19962,
+        "end": 20112,
+        "file": "BILLS-116hr4378enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Salaries and Expenses",
+      "agency": "Office of Personnel Management",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 29760000
+        },
+        "semantics": "reference_amount",
+        "text_as_written": "$29,760,000"
+      },
+      "fiscal_year": 2020,
+      "availability": null,
+      "provisos": [],
+      "earmarks": [],
+      "section": "SEC. 129",
+      "division": "A",
+      "title": null,
+      "confidence": 0.95,
+      "raw_text": "of such amounts, $29,760,000 shall be transferred from the appropriate trust funds of the Office without regard to any other provision of law",
+      "notes": [
+        "Sub-allocation of the $48,000,000 OPM appropriation \u2014 specifies trust fund financing source",
+        "This is a funding source specification, not additional money"
+      ],
+      "cross_references": [],
+      "detail_level": "sub_allocation",
+      "parent_account": "Salaries and Expenses",
+      "source_span": {
+        "start": 20209,
+        "end": 20350,
+        "file": "BILLS-116hr4378enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Small Business Administration\u2014Business Loans Program Account",
+      "agency": "Small Business Administration",
+      "program": "Section 7(a) Guaranteed Loans",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 99000000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$99,000,000"
+      },
+      "fiscal_year": 2020,
+      "availability": "to remain available until expended",
+      "provisos": [],
+      "earmarks": [],
+      "section": "SEC. 130",
+      "division": "A",
+      "title": null,
+      "confidence": 0.95,
+      "raw_text": "Notwithstanding section 101, the matter preceding the first proviso under the heading ''Small Business Administration\u2014Business Loans Program Account''",
+      "notes": [
+        "Notwithstanding section 101 \u2014 modifies underlying act language to add 7(a) loan subsidy costs",
+        "Inserts appropriation for cost of guaranteed loans authorized by section 7(a) of the Small Business Act",
+        "$99,000,000 added to the Business Loans Program Account for 7(a) loan costs"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "notwithstanding",
+          "target": "SEC. 101",
+          "description": null
+        },
+        {
+          "ref_type": "amends",
+          "target": "P.L. 116-6, Division D, Title V",
+          "description": "Financial Services and General Government Appropriations Act, 2019"
+        },
+        {
+          "ref_type": "see_also",
+          "target": "15 U.S.C. 636(a)",
+          "description": "Section 7(a) of the Small Business Act"
+        }
+      ],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 20489,
+        "end": 20639,
+        "file": "BILLS-116hr4378enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Small Business Administration\u2014Disaster Loans Program Account",
+      "agency": "Small Business Administration",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 177136000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$177,136,000"
+      },
+      "fiscal_year": 2020,
+      "availability": null,
+      "provisos": [],
+      "earmarks": [],
+      "section": "SEC. 131",
+      "division": "A",
+      "title": null,
+      "confidence": 0.95,
+      "raw_text": "Notwithstanding section 101, amounts are provided for ''Small Business Administration\u2014Disaster Loans Program Account'' at a rate for operations of $17",
+      "notes": [
+        "Notwithstanding section 101 \u2014 sets the total rate for this account at $177,136,000",
+        "Three modifications to underlying act: (1) $1.6M for $1M, (2) $8.4M for $9M, (3) insert $167.136M for direct admin and $150.888M for major disasters"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "notwithstanding",
+          "target": "SEC. 101",
+          "description": null
+        },
+        {
+          "ref_type": "amends",
+          "target": "P.L. 116-6, Division D, Title V",
+          "description": "Financial Services and General Government Appropriations Act, 2019"
+        }
+      ],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 21213,
+        "end": 21363,
+        "file": "BILLS-116hr4378enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "cr_substitution",
+      "reference_act": "P.L. 116-6",
+      "reference_section": "Division D, Title V",
+      "new_amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 1600000
+        },
+        "semantics": "cr_substitution_new",
+        "text_as_written": "$1,600,000"
+      },
+      "old_amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 1000000
+        },
+        "semantics": "cr_substitution_old",
+        "text_as_written": "$1,000,000"
+      },
+      "account_name": "Small Business Administration\u2014Disaster Loans Program Account",
+      "section": "SEC. 131",
+      "division": "A",
+      "title": null,
+      "confidence": 0.94,
+      "raw_text": "substituting \u201c$1,600,000\u201d for \u201c$1,000,000\u201d",
+      "notes": [
+        "Paragraph (1) of SEC. 131 second proviso modifying SBA Disaster Loans language in P.L. 116-6"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "P.L. 116-6, Division D, Title V",
+          "description": "SBA Disaster Loans Program Account"
+        }
+      ],
+      "source_span": {
+        "start": 21787,
+        "end": 21829,
+        "file": "BILLS-116hr4378enr.txt",
+        "verified": true,
+        "match_tier": "repaired_normalized"
+      }
+    },
+    {
+      "provision_type": "cr_substitution",
+      "reference_act": "P.L. 116-6",
+      "reference_section": "Division D, Title V",
+      "new_amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 8400000
+        },
+        "semantics": "cr_substitution_new",
+        "text_as_written": "$8,400,000"
+      },
+      "old_amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 9000000
+        },
+        "semantics": "cr_substitution_old",
+        "text_as_written": "$9,000,000"
+      },
+      "account_name": "Small Business Administration\u2014Disaster Loans Program Account",
+      "section": "SEC. 131",
+      "division": "A",
+      "title": null,
+      "confidence": 0.94,
+      "raw_text": "substituting \u201c$8,400,000\u201d for \u201c$9,000,000\u201d",
+      "notes": [
+        "Paragraph (2) of SEC. 131 second proviso modifying SBA Disaster Loans language in P.L. 116-6"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "P.L. 116-6, Division D, Title V",
+          "description": "SBA Disaster Loans Program Account"
+        }
+      ],
+      "source_span": {
+        "start": 21835,
+        "end": 21877,
+        "file": "BILLS-116hr4378enr.txt",
+        "verified": true,
+        "match_tier": "repaired_normalized"
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Small Business Administration\u2014Disaster Loans Program Account",
+      "agency": "Small Business Administration",
+      "program": "Direct administrative expenses of loan making and servicing",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 167136000
+        },
+        "semantics": "reference_amount",
+        "text_as_written": "$167,136,000"
+      },
+      "fiscal_year": 2020,
+      "availability": null,
+      "provisos": [],
+      "earmarks": [],
+      "section": "SEC. 131",
+      "division": "A",
+      "title": null,
+      "confidence": 0.93,
+      "raw_text": "of which $167,136,000 is for direct administrative expenses of loan making and servicing to carry out the direct loan program, which may be transferre",
+      "notes": [
+        "Sub-allocation of the $177,136,000 top-level amount from SEC. 131",
+        "Inserted by paragraph (3) of the second proviso"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "see_also",
+          "target": "42 U.S.C. 5122(2)",
+          "description": "Robert T. Stafford Disaster Relief and Emergency Assistance Act"
+        }
+      ],
+      "detail_level": "sub_allocation",
+      "parent_account": "Small Business Administration\u2014Disaster Loans Program Account",
+      "source_span": {
+        "start": 21939,
+        "end": 22089,
+        "file": "BILLS-116hr4378enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Small Business Administration\u2014Disaster Loans Program Account",
+      "agency": "Small Business Administration",
+      "program": "Major disasters under the Stafford Act",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 150888000
+        },
+        "semantics": "reference_amount",
+        "text_as_written": "$150,888,000"
+      },
+      "fiscal_year": 2020,
+      "availability": null,
+      "provisos": [],
+      "earmarks": [],
+      "section": "SEC. 131",
+      "division": "A",
+      "title": null,
+      "confidence": 0.93,
+      "raw_text": "of the funds provided under this heading, $150,888,000 shall be for major disasters declared pursuant to the Robert T. Stafford Disaster Relief and Eme",
+      "notes": [
+        "Sub-allocation designating $150,888,000 of the total $177,136,000 for major disasters",
+        "Designated as disaster relief for budget enforcement purposes"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "see_also",
+          "target": "Section 251(b)(2)(D) of the Balanced Budget and Emergency Deficit Control Act of 1985",
+          "description": "Disaster relief designation"
+        },
+        {
+          "ref_type": "see_also",
+          "target": "42 U.S.C. 5122(2)",
+          "description": "Robert T. Stafford Disaster Relief and Emergency Assistance Act"
+        }
+      ],
+      "detail_level": "sub_allocation",
+      "parent_account": "Small Business Administration\u2014Disaster Loans Program Account",
+      "source_span": {
+        "start": 22172,
+        "end": 22323,
+        "file": "BILLS-116hr4378enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "other",
+      "llm_classification": "other",
+      "description": "Secret Service Operations and Support may be apportioned up to the rate necessary to support hiring and operations for protective activities associated with the 2020 presidential election campaign.",
+      "amounts": [],
+      "references": [],
+      "metadata": {
+        "detail_level": "",
+        "llm_classification": "cr_anomaly_apportionment_authority",
+        "account_name": "United States Secret Service\u2014Operations and Support",
+        "agency": "Department of Homeland Security"
+      },
+      "section": "SEC. 132",
+      "division": "A",
+      "title": null,
+      "confidence": 0.95,
+      "raw_text": "Amounts made available by section 101 to the Department of Homeland Security for ''United States Secret Service\u2014Operations and Support'' may be apport",
+      "notes": [
+        "Allows higher apportionment rate for Secret Service election protection activities"
+      ],
+      "cross_references": [],
+      "source_span": {
+        "start": 22626,
+        "end": 22776,
+        "file": "BILLS-116hr4378enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "other",
+      "llm_classification": "other",
+      "description": "FEMA Disaster Relief Fund may be apportioned up to the rate necessary to carry out response and recovery activities under the Stafford Act.",
+      "amounts": [],
+      "references": [],
+      "metadata": {
+        "llm_classification": "cr_anomaly_apportionment_authority",
+        "detail_level": "",
+        "account_name": "Federal Emergency Management Agency\u2014Disaster Relief Fund",
+        "agency": "Department of Homeland Security"
+      },
+      "section": "SEC. 133",
+      "division": "A",
+      "title": null,
+      "confidence": 0.95,
+      "raw_text": "Amounts made available by section 101 to the Department of Homeland Security for ''Federal Emergency Management Agency\u2014Disaster Relief Fund'' may be ap",
+      "notes": [
+        "Standard CR anomaly allowing full-rate disaster response operations"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "see_also",
+          "target": "42 U.S.C. 5121 et seq.",
+          "description": "Robert T. Stafford Disaster Relief and Emergency Assistance Act"
+        }
+      ],
+      "source_span": {
+        "start": 22958,
+        "end": 23109,
+        "file": "BILLS-116hr4378enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "rider",
+      "description": "Extends National Flood Insurance Program authority through November 21, 2019 by substituting that date for 'September 30, 2019' in sections 1309(a) and 1319 of the National Flood Insurance Act of 1968. Retroactive to September 30, 2019 if enacted after that date.",
+      "policy_area": "flood_insurance",
+      "section": "SEC. 134",
+      "division": "A",
+      "title": null,
+      "confidence": 0.95,
+      "raw_text": "(a) Sections 1309(a) and 1319 of the National Flood Insurance Act of 1968 (42 U.S.C. 4016(a) and 4026) shall be applied by substituting the date spec",
+      "notes": [
+        "Extends NFIP borrowing authority and program authority through Nov 21, 2019",
+        "Retroactive to Sept 30, 2019 if enacted after that date (subsection b)"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "42 U.S.C. 4016(a)",
+          "description": "Section 1309(a) of National Flood Insurance Act of 1968"
+        },
+        {
+          "ref_type": "amends",
+          "target": "42 U.S.C. 4026",
+          "description": "Section 1319 of National Flood Insurance Act of 1968"
+        }
+      ],
+      "source_span": {
+        "start": 23316,
+        "end": 23465,
+        "file": "BILLS-116hr4378enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "other",
+      "llm_classification": "other",
+      "description": "Three DHS Operations and Support accounts (Office of the Secretary, Management Directorate, and Intelligence Analysis and Operations Coordination) may be apportioned up to the rate necessary for activities previously funded by the DHS Working Capital Fund, consistent with the FY2020 President's Budget.",
+      "amounts": [],
+      "references": [],
+      "metadata": {
+        "account_name": null,
+        "agency": "Department of Homeland Security",
+        "llm_classification": "cr_anomaly_apportionment_authority",
+        "detail_level": ""
+      },
+      "section": "SEC. 135",
+      "division": "A",
+      "title": null,
+      "confidence": 0.94,
+      "raw_text": "Amounts made available by section 101 to the Department of Homeland Security for ''Office of the Secretary and Executive Management\u2014Operations and Supp",
+      "notes": [
+        "Applies to three DHS accounts: Office of the Secretary and Executive Management O&S, Management Directorate O&S, and Intelligence Analysis and Operations Coordination O&S",
+        "Allows higher rates for activities previously funded by DHS Working Capital Fund",
+        "Reflects FY2020 budget restructuring"
+      ],
+      "cross_references": [],
+      "source_span": {
+        "start": 23671,
+        "end": 23822,
+        "file": "BILLS-116hr4378enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Department of Health and Human Services\u2014Indian Health Service\u2014Indian Health Services",
+      "agency": "Department of Health and Human Services",
+      "program": "Staffing and operating newly opened/renovated/expanded facilities",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 18397500
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$18,397,500"
+      },
+      "fiscal_year": 2020,
+      "availability": null,
+      "provisos": [],
+      "earmarks": [],
+      "section": "SEC. 136",
+      "division": "A",
+      "title": null,
+      "confidence": 0.96,
+      "raw_text": "In addition to amounts provided by section 101, amounts are provided to the ''Department of Health and Human Services\u2014Indian Health Service\u2014Indian Heal",
+      "notes": [
+        "Additional amount above CR baseline",
+        "For costs of staffing and operating facilities opened, renovated, or expanded in FY2019 and FY2020",
+        "May be apportioned up to the rate necessary to staff and operate such facilities"
+      ],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 24205,
+        "end": 24356,
+        "file": "BILLS-116hr4378enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Department of Health and Human Services\u2014Indian Health Service\u2014Indian Health Facilities",
+      "agency": "Department of Health and Human Services",
+      "program": "Staffing and operating newly opened/renovated/expanded facilities",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 631000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$631,000"
+      },
+      "fiscal_year": 2020,
+      "availability": null,
+      "provisos": [],
+      "earmarks": [],
+      "section": "SEC. 136",
+      "division": "A",
+      "title": null,
+      "confidence": 0.96,
+      "raw_text": "In addition to amounts provided by section 101, amounts are provided for ''Department of Health and Human Services\u2014Indian Health Service\u2014Indian Health ",
+      "notes": [
+        "Additional amount above CR baseline",
+        "For costs of staffing and operating facilities opened, renovated, or expanded in FY2019 and FY2020",
+        "May be apportioned up to the rate necessary to staff and operate such facilities"
+      ],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 24673,
+        "end": 24824,
+        "file": "BILLS-116hr4378enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "rider",
+      "description": "CDC Public Health Preparedness and Response and Office of the Secretary Public Health and Social Services Emergency Fund amounts may be obligated in the account and budget structure, and under the authorities and conditions, set forth in H.R. 2740 as passed by the House on June 19, 2019.",
+      "policy_area": "public_health",
+      "section": "SEC. 137",
+      "division": "A",
+      "title": null,
+      "confidence": 0.94,
+      "raw_text": "Amounts made available by section 101 to the Department of Health and Human Services for ''Centers for Disease Control and Prevention\u2014Public Health Pre",
+      "notes": [
+        "Allows use of alternative budget structure from H.R. 2740 (House-passed FY2020 Labor-HHS bill)",
+        "Applies to two accounts: CDC Public Health Preparedness and Response, and Office of the Secretary PHSSEF"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "see_also",
+          "target": "H.R. 2740",
+          "description": "House-passed FY2020 Labor-HHS-Education appropriations bill, passed June 19, 2019"
+        }
+      ],
+      "source_span": {
+        "start": 25144,
+        "end": 25295,
+        "file": "BILLS-116hr4378enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "transfer_authority",
+      "from_scope": "",
+      "to_scope": "",
+      "limit": "unknown",
+      "conditions": [],
+      "section": "SEC. 138",
+      "division": "A",
+      "title": null,
+      "confidence": 0.95,
+      "raw_text": "During the period covered by this Act, up to $20,000,000 of the unobligated amounts in the Infectious Diseases Rapid Response Reserve Fund established",
+      "notes": [
+        "Transfer from Infectious Diseases Rapid Response Reserve Fund (established by section 231 of division B of P.L. 115-245)",
+        "For Ebola preparedness and response activities",
+        "Without regard to the limitations in the third proviso of section 231",
+        "This is a transfer ceiling, not new budget authority"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "see_also",
+          "target": "Section 231 of Division B of P.L. 115-245",
+          "description": "Infectious Diseases Rapid Response Reserve Fund"
+        },
+        {
+          "ref_type": "notwithstanding",
+          "target": "Third proviso of Section 231 of Division B of P.L. 115-245",
+          "description": "Limitations on use of Reserve Fund"
+        }
+      ],
+      "source_span": {
+        "start": 25597,
+        "end": 25747,
+        "file": "BILLS-116hr4378enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "rider",
+      "description": "Extends the National Advisory Committee on Institutional Quality and Integrity authorization under the Higher Education Act through November 21, 2019 by substituting that date for 'September 30, 2019' in section 114(f).",
+      "policy_area": "education",
+      "section": "SEC. 139",
+      "division": "A",
+      "title": null,
+      "confidence": 0.95,
+      "raw_text": "Section 114(f) of the Higher Education Act of 1965 (20 U.S.C. 1011c(f)) shall be applied by substituting the date specified in section 106(3) of this",
+      "notes": [
+        "Extends NACIQI authorization through November 21, 2019"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "20 U.S.C. 1011c(f)",
+          "description": "Section 114(f) of the Higher Education Act of 1965"
+        }
+      ],
+      "source_span": {
+        "start": 26515,
+        "end": 26664,
+        "file": "BILLS-116hr4378enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "other",
+      "llm_classification": "other",
+      "description": "VA General Operating Expenses, Veterans Benefits Administration and VA Information Technology Systems may be apportioned up to the rate necessary to support projects and activities created by the Blue Water Navy Vietnam Veterans Act of 2019.",
+      "amounts": [],
+      "references": [],
+      "metadata": {
+        "agency": "Department of Veterans Affairs",
+        "account_name": null,
+        "llm_classification": "cr_anomaly_apportionment_authority",
+        "detail_level": ""
+      },
+      "section": "SEC. 140",
+      "division": "A",
+      "title": null,
+      "confidence": 0.95,
+      "raw_text": "Amounts made available by section 101 for ''Department of Veterans Affairs\u2014Veterans Benefits Administration\u2014General Operating Expenses, Veterans Benefi",
+      "notes": [
+        "Applies to two VA accounts: VBA General Operating Expenses and Departmental Administration IT Systems",
+        "Allows higher apportionment to implement Blue Water Navy Vietnam Veterans Act (P.L. 116-23)"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "see_also",
+          "target": "P.L. 116-23",
+          "description": "Blue Water Navy Vietnam Veterans Act of 2019"
+        }
+      ],
+      "source_span": {
+        "start": 26708,
+        "end": 26859,
+        "file": "BILLS-116hr4378enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "rider",
+      "description": "Extends the Export-Import Bank charter through November 21, 2019 by substituting that date for 'September 30, 2019' in section 7 of the Export-Import Bank Act of 1945.",
+      "policy_area": "trade",
+      "section": "SEC. 141",
+      "division": "A",
+      "title": null,
+      "confidence": 0.95,
+      "raw_text": "Section 7 of the Export-Import Bank Act of 1945 (12 U.S.C. 635f) shall be applied by substituting the date specified in section 106(3) of this Act for",
+      "notes": [
+        "Extends Ex-Im Bank authorization through November 21, 2019"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "12 U.S.C. 635f",
+          "description": "Section 7 of the Export-Import Bank Act of 1945"
+        }
+      ],
+      "source_span": {
+        "start": 27163,
+        "end": 27313,
+        "file": "BILLS-116hr4378enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "rider",
+      "description": "Extends the U.S. Commission on International Religious Freedom through November 21, 2019 by substituting that date for 'September 30, 2019' in section 209 of the International Religious Freedom Act of 1998.",
+      "policy_area": "foreign_affairs",
+      "section": "SEC. 142",
+      "division": "A",
+      "title": null,
+      "confidence": 0.95,
+      "raw_text": "Section 209 of the International Religious Freedom Act of 1998 (22 U.S.C. 6436) shall be applied by substituting the date specified in section 106(3) ",
+      "notes": [
+        "Extends USCIRF authorization through November 21, 2019"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "22 U.S.C. 6436",
+          "description": "Section 209 of the International Religious Freedom Act of 1998"
+        }
+      ],
+      "source_span": {
+        "start": 27349,
+        "end": 27499,
+        "file": "BILLS-116hr4378enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "rider",
+      "description": "Amends FTA Capital Investment Grants provisions in P.L. 115-141 and P.L. 116-6 by striking 'obligated' and inserting 'allocated' in the first provisos under the Capital Investment Grants heading.",
+      "policy_area": "transportation",
+      "section": "SEC. 143",
+      "division": "A",
+      "title": null,
+      "confidence": 0.94,
+      "raw_text": "Title I of division L of Public Law 115\u2013141 and title I of division G of Public Law 116\u20136 shall be amended in the first provisos in each Act under the",
+      "notes": [
+        "Changes CIG funding condition from 'obligated' to 'allocated' in two prior-year appropriations acts",
+        "Applies to both FY2018 (P.L. 115-141) and FY2019 (P.L. 116-6) CIG provisos"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "P.L. 115-141, Division L, Title I",
+          "description": "FY2018 THUD Capital Investment Grants"
+        },
+        {
+          "ref_type": "amends",
+          "target": "P.L. 116-6, Division G, Title I",
+          "description": "FY2019 THUD Capital Investment Grants"
+        }
+      ],
+      "source_span": {
+        "start": 27550,
+        "end": 27700,
+        "file": "BILLS-116hr4378enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "rider",
+      "description": "Section 9503(e)(4) of the Internal Revenue Code of 1986 (Highway Trust Fund expenditure limitation) shall not apply during the CR period.",
+      "policy_area": "transportation_funding",
+      "section": "SEC. 144",
+      "division": "A",
+      "title": null,
+      "confidence": 0.95,
+      "raw_text": "Section 9503(e)(4) of the Internal Revenue Code of 1986 shall not apply during the period covered by this Act.",
+      "notes": [
+        "Suspends Highway Trust Fund expenditure limitation provision during the CR period"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "notwithstanding",
+          "target": "IRC Section 9503(e)(4)",
+          "description": "Highway Trust Fund expenditure limitation"
+        }
+      ],
+      "source_span": {
+        "start": 27866,
+        "end": 27976,
+        "file": "BILLS-116hr4378enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "other",
+      "llm_classification": "other",
+      "description": "HUD Housing for the Elderly may be apportioned up to the rate necessary to maintain project rental assistance under section 202(c)(2) of the Housing Act of 1959, including contract amendments and renewals for up to 1-year terms.",
+      "amounts": [],
+      "references": [],
+      "metadata": {
+        "detail_level": "",
+        "llm_classification": "cr_anomaly_apportionment_authority",
+        "account_name": "Housing Programs\u2014Housing for the Elderly",
+        "agency": "Department of Housing and Urban Development"
+      },
+      "section": "SEC. 145",
+      "division": "A",
+      "title": null,
+      "confidence": 0.95,
+      "raw_text": "Amounts made available by section 101 to the Department of Housing and Urban Development for ''Housing Programs\u2014Housing for the Elderly'' may be apport",
+      "notes": [
+        "Allows higher apportionment rate for Section 202 elderly housing rental assistance renewals",
+        "Includes authority to amend and renew expiring contracts for up to 1-year terms"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "see_also",
+          "target": "12 U.S.C. 1701q(c)(2)",
+          "description": "Section 202(c)(2) of the Housing Act of 1959"
+        }
+      ],
+      "source_span": {
+        "start": 27988,
+        "end": 28139,
+        "file": "BILLS-116hr4378enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "mandatory_spending_extension",
+      "program_name": "Community Health Centers",
+      "statutory_reference": "Section 10503(b)(1)(F) of the Patient Protection and Affordable Care Act (42 U.S.C. 254b\u20132(b)(1)(F))",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 569863014
+        },
+        "semantics": "mandatory_spending",
+        "text_as_written": "$569,863,014"
+      },
+      "period": "the period beginning on October 1, 2019, and ending on November 21, 2019",
+      "extends_through": "November 21, 2019",
+      "section": "SEC. 1101",
+      "division": "B",
+      "title": "I",
+      "confidence": 0.97,
+      "raw_text": "Section 10503(b)(1)(F) of the Patient Protection and Affordable Care Act (42 U.S.C. 254b\u20132(b)(1)(F)) is amended by striking ''2018 and $4,000,000,000",
+      "notes": [
+        "Subsection (a). Extends mandatory funding for community health centers under Section 330 of PHS Act for a partial-year period (Oct 1 \u2013 Nov 21, 2019).",
+        "The $569,863,014 is a prorated amount for approximately 52 days of FY2020."
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 10503(b)(1)(F) of the Patient Protection and Affordable Care Act",
+          "description": "Adds partial-year FY2020 funding for community health centers"
+        }
+      ],
+      "source_span": {
+        "start": 28785,
+        "end": 28934,
+        "file": "BILLS-116hr4378enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "mandatory_spending_extension",
+      "program_name": "National Health Service Corps",
+      "statutory_reference": "Section 10503(b)(2) of the Patient Protection and Affordable Care Act (42 U.S.C. 254b\u20132(b)(2))",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 44164384
+        },
+        "semantics": "mandatory_spending",
+        "text_as_written": "$44,164,384"
+      },
+      "period": "the period beginning on October 1, 2019, and ending on November 21, 2019",
+      "extends_through": "November 21, 2019",
+      "section": "SEC. 1101",
+      "division": "B",
+      "title": "I",
+      "confidence": 0.97,
+      "raw_text": "Section 10503(b)(2) of the Patient Protection and Affordable Care Act (42 U.S.C. 254b\u20132(b)(2)) is amended\u2014",
+      "notes": [
+        "Subsection (b). Extends mandatory funding for the National Health Service Corps for a partial-year period (Oct 1 \u2013 Nov 21, 2019).",
+        "Adds new subparagraph (G) with prorated amount."
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 10503(b)(2) of the Patient Protection and Affordable Care Act",
+          "description": "Adds partial-year FY2020 funding for NHSC"
+        }
+      ],
+      "source_span": {
+        "start": 29155,
+        "end": 29261,
+        "file": "BILLS-116hr4378enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "mandatory_spending_extension",
+      "program_name": "Teaching Health Centers That Operate Graduate Medical Education Programs",
+      "statutory_reference": "Section 340H(g)(1) of the Public Health Service Act (42 U.S.C. 256h(g)(1))",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 18021918
+        },
+        "semantics": "mandatory_spending",
+        "text_as_written": "$18,021,918"
+      },
+      "period": "the period beginning on October 1, 2019, and ending on November 21, 2019",
+      "extends_through": "November 21, 2019",
+      "section": "SEC. 1101",
+      "division": "B",
+      "title": "I",
+      "confidence": 0.97,
+      "raw_text": "Section 340H(g)(1) of the Public Health Service Act (42 U.S.C. 256h(g)(1)) is amended\u2014 (1) by striking ''and $126,500,000'' and inserting ''$126,500",
+      "notes": [
+        "Subsection (c). Extends mandatory funding for Teaching Health Centers GME programs for a partial-year period (Oct 1 \u2013 Nov 21, 2019).",
+        "Funds remain available until expended per existing statutory language."
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 340H(g)(1) of the Public Health Service Act",
+          "description": "Adds partial-year FY2020 funding for THCGME"
+        }
+      ],
+      "source_span": {
+        "start": 29640,
+        "end": 29788,
+        "file": "BILLS-116hr4378enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "rider",
+      "description": "Amounts appropriated pursuant to SEC. 1101 for the period Oct 1 \u2013 Nov 21, 2019, shall be subject to requirements in Public Law 115-245 for funds for programs authorized under sections 330 through 340 of the Public Health Service Act.",
+      "policy_area": "Public Health",
+      "section": "SEC. 1101",
+      "division": "B",
+      "title": "I",
+      "confidence": 0.95,
+      "raw_text": "Amounts appropriated pursuant to this section for the period beginning on October 1, 2019, and ending on November 21, 2019, shall be subject to the re",
+      "notes": [
+        "Subsection (d). Applies the requirements from FY2019 appropriations (P.L. 115-245) to these partial-year mandatory extensions.",
+        "Covers programs authorized under PHS Act sections 330\u2013340 (42 U.S.C. 254\u2013256)."
+      ],
+      "cross_references": [
+        {
+          "ref_type": "subject_to",
+          "target": "Public Law 115-245",
+          "description": "FY2019 appropriations requirements for PHS Act sections 330\u2013340 programs"
+        }
+      ],
+      "source_span": {
+        "start": 29979,
+        "end": 30129,
+        "file": "BILLS-116hr4378enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "other",
+      "llm_classification": "other",
+      "description": "Amends paragraph (4) of section 3014(h) of title 18 U.S.C., as previously amended by section 50901 of P.L. 115-123, to add a cross-reference to section 1101(d) of division B of this Act.",
+      "amounts": [],
+      "references": [],
+      "metadata": {
+        "llm_classification": "Conforming amendment to Crime Victims Fund provision in 18 U.S.C. 3014(h)(4)"
+      },
+      "section": "SEC. 1101",
+      "division": "B",
+      "title": "I",
+      "confidence": 0.9,
+      "raw_text": "Paragraph (4) of section 3014(h) of title 18, United States Code, as amended by section 50901 of Public Law 115\u2013123, is amended by striking ''and sect",
+      "notes": [
+        "Subsection (e). Technical conforming amendment to ensure the special assessment provision in 18 U.S.C. 3014(h)(4) references the application-of-provisions clause in this Act."
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "18 U.S.C. 3014(h)(4)",
+          "description": "Adds cross-reference to section 1101(d) of this Act"
+        },
+        {
+          "ref_type": "see_also",
+          "target": "Section 50901 of Public Law 115-123",
+          "description": "Prior amendment to the same paragraph"
+        }
+      ],
+      "source_span": {
+        "start": 30326,
+        "end": 30476,
+        "file": "BILLS-116hr4378enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "mandatory_spending_extension",
+      "program_name": "Type I Diabetes Programs",
+      "statutory_reference": "Section 330B(b)(2)(D) of the Public Health Service Act (42 U.S.C. 254c\u20132(b)(2)(D))",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 21369863
+        },
+        "semantics": "mandatory_spending",
+        "text_as_written": "$21,369,863"
+      },
+      "period": "the period beginning on October 1, 2019, and ending on November 21, 2019",
+      "extends_through": "November 21, 2019",
+      "section": "SEC. 1102",
+      "division": "B",
+      "title": "I",
+      "confidence": 0.97,
+      "raw_text": "Section 330B(b)(2)(D) of the Public Health Service Act (42 U.S.C. 254c\u20132(b)(2)(D)) is amended by inserting ''and $21,369,863 for the period beginning",
+      "notes": [
+        "Subsection (a). Extends mandatory funding for Special Diabetes Programs for Type I Diabetes for a partial-year period (Oct 1 \u2013 Nov 21, 2019).",
+        "Funds remain available until expended per existing statutory language."
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 330B(b)(2)(D) of the Public Health Service Act",
+          "description": "Adds partial-year FY2020 funding for Type I diabetes programs"
+        }
+      ],
+      "source_span": {
+        "start": 30816,
+        "end": 30965,
+        "file": "BILLS-116hr4378enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "mandatory_spending_extension",
+      "program_name": "Special Diabetes Programs for Indians",
+      "statutory_reference": "Section 330C(c)(2)(D) of the Public Health Service Act (42 U.S.C. 254c\u20133(c)(2)(D))",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 21369863
+        },
+        "semantics": "mandatory_spending",
+        "text_as_written": "$21,369,863"
+      },
+      "period": "the period beginning on October 1, 2019, and ending on November 21, 2019",
+      "extends_through": "November 21, 2019",
+      "section": "SEC. 1102",
+      "division": "B",
+      "title": "I",
+      "confidence": 0.97,
+      "raw_text": "Section 330C(c)(2)(D) of the Public Health Service Act (42 U.S.C. 254c\u20133(c)(2)(D)) is amended by inserting ''and $21,369,863 for the period beginning",
+      "notes": [
+        "Subsection (b). Extends mandatory funding for Special Diabetes Programs for Indians for a partial-year period (Oct 1 \u2013 Nov 21, 2019).",
+        "Funds remain available until expended per existing statutory language."
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 330C(c)(2)(D) of the Public Health Service Act",
+          "description": "Adds partial-year FY2020 funding for diabetes programs for Indians"
+        }
+      ],
+      "source_span": {
+        "start": 31067,
+        "end": 31216,
+        "file": "BILLS-116hr4378enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "mandatory_spending_extension",
+      "program_name": "Sexual Risk Avoidance Education Program",
+      "statutory_reference": "Section 510 of the Social Security Act (42 U.S.C. 710)",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 10684931
+        },
+        "semantics": "mandatory_spending",
+        "text_as_written": "$10,684,931"
+      },
+      "period": "October 1, 2019 through November 21, 2019",
+      "extends_through": "November 21, 2019",
+      "section": "SEC. 1201",
+      "division": "B",
+      "title": "II",
+      "confidence": 0.95,
+      "raw_text": "Section 510 of the Social Security Act (42 U.S.C. 710) is amended\u2014 \n(1) in subsection (a)\u2014 (A) in paragraph (1)\u2014 \n(i) in the matter preceding subparag",
+      "notes": [
+        "Extends the sexual risk avoidance education program (Title V abstinence education) for the period beginning October 1, 2019, and ending November 21, 2019",
+        "Appropriates $10,684,931 for that partial-year period under subsection (f)(1)",
+        "Also extends related allotment and reservation provisions for the same period"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 510 of the Social Security Act (42 U.S.C. 710)",
+          "description": "Extends program authorization and funding through November 21, 2019"
+        }
+      ],
+      "source_span": {
+        "start": 31397,
+        "end": 31547,
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "mandatory_spending_extension",
+      "program_name": "Personal Responsibility Education Program",
+      "statutory_reference": "Section 513 of the Social Security Act (42 U.S.C. 713)",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 10684931
+        },
+        "semantics": "mandatory_spending",
+        "text_as_written": "$10,684,931"
+      },
+      "period": "October 1, 2019 through November 21, 2019",
+      "extends_through": "November 21, 2019",
+      "section": "SEC. 1202",
+      "division": "B",
+      "title": "II",
+      "confidence": 0.95,
+      "raw_text": "Section 513 of the Social Security Act (42 U.S.C. 713) is amended\u2014 (1) in subsection (a)\u2014 \n(A) in paragraph (1)\u2014 (i) in subparagraph (A)\u2014 \n(I) in the ",
+      "notes": [
+        "Extends the personal responsibility education program (PREP) for the period beginning October 1, 2019, and ending November 21, 2019",
+        "Appropriates $10,684,931 for that partial-year period under subsection (f)",
+        "Adds exception in new paragraph (3) of subsection (c) exempting the partial-year period from the evaluation and technical assistance set-aside requirements",
+        "Extends State allotment, obligation period, and innovative strategies provisions for the same period"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 513 of the Social Security Act (42 U.S.C. 713)",
+          "description": "Extends program authorization and funding through November 21, 2019"
+        }
+      ],
+      "source_span": {
+        "start": 32939,
+        "end": 33089,
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "mandatory_spending_extension",
+      "program_name": "Community Mental Health Services Demonstration Program",
+      "statutory_reference": "Section 223(d)(3) of the Protecting Access to Medicare Act of 2014 (42 U.S.C. 1396a note)",
+      "amount": null,
+      "period": "through November 21, 2019",
+      "extends_through": "November 21, 2019",
+      "section": "SEC. 1301",
+      "division": "B",
+      "title": "III",
+      "confidence": 0.96,
+      "raw_text": "Section 223(d)(3) of the Protecting Access to Medicare Act of 2014 (42 U.S.C. 1396a note) is amended by striking ''September 13, 2019'' and inserting",
+      "notes": [
+        "Extends the community mental health services demonstration program deadline from September 13, 2019 to November 21, 2019",
+        "No explicit dollar amount; extends authorization of an existing demonstration program under Medicaid"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 223(d)(3) of the Protecting Access to Medicare Act of 2014 (42 U.S.C. 1396a note)",
+          "description": "Extends demonstration program end date"
+        }
+      ],
+      "source_span": {
+        "start": 35502,
+        "end": 35651,
+        "file": "BILLS-116hr4378enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "mandatory_spending_extension",
+      "program_name": "Temporary increase in Federal medical assistance percentage for territories under Medicaid program",
+      "statutory_reference": "Section 1905 of the Social Security Act (42 U.S.C. 1396d)",
+      "amount": null,
+      "period": "October 1, 2019, through November 21, 2019",
+      "extends_through": "November 21, 2019",
+      "section": "SEC. 1302",
+      "division": "B",
+      "title": "III",
+      "confidence": 0.95,
+      "raw_text": "Section 1905 of the Social Security Act (42 U.S.C. 1396d) is amended\u2014 (1) in subsection (b), by striking ''and (aa)'' and inserting ''(aa), and (ff)''",
+      "notes": [
+        "Sets FMAP to 100% for Puerto Rico, the Virgin Islands, Guam, the Northern Mariana Islands, and American Samoa for the period beginning October 1, 2019, and ending November 21, 2019",
+        "No explicit dollar amount; increases the federal share of Medicaid spending in territories to 100%",
+        "Adds new subsection (ff) to Section 1905 of the Social Security Act"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 1905 of the Social Security Act (42 U.S.C. 1396d)",
+          "description": "Adds new subsection (ff) providing temporary 100% FMAP for territories"
+        }
+      ],
+      "source_span": {
+        "start": 35787,
+        "end": 35937,
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "mandatory_spending_extension",
+      "program_name": "Delay of reductions in Medicaid DSH allotments",
+      "statutory_reference": "Section 1923(f)(7)(A) of the Social Security Act (42 U.S.C. 1396r\u20134(f)(7)(A))",
+      "amount": null,
+      "period": "period beginning November 22, 2019, and ending September 30, 2020",
+      "extends_through": null,
+      "section": "SEC. 1303",
+      "division": "B",
+      "title": "III",
+      "confidence": 0.95,
+      "raw_text": "Section 1923(f)(7)(A) of the Social Security Act (42 U.S.C. 1396r\u20134(f)(7)(A)) is amended\u2014 (1) in clause (i), in the matter preceding subclause (I), by",
+      "notes": [
+        "Delays the start of Medicaid Disproportionate Share Hospital (DSH) allotment reductions originally scheduled for fiscal year 2020 to the period beginning November 22, 2019",
+        "Effectively provides a partial-year reprieve from DSH cuts from October 1, 2019 through November 21, 2019",
+        "Modifies both clause (i) and clause (ii)(I) of the statutory provision"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 1923(f)(7)(A) of the Social Security Act (42 U.S.C. 1396r\u20134(f)(7)(A))",
+          "description": "Delays DSH allotment reductions by shortening FY2020 reduction period to begin November 22, 2019"
+        }
+      ],
+      "source_span": {
+        "start": 36387,
+        "end": 36537,
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "mandatory_spending_extension",
+      "program_name": "Quality Measure Endorsement, Input, and Selection",
+      "statutory_reference": "Section 1890(d)(2) of the Social Security Act (42 U.S.C. 1395aaa(d)(2))",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 1069000
+        },
+        "semantics": "mandatory_spending",
+        "text_as_written": "$1,069,000"
+      },
+      "period": "October 1, 2019 through November 21, 2019",
+      "extends_through": "November 21, 2019",
+      "section": "SEC. 1401",
+      "division": "B",
+      "title": "IV",
+      "confidence": 0.95,
+      "raw_text": "Section 1890(d)(2) of the Social Security Act (42 U.S.C. 1395aaa(d)(2)) is amended\u2014 \n(1) in the first sentence\u2014 (A) by striking ''and $7,500,000'' and",
+      "notes": [
+        "Extends funding for consensus-based entity quality measure endorsement activities",
+        "Adds $1,069,000 for the period beginning on October 1, 2019, and ending on November 21, 2019",
+        "Also extends application of certain requirements to this new period"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 1890(d)(2) of the Social Security Act (42 U.S.C. 1395aaa(d)(2))",
+          "description": "Adds new funding period for quality measure endorsement"
+        }
+      ],
+      "source_span": {
+        "start": 37004,
+        "end": 37154,
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "mandatory_spending_extension",
+      "program_name": "State Health Insurance Programs (SHIPs)",
+      "statutory_reference": "Section 119(a)(1)(B) of the Medicare Improvements for Patients and Providers Act of 2008 (42 U.S.C. 1395b-3 note)",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 1852000
+        },
+        "semantics": "mandatory_spending",
+        "text_as_written": "$1,852,000"
+      },
+      "period": "October 1, 2019 through November 21, 2019",
+      "extends_through": "November 21, 2019",
+      "section": "SEC. 1402",
+      "division": "B",
+      "title": "IV",
+      "confidence": 0.95,
+      "raw_text": "Subsection (a)(1)(B) of section 119 of the Medicare Improvements for Patients and Providers Act of 2008 (42 U.S.C. 1395b\u20133 note), as amended by secti",
+      "notes": [
+        "Subsection (a): Additional funding for State health insurance programs",
+        "Adds clause (x) providing $1,852,000 for the period beginning on October 1, 2019, and ending on November 21, 2019"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 119(a)(1)(B) of the Medicare Improvements for Patients and Providers Act of 2008 (42 U.S.C. 1395b-3 note)",
+          "description": "Adds new funding clause for State health insurance programs"
+        },
+        {
+          "ref_type": "see_also",
+          "target": "Public Law 115-123, Section 50207, Division E",
+          "description": "Most recent prior amendment (Bipartisan Budget Act of 2018)"
+        }
+      ],
+      "source_span": {
+        "start": 37635,
+        "end": 37784,
+        "file": "BILLS-116hr4378enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "mandatory_spending_extension",
+      "program_name": "Area Agencies on Aging",
+      "statutory_reference": "Section 119(b)(1)(B) of the Medicare Improvements for Patients and Providers Act of 2008 (42 U.S.C. 1395b-3 note)",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 1069000
+        },
+        "semantics": "mandatory_spending",
+        "text_as_written": "$1,069,000"
+      },
+      "period": "October 1, 2019 through November 21, 2019",
+      "extends_through": "November 21, 2019",
+      "section": "SEC. 1402",
+      "division": "B",
+      "title": "IV",
+      "confidence": 0.95,
+      "raw_text": "Subsection (b)(1)(B) of such section 119, as so amended, is amended\u2014 (1) in clause (vii), by striking ''and'' at the end; \n(2) in clause (viii), by st",
+      "notes": [
+        "Subsection (b): Additional funding for area agencies on aging",
+        "Adds clause (x) providing $1,069,000 for the period beginning on October 1, 2019, and ending on November 21, 2019"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 119(b)(1)(B) of the Medicare Improvements for Patients and Providers Act of 2008 (42 U.S.C. 1395b-3 note)",
+          "description": "Adds new funding clause for area agencies on aging"
+        }
+      ],
+      "source_span": {
+        "start": 38699,
+        "end": 38849,
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "mandatory_spending_extension",
+      "program_name": "Aging and Disability Resource Centers",
+      "statutory_reference": "Section 119(c)(1)(B) of the Medicare Improvements for Patients and Providers Act of 2008 (42 U.S.C. 1395b-3 note)",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 712000
+        },
+        "semantics": "mandatory_spending",
+        "text_as_written": "$712,000"
+      },
+      "period": "October 1, 2019 through November 21, 2019",
+      "extends_through": "November 21, 2019",
+      "section": "SEC. 1402",
+      "division": "B",
+      "title": "IV",
+      "confidence": 0.95,
+      "raw_text": "Subsection (c)(1)(B) of such section 119, as so amended, is amended\u2014 (1) in clause (vii), by striking ''and'' at the end; \n(2) in clause (viii), by st",
+      "notes": [
+        "Subsection (c): Additional funding for aging and disability resource centers",
+        "Adds clause (x) providing $712,000 for the period beginning on October 1, 2019, and ending on November 21, 2019"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 119(c)(1)(B) of the Medicare Improvements for Patients and Providers Act of 2008 (42 U.S.C. 1395b-3 note)",
+          "description": "Adds new funding clause for aging and disability resource centers"
+        }
+      ],
+      "source_span": {
+        "start": 39186,
+        "end": 39336,
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "mandatory_spending_extension",
+      "program_name": "National Center for Benefits and Outreach Enrollment",
+      "statutory_reference": "Section 119(d)(2) of the Medicare Improvements for Patients and Providers Act of 2008 (42 U.S.C. 1395b-3 note)",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 1710000
+        },
+        "semantics": "mandatory_spending",
+        "text_as_written": "$1,710,000"
+      },
+      "period": "October 1, 2019 through November 21, 2019",
+      "extends_through": "November 21, 2019",
+      "section": "SEC. 1402",
+      "division": "B",
+      "title": "IV",
+      "confidence": 0.95,
+      "raw_text": "Subsection (d)(2) of such section 119, as so amended, is amended\u2014 (1) in clause (vii), by striking ''and'' at the end; \n(2) in clause (viii), by strik",
+      "notes": [
+        "Subsection (d): Additional funding for contract with the national center for benefits and outreach enrollment",
+        "Adds clause (x) providing $1,710,000 for the period beginning on October 1, 2019, and ending on November 21, 2019"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 119(d)(2) of the Medicare Improvements for Patients and Providers Act of 2008 (42 U.S.C. 1395b-3 note)",
+          "description": "Adds new funding clause for national center for benefits and outreach enrollment"
+        }
+      ],
+      "source_span": {
+        "start": 39704,
+        "end": 39854,
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "mandatory_spending_extension",
+      "program_name": "Patient-Centered Outcomes Research Trust Fund",
+      "statutory_reference": "Section 9511(f) of the Internal Revenue Code of 1986",
+      "amount": null,
+      "period": "Extended through November 21, 2019 (from September 30, 2019)",
+      "extends_through": "November 21, 2019",
+      "section": "SEC. 1403",
+      "division": "B",
+      "title": "IV",
+      "confidence": 0.96,
+      "raw_text": "Section 9511(f) of the Internal Revenue Code of 1986 is amended by striking ''September 30'' and inserting ''November 21''.",
+      "notes": [
+        "Extends the termination date of the Patient-Centered Outcomes Research Trust Fund from September 30 to November 21",
+        "No specific dollar amount; extends the trust fund's statutory authorization period"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 9511(f) of the Internal Revenue Code of 1986",
+          "description": "Changes PCORTF termination date from September 30 to November 21"
+        }
+      ],
+      "source_span": {
+        "start": 40213,
+        "end": 40336,
+        "file": "BILLS-116hr4378enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "mandatory_spending_extension",
+      "program_name": "Demonstration Projects to Address Health Professions Workforce Needs",
+      "statutory_reference": "Section 2008 of the Social Security Act",
+      "amount": null,
+      "period": "through November 21, 2019, in the manner authorized for fiscal year 2019",
+      "extends_through": "November 21, 2019",
+      "section": "SEC. 1501",
+      "division": "B",
+      "title": "V",
+      "confidence": 0.95,
+      "raw_text": "Activities authorized by section 2008 of the Social Security Act shall continue through November 21, 2019, in the manner authorized for fiscal year 201",
+      "notes": [
+        "Appropriates 'such sums as may be necessary' \u2014 no specific dollar amount",
+        "Grants and payments limited to pro rata portion of total FY2019 authorized amount through November 21, 2019"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 2008 of the Social Security Act",
+          "description": "Extends demonstration projects to address health professions workforce needs"
+        }
+      ],
+      "source_span": {
+        "start": 40460,
+        "end": 40611,
+        "file": "BILLS-116hr4378enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "mandatory_spending_extension",
+      "program_name": "Temporary Assistance for Needy Families Program and Related Programs",
+      "statutory_reference": "Part A of title IV and section 1108(b) of the Social Security Act",
+      "amount": null,
+      "period": "through November 21, 2019, in the manner authorized for fiscal year 2019",
+      "extends_through": "November 21, 2019",
+      "section": "SEC. 1502",
+      "division": "B",
+      "title": "V",
+      "confidence": 0.95,
+      "raw_text": "Activities authorized by part A of title IV and section 1108(b) of the Social Security Act shall continue through November 21, 2019, in the manner auth",
+      "notes": [
+        "Appropriates 'such sums as may be necessary' \u2014 no specific dollar amount",
+        "Extends both TANF (Part A of Title IV) and the Special Fund for the Territories (section 1108(b))"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Part A of title IV of the Social Security Act",
+          "description": "Extends TANF program"
+        },
+        {
+          "ref_type": "amends",
+          "target": "Section 1108(b) of the Social Security Act",
+          "description": "Extends related territorial assistance program"
+        }
+      ],
+      "source_span": {
+        "start": 41062,
+        "end": 41213,
+        "file": "BILLS-116hr4378enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "rider",
+      "description": "Extends date for Alaska Native Regional Health Entities authority by substituting 'November 21, 2019' for 'October 1, 2019' in Section 424(a) of P.L. 113-76 as amended by P.L. 115-141.",
+      "policy_area": "Indian Health Service / Alaska Native health",
+      "section": "SEC. 1601",
+      "division": "B",
+      "title": "VI",
+      "confidence": 0.95,
+      "raw_text": "Section 424(a) of the Consolidated Appropriations Act, 2014 (Public Law 113\u201376), as amended by section 428 of the Consolidated Appropriations Act, 2018",
+      "notes": [
+        "Extends date from October 1, 2019 to November 21, 2019 for Alaska Native Regional Health Entities provision",
+        "Uses 'shall be applied by substituting' pattern for dates rather than dollar amounts"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 424(a) of P.L. 113-76",
+          "description": "Consolidated Appropriations Act, 2014"
+        },
+        {
+          "ref_type": "see_also",
+          "target": "Section 428 of P.L. 115-141",
+          "description": "Consolidated Appropriations Act, 2018, prior amendment"
+        }
+      ],
+      "source_span": {
+        "start": 41485,
+        "end": 41636,
+        "file": "BILLS-116hr4378enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "rider",
+      "description": "Increases the numerical enrollment cap for World Trade Center Health Program responders from 25,000 to 75,000 by amending Section 3311(a)(4)(A) of the Public Health Service Act.",
+      "policy_area": "World Trade Center Health Program",
+      "section": "SEC. 1602",
+      "division": "B",
+      "title": "VI",
+      "confidence": 0.96,
+      "raw_text": "Section 3311(a)(4)(A) of the Public Health Service Act (42 U.S.C. 300mm\u201321(a)(4)(A)) is amended by striking ''25,000'' and inserting ''75,000''.",
+      "notes": [
+        "Subsection (a): Triples the WTC responders enrollment cap from 25,000 to 75,000"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 3311(a)(4)(A) of the Public Health Service Act (42 U.S.C. 300mm-21(a)(4)(A))",
+          "description": "WTC responders numerical limitation"
+        }
+      ],
+      "source_span": {
+        "start": 41862,
+        "end": 42006,
+        "file": "BILLS-116hr4378enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "rider",
+      "description": "Increases the numerical enrollment cap for World Trade Center Health Program survivors from 25,000 to 75,000 by amending Section 3321(a)(3)(A) of the Public Health Service Act.",
+      "policy_area": "World Trade Center Health Program",
+      "section": "SEC. 1602",
+      "division": "B",
+      "title": "VI",
+      "confidence": 0.96,
+      "raw_text": "Section 3321(a)(3)(A) of the Public Health Service Act (42 U.S.C. 300mm\u201331(a)(3)(A)) is amended by striking ''25,000'' and inserting ''75,000''.",
+      "notes": [
+        "Subsection (b): Triples the WTC survivors enrollment cap from 25,000 to 75,000"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 3321(a)(3)(A) of the Public Health Service Act (42 U.S.C. 300mm-31(a)(3)(A))",
+          "description": "WTC survivors numerical limitation"
+        }
+      ],
+      "source_span": {
+        "start": 42041,
+        "end": 42185,
+        "file": "BILLS-116hr4378enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "rider",
+      "description": "Rule of construction: Nothing in SEC. 1602 or its amendments shall alter the annual limitations on amounts appropriated to the World Trade Center Health Program Fund under Section 3351(a)(2) of the Public Health Service Act.",
+      "policy_area": "World Trade Center Health Program",
+      "section": "SEC. 1602",
+      "division": "B",
+      "title": "VI",
+      "confidence": 0.95,
+      "raw_text": "Nothing in this section, or the amendments made by this section, shall alter the annual limitations on amounts appropriated to the World Trade Center He",
+      "notes": [
+        "Subsection (c): Clarifies that increasing enrollment caps does not change annual funding limits for the WTC Health Program Fund"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "see_also",
+          "target": "Section 3351(a)(2) of the Public Health Service Act (42 U.S.C. 300mm-61(a)(2))",
+          "description": "Annual funding limitations for WTC Health Program Fund"
+        }
+      ],
+      "source_span": {
+        "start": 42250,
+        "end": 42402,
+        "file": "BILLS-116hr4378enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "rider",
+      "description": "Excludes authorized generic drugs from calculation of Average Manufacturer Price (AMP) for the Medicaid drug rebate program and excludes manufacturers from the definition of wholesaler, by amending Section 1927(k)(1)(C) and Section 1927(k)(11) of the Social Security Act. Effective first day of the first fiscal quarter after enactment.",
+      "policy_area": "Medicaid drug rebate program",
+      "section": "SEC. 1603",
+      "division": "B",
+      "title": "VI",
+      "confidence": 0.95,
+      "raw_text": "Subparagraph (C) of section 1927(k)(1) of the Social Security Act (42 U.S.C. 1396r\u20138(k)(1)) is amended\u2014",
+      "notes": [
+        "Subsection (a): Changes 'inclusive' to 'exclusive' for authorized generic drugs in AMP calculation and changes 'a new drug application' to 'the manufacturer's new drug application'",
+        "Subsection (b): Removes manufacturers from definition of wholesaler in Section 1927(k)(11)",
+        "Subsection (c): Effective date is first day of first fiscal quarter beginning after enactment"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 1927(k)(1)(C) of the Social Security Act (42 U.S.C. 1396r-8(k)(1))",
+          "description": "AMP calculation for authorized generic drugs"
+        },
+        {
+          "ref_type": "amends",
+          "target": "Section 1927(k)(11) of the Social Security Act (42 U.S.C. 1396r-8(k)(11))",
+          "description": "Definition of wholesaler"
+        }
+      ],
+      "source_span": {
+        "start": 42721,
+        "end": 42824,
+        "file": "BILLS-116hr4378enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "mandatory_spending_extension",
+      "program_name": "Medicaid Improvement Fund",
+      "statutory_reference": "Section 1941(b) of the Social Security Act (42 U.S.C. 1396w-1(b))",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 2387000000
+        },
+        "semantics": "mandatory_spending",
+        "text_as_written": "$2,387,000,000"
+      },
+      "period": "through fiscal year 2025",
+      "extends_through": "2025",
+      "section": "SEC. 1604",
+      "division": "B",
+      "title": "VI",
+      "confidence": 0.95,
+      "raw_text": "Section 1941(b) of the Social Security Act (42 U.S.C. 1396w\u20131(b)), as amended by section 2 of Public Law 116\u201329, is amended\u2014",
+      "notes": [
+        "Paragraph (1) reduces the current fund level from $1,000,000 to $0",
+        "Paragraph (3)(A) strikes '2023' and inserts '2025' each place it appears, extending the fund through FY2025",
+        "Paragraph (3)(A) also strikes '$0' and inserts '$2,387,000,000', establishing new mandatory spending",
+        "Net effect: zeros out the current $1M balance and creates $2,387,000,000 for FY2025, commonly used as a budget offset vehicle"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 1941(b) of the Social Security Act (42 U.S.C. 1396w-1(b))",
+          "description": "Medicaid Improvement Fund"
+        },
+        {
+          "ref_type": "see_also",
+          "target": "Section 2 of P.L. 116-29",
+          "description": "Prior amendment to the Medicaid Improvement Fund"
+        }
+      ],
+      "source_span": {
+        "start": 43518,
+        "end": 43642,
+        "file": "BILLS-116hr4378enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "rider",
+      "description": "Exempts the budgetary effects of Division B from Statutory PAYGO scorecards maintained pursuant to section 4(d) of the Statutory Pay-As-You-Go Act of 2010.",
+      "policy_area": "budget enforcement",
+      "section": "SEC. 1701",
+      "division": "B",
+      "title": "VII",
+      "confidence": 0.96,
+      "raw_text": "The budgetary effects of this division shall not be entered on either PAYGO scorecard maintained pursuant to section 4(d) of the Statutory Pay-As-You-Go",
+      "notes": [
+        "Subsection (a): Exemption from Statutory PAYGO scorecards"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "notwithstanding",
+          "target": "Section 4(d) of the Statutory Pay-As-You-Go Act of 2010",
+          "description": "Exempts Division B budgetary effects from Statutory PAYGO scorecards"
+        }
+      ],
+      "source_span": {
+        "start": 43982,
+        "end": 44134,
+        "file": "BILLS-116hr4378enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "rider",
+      "description": "Exempts the budgetary effects of Division B from any Senate PAYGO scorecard maintained for purposes of section 4106 of H. Con. Res. 71 (115th Congress).",
+      "policy_area": "budget enforcement",
+      "section": "SEC. 1701",
+      "division": "B",
+      "title": "VII",
+      "confidence": 0.96,
+      "raw_text": "The budgetary effects of this division shall not be entered on any PAYGO scorecard maintained for purposes of section 4106 of H. Con. Res. 71 (115th Con",
+      "notes": [
+        "Subsection (b): Exemption from Senate PAYGO scorecards"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "notwithstanding",
+          "target": "Section 4106 of H. Con. Res. 71 (115th Congress)",
+          "description": "Exempts Division B budgetary effects from Senate PAYGO scorecards"
+        }
+      ],
+      "source_span": {
+        "start": 44177,
+        "end": 44329,
+        "file": "BILLS-116hr4378enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "rider",
+      "description": "Notwithstanding Budget Scorekeeping Guidelines and section 250(c)(8) of the Balanced Budget and Emergency Deficit Control Act of 1985, the budgetary effects of Division B shall not be estimated for purposes of section 251 of such Act or for purposes of paragraph (4)(C) of section 3 of the Statutory Pay-As-You-Go Act of 2010 as being included in an appropriation Act.",
+      "policy_area": "budget enforcement",
+      "section": "SEC. 1701",
+      "division": "B",
+      "title": "VII",
+      "confidence": 0.95,
+      "raw_text": "Notwithstanding Rule 3 of the Budget Scorekeeping Guidelines set forth in the joint explanatory statement of the committee of conference accompanying Con",
+      "notes": [
+        "Subsection (c): Classification of budgetary effects",
+        "Paragraph (1) exempts from section 251 discretionary spending caps",
+        "Paragraph (2) exempts from being scored as an appropriation Act under Statutory PAYGO"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "notwithstanding",
+          "target": "Rule 3 of the Budget Scorekeeping Guidelines (Conference Report 105-217)",
+          "description": "Overrides budget scorekeeping guidelines"
+        },
+        {
+          "ref_type": "notwithstanding",
+          "target": "Section 250(c)(8) of the Balanced Budget and Emergency Deficit Control Act of 1985",
+          "description": "Overrides classification of budgetary effects"
+        },
+        {
+          "ref_type": "see_also",
+          "target": "Section 251 of the Balanced Budget and Emergency Deficit Control Act of 1985",
+          "description": "Discretionary spending caps; Division B effects not estimated for this purpose"
+        },
+        {
+          "ref_type": "see_also",
+          "target": "Section 3(4)(C) of the Statutory Pay-As-You-Go Act of 2010",
+          "description": "Division B effects not to be scored as included in an appropriation Act"
+        }
+      ],
+      "source_span": {
+        "start": 44379,
+        "end": 44532,
+        "file": "BILLS-116hr4378enr.txt",
+        "verified": true
+      }
+    }
+  ],
+  "summary": {
+    "total_provisions": 82,
+    "by_division": {
+      "B": 29,
+      "A": 53
+    },
+    "by_type": {
+      "rescission": 1,
+      "rider": 29,
+      "mandatory_spending_extension": 19,
+      "cr_substitution": 2,
+      "limitation": 4,
+      "other": 13,
+      "continuing_resolution_baseline": 1,
+      "directive": 1,
+      "appropriation": 11,
+      "transfer_authority": 1
+    },
+    "total_budget_authority": 374660500,
+    "total_rescissions": 0,
+    "sections_with_no_provisions": [],
+    "flagged_issues": [
+      "SEC. 124(a) rescinds unspecified unobligated balances from P.L. 115-245 section 9013 (Ukraine Security Assistance Initiative) \u2014 dollar amount unknown",
+      "SEC. 124(b) appropriates an amount equal to the rescission in SEC. 124(a) but dollar amount is not explicitly stated \u2014 excluded from total_budget_authority",
+      "SEC. 127 CFIUS Fund has $15M gross appropriation but estimated net general fund cost of not more than $5M after fee offsets",
+      "SEC. 129 OPM has $48M total but $29.76M financed from trust funds; net general fund cost is approximately $18.24M",
+      "total_budget_authority ($374,660,500) excludes the unquantifiable CR baseline from SEC. 101 and the unspecified amount in SEC. 124(b)",
+      "total_rescissions is null because SEC. 124(a) rescinds an unspecified amount of unobligated balances",
+      "All amounts in Title I are prorated mandatory spending extensions covering Oct 1 \u2013 Nov 21, 2019 (approximately 52 days of FY2020), consistent with the CR duration in Division A.",
+      "SEC. 1101(e) is a conforming amendment to 18 U.S.C. 3014(h)(4) \u2014 classified as 'other' since it is a technical cross-reference update, not a spending or policy provision.",
+      "Both SEC. 1201 and SEC. 1202 appropriate $10,684,931 each for a 52-day partial-year period (Oct 1 \u2013 Nov 21, 2019), which is a prorated amount consistent with the CR duration",
+      "All three provisions in Title III are Medicaid extenders with no explicit dollar amounts; they amend existing statutory dates and percentages",
+      "SEC. 1302 sets territorial FMAP to 100% for a short period, resulting in increased federal Medicaid spending for territories",
+      "SEC. 1303 delays DSH cuts, effectively providing short-term budget relief to states",
+      "All provisions in Title IV are mandatory spending extensions amending existing authorizing statutes, not discretionary appropriations",
+      "All dollar amounts represent pro-rated funding for the partial-year period October 1 through November 21, 2019 (52 days)",
+      "SEC. 1402 contains four subsections (a)-(d), each extracted as a separate provision amending different subsections of the same Section 119",
+      "Both sections appropriate 'such sums as may be necessary' with no specific dollar amounts; actual outlays depend on pro rata calculations based on FY2019 authorized levels through November 21, 2019",
+      "SEC. 1604 establishes $2,387,000,000 in mandatory spending for the Medicaid Improvement Fund in FY2025 while zeroing out the existing $1,000,000 balance; commonly used as a budget offset mechanism",
+      "SEC. 1602 triples WTC Health Program enrollment caps without altering annual funding limitations per subsection (c)",
+      "SEC. 1701 contains only budget enforcement exemptions for Division B; no spending provisions in Title VII"
+    ]
+  },
+  "chunk_map": [
+    {
+      "chunk_id": "01KM84VJSSD5AT81JGSSK89XYK",
+      "label": "[1/8] A",
+      "provision_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52
+      ]
+    },
+    {
+      "chunk_id": "01KM84VJST0V0V96Y592PBFJ8Y",
+      "label": "[2/8] B-I",
+      "provision_indices": [
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59
+      ]
+    },
+    {
+      "chunk_id": "01KM84VJSTNJWRPQDDXTQ87P6R",
+      "label": "[3/8] B-II",
+      "provision_indices": [
+        60,
+        61
+      ]
+    },
+    {
+      "chunk_id": "01KM84VJSTAS8YYB3T13H72Q4Z",
+      "label": "[4/8] B-III",
+      "provision_indices": [
+        62,
+        63,
+        64
+      ]
+    },
+    {
+      "chunk_id": "01KM84VJSTMB7VRY74W7JDCAT6",
+      "label": "[5/8] B-IV",
+      "provision_indices": [
+        65,
+        66,
+        67,
+        68,
+        69,
+        70
+      ]
+    },
+    {
+      "chunk_id": "01KM84W6HXJ6ZJZT66X9QH7JWS",
+      "label": "[6/8] B-V",
+      "provision_indices": [
+        71,
+        72
+      ]
+    },
+    {
+      "chunk_id": "01KM84WC710CSTX7XM8DBAQRYR",
+      "label": "[7/8] B-VI",
+      "provision_indices": [
+        73,
+        74,
+        75,
+        76,
+        77,
+        78
+      ]
+    },
+    {
+      "chunk_id": "01KM84WKXBXGBDFDBPHH4CDGGW",
+      "label": "[8/8] B-VII",
+      "provision_indices": [
+        79,
+        80,
+        81
+      ]
+    }
+  ]
+}

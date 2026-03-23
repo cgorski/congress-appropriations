@@ -239,7 +239,7 @@ with open("appropriations.json") as f:
 # Method 2: From subprocess
 import subprocess
 result = subprocess.run(
-    ["congress-approp", "search", "--dir", "examples",
+    ["congress-approp", "search", "--dir", "data",
      "--type", "appropriation", "--format", "json"],
     capture_output=True, text=True
 )

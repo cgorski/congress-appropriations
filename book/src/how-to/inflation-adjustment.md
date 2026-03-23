@@ -8,7 +8,7 @@ The `--real` flag on `compare` adds inflation-adjusted context to every row, sho
 
 ```bash
 # Compare THUD FY2024 → FY2026 with inflation adjustment
-congress-approp compare --base-fy 2024 --current-fy 2026 --subcommittee thud --dir examples --real
+congress-approp compare --base-fy 2024 --current-fy 2026 --subcommittee thud --dir data --real
 ```
 
 The output adds two columns: **Real Δ %*** (the inflation-adjusted percentage change) and a directional indicator:
@@ -60,7 +60,7 @@ The default deflator is CPI-U (Consumer Price Index for All Urban Consumers), wh
 To use a different deflator, provide your own data file:
 
 ```bash
-congress-approp compare --base-fy 2024 --current-fy 2026 --subcommittee thud --dir examples \
+congress-approp compare --base-fy 2024 --current-fy 2026 --subcommittee thud --dir data \
   --real --cpi-file my_gdp_deflator.json
 ```
 

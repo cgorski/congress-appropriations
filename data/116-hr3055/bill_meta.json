@@ -1,0 +1,69 @@
+{
+  "schema_version": "1.0",
+  "congress": 116,
+  "fiscal_years": [
+    2020
+  ],
+  "bill_nature": "continuing_resolution",
+  "subcommittees": [
+    {
+      "division": "A",
+      "jurisdiction": "continuing_resolution",
+      "title": "Further Continuing Appropriations Act, 2020",
+      "source": {
+        "type": "pattern_match",
+        "pattern": "continuing appropriations"
+      }
+    },
+    {
+      "division": "B",
+      "jurisdiction": "other",
+      "title": "Health and Human Services Extenders and Other Matters",
+      "source": {
+        "type": "pattern_match",
+        "pattern": "other matters"
+      }
+    }
+  ],
+  "provision_timing": [
+    {
+      "provision_index": 1,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 9,
+      "timing": "supplemental",
+      "available_fy": null,
+      "source": {
+        "type": "note_text"
+      }
+    },
+    {
+      "provision_index": 10,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    }
+  ],
+  "canonical_accounts": [
+    {
+      "provision_index": 1,
+      "canonical_name": "periodic censuses and programs"
+    },
+    {
+      "provision_index": 2,
+      "canonical_name": "mobile questionnaire assistance centers"
+    },
+    {
+      "provision_index": 9,
+      "canonical_name": "payments in lieu of taxes"
+    }
+  ],
+  "extraction_sha256": "aaef24ceac07ce7e22699bcc7ebe2433f4c2e806ef6c09083b2e96affbfbcc41"
+}

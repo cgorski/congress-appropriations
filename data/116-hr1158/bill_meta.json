@@ -1,0 +1,6723 @@
+{
+  "schema_version": "1.0",
+  "congress": 116,
+  "fiscal_years": [
+    2020
+  ],
+  "bill_nature": "minibus",
+  "subcommittees": [
+    {
+      "division": "A",
+      "jurisdiction": "defense",
+      "title": "Department of Defense Appropriations Act, 2020",
+      "source": {
+        "type": "pattern_match",
+        "pattern": "department of defense"
+      }
+    },
+    {
+      "division": "B",
+      "jurisdiction": "cjs",
+      "title": "Commerce, Justice, Science, and Related Agencies Appropriations Act, 2020",
+      "source": {
+        "type": "pattern_match",
+        "pattern": "commerce, justice, science"
+      }
+    },
+    {
+      "division": "C",
+      "jurisdiction": "financial_services",
+      "title": "Financial Services and General Government Appropriations Act, 2020",
+      "source": {
+        "type": "pattern_match",
+        "pattern": "financial services"
+      }
+    },
+    {
+      "division": "D",
+      "jurisdiction": "homeland_security",
+      "title": "Department of Homeland Security Appropriations Act, 2020",
+      "source": {
+        "type": "pattern_match",
+        "pattern": "homeland security"
+      }
+    }
+  ],
+  "provision_timing": [
+    {
+      "provision_index": 0,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 1,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 2,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 3,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 4,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 5,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 6,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 7,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 8,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 9,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 66,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 86,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 155,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 168,
+      "timing": "supplemental",
+      "available_fy": null,
+      "source": {
+        "type": "note_text"
+      }
+    },
+    {
+      "provision_index": 169,
+      "timing": "supplemental",
+      "available_fy": null,
+      "source": {
+        "type": "note_text"
+      }
+    },
+    {
+      "provision_index": 170,
+      "timing": "supplemental",
+      "available_fy": null,
+      "source": {
+        "type": "note_text"
+      }
+    },
+    {
+      "provision_index": 171,
+      "timing": "supplemental",
+      "available_fy": null,
+      "source": {
+        "type": "note_text"
+      }
+    },
+    {
+      "provision_index": 172,
+      "timing": "supplemental",
+      "available_fy": null,
+      "source": {
+        "type": "note_text"
+      }
+    },
+    {
+      "provision_index": 173,
+      "timing": "supplemental",
+      "available_fy": null,
+      "source": {
+        "type": "note_text"
+      }
+    },
+    {
+      "provision_index": 174,
+      "timing": "supplemental",
+      "available_fy": null,
+      "source": {
+        "type": "note_text"
+      }
+    },
+    {
+      "provision_index": 175,
+      "timing": "supplemental",
+      "available_fy": null,
+      "source": {
+        "type": "note_text"
+      }
+    },
+    {
+      "provision_index": 176,
+      "timing": "supplemental",
+      "available_fy": null,
+      "source": {
+        "type": "note_text"
+      }
+    },
+    {
+      "provision_index": 177,
+      "timing": "supplemental",
+      "available_fy": null,
+      "source": {
+        "type": "note_text"
+      }
+    },
+    {
+      "provision_index": 178,
+      "timing": "supplemental",
+      "available_fy": null,
+      "source": {
+        "type": "note_text"
+      }
+    },
+    {
+      "provision_index": 179,
+      "timing": "supplemental",
+      "available_fy": null,
+      "source": {
+        "type": "note_text"
+      }
+    },
+    {
+      "provision_index": 180,
+      "timing": "supplemental",
+      "available_fy": null,
+      "source": {
+        "type": "note_text"
+      }
+    },
+    {
+      "provision_index": 181,
+      "timing": "supplemental",
+      "available_fy": null,
+      "source": {
+        "type": "note_text"
+      }
+    },
+    {
+      "provision_index": 182,
+      "timing": "supplemental",
+      "available_fy": null,
+      "source": {
+        "type": "note_text"
+      }
+    },
+    {
+      "provision_index": 185,
+      "timing": "supplemental",
+      "available_fy": null,
+      "source": {
+        "type": "note_text"
+      }
+    },
+    {
+      "provision_index": 186,
+      "timing": "supplemental",
+      "available_fy": null,
+      "source": {
+        "type": "note_text"
+      }
+    },
+    {
+      "provision_index": 187,
+      "timing": "supplemental",
+      "available_fy": null,
+      "source": {
+        "type": "note_text"
+      }
+    },
+    {
+      "provision_index": 188,
+      "timing": "supplemental",
+      "available_fy": null,
+      "source": {
+        "type": "note_text"
+      }
+    },
+    {
+      "provision_index": 189,
+      "timing": "supplemental",
+      "available_fy": null,
+      "source": {
+        "type": "note_text"
+      }
+    },
+    {
+      "provision_index": 190,
+      "timing": "supplemental",
+      "available_fy": null,
+      "source": {
+        "type": "note_text"
+      }
+    },
+    {
+      "provision_index": 191,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 194,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 195,
+      "timing": "supplemental",
+      "available_fy": null,
+      "source": {
+        "type": "note_text"
+      }
+    },
+    {
+      "provision_index": 196,
+      "timing": "supplemental",
+      "available_fy": null,
+      "source": {
+        "type": "note_text"
+      }
+    },
+    {
+      "provision_index": 197,
+      "timing": "supplemental",
+      "available_fy": null,
+      "source": {
+        "type": "note_text"
+      }
+    },
+    {
+      "provision_index": 198,
+      "timing": "supplemental",
+      "available_fy": null,
+      "source": {
+        "type": "note_text"
+      }
+    },
+    {
+      "provision_index": 199,
+      "timing": "supplemental",
+      "available_fy": null,
+      "source": {
+        "type": "note_text"
+      }
+    },
+    {
+      "provision_index": 200,
+      "timing": "supplemental",
+      "available_fy": null,
+      "source": {
+        "type": "note_text"
+      }
+    },
+    {
+      "provision_index": 201,
+      "timing": "supplemental",
+      "available_fy": null,
+      "source": {
+        "type": "note_text"
+      }
+    },
+    {
+      "provision_index": 202,
+      "timing": "supplemental",
+      "available_fy": null,
+      "source": {
+        "type": "note_text"
+      }
+    },
+    {
+      "provision_index": 203,
+      "timing": "supplemental",
+      "available_fy": null,
+      "source": {
+        "type": "note_text"
+      }
+    },
+    {
+      "provision_index": 204,
+      "timing": "supplemental",
+      "available_fy": null,
+      "source": {
+        "type": "note_text"
+      }
+    },
+    {
+      "provision_index": 205,
+      "timing": "supplemental",
+      "available_fy": null,
+      "source": {
+        "type": "note_text"
+      }
+    },
+    {
+      "provision_index": 206,
+      "timing": "supplemental",
+      "available_fy": null,
+      "source": {
+        "type": "note_text"
+      }
+    },
+    {
+      "provision_index": 207,
+      "timing": "supplemental",
+      "available_fy": null,
+      "source": {
+        "type": "note_text"
+      }
+    },
+    {
+      "provision_index": 208,
+      "timing": "supplemental",
+      "available_fy": null,
+      "source": {
+        "type": "note_text"
+      }
+    },
+    {
+      "provision_index": 209,
+      "timing": "supplemental",
+      "available_fy": null,
+      "source": {
+        "type": "note_text"
+      }
+    },
+    {
+      "provision_index": 210,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 213,
+      "timing": "supplemental",
+      "available_fy": null,
+      "source": {
+        "type": "note_text"
+      }
+    },
+    {
+      "provision_index": 214,
+      "timing": "supplemental",
+      "available_fy": null,
+      "source": {
+        "type": "note_text"
+      }
+    },
+    {
+      "provision_index": 215,
+      "timing": "supplemental",
+      "available_fy": null,
+      "source": {
+        "type": "note_text"
+      }
+    },
+    {
+      "provision_index": 216,
+      "timing": "supplemental",
+      "available_fy": null,
+      "source": {
+        "type": "note_text"
+      }
+    },
+    {
+      "provision_index": 217,
+      "timing": "supplemental",
+      "available_fy": null,
+      "source": {
+        "type": "note_text"
+      }
+    },
+    {
+      "provision_index": 218,
+      "timing": "supplemental",
+      "available_fy": null,
+      "source": {
+        "type": "note_text"
+      }
+    },
+    {
+      "provision_index": 219,
+      "timing": "supplemental",
+      "available_fy": null,
+      "source": {
+        "type": "note_text"
+      }
+    },
+    {
+      "provision_index": 220,
+      "timing": "supplemental",
+      "available_fy": null,
+      "source": {
+        "type": "note_text"
+      }
+    },
+    {
+      "provision_index": 240,
+      "timing": "supplemental",
+      "available_fy": null,
+      "source": {
+        "type": "note_text"
+      }
+    },
+    {
+      "provision_index": 259,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 261,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 263,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 264,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 266,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 267,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 278,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 279,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 280,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 281,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 282,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 283,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 284,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 286,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 287,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 288,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 289,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 290,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 291,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 292,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 293,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 295,
+      "timing": "supplemental",
+      "available_fy": null,
+      "source": {
+        "type": "note_text"
+      }
+    },
+    {
+      "provision_index": 296,
+      "timing": "supplemental",
+      "available_fy": null,
+      "source": {
+        "type": "note_text"
+      }
+    },
+    {
+      "provision_index": 297,
+      "timing": "supplemental",
+      "available_fy": null,
+      "source": {
+        "type": "note_text"
+      }
+    },
+    {
+      "provision_index": 298,
+      "timing": "supplemental",
+      "available_fy": null,
+      "source": {
+        "type": "note_text"
+      }
+    },
+    {
+      "provision_index": 299,
+      "timing": "supplemental",
+      "available_fy": null,
+      "source": {
+        "type": "note_text"
+      }
+    },
+    {
+      "provision_index": 300,
+      "timing": "supplemental",
+      "available_fy": null,
+      "source": {
+        "type": "note_text"
+      }
+    },
+    {
+      "provision_index": 301,
+      "timing": "supplemental",
+      "available_fy": null,
+      "source": {
+        "type": "note_text"
+      }
+    },
+    {
+      "provision_index": 302,
+      "timing": "supplemental",
+      "available_fy": null,
+      "source": {
+        "type": "note_text"
+      }
+    },
+    {
+      "provision_index": 303,
+      "timing": "supplemental",
+      "available_fy": null,
+      "source": {
+        "type": "note_text"
+      }
+    },
+    {
+      "provision_index": 304,
+      "timing": "supplemental",
+      "available_fy": null,
+      "source": {
+        "type": "note_text"
+      }
+    },
+    {
+      "provision_index": 306,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 310,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 311,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 314,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 315,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 317,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 318,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 319,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 322,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 324,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 327,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 330,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 333,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 335,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 340,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 343,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 344,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 347,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 350,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 351,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 366,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 368,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 370,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 372,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 376,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 378,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 380,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 387,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 388,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 389,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 391,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 392,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 393,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 398,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 400,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 401,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 402,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 403,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 406,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 409,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 411,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 412,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 413,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 414,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 418,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 421,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 425,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 446,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 453,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 513,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 530,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 532,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 566,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 567,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 569,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 577,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 578,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 583,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 590,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 591,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 594,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 595,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 598,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 606,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 609,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 610,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 611,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 614,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 616,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 620,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 621,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 624,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 626,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 634,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 635,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 638,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 639,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 693,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 694,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 695,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 696,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 697,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 698,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 699,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 700,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 701,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 729,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 731,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 732,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 733,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 734,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 735,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 736,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 737,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 738,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 739,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 743,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 746,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 749,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 751,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 754,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 758,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 763,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 764,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 767,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 770,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 771,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 777,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 796,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 802,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 806,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 814,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 839,
+      "timing": "supplemental",
+      "available_fy": null,
+      "source": {
+        "type": "note_text"
+      }
+    },
+    {
+      "provision_index": 840,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 844,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 848,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 849,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 850,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 852,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 854,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 862,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 863,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 865,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 873,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 882,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 883,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 885,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 886,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 892,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 895,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 896,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 898,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 900,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 903,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 904,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 905,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 907,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 909,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 910,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 912,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 919,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 920,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 921,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 930,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 931,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 938,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 940,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 941,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 942,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 943,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 946,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 947,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 948,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 951,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 953,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 956,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 959,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 960,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 966,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 967,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 969,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 970,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 971,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 977,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 984,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 985,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 989,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 990,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 993,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 994,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 997,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 998,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 1006,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 1007,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 1008,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 1010,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 1012,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 1013,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 1016,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 1017,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 1018,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 1019,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 1020,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 1021,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 1024,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 1025,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 1027,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 1028,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 1029,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 1030,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 1034,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 1039,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 1042,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 1047,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 1051,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 1052,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 1053,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 1054,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 1060,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 1061,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 1068,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 1074,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 1075,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 1098,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 1099,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 1101,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 1102,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 1103,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 1114,
+      "timing": "supplemental",
+      "available_fy": null,
+      "source": {
+        "type": "note_text"
+      }
+    },
+    {
+      "provision_index": 1189,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 1193,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 1194,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 1197,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 1201,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 1205,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 1214,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 1223,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 1226,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 1237,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 1239,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 1242,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 1243,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 1244,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 1252,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 1256,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 1259,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 1260,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 1266,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 1267,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 1271,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 1295,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 1316,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 1319,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 1320,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 1321,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 1323,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 1326,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 1349,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 1351,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 1369,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 1370,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 1371,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 1374,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 1375,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 1378,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 1379,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 1381,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 1382,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 1383,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 1422,
+      "timing": "supplemental",
+      "available_fy": null,
+      "source": {
+        "type": "note_text"
+      }
+    },
+    {
+      "provision_index": 1450,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 1460,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 1469,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 1477,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 1482,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 1483,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    }
+  ],
+  "canonical_accounts": [
+    {
+      "provision_index": 0,
+      "canonical_name": "military personnel, army"
+    },
+    {
+      "provision_index": 1,
+      "canonical_name": "military personnel, navy"
+    },
+    {
+      "provision_index": 2,
+      "canonical_name": "military personnel, marine corps"
+    },
+    {
+      "provision_index": 3,
+      "canonical_name": "military personnel, air force"
+    },
+    {
+      "provision_index": 4,
+      "canonical_name": "reserve personnel, army"
+    },
+    {
+      "provision_index": 5,
+      "canonical_name": "reserve personnel, navy"
+    },
+    {
+      "provision_index": 6,
+      "canonical_name": "reserve personnel, marine corps"
+    },
+    {
+      "provision_index": 7,
+      "canonical_name": "reserve personnel, air force"
+    },
+    {
+      "provision_index": 8,
+      "canonical_name": "national guard personnel, army"
+    },
+    {
+      "provision_index": 9,
+      "canonical_name": "national guard personnel, air force"
+    },
+    {
+      "provision_index": 17,
+      "canonical_name": "procurement, defense-wide"
+    },
+    {
+      "provision_index": 18,
+      "canonical_name": "operation and maintenance, navy"
+    },
+    {
+      "provision_index": 23,
+      "canonical_name": "operation and maintenance, defense-wide"
+    },
+    {
+      "provision_index": 27,
+      "canonical_name": "shipbuilding and conversion, navy: ddg-51 destroyer"
+    },
+    {
+      "provision_index": 28,
+      "canonical_name": "shipbuilding and conversion, navy: lcac slep"
+    },
+    {
+      "provision_index": 29,
+      "canonical_name": "aircraft procurement, army"
+    },
+    {
+      "provision_index": 30,
+      "canonical_name": "missile procurement, army"
+    },
+    {
+      "provision_index": 31,
+      "canonical_name": "weapons and tracked combat vehicles, army"
+    },
+    {
+      "provision_index": 32,
+      "canonical_name": "other procurement, army"
+    },
+    {
+      "provision_index": 33,
+      "canonical_name": "aircraft procurement, navy"
+    },
+    {
+      "provision_index": 34,
+      "canonical_name": "other procurement, navy"
+    },
+    {
+      "provision_index": 35,
+      "canonical_name": "procurement, marine corps"
+    },
+    {
+      "provision_index": 36,
+      "canonical_name": "aircraft procurement, air force"
+    },
+    {
+      "provision_index": 37,
+      "canonical_name": "missile procurement, air force"
+    },
+    {
+      "provision_index": 38,
+      "canonical_name": "other procurement, air force"
+    },
+    {
+      "provision_index": 39,
+      "canonical_name": "operation and maintenance, defense-wide: defense security cooperation agency"
+    },
+    {
+      "provision_index": 40,
+      "canonical_name": "aircraft procurement, army"
+    },
+    {
+      "provision_index": 41,
+      "canonical_name": "missile procurement, army"
+    },
+    {
+      "provision_index": 42,
+      "canonical_name": "weapons and tracked combat vehicles, army"
+    },
+    {
+      "provision_index": 43,
+      "canonical_name": "other procurement, army"
+    },
+    {
+      "provision_index": 44,
+      "canonical_name": "aircraft procurement, navy"
+    },
+    {
+      "provision_index": 45,
+      "canonical_name": "procurement of ammunition, navy and marine corps"
+    },
+    {
+      "provision_index": 46,
+      "canonical_name": "shipbuilding and conversion, navy: ddg-51 destroyer advance procurement"
+    },
+    {
+      "provision_index": 47,
+      "canonical_name": "shipbuilding and conversion, navy: lpd-17 advance procurement"
+    },
+    {
+      "provision_index": 48,
+      "canonical_name": "other procurement, navy"
+    },
+    {
+      "provision_index": 49,
+      "canonical_name": "procurement, marine corps"
+    },
+    {
+      "provision_index": 50,
+      "canonical_name": "aircraft procurement, air force"
+    },
+    {
+      "provision_index": 51,
+      "canonical_name": "missile procurement, air force"
+    },
+    {
+      "provision_index": 52,
+      "canonical_name": "space procurement, air force"
+    },
+    {
+      "provision_index": 53,
+      "canonical_name": "procurement of ammunition, air force"
+    },
+    {
+      "provision_index": 54,
+      "canonical_name": "procurement, defense-wide"
+    },
+    {
+      "provision_index": 55,
+      "canonical_name": "research, development, test and evaluation, army"
+    },
+    {
+      "provision_index": 56,
+      "canonical_name": "research, development, test and evaluation, navy"
+    },
+    {
+      "provision_index": 57,
+      "canonical_name": "research, development, test and evaluation, air force"
+    },
+    {
+      "provision_index": 58,
+      "canonical_name": "research, development, test and evaluation, defense-wide"
+    },
+    {
+      "provision_index": 59,
+      "canonical_name": "defense health program: research, development, test and evaluation"
+    },
+    {
+      "provision_index": 65,
+      "canonical_name": "working capital fund, army"
+    },
+    {
+      "provision_index": 75,
+      "canonical_name": "operation and maintenance, defense-wide"
+    },
+    {
+      "provision_index": 79,
+      "canonical_name": "research, development, test and evaluation, defense-wide"
+    },
+    {
+      "provision_index": 84,
+      "canonical_name": "operation and maintenance, army"
+    },
+    {
+      "provision_index": 90,
+      "canonical_name": "israeli cooperative programs"
+    },
+    {
+      "provision_index": 91,
+      "canonical_name": "iron dome defense system"
+    },
+    {
+      "provision_index": 92,
+      "canonical_name": "short range ballistic missile defense (srbmd)"
+    },
+    {
+      "provision_index": 93,
+      "canonical_name": "srbmd co-production activities"
+    },
+    {
+      "provision_index": 94,
+      "canonical_name": "upper-tier component to israeli missile defense architecture"
+    },
+    {
+      "provision_index": 95,
+      "canonical_name": "arrow 3 upper tier co-production"
+    },
+    {
+      "provision_index": 96,
+      "canonical_name": "arrow system improvement program"
+    },
+    {
+      "provision_index": 98,
+      "canonical_name": "shipbuilding and conversion, navy"
+    },
+    {
+      "provision_index": 99,
+      "canonical_name": "shipbuilding and conversion, navy"
+    },
+    {
+      "provision_index": 100,
+      "canonical_name": "shipbuilding and conversion, navy"
+    },
+    {
+      "provision_index": 101,
+      "canonical_name": "shipbuilding and conversion, navy"
+    },
+    {
+      "provision_index": 102,
+      "canonical_name": "shipbuilding and conversion, navy"
+    },
+    {
+      "provision_index": 140,
+      "canonical_name": "operation and maintenance, navy"
+    },
+    {
+      "provision_index": 146,
+      "canonical_name": "department of defense acquisition workforce development fund"
+    },
+    {
+      "provision_index": 148,
+      "canonical_name": "operation and maintenance, defense-wide"
+    },
+    {
+      "provision_index": 150,
+      "canonical_name": "operation and maintenance, defense-wide"
+    },
+    {
+      "provision_index": 151,
+      "canonical_name": "research, development, test and evaluation, defense-wide"
+    },
+    {
+      "provision_index": 155,
+      "canonical_name": "operation and maintenance, defense-wide"
+    },
+    {
+      "provision_index": 168,
+      "canonical_name": "military personnel, army"
+    },
+    {
+      "provision_index": 169,
+      "canonical_name": "military personnel, navy"
+    },
+    {
+      "provision_index": 170,
+      "canonical_name": "military personnel, marine corps"
+    },
+    {
+      "provision_index": 171,
+      "canonical_name": "military personnel, air force"
+    },
+    {
+      "provision_index": 172,
+      "canonical_name": "reserve personnel, army"
+    },
+    {
+      "provision_index": 173,
+      "canonical_name": "reserve personnel, navy"
+    },
+    {
+      "provision_index": 174,
+      "canonical_name": "reserve personnel, marine corps"
+    },
+    {
+      "provision_index": 175,
+      "canonical_name": "reserve personnel, air force"
+    },
+    {
+      "provision_index": 176,
+      "canonical_name": "national guard personnel, army"
+    },
+    {
+      "provision_index": 177,
+      "canonical_name": "national guard personnel, air force"
+    },
+    {
+      "provision_index": 178,
+      "canonical_name": "operation and maintenance, army"
+    },
+    {
+      "provision_index": 179,
+      "canonical_name": "operation and maintenance, navy"
+    },
+    {
+      "provision_index": 180,
+      "canonical_name": "operation and maintenance, marine corps"
+    },
+    {
+      "provision_index": 181,
+      "canonical_name": "operation and maintenance, air force"
+    },
+    {
+      "provision_index": 182,
+      "canonical_name": "operation and maintenance, defense-wide"
+    },
+    {
+      "provision_index": 183,
+      "canonical_name": "operation and maintenance, defense-wide"
+    },
+    {
+      "provision_index": 184,
+      "canonical_name": "operation and maintenance, defense-wide"
+    },
+    {
+      "provision_index": 185,
+      "canonical_name": "operation and maintenance, army reserve"
+    },
+    {
+      "provision_index": 186,
+      "canonical_name": "operation and maintenance, navy reserve"
+    },
+    {
+      "provision_index": 187,
+      "canonical_name": "operation and maintenance, marine corps reserve"
+    },
+    {
+      "provision_index": 188,
+      "canonical_name": "operation and maintenance, air force reserve"
+    },
+    {
+      "provision_index": 189,
+      "canonical_name": "operation and maintenance, army national guard"
+    },
+    {
+      "provision_index": 190,
+      "canonical_name": "operation and maintenance, air national guard"
+    },
+    {
+      "provision_index": 191,
+      "canonical_name": "afghanistan security forces fund"
+    },
+    {
+      "provision_index": 192,
+      "canonical_name": "afghanistan security forces fund"
+    },
+    {
+      "provision_index": 193,
+      "canonical_name": "afghanistan security forces fund"
+    },
+    {
+      "provision_index": 194,
+      "canonical_name": "counter-islamic state of iraq and syria train and equip fund"
+    },
+    {
+      "provision_index": 195,
+      "canonical_name": "aircraft procurement, army"
+    },
+    {
+      "provision_index": 196,
+      "canonical_name": "missile procurement, army"
+    },
+    {
+      "provision_index": 197,
+      "canonical_name": "procurement of weapons and tracked combat vehicles, army"
+    },
+    {
+      "provision_index": 198,
+      "canonical_name": "procurement of ammunition, army"
+    },
+    {
+      "provision_index": 199,
+      "canonical_name": "other procurement, army"
+    },
+    {
+      "provision_index": 200,
+      "canonical_name": "aircraft procurement, navy"
+    },
+    {
+      "provision_index": 201,
+      "canonical_name": "weapons procurement, navy"
+    },
+    {
+      "provision_index": 202,
+      "canonical_name": "procurement of ammunition, navy and marine corps"
+    },
+    {
+      "provision_index": 203,
+      "canonical_name": "other procurement, navy"
+    },
+    {
+      "provision_index": 204,
+      "canonical_name": "procurement, marine corps"
+    },
+    {
+      "provision_index": 205,
+      "canonical_name": "aircraft procurement, air force"
+    },
+    {
+      "provision_index": 206,
+      "canonical_name": "missile procurement, air force"
+    },
+    {
+      "provision_index": 207,
+      "canonical_name": "procurement of ammunition, air force"
+    },
+    {
+      "provision_index": 208,
+      "canonical_name": "other procurement, air force"
+    },
+    {
+      "provision_index": 209,
+      "canonical_name": "procurement, defense-wide"
+    },
+    {
+      "provision_index": 210,
+      "canonical_name": "national guard and reserve equipment account"
+    },
+    {
+      "provision_index": 211,
+      "canonical_name": "national guard and reserve equipment account"
+    },
+    {
+      "provision_index": 213,
+      "canonical_name": "research, development, test and evaluation, army"
+    },
+    {
+      "provision_index": 214,
+      "canonical_name": "research, development, test and evaluation, navy"
+    },
+    {
+      "provision_index": 215,
+      "canonical_name": "research, development, test and evaluation, air force"
+    },
+    {
+      "provision_index": 216,
+      "canonical_name": "research, development, test and evaluation, defense-wide"
+    },
+    {
+      "provision_index": 217,
+      "canonical_name": "defense working capital funds"
+    },
+    {
+      "provision_index": 218,
+      "canonical_name": "defense health program"
+    },
+    {
+      "provision_index": 219,
+      "canonical_name": "drug interdiction and counter-drug activities, defense"
+    },
+    {
+      "provision_index": 220,
+      "canonical_name": "office of the inspector general"
+    },
+    {
+      "provision_index": 225,
+      "canonical_name": "operation and maintenance, army"
+    },
+    {
+      "provision_index": 229,
+      "canonical_name": "afghanistan security forces fund"
+    },
+    {
+      "provision_index": 231,
+      "canonical_name": "operation and maintenance, defense-wide"
+    },
+    {
+      "provision_index": 232,
+      "canonical_name": "counter-isis train and equip fund"
+    },
+    {
+      "provision_index": 233,
+      "canonical_name": "operation and maintenance, defense-wide"
+    },
+    {
+      "provision_index": 234,
+      "canonical_name": "operation and maintenance, defense-wide"
+    },
+    {
+      "provision_index": 235,
+      "canonical_name": "operation and maintenance, defense-wide"
+    },
+    {
+      "provision_index": 239,
+      "canonical_name": "operation and maintenance, defense-wide"
+    },
+    {
+      "provision_index": 246,
+      "canonical_name": "weapons and tracked combat vehicles, army"
+    },
+    {
+      "provision_index": 247,
+      "canonical_name": "aircraft procurement, air force"
+    },
+    {
+      "provision_index": 248,
+      "canonical_name": "operation and maintenance, defense-wide"
+    },
+    {
+      "provision_index": 249,
+      "canonical_name": "operation and maintenance, defense-wide"
+    },
+    {
+      "provision_index": 250,
+      "canonical_name": "afghanistan security forces fund"
+    },
+    {
+      "provision_index": 251,
+      "canonical_name": "counter-isis train and equip fund"
+    },
+    {
+      "provision_index": 252,
+      "canonical_name": "missile procurement, army"
+    },
+    {
+      "provision_index": 253,
+      "canonical_name": "weapons and tracked combat vehicles, army"
+    },
+    {
+      "provision_index": 254,
+      "canonical_name": "other procurement, army"
+    },
+    {
+      "provision_index": 255,
+      "canonical_name": "procurement of ammunition, navy and marine corps"
+    },
+    {
+      "provision_index": 256,
+      "canonical_name": "aircraft procurement, air force"
+    },
+    {
+      "provision_index": 257,
+      "canonical_name": "missile procurement, air force"
+    },
+    {
+      "provision_index": 259,
+      "canonical_name": "operation and maintenance, army"
+    },
+    {
+      "provision_index": 260,
+      "canonical_name": "operation and maintenance, army"
+    },
+    {
+      "provision_index": 261,
+      "canonical_name": "operation and maintenance, navy"
+    },
+    {
+      "provision_index": 262,
+      "canonical_name": "operation and maintenance, navy"
+    },
+    {
+      "provision_index": 263,
+      "canonical_name": "operation and maintenance, marine corps"
+    },
+    {
+      "provision_index": 264,
+      "canonical_name": "operation and maintenance, air force"
+    },
+    {
+      "provision_index": 265,
+      "canonical_name": "operation and maintenance, air force"
+    },
+    {
+      "provision_index": 266,
+      "canonical_name": "operation and maintenance, space force"
+    },
+    {
+      "provision_index": 267,
+      "canonical_name": "operation and maintenance, defense-wide"
+    },
+    {
+      "provision_index": 268,
+      "canonical_name": "operation and maintenance, defense-wide"
+    },
+    {
+      "provision_index": 269,
+      "canonical_name": "operation and maintenance, defense-wide"
+    },
+    {
+      "provision_index": 270,
+      "canonical_name": "operation and maintenance, defense-wide"
+    },
+    {
+      "provision_index": 271,
+      "canonical_name": "operation and maintenance, defense-wide"
+    },
+    {
+      "provision_index": 273,
+      "canonical_name": "operation and maintenance, defense-wide"
+    },
+    {
+      "provision_index": 275,
+      "canonical_name": "operation and maintenance, defense-wide"
+    },
+    {
+      "provision_index": 276,
+      "canonical_name": "operation and maintenance, defense-wide"
+    },
+    {
+      "provision_index": 278,
+      "canonical_name": "operation and maintenance, army reserve"
+    },
+    {
+      "provision_index": 279,
+      "canonical_name": "operation and maintenance, navy reserve"
+    },
+    {
+      "provision_index": 280,
+      "canonical_name": "operation and maintenance, marine corps reserve"
+    },
+    {
+      "provision_index": 281,
+      "canonical_name": "operation and maintenance, air force reserve"
+    },
+    {
+      "provision_index": 282,
+      "canonical_name": "operation and maintenance, army national guard"
+    },
+    {
+      "provision_index": 283,
+      "canonical_name": "operation and maintenance, air national guard"
+    },
+    {
+      "provision_index": 284,
+      "canonical_name": "united states court of appeals for the armed forces"
+    },
+    {
+      "provision_index": 285,
+      "canonical_name": "united states court of appeals for the armed forces"
+    },
+    {
+      "provision_index": 286,
+      "canonical_name": "environmental restoration, army"
+    },
+    {
+      "provision_index": 287,
+      "canonical_name": "environmental restoration, navy"
+    },
+    {
+      "provision_index": 288,
+      "canonical_name": "environmental restoration, air force"
+    },
+    {
+      "provision_index": 289,
+      "canonical_name": "environmental restoration, defense-wide"
+    },
+    {
+      "provision_index": 290,
+      "canonical_name": "environmental restoration, formerly used defense sites"
+    },
+    {
+      "provision_index": 291,
+      "canonical_name": "overseas humanitarian, disaster, and civic aid"
+    },
+    {
+      "provision_index": 292,
+      "canonical_name": "cooperative threat reduction account"
+    },
+    {
+      "provision_index": 293,
+      "canonical_name": "department of defense acquisition workforce development fund"
+    },
+    {
+      "provision_index": 294,
+      "canonical_name": "department of defense acquisition workforce development fund"
+    },
+    {
+      "provision_index": 295,
+      "canonical_name": "operation and maintenance, navy"
+    },
+    {
+      "provision_index": 296,
+      "canonical_name": "operation and maintenance, marine corps"
+    },
+    {
+      "provision_index": 297,
+      "canonical_name": "operation and maintenance, air force"
+    },
+    {
+      "provision_index": 298,
+      "canonical_name": "operation and maintenance, army national guard"
+    },
+    {
+      "provision_index": 299,
+      "canonical_name": "other procurement, navy"
+    },
+    {
+      "provision_index": 300,
+      "canonical_name": "procurement, marine corps"
+    },
+    {
+      "provision_index": 301,
+      "canonical_name": "aircraft procurement, air force"
+    },
+    {
+      "provision_index": 302,
+      "canonical_name": "other procurement, air force"
+    },
+    {
+      "provision_index": 303,
+      "canonical_name": "research, development, test and evaluation, navy"
+    },
+    {
+      "provision_index": 304,
+      "canonical_name": "defense working capital funds"
+    },
+    {
+      "provision_index": 306,
+      "canonical_name": "operations and administration"
+    },
+    {
+      "provision_index": 307,
+      "canonical_name": "operations and administration"
+    },
+    {
+      "provision_index": 308,
+      "canonical_name": "operations and administration"
+    },
+    {
+      "provision_index": 309,
+      "canonical_name": "operations and administration"
+    },
+    {
+      "provision_index": 310,
+      "canonical_name": "operations and administration"
+    },
+    {
+      "provision_index": 311,
+      "canonical_name": "economic development assistance programs"
+    },
+    {
+      "provision_index": 312,
+      "canonical_name": "economic development assistance programs"
+    },
+    {
+      "provision_index": 313,
+      "canonical_name": "economic development assistance programs"
+    },
+    {
+      "provision_index": 314,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 315,
+      "canonical_name": "minority business development"
+    },
+    {
+      "provision_index": 316,
+      "canonical_name": "minority business development"
+    },
+    {
+      "provision_index": 317,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 318,
+      "canonical_name": "current surveys and programs"
+    },
+    {
+      "provision_index": 319,
+      "canonical_name": "periodic censuses and programs"
+    },
+    {
+      "provision_index": 320,
+      "canonical_name": "office of inspector general"
+    },
+    {
+      "provision_index": 321,
+      "canonical_name": "periodic censuses and programs"
+    },
+    {
+      "provision_index": 322,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 324,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 325,
+      "canonical_name": "office of inspector general"
+    },
+    {
+      "provision_index": 326,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 327,
+      "canonical_name": "scientific and technical research and services"
+    },
+    {
+      "provision_index": 329,
+      "canonical_name": "scientific and technical research and services"
+    },
+    {
+      "provision_index": 330,
+      "canonical_name": "industrial technology services"
+    },
+    {
+      "provision_index": 331,
+      "canonical_name": "industrial technology services"
+    },
+    {
+      "provision_index": 332,
+      "canonical_name": "industrial technology services"
+    },
+    {
+      "provision_index": 333,
+      "canonical_name": "construction of research facilities"
+    },
+    {
+      "provision_index": 335,
+      "canonical_name": "operations, research, and facilities"
+    },
+    {
+      "provision_index": 336,
+      "canonical_name": "operations, research, and facilities"
+    },
+    {
+      "provision_index": 337,
+      "canonical_name": "operations, research, and facilities"
+    },
+    {
+      "provision_index": 338,
+      "canonical_name": "operations, research, and facilities"
+    },
+    {
+      "provision_index": 340,
+      "canonical_name": "procurement, acquisition and construction"
+    },
+    {
+      "provision_index": 341,
+      "canonical_name": "office of inspector general"
+    },
+    {
+      "provision_index": 343,
+      "canonical_name": "pacific coastal salmon recovery"
+    },
+    {
+      "provision_index": 344,
+      "canonical_name": "fishermen's contingency fund"
+    },
+    {
+      "provision_index": 345,
+      "canonical_name": "fisheries finance program account"
+    },
+    {
+      "provision_index": 346,
+      "canonical_name": "fisheries finance program account"
+    },
+    {
+      "provision_index": 347,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 348,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 349,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 350,
+      "canonical_name": "renovation and modernization"
+    },
+    {
+      "provision_index": 351,
+      "canonical_name": "office of inspector general"
+    },
+    {
+      "provision_index": 352,
+      "canonical_name": "office of inspector general"
+    },
+    {
+      "provision_index": 366,
+      "canonical_name": "department of commerce nonrecurring expenses fund"
+    },
+    {
+      "provision_index": 368,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 369,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 370,
+      "canonical_name": "justice information sharing technology"
+    },
+    {
+      "provision_index": 372,
+      "canonical_name": "executive office for immigration review"
+    },
+    {
+      "provision_index": 373,
+      "canonical_name": "executive office for immigration review"
+    },
+    {
+      "provision_index": 374,
+      "canonical_name": "executive office for immigration review"
+    },
+    {
+      "provision_index": 375,
+      "canonical_name": "executive office for immigration review"
+    },
+    {
+      "provision_index": 376,
+      "canonical_name": "office of inspector general"
+    },
+    {
+      "provision_index": 377,
+      "canonical_name": "office of inspector general"
+    },
+    {
+      "provision_index": 378,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 380,
+      "canonical_name": "salaries and expenses, general legal activities"
+    },
+    {
+      "provision_index": 381,
+      "canonical_name": "salaries and expenses, general legal activities"
+    },
+    {
+      "provision_index": 382,
+      "canonical_name": "salaries and expenses, general legal activities"
+    },
+    {
+      "provision_index": 383,
+      "canonical_name": "salaries and expenses, general legal activities"
+    },
+    {
+      "provision_index": 385,
+      "canonical_name": "salaries and expenses, general legal activities"
+    },
+    {
+      "provision_index": 386,
+      "canonical_name": "salaries and expenses, general legal activities"
+    },
+    {
+      "provision_index": 387,
+      "canonical_name": "salaries and expenses, general legal activities"
+    },
+    {
+      "provision_index": 388,
+      "canonical_name": "salaries and expenses, antitrust division"
+    },
+    {
+      "provision_index": 389,
+      "canonical_name": "salaries and expenses, united states attorneys"
+    },
+    {
+      "provision_index": 391,
+      "canonical_name": "united states trustee system fund"
+    },
+    {
+      "provision_index": 392,
+      "canonical_name": "salaries and expenses, foreign claims settlement commission"
+    },
+    {
+      "provision_index": 393,
+      "canonical_name": "fees and expenses of witnesses"
+    },
+    {
+      "provision_index": 394,
+      "canonical_name": "fees and expenses of witnesses"
+    },
+    {
+      "provision_index": 395,
+      "canonical_name": "fees and expenses of witnesses"
+    },
+    {
+      "provision_index": 396,
+      "canonical_name": "fees and expenses of witnesses"
+    },
+    {
+      "provision_index": 397,
+      "canonical_name": "fees and expenses of witnesses"
+    },
+    {
+      "provision_index": 398,
+      "canonical_name": "salaries and expenses, community relations service"
+    },
+    {
+      "provision_index": 400,
+      "canonical_name": "assets forfeiture fund"
+    },
+    {
+      "provision_index": 401,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 402,
+      "canonical_name": "construction"
+    },
+    {
+      "provision_index": 403,
+      "canonical_name": "federal prisoner detention"
+    },
+    {
+      "provision_index": 404,
+      "canonical_name": "federal prisoner detention"
+    },
+    {
+      "provision_index": 406,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 407,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 409,
+      "canonical_name": "interagency crime and drug enforcement"
+    },
+    {
+      "provision_index": 410,
+      "canonical_name": "interagency crime and drug enforcement"
+    },
+    {
+      "provision_index": 411,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 412,
+      "canonical_name": "construction"
+    },
+    {
+      "provision_index": 413,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 414,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 415,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 418,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 419,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 421,
+      "canonical_name": "buildings and facilities"
+    },
+    {
+      "provision_index": 422,
+      "canonical_name": "buildings and facilities"
+    },
+    {
+      "provision_index": 424,
+      "canonical_name": "federal prison industries, incorporated"
+    },
+    {
+      "provision_index": 425,
+      "canonical_name": "violence against women prevention and prosecution programs"
+    },
+    {
+      "provision_index": 426,
+      "canonical_name": "violence against women prevention and prosecution programs"
+    },
+    {
+      "provision_index": 427,
+      "canonical_name": "violence against women prevention and prosecution programs"
+    },
+    {
+      "provision_index": 428,
+      "canonical_name": "violence against women prevention and prosecution programs"
+    },
+    {
+      "provision_index": 429,
+      "canonical_name": "violence against women prevention and prosecution programs"
+    },
+    {
+      "provision_index": 430,
+      "canonical_name": "violence against women prevention and prosecution programs"
+    },
+    {
+      "provision_index": 431,
+      "canonical_name": "violence against women prevention and prosecution programs"
+    },
+    {
+      "provision_index": 432,
+      "canonical_name": "violence against women prevention and prosecution programs"
+    },
+    {
+      "provision_index": 433,
+      "canonical_name": "violence against women prevention and prosecution programs"
+    },
+    {
+      "provision_index": 434,
+      "canonical_name": "violence against women prevention and prosecution programs"
+    },
+    {
+      "provision_index": 435,
+      "canonical_name": "violence against women prevention and prosecution programs"
+    },
+    {
+      "provision_index": 436,
+      "canonical_name": "violence against women prevention and prosecution programs"
+    },
+    {
+      "provision_index": 437,
+      "canonical_name": "violence against women prevention and prosecution programs"
+    },
+    {
+      "provision_index": 438,
+      "canonical_name": "violence against women prevention and prosecution programs"
+    },
+    {
+      "provision_index": 439,
+      "canonical_name": "violence against women prevention and prosecution programs"
+    },
+    {
+      "provision_index": 440,
+      "canonical_name": "violence against women prevention and prosecution programs"
+    },
+    {
+      "provision_index": 441,
+      "canonical_name": "violence against women prevention and prosecution programs"
+    },
+    {
+      "provision_index": 442,
+      "canonical_name": "violence against women prevention and prosecution programs"
+    },
+    {
+      "provision_index": 443,
+      "canonical_name": "violence against women prevention and prosecution programs"
+    },
+    {
+      "provision_index": 444,
+      "canonical_name": "violence against women prevention and prosecution programs"
+    },
+    {
+      "provision_index": 445,
+      "canonical_name": "violence against women prevention and prosecution programs"
+    },
+    {
+      "provision_index": 446,
+      "canonical_name": "research, evaluation and statistics"
+    },
+    {
+      "provision_index": 447,
+      "canonical_name": "research, evaluation and statistics"
+    },
+    {
+      "provision_index": 448,
+      "canonical_name": "research, evaluation and statistics"
+    },
+    {
+      "provision_index": 449,
+      "canonical_name": "research, evaluation and statistics"
+    },
+    {
+      "provision_index": 450,
+      "canonical_name": "research, evaluation and statistics"
+    },
+    {
+      "provision_index": 451,
+      "canonical_name": "research, evaluation and statistics"
+    },
+    {
+      "provision_index": 452,
+      "canonical_name": "research, evaluation and statistics"
+    },
+    {
+      "provision_index": 453,
+      "canonical_name": "state and local law enforcement assistance"
+    },
+    {
+      "provision_index": 454,
+      "canonical_name": "state and local law enforcement assistance"
+    },
+    {
+      "provision_index": 455,
+      "canonical_name": "state and local law enforcement assistance"
+    },
+    {
+      "provision_index": 456,
+      "canonical_name": "state and local law enforcement assistance"
+    },
+    {
+      "provision_index": 457,
+      "canonical_name": "state and local law enforcement assistance"
+    },
+    {
+      "provision_index": 458,
+      "canonical_name": "state and local law enforcement assistance"
+    },
+    {
+      "provision_index": 459,
+      "canonical_name": "state and local law enforcement assistance"
+    },
+    {
+      "provision_index": 460,
+      "canonical_name": "state and local law enforcement assistance"
+    },
+    {
+      "provision_index": 461,
+      "canonical_name": "state and local law enforcement assistance"
+    },
+    {
+      "provision_index": 462,
+      "canonical_name": "state and local law enforcement assistance"
+    },
+    {
+      "provision_index": 463,
+      "canonical_name": "state and local law enforcement assistance"
+    },
+    {
+      "provision_index": 464,
+      "canonical_name": "state and local law enforcement assistance"
+    },
+    {
+      "provision_index": 465,
+      "canonical_name": "state and local law enforcement assistance"
+    },
+    {
+      "provision_index": 466,
+      "canonical_name": "state and local law enforcement assistance"
+    },
+    {
+      "provision_index": 467,
+      "canonical_name": "state and local law enforcement assistance"
+    },
+    {
+      "provision_index": 468,
+      "canonical_name": "state and local law enforcement assistance"
+    },
+    {
+      "provision_index": 469,
+      "canonical_name": "state and local law enforcement assistance"
+    },
+    {
+      "provision_index": 470,
+      "canonical_name": "state and local law enforcement assistance"
+    },
+    {
+      "provision_index": 471,
+      "canonical_name": "state and local law enforcement assistance"
+    },
+    {
+      "provision_index": 472,
+      "canonical_name": "state and local law enforcement assistance"
+    },
+    {
+      "provision_index": 473,
+      "canonical_name": "state and local law enforcement assistance"
+    },
+    {
+      "provision_index": 474,
+      "canonical_name": "state and local law enforcement assistance"
+    },
+    {
+      "provision_index": 475,
+      "canonical_name": "state and local law enforcement assistance"
+    },
+    {
+      "provision_index": 476,
+      "canonical_name": "state and local law enforcement assistance"
+    },
+    {
+      "provision_index": 477,
+      "canonical_name": "state and local law enforcement assistance"
+    },
+    {
+      "provision_index": 478,
+      "canonical_name": "state and local law enforcement assistance"
+    },
+    {
+      "provision_index": 479,
+      "canonical_name": "state and local law enforcement assistance"
+    },
+    {
+      "provision_index": 480,
+      "canonical_name": "state and local law enforcement assistance"
+    },
+    {
+      "provision_index": 481,
+      "canonical_name": "state and local law enforcement assistance"
+    },
+    {
+      "provision_index": 482,
+      "canonical_name": "state and local law enforcement assistance"
+    },
+    {
+      "provision_index": 483,
+      "canonical_name": "state and local law enforcement assistance"
+    },
+    {
+      "provision_index": 484,
+      "canonical_name": "state and local law enforcement assistance"
+    },
+    {
+      "provision_index": 485,
+      "canonical_name": "state and local law enforcement assistance"
+    },
+    {
+      "provision_index": 486,
+      "canonical_name": "state and local law enforcement assistance"
+    },
+    {
+      "provision_index": 487,
+      "canonical_name": "state and local law enforcement assistance"
+    },
+    {
+      "provision_index": 488,
+      "canonical_name": "state and local law enforcement assistance"
+    },
+    {
+      "provision_index": 489,
+      "canonical_name": "state and local law enforcement assistance"
+    },
+    {
+      "provision_index": 490,
+      "canonical_name": "state and local law enforcement assistance"
+    },
+    {
+      "provision_index": 491,
+      "canonical_name": "state and local law enforcement assistance"
+    },
+    {
+      "provision_index": 492,
+      "canonical_name": "state and local law enforcement assistance"
+    },
+    {
+      "provision_index": 493,
+      "canonical_name": "state and local law enforcement assistance"
+    },
+    {
+      "provision_index": 494,
+      "canonical_name": "state and local law enforcement assistance"
+    },
+    {
+      "provision_index": 495,
+      "canonical_name": "state and local law enforcement assistance"
+    },
+    {
+      "provision_index": 496,
+      "canonical_name": "state and local law enforcement assistance"
+    },
+    {
+      "provision_index": 497,
+      "canonical_name": "state and local law enforcement assistance"
+    },
+    {
+      "provision_index": 498,
+      "canonical_name": "state and local law enforcement assistance"
+    },
+    {
+      "provision_index": 499,
+      "canonical_name": "state and local law enforcement assistance"
+    },
+    {
+      "provision_index": 500,
+      "canonical_name": "state and local law enforcement assistance"
+    },
+    {
+      "provision_index": 501,
+      "canonical_name": "state and local law enforcement assistance"
+    },
+    {
+      "provision_index": 502,
+      "canonical_name": "state and local law enforcement assistance"
+    },
+    {
+      "provision_index": 503,
+      "canonical_name": "state and local law enforcement assistance"
+    },
+    {
+      "provision_index": 504,
+      "canonical_name": "state and local law enforcement assistance"
+    },
+    {
+      "provision_index": 505,
+      "canonical_name": "state and local law enforcement assistance"
+    },
+    {
+      "provision_index": 506,
+      "canonical_name": "state and local law enforcement assistance"
+    },
+    {
+      "provision_index": 507,
+      "canonical_name": "state and local law enforcement assistance"
+    },
+    {
+      "provision_index": 508,
+      "canonical_name": "state and local law enforcement assistance"
+    },
+    {
+      "provision_index": 509,
+      "canonical_name": "state and local law enforcement assistance"
+    },
+    {
+      "provision_index": 510,
+      "canonical_name": "state and local law enforcement assistance"
+    },
+    {
+      "provision_index": 511,
+      "canonical_name": "state and local law enforcement assistance"
+    },
+    {
+      "provision_index": 512,
+      "canonical_name": "state and local law enforcement assistance"
+    },
+    {
+      "provision_index": 513,
+      "canonical_name": "juvenile justice programs"
+    },
+    {
+      "provision_index": 514,
+      "canonical_name": "juvenile justice programs"
+    },
+    {
+      "provision_index": 515,
+      "canonical_name": "juvenile justice programs"
+    },
+    {
+      "provision_index": 516,
+      "canonical_name": "juvenile justice programs"
+    },
+    {
+      "provision_index": 517,
+      "canonical_name": "juvenile justice programs"
+    },
+    {
+      "provision_index": 518,
+      "canonical_name": "juvenile justice programs"
+    },
+    {
+      "provision_index": 519,
+      "canonical_name": "juvenile justice programs"
+    },
+    {
+      "provision_index": 520,
+      "canonical_name": "juvenile justice programs"
+    },
+    {
+      "provision_index": 521,
+      "canonical_name": "juvenile justice programs"
+    },
+    {
+      "provision_index": 522,
+      "canonical_name": "juvenile justice programs"
+    },
+    {
+      "provision_index": 523,
+      "canonical_name": "juvenile justice programs"
+    },
+    {
+      "provision_index": 524,
+      "canonical_name": "juvenile justice programs"
+    },
+    {
+      "provision_index": 525,
+      "canonical_name": "juvenile justice programs"
+    },
+    {
+      "provision_index": 526,
+      "canonical_name": "juvenile justice programs"
+    },
+    {
+      "provision_index": 527,
+      "canonical_name": "juvenile justice programs"
+    },
+    {
+      "provision_index": 528,
+      "canonical_name": "juvenile justice programs"
+    },
+    {
+      "provision_index": 529,
+      "canonical_name": "public safety officer benefits"
+    },
+    {
+      "provision_index": 530,
+      "canonical_name": "public safety officer benefits"
+    },
+    {
+      "provision_index": 532,
+      "canonical_name": "community oriented policing services programs"
+    },
+    {
+      "provision_index": 533,
+      "canonical_name": "community oriented policing services programs"
+    },
+    {
+      "provision_index": 534,
+      "canonical_name": "community oriented policing services programs"
+    },
+    {
+      "provision_index": 535,
+      "canonical_name": "community oriented policing services programs"
+    },
+    {
+      "provision_index": 536,
+      "canonical_name": "community oriented policing services programs"
+    },
+    {
+      "provision_index": 537,
+      "canonical_name": "community oriented policing services programs"
+    },
+    {
+      "provision_index": 538,
+      "canonical_name": "community oriented policing services programs"
+    },
+    {
+      "provision_index": 539,
+      "canonical_name": "community oriented policing services programs"
+    },
+    {
+      "provision_index": 540,
+      "canonical_name": "community oriented policing services programs"
+    },
+    {
+      "provision_index": 541,
+      "canonical_name": "community oriented policing services programs"
+    },
+    {
+      "provision_index": 542,
+      "canonical_name": "community oriented policing services programs"
+    },
+    {
+      "provision_index": 543,
+      "canonical_name": "community oriented policing services programs"
+    },
+    {
+      "provision_index": 560,
+      "canonical_name": "department of justice working capital fund"
+    },
+    {
+      "provision_index": 561,
+      "canonical_name": "department of justice working capital fund"
+    },
+    {
+      "provision_index": 566,
+      "canonical_name": "office of science and technology policy"
+    },
+    {
+      "provision_index": 567,
+      "canonical_name": "national space council"
+    },
+    {
+      "provision_index": 569,
+      "canonical_name": "science"
+    },
+    {
+      "provision_index": 570,
+      "canonical_name": "science"
+    },
+    {
+      "provision_index": 571,
+      "canonical_name": "science"
+    },
+    {
+      "provision_index": 572,
+      "canonical_name": "science"
+    },
+    {
+      "provision_index": 573,
+      "canonical_name": "science"
+    },
+    {
+      "provision_index": 574,
+      "canonical_name": "science"
+    },
+    {
+      "provision_index": 575,
+      "canonical_name": "science"
+    },
+    {
+      "provision_index": 577,
+      "canonical_name": "aeronautics"
+    },
+    {
+      "provision_index": 578,
+      "canonical_name": "space technology"
+    },
+    {
+      "provision_index": 579,
+      "canonical_name": "space technology"
+    },
+    {
+      "provision_index": 580,
+      "canonical_name": "space technology"
+    },
+    {
+      "provision_index": 581,
+      "canonical_name": "space technology"
+    },
+    {
+      "provision_index": 583,
+      "canonical_name": "exploration"
+    },
+    {
+      "provision_index": 584,
+      "canonical_name": "exploration"
+    },
+    {
+      "provision_index": 585,
+      "canonical_name": "exploration"
+    },
+    {
+      "provision_index": 586,
+      "canonical_name": "exploration"
+    },
+    {
+      "provision_index": 587,
+      "canonical_name": "exploration"
+    },
+    {
+      "provision_index": 589,
+      "canonical_name": "exploration"
+    },
+    {
+      "provision_index": 590,
+      "canonical_name": "space operations"
+    },
+    {
+      "provision_index": 591,
+      "canonical_name": "science, technology, engineering, and mathematics engagement"
+    },
+    {
+      "provision_index": 592,
+      "canonical_name": "science, technology, engineering, and mathematics engagement"
+    },
+    {
+      "provision_index": 593,
+      "canonical_name": "science, technology, engineering, and mathematics engagement"
+    },
+    {
+      "provision_index": 594,
+      "canonical_name": "safety, security and mission services"
+    },
+    {
+      "provision_index": 595,
+      "canonical_name": "construction and environmental compliance and restoration"
+    },
+    {
+      "provision_index": 596,
+      "canonical_name": "construction and environmental compliance and restoration"
+    },
+    {
+      "provision_index": 598,
+      "canonical_name": "office of inspector general"
+    },
+    {
+      "provision_index": 599,
+      "canonical_name": "office of inspector general"
+    },
+    {
+      "provision_index": 602,
+      "canonical_name": "construction and environmental compliance and restoration"
+    },
+    {
+      "provision_index": 606,
+      "canonical_name": "research and related activities"
+    },
+    {
+      "provision_index": 607,
+      "canonical_name": "research and related activities"
+    },
+    {
+      "provision_index": 609,
+      "canonical_name": "major research equipment and facilities construction"
+    },
+    {
+      "provision_index": 610,
+      "canonical_name": "education and human resources"
+    },
+    {
+      "provision_index": 611,
+      "canonical_name": "agency operations and award management"
+    },
+    {
+      "provision_index": 612,
+      "canonical_name": "agency operations and award management"
+    },
+    {
+      "provision_index": 614,
+      "canonical_name": "office of the national science board"
+    },
+    {
+      "provision_index": 615,
+      "canonical_name": "office of the national science board"
+    },
+    {
+      "provision_index": 616,
+      "canonical_name": "office of inspector general"
+    },
+    {
+      "provision_index": 617,
+      "canonical_name": "office of inspector general"
+    },
+    {
+      "provision_index": 620,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 621,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 622,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 623,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 624,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 625,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 626,
+      "canonical_name": "payment to the legal services corporation"
+    },
+    {
+      "provision_index": 627,
+      "canonical_name": "payment to the legal services corporation"
+    },
+    {
+      "provision_index": 628,
+      "canonical_name": "payment to the legal services corporation"
+    },
+    {
+      "provision_index": 629,
+      "canonical_name": "payment to the legal services corporation"
+    },
+    {
+      "provision_index": 630,
+      "canonical_name": "payment to the legal services corporation"
+    },
+    {
+      "provision_index": 631,
+      "canonical_name": "payment to the legal services corporation"
+    },
+    {
+      "provision_index": 632,
+      "canonical_name": "payment to the legal services corporation"
+    },
+    {
+      "provision_index": 633,
+      "canonical_name": "payment to the legal services corporation"
+    },
+    {
+      "provision_index": 634,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 635,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 636,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 637,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 638,
+      "canonical_name": "trade enforcement trust fund"
+    },
+    {
+      "provision_index": 639,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 640,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 641,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 652,
+      "canonical_name": "department of justice office of inspector general"
+    },
+    {
+      "provision_index": 653,
+      "canonical_name": "office for victims of crime"
+    },
+    {
+      "provision_index": 664,
+      "canonical_name": "economic development administration, economic development assistance programs"
+    },
+    {
+      "provision_index": 665,
+      "canonical_name": "national oceanic and atmospheric administration, fisheries enforcement asset forfeiture fund"
+    },
+    {
+      "provision_index": 666,
+      "canonical_name": "working capital fund"
+    },
+    {
+      "provision_index": 667,
+      "canonical_name": "federal bureau of investigation, salaries and expenses"
+    },
+    {
+      "provision_index": 668,
+      "canonical_name": "drug enforcement administration, salaries and expenses"
+    },
+    {
+      "provision_index": 669,
+      "canonical_name": "state and local law enforcement activities, office of justice programs"
+    },
+    {
+      "provision_index": 670,
+      "canonical_name": "state and local law enforcement activities, community oriented policing services"
+    },
+    {
+      "provision_index": 671,
+      "canonical_name": "science"
+    },
+    {
+      "provision_index": 693,
+      "canonical_name": "aircraft procurement, army"
+    },
+    {
+      "provision_index": 694,
+      "canonical_name": "missile procurement, army"
+    },
+    {
+      "provision_index": 695,
+      "canonical_name": "procurement of weapons and tracked combat vehicles, army"
+    },
+    {
+      "provision_index": 696,
+      "canonical_name": "procurement of ammunition, army"
+    },
+    {
+      "provision_index": 697,
+      "canonical_name": "other procurement, army"
+    },
+    {
+      "provision_index": 698,
+      "canonical_name": "aircraft procurement, navy"
+    },
+    {
+      "provision_index": 699,
+      "canonical_name": "weapons procurement, navy"
+    },
+    {
+      "provision_index": 700,
+      "canonical_name": "procurement of ammunition, navy and marine corps"
+    },
+    {
+      "provision_index": 701,
+      "canonical_name": "shipbuilding and conversion, navy"
+    },
+    {
+      "provision_index": 702,
+      "canonical_name": "shipbuilding and conversion, navy"
+    },
+    {
+      "provision_index": 703,
+      "canonical_name": "shipbuilding and conversion, navy"
+    },
+    {
+      "provision_index": 704,
+      "canonical_name": "shipbuilding and conversion, navy"
+    },
+    {
+      "provision_index": 705,
+      "canonical_name": "shipbuilding and conversion, navy"
+    },
+    {
+      "provision_index": 706,
+      "canonical_name": "shipbuilding and conversion, navy"
+    },
+    {
+      "provision_index": 707,
+      "canonical_name": "shipbuilding and conversion, navy"
+    },
+    {
+      "provision_index": 708,
+      "canonical_name": "shipbuilding and conversion, navy"
+    },
+    {
+      "provision_index": 709,
+      "canonical_name": "shipbuilding and conversion, navy"
+    },
+    {
+      "provision_index": 710,
+      "canonical_name": "shipbuilding and conversion, navy"
+    },
+    {
+      "provision_index": 711,
+      "canonical_name": "shipbuilding and conversion, navy"
+    },
+    {
+      "provision_index": 712,
+      "canonical_name": "shipbuilding and conversion, navy"
+    },
+    {
+      "provision_index": 713,
+      "canonical_name": "shipbuilding and conversion, navy"
+    },
+    {
+      "provision_index": 714,
+      "canonical_name": "shipbuilding and conversion, navy"
+    },
+    {
+      "provision_index": 715,
+      "canonical_name": "shipbuilding and conversion, navy"
+    },
+    {
+      "provision_index": 716,
+      "canonical_name": "shipbuilding and conversion, navy"
+    },
+    {
+      "provision_index": 717,
+      "canonical_name": "shipbuilding and conversion, navy"
+    },
+    {
+      "provision_index": 718,
+      "canonical_name": "shipbuilding and conversion, navy"
+    },
+    {
+      "provision_index": 719,
+      "canonical_name": "shipbuilding and conversion, navy"
+    },
+    {
+      "provision_index": 720,
+      "canonical_name": "shipbuilding and conversion, navy"
+    },
+    {
+      "provision_index": 721,
+      "canonical_name": "shipbuilding and conversion, navy"
+    },
+    {
+      "provision_index": 722,
+      "canonical_name": "shipbuilding and conversion, navy"
+    },
+    {
+      "provision_index": 723,
+      "canonical_name": "shipbuilding and conversion, navy"
+    },
+    {
+      "provision_index": 724,
+      "canonical_name": "shipbuilding and conversion, navy"
+    },
+    {
+      "provision_index": 725,
+      "canonical_name": "shipbuilding and conversion, navy"
+    },
+    {
+      "provision_index": 729,
+      "canonical_name": "other procurement, navy"
+    },
+    {
+      "provision_index": 731,
+      "canonical_name": "procurement, marine corps"
+    },
+    {
+      "provision_index": 732,
+      "canonical_name": "aircraft procurement, air force"
+    },
+    {
+      "provision_index": 733,
+      "canonical_name": "missile procurement, air force"
+    },
+    {
+      "provision_index": 734,
+      "canonical_name": "space procurement, air force"
+    },
+    {
+      "provision_index": 735,
+      "canonical_name": "procurement of ammunition, air force"
+    },
+    {
+      "provision_index": 736,
+      "canonical_name": "other procurement, air force"
+    },
+    {
+      "provision_index": 737,
+      "canonical_name": "procurement, defense-wide"
+    },
+    {
+      "provision_index": 738,
+      "canonical_name": "defense production act purchases"
+    },
+    {
+      "provision_index": 739,
+      "canonical_name": "departmental offices, salaries and expenses"
+    },
+    {
+      "provision_index": 740,
+      "canonical_name": "departmental offices, salaries and expenses"
+    },
+    {
+      "provision_index": 741,
+      "canonical_name": "departmental offices, salaries and expenses"
+    },
+    {
+      "provision_index": 742,
+      "canonical_name": "departmental offices, salaries and expenses"
+    },
+    {
+      "provision_index": 743,
+      "canonical_name": "committee on foreign investment in the united states fund"
+    },
+    {
+      "provision_index": 745,
+      "canonical_name": "committee on foreign investment in the united states fund"
+    },
+    {
+      "provision_index": 746,
+      "canonical_name": "office of terrorism and financial intelligence, salaries and expenses"
+    },
+    {
+      "provision_index": 747,
+      "canonical_name": "office of terrorism and financial intelligence, salaries and expenses"
+    },
+    {
+      "provision_index": 748,
+      "canonical_name": "office of terrorism and financial intelligence, salaries and expenses"
+    },
+    {
+      "provision_index": 749,
+      "canonical_name": "cybersecurity enhancement account"
+    },
+    {
+      "provision_index": 750,
+      "canonical_name": "cybersecurity enhancement account"
+    },
+    {
+      "provision_index": 751,
+      "canonical_name": "department-wide systems and capital investments programs"
+    },
+    {
+      "provision_index": 753,
+      "canonical_name": "department-wide systems and capital investments programs"
+    },
+    {
+      "provision_index": 754,
+      "canonical_name": "office of inspector general, salaries and expenses"
+    },
+    {
+      "provision_index": 755,
+      "canonical_name": "office of inspector general, salaries and expenses"
+    },
+    {
+      "provision_index": 756,
+      "canonical_name": "office of inspector general, salaries and expenses"
+    },
+    {
+      "provision_index": 757,
+      "canonical_name": "office of inspector general, salaries and expenses"
+    },
+    {
+      "provision_index": 758,
+      "canonical_name": "treasury inspector general for tax administration, salaries and expenses"
+    },
+    {
+      "provision_index": 759,
+      "canonical_name": "treasury inspector general for tax administration, salaries and expenses"
+    },
+    {
+      "provision_index": 760,
+      "canonical_name": "treasury inspector general for tax administration, salaries and expenses"
+    },
+    {
+      "provision_index": 761,
+      "canonical_name": "treasury inspector general for tax administration, salaries and expenses"
+    },
+    {
+      "provision_index": 762,
+      "canonical_name": "treasury inspector general for tax administration, salaries and expenses"
+    },
+    {
+      "provision_index": 763,
+      "canonical_name": "special inspector general for the troubled asset relief program, salaries and expenses"
+    },
+    {
+      "provision_index": 764,
+      "canonical_name": "financial crimes enforcement network, salaries and expenses"
+    },
+    {
+      "provision_index": 765,
+      "canonical_name": "financial crimes enforcement network, salaries and expenses"
+    },
+    {
+      "provision_index": 766,
+      "canonical_name": "financial crimes enforcement network, salaries and expenses"
+    },
+    {
+      "provision_index": 767,
+      "canonical_name": "bureau of the fiscal service, salaries and expenses"
+    },
+    {
+      "provision_index": 768,
+      "canonical_name": "bureau of the fiscal service, salaries and expenses"
+    },
+    {
+      "provision_index": 769,
+      "canonical_name": "bureau of the fiscal service, salaries and expenses"
+    },
+    {
+      "provision_index": 770,
+      "canonical_name": "bureau of the fiscal service, salaries and expenses"
+    },
+    {
+      "provision_index": 771,
+      "canonical_name": "alcohol and tobacco tax and trade bureau, salaries and expenses"
+    },
+    {
+      "provision_index": 772,
+      "canonical_name": "alcohol and tobacco tax and trade bureau, salaries and expenses"
+    },
+    {
+      "provision_index": 773,
+      "canonical_name": "alcohol and tobacco tax and trade bureau, salaries and expenses"
+    },
+    {
+      "provision_index": 774,
+      "canonical_name": "alcohol and tobacco tax and trade bureau, salaries and expenses"
+    },
+    {
+      "provision_index": 775,
+      "canonical_name": "alcohol and tobacco tax and trade bureau, salaries and expenses"
+    },
+    {
+      "provision_index": 776,
+      "canonical_name": "united states mint public enterprise fund"
+    },
+    {
+      "provision_index": 777,
+      "canonical_name": "community development financial institutions fund program account"
+    },
+    {
+      "provision_index": 778,
+      "canonical_name": "community development financial institutions fund program account"
+    },
+    {
+      "provision_index": 779,
+      "canonical_name": "community development financial institutions fund program account"
+    },
+    {
+      "provision_index": 780,
+      "canonical_name": "community development financial institutions fund program account"
+    },
+    {
+      "provision_index": 781,
+      "canonical_name": "community development financial institutions fund program account"
+    },
+    {
+      "provision_index": 782,
+      "canonical_name": "community development financial institutions fund program account"
+    },
+    {
+      "provision_index": 783,
+      "canonical_name": "community development financial institutions fund program account"
+    },
+    {
+      "provision_index": 785,
+      "canonical_name": "community development financial institutions fund program account"
+    },
+    {
+      "provision_index": 786,
+      "canonical_name": "community development financial institutions fund program account"
+    },
+    {
+      "provision_index": 787,
+      "canonical_name": "community development financial institutions fund program account"
+    },
+    {
+      "provision_index": 788,
+      "canonical_name": "community development financial institutions fund program account"
+    },
+    {
+      "provision_index": 789,
+      "canonical_name": "community development financial institutions fund program account"
+    },
+    {
+      "provision_index": 790,
+      "canonical_name": "community development financial institutions fund program account"
+    },
+    {
+      "provision_index": 791,
+      "canonical_name": "community development financial institutions fund program account"
+    },
+    {
+      "provision_index": 792,
+      "canonical_name": "community development financial institutions fund program account"
+    },
+    {
+      "provision_index": 793,
+      "canonical_name": "community development financial institutions fund program account"
+    },
+    {
+      "provision_index": 796,
+      "canonical_name": "internal revenue service, taxpayer services"
+    },
+    {
+      "provision_index": 797,
+      "canonical_name": "internal revenue service, taxpayer services"
+    },
+    {
+      "provision_index": 798,
+      "canonical_name": "internal revenue service, taxpayer services"
+    },
+    {
+      "provision_index": 799,
+      "canonical_name": "internal revenue service, taxpayer services"
+    },
+    {
+      "provision_index": 800,
+      "canonical_name": "internal revenue service, taxpayer services"
+    },
+    {
+      "provision_index": 801,
+      "canonical_name": "internal revenue service, taxpayer services"
+    },
+    {
+      "provision_index": 802,
+      "canonical_name": "internal revenue service, enforcement"
+    },
+    {
+      "provision_index": 803,
+      "canonical_name": "internal revenue service, enforcement"
+    },
+    {
+      "provision_index": 804,
+      "canonical_name": "internal revenue service, enforcement"
+    },
+    {
+      "provision_index": 805,
+      "canonical_name": "internal revenue service, enforcement"
+    },
+    {
+      "provision_index": 806,
+      "canonical_name": "internal revenue service, operations support"
+    },
+    {
+      "provision_index": 807,
+      "canonical_name": "internal revenue service, operations support"
+    },
+    {
+      "provision_index": 808,
+      "canonical_name": "internal revenue service, operations support"
+    },
+    {
+      "provision_index": 809,
+      "canonical_name": "internal revenue service, operations support"
+    },
+    {
+      "provision_index": 810,
+      "canonical_name": "internal revenue service, operations support"
+    },
+    {
+      "provision_index": 811,
+      "canonical_name": "internal revenue service, operations support"
+    },
+    {
+      "provision_index": 814,
+      "canonical_name": "internal revenue service, business systems modernization"
+    },
+    {
+      "provision_index": 840,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 841,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 842,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 843,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 844,
+      "canonical_name": "operating expenses"
+    },
+    {
+      "provision_index": 845,
+      "canonical_name": "reimbursable expenses"
+    },
+    {
+      "provision_index": 846,
+      "canonical_name": "reimbursable expenses"
+    },
+    {
+      "provision_index": 848,
+      "canonical_name": "white house repair and restoration"
+    },
+    {
+      "provision_index": 849,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 850,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 851,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 852,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 853,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 854,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 855,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 856,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 857,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 858,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 859,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 860,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 862,
+      "canonical_name": "intellectual property enforcement coordinator"
+    },
+    {
+      "provision_index": 863,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 865,
+      "canonical_name": "high intensity drug trafficking areas program"
+    },
+    {
+      "provision_index": 868,
+      "canonical_name": "high intensity drug trafficking areas program"
+    },
+    {
+      "provision_index": 870,
+      "canonical_name": "high intensity drug trafficking areas program"
+    },
+    {
+      "provision_index": 873,
+      "canonical_name": "other federal drug control programs"
+    },
+    {
+      "provision_index": 874,
+      "canonical_name": "other federal drug control programs"
+    },
+    {
+      "provision_index": 875,
+      "canonical_name": "other federal drug control programs"
+    },
+    {
+      "provision_index": 876,
+      "canonical_name": "other federal drug control programs"
+    },
+    {
+      "provision_index": 877,
+      "canonical_name": "other federal drug control programs"
+    },
+    {
+      "provision_index": 878,
+      "canonical_name": "other federal drug control programs"
+    },
+    {
+      "provision_index": 879,
+      "canonical_name": "other federal drug control programs"
+    },
+    {
+      "provision_index": 880,
+      "canonical_name": "other federal drug control programs"
+    },
+    {
+      "provision_index": 882,
+      "canonical_name": "unanticipated needs"
+    },
+    {
+      "provision_index": 883,
+      "canonical_name": "information technology oversight and reform"
+    },
+    {
+      "provision_index": 885,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 886,
+      "canonical_name": "operating expenses"
+    },
+    {
+      "provision_index": 887,
+      "canonical_name": "operating expenses"
+    },
+    {
+      "provision_index": 892,
+      "canonical_name": "supreme court of the united states, salaries and expenses"
+    },
+    {
+      "provision_index": 893,
+      "canonical_name": "supreme court of the united states, salaries and expenses"
+    },
+    {
+      "provision_index": 894,
+      "canonical_name": "supreme court of the united states, salaries and expenses"
+    },
+    {
+      "provision_index": 895,
+      "canonical_name": "supreme court of the united states, care of the building and grounds"
+    },
+    {
+      "provision_index": 896,
+      "canonical_name": "united states court of appeals for the federal circuit, salaries and expenses"
+    },
+    {
+      "provision_index": 897,
+      "canonical_name": "united states court of appeals for the federal circuit, salaries and expenses"
+    },
+    {
+      "provision_index": 898,
+      "canonical_name": "united states court of international trade, salaries and expenses"
+    },
+    {
+      "provision_index": 899,
+      "canonical_name": "united states court of international trade, salaries and expenses"
+    },
+    {
+      "provision_index": 900,
+      "canonical_name": "courts of appeals, district courts, and other judicial services, salaries and expenses"
+    },
+    {
+      "provision_index": 901,
+      "canonical_name": "courts of appeals, district courts, and other judicial services, salaries and expenses"
+    },
+    {
+      "provision_index": 902,
+      "canonical_name": "courts of appeals, district courts, and other judicial services, salaries and expenses"
+    },
+    {
+      "provision_index": 903,
+      "canonical_name": "courts of appeals, district courts, and other judicial services, salaries and expenses"
+    },
+    {
+      "provision_index": 904,
+      "canonical_name": "courts of appeals, district courts, and other judicial services, defender services"
+    },
+    {
+      "provision_index": 905,
+      "canonical_name": "courts of appeals, district courts, and other judicial services, fees of jurors and commissioners"
+    },
+    {
+      "provision_index": 906,
+      "canonical_name": "courts of appeals, district courts, and other judicial services, fees of jurors and commissioners"
+    },
+    {
+      "provision_index": 907,
+      "canonical_name": "courts of appeals, district courts, and other judicial services, court security"
+    },
+    {
+      "provision_index": 908,
+      "canonical_name": "courts of appeals, district courts, and other judicial services, court security"
+    },
+    {
+      "provision_index": 909,
+      "canonical_name": "administrative office of the united states courts, salaries and expenses"
+    },
+    {
+      "provision_index": 910,
+      "canonical_name": "federal judicial center, salaries and expenses"
+    },
+    {
+      "provision_index": 911,
+      "canonical_name": "federal judicial center, salaries and expenses"
+    },
+    {
+      "provision_index": 912,
+      "canonical_name": "united states sentencing commission, salaries and expenses"
+    },
+    {
+      "provision_index": 915,
+      "canonical_name": "courts of appeals, district courts, and other judicial services, salaries and expenses"
+    },
+    {
+      "provision_index": 919,
+      "canonical_name": "federal payment for resident tuition support"
+    },
+    {
+      "provision_index": 920,
+      "canonical_name": "federal payment for emergency planning and security costs in the district of columbia"
+    },
+    {
+      "provision_index": 921,
+      "canonical_name": "federal payment to the district of columbia courts"
+    },
+    {
+      "provision_index": 922,
+      "canonical_name": "district of columbia court of appeals"
+    },
+    {
+      "provision_index": 923,
+      "canonical_name": "district of columbia court of appeals"
+    },
+    {
+      "provision_index": 924,
+      "canonical_name": "superior court of the district of columbia"
+    },
+    {
+      "provision_index": 925,
+      "canonical_name": "superior court of the district of columbia"
+    },
+    {
+      "provision_index": 926,
+      "canonical_name": "district of columbia court system"
+    },
+    {
+      "provision_index": 927,
+      "canonical_name": "district of columbia court system"
+    },
+    {
+      "provision_index": 928,
+      "canonical_name": "capital improvements"
+    },
+    {
+      "provision_index": 930,
+      "canonical_name": "federal payment for defender services in district of columbia courts"
+    },
+    {
+      "provision_index": 931,
+      "canonical_name": "federal payment to the court services and offender supervision agency for the district of columbia"
+    },
+    {
+      "provision_index": 932,
+      "canonical_name": "federal payment to the court services and offender supervision agency for the district of columbia"
+    },
+    {
+      "provision_index": 933,
+      "canonical_name": "federal payment to the court services and offender supervision agency for the district of columbia"
+    },
+    {
+      "provision_index": 934,
+      "canonical_name": "community supervision and sex offender registration"
+    },
+    {
+      "provision_index": 935,
+      "canonical_name": "relocation"
+    },
+    {
+      "provision_index": 936,
+      "canonical_name": "pretrial services agency"
+    },
+    {
+      "provision_index": 937,
+      "canonical_name": "relocation"
+    },
+    {
+      "provision_index": 938,
+      "canonical_name": "federal payment to the district of columbia public defender service"
+    },
+    {
+      "provision_index": 939,
+      "canonical_name": "relocation"
+    },
+    {
+      "provision_index": 940,
+      "canonical_name": "federal payment to the criminal justice coordinating council"
+    },
+    {
+      "provision_index": 941,
+      "canonical_name": "commission on judicial disabilities and tenure"
+    },
+    {
+      "provision_index": 942,
+      "canonical_name": "judicial nomination commission"
+    },
+    {
+      "provision_index": 943,
+      "canonical_name": "federal payment for school improvement"
+    },
+    {
+      "provision_index": 944,
+      "canonical_name": "federal payment for school improvement"
+    },
+    {
+      "provision_index": 945,
+      "canonical_name": "federal payment for school improvement"
+    },
+    {
+      "provision_index": 946,
+      "canonical_name": "federal payment for the district of columbia national guard"
+    },
+    {
+      "provision_index": 947,
+      "canonical_name": "federal payment for testing and treatment of hiv/aids"
+    },
+    {
+      "provision_index": 948,
+      "canonical_name": "federal payment to the district of columbia water and sewer authority"
+    },
+    {
+      "provision_index": 949,
+      "canonical_name": "federal payment to the district of columbia water and sewer authority"
+    },
+    {
+      "provision_index": 950,
+      "canonical_name": "district of columbia funds"
+    },
+    {
+      "provision_index": 951,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 952,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 953,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 954,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 956,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 957,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 958,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 959,
+      "canonical_name": "election security grants"
+    },
+    {
+      "provision_index": 960,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 962,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 963,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 966,
+      "canonical_name": "office of inspector general"
+    },
+    {
+      "provision_index": 967,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 968,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 969,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 970,
+      "canonical_name": "environmental review improvement fund"
+    },
+    {
+      "provision_index": 971,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 972,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 975,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 976,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 977,
+      "canonical_name": "federal buildings fund"
+    },
+    {
+      "provision_index": 978,
+      "canonical_name": "federal buildings fund"
+    },
+    {
+      "provision_index": 979,
+      "canonical_name": "federal buildings fund"
+    },
+    {
+      "provision_index": 980,
+      "canonical_name": "federal buildings fund"
+    },
+    {
+      "provision_index": 981,
+      "canonical_name": "federal buildings fund"
+    },
+    {
+      "provision_index": 982,
+      "canonical_name": "federal buildings fund"
+    },
+    {
+      "provision_index": 983,
+      "canonical_name": "federal buildings fund"
+    },
+    {
+      "provision_index": 984,
+      "canonical_name": "government-wide policy"
+    },
+    {
+      "provision_index": 985,
+      "canonical_name": "operating expenses"
+    },
+    {
+      "provision_index": 986,
+      "canonical_name": "operating expenses"
+    },
+    {
+      "provision_index": 987,
+      "canonical_name": "operating expenses"
+    },
+    {
+      "provision_index": 988,
+      "canonical_name": "operating expenses"
+    },
+    {
+      "provision_index": 989,
+      "canonical_name": "civilian board of contract appeals"
+    },
+    {
+      "provision_index": 990,
+      "canonical_name": "office of inspector general"
+    },
+    {
+      "provision_index": 991,
+      "canonical_name": "office of inspector general"
+    },
+    {
+      "provision_index": 992,
+      "canonical_name": "office of inspector general"
+    },
+    {
+      "provision_index": 993,
+      "canonical_name": "allowances and office staff for former presidents"
+    },
+    {
+      "provision_index": 994,
+      "canonical_name": "federal citizen services fund"
+    },
+    {
+      "provision_index": 995,
+      "canonical_name": "federal citizen services fund"
+    },
+    {
+      "provision_index": 996,
+      "canonical_name": "federal citizen services fund"
+    },
+    {
+      "provision_index": 997,
+      "canonical_name": "pre-election presidential transition"
+    },
+    {
+      "provision_index": 998,
+      "canonical_name": "technology modernization fund"
+    },
+    {
+      "provision_index": 1007,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 1008,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 1010,
+      "canonical_name": "morris k. udall and stewart l. udall trust fund"
+    },
+    {
+      "provision_index": 1011,
+      "canonical_name": "morris k. udall and stewart l. udall trust fund"
+    },
+    {
+      "provision_index": 1012,
+      "canonical_name": "environmental dispute resolution fund"
+    },
+    {
+      "provision_index": 1013,
+      "canonical_name": "operating expenses"
+    },
+    {
+      "provision_index": 1014,
+      "canonical_name": "operating expenses"
+    },
+    {
+      "provision_index": 1015,
+      "canonical_name": "operating expenses"
+    },
+    {
+      "provision_index": 1016,
+      "canonical_name": "office of inspector general"
+    },
+    {
+      "provision_index": 1017,
+      "canonical_name": "repairs and restoration"
+    },
+    {
+      "provision_index": 1018,
+      "canonical_name": "grants program"
+    },
+    {
+      "provision_index": 1019,
+      "canonical_name": "community development revolving loan fund"
+    },
+    {
+      "provision_index": 1020,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 1021,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 1022,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 1023,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 1024,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 1025,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 1027,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 1028,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 1029,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 1030,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 1031,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 1032,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 1033,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 1034,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 1035,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 1036,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 1039,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 1041,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 1042,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 1043,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 1044,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 1045,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 1046,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 1047,
+      "canonical_name": "entrepreneurial development programs"
+    },
+    {
+      "provision_index": 1048,
+      "canonical_name": "entrepreneurial development programs"
+    },
+    {
+      "provision_index": 1049,
+      "canonical_name": "entrepreneurial development programs"
+    },
+    {
+      "provision_index": 1050,
+      "canonical_name": "entrepreneurial development programs"
+    },
+    {
+      "provision_index": 1051,
+      "canonical_name": "office of inspector general"
+    },
+    {
+      "provision_index": 1052,
+      "canonical_name": "office of advocacy"
+    },
+    {
+      "provision_index": 1053,
+      "canonical_name": "business loans program account"
+    },
+    {
+      "provision_index": 1054,
+      "canonical_name": "business loans program account"
+    },
+    {
+      "provision_index": 1055,
+      "canonical_name": "business loans program account"
+    },
+    {
+      "provision_index": 1056,
+      "canonical_name": "business loans program account"
+    },
+    {
+      "provision_index": 1057,
+      "canonical_name": "business loans program account"
+    },
+    {
+      "provision_index": 1058,
+      "canonical_name": "business loans program account"
+    },
+    {
+      "provision_index": 1059,
+      "canonical_name": "business loans program account"
+    },
+    {
+      "provision_index": 1060,
+      "canonical_name": "business loans program account"
+    },
+    {
+      "provision_index": 1061,
+      "canonical_name": "disaster loans program account"
+    },
+    {
+      "provision_index": 1062,
+      "canonical_name": "office of inspector general"
+    },
+    {
+      "provision_index": 1063,
+      "canonical_name": "disaster loans program account"
+    },
+    {
+      "provision_index": 1064,
+      "canonical_name": "disaster loans program account"
+    },
+    {
+      "provision_index": 1065,
+      "canonical_name": "disaster loans program account"
+    },
+    {
+      "provision_index": 1068,
+      "canonical_name": "payment to the postal service fund"
+    },
+    {
+      "provision_index": 1071,
+      "canonical_name": "payment to the postal service fund"
+    },
+    {
+      "provision_index": 1072,
+      "canonical_name": "payment to the postal service fund"
+    },
+    {
+      "provision_index": 1074,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 1075,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 1076,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 1098,
+      "canonical_name": "research, development, test and evaluation, army"
+    },
+    {
+      "provision_index": 1099,
+      "canonical_name": "research, development, test and evaluation, navy"
+    },
+    {
+      "provision_index": 1101,
+      "canonical_name": "research, development, test and evaluation, air force"
+    },
+    {
+      "provision_index": 1102,
+      "canonical_name": "research, development, test and evaluation, defense-wide"
+    },
+    {
+      "provision_index": 1103,
+      "canonical_name": "operational test and evaluation, defense"
+    },
+    {
+      "provision_index": 1114,
+      "canonical_name": "inspectors general council fund"
+    },
+    {
+      "provision_index": 1115,
+      "canonical_name": "business loans program account"
+    },
+    {
+      "provision_index": 1140,
+      "canonical_name": "general services administration, government-wide policy"
+    },
+    {
+      "provision_index": 1141,
+      "canonical_name": "general services administration, government-wide policy"
+    },
+    {
+      "provision_index": 1189,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 1190,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 1191,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 1192,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 1193,
+      "canonical_name": "federal assistance"
+    },
+    {
+      "provision_index": 1194,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 1195,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 1196,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 1197,
+      "canonical_name": "procurement, construction, and improvements"
+    },
+    {
+      "provision_index": 1198,
+      "canonical_name": "procurement, construction, and improvements"
+    },
+    {
+      "provision_index": 1199,
+      "canonical_name": "procurement, construction, and improvements"
+    },
+    {
+      "provision_index": 1201,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 1202,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 1203,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 1204,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 1205,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 1206,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 1214,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 1215,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 1216,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 1217,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 1218,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 1219,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 1220,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 1222,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 1223,
+      "canonical_name": "procurement, construction, and improvements"
+    },
+    {
+      "provision_index": 1224,
+      "canonical_name": "procurement, construction, and improvements"
+    },
+    {
+      "provision_index": 1225,
+      "canonical_name": "procurement, construction, and improvements"
+    },
+    {
+      "provision_index": 1226,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 1227,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 1228,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 1229,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 1230,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 1231,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 1232,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 1233,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 1234,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 1235,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 1236,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 1237,
+      "canonical_name": "procurement, construction, and improvements"
+    },
+    {
+      "provision_index": 1238,
+      "canonical_name": "procurement, construction, and improvements"
+    },
+    {
+      "provision_index": 1239,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 1240,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 1241,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 1242,
+      "canonical_name": "procurement, construction, and improvements"
+    },
+    {
+      "provision_index": 1243,
+      "canonical_name": "research and development"
+    },
+    {
+      "provision_index": 1244,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 1245,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 1246,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 1247,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 1248,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 1249,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 1250,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 1251,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 1252,
+      "canonical_name": "procurement, construction, and improvements"
+    },
+    {
+      "provision_index": 1253,
+      "canonical_name": "procurement, construction, and improvements"
+    },
+    {
+      "provision_index": 1254,
+      "canonical_name": "procurement, construction, and improvements"
+    },
+    {
+      "provision_index": 1255,
+      "canonical_name": "procurement, construction, and improvements"
+    },
+    {
+      "provision_index": 1256,
+      "canonical_name": "research and development"
+    },
+    {
+      "provision_index": 1257,
+      "canonical_name": "research and development"
+    },
+    {
+      "provision_index": 1259,
+      "canonical_name": "retired pay"
+    },
+    {
+      "provision_index": 1260,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 1261,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 1262,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 1263,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 1264,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 1265,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 1266,
+      "canonical_name": "procurement, construction, and improvements"
+    },
+    {
+      "provision_index": 1267,
+      "canonical_name": "research and development"
+    },
+    {
+      "provision_index": 1271,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 1276,
+      "canonical_name": "procurement, construction, and improvements"
+    },
+    {
+      "provision_index": 1277,
+      "canonical_name": "procurement, construction, and improvements"
+    },
+    {
+      "provision_index": 1278,
+      "canonical_name": "procurement, construction, and improvements"
+    },
+    {
+      "provision_index": 1279,
+      "canonical_name": "procurement, construction, and improvements"
+    },
+    {
+      "provision_index": 1280,
+      "canonical_name": "procurement, construction, and improvements"
+    },
+    {
+      "provision_index": 1281,
+      "canonical_name": "procurement, construction, and improvements"
+    },
+    {
+      "provision_index": 1287,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 1288,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 1289,
+      "canonical_name": "procurement, construction, and improvements"
+    },
+    {
+      "provision_index": 1292,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 1293,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 1295,
+      "canonical_name": "defense working capital funds"
+    },
+    {
+      "provision_index": 1303,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 1316,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 1317,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 1318,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 1319,
+      "canonical_name": "procurement, construction, and improvements"
+    },
+    {
+      "provision_index": 1320,
+      "canonical_name": "research and development"
+    },
+    {
+      "provision_index": 1321,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 1322,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 1323,
+      "canonical_name": "procurement, construction, and improvements"
+    },
+    {
+      "provision_index": 1324,
+      "canonical_name": "procurement, construction, and improvements"
+    },
+    {
+      "provision_index": 1325,
+      "canonical_name": "procurement, construction, and improvements"
+    },
+    {
+      "provision_index": 1326,
+      "canonical_name": "federal assistance"
+    },
+    {
+      "provision_index": 1327,
+      "canonical_name": "federal assistance"
+    },
+    {
+      "provision_index": 1328,
+      "canonical_name": "federal assistance"
+    },
+    {
+      "provision_index": 1329,
+      "canonical_name": "federal assistance"
+    },
+    {
+      "provision_index": 1330,
+      "canonical_name": "federal assistance"
+    },
+    {
+      "provision_index": 1332,
+      "canonical_name": "federal assistance"
+    },
+    {
+      "provision_index": 1333,
+      "canonical_name": "federal assistance"
+    },
+    {
+      "provision_index": 1334,
+      "canonical_name": "federal assistance"
+    },
+    {
+      "provision_index": 1335,
+      "canonical_name": "federal assistance"
+    },
+    {
+      "provision_index": 1336,
+      "canonical_name": "federal assistance"
+    },
+    {
+      "provision_index": 1338,
+      "canonical_name": "federal assistance"
+    },
+    {
+      "provision_index": 1339,
+      "canonical_name": "federal assistance"
+    },
+    {
+      "provision_index": 1340,
+      "canonical_name": "federal assistance"
+    },
+    {
+      "provision_index": 1341,
+      "canonical_name": "federal assistance"
+    },
+    {
+      "provision_index": 1342,
+      "canonical_name": "federal assistance"
+    },
+    {
+      "provision_index": 1343,
+      "canonical_name": "federal assistance"
+    },
+    {
+      "provision_index": 1344,
+      "canonical_name": "federal assistance"
+    },
+    {
+      "provision_index": 1345,
+      "canonical_name": "federal assistance"
+    },
+    {
+      "provision_index": 1346,
+      "canonical_name": "federal assistance"
+    },
+    {
+      "provision_index": 1347,
+      "canonical_name": "federal assistance"
+    },
+    {
+      "provision_index": 1348,
+      "canonical_name": "federal assistance"
+    },
+    {
+      "provision_index": 1349,
+      "canonical_name": "disaster relief fund"
+    },
+    {
+      "provision_index": 1350,
+      "canonical_name": "disaster relief fund"
+    },
+    {
+      "provision_index": 1351,
+      "canonical_name": "national flood insurance fund"
+    },
+    {
+      "provision_index": 1352,
+      "canonical_name": "national flood insurance fund"
+    },
+    {
+      "provision_index": 1353,
+      "canonical_name": "national flood insurance fund"
+    },
+    {
+      "provision_index": 1355,
+      "canonical_name": "national flood insurance fund"
+    },
+    {
+      "provision_index": 1356,
+      "canonical_name": "national flood insurance fund"
+    },
+    {
+      "provision_index": 1357,
+      "canonical_name": "national flood insurance fund"
+    },
+    {
+      "provision_index": 1358,
+      "canonical_name": "national flood insurance fund"
+    },
+    {
+      "provision_index": 1360,
+      "canonical_name": "national flood insurance fund"
+    },
+    {
+      "provision_index": 1361,
+      "canonical_name": "national flood insurance fund"
+    },
+    {
+      "provision_index": 1362,
+      "canonical_name": "federal assistance"
+    },
+    {
+      "provision_index": 1369,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 1370,
+      "canonical_name": "federal assistance"
+    },
+    {
+      "provision_index": 1371,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 1372,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 1373,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 1374,
+      "canonical_name": "procurement, construction, and improvements"
+    },
+    {
+      "provision_index": 1375,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 1376,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 1377,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 1378,
+      "canonical_name": "research and development"
+    },
+    {
+      "provision_index": 1379,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 1380,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 1381,
+      "canonical_name": "procurement, construction, and improvements"
+    },
+    {
+      "provision_index": 1382,
+      "canonical_name": "research and development"
+    },
+    {
+      "provision_index": 1383,
+      "canonical_name": "federal assistance"
+    },
+    {
+      "provision_index": 1422,
+      "canonical_name": "federal assistance"
+    },
+    {
+      "provision_index": 1429,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 1430,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 1431,
+      "canonical_name": "procurement, construction and improvements"
+    },
+    {
+      "provision_index": 1432,
+      "canonical_name": "procurement, construction, and improvements"
+    },
+    {
+      "provision_index": 1433,
+      "canonical_name": "research, development, test, and evaluation"
+    },
+    {
+      "provision_index": 1434,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 1435,
+      "canonical_name": "procurement, construction and improvements"
+    },
+    {
+      "provision_index": 1436,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 1437,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 1438,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 1439,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 1440,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 1441,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 1442,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 1443,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 1444,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 1445,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 1446,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 1447,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 1448,
+      "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 1449,
+      "canonical_name": "disaster relief fund"
+    },
+    {
+      "provision_index": 1450,
+      "canonical_name": "defense health program"
+    },
+    {
+      "provision_index": 1451,
+      "canonical_name": "defense health program"
+    },
+    {
+      "provision_index": 1452,
+      "canonical_name": "defense health program"
+    },
+    {
+      "provision_index": 1453,
+      "canonical_name": "defense health program"
+    },
+    {
+      "provision_index": 1454,
+      "canonical_name": "defense health program"
+    },
+    {
+      "provision_index": 1455,
+      "canonical_name": "defense health program"
+    },
+    {
+      "provision_index": 1456,
+      "canonical_name": "defense health program"
+    },
+    {
+      "provision_index": 1460,
+      "canonical_name": "chemical agents and munitions destruction, defense"
+    },
+    {
+      "provision_index": 1461,
+      "canonical_name": "chemical agents and munitions destruction, defense"
+    },
+    {
+      "provision_index": 1462,
+      "canonical_name": "chemical agents and munitions destruction, defense"
+    },
+    {
+      "provision_index": 1463,
+      "canonical_name": "chemical agents and munitions destruction, defense"
+    },
+    {
+      "provision_index": 1464,
+      "canonical_name": "chemical agents and munitions destruction, defense"
+    },
+    {
+      "provision_index": 1465,
+      "canonical_name": "chemical agents and munitions destruction, defense"
+    },
+    {
+      "provision_index": 1466,
+      "canonical_name": "chemical agents and munitions destruction, defense"
+    },
+    {
+      "provision_index": 1467,
+      "canonical_name": "chemical agents and munitions destruction, defense"
+    },
+    {
+      "provision_index": 1468,
+      "canonical_name": "chemical agents and munitions destruction, defense"
+    },
+    {
+      "provision_index": 1469,
+      "canonical_name": "drug interdiction and counter-drug activities, defense"
+    },
+    {
+      "provision_index": 1470,
+      "canonical_name": "drug interdiction and counter-drug activities, defense"
+    },
+    {
+      "provision_index": 1471,
+      "canonical_name": "drug interdiction and counter-drug activities, defense"
+    },
+    {
+      "provision_index": 1472,
+      "canonical_name": "drug interdiction and counter-drug activities, defense"
+    },
+    {
+      "provision_index": 1473,
+      "canonical_name": "drug interdiction and counter-drug activities, defense"
+    },
+    {
+      "provision_index": 1477,
+      "canonical_name": "office of the inspector general"
+    },
+    {
+      "provision_index": 1478,
+      "canonical_name": "office of the inspector general"
+    },
+    {
+      "provision_index": 1479,
+      "canonical_name": "office of the inspector general"
+    },
+    {
+      "provision_index": 1480,
+      "canonical_name": "office of the inspector general"
+    },
+    {
+      "provision_index": 1481,
+      "canonical_name": "office of the inspector general"
+    },
+    {
+      "provision_index": 1482,
+      "canonical_name": "central intelligence agency retirement and disability system fund"
+    },
+    {
+      "provision_index": 1483,
+      "canonical_name": "intelligence community management account"
+    },
+    {
+      "provision_index": 1505,
+      "canonical_name": "defense media activity"
+    },
+    {
+      "provision_index": 1508,
+      "canonical_name": "operation and maintenance, air force"
+    },
+    {
+      "provision_index": 1509,
+      "canonical_name": "aircraft procurement, air force"
+    },
+    {
+      "provision_index": 1510,
+      "canonical_name": "other procurement, air force"
+    }
+  ],
+  "extraction_sha256": "546fb0ca49e4d26d75fd2eb580118f9818e427c7f587c81339233a33f14acd66"
+}

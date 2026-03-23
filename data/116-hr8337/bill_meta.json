@@ -1,0 +1,255 @@
+{
+  "schema_version": "1.0",
+  "congress": 116,
+  "fiscal_years": [
+    2021
+  ],
+  "bill_nature": "continuing_resolution",
+  "subcommittees": [
+    {
+      "division": "A",
+      "jurisdiction": "continuing_resolution",
+      "title": "Continuing Appropriations Act, 2021",
+      "source": {
+        "type": "pattern_match",
+        "pattern": "continuing appropriations"
+      }
+    },
+    {
+      "division": "B",
+      "jurisdiction": "other",
+      "title": "Surface Transportation Program Extension",
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "division": "C",
+      "jurisdiction": "extenders",
+      "title": "Health Extenders",
+      "source": {
+        "type": "pattern_match",
+        "pattern": "extender"
+      }
+    },
+    {
+      "division": "D",
+      "jurisdiction": "other",
+      "title": "Other Matters",
+      "source": {
+        "type": "pattern_match",
+        "pattern": "other matters"
+      }
+    },
+    {
+      "division": "E",
+      "jurisdiction": "extenders",
+      "title": "Department of Veterans Affairs Extensions",
+      "source": {
+        "type": "pattern_match",
+        "pattern": "extensions"
+      }
+    }
+  ],
+  "provision_timing": [
+    {
+      "provision_index": 25,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 33,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 38,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 42,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 43,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 78,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 79,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 156,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 157,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 158,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    }
+  ],
+  "canonical_accounts": [
+    {
+      "provision_index": 16,
+      "canonical_name": "rural water and waste disposal program account"
+    },
+    {
+      "provision_index": 17,
+      "canonical_name": "rural water and waste disposal program account"
+    },
+    {
+      "provision_index": 25,
+      "canonical_name": "periodic censuses and programs"
+    },
+    {
+      "provision_index": 27,
+      "canonical_name": "shipbuilding and conversion, navy"
+    },
+    {
+      "provision_index": 29,
+      "canonical_name": "colorado river basins power marketing fund, western area power administration"
+    },
+    {
+      "provision_index": 33,
+      "canonical_name": "federal payment for emergency planning and security costs in the district of columbia"
+    },
+    {
+      "provision_index": 34,
+      "canonical_name": "business loans program account"
+    },
+    {
+      "provision_index": 35,
+      "canonical_name": "business loans program account"
+    },
+    {
+      "provision_index": 38,
+      "canonical_name": "expenses, presidential transition"
+    },
+    {
+      "provision_index": 39,
+      "canonical_name": "expenses, presidential transition"
+    },
+    {
+      "provision_index": 40,
+      "canonical_name": "pre-election presidential transition"
+    },
+    {
+      "provision_index": 42,
+      "canonical_name": "presidential transition administrative support"
+    },
+    {
+      "provision_index": 43,
+      "canonical_name": "operating expenses"
+    },
+    {
+      "provision_index": 53,
+      "canonical_name": "land acquisition"
+    },
+    {
+      "provision_index": 54,
+      "canonical_name": "land acquisition"
+    },
+    {
+      "provision_index": 55,
+      "canonical_name": "land acquisition"
+    },
+    {
+      "provision_index": 56,
+      "canonical_name": "land acquisition"
+    },
+    {
+      "provision_index": 57,
+      "canonical_name": "cooperative endangered species conservation fund"
+    },
+    {
+      "provision_index": 58,
+      "canonical_name": "land acquisition and state assistance"
+    },
+    {
+      "provision_index": 59,
+      "canonical_name": "land acquisition and state assistance"
+    },
+    {
+      "provision_index": 60,
+      "canonical_name": "land acquisition and state assistance"
+    },
+    {
+      "provision_index": 61,
+      "canonical_name": "state and private forestry"
+    },
+    {
+      "provision_index": 62,
+      "canonical_name": "land acquisition"
+    },
+    {
+      "provision_index": 63,
+      "canonical_name": "land acquisition"
+    },
+    {
+      "provision_index": 79,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 94,
+      "canonical_name": "guarantees of mortgage-backed securities loan guarantee program account"
+    },
+    {
+      "provision_index": 156,
+      "canonical_name": "highway account of the highway trust fund"
+    },
+    {
+      "provision_index": 157,
+      "canonical_name": "mass transit account of the highway trust fund"
+    },
+    {
+      "provision_index": 158,
+      "canonical_name": "airport and airway trust fund"
+    }
+  ],
+  "extraction_sha256": "543742dd8adf11c7675794b68af8853788fce8b2266be22d2278ff08e484b8c9"
+}

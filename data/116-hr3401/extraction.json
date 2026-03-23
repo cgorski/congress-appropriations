@@ -1,0 +1,1919 @@
+{
+  "schema_version": "1.0",
+  "bill": {
+    "identifier": "H.R. 3401",
+    "classification": "supplemental",
+    "short_title": "Emergency Supplemental Appropriations for Humanitarian Assistance and Security at the Southern Border Act, 2019",
+    "fiscal_years": [
+      2019
+    ],
+    "divisions": [],
+    "public_law": null
+  },
+  "provisions": [
+    {
+      "provision_type": "appropriation",
+      "account_name": "Executive Office for Immigration Review",
+      "agency": "Department of Justice",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 65000000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$65,000,000"
+      },
+      "fiscal_year": 2019,
+      "availability": null,
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "I",
+      "confidence": 0.97,
+      "raw_text": "For an additional amount for ''Executive Office for Immigration Review'', $65,000,000, of which $45,000,000 shall be for the hiring of 30 additional Imm",
+      "notes": [
+        "Supplemental appropriation under General Administration heading",
+        "Sub-allocations sum to $65M: $45M + $10M + $10M"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "subject_to",
+          "target": "Section 251(b)(2)(A)(i) of BBEDCA",
+          "description": "Emergency designation"
+        }
+      ],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 395,
+        "end": 547,
+        "file": "BILLS-116hr3401enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Executive Office for Immigration Review",
+      "agency": "Department of Justice",
+      "program": "Immigration Judge Teams",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 45000000
+        },
+        "semantics": "reference_amount",
+        "text_as_written": "$45,000,000"
+      },
+      "fiscal_year": 2019,
+      "availability": null,
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "I",
+      "confidence": 0.96,
+      "raw_text": "of which $45,000,000 shall be for the hiring of 30 additional Immigration Judge Teams",
+      "notes": [
+        "For hiring 30 additional Immigration Judge Teams"
+      ],
+      "cross_references": [],
+      "detail_level": "sub_allocation",
+      "parent_account": "Executive Office for Immigration Review",
+      "source_span": {
+        "start": 482,
+        "end": 567,
+        "file": "BILLS-116hr3401enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Executive Office for Immigration Review",
+      "agency": "Department of Justice",
+      "program": "Immigration judge courtroom space and equipment",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 10000000
+        },
+        "semantics": "reference_amount",
+        "text_as_written": "$10,000,000"
+      },
+      "fiscal_year": 2019,
+      "availability": null,
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "I",
+      "confidence": 0.96,
+      "raw_text": "of which $10,000,000 shall be used for the purchase or lease of immigration judge courtroom space and equipment",
+      "notes": [
+        "For purchase or lease of immigration judge courtroom space and equipment"
+      ],
+      "cross_references": [],
+      "detail_level": "sub_allocation",
+      "parent_account": "Executive Office for Immigration Review",
+      "source_span": {
+        "start": 569,
+        "end": 680,
+        "file": "BILLS-116hr3401enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Executive Office for Immigration Review",
+      "agency": "Department of Justice",
+      "program": "Legal Orientation Program",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 10000000
+        },
+        "semantics": "reference_amount",
+        "text_as_written": "$10,000,000"
+      },
+      "fiscal_year": 2019,
+      "availability": null,
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "I",
+      "confidence": 0.96,
+      "raw_text": "of which $10,000,000 shall be used only for services and activities provided by the Legal Orientation Program",
+      "notes": [
+        "Restricted to Legal Orientation Program services and activities only"
+      ],
+      "cross_references": [],
+      "detail_level": "sub_allocation",
+      "parent_account": "Executive Office for Immigration Review",
+      "source_span": {
+        "start": 686,
+        "end": 795,
+        "file": "BILLS-116hr3401enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Federal Prisoner Detention",
+      "agency": "Department of Justice",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 155000000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$155,000,000"
+      },
+      "fiscal_year": 2019,
+      "availability": "to remain available until expended",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "I",
+      "confidence": 0.97,
+      "raw_text": "For an additional amount for ''Federal Prisoner Detention'', for necessary expenses related to United States prisoners in the custody of the United State",
+      "notes": [
+        "Under United States Marshals Service heading",
+        "For necessary expenses related to U.S. prisoners in custody of USMS",
+        "Authorized by section 4013 of title 18, United States Code"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "subject_to",
+          "target": "18 U.S.C. 4013",
+          "description": "Authorization for prisoner detention expenses"
+        },
+        {
+          "ref_type": "subject_to",
+          "target": "Section 251(b)(2)(A)(i) of BBEDCA",
+          "description": "Emergency designation"
+        }
+      ],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 1207,
+        "end": 1360,
+        "file": "BILLS-116hr3401enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Operation and Maintenance, Army",
+      "agency": "Department of Defense",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 92800000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$92,800,000"
+      },
+      "fiscal_year": 2019,
+      "availability": null,
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "II",
+      "confidence": 0.97,
+      "raw_text": "For an additional amount for ''Operation and Maintenance, Army'', $92,800,000, for necessary expenses to respond to the significant rise in unaccompanie",
+      "notes": [
+        "For southwest border response to unaccompanied minors and family units"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "subject_to",
+          "target": "Section 251(b)(2)(A)(i) of BBEDCA",
+          "description": "Emergency designation"
+        }
+      ],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 1791,
+        "end": 1943,
+        "file": "BILLS-116hr3401enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Operation and Maintenance, Marine Corps",
+      "agency": "Department of Defense",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 13025000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$13,025,000"
+      },
+      "fiscal_year": 2019,
+      "availability": null,
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "II",
+      "confidence": 0.97,
+      "raw_text": "For an additional amount for ''Operation and Maintenance, Marine Corps'', $13,025,000, for necessary expenses to respond to the significant rise in unac",
+      "notes": [
+        "For southwest border response to unaccompanied minors and family units"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "subject_to",
+          "target": "Section 251(b)(2)(A)(i) of BBEDCA",
+          "description": "Emergency designation"
+        }
+      ],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 2260,
+        "end": 2412,
+        "file": "BILLS-116hr3401enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Operation and Maintenance, Air Force",
+      "agency": "Department of Defense",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 18000000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$18,000,000"
+      },
+      "fiscal_year": 2019,
+      "availability": null,
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "II",
+      "confidence": 0.97,
+      "raw_text": "For an additional amount for ''Operation and Maintenance, Air Force'', $18,000,000, for necessary expenses to respond to the significant rise in unaccom",
+      "notes": [
+        "For southwest border response to unaccompanied minors and family units"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "subject_to",
+          "target": "Section 251(b)(2)(A)(i) of BBEDCA",
+          "description": "Emergency designation"
+        }
+      ],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 2734,
+        "end": 2886,
+        "file": "BILLS-116hr3401enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Operation and Maintenance, Army National Guard",
+      "agency": "Department of Defense",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 21024000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$21,024,000"
+      },
+      "fiscal_year": 2019,
+      "availability": null,
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "II",
+      "confidence": 0.97,
+      "raw_text": "For an additional amount for ''Operation and Maintenance, Army National Guard'', $21,024,000, for necessary expenses to respond to the significant rise ",
+      "notes": [
+        "For southwest border response to unaccompanied minors and family units"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "subject_to",
+          "target": "Section 251(b)(2)(A)(i) of BBEDCA",
+          "description": "Emergency designation"
+        }
+      ],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 3215,
+        "end": 3367,
+        "file": "BILLS-116hr3401enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Operations and Support",
+      "agency": "U.S. Customs and Border Protection",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 1015431000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$1,015,431,000"
+      },
+      "fiscal_year": 2019,
+      "availability": "of which $819,950,000 shall be available until September 30, 2020",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "III",
+      "confidence": 0.97,
+      "raw_text": "For an additional amount for ''Operations and Support'' for necessary expenses to respond to the significant rise in aliens at the southwest border and ",
+      "notes": [
+        "Under U.S. Customs and Border Protection heading",
+        "$819,950,000 of the total available through FY2020; remainder available FY2019 only",
+        "Sub-allocations sum to $1,015,431,000"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "subject_to",
+          "target": "Section 251(b)(2)(A)(i) of BBEDCA",
+          "description": "Emergency designation"
+        }
+      ],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 3755,
+        "end": 3907,
+        "file": "BILLS-116hr3401enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Operations and Support",
+      "agency": "U.S. Customs and Border Protection",
+      "program": "Migrant care and processing facilities",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 708000000
+        },
+        "semantics": "reference_amount",
+        "text_as_written": "$708,000,000"
+      },
+      "fiscal_year": 2019,
+      "availability": null,
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "III",
+      "confidence": 0.96,
+      "raw_text": "$708,000,000 is for establishing and operating migrant care and processing facilities",
+      "notes": [
+        "Sub-allocation of CBP Operations and Support"
+      ],
+      "cross_references": [],
+      "detail_level": "sub_allocation",
+      "parent_account": "Operations and Support",
+      "source_span": {
+        "start": 4069,
+        "end": 4154,
+        "file": "BILLS-116hr3401enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Operations and Support",
+      "agency": "U.S. Customs and Border Protection",
+      "program": "Consumables and medical care",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 111950000
+        },
+        "semantics": "reference_amount",
+        "text_as_written": "$111,950,000"
+      },
+      "fiscal_year": 2019,
+      "availability": null,
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "III",
+      "confidence": 0.96,
+      "raw_text": "$111,950,000 is for consumables and medical care",
+      "notes": [
+        "Sub-allocation of CBP Operations and Support"
+      ],
+      "cross_references": [],
+      "detail_level": "sub_allocation",
+      "parent_account": "Operations and Support",
+      "source_span": {
+        "start": 4156,
+        "end": 4204,
+        "file": "BILLS-116hr3401enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Operations and Support",
+      "agency": "U.S. Customs and Border Protection",
+      "program": "Transportation",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 35000000
+        },
+        "semantics": "reference_amount",
+        "text_as_written": "$35,000,000"
+      },
+      "fiscal_year": 2019,
+      "availability": null,
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "III",
+      "confidence": 0.96,
+      "raw_text": "$35,000,000 is for transportation",
+      "notes": [
+        "Sub-allocation of CBP Operations and Support"
+      ],
+      "cross_references": [],
+      "detail_level": "sub_allocation",
+      "parent_account": "Operations and Support",
+      "source_span": {
+        "start": 4206,
+        "end": 4239,
+        "file": "BILLS-116hr3401enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Operations and Support",
+      "agency": "U.S. Customs and Border Protection",
+      "program": "Temporary duty and overtime costs",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 110481000
+        },
+        "semantics": "reference_amount",
+        "text_as_written": "$110,481,000"
+      },
+      "fiscal_year": 2019,
+      "availability": null,
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "III",
+      "confidence": 0.96,
+      "raw_text": "$110,481,000 is for temporary duty and overtime costs including reimbursements",
+      "notes": [
+        "Sub-allocation of CBP Operations and Support",
+        "Includes reimbursements"
+      ],
+      "cross_references": [],
+      "detail_level": "sub_allocation",
+      "parent_account": "Operations and Support",
+      "source_span": {
+        "start": 4241,
+        "end": 4319,
+        "file": "BILLS-116hr3401enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Operations and Support",
+      "agency": "U.S. Customs and Border Protection",
+      "program": "Mission support data systems and analysis",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 50000000
+        },
+        "semantics": "reference_amount",
+        "text_as_written": "$50,000,000"
+      },
+      "fiscal_year": 2019,
+      "availability": null,
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "III",
+      "confidence": 0.96,
+      "raw_text": "$50,000,000 is for mission support data systems and analysis",
+      "notes": [
+        "Sub-allocation of CBP Operations and Support"
+      ],
+      "cross_references": [],
+      "detail_level": "sub_allocation",
+      "parent_account": "Operations and Support",
+      "source_span": {
+        "start": 4325,
+        "end": 4385,
+        "file": "BILLS-116hr3401enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Procurement, Construction, and Improvements",
+      "agency": "U.S. Customs and Border Protection",
+      "program": "Migrant care and processing facilities",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 85000000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$85,000,000"
+      },
+      "fiscal_year": 2019,
+      "availability": "to remain available until September 30, 2023",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "III",
+      "confidence": 0.97,
+      "raw_text": "For an additional amount for ''Procurement, Construction, and Improvements'' for migrant care and processing facilities, $85,000,000, to remain availabl",
+      "notes": [
+        "Under U.S. Customs and Border Protection heading",
+        "Available through FY2023"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "subject_to",
+          "target": "Section 251(b)(2)(A)(i) of BBEDCA",
+          "description": "Emergency designation"
+        }
+      ],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 4636,
+        "end": 4788,
+        "file": "BILLS-116hr3401enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Operations and Support",
+      "agency": "U.S. Immigration and Customs Enforcement",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 208945000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$208,945,000"
+      },
+      "fiscal_year": 2019,
+      "availability": null,
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "III",
+      "confidence": 0.97,
+      "raw_text": "For an additional amount for ''Operations and Support'' for necessary expenses to respond to the significant rise in aliens at the southwest border and ",
+      "notes": [
+        "Under U.S. Immigration and Customs Enforcement heading",
+        "Sub-allocations sum to $208,945,000"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "subject_to",
+          "target": "Section 251(b)(2)(A)(i) of BBEDCA",
+          "description": "Emergency designation"
+        }
+      ],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 3755,
+        "end": 3907,
+        "file": "BILLS-116hr3401enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Operations and Support",
+      "agency": "U.S. Immigration and Customs Enforcement",
+      "program": "Transportation of unaccompanied alien children",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 35943000
+        },
+        "semantics": "reference_amount",
+        "text_as_written": "$35,943,000"
+      },
+      "fiscal_year": 2019,
+      "availability": null,
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "III",
+      "confidence": 0.96,
+      "raw_text": "$35,943,000 is for transportation of unaccompanied alien children",
+      "notes": [
+        "Sub-allocation of ICE Operations and Support"
+      ],
+      "cross_references": [],
+      "detail_level": "sub_allocation",
+      "parent_account": "Operations and Support",
+      "source_span": {
+        "start": 5322,
+        "end": 5387,
+        "file": "BILLS-116hr3401enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Operations and Support",
+      "agency": "U.S. Immigration and Customs Enforcement",
+      "program": "Detainee transportation",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 11981000
+        },
+        "semantics": "reference_amount",
+        "text_as_written": "$11,981,000"
+      },
+      "fiscal_year": 2019,
+      "availability": null,
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "III",
+      "confidence": 0.96,
+      "raw_text": "$11,981,000 is for detainee transportation for medical needs, court proceedings, or relocation from U.S. Customs and Border Protection custody",
+      "notes": [
+        "Sub-allocation of ICE Operations and Support",
+        "For medical needs, court proceedings, or relocation from CBP custody"
+      ],
+      "cross_references": [],
+      "detail_level": "sub_allocation",
+      "parent_account": "Operations and Support",
+      "source_span": {
+        "start": 5389,
+        "end": 5531,
+        "file": "BILLS-116hr3401enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Operations and Support",
+      "agency": "U.S. Immigration and Customs Enforcement",
+      "program": "Alternatives to detention",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 20000000
+        },
+        "semantics": "reference_amount",
+        "text_as_written": "$20,000,000"
+      },
+      "fiscal_year": 2019,
+      "availability": null,
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "III",
+      "confidence": 0.96,
+      "raw_text": "$20,000,000 is for alternatives to detention",
+      "notes": [
+        "Sub-allocation of ICE Operations and Support"
+      ],
+      "cross_references": [],
+      "detail_level": "sub_allocation",
+      "parent_account": "Operations and Support",
+      "source_span": {
+        "start": 5533,
+        "end": 5577,
+        "file": "BILLS-116hr3401enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Operations and Support",
+      "agency": "U.S. Immigration and Customs Enforcement",
+      "program": "Detainee medical care",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 45000000
+        },
+        "semantics": "reference_amount",
+        "text_as_written": "$45,000,000"
+      },
+      "fiscal_year": 2019,
+      "availability": null,
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "III",
+      "confidence": 0.96,
+      "raw_text": "$45,000,000 is for detainee medical care",
+      "notes": [
+        "Sub-allocation of ICE Operations and Support"
+      ],
+      "cross_references": [],
+      "detail_level": "sub_allocation",
+      "parent_account": "Operations and Support",
+      "source_span": {
+        "start": 5579,
+        "end": 5619,
+        "file": "BILLS-116hr3401enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Operations and Support",
+      "agency": "U.S. Immigration and Customs Enforcement",
+      "program": "Temporary duty, overtime, and on-board personnel costs",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 69735000
+        },
+        "semantics": "reference_amount",
+        "text_as_written": "$69,735,000"
+      },
+      "fiscal_year": 2019,
+      "availability": null,
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "III",
+      "confidence": 0.96,
+      "raw_text": "$69,735,000 is for temporary duty, overtime, and other on-board personnel costs including reimbursements",
+      "notes": [
+        "Sub-allocation of ICE Operations and Support",
+        "Includes reimbursements"
+      ],
+      "cross_references": [],
+      "detail_level": "sub_allocation",
+      "parent_account": "Operations and Support",
+      "source_span": {
+        "start": 5621,
+        "end": 5725,
+        "file": "BILLS-116hr3401enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Operations and Support",
+      "agency": "U.S. Immigration and Customs Enforcement",
+      "program": "Office of Professional Responsibility",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 5000000
+        },
+        "semantics": "reference_amount",
+        "text_as_written": "$5,000,000"
+      },
+      "fiscal_year": 2019,
+      "availability": null,
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "III",
+      "confidence": 0.96,
+      "raw_text": "$5,000,000 is for the Office of Professional Responsibility for background investigations and facility inspections",
+      "notes": [
+        "Sub-allocation of ICE Operations and Support",
+        "For background investigations and facility inspections"
+      ],
+      "cross_references": [],
+      "detail_level": "sub_allocation",
+      "parent_account": "Operations and Support",
+      "source_span": {
+        "start": 5727,
+        "end": 5841,
+        "file": "BILLS-116hr3401enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Operations and Support",
+      "agency": "U.S. Immigration and Customs Enforcement",
+      "program": "Homeland Security Investigations human trafficking investigations",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 21286000
+        },
+        "semantics": "reference_amount",
+        "text_as_written": "$21,286,000"
+      },
+      "fiscal_year": 2019,
+      "availability": null,
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "III",
+      "confidence": 0.96,
+      "raw_text": "$21,286,000 is for Homeland Security Investigations human trafficking investigations",
+      "notes": [
+        "Sub-allocation of ICE Operations and Support"
+      ],
+      "cross_references": [],
+      "detail_level": "sub_allocation",
+      "parent_account": "Operations and Support",
+      "source_span": {
+        "start": 5847,
+        "end": 5931,
+        "file": "BILLS-116hr3401enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Federal Assistance",
+      "agency": "Federal Emergency Management Agency",
+      "program": "Emergency Food and Shelter Program",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 30000000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$30,000,000"
+      },
+      "fiscal_year": 2019,
+      "availability": "to remain available until September 30, 2020",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "III",
+      "confidence": 0.97,
+      "raw_text": "For an additional amount for ''Federal Assistance'', $30,000,000, to remain available until September 30, 2020, for the emergency food and shelter progr",
+      "notes": [
+        "Under Federal Emergency Management Agency heading",
+        "For Emergency Food and Shelter Program under Title III of McKinney-Vento Homeless Assistance Act (42 U.S.C. 11331 et seq.)",
+        "For assistance to aliens released from DHS custody"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "notwithstanding",
+          "target": "Sections 315 and 316(b) of McKinney-Vento Homeless Assistance Act",
+          "description": "Overrides disbursement timeline requirements"
+        },
+        {
+          "ref_type": "subject_to",
+          "target": "Section 251(b)(2)(A)(i) of BBEDCA",
+          "description": "Emergency designation"
+        }
+      ],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 6193,
+        "end": 6345,
+        "file": "BILLS-116hr3401enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "limitation",
+      "description": "Funds made available under each heading in Title III shall only be used for the purposes specifically described under that heading, notwithstanding any other provision of law.",
+      "amount": null,
+      "account_name": null,
+      "section": "SEC. 301",
+      "division": null,
+      "title": "III",
+      "confidence": 0.96,
+      "raw_text": "Notwithstanding any other provision of law, funds made available under each heading in this title shall only be used for the purposes specifically desc",
+      "notes": [
+        "Restricts DHS Title III funds to described purposes only"
+      ],
+      "cross_references": [],
+      "parent_account": null,
+      "source_span": {
+        "start": 7494,
+        "end": 7645,
+        "file": "BILLS-116hr3401enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "rider",
+      "description": "Amends Division A of the Consolidated Appropriations Act, 2019 (P.L. 116-6) by adding SEC. 541, which extends the DHS SAFETY Act prototype project authorities under section 831 of the Homeland Security Act of 2002 from September 30, 2017 to September 30, 2019, and authorizes the Secretary of Homeland Security to carry out prototype projects under 10 U.S.C. 2371b and use the nontraditional government contractor definition.",
+      "policy_area": "DHS acquisition authorities",
+      "section": "SEC. 302",
+      "division": null,
+      "title": "III",
+      "confidence": 0.94,
+      "raw_text": "Division A of the Consolidated Appropriations Act, 2019 (Public Law 116\u20136) is amended by adding after section 540 the following:",
+      "notes": [
+        "Adds SEC. 541 to P.L. 116-6 Division A",
+        "Extends DHS SAFETY Act authorities from Sept 30, 2017 to Sept 30, 2019",
+        "Grants Secretary of Homeland Security prototype project authorities under 10 U.S.C. 2371b"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "P.L. 116-6, Division A",
+          "description": "Adds SEC. 541 after section 540"
+        },
+        {
+          "ref_type": "amends",
+          "target": "Section 831 of the Homeland Security Act of 2002 (6 U.S.C. 391)",
+          "description": "Extends dates"
+        },
+        {
+          "ref_type": "see_also",
+          "target": "10 U.S.C. 2371b",
+          "description": "Prototype project authority"
+        }
+      ],
+      "source_span": {
+        "start": 7682,
+        "end": 7810,
+        "file": "BILLS-116hr3401enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "limitation",
+      "description": "Funds provided in this Act under CBP Operations and Support for facilities shall not be available until CBP establishes policies and training programs ensuring facilities adhere to the National Standards on Transport, Escort, Detention, and Search (October 2015). Requires a detailed report within 90 days on implementation of such policies and training.",
+      "amount": null,
+      "account_name": "U.S. Customs and Border Protection\u2014Operations and Support",
+      "section": "SEC. 303",
+      "division": null,
+      "title": "III",
+      "confidence": 0.96,
+      "raw_text": "None of the funds provided in this Act under ''U.S. Customs and Border Protection\u2014Operations and Support'' for facilities shall be available until U.S.",
+      "notes": [
+        "Conditions facility funds on compliance with TEDS standards",
+        "Requires report to appropriations committees, Senate Judiciary Committee, and House Judiciary Committee within 90 days"
+      ],
+      "cross_references": [],
+      "parent_account": null,
+      "source_span": {
+        "start": 8656,
+        "end": 8807,
+        "file": "BILLS-116hr3401enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "directive",
+      "description": "Requires the Secretary of Homeland Security to report within 30 days on the number of CBP Officers assigned to northern border land ports of entry and temporarily assigned to the humanitarian crisis, including resources needed to restore northern border staffing levels, number of officers temporarily assigned to southwest border, duration, affected ports, and mitigation efforts.",
+      "deadlines": [
+        "30 days after enactment"
+      ],
+      "section": "SEC. 304",
+      "division": null,
+      "title": "III",
+      "confidence": 0.96,
+      "raw_text": "No later than 30 days after the date of enactment of this Act, the Secretary of Homeland Security shall provide a report on the number of U.S. Customs",
+      "notes": [
+        "Report must reference June 12, 2018 DHS Northern Border Strategy staffing commitments"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "see_also",
+          "target": "June 12, 2018 DHS Northern Border Strategy",
+          "description": "Baseline for northern border staffing levels"
+        }
+      ],
+      "source_span": {
+        "start": 9484,
+        "end": 9634,
+        "file": "BILLS-116hr3401enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "limitation",
+      "description": "Prohibits use of funds from this Act or Division A of P.L. 116-6 for DHS to relocate Trusted Traveler Program vetting from existing locations to the National Targeting Center unless specifically authorized by a statute enacted after the date of enactment of this Act.",
+      "amount": null,
+      "account_name": null,
+      "section": "SEC. 305",
+      "division": null,
+      "title": "III",
+      "confidence": 0.96,
+      "raw_text": "None of the funds appropriated or otherwise made available by this Act or division A of the Consolidated Appropriations Act, 2019 (Public Law 116\u20136) fo",
+      "notes": [
+        "Applies to both this Act and P.L. 116-6 Division A funds for DHS",
+        "Requires subsequent statutory authorization to relocate TTP vetting"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "see_also",
+          "target": "P.L. 116-6, Division A",
+          "description": "Consolidated Appropriations Act, 2019"
+        }
+      ],
+      "parent_account": null,
+      "source_span": {
+        "start": 10542,
+        "end": 10693,
+        "file": "BILLS-116hr3401enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "rider",
+      "description": "Authorizes deployment of personnel, supplies, or equipment of any DHS component to support activities related to the significant rise in aliens at the southwest border, immigration/customs enforcement, detention and removals, and investigations without reimbursement as jointly agreed by the detailing components.",
+      "policy_area": "DHS deployment authority",
+      "section": "SEC. 306",
+      "division": null,
+      "title": "III",
+      "confidence": 0.95,
+      "raw_text": "The personnel, supplies, or equipment of any component of the Department of Homeland Security may be deployed to support activities of the Department o",
+      "notes": [
+        "Enables cross-component deployment within DHS without reimbursement"
+      ],
+      "cross_references": [],
+      "source_span": {
+        "start": 11004,
+        "end": 11155,
+        "file": "BILLS-116hr3401enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Refugee and Entrant Assistance",
+      "agency": "Department of Health and Human Services",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 2881552000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$2,881,552,000"
+      },
+      "fiscal_year": 2019,
+      "availability": "to be merged with and available for the same period as funds appropriated in Public Law 115-245",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "IV",
+      "confidence": 0.97,
+      "raw_text": "For an additional amount for ''Refugee and Entrant Assistance'', $2,881,552,000, to be merged with and available for the same period as funds appropriat",
+      "notes": [
+        "Under Administration for Children and Families heading",
+        "Merged with and available for same period as P.L. 115-245 funds for sections 414, 501, 462, and 235",
+        "Available for any purpose funded under that heading in P.L. 115-245",
+        "Largest single appropriation in the bill"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "see_also",
+          "target": "P.L. 115-245",
+          "description": "Funds merged with prior year appropriation"
+        },
+        {
+          "ref_type": "see_also",
+          "target": "Section 462 of the Homeland Security Act of 2002",
+          "description": "ORR transferred authorities"
+        },
+        {
+          "ref_type": "subject_to",
+          "target": "Section 251(b)(2)(A)(i) of BBEDCA",
+          "description": "Emergency designation"
+        }
+      ],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 11591,
+        "end": 11743,
+        "file": "BILLS-116hr3401enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Refugee and Entrant Assistance",
+      "agency": "Department of Health and Human Services",
+      "program": "Licensed shelters and shelter expansion",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 866000000
+        },
+        "semantics": "reference_amount",
+        "text_as_written": "$866,000,000"
+      },
+      "fiscal_year": 2019,
+      "availability": null,
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "IV",
+      "confidence": 0.95,
+      "raw_text": "not less than $866,000,000 of amounts provided under this heading shall be used for the provision of care in licensed shelters and for expanding the sup",
+      "notes": [
+        "Floor amount (not less than)",
+        "For care in licensed shelters and expanding supply of shelters for which State licensure will be sought",
+        "Contains further sub-allocations of $27M and $185M"
+      ],
+      "cross_references": [],
+      "detail_level": "sub_allocation",
+      "parent_account": "Refugee and Entrant Assistance",
+      "source_span": {
+        "start": 13040,
+        "end": 13192,
+        "file": "BILLS-116hr3401enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Refugee and Entrant Assistance",
+      "agency": "Department of Health and Human Services",
+      "program": "Shelter beds in State-licensed facilities",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 27000000
+        },
+        "semantics": "reference_amount",
+        "text_as_written": "$27,000,000"
+      },
+      "fiscal_year": 2019,
+      "availability": null,
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "IV",
+      "confidence": 0.95,
+      "raw_text": "of which not less than $27,000,000 shall be available for the purposes of adding shelter beds in State-licensed facilities in response to funding opport",
+      "notes": [
+        "Floor amount (not less than)",
+        "Sub-allocation within the $866M licensed shelters allocation",
+        "In response to funding opportunity HHS-2017-ACF-ORR-ZU-1132"
+      ],
+      "cross_references": [],
+      "detail_level": "sub_allocation",
+      "parent_account": "Refugee and Entrant Assistance",
+      "source_span": {
+        "start": 13250,
+        "end": 13402,
+        "file": "BILLS-116hr3401enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Refugee and Entrant Assistance",
+      "agency": "Department of Health and Human Services",
+      "program": "Expansion grants and facility acquisition",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 185000000
+        },
+        "semantics": "reference_amount",
+        "text_as_written": "$185,000,000"
+      },
+      "fiscal_year": 2019,
+      "availability": null,
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "IV",
+      "confidence": 0.95,
+      "raw_text": "of which not less than $185,000,000 shall be available for expansion grants to add beds in State-licensed facilities and open new State-licensed facilit",
+      "notes": [
+        "Floor amount (not less than)",
+        "Sub-allocation within the $866M licensed shelters allocation",
+        "For expansion grants, contract costs to acquire/activate/operate small- and medium-scale hard-sided facilities seeking State licensure",
+        "Goal to phase out need for shelter beds in unlicensed facilities"
+      ],
+      "cross_references": [],
+      "detail_level": "sub_allocation",
+      "parent_account": "Refugee and Entrant Assistance",
+      "source_span": {
+        "start": 13438,
+        "end": 13590,
+        "file": "BILLS-116hr3401enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Refugee and Entrant Assistance",
+      "agency": "Department of Health and Human Services",
+      "program": "Post-release services, child advocates, and legal services",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 100000000
+        },
+        "semantics": "reference_amount",
+        "text_as_written": "$100,000,000"
+      },
+      "fiscal_year": 2019,
+      "availability": null,
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "IV",
+      "confidence": 0.96,
+      "raw_text": "not less than $100,000,000 of amounts provided under this heading shall be used for post-release services, child advocates, and legal services",
+      "notes": [
+        "Floor amount (not less than)"
+      ],
+      "cross_references": [],
+      "detail_level": "sub_allocation",
+      "parent_account": "Refugee and Entrant Assistance",
+      "source_span": {
+        "start": 13884,
+        "end": 14026,
+        "file": "BILLS-116hr3401enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Refugee and Entrant Assistance",
+      "agency": "Department of Health and Human Services",
+      "program": "Federal Field Specialists and case management",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 8000000
+        },
+        "semantics": "reference_amount",
+        "text_as_written": "$8,000,000"
+      },
+      "fiscal_year": 2019,
+      "availability": null,
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "IV",
+      "confidence": 0.96,
+      "raw_text": "not less than $8,000,000 of amounts provided under this heading shall be used for the purposes of hiring additional Federal Field Specialists and for i",
+      "notes": [
+        "Floor amount (not less than)",
+        "For hiring additional Federal Field Specialists and increasing case management/coordination services",
+        "Goal of more expeditiously placing UAC with sponsors and reducing length of stay in ORR custody"
+      ],
+      "cross_references": [],
+      "detail_level": "sub_allocation",
+      "parent_account": "Refugee and Entrant Assistance",
+      "source_span": {
+        "start": 14051,
+        "end": 14202,
+        "file": "BILLS-116hr3401enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Refugee and Entrant Assistance",
+      "agency": "Department of Health and Human Services",
+      "program": "Project officers and program monitor staff",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 1000000
+        },
+        "semantics": "reference_amount",
+        "text_as_written": "$1,000,000"
+      },
+      "fiscal_year": 2019,
+      "availability": null,
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "IV",
+      "confidence": 0.96,
+      "raw_text": "not less than $1,000,000 of amounts provided under this heading shall be used for the purposes of hiring project officers and program monitor staff ded",
+      "notes": [
+        "Floor amount (not less than)",
+        "For strategic improvements to UAC program and development of discharge rate improvement plan",
+        "Discharge rate improvement plan due within 120 days of enactment"
+      ],
+      "cross_references": [],
+      "detail_level": "sub_allocation",
+      "parent_account": "Refugee and Entrant Assistance",
+      "source_span": {
+        "start": 14418,
+        "end": 14569,
+        "file": "BILLS-116hr3401enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Office of the Secretary\u2014Office of Inspector General",
+      "agency": "Department of Health and Human Services",
+      "program": "Oversight of Refugee and Entrant Assistance activities",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 5000000
+        },
+        "semantics": "reference_amount",
+        "text_as_written": "$5,000,000"
+      },
+      "fiscal_year": 2019,
+      "availability": "to remain available until expended",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "IV",
+      "confidence": 0.96,
+      "raw_text": "of the amounts provided under this heading, $5,000,000 shall be transferred to ''Office of the Secretary\u2014Office of Inspector General'' and shall remain",
+      "notes": [
+        "Mandatory transfer from Refugee and Entrant Assistance to HHS OIG",
+        "For oversight of activities supported with funds appropriated under the REA heading",
+        "Remains available until expended"
+      ],
+      "cross_references": [],
+      "detail_level": "sub_allocation",
+      "parent_account": "Refugee and Entrant Assistance",
+      "source_span": {
+        "start": 14889,
+        "end": 15040,
+        "file": "BILLS-116hr3401enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "directive",
+      "description": "The Secretary of HHS shall prioritize use of community-based residential care (including long-term and transitional foster care and small group homes) and shelter care other than large-scale institutional shelter facilities to house unaccompanied alien children. The Secretary shall prioritize State-licensed and hard-sided dormitories.",
+      "deadlines": [],
+      "section": "SEC. 401",
+      "division": null,
+      "title": "IV",
+      "confidence": 0.96,
+      "raw_text": "The Secretary of Health and Human Services (the ''Secretary'') shall prioritize use of community-based residential care (including long-term and transit",
+      "notes": [
+        "Establishes placement priorities for UAC: community-based care over large-scale institutional facilities",
+        "State-licensed and hard-sided dormitories preferred"
+      ],
+      "cross_references": [],
+      "source_span": {
+        "start": 15394,
+        "end": 15546,
+        "file": "BILLS-116hr3401enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "directive",
+      "description": "ORR shall ensure that its grantees and, to the greatest extent practicable, potential sponsors of unaccompanied alien children are aware of current law regarding the use of information collected as part of the sponsor suitability determination process.",
+      "deadlines": [],
+      "section": "SEC. 402",
+      "division": null,
+      "title": "IV",
+      "confidence": 0.96,
+      "raw_text": "The Office of Refugee Resettlement shall ensure that its grantees and, to the greatest extent practicable, potential sponsors of unaccompanied alien ch",
+      "notes": [
+        "Relates to concerns about information sharing between ORR and immigration enforcement affecting sponsor willingness"
+      ],
+      "cross_references": [],
+      "source_span": {
+        "start": 15799,
+        "end": 15950,
+        "file": "BILLS-116hr3401enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "limitation",
+      "description": "Prohibits use of funds from this or any prior appropriations Act to reverse changes in procedures made by ORR operational directives issued December 18, 2018, March 23, 2019, and June 10, 2019 regarding the April 13, 2018 MOA on Information Sharing. The Secretary may make changes only upon determining they are necessary to prevent UAC from being placed in danger, with written justification to Congress and HHS IG. The IG shall assess within 15 days whether changes are necessary.",
+      "amount": null,
+      "account_name": null,
+      "section": "SEC. 403",
+      "division": null,
+      "title": "IV",
+      "confidence": 0.95,
+      "raw_text": "(a) None of the funds provided by this or any prior appropriations Act may be used to reverse changes in procedures made by operational directives issu",
+      "notes": [
+        "Three subsections: (a) prohibition, (b) exception for child safety with written justification, (c) IG assessment within 15 days",
+        "Relates to MOA on Information Sharing executed April 13, 2018 between ORR and ICE"
+      ],
+      "cross_references": [],
+      "parent_account": null,
+      "source_span": {
+        "start": 16094,
+        "end": 16245,
+        "file": "BILLS-116hr3401enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "limitation",
+      "description": "Prohibits obligating funds under Refugee and Entrant Assistance to any grantee or contractor to house UAC in a facility not State-licensed, except temporarily due to influx or emergency, subject to detailed conditions on staffing ratios, compliance requirements, monitoring, waivers, and congressional briefing.",
+      "amount": null,
+      "account_name": "Refugee and Entrant Assistance",
+      "section": "SEC. 404",
+      "division": null,
+      "title": "IV",
+      "confidence": 0.95,
+      "raw_text": "None of the funds made available in this Act under the heading ''Department of Health and Human Services\u2014Administration for Children and Families\u2014Refug",
+      "notes": [
+        "Complex provision with 6 conditions for unlicensed facilities operating more than 6 months",
+        "Staffing ratios: 1:8 waking, 1:16 sleeping",
+        "Max 4 consecutive 60-day waivers per facility",
+        "Requires compliance with Flores Settlement Agreement Exhibit 1 requirements",
+        "ORR must adhere to section 5.5 of Policies and Procedures Guide (as of May 15, 2019)",
+        "Minimum one comprehensive monitoring visit in first 3 months for facilities operating 3+ months",
+        "ORR briefing to appropriations committees within 60 days"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "see_also",
+          "target": "Flores Settlement Agreement, Exhibit 1",
+          "description": "Compliance requirements for unlicensed facilities"
+        },
+        {
+          "ref_type": "see_also",
+          "target": "Section 462(g)(2) of the Homeland Security Act of 2002 (6 U.S.C. 279(g)(2))",
+          "description": "Definition of unaccompanied alien children"
+        }
+      ],
+      "parent_account": null,
+      "source_span": {
+        "start": 17272,
+        "end": 17423,
+        "file": "BILLS-116hr3401enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "directive",
+      "description": "Requires the Secretary to notify appropriations committees at least 15 days before operationalizing an unlicensed facility, specifying whether it is hard- or soft-sided and providing analysis that UAC would otherwise remain in DHS custody over 72 hours or be placed in danger. Within 60 days and monthly thereafter, the Secretary must report on children in care, average length of stay, and details for any child at facility over 60 days.",
+      "deadlines": [
+        "15 days before operationalizing an unlicensed facility",
+        "Within 60 days of bringing facility online, and monthly thereafter"
+      ],
+      "section": "SEC. 405",
+      "division": null,
+      "title": "IV",
+      "confidence": 0.96,
+      "raw_text": "In addition to the existing Congressional notification for formal site assessments of potential influx facilities, the Secretary shall notify the Commi",
+      "notes": [
+        "Supplements existing congressional notification requirements for influx facilities"
+      ],
+      "cross_references": [],
+      "source_span": {
+        "start": 19797,
+        "end": 19948,
+        "file": "BILLS-116hr3401enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "limitation",
+      "description": "The Secretary shall ensure, when feasible, that no UAC is placed at an unlicensed facility if the child: (1) is not expected to be placed with a sponsor within 30 days; (2) is under age 13; (3) does not speak English or Spanish as preferred language; (4) has known special needs, behavioral health, or medical issues; (5) is a pregnant or parenting teen; or (6) would have diminished legal services. ORR must notify a child's attorney of record in advance of any transfer.",
+      "amount": null,
+      "account_name": null,
+      "section": "SEC. 406",
+      "division": null,
+      "title": "IV",
+      "confidence": 0.95,
+      "raw_text": "(a) The Secretary shall ensure that, when feasible, no unaccompanied alien child is at an unlicensed facility if the child\u2014",
+      "notes": [
+        "Six categories of children who should not be at unlicensed facilities when feasible",
+        "Subsection (b) requires advance notice to attorney of record for transfers"
+      ],
+      "cross_references": [],
+      "parent_account": null,
+      "source_span": {
+        "start": 20940,
+        "end": 21063,
+        "file": "BILLS-116hr3401enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "limitation",
+      "description": "Prohibits use of funds in this Act to prevent a U.S. Senator or Member of the House from entering any facility used to house unaccompanied alien children for the purpose of conducting oversight, provided the visit is coordinated with ORR at least two business days in advance.",
+      "amount": null,
+      "account_name": null,
+      "section": "SEC. 407",
+      "division": null,
+      "title": "IV",
+      "confidence": 0.96,
+      "raw_text": "None of the funds made available in this Act may be used to prevent a United States Senator or Member of the House of Representatives from entering, fo",
+      "notes": [
+        "Ensures congressional access to UAC detention facilities",
+        "Requires 2 business days advance coordination to avoid interference with operations"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "see_also",
+          "target": "Section 462(g)(2) of the Homeland Security Act of 2002 (6 U.S.C. 279(g)(2))",
+          "description": "Definition of unaccompanied alien children"
+        }
+      ],
+      "parent_account": null,
+      "source_span": {
+        "start": 21610,
+        "end": 21761,
+        "file": "BILLS-116hr3401enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "directive",
+      "description": "Requires the Secretary to submit to appropriations committees and make publicly available online, within 14 days and monthly thereafter, a report on children separated from parents/legal guardians by DHS, classified as UAC, and transferred to ORR custody, including: (1) number and ages by sector; (2) documented cause of separation as reported by DHS.",
+      "deadlines": [
+        "14 days after enactment",
+        "monthly thereafter"
+      ],
+      "section": "SEC. 408",
+      "division": null,
+      "title": "IV",
+      "confidence": 0.96,
+      "raw_text": "Not later than 14 days after the date of enactment of this Act, and monthly thereafter, the Secretary shall submit to the Committees on Appropriations",
+      "notes": [
+        "Applies regardless of whether separation was pursuant to an option selected by the children, parents, or guardians",
+        "Report must be publicly available online",
+        "Relates to family separation policy concerns"
+      ],
+      "cross_references": [],
+      "source_span": {
+        "start": 22330,
+        "end": 22480,
+        "file": "BILLS-116hr3401enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "rider",
+      "description": "Funds made available under Refugee and Entrant Assistance in this Act shall be subject to the authorities and conditions of section 224 of division A of the Consolidated Appropriations Act, 2019 (P.L. 116-6).",
+      "policy_area": "Refugee and Entrant Assistance conditions",
+      "section": "SEC. 409",
+      "division": null,
+      "title": "IV",
+      "confidence": 0.96,
+      "raw_text": "Funds made available in this Act under the heading ''Department of Health and Human Services\u2014Administration for Children and Families\u2014Refugee and Entran",
+      "notes": [
+        "Incorporates by reference the conditions from the FY2019 regular appropriations act"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "subject_to",
+          "target": "Section 224 of Division A of P.L. 116-6",
+          "description": "Consolidated Appropriations Act, 2019"
+        }
+      ],
+      "source_span": {
+        "start": 23269,
+        "end": 23421,
+        "file": "BILLS-116hr3401enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "directive",
+      "description": "Requires the Secretary to submit a detailed spend plan within 30 days, including: existing grants/contracts for permanent and influx facilities with costs/capacity/timelines; costs for community-based residential care expansion; efforts to expand small-scale shelters and foster care; influx facilities being assessed; legal services, child advocates, and post-release service costs; program administration; and average referrals and discharge rate. Plan must be updated every 60 days until funds are expended or expired.",
+      "deadlines": [
+        "30 days after enactment",
+        "every 60 days thereafter until funds expended or expired"
+      ],
+      "section": "SEC. 410",
+      "division": null,
+      "title": "IV",
+      "confidence": 0.96,
+      "raw_text": "Not later than 30 days after the date of enactment of this Act, the Secretary shall submit to the Committees on Appropriations of the House of Represen",
+      "notes": [
+        "Comprehensive spend plan requirement for the $2.88B REA appropriation"
+      ],
+      "cross_references": [],
+      "source_span": {
+        "start": 23591,
+        "end": 23742,
+        "file": "BILLS-116hr3401enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "rider",
+      "description": "Each amount appropriated or made available by this Act is in addition to amounts otherwise appropriated for the fiscal year involved.",
+      "policy_area": "Supplemental appropriations",
+      "section": "SEC. 501",
+      "division": null,
+      "title": "V",
+      "confidence": 0.97,
+      "raw_text": "Each amount appropriated or made available by this Act is in addition to amounts otherwise appropriated for the fiscal year involved.",
+      "notes": [
+        "Standard supplemental boilerplate establishing additive nature of funds"
+      ],
+      "cross_references": [],
+      "source_span": {
+        "start": 24905,
+        "end": 25038,
+        "file": "BILLS-116hr3401enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "rider",
+      "description": "No part of any appropriation in this Act shall remain available for obligation beyond the current fiscal year unless expressly so provided.",
+      "policy_area": "Fund availability",
+      "section": "SEC. 502",
+      "division": null,
+      "title": "V",
+      "confidence": 0.97,
+      "raw_text": "No part of any appropriation contained in this Act shall remain available for obligation beyond the current fiscal year unless expressly so provided he",
+      "notes": [
+        "Standard appropriations provision limiting availability to current fiscal year unless otherwise stated"
+      ],
+      "cross_references": [],
+      "source_span": {
+        "start": 25050,
+        "end": 25201,
+        "file": "BILLS-116hr3401enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "rider",
+      "description": "Unless otherwise provided, additional amounts appropriated by this Act shall be available under the authorities and conditions applicable to the corresponding appropriations accounts for fiscal year 2019.",
+      "policy_area": "Applicable authorities",
+      "section": "SEC. 503",
+      "division": null,
+      "title": "V",
+      "confidence": 0.97,
+      "raw_text": "Unless otherwise provided for by this Act, the additional amounts appropriated by this Act to appropriations accounts shall be available under the auth",
+      "notes": [
+        "Incorporates existing FY2019 authorities and conditions for each account"
+      ],
+      "cross_references": [],
+      "source_span": {
+        "start": 25217,
+        "end": 25368,
+        "file": "BILLS-116hr3401enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "rider",
+      "description": "Each amount designated as an emergency requirement pursuant to section 251(b)(2)(A)(i) of BBEDCA shall be available only if the President subsequently designates all such amounts and transmits such designations to Congress.",
+      "policy_area": "Emergency designation",
+      "section": "SEC. 504",
+      "division": null,
+      "title": "V",
+      "confidence": 0.97,
+      "raw_text": "Each amount designated in this Act by the Congress as being for an emergency requirement pursuant to section 251(b)(2)(A)(i) of the Balanced Budget and",
+      "notes": [
+        "Standard BBEDCA emergency designation provision requiring presidential concurrence"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "subject_to",
+          "target": "Section 251(b)(2)(A)(i) of the Balanced Budget and Emergency Deficit Control Act of 1985",
+          "description": "Emergency designation mechanism"
+        }
+      ],
+      "source_span": {
+        "start": 25467,
+        "end": 25618,
+        "file": "BILLS-116hr3401enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "rider",
+      "description": "Any amount designated as an emergency requirement and subsequently so designated by the President, if transferred pursuant to transfer authorities in this Act, shall retain the emergency designation.",
+      "policy_area": "Emergency designation",
+      "section": "SEC. 505",
+      "division": null,
+      "title": "V",
+      "confidence": 0.97,
+      "raw_text": "Any amount appropriated by this Act, designated by the Congress as an emergency requirement pursuant to section 251(b)(2)(A)(i) of the Balanced Budget ",
+      "notes": [
+        "Ensures emergency designation follows transferred funds"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "subject_to",
+          "target": "Section 251(b)(2)(A)(i) of the Balanced Budget and Emergency Deficit Control Act of 1985",
+          "description": "Emergency designation mechanism"
+        }
+      ],
+      "source_span": {
+        "start": 25846,
+        "end": 25997,
+        "file": "BILLS-116hr3401enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "directive",
+      "description": "Requires the Comptroller General (GAO) to submit a report within 180 days on the number of asylum officers, immigration judges (including temporary), and support staff necessary to: (1) fairly and effectively make credible fear determinations for family units and UAC; (2) ensure credible fear determination and asylum interview completed within 20 days for family units; (3) fairly and effectively review appeals of credible fear determinations. Report shall also determine any physical infrastructure needs such as hearing or courtroom space.",
+      "deadlines": [
+        "180 days after enactment"
+      ],
+      "section": "SEC. 506",
+      "division": null,
+      "title": "V",
+      "confidence": 0.96,
+      "raw_text": "Not later than 180 days after the date of the enactment of this Act, the Comptroller General of the United States shall submit a report to the Committ",
+      "notes": [
+        "GAO study on staffing and infrastructure needs for credible fear and asylum processes",
+        "Three specific areas of inquiry plus physical infrastructure assessment"
+      ],
+      "cross_references": [],
+      "source_span": {
+        "start": 26200,
+        "end": 26350,
+        "file": "BILLS-116hr3401enr.txt",
+        "verified": true
+      }
+    }
+  ],
+  "summary": {
+    "total_provisions": 55,
+    "by_division": {
+      "?": 55
+    },
+    "by_type": {
+      "rider": 8,
+      "limitation": 7,
+      "directive": 7,
+      "appropriation": 33
+    },
+    "total_budget_authority": 4585777000,
+    "total_rescissions": 0,
+    "sections_with_no_provisions": [],
+    "flagged_issues": [
+      "Bill has no divisions \u2014 only Titles I-V. by_division is empty.",
+      "Both CBP and ICE use account name 'Operations and Support' \u2014 distinguished by agency field.",
+      "REA $2.88B is the largest single appropriation, comprising 63% of total budget authority.",
+      "All appropriations carry BBEDCA emergency designation requiring presidential concurrence per SEC. 504.",
+      "SEC. 302 amends P.L. 116-6 to extend DHS SAFETY Act authorities \u2014 legislative rider on supplemental.",
+      "Sub-allocations of REA $866M include further breakdowns: $27M and $185M are sub-sub-allocations.",
+      "$5M mandatory transfer from Refugee and Entrant Assistance to HHS OIG for oversight."
+    ]
+  },
+  "chunk_map": [
+    {
+      "chunk_id": "01KM83TX1APXW8APCH8Z28PKYN",
+      "label": "[1/1] full",
+      "provision_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54
+      ]
+    }
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "schema_version": "1.0",
+  "bill_dir": "116-hr4378",
+  "bill_identifier": "H.R. 4378",
+  "model": "claude-opus-4-6",
+  "fas_reference_hash": "dc6f3d8435cd85ee2ae7a9c3473488206bc8d1324783132d08faa1db203d1671",
+  "timestamp": "2026-03-22T20:49:17.878520+00:00",
+  "mappings": [
+    {
+      "provision_index": 20,
+      "account_name": "Department of Agriculture—Agricultural Marketing Service—Marketing Services",
+      "agency": "Department of Agriculture",
+      "dollars": 16496000,
+      "fas_code": "012-2500",
+      "fas_title": "Marketing Services, Agricultural Marketing Service, Agriculture",
+      "confidence": "verified",
+      "method": "suffix_match"
+    },
+    {
+      "provision_index": 28,
+      "account_name": "Committee on Foreign Investment in the United States Fund",
+      "agency": "Department of the Treasury",
+      "dollars": 15000000,
+      "fas_code": "020-0165",
+      "fas_title": "Committee on Foreign Investment in the United States Fund, Departmental Offices, Treasury",
+      "confidence": "verified",
+      "method": "direct_match"
+    },
+    {
+      "provision_index": 30,
+      "account_name": "Salaries and Expenses",
+      "agency": "Office of Personnel Management",
+      "dollars": 48000000,
+      "fas_code": "024-0100",
+      "fas_title": "Salaries and Expenses, Office of Personnel Management",
+      "confidence": "high",
+      "method": "llm_resolved",
+      "reasoning": "Direct match: 'Salaries and Expenses' under 'Office of Personnel Management' corresponds exactly to TAS 024-0100."
+    },
+    {
+      "provision_index": 32,
+      "account_name": "Small Business Administration—Business Loans Program Account",
+      "agency": "Small Business Administration",
+      "dollars": 99000000,
+      "fas_code": "073-1154",
+      "fas_title": "Business Loans Program Account, Small Business Administration",
+      "confidence": "verified",
+      "method": "suffix_match"
+    },
+    {
+      "provision_index": 33,
+      "account_name": "Small Business Administration—Disaster Loans Program Account",
+      "agency": "Small Business Administration",
+      "dollars": 177136000,
+      "fas_code": "073-1152",
+      "fas_title": "Disaster Loans Program Account, Small Business Administration",
+      "confidence": "verified",
+      "method": "suffix_match"
+    },
+    {
+      "provision_index": 42,
+      "account_name": "Department of Health and Human Services—Indian Health Service—Indian Health Services",
+      "agency": "Department of Health and Human Services",
+      "dollars": 18397500,
+      "fas_code": "075-0390",
+      "fas_title": "Indian Health Services, Indian Health Service, Health and Human Services",
+      "confidence": "verified",
+      "method": "suffix_match"
+    },
+    {
+      "provision_index": 43,
+      "account_name": "Department of Health and Human Services—Indian Health Service—Indian Health Facilities",
+      "agency": "Department of Health and Human Services",
+      "dollars": 631000,
+      "fas_code": "075-0391",
+      "fas_title": "Indian Health Facilities, Indian Health Service, Health and Human Services",
+      "confidence": "verified",
+      "method": "suffix_match"
+    }
+  ],
+  "summary": {
+    "total_provisions": 7,
+    "deterministic_matched": 6,
+    "llm_matched": 1,
+    "unmatched": 0,
+    "unique_fas_codes": 7,
+    "match_rate_pct": 100.0
+  }
+}

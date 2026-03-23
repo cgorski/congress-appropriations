@@ -1,0 +1,217 @@
+{
+  "schema_version": "1.0",
+  "bill_dir": "117-hr3237",
+  "bill_identifier": "H.R. 3237",
+  "model": "claude-opus-4-6",
+  "fas_reference_hash": "dc6f3d8435cd85ee2ae7a9c3473488206bc8d1324783132d08faa1db203d1671",
+  "timestamp": "2026-03-22T20:50:24.798129+00:00",
+  "mappings": [
+    {
+      "provision_index": 0,
+      "account_name": "National Guard Personnel, Army",
+      "agency": "Department of Defense",
+      "dollars": 231000000,
+      "fas_code": "021-2060",
+      "fas_title": "National Guard Personnel, Army",
+      "confidence": "verified",
+      "method": "agency_disambiguated"
+    },
+    {
+      "provision_index": 1,
+      "account_name": "National Guard Personnel, Air Force",
+      "agency": "Department of Defense",
+      "dollars": 28900000,
+      "fas_code": "057-3850",
+      "fas_title": "National Guard Personnel, Air Force",
+      "confidence": "verified",
+      "method": "agency_disambiguated"
+    },
+    {
+      "provision_index": 2,
+      "account_name": "Operation and Maintenance, Army National Guard",
+      "agency": "Department of Defense",
+      "dollars": 218500000,
+      "fas_code": "021-2065",
+      "fas_title": "Operation and Maintenance, Army National Guard",
+      "confidence": "high",
+      "method": "llm_resolved",
+      "reasoning": "Army National Guard O&M accounts fall under Army agency code 021, not Defense-Wide 097. TAS 021-2065 is the well-known code for this account. It is not in the provided 097 list because it belongs to the Army agency."
+    },
+    {
+      "provision_index": 3,
+      "account_name": "Operation and Maintenance, Air National Guard",
+      "agency": "Department of Defense",
+      "dollars": 42500000,
+      "fas_code": "057-3840",
+      "fas_title": "Operation and Maintenance, Air National Guard",
+      "confidence": "high",
+      "method": "llm_resolved",
+      "reasoning": "Air National Guard O&M accounts fall under Air Force agency code 057, not Defense-Wide 097. TAS 057-3840 is the well-known code for this account. It is not in the provided 097 list because it belongs to the Air Force agency."
+    },
+    {
+      "provision_index": 4,
+      "account_name": "Overseas Humanitarian, Disaster, and Civic Aid",
+      "agency": "Department of Defense",
+      "dollars": 500000000,
+      "fas_code": "097-0819",
+      "fas_title": "Overseas Humanitarian, Disaster, and Civic Aid, Defense",
+      "confidence": "verified",
+      "method": "direct_match"
+    },
+    {
+      "provision_index": 5,
+      "account_name": "Refugee and Entrant Assistance",
+      "agency": "Department of Health and Human Services",
+      "dollars": 25000000,
+      "fas_code": "075-1503",
+      "fas_title": "Refugee and Entrant Assistance, Administration for Children and Families, Health and Human Services",
+      "confidence": "verified",
+      "method": "direct_match"
+    },
+    {
+      "provision_index": 6,
+      "account_name": "Sergeant at Arms and Doorkeeper of the Senate",
+      "agency": "United States Senate",
+      "dollars": 7832856,
+      "fas_code": "000-0127",
+      "fas_title": "Contingent Expenses, Sergeant at Arms and Doorkeeper of the Senate, Senate",
+      "confidence": "high",
+      "method": "llm_resolved",
+      "reasoning": "The 'Sergeant at Arms and Doorkeeper of the Senate' account under United States Senate directly matches TAS 000-0127, which is the contingent expenses account for that office."
+    },
+    {
+      "provision_index": 7,
+      "account_name": "Payments to widows and heirs of deceased members of congress",
+      "agency": "House of Representatives",
+      "dollars": 174000,
+      "fas_code": "000-0215",
+      "fas_title": "Payment to (next of kin) of Hon. (name of Representative), House of Representatives",
+      "confidence": "high",
+      "method": "llm_resolved",
+      "reasoning": "'Payments to widows and heirs of deceased members of congress' for the House matches TAS 000-0215, which is the standard death gratuity account for House members."
+    },
+    {
+      "provision_index": 8,
+      "account_name": "Payments to widows and heirs of deceased members of congress",
+      "agency": "House of Representatives",
+      "dollars": 174000,
+      "fas_code": "000-0215",
+      "fas_title": "Payment to (next of kin) of Hon. (name of Representative), House of Representatives",
+      "confidence": "high",
+      "method": "llm_resolved",
+      "reasoning": "Same account as provision_index=7; a second appropriation to the same death gratuity account for House members."
+    },
+    {
+      "provision_index": 9,
+      "account_name": "Allowances and Expenses",
+      "agency": "House of Representatives",
+      "dollars": 11650000,
+      "fas_code": "000-0438",
+      "fas_title": "Contingent Expenses, House of Representatives, Allowances and Expenses",
+      "confidence": "high",
+      "method": "llm_resolved",
+      "reasoning": "'Allowances and Expenses' under House of Representatives directly matches TAS 000-0438, the contingent expenses allowances and expenses account."
+    },
+    {
+      "provision_index": 10,
+      "account_name": "Salaries",
+      "agency": "United States Capitol Police",
+      "dollars": 37495000,
+      "fas_code": "002-0477",
+      "fas_title": "Salaries, Capitol Police",
+      "confidence": "high",
+      "method": "llm_resolved",
+      "reasoning": "'Salaries' under 'United States Capitol Police' matches TAS 002-0477 under agency 002 (Capitol Police Board). This is the unified Capitol Police salaries account."
+    },
+    {
+      "provision_index": 14,
+      "account_name": "General Expenses",
+      "agency": "United States Capitol Police",
+      "dollars": 33169000,
+      "fas_code": "002-0476",
+      "fas_title": "General Expenses, Capitol Police",
+      "confidence": "high",
+      "method": "llm_resolved",
+      "reasoning": "'General Expenses' under 'United States Capitol Police' matches TAS 002-0476, the unified Capitol Police general expenses account."
+    },
+    {
+      "provision_index": 20,
+      "account_name": "General Expenses",
+      "agency": "United States Capitol Police",
+      "dollars": 800000,
+      "fas_code": "002-0476",
+      "fas_title": "General Expenses, Capitol Police",
+      "confidence": "high",
+      "method": "llm_resolved",
+      "reasoning": "Same account as provision_index=14; a separate appropriation to the Capitol Police general expenses account (002-0476)."
+    },
+    {
+      "provision_index": 21,
+      "account_name": "United States Capitol Police Mutual Aid Reimbursements",
+      "agency": "United States Capitol Police",
+      "dollars": 35396000,
+      "fas_code": "002-0478",
+      "fas_title": "United States Capitol Police Mutual Aid Reimbursements, Capitol Police",
+      "confidence": "verified",
+      "method": "direct_match"
+    },
+    {
+      "provision_index": 25,
+      "account_name": "Capital Construction and Operations",
+      "agency": "Architect of the Capitol",
+      "dollars": 21869069,
+      "fas_code": "001-0100",
+      "fas_title": "Capital Construction and Operations, Architect of the Capitol",
+      "confidence": "verified",
+      "method": "direct_match"
+    },
+    {
+      "provision_index": 26,
+      "account_name": "Capitol Police Buildings, Grounds and Security",
+      "agency": "Architect of the Capitol",
+      "dollars": 300000000,
+      "fas_code": "001-0171",
+      "fas_title": "Capitol Police Buildings, Grounds and Security, Architect of the Capitol",
+      "confidence": "verified",
+      "method": "direct_match"
+    },
+    {
+      "provision_index": 32,
+      "account_name": "Migration and Refugee Assistance",
+      "agency": "Department of State",
+      "dollars": 100000000,
+      "fas_code": "019-1143",
+      "fas_title": "Migration and Refugee Assistance, State",
+      "confidence": "verified",
+      "method": "direct_match"
+    },
+    {
+      "provision_index": 33,
+      "account_name": "United States Emergency Refugee and Migration Assistance Fund",
+      "agency": "Department of State",
+      "dollars": 500000000,
+      "fas_code": "011-0040",
+      "fas_title": "United States Emergency Refugee and Migration Assistance Fund, Funds Appropriated to the President, Executive Office of the President",
+      "confidence": "verified",
+      "method": "direct_match"
+    },
+    {
+      "provision_index": 39,
+      "account_name": "State and Local Law Enforcement Assistance",
+      "agency": "Department of Justice",
+      "dollars": 1100000,
+      "fas_code": "015-0404",
+      "fas_title": "State and Local Law Enforcement Assistance, Office of Justice Programs, Justice",
+      "confidence": "verified",
+      "method": "direct_match"
+    }
+  ],
+  "summary": {
+    "total_provisions": 19,
+    "deterministic_matched": 10,
+    "llm_matched": 9,
+    "unmatched": 0,
+    "unique_fas_codes": 17,
+    "match_rate_pct": 100.0
+  }
+}

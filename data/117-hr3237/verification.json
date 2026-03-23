@@ -1,0 +1,626 @@
+{
+  "schema_version": "1.0",
+  "amount_checks": [
+    {
+      "provision_index": 0,
+      "text_as_written": "$231,000,000",
+      "found_in_source": true,
+      "source_positions": [
+        392
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 1,
+      "text_as_written": "$28,900,000",
+      "found_in_source": true,
+      "source_positions": [
+        818
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 2,
+      "text_as_written": "$218,500,000",
+      "found_in_source": true,
+      "source_positions": [
+        1291
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 3,
+      "text_as_written": "$42,500,000",
+      "found_in_source": true,
+      "source_positions": [
+        1736
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 4,
+      "text_as_written": "$500,000,000",
+      "found_in_source": true,
+      "source_positions": [
+        2182,
+        15211
+      ],
+      "status": "ambiguous"
+    },
+    {
+      "provision_index": 5,
+      "text_as_written": "$25,000,000",
+      "found_in_source": true,
+      "source_positions": [
+        2621
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 6,
+      "text_as_written": "$7,832,856",
+      "found_in_source": true,
+      "source_positions": [
+        3465
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 7,
+      "text_as_written": "$174,000",
+      "found_in_source": true,
+      "source_positions": [
+        4395,
+        4504
+      ],
+      "status": "ambiguous"
+    },
+    {
+      "provision_index": 8,
+      "text_as_written": "$174,000",
+      "found_in_source": true,
+      "source_positions": [
+        4395,
+        4504
+      ],
+      "status": "ambiguous"
+    },
+    {
+      "provision_index": 9,
+      "text_as_written": "$11,650,000",
+      "found_in_source": true,
+      "source_positions": [
+        4626
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 10,
+      "text_as_written": "$37,495,000",
+      "found_in_source": true,
+      "source_positions": [
+        5557
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 11,
+      "text_as_written": "$3,600,000",
+      "found_in_source": true,
+      "source_positions": [
+        6000
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 12,
+      "text_as_written": "$6,900,000",
+      "found_in_source": true,
+      "source_positions": [
+        6115
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 13,
+      "text_as_written": "$1,361,300",
+      "found_in_source": true,
+      "source_positions": [
+        6241
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 14,
+      "text_as_written": "$33,169,000",
+      "found_in_source": true,
+      "source_positions": [
+        6643
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 15,
+      "text_as_written": "$2,628,000",
+      "found_in_source": true,
+      "source_positions": [
+        7086
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 17,
+      "text_as_written": "$5,000,000",
+      "found_in_source": true,
+      "source_positions": [
+        7490
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 18,
+      "text_as_written": "$4,800,000",
+      "found_in_source": true,
+      "source_positions": [
+        7617
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 20,
+      "text_as_written": "$800,000",
+      "found_in_source": true,
+      "source_positions": [
+        8436
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 21,
+      "text_as_written": "$35,396,000",
+      "found_in_source": true,
+      "source_positions": [
+        9140
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 22,
+      "text_as_written": "$9,096,000",
+      "found_in_source": true,
+      "source_positions": [
+        9407
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 25,
+      "text_as_written": "$21,869,069",
+      "found_in_source": true,
+      "source_positions": [
+        11159
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 26,
+      "text_as_written": "$300,000,000",
+      "found_in_source": true,
+      "source_positions": [
+        12330
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 27,
+      "text_as_written": "$283,000,000",
+      "found_in_source": true,
+      "source_positions": [
+        12494
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 28,
+      "text_as_written": "$17,000,000",
+      "found_in_source": true,
+      "source_positions": [
+        12809
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 32,
+      "text_as_written": "$100,000,000",
+      "found_in_source": true,
+      "source_positions": [
+        14730
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 33,
+      "text_as_written": "$500,000,000",
+      "found_in_source": true,
+      "source_positions": [
+        2182,
+        15211
+      ],
+      "status": "ambiguous"
+    },
+    {
+      "provision_index": 39,
+      "text_as_written": "$1,100,000",
+      "found_in_source": true,
+      "source_positions": [
+        28263
+      ],
+      "status": "verified"
+    }
+  ],
+  "raw_text_checks": [
+    {
+      "provision_index": 0,
+      "raw_text_preview": "For an additional amount for ''National Guard Personnel, Army'', $231,000,000, t...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 327
+    },
+    {
+      "provision_index": 1,
+      "raw_text_preview": "For an additional amount for ''National Guard Personnel, Air Force'', $28,900,00...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 748
+    },
+    {
+      "provision_index": 2,
+      "raw_text_preview": "For an additional amount for ''Operation and Maintenance, Army National Guard'',...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 1210
+    },
+    {
+      "provision_index": 3,
+      "raw_text_preview": "For an additional amount for ''Operation and Maintenance, Air National Guard'', ...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 1656
+    },
+    {
+      "provision_index": 4,
+      "raw_text_preview": "For an additional amount for ''Overseas Humanitarian, Disaster, and Civic Aid'',...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 2101
+    },
+    {
+      "provision_index": 5,
+      "raw_text_preview": "For an additional amount for ''Refugee and Entrant Assistance'', $25,000,000, to...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 2556
+    },
+    {
+      "provision_index": 6,
+      "raw_text_preview": "For an additional amount for ''Sergeant at Arms and Doorkeeper of the Senate'', ...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 3385
+    },
+    {
+      "provision_index": 7,
+      "raw_text_preview": "For payment to Susan M. Wright, widow of Ronald Wright, late a Representative fr...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 4292
+    },
+    {
+      "provision_index": 8,
+      "raw_text_preview": "For payment to the heirs at law of Alcee Hastings, late a Representative from th...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 4404
+    },
+    {
+      "provision_index": 9,
+      "raw_text_preview": "For an additional amount for ''Allowances and Expenses'', $11,650,000, to remain...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 4568
+    },
+    {
+      "provision_index": 10,
+      "raw_text_preview": "For an additional amount for ''Salaries'', $37,495,000, to remain available unti...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 5514
+    },
+    {
+      "provision_index": 11,
+      "raw_text_preview": "of such amount, $3,600,000 may remain available until expended for retention bon...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 5984
+    },
+    {
+      "provision_index": 12,
+      "raw_text_preview": "of such amount, up to $6,900,000 shall be made available for hazard pay for empl...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 6093
+    },
+    {
+      "provision_index": 13,
+      "raw_text_preview": "of such amount, $1,361,300 shall be made available for the wellness program for ...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 6225
+    },
+    {
+      "provision_index": 14,
+      "raw_text_preview": "For an additional amount for ''General Expenses'', $33,169,000, to remain availa...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 6592
+    },
+    {
+      "provision_index": 15,
+      "raw_text_preview": "of such amount, $2,628,000 shall remain available until expended for physical pr...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 7070
+    },
+    {
+      "provision_index": 16,
+      "raw_text_preview": "amounts provided under this heading in this Act for physical protection barriers...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 7237
+    },
+    {
+      "provision_index": 17,
+      "raw_text_preview": "not less than $5,000,000 shall be made available for reimbursable agreements wit...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 7476
+    },
+    {
+      "provision_index": 18,
+      "raw_text_preview": "not less than $4,800,000 shall be available for protective details for Members o...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 7603
+    },
+    {
+      "provision_index": 19,
+      "raw_text_preview": "up to $2,500,000 may be transferred to ''Department of Justice—United States M...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 7801
+    },
+    {
+      "provision_index": 20,
+      "raw_text_preview": "For an additional amount for ''General Expenses'', $800,000, to remain available...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 8385
+    },
+    {
+      "provision_index": 21,
+      "raw_text_preview": "For an additional amount for ''United States Capitol Police Mutual Aid Reimburse...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 9051
+    },
+    {
+      "provision_index": 22,
+      "raw_text_preview": "of such amount, up to $9,096,000 is available to be used for reimbursement to th...",
+      "is_verbatim_substring": false,
+      "match_tier": "normalized",
+      "found_at_position": null
+    },
+    {
+      "provision_index": 23,
+      "raw_text_preview": "The wellness program of the United States Capitol Police shall be known and desi...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 10276
+    },
+    {
+      "provision_index": 24,
+      "raw_text_preview": "For the purposes of administering pay during calendar year 2021, the maximum ann...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 10576
+    },
+    {
+      "provision_index": 25,
+      "raw_text_preview": "For an additional amount for ''Capital Construction and Operations'', $21,869,06...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 11089
+    },
+    {
+      "provision_index": 26,
+      "raw_text_preview": "For an additional amount for ''Capitol Police Buildings, Grounds and Security'',...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 12249
+    },
+    {
+      "provision_index": 27,
+      "raw_text_preview": "of such amount $283,000,000 shall be for necessary upgrade or replacement of win...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 12479
+    },
+    {
+      "provision_index": 28,
+      "raw_text_preview": "of such amount, $17,000,000 shall be for the purchase and installation of camera...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 12793
+    },
+    {
+      "provision_index": 29,
+      "raw_text_preview": "amounts necessary for the purpose in the preceding proviso may be transferred be...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 12999
+    },
+    {
+      "provision_index": 30,
+      "raw_text_preview": "None of the funds made available in this or any other Act in prior fiscal years,...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 13411
+    },
+    {
+      "provision_index": 31,
+      "raw_text_preview": "For fiscal years 2021 and 2022, subject to the approval of the Chairs and Rankin...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 13752
+    },
+    {
+      "provision_index": 32,
+      "raw_text_preview": "For an additional amount for ''Migration and Refugee Assistance'', $100,000,000,...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 14663
+    },
+    {
+      "provision_index": 33,
+      "raw_text_preview": "For an additional amount for ''United States Emergency Refugee and Migration Ass...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 15115
+    },
+    {
+      "provision_index": 34,
+      "raw_text_preview": "Section 602(b) of the Afghan Allies Protection Act of 2009 (8 U.S.C. 1101 note) ...",
+      "is_verbatim_substring": false,
+      "match_tier": "no_match",
+      "found_at_position": null
+    },
+    {
+      "provision_index": 35,
+      "raw_text_preview": "Not later than 1 year after the date of the enactment of this Act, the Secretary...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 17836
+    },
+    {
+      "provision_index": 36,
+      "raw_text_preview": "The Secretary of State and the Secretary of Homeland Security may jointly issue ...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 20057
+    },
+    {
+      "provision_index": 37,
+      "raw_text_preview": "Section 101(a)(27)(D) of the Immigration and Nationality Act (8 U.S.C. 1101(a)(2...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 24015
+    },
+    {
+      "provision_index": 38,
+      "raw_text_preview": "Section 2 of Public Law 110–242 (8 U.S.C. 1101 note) is amended by striking su...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 27435
+    },
+    {
+      "provision_index": 39,
+      "raw_text_preview": "For an additional amount for ''State and Local Law Enforcement Assistance'', $1,...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 28186
+    },
+    {
+      "provision_index": 40,
+      "raw_text_preview": "Each amount appropriated or made available by this Act is in addition to amounts...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 29139
+    },
+    {
+      "provision_index": 41,
+      "raw_text_preview": "No part of any appropriation contained in this Act shall remain available for ob...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 29284
+    },
+    {
+      "provision_index": 42,
+      "raw_text_preview": "Unless otherwise provided for by this Act, the additional amounts appropriated b...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 29451
+    },
+    {
+      "provision_index": 43,
+      "raw_text_preview": "Except for funds used to restore amounts, either directly or through reimburseme...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 29701
+    },
+    {
+      "provision_index": 44,
+      "raw_text_preview": "In this Act, the term coronavirus means SARS–CoV–2 or another coronavirus wi...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 30016
+    },
+    {
+      "provision_index": 45,
+      "raw_text_preview": "Each amount designated in this Act by the Congress as being for an emergency req...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 30130
+    },
+    {
+      "provision_index": 46,
+      "raw_text_preview": "Any amount appropriated by this Act, designated by the Congress as an emergency ...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 30509
+    }
+  ],
+  "completeness": {
+    "total_dollar_amounts_in_text": 30,
+    "accounted_for": 28,
+    "unaccounted": [
+      {
+        "text": "$2,500,000",
+        "value": 2500000,
+        "position": 7807,
+        "context": "dent Commissioner to the Congress: Provided further, That of such amount, up to $2,500,000 may be transferred to ''Department of Justice—United States Marshal"
+      },
+      {
+        "text": "$199,300",
+        "value": 199300,
+        "position": 10880,
+        "context": "ds Act of 1938 (29 U.S.C. 201 et seq.) shall be set at Executive Schedule II at $199,300. Excluded from this limitation for calendar year 2021 shall be retentio"
+      }
+    ]
+  },
+  "summary": {
+    "total_provisions": 47,
+    "amounts_verified": 24,
+    "amounts_not_found": 0,
+    "amounts_ambiguous": 4,
+    "raw_text_exact": 45,
+    "raw_text_normalized": 1,
+    "raw_text_spaceless": 0,
+    "raw_text_no_match": 1,
+    "completeness_pct": 93.33333333333333,
+    "provisions_by_detail_level": {
+      "sub_allocation": 7,
+      "top_level": 19,
+      "n/a": 21
+    }
+  }
+}

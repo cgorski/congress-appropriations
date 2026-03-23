@@ -1,0 +1,113 @@
+{
+  "schema_version": "1.0",
+  "bill_dir": "118-hr9747",
+  "bill_identifier": "H.R. 9747",
+  "model": "claude-opus-4-6",
+  "fas_reference_hash": "dc6f3d8435cd85ee2ae7a9c3473488206bc8d1324783132d08faa1db203d1671",
+  "timestamp": "2026-03-22T20:50:47.364776+00:00",
+  "mappings": [
+    {
+      "provision_index": 25,
+      "account_name": "Executive Office of the President—Office of Administration—Presidential Transition Administrative Support",
+      "agency": "Executive Office of the President",
+      "dollars": 25000000,
+      "fas_code": "011-0108",
+      "fas_title": "Presidential Transition Administrative Support, Executive Office of the President",
+      "confidence": "verified",
+      "method": "suffix_match"
+    },
+    {
+      "provision_index": 26,
+      "account_name": "District of Columbia—Federal Payment for Emergency Planning and Security Costs in the District of Columbia",
+      "agency": "District of Columbia",
+      "dollars": 47000000,
+      "fas_code": "020-1771",
+      "fas_title": "Federal Payment for Emergency Planning and Security Costs in the District of Columbia, Treasury",
+      "confidence": "verified",
+      "method": "suffix_match"
+    },
+    {
+      "provision_index": 30,
+      "account_name": "General Services Administration—Expenses, Presidential Transition",
+      "agency": "General Services Administration",
+      "dollars": 19424177,
+      "fas_code": "047-0107",
+      "fas_title": "Expenses, Presidential Transition, General Services Administration",
+      "confidence": "high",
+      "method": "llm_resolved",
+      "reasoning": "Direct match: 'Expenses, Presidential Transition' in the provision matches TAS 047-0107 exactly."
+    },
+    {
+      "provision_index": 37,
+      "account_name": "National Archives and Records Administration—Operating Expenses",
+      "agency": "National Archives and Records Administration",
+      "dollars": 23000000,
+      "fas_code": "088-0300",
+      "fas_title": "Operating Expenses, National Archives and Records Administration",
+      "confidence": "high",
+      "method": "llm_resolved",
+      "reasoning": "Direct match: 'Operating Expenses' under National Archives and Records Administration corresponds to TAS 088-0300."
+    },
+    {
+      "provision_index": 44,
+      "account_name": "United States Secret Service—Operations and Support",
+      "agency": "Department of Homeland Security",
+      "dollars": 231000000,
+      "fas_code": "070-0400",
+      "fas_title": "Operations and Support, United States Secret Service, Homeland Security",
+      "confidence": "high",
+      "method": "llm_resolved",
+      "reasoning": "Direct match: 'United States Secret Service—Operations and Support' maps to TAS 070-0400 'Operations and Support, United States Secret Service, Homeland Security'."
+    },
+    {
+      "provision_index": 47,
+      "account_name": "Department of the Interior—National Park Service—Operation of the National Park System",
+      "agency": "Department of the Interior",
+      "dollars": 5000000,
+      "fas_code": "014-1036",
+      "fas_title": "Operation of the National Park System, National Park Service, Interior",
+      "confidence": "high",
+      "method": "llm_resolved",
+      "reasoning": "Direct match: 'Operation of the National Park System' under National Park Service, Interior corresponds exactly to TAS 014-1036."
+    },
+    {
+      "provision_index": 50,
+      "account_name": "Department of Health and Human Services—Indian Health Service—Indian Health Services",
+      "agency": "Department of Health and Human Services",
+      "dollars": 24262000,
+      "fas_code": "075-0390",
+      "fas_title": "Indian Health Services, Indian Health Service, Health and Human Services",
+      "confidence": "verified",
+      "method": "suffix_match"
+    },
+    {
+      "provision_index": 51,
+      "account_name": "Department of Health and Human Services—Indian Health Service—Indian Health Facilities",
+      "agency": "Department of Health and Human Services",
+      "dollars": 2060000,
+      "fas_code": "075-0391",
+      "fas_title": "Indian Health Facilities, Indian Health Service, Health and Human Services",
+      "confidence": "verified",
+      "method": "suffix_match"
+    },
+    {
+      "provision_index": 53,
+      "account_name": "Department of Labor—Bureau of Labor Statistics—Salaries and Expenses",
+      "agency": "Department of Labor",
+      "dollars": 6000000,
+      "fas_code": "016-0200",
+      "fas_title": "Salaries and Expenses, Bureau of Labor Statistics, Labor",
+      "confidence": "high",
+      "method": "llm_resolved",
+      "reasoning": "Direct match: 'Bureau of Labor Statistics—Salaries and Expenses' maps to TAS 016-0200 'Salaries and Expenses, Bureau of Labor Statistics, Labor'."
+    }
+  ],
+  "summary": {
+    "total_provisions": 9,
+    "deterministic_matched": 4,
+    "llm_matched": 5,
+    "unmatched": 0,
+    "unique_fas_codes": 9,
+    "match_rate_pct": 100.0
+  }
+}

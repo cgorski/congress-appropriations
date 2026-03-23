@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "congress": 116,
+  "fiscal_years": [
+    2021
+  ],
+  "bill_nature": "continuing_resolution",
+  "subcommittees": [
+    {
+      "division": "A",
+      "jurisdiction": "continuing_resolution",
+      "title": "Further Continuing Appropriations Act, 2021",
+      "source": {
+        "type": "pattern_match",
+        "pattern": "continuing appropriations"
+      }
+    },
+    {
+      "division": "B",
+      "jurisdiction": "extenders",
+      "title": "Health Extenders",
+      "source": {
+        "type": "pattern_match",
+        "pattern": "extender"
+      }
+    }
+  ],
+  "provision_timing": [],
+  "canonical_accounts": [],
+  "extraction_sha256": "b54736d64ad104cc951484265a578635cd9cb7035687a6c6fb9e0a6ec66b81e2"
+}

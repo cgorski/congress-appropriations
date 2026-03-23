@@ -1,0 +1,1024 @@
+{
+  "schema_version": "1.0",
+  "amount_checks": [
+    {
+      "provision_index": 0,
+      "text_as_written": "$67,000,000",
+      "found_in_source": true,
+      "source_positions": [
+        408
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 1,
+      "text_as_written": "$12,750,000",
+      "found_in_source": true,
+      "source_positions": [
+        1648
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 2,
+      "text_as_written": "$37,500",
+      "found_in_source": true,
+      "source_positions": [
+        1889
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 3,
+      "text_as_written": "$675,000",
+      "found_in_source": true,
+      "source_positions": [
+        2142
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 4,
+      "text_as_written": "$1,590,000",
+      "found_in_source": true,
+      "source_positions": [
+        2390
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 5,
+      "text_as_written": "$1,493,532,000",
+      "found_in_source": true,
+      "source_positions": [
+        2670
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 6,
+      "text_as_written": "$939,779,000",
+      "found_in_source": true,
+      "source_positions": [
+        2895
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 7,
+      "text_as_written": "$195,262,000",
+      "found_in_source": true,
+      "source_positions": [
+        3129
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 8,
+      "text_as_written": "$800,000",
+      "found_in_source": true,
+      "source_positions": [
+        3366
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 9,
+      "text_as_written": "$15,256,824,000",
+      "found_in_source": true,
+      "source_positions": [
+        3631
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 10,
+      "text_as_written": "$6,000,000,000",
+      "found_in_source": true,
+      "source_positions": [
+        3835
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 12,
+      "text_as_written": "$350,970,000",
+      "found_in_source": true,
+      "source_positions": [
+        5683
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 13,
+      "text_as_written": "$255,000",
+      "found_in_source": true,
+      "source_positions": [
+        5956
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 14,
+      "text_as_written": "$45,000",
+      "found_in_source": true,
+      "source_positions": [
+        6175
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 15,
+      "text_as_written": "$113,440,000",
+      "found_in_source": true,
+      "source_positions": [
+        6377
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 16,
+      "text_as_written": "$1,250,000",
+      "found_in_source": true,
+      "source_positions": [
+        6584
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 17,
+      "text_as_written": "$28,500,000",
+      "found_in_source": true,
+      "source_positions": [
+        6805
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 18,
+      "text_as_written": "$155,382,000",
+      "found_in_source": true,
+      "source_positions": [
+        7021
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 19,
+      "text_as_written": "$24,218,000",
+      "found_in_source": true,
+      "source_positions": [
+        7232
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 20,
+      "text_as_written": "$600,000,000",
+      "found_in_source": true,
+      "source_positions": [
+        7456
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 21,
+      "text_as_written": "$128,700,000",
+      "found_in_source": true,
+      "source_positions": [
+        7746
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 22,
+      "text_as_written": "$43,000,000",
+      "found_in_source": true,
+      "source_positions": [
+        8003
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 23,
+      "text_as_written": "$119,815,000",
+      "found_in_source": true,
+      "source_positions": [
+        8269
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 24,
+      "text_as_written": "$72,103,000",
+      "found_in_source": true,
+      "source_positions": [
+        8542
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 25,
+      "text_as_written": "$965,000",
+      "found_in_source": true,
+      "source_positions": [
+        8791
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 26,
+      "text_as_written": "$13,900,000",
+      "found_in_source": true,
+      "source_positions": [
+        9029
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 27,
+      "text_as_written": "$500,000,000",
+      "found_in_source": true,
+      "source_positions": [
+        9337,
+        23260,
+        24500
+      ],
+      "status": "ambiguous"
+    },
+    {
+      "provision_index": 28,
+      "text_as_written": "$50,000,000",
+      "found_in_source": true,
+      "source_positions": [
+        10557,
+        24419
+      ],
+      "status": "ambiguous"
+    },
+    {
+      "provision_index": 33,
+      "text_as_written": "$2,000,000",
+      "found_in_source": true,
+      "source_positions": [
+        14157
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 34,
+      "text_as_written": "$54,000,000",
+      "found_in_source": true,
+      "source_positions": [
+        14656
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 35,
+      "text_as_written": "$900,000,000",
+      "found_in_source": true,
+      "source_positions": [
+        15110
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 37,
+      "text_as_written": "$190,000,000",
+      "found_in_source": true,
+      "source_positions": [
+        19169
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 38,
+      "text_as_written": "$10,000,000",
+      "found_in_source": true,
+      "source_positions": [
+        19405
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 39,
+      "text_as_written": "$4,000,000",
+      "found_in_source": true,
+      "source_positions": [
+        19638
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 40,
+      "text_as_written": "$110,000,000",
+      "found_in_source": true,
+      "source_positions": [
+        19826
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 41,
+      "text_as_written": "$17,000,000",
+      "found_in_source": true,
+      "source_positions": [
+        20129
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 42,
+      "text_as_written": "$1,000,000",
+      "found_in_source": true,
+      "source_positions": [
+        20372
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 43,
+      "text_as_written": "$4,348,000,000",
+      "found_in_source": true,
+      "source_positions": [
+        20598
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 44,
+      "text_as_written": "$8,766,000,000",
+      "found_in_source": true,
+      "source_positions": [
+        21024
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 45,
+      "text_as_written": "$760,000,000",
+      "found_in_source": true,
+      "source_positions": [
+        21232
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 46,
+      "text_as_written": "$350,000,000",
+      "found_in_source": true,
+      "source_positions": [
+        21651
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 47,
+      "text_as_written": "$400,000,000",
+      "found_in_source": true,
+      "source_positions": [
+        22075
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 48,
+      "text_as_written": "$100,000,000",
+      "found_in_source": true,
+      "source_positions": [
+        22572,
+        24117,
+        24708
+      ],
+      "status": "ambiguous"
+    },
+    {
+      "provision_index": 49,
+      "text_as_written": "$4,000,000,000",
+      "found_in_source": true,
+      "source_positions": [
+        22851
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 50,
+      "text_as_written": "$500,000,000",
+      "found_in_source": true,
+      "source_positions": [
+        9337,
+        23260,
+        24500
+      ],
+      "status": "ambiguous"
+    },
+    {
+      "provision_index": 51,
+      "text_as_written": "$150,000,000",
+      "found_in_source": true,
+      "source_positions": [
+        23830
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 59,
+      "text_as_written": "$20,000,000",
+      "found_in_source": true,
+      "source_positions": [
+        31161
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 60,
+      "text_as_written": "$52,000,000",
+      "found_in_source": true,
+      "source_positions": [
+        31432
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 61,
+      "text_as_written": "$174,000",
+      "found_in_source": true,
+      "source_positions": [
+        32001
+      ],
+      "status": "verified"
+    }
+  ],
+  "raw_text_checks": [
+    {
+      "provision_index": 0,
+      "raw_text_preview": "For an additional amount for ''Salaries and Expenses'', $67,000,000, to remain a...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 352
+    },
+    {
+      "provision_index": 1,
+      "raw_text_preview": "For an additional amount for ''Military Personnel, Army'', $12,750,000, to remai...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 1589
+    },
+    {
+      "provision_index": 2,
+      "raw_text_preview": "For an additional amount for ''Military Personnel, Navy'', $37,500, to remain av...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 1830
+    },
+    {
+      "provision_index": 3,
+      "raw_text_preview": "For an additional amount for ''Military Personnel, Marine Corps'', $675,000, to ...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 2075
+    },
+    {
+      "provision_index": 4,
+      "raw_text_preview": "For an additional amount for ''Military Personnel, Air Force'', $1,590,000, to r...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 2326
+    },
+    {
+      "provision_index": 5,
+      "raw_text_preview": "For an additional amount for ''Operation and Maintenance, Army'', $1,493,532,000...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 2604
+    },
+    {
+      "provision_index": 6,
+      "raw_text_preview": "For an additional amount for ''Operation and Maintenance, Navy'', $939,779,000, ...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 2829
+    },
+    {
+      "provision_index": 7,
+      "raw_text_preview": "For an additional amount for ''Operation and Maintenance, Air Force'', $195,262,...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 3058
+    },
+    {
+      "provision_index": 8,
+      "raw_text_preview": "For an additional amount for ''Operation and Maintenance, Space Force'', $800,00...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 3293
+    },
+    {
+      "provision_index": 9,
+      "raw_text_preview": "For an additional amount for ''Operation and Maintenance, Defense-Wide'', $15,25...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 3557
+    },
+    {
+      "provision_index": 10,
+      "raw_text_preview": "of the total amount provided under this heading in this Act, $6,000,000,000, to ...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 3774
+    },
+    {
+      "provision_index": 11,
+      "raw_text_preview": "of the total amount provided under this heading in this Act, up to $9,050,000,00...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 4269
+    },
+    {
+      "provision_index": 12,
+      "raw_text_preview": "For an additional amount for ''Missile Procurement, Army'', $350,970,000, to rem...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 5623
+    },
+    {
+      "provision_index": 13,
+      "raw_text_preview": "For an additional amount for ''Procurement of Weapons and Tracked Combat Vehicle...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 5865
+    },
+    {
+      "provision_index": 14,
+      "raw_text_preview": "For an additional amount for ''Procurement of Ammunition, Army'', $45,000, to re...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 6109
+    },
+    {
+      "provision_index": 15,
+      "raw_text_preview": "For an additional amount for ''Other Procurement, Army'', $113,440,000, to remai...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 6319
+    },
+    {
+      "provision_index": 16,
+      "raw_text_preview": "For an additional amount for ''Other Procurement, Navy'', $1,250,000, to remain ...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 6526
+    },
+    {
+      "provision_index": 17,
+      "raw_text_preview": "For an additional amount for ''Aircraft Procurement, Air Force'', $28,500,000, t...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 6739
+    },
+    {
+      "provision_index": 18,
+      "raw_text_preview": "For an additional amount for ''Other Procurement, Air Force'', $155,382,000, to ...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 6958
+    },
+    {
+      "provision_index": 19,
+      "raw_text_preview": "For an additional amount for ''Procurement, Defense-Wide'', $24,218,000, to rema...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 7172
+    },
+    {
+      "provision_index": 20,
+      "raw_text_preview": "For an additional amount for ''Defense Production Act Purchases'', $600,000,000,...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 7389
+    },
+    {
+      "provision_index": 21,
+      "raw_text_preview": "For an additional amount for ''Research, Development, Test and Evaluation, Army'...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 7663
+    },
+    {
+      "provision_index": 22,
+      "raw_text_preview": "For an additional amount for ''Research, Development, Test and Evaluation, Navy'...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 7920
+    },
+    {
+      "provision_index": 23,
+      "raw_text_preview": "For an additional amount for ''Research, Development, Test and Evaluation, Air F...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 8181
+    },
+    {
+      "provision_index": 24,
+      "raw_text_preview": "For an additional amount for ''Research, Development, Test and Evaluation, Defen...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 8451
+    },
+    {
+      "provision_index": 25,
+      "raw_text_preview": "For an additional amount for ''Defense Working Capital Funds'', $965,000, to rem...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 8727
+    },
+    {
+      "provision_index": 26,
+      "raw_text_preview": "For an additional amount for ''Defense Health Program'', $13,900,000, to remain ...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 8972
+    },
+    {
+      "provision_index": 27,
+      "raw_text_preview": "SEC. 201. In addition to any other funds made available for such purposes, $500,...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 9262
+    },
+    {
+      "provision_index": 28,
+      "raw_text_preview": "SEC. 202. In addition to any other funds made available for such purposes, $50,0...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 10482
+    },
+    {
+      "provision_index": 29,
+      "raw_text_preview": "SEC. 203. During fiscal year 2022, section 331(g)(1) of title 10, United States ...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 11836
+    },
+    {
+      "provision_index": 30,
+      "raw_text_preview": "SEC. 204. The Inspector General of the Department of Defense shall carry out rev...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 11995
+    },
+    {
+      "provision_index": 31,
+      "raw_text_preview": "SEC. 205. Not later than 45 days after the date of enactment of this Act, the Se...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 12388
+    },
+    {
+      "provision_index": 32,
+      "raw_text_preview": "SEC. 206. Not later than 30 days after the date of enactment of this Act, and ev...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 13186
+    },
+    {
+      "provision_index": 33,
+      "raw_text_preview": "For an additional amount for ''Salaries and Expenses'', $2,000,000, to remain av...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 14101
+    },
+    {
+      "provision_index": 34,
+      "raw_text_preview": "For an additional amount for ''CDC-Wide Activities and Program Support'', $54,00...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 14582
+    },
+    {
+      "provision_index": 35,
+      "raw_text_preview": "For an additional amount for ''Refugee and Entrant Assistance'', $900,000,000, t...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 15045
+    },
+    {
+      "provision_index": 36,
+      "raw_text_preview": "SEC. 401. \n(a) \nIn General\nNotwithstanding any other provision of law, a citizen...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 16311
+    },
+    {
+      "provision_index": 37,
+      "raw_text_preview": "For an additional amount for ''Diplomatic Programs'', $190,000,000, to remain av...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 19115
+    },
+    {
+      "provision_index": 38,
+      "raw_text_preview": "For an additional amount for ''Capital Investment Fund'', $10,000,000, to remain...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 19347
+    },
+    {
+      "provision_index": 39,
+      "raw_text_preview": "For an additional amount for ''Office of Inspector General'', $4,000,000, to rem...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 19576
+    },
+    {
+      "provision_index": 40,
+      "raw_text_preview": "For an additional amount for ''Embassy Security, Construction, and Maintenance''...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 19744
+    },
+    {
+      "provision_index": 41,
+      "raw_text_preview": "For an additional amount for ''Operating Expenses'', $17,000,000, to remain avai...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 20076
+    },
+    {
+      "provision_index": 42,
+      "raw_text_preview": "For an additional amount for ''Office of Inspector General'', $1,000,000, to rem...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 20310
+    },
+    {
+      "provision_index": 43,
+      "raw_text_preview": "For an additional amount for ''International Disaster Assistance'', $4,348,000,0...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 20530
+    },
+    {
+      "provision_index": 44,
+      "raw_text_preview": "For an additional amount for ''Economic Support Fund'', $8,766,000,000, to remai...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 20968
+    },
+    {
+      "provision_index": 45,
+      "raw_text_preview": "of which up to $760,000,000 may be made available to prevent and respond to food...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 21217
+    },
+    {
+      "provision_index": 46,
+      "raw_text_preview": "For an additional amount for ''Migration and Refugee Assistance'', $350,000,000,...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 21584
+    },
+    {
+      "provision_index": 47,
+      "raw_text_preview": "For an additional amount for ''International Narcotics Control and Law Enforceme...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 21989
+    },
+    {
+      "provision_index": 48,
+      "raw_text_preview": "For an additional amount for ''Nonproliferation, Anti-terrorism, Demining and Re...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 22474
+    },
+    {
+      "provision_index": 49,
+      "raw_text_preview": "For an additional amount for ''Foreign Military Financing Program'', $4,000,000,...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 22782
+    },
+    {
+      "provision_index": 50,
+      "raw_text_preview": "For payment by the Secretary of the Treasury to the European Bank for Reconstruc...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 23123
+    },
+    {
+      "provision_index": 51,
+      "raw_text_preview": "For an additional payment to the Global Agriculture and Food Security Program by...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 23718
+    },
+    {
+      "provision_index": 52,
+      "raw_text_preview": "SEC. 501. During fiscal year 2022, section 506(a)(1) of the Foreign Assistance A...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 23944
+    },
+    {
+      "provision_index": 53,
+      "raw_text_preview": "SEC. 502. During fiscal year 2022, section 614 of the Foreign Assistance Act of ...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 24134
+    },
+    {
+      "provision_index": 54,
+      "raw_text_preview": "SEC. 503. During fiscal year 2022, section 552(c) of the Foreign Assistance Act ...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 24564
+    },
+    {
+      "provision_index": 55,
+      "raw_text_preview": "SEC. 504. \n(a) Section 2606(a) of the Ukraine Supplemental Appropriations Act, 2...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 24745
+    },
+    {
+      "provision_index": 56,
+      "raw_text_preview": "SEC. 505. \n(a) Funds appropriated by this title under the headings ''Diplomatic ...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 25743
+    },
+    {
+      "provision_index": 57,
+      "raw_text_preview": "SEC. 506. Not later than 30 days after the date of enactment of this Act, the Se...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 27984
+    },
+    {
+      "provision_index": 58,
+      "raw_text_preview": "SEC. 507. \n(a) Funds made available by this title under the heading ''Economic S...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 28801
+    },
+    {
+      "provision_index": 59,
+      "raw_text_preview": "SEC. 601. There is hereby appropriated to the Secretary of Agriculture $20,000,0...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 31090
+    },
+    {
+      "provision_index": 60,
+      "raw_text_preview": "SEC. 602. In addition to the amounts otherwise available to the Department of th...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 31340
+    },
+    {
+      "provision_index": 61,
+      "raw_text_preview": "SEC. 603. For payment to Anne Garland Walton, beneficiary of Don Young, late a R...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 31881
+    },
+    {
+      "provision_index": 62,
+      "raw_text_preview": "SEC. 604. Funds appropriated by this Act for intelligence or intelligence relate...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 32012
+    },
+    {
+      "provision_index": 63,
+      "raw_text_preview": "SEC. 605. Each amount appropriated or made available by this Act is in addition ...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 32258
+    },
+    {
+      "provision_index": 64,
+      "raw_text_preview": "SEC. 606. No part of any appropriation contained in this Act shall remain availa...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 32403
+    },
+    {
+      "provision_index": 65,
+      "raw_text_preview": "SEC. 607. Unless otherwise provided for by this Act, the additional amounts appr...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 32571
+    },
+    {
+      "provision_index": 66,
+      "raw_text_preview": "SEC. 608. Each amount provided by this Act is designated by the Congress as bein...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 32821
+    }
+  ],
+  "completeness": {
+    "total_dollar_amounts_in_text": 66,
+    "accounted_for": 53,
+    "unaccounted": [
+      {
+        "text": "$9,050,000,000",
+        "value": 9050000000,
+        "position": 4336,
+        "context": "urther, That of the total amount provided under this heading in this Act, up to $9,050,000,000, to remain available until September 30, 2023, may be transferred"
+      },
+      {
+        "text": "$950,000,000",
+        "value": 950000000,
+        "position": 11957,
+        "context": "n 331(g)(1) of title 10, United States Code, shall be applied by substituting ''$950,000,000'' for ''$450,000,000''.  SEC. 204. The Inspector General of the Dep"
+      },
+      {
+        "text": "$450,000,000",
+        "value": 450000000,
+        "position": 11978,
+        "context": "10, United States Code, shall be applied by substituting ''$950,000,000'' for ''$450,000,000''.  SEC. 204. The Inspector General of the Department of Defense sh"
+      },
+      {
+        "text": "$11,000,000,000",
+        "value": 11000000000,
+        "position": 24093,
+        "context": "ssistance Act of 1961 (22 U.S.C. 2318(a)(1)) shall be applied by substituting ''$11,000,000,000'' for ''$100,000,000''.  SEC. 502. During fiscal year 2022, sect"
+      },
+      {
+        "text": "$1,000,000,000",
+        "value": 1000000000,
+        "position": 24307,
+        "context": "C. 2364) shall be applied— (1) in subsection (a)(4)(A)(ii), by substituting ''$1,000,000,000'' for ''$250,000,000''; and  (2) in subsection (a)(4)(C), by subs"
+      },
+      {
+        "text": "$250,000,000",
+        "value": 250000000,
+        "position": 24330,
+        "context": "ed— (1) in subsection (a)(4)(A)(ii), by substituting ''$1,000,000,000'' for ''$250,000,000''; and  (2) in subsection (a)(4)(C), by substituting ''$200,000,000"
+      },
+      {
+        "text": "$200,000,000",
+        "value": 200000000,
+        "position": 24398,
+        "context": "000'' for ''$250,000,000''; and  (2) in subsection (a)(4)(C), by substituting ''$200,000,000'' for ''$50,000,000'', ''$1,000,000,000'' for ''$250,000,000'', ''$"
+      },
+      {
+        "text": "$1,000,000,000",
+        "value": 1000000000,
+        "position": 24436,
+        "context": "n subsection (a)(4)(C), by substituting ''$200,000,000'' for ''$50,000,000'', ''$1,000,000,000'' for ''$250,000,000'', ''$1,000,000,000'' for ''$500,000,000'',"
+      },
+      {
+        "text": "$250,000,000",
+        "value": 250000000,
+        "position": 24459,
+        "context": "by substituting ''$200,000,000'' for ''$50,000,000'', ''$1,000,000,000'' for ''$250,000,000'', ''$1,000,000,000'' for ''$500,000,000'', and ''$1,750,000,000''"
+      },
+      {
+        "text": "$1,000,000,000",
+        "value": 1000000000,
+        "position": 24477,
+        "context": "'$200,000,000'' for ''$50,000,000'', ''$1,000,000,000'' for ''$250,000,000'', ''$1,000,000,000'' for ''$500,000,000'', and ''$1,750,000,000'' for ''$1,000,000,0"
+      },
+      {
+        "text": "$1,750,000,000",
+        "value": 1750000000,
+        "position": 24522,
+        "context": ",000,000'' for ''$250,000,000'', ''$1,000,000,000'' for ''$500,000,000'', and ''$1,750,000,000'' for ''$1,000,000,000''.  SEC. 503. During fiscal year 2022, sec"
+      },
+      {
+        "text": "$1,000,000,000",
+        "value": 1000000000,
+        "position": 24545,
+        "context": "00,000'', ''$1,000,000,000'' for ''$500,000,000'', and ''$1,750,000,000'' for ''$1,000,000,000''.  SEC. 503. During fiscal year 2022, section 552(c) of the Fore"
+      },
+      {
+        "text": "$25,000,000",
+        "value": 25000000,
+        "position": 24729,
+        "context": "61 (22 U.S.C. 2348a(c)) shall be applied by substituting ''$100,000,000'' for ''$25,000,000''.  SEC. 504.  (a) Section 2606(a) of the Ukraine Supplemental Appro"
+      }
+    ]
+  },
+  "summary": {
+    "total_provisions": 67,
+    "amounts_verified": 45,
+    "amounts_not_found": 0,
+    "amounts_ambiguous": 4,
+    "raw_text_exact": 67,
+    "raw_text_normalized": 0,
+    "raw_text_spaceless": 0,
+    "raw_text_no_match": 0,
+    "completeness_pct": 80.3030303030303,
+    "provisions_by_detail_level": {
+      "top_level": 47,
+      "n/a": 18,
+      "sub_allocation": 2
+    }
+  }
+}

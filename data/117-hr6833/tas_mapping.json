@@ -1,0 +1,494 @@
+{
+  "schema_version": "1.0",
+  "bill_dir": "117-hr6833",
+  "bill_identifier": "H.R. 6833",
+  "model": "claude-opus-4-6",
+  "fas_reference_hash": "dc6f3d8435cd85ee2ae7a9c3473488206bc8d1324783132d08faa1db203d1671",
+  "timestamp": "2026-03-22T20:55:47.183942+00:00",
+  "mappings": [
+    {
+      "provision_index": 22,
+      "account_name": "Department of Justice—Federal Bureau of Investigation—Salaries and Expenses",
+      "agency": "Department of Justice",
+      "dollars": 15300000,
+      "fas_code": "015-0200",
+      "fas_title": "Salaries and Expenses, Federal Bureau of Investigation, Justice",
+      "confidence": "high",
+      "method": "llm_resolved",
+      "reasoning": "The provision 'Department of Justice—Federal Bureau of Investigation—Salaries and Expenses' directly matches TAS 015-0200, which is 'Salaries and Expenses, Federal Bureau of Investigation, Justice'."
+    },
+    {
+      "provision_index": 27,
+      "account_name": "Afghanistan Security Forces Fund",
+      "agency": "Department of Defense",
+      "dollars": 100000000,
+      "fas_code": "021-2091",
+      "fas_title": "Afghanistan Security Forces Fund, Army",
+      "confidence": "verified",
+      "method": "direct_match"
+    },
+    {
+      "provision_index": 28,
+      "account_name": "Corps of Engineers—Civil—Construction",
+      "agency": "Department of the Army",
+      "dollars": 20000000,
+      "fas_code": "021-1809",
+      "fas_title": "Construction, Cemeterial Expenses, Army",
+      "confidence": "verified",
+      "method": "suffix_match"
+    },
+    {
+      "provision_index": 34,
+      "account_name": "Department of the Treasury—Alcohol and Tobacco Tax and Trade Bureau—Salaries and Expenses",
+      "agency": "Department of the Treasury",
+      "dollars": 14929000,
+      "fas_code": "020-1008",
+      "fas_title": "Salaries and Expenses, Alcohol and Tobacco, Tax and Trade Bureau, Treasury",
+      "confidence": "high",
+      "method": "llm_resolved",
+      "reasoning": "The provision 'Department of the Treasury—Alcohol and Tobacco Tax and Trade Bureau—Salaries and Expenses' directly matches TAS 020-1008 'Salaries and Expenses, Alcohol and Tobacco, Tax and Trade Bureau, Treasury'. The bill uses em-dash format while TAS inverts the hierarchy with commas."
+    },
+    {
+      "provision_index": 35,
+      "account_name": "Office of the National Cyber Director—Salaries and Expenses",
+      "agency": "Executive Office of the President",
+      "dollars": 21000000,
+      "fas_code": "011-1800",
+      "fas_title": "Salaries and Expenses, Office of the National Cyber Director, Executive Office of the President",
+      "confidence": "high",
+      "method": "llm_resolved",
+      "reasoning": "Direct match: 'Office of the National Cyber Director—Salaries and Expenses' maps to TAS 011-1800 'Salaries and Expenses, Office of the National Cyber Director, Executive Office of the President'."
+    },
+    {
+      "provision_index": 37,
+      "account_name": "The Judiciary—Courts of Appeals, District Courts, and Other Judicial Services—Fees of Jurors and Commissioners",
+      "agency": "The Judiciary",
+      "dollars": 59565000,
+      "fas_code": "010-0925",
+      "fas_title": "Fees of Jurors and Commissioners, Court of Appeals, District Courts, and Other Judicial Services, The Judiciary",
+      "confidence": "verified",
+      "method": "suffix_match"
+    },
+    {
+      "provision_index": 38,
+      "account_name": "The Judiciary—Courts of Appeals, District Courts, and Other Judicial Services—Court Security",
+      "agency": "The Judiciary",
+      "dollars": 112500000,
+      "fas_code": "010-0930",
+      "fas_title": "Court Security, Court of Appeals, District Courts, and Other Judicial Services, the Judiciary",
+      "confidence": "verified",
+      "method": "suffix_match"
+    },
+    {
+      "provision_index": 40,
+      "account_name": "Small Business Administration—Salaries and Expenses",
+      "agency": "Small Business Administration",
+      "dollars": 20000000,
+      "fas_code": "073-0100",
+      "fas_title": "Salaries and Expenses, Small Business Administration",
+      "confidence": "verified",
+      "method": "suffix_match"
+    },
+    {
+      "provision_index": 43,
+      "account_name": "Federal Emergency Management Agency—Hermit's Peak/Calf Canyon Fire Assistance Account",
+      "agency": "Department of Homeland Security",
+      "dollars": 2500000000,
+      "fas_code": "070-1912",
+      "fas_title": "Hermit's Peak/Calf Canyon Fire Assistance Account, Federal Emergency Management Agency, Homeland",
+      "confidence": "verified",
+      "method": "suffix_match"
+    },
+    {
+      "provision_index": 52,
+      "account_name": "Department of Health and Human Services—Indian Health Service—Indian Health Services",
+      "agency": "Department of Health and Human Services",
+      "dollars": 16721000,
+      "fas_code": "075-0390",
+      "fas_title": "Indian Health Services, Indian Health Service, Health and Human Services",
+      "confidence": "verified",
+      "method": "suffix_match"
+    },
+    {
+      "provision_index": 53,
+      "account_name": "Department of Health and Human Services—Indian Health Service—Indian Health Facilities",
+      "agency": "Department of Health and Human Services",
+      "dollars": 1201000,
+      "fas_code": "075-0391",
+      "fas_title": "Indian Health Facilities, Indian Health Service, Health and Human Services",
+      "confidence": "verified",
+      "method": "suffix_match"
+    },
+    {
+      "provision_index": 54,
+      "account_name": "Department of Health and Human Services—Substance Abuse and Mental Health Services Administration—Mental Health",
+      "agency": "Department of Health and Human Services",
+      "dollars": 62000000,
+      "fas_code": "075-1363",
+      "fas_title": "Mental Health, Substance Abuse and Mental Health Services Administration, Health and Human Services",
+      "confidence": "verified",
+      "method": "suffix_match"
+    },
+    {
+      "provision_index": 55,
+      "account_name": "Department of Health and Human Services—Administration for Children and Families—Low Income Home Energy Assistance",
+      "agency": "Department of Health and Human Services",
+      "dollars": 1000000000,
+      "fas_code": "075-1502",
+      "fas_title": "Low Income Home Energy Assistance, Administration for Children and Families, Health and Human Services",
+      "confidence": "verified",
+      "method": "suffix_match"
+    },
+    {
+      "provision_index": 57,
+      "account_name": "Department of Health and Human Services—Administration for Children and Families—Refugee and Entrant Assistance",
+      "agency": "Department of Health and Human Services",
+      "dollars": 1775000000,
+      "fas_code": "075-1503",
+      "fas_title": "Refugee and Entrant Assistance, Administration for Children and Families, Health and Human Services",
+      "confidence": "verified",
+      "method": "suffix_match"
+    },
+    {
+      "provision_index": 62,
+      "account_name": "Department of State and Related Agency—Department of State—Administration of Foreign Affairs—Diplomatic Programs",
+      "agency": "Department of State",
+      "dollars": 9228789000,
+      "fas_code": "019-0113",
+      "fas_title": "Diplomatic and Consular Programs, State",
+      "confidence": "high",
+      "method": "llm_resolved",
+      "reasoning": "Appropriations bills refer to this account as 'Diplomatic Programs' but the official TAS title is 'Diplomatic and Consular Programs.' It falls under Administration of Foreign Affairs at the Department of State, matching 019-0113."
+    },
+    {
+      "provision_index": 63,
+      "account_name": "Bilateral Economic Assistance—Funds Appropriated to the President—International Disaster Assistance",
+      "agency": "Department of State",
+      "dollars": 4555460000,
+      "fas_code": "072-1035",
+      "fas_title": "International Disaster Assistance, Funds Appropriated to the President, U.S. Agency for International Development",
+      "confidence": "verified",
+      "method": "suffix_match"
+    },
+    {
+      "provision_index": 64,
+      "account_name": "Bilateral Economic Assistance—Funds Appropriated to the President—Transition Initiatives",
+      "agency": "Department of State",
+      "dollars": 100000000,
+      "fas_code": "072-1027",
+      "fas_title": "Transition Initiatives, Funds Appropriated to the President, U.S. Agency for International Development",
+      "confidence": "verified",
+      "method": "suffix_match"
+    },
+    {
+      "provision_index": 65,
+      "account_name": "Bilateral Economic Assistance—Funds Appropriated to the President—Assistance for Europe, Eurasia and Central Asia",
+      "agency": "Department of State",
+      "dollars": 850000000,
+      "fas_code": "011-1093",
+      "fas_title": "Assistance for Europe, Eurasia and Central Asia, Funds Appropriated to the President",
+      "confidence": "inferred",
+      "method": "llm_resolved",
+      "reasoning": "'Assistance for Europe, Eurasia and Central Asia' (AEECA) is a well-known bilateral economic assistance account under 'Funds Appropriated to the President,' traditionally carried under agency code 011 (International Assistance Programs) with TAS 011-1093. This code is not in the provided 019-prefixed list because it uses a different agency prefix, but it is the correct TAS from known federal budget data."
+    },
+    {
+      "provision_index": 66,
+      "account_name": "Bilateral Economic Assistance—Department of State—Migration and Refugee Assistance",
+      "agency": "Department of State",
+      "dollars": 3562188000,
+      "fas_code": "019-1143",
+      "fas_title": "Migration and Refugee Assistance, State",
+      "confidence": "verified",
+      "method": "suffix_match"
+    },
+    {
+      "provision_index": 67,
+      "account_name": "International Security Assistance—Department of State—International Narcotics Control and Law Enforcement",
+      "agency": "Department of State",
+      "dollars": 1421004000,
+      "fas_code": "019-1022",
+      "fas_title": "International Narcotics Control and Law Enforcement, State",
+      "confidence": "verified",
+      "method": "suffix_match"
+    },
+    {
+      "provision_index": 68,
+      "account_name": "International Security Assistance—Funds Appropriated to the President—Foreign Military Financing Program",
+      "agency": "Department of State",
+      "dollars": 6190424000,
+      "fas_code": "011-1082",
+      "fas_title": "Foreign Military Financing Program, Funds Appropriated to the President",
+      "confidence": "verified",
+      "method": "suffix_match"
+    },
+    {
+      "provision_index": 71,
+      "account_name": "Department of Housing and Urban Development—Community Planning and Development—Community Development Fund",
+      "agency": "Department of Housing and Urban Development",
+      "dollars": 2000000000,
+      "fas_code": "086-0162",
+      "fas_title": "Community Development Fund, Community Planning and Development, Housing and Urban Development",
+      "confidence": "verified",
+      "method": "suffix_match"
+    },
+    {
+      "provision_index": 154,
+      "account_name": "Military Personnel, Army",
+      "agency": "Department of Defense",
+      "dollars": 110107000,
+      "fas_code": "021-2010",
+      "fas_title": "Military Personnel, Army",
+      "confidence": "verified",
+      "method": "agency_disambiguated"
+    },
+    {
+      "provision_index": 155,
+      "account_name": "Military Personnel, Navy",
+      "agency": "Department of Defense",
+      "dollars": 462000,
+      "fas_code": "017-1453",
+      "fas_title": "Military Personnel, Navy",
+      "confidence": "high",
+      "method": "llm_resolved",
+      "reasoning": "Navy military personnel uses agency code 017. Standard TAS 017-1453. Not in provided list (only 097 codes given)."
+    },
+    {
+      "provision_index": 156,
+      "account_name": "Military Personnel, Marine Corps",
+      "agency": "Department of Defense",
+      "dollars": 600000,
+      "fas_code": "017-1105",
+      "fas_title": "Military Personnel, Marine Corps",
+      "confidence": "high",
+      "method": "llm_resolved",
+      "reasoning": "Marine Corps falls under Navy agency code 017. Standard TAS 017-1105. Not in provided list."
+    },
+    {
+      "provision_index": 157,
+      "account_name": "Military Personnel, Air Force",
+      "agency": "Department of Defense",
+      "dollars": 11582000,
+      "fas_code": "057-3500",
+      "fas_title": "Military Personnel, Air Force",
+      "confidence": "high",
+      "method": "llm_resolved",
+      "reasoning": "Air Force uses agency code 057. Standard TAS 057-3500. Not in provided list."
+    },
+    {
+      "provision_index": 158,
+      "account_name": "Operation and Maintenance, Army",
+      "agency": "Department of Defense",
+      "dollars": 654696000,
+      "fas_code": "021-2020",
+      "fas_title": "Operation and Maintenance, Army",
+      "confidence": "high",
+      "method": "llm_resolved",
+      "reasoning": "Army uses agency code 021. Standard TAS 021-2020. Not in provided list."
+    },
+    {
+      "provision_index": 159,
+      "account_name": "Operation and Maintenance, Navy",
+      "agency": "Department of Defense",
+      "dollars": 433035000,
+      "fas_code": "017-1804",
+      "fas_title": "Operation and Maintenance, Navy",
+      "confidence": "high",
+      "method": "llm_resolved",
+      "reasoning": "Navy uses agency code 017. Standard TAS 017-1804. Not in provided list."
+    },
+    {
+      "provision_index": 160,
+      "account_name": "Operation and Maintenance, Marine Corps",
+      "agency": "Department of Defense",
+      "dollars": 34984000,
+      "fas_code": "017-1106",
+      "fas_title": "Operation and Maintenance, Marine Corps",
+      "confidence": "high",
+      "method": "llm_resolved",
+      "reasoning": "Marine Corps falls under Navy agency code 017. Standard TAS 017-1106. Not in provided list."
+    },
+    {
+      "provision_index": 161,
+      "account_name": "Operation and Maintenance, Air Force",
+      "agency": "Department of Defense",
+      "dollars": 267084000,
+      "fas_code": "057-3400",
+      "fas_title": "Operation and Maintenance, Air Force",
+      "confidence": "high",
+      "method": "llm_resolved",
+      "reasoning": "Air Force uses agency code 057. Standard TAS 057-3400. Not in provided list."
+    },
+    {
+      "provision_index": 162,
+      "account_name": "Operation and Maintenance, Space Force",
+      "agency": "Department of Defense",
+      "dollars": 1771000,
+      "fas_code": "057-3401",
+      "fas_title": "Operation and Maintenance, Space Force",
+      "confidence": "inferred",
+      "method": "llm_resolved",
+      "reasoning": "Space Force uses agency code 057. Standard TAS 057-3401. Not in provided list."
+    },
+    {
+      "provision_index": 163,
+      "account_name": "Operation and Maintenance, Defense-Wide",
+      "agency": "Department of Defense",
+      "dollars": 4713544000,
+      "fas_code": "097-0100",
+      "fas_title": "Operation and Maintenance, Defense-Wide, Defense",
+      "confidence": "verified",
+      "method": "agency_disambiguated"
+    },
+    {
+      "provision_index": 166,
+      "account_name": "Missile Procurement, Army",
+      "agency": "Department of Defense",
+      "dollars": 450000000,
+      "fas_code": "021-2032",
+      "fas_title": "Missile Procurement, Army",
+      "confidence": "verified",
+      "method": "agency_disambiguated"
+    },
+    {
+      "provision_index": 167,
+      "account_name": "Procurement of Ammunition, Army",
+      "agency": "Department of Defense",
+      "dollars": 540000000,
+      "fas_code": "021-2034",
+      "fas_title": "Procurement of Ammunition, Army",
+      "confidence": "verified",
+      "method": "agency_disambiguated"
+    },
+    {
+      "provision_index": 168,
+      "account_name": "Other Procurement, Army",
+      "agency": "Department of Defense",
+      "dollars": 3890000,
+      "fas_code": "021-2035",
+      "fas_title": "Other Procurement, Army",
+      "confidence": "verified",
+      "method": "agency_disambiguated"
+    },
+    {
+      "provision_index": 169,
+      "account_name": "Other Procurement, Navy",
+      "agency": "Department of Defense",
+      "dollars": 2170000,
+      "fas_code": "017-1810",
+      "fas_title": "Other Procurement, Navy",
+      "confidence": "verified",
+      "method": "agency_disambiguated"
+    },
+    {
+      "provision_index": 170,
+      "account_name": "Other Procurement, Air Force",
+      "agency": "Department of Defense",
+      "dollars": 437991000,
+      "fas_code": "057-3080",
+      "fas_title": "Other Procurement, Air Force",
+      "confidence": "verified",
+      "method": "agency_disambiguated"
+    },
+    {
+      "provision_index": 171,
+      "account_name": "Procurement, Defense-Wide",
+      "agency": "Department of Defense",
+      "dollars": 9770000,
+      "fas_code": "097-0300",
+      "fas_title": "Procurement, Defense-Wide",
+      "confidence": "verified",
+      "method": "agency_disambiguated"
+    },
+    {
+      "provision_index": 172,
+      "account_name": "Research, Development, Test and Evaluation, Army",
+      "agency": "Department of Defense",
+      "dollars": 3300000,
+      "fas_code": "021-2040",
+      "fas_title": "Research, Development, Test, and Evaluation, Army",
+      "confidence": "high",
+      "method": "llm_resolved",
+      "reasoning": "Army RDT&E uses agency code 021. Standard TAS 021-2040. Not in provided list."
+    },
+    {
+      "provision_index": 173,
+      "account_name": "Research, Development, Test and Evaluation, Navy",
+      "agency": "Department of Defense",
+      "dollars": 2077000,
+      "fas_code": "017-1319",
+      "fas_title": "Research, Development, Test, and Evaluation, Navy",
+      "confidence": "high",
+      "method": "llm_resolved",
+      "reasoning": "Navy RDT&E uses agency code 017. Standard TAS 017-1319. Not in provided list."
+    },
+    {
+      "provision_index": 174,
+      "account_name": "Research, Development, Test and Evaluation, Air Force",
+      "agency": "Department of Defense",
+      "dollars": 99704000,
+      "fas_code": "057-3600",
+      "fas_title": "Research, Development, Test, and Evaluation, Air Force",
+      "confidence": "high",
+      "method": "llm_resolved",
+      "reasoning": "Air Force RDT&E uses agency code 057. Standard TAS 057-3600. Not in provided list."
+    },
+    {
+      "provision_index": 175,
+      "account_name": "Research, Development, Test and Evaluation, Defense-Wide",
+      "agency": "Department of Defense",
+      "dollars": 31230000,
+      "fas_code": "097-0400",
+      "fas_title": "Research, Development, Test, and Evaluation, Defense-Wide",
+      "confidence": "high",
+      "method": "llm_resolved",
+      "reasoning": "Defense-Wide RDT&E maps directly to 097-0400 in the provided list. Bill uses 'Defense-Wide' which matches."
+    },
+    {
+      "provision_index": 176,
+      "account_name": "Office of the Inspector General",
+      "agency": "Department of Defense",
+      "dollars": 2000000,
+      "fas_code": "097-0107",
+      "fas_title": "Office of the Inspector General, Defense",
+      "confidence": "verified",
+      "method": "agency_disambiguated"
+    },
+    {
+      "provision_index": 177,
+      "account_name": "Intelligence Community Management Account",
+      "agency": "Office of the Director of National Intelligence",
+      "dollars": 500000,
+      "confidence": "unmatched",
+      "method": "none"
+    },
+    {
+      "provision_index": 180,
+      "account_name": "Defense Nuclear Nonproliferation",
+      "agency": "Department of Energy",
+      "dollars": 35000000,
+      "fas_code": "089-0309",
+      "fas_title": "Defense Nuclear Nonproliferation, National Nuclear Security Administration, Energy",
+      "confidence": "inferred",
+      "method": "llm_resolved",
+      "reasoning": "Defense Nuclear Nonproliferation is a well-known NNSA account under DOE with TAS 089-0309. The provided TAS list includes other NNSA accounts (e.g., 089-0313 Federal Salaries and Expenses, NNSA) but omits this one. Returning the known correct TAS code even though it is not in the provided list."
+    },
+    {
+      "provision_index": 181,
+      "account_name": "Economic Support Fund",
+      "agency": "Funds Appropriated to the President",
+      "dollars": 4500000000,
+      "fas_code": "072-1037",
+      "fas_title": "Economic Support Fund, Funds Appropriated to the President",
+      "confidence": "verified",
+      "method": "direct_match"
+    }
+  ],
+  "summary": {
+    "total_provisions": 46,
+    "deterministic_matched": 27,
+    "llm_matched": 18,
+    "unmatched": 1,
+    "unique_fas_codes": 45,
+    "match_rate_pct": 97.82608695652173
+  }
+}

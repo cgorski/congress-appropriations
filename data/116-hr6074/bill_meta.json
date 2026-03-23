@@ -1,0 +1,203 @@
+{
+  "schema_version": "1.0",
+  "congress": 116,
+  "fiscal_years": [
+    2020
+  ],
+  "bill_nature": "regular",
+  "subcommittees": [
+    {
+      "division": "A",
+      "jurisdiction": "other",
+      "title": "Coronavirus Preparedness and Response Supplemental Appropriations Act, 2020",
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "division": "B",
+      "jurisdiction": "other",
+      "title": "Telehealth Services During Certain Emergency Periods",
+      "source": {
+        "type": "default_rule"
+      }
+    }
+  ],
+  "provision_timing": [
+    {
+      "provision_index": 0,
+      "timing": "supplemental",
+      "available_fy": null,
+      "source": {
+        "type": "note_text"
+      }
+    },
+    {
+      "provision_index": 1,
+      "timing": "supplemental",
+      "available_fy": null,
+      "source": {
+        "type": "note_text"
+      }
+    },
+    {
+      "provision_index": 7,
+      "timing": "supplemental",
+      "available_fy": null,
+      "source": {
+        "type": "note_text"
+      }
+    },
+    {
+      "provision_index": 15,
+      "timing": "supplemental",
+      "available_fy": null,
+      "source": {
+        "type": "note_text"
+      }
+    },
+    {
+      "provision_index": 17,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 22,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 30,
+      "timing": "supplemental",
+      "available_fy": null,
+      "source": {
+        "type": "note_text"
+      }
+    },
+    {
+      "provision_index": 31,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 32,
+      "timing": "supplemental",
+      "available_fy": null,
+      "source": {
+        "type": "note_text"
+      }
+    },
+    {
+      "provision_index": 34,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 35,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    }
+  ],
+  "canonical_accounts": [
+    {
+      "provision_index": 0,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 1,
+      "canonical_name": "disaster loans program account"
+    },
+    {
+      "provision_index": 4,
+      "canonical_name": "disaster loans program account"
+    },
+    {
+      "provision_index": 7,
+      "canonical_name": "wide activities and program support"
+    },
+    {
+      "provision_index": 8,
+      "canonical_name": "wide activities and program support"
+    },
+    {
+      "provision_index": 10,
+      "canonical_name": "wide activities and program support"
+    },
+    {
+      "provision_index": 11,
+      "canonical_name": "wide activities and program support"
+    },
+    {
+      "provision_index": 12,
+      "canonical_name": "infectious diseases rapid response reserve fund"
+    },
+    {
+      "provision_index": 15,
+      "canonical_name": "national institute of allergy and infectious diseases"
+    },
+    {
+      "provision_index": 16,
+      "canonical_name": "national institute of environmental health sciences"
+    },
+    {
+      "provision_index": 17,
+      "canonical_name": "public health and social services emergency fund"
+    },
+    {
+      "provision_index": 18,
+      "canonical_name": "public health and social services emergency fund"
+    },
+    {
+      "provision_index": 21,
+      "canonical_name": "primary health care"
+    },
+    {
+      "provision_index": 22,
+      "canonical_name": "public health and social services emergency fund"
+    },
+    {
+      "provision_index": 23,
+      "canonical_name": "public health and social services emergency fund"
+    },
+    {
+      "provision_index": 30,
+      "canonical_name": "diplomatic programs"
+    },
+    {
+      "provision_index": 31,
+      "canonical_name": "office of inspector general"
+    },
+    {
+      "provision_index": 32,
+      "canonical_name": "global health programs"
+    },
+    {
+      "provision_index": 33,
+      "canonical_name": "emergency reserve fund"
+    },
+    {
+      "provision_index": 34,
+      "canonical_name": "international disaster assistance"
+    },
+    {
+      "provision_index": 35,
+      "canonical_name": "economic support fund"
+    }
+  ],
+  "extraction_sha256": "4721b93d0e085921b23b64846b2eca995c896729b6ff299d63ab49f64a612215"
+}

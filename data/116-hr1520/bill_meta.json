@@ -1,0 +1,12 @@
+{
+  "schema_version": "1.0",
+  "congress": 116,
+  "fiscal_years": [
+    2021
+  ],
+  "bill_nature": "continuing_resolution",
+  "subcommittees": [],
+  "provision_timing": [],
+  "canonical_accounts": [],
+  "extraction_sha256": "36bc926f609ac12c7dabf6a8c68030676cc94afd8a17faec59c7be7296acedb8"
+}

@@ -52,7 +52,7 @@ Definitions of key terms used throughout this documentation and in the tool's ou
 
 **Enacted** — Signed into law by the President (or passed over a veto). This tool downloads and extracts **enacted** bills — the versions that actually became binding law and authorized spending. The `--enacted-only` flag on the `download` command filters to these bills.
 
-**Enrich** — The process of generating bill-level metadata (`bill_meta.json`) from the source XML and extraction output. Unlike extraction (which requires an LLM API key) or embedding (which requires an OpenAI API key), enrichment runs entirely offline using XML parsing and deterministic classification rules. Run `congress-approp enrich --dir examples` to enrich all bills. See [Enrich Bills with Metadata](../how-to/enrich-data.md).
+**Enrich** — The process of generating bill-level metadata (`bill_meta.json`) from the source XML and extraction output. Unlike extraction (which requires an LLM API key) or embedding (which requires an OpenAI API key), enrichment runs entirely offline using XML parsing and deterministic classification rules. Run `congress-approp enrich --dir data` to enrich all bills. See [Enrich Bills with Metadata](../how-to/enrich-data.md).
 
 **Enrolled** — The final version of a bill as passed by both the House and Senate in identical form and sent to the President for signature. This is the text version that `congress-approp` downloads by default — the authoritative text that becomes law. Distinguished from introduced, engrossed, and other intermediate versions.
 

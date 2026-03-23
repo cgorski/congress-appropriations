@@ -1,0 +1,1579 @@
+{
+  "schema_version": "1.0",
+  "bill": {
+    "identifier": "H.R. 3237",
+    "classification": "supplemental",
+    "short_title": "Emergency Security Supplemental Appropriations Act, 2021",
+    "fiscal_years": [
+      2021
+    ],
+    "divisions": [],
+    "public_law": null
+  },
+  "provisions": [
+    {
+      "provision_type": "appropriation",
+      "account_name": "National Guard Personnel, Army",
+      "agency": "Department of Defense",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 231000000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$231,000,000"
+      },
+      "fiscal_year": 2021,
+      "availability": null,
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "I",
+      "confidence": 0.97,
+      "raw_text": "For an additional amount for ''National Guard Personnel, Army'', $231,000,000, to respond to the events at the United States Capitol Complex on January 6",
+      "notes": [
+        "Supplemental appropriation for January 6, 2021 Capitol events response"
+      ],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 327,
+        "end": 480,
+        "file": "BILLS-117hr3237enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "National Guard Personnel, Air Force",
+      "agency": "Department of Defense",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 28900000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$28,900,000"
+      },
+      "fiscal_year": 2021,
+      "availability": null,
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "I",
+      "confidence": 0.97,
+      "raw_text": "For an additional amount for ''National Guard Personnel, Air Force'', $28,900,000, to respond to the events at the United States Capitol Complex on Janua",
+      "notes": [
+        "Supplemental appropriation for January 6, 2021 Capitol events response"
+      ],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 748,
+        "end": 901,
+        "file": "BILLS-117hr3237enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Operation and Maintenance, Army National Guard",
+      "agency": "Department of Defense",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 218500000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$218,500,000"
+      },
+      "fiscal_year": 2021,
+      "availability": null,
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "I",
+      "confidence": 0.97,
+      "raw_text": "For an additional amount for ''Operation and Maintenance, Army National Guard'', $218,500,000 to respond to the events at the United States Capitol Compl",
+      "notes": [
+        "Supplemental appropriation for January 6, 2021 Capitol events response"
+      ],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 1210,
+        "end": 1363,
+        "file": "BILLS-117hr3237enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Operation and Maintenance, Air National Guard",
+      "agency": "Department of Defense",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 42500000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$42,500,000"
+      },
+      "fiscal_year": 2021,
+      "availability": null,
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "I",
+      "confidence": 0.97,
+      "raw_text": "For an additional amount for ''Operation and Maintenance, Air National Guard'', $42,500,000 to respond to the events at the United States Capitol Complex",
+      "notes": [
+        "Supplemental appropriation for January 6, 2021 Capitol events response"
+      ],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 1656,
+        "end": 1809,
+        "file": "BILLS-117hr3237enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Overseas Humanitarian, Disaster, and Civic Aid",
+      "agency": "Department of Defense",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 500000000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$500,000,000"
+      },
+      "fiscal_year": 2021,
+      "availability": "to remain available until September 30, 2022",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "I",
+      "confidence": 0.97,
+      "raw_text": "For an additional amount for ''Overseas Humanitarian, Disaster, and Civic Aid'', $500,000,000, to remain available until September 30, 2022: Provided, Th",
+      "notes": [
+        "Two-year availability through FY2022"
+      ],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 2101,
+        "end": 2254,
+        "file": "BILLS-117hr3237enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Refugee and Entrant Assistance",
+      "agency": "Department of Health and Human Services",
+      "program": "Administration for Children and Families",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 25000000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$25,000,000"
+      },
+      "fiscal_year": 2021,
+      "availability": "to remain available until September 30, 2022",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "II",
+      "confidence": 0.97,
+      "raw_text": "For an additional amount for ''Refugee and Entrant Assistance'', $25,000,000, to remain available until September 30, 2022, for necessary expenses for re",
+      "notes": [
+        "For Afghan special immigrant visa holders within the United States"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "subject_to",
+          "target": "Section 414 of the Immigration and Nationality Act",
+          "description": "Authorizing statute for refugee assistance activities"
+        },
+        {
+          "ref_type": "subject_to",
+          "target": "Section 602(b)(8) of the Afghan Allies Protection Act of 2009 (8 U.S.C. 1101 note)",
+          "description": "Defines eligible Afghan SIV recipients"
+        }
+      ],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 2556,
+        "end": 2709,
+        "file": "BILLS-117hr3237enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Sergeant at Arms and Doorkeeper of the Senate",
+      "agency": "United States Senate",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 7832856
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$7,832,856"
+      },
+      "fiscal_year": 2021,
+      "availability": "to remain available until September 30, 2026",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "III",
+      "confidence": 0.97,
+      "raw_text": "For an additional amount for ''Sergeant at Arms and Doorkeeper of the Senate'', $7,832,856, to remain available until September 30, 2026, to prevent, pre",
+      "notes": [
+        "For coronavirus prevention, preparation, and response; five-year availability through FY2026"
+      ],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 3385,
+        "end": 3538,
+        "file": "BILLS-117hr3237enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Payments to widows and heirs of deceased members of congress",
+      "agency": "House of Representatives",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 174000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$174,000"
+      },
+      "fiscal_year": 2021,
+      "availability": null,
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "III",
+      "confidence": 0.95,
+      "raw_text": "For payment to Susan M. Wright, widow of Ronald Wright, late a Representative from the State of Texas, $174,000.",
+      "notes": [
+        "Death gratuity payment to Susan M. Wright, widow of Representative Ronald Wright of Texas; account name inferred from heading, not delimited by double single-quotes in bill text"
+      ],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 4292,
+        "end": 4404,
+        "file": "BILLS-117hr3237enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Payments to widows and heirs of deceased members of congress",
+      "agency": "House of Representatives",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 174000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$174,000"
+      },
+      "fiscal_year": 2021,
+      "availability": null,
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "III",
+      "confidence": 0.95,
+      "raw_text": "For payment to the heirs at law of Alcee Hastings, late a Representative from the State of Florida, $174,000.",
+      "notes": [
+        "Death gratuity payment to heirs of Representative Alcee Hastings of Florida; account name inferred from heading, not delimited by double single-quotes in bill text"
+      ],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 4404,
+        "end": 4513,
+        "file": "BILLS-117hr3237enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Allowances and Expenses",
+      "agency": "House of Representatives",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 11650000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$11,650,000"
+      },
+      "fiscal_year": 2021,
+      "availability": "to remain available until September 30, 2022",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "III",
+      "confidence": 0.97,
+      "raw_text": "For an additional amount for ''Allowances and Expenses'', $11,650,000, to remain available until September 30, 2022, to prevent, prepare for, and respond",
+      "notes": [
+        "Including transfer of funds authority; for coronavirus prevention, preparation, and response"
+      ],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 4568,
+        "end": 4721,
+        "file": "BILLS-117hr3237enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Salaries",
+      "agency": "United States Capitol Police",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 37495000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$37,495,000"
+      },
+      "fiscal_year": 2021,
+      "availability": "to remain available until September 30, 2022",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "III",
+      "confidence": 0.97,
+      "raw_text": "For an additional amount for ''Salaries'', $37,495,000, to remain available until September 30, 2022, to respond to the events at the United States Capi",
+      "notes": [
+        "For January 6, 2021 Capitol events response; includes sub-allocations for retention bonuses, hazard pay, and wellness program"
+      ],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 5514,
+        "end": 5666,
+        "file": "BILLS-117hr3237enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Salaries",
+      "agency": "United States Capitol Police",
+      "program": "Retention bonuses",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 3600000
+        },
+        "semantics": "reference_amount",
+        "text_as_written": "$3,600,000"
+      },
+      "fiscal_year": 2021,
+      "availability": "to remain available until expended",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "III",
+      "confidence": 0.95,
+      "raw_text": "of such amount, $3,600,000 may remain available until expended for retention bonuses",
+      "notes": [
+        "Sub-allocation of Capitol Police Salaries for retention bonuses; no-year availability"
+      ],
+      "cross_references": [],
+      "detail_level": "sub_allocation",
+      "parent_account": "Salaries",
+      "source_span": {
+        "start": 5984,
+        "end": 6068,
+        "file": "BILLS-117hr3237enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Salaries",
+      "agency": "United States Capitol Police",
+      "program": "Hazard pay",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 6900000
+        },
+        "semantics": "reference_amount",
+        "text_as_written": "$6,900,000"
+      },
+      "fiscal_year": 2021,
+      "availability": null,
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "III",
+      "confidence": 0.95,
+      "raw_text": "of such amount, up to $6,900,000 shall be made available for hazard pay for employees of the Capitol Police",
+      "notes": [
+        "Sub-allocation of Capitol Police Salaries; 'up to' indicates a ceiling of $6,900,000"
+      ],
+      "cross_references": [],
+      "detail_level": "sub_allocation",
+      "parent_account": "Salaries",
+      "source_span": {
+        "start": 6093,
+        "end": 6200,
+        "file": "BILLS-117hr3237enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Salaries",
+      "agency": "United States Capitol Police",
+      "program": "Wellness program",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 1361300
+        },
+        "semantics": "reference_amount",
+        "text_as_written": "$1,361,300"
+      },
+      "fiscal_year": 2021,
+      "availability": null,
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "III",
+      "confidence": 0.95,
+      "raw_text": "of such amount, $1,361,300 shall be made available for the wellness program for the United States Capitol Police",
+      "notes": [
+        "Sub-allocation of Capitol Police Salaries for the wellness program, later named Howard C. Liebengood Center for Wellness in SEC. 301"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "see_also",
+          "target": "SEC. 301",
+          "description": "Names the wellness program the Howard C. Liebengood Center for Wellness"
+        }
+      ],
+      "detail_level": "sub_allocation",
+      "parent_account": "Salaries",
+      "source_span": {
+        "start": 6225,
+        "end": 6337,
+        "file": "BILLS-117hr3237enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "General Expenses",
+      "agency": "United States Capitol Police",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 33169000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$33,169,000"
+      },
+      "fiscal_year": 2021,
+      "availability": "to remain available until September 30, 2022",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "III",
+      "confidence": 0.97,
+      "raw_text": "For an additional amount for ''General Expenses'', $33,169,000, to remain available until September 30, 2022, to respond to the events at the United Sta",
+      "notes": [
+        "Including transfer of funds authority; for January 6, 2021 Capitol events response; includes multiple sub-allocations and transfer authorities"
+      ],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 6592,
+        "end": 6744,
+        "file": "BILLS-117hr3237enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "General Expenses",
+      "agency": "United States Capitol Police",
+      "program": "Physical protection barriers and civil disturbance unit equipment",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 2628000
+        },
+        "semantics": "reference_amount",
+        "text_as_written": "$2,628,000"
+      },
+      "fiscal_year": 2021,
+      "availability": "to remain available until expended",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "III",
+      "confidence": 0.95,
+      "raw_text": "of such amount, $2,628,000 shall remain available until expended for physical protection barriers and various civil disturbance unit equipment",
+      "notes": [
+        "Sub-allocation of Capitol Police General Expenses; no-year availability; amounts for physical protection barriers may be transferred to AOC Capitol Police Buildings account"
+      ],
+      "cross_references": [],
+      "detail_level": "sub_allocation",
+      "parent_account": "General Expenses",
+      "source_span": {
+        "start": 7070,
+        "end": 7212,
+        "file": "BILLS-117hr3237enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "transfer_authority",
+      "from_scope": "",
+      "to_scope": "",
+      "limit": "unknown",
+      "conditions": [],
+      "section": "",
+      "division": null,
+      "title": "III",
+      "confidence": 0.93,
+      "raw_text": "amounts provided under this heading in this Act for physical protection barriers may be transferred to and merged with the Capitol Police Building and G",
+      "notes": [
+        "Transfer authority for the $2,628,000 physical protection barriers sub-allocation to be moved to AOC Capitol Police Buildings, Grounds and Security account"
+      ],
+      "cross_references": [],
+      "source_span": {
+        "start": 7237,
+        "end": 7389,
+        "file": "BILLS-117hr3237enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "limitation",
+      "description": "Not less than $5,000,000 of Capitol Police General Expenses shall be made available for reimbursable agreements with State and local law enforcement agencies",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 5000000
+        },
+        "semantics": "limitation",
+        "text_as_written": "$5,000,000"
+      },
+      "account_name": "General Expenses",
+      "section": "",
+      "division": null,
+      "title": "III",
+      "confidence": 0.95,
+      "raw_text": "not less than $5,000,000 shall be made available for reimbursable agreements with State and local law enforcement agencies",
+      "notes": [
+        "Minimum floor requirement within Capitol Police General Expenses ($33,169,000)"
+      ],
+      "cross_references": [],
+      "parent_account": "General Expenses",
+      "source_span": {
+        "start": 7476,
+        "end": 7598,
+        "file": "BILLS-117hr3237enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "limitation",
+      "description": "Not less than $4,800,000 of Capitol Police General Expenses shall be available for protective details for Members of Congress, including Delegates and the Resident Commissioner",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 4800000
+        },
+        "semantics": "limitation",
+        "text_as_written": "$4,800,000"
+      },
+      "account_name": "General Expenses",
+      "section": "",
+      "division": null,
+      "title": "III",
+      "confidence": 0.95,
+      "raw_text": "not less than $4,800,000 shall be available for protective details for Members of Congress, including Delegates and the Resident Commissioner to the Con",
+      "notes": [
+        "Minimum floor requirement within Capitol Police General Expenses ($33,169,000)"
+      ],
+      "cross_references": [],
+      "parent_account": "General Expenses",
+      "source_span": {
+        "start": 7603,
+        "end": 7755,
+        "file": "BILLS-117hr3237enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "transfer_authority",
+      "from_scope": "",
+      "to_scope": "",
+      "limit": "unknown",
+      "conditions": [],
+      "section": "",
+      "division": null,
+      "title": "III",
+      "confidence": 0.95,
+      "raw_text": "up to $2,500,000 may be transferred to ''Department of Justice\u2014United States Marshals Service\u2014Salaries and Expenses'' for the purpose of reimbursements",
+      "notes": [
+        "Transfer authority from Capitol Police General Expenses to USMS for peer counseling services"
+      ],
+      "cross_references": [],
+      "source_span": {
+        "start": 7801,
+        "end": 7952,
+        "file": "BILLS-117hr3237enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "General Expenses",
+      "agency": "United States Capitol Police",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 800000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$800,000"
+      },
+      "fiscal_year": 2021,
+      "availability": "to remain available until September 30, 2022",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "III",
+      "confidence": 0.97,
+      "raw_text": "For an additional amount for ''General Expenses'', $800,000, to remain available until September 30, 2022, to prevent, prepare for, and respond to coron",
+      "notes": [
+        "Second appropriation under General Expenses heading; for coronavirus response, separate from the $33,169,000 for January 6 response"
+      ],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 8381,
+        "end": 8533,
+        "file": "BILLS-117hr3237enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "United States Capitol Police Mutual Aid Reimbursements",
+      "agency": "United States Capitol Police",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 35396000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$35,396,000"
+      },
+      "fiscal_year": 2021,
+      "availability": "to remain available until September 30, 2026",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "III",
+      "confidence": 0.97,
+      "raw_text": "For an additional amount for ''United States Capitol Police Mutual Aid Reimbursements'', $35,396,000, to remain available until September 30, 2026, for ",
+      "notes": [
+        "Five-year availability through FY2026"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "subject_to",
+          "target": "Section 7302 of Public Law 108-458",
+          "description": "Mutual aid agreements authority"
+        }
+      ],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 9047,
+        "end": 9199,
+        "file": "BILLS-117hr3237enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "United States Capitol Police Mutual Aid Reimbursements",
+      "agency": "United States Capitol Police",
+      "program": "Reimbursement to local law enforcement partners for January 6 mutual aid",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 9096000
+        },
+        "semantics": "reference_amount",
+        "text_as_written": "$9,096,000"
+      },
+      "fiscal_year": 2021,
+      "availability": null,
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "III",
+      "confidence": 0.95,
+      "raw_text": "of such amount, up to $9,096,000 is available to be used for reimbursement to the United States Capitol Police\u2019s primary local law enforcement partners ",
+      "notes": [
+        "Sub-allocation of Mutual Aid Reimbursements; 'up to' indicates a ceiling; for January 6, 2021 mutual aid response"
+      ],
+      "cross_references": [],
+      "detail_level": "sub_allocation",
+      "parent_account": "United States Capitol Police Mutual Aid Reimbursements",
+      "source_span": {
+        "start": 9379,
+        "end": 9531,
+        "file": "BILLS-117hr3237enr.txt",
+        "verified": true,
+        "match_tier": "repaired_normalized"
+      }
+    },
+    {
+      "provision_type": "rider",
+      "description": "Designates the wellness program of the United States Capitol Police as the 'Howard C. Liebengood Center for Wellness', effective for FY2021 and each succeeding fiscal year.",
+      "policy_area": "Legislative branch personnel",
+      "section": "SEC. 301",
+      "division": null,
+      "title": "III",
+      "confidence": 0.95,
+      "raw_text": "The wellness program of the United States Capitol Police shall be known and designated as the ''Howard C. Liebengood Center for Wellness''.",
+      "notes": [
+        "Named in honor of USCP Officer Howard Liebengood who died following the January 6, 2021 events; effective FY2021 and each succeeding fiscal year"
+      ],
+      "cross_references": [],
+      "source_span": {
+        "start": 10268,
+        "end": 10407,
+        "file": "BILLS-117hr3237enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "rider",
+      "description": "Sets maximum annual payable rate for Capitol Police members and civilian employees with FLSA overtime at Executive Schedule II ($199,300) for calendar year 2021. Excludes retention bonuses and hazard bonuses related to the events of January 6th from the limitation.",
+      "policy_area": "Legislative branch personnel compensation",
+      "section": "SEC. 302",
+      "division": null,
+      "title": "III",
+      "confidence": 0.95,
+      "raw_text": "For the purposes of administering pay during calendar year 2021, the maximum annual payable rate for any member or civilian employee of the Capitol Poli",
+      "notes": [
+        "Raises pay cap to $199,300 (Executive Schedule II) for CY2021; carves out January 6-related retention and hazard bonuses"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "subject_to",
+          "target": "Fair Labor Standards Act of 1938 (29 U.S.C. 201 et seq.)",
+          "description": "FLSA overtime provisions"
+        }
+      ],
+      "source_span": {
+        "start": 10568,
+        "end": 10720,
+        "file": "BILLS-117hr3237enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Capital Construction and Operations",
+      "agency": "Architect of the Capitol",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 21869069
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$21,869,069"
+      },
+      "fiscal_year": 2021,
+      "availability": "to remain available until September 30, 2022",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "III",
+      "confidence": 0.97,
+      "raw_text": "For an additional amount for ''Capital Construction and Operations'', $21,869,069, to remain available until September 30, 2022, to prevent, prepare for",
+      "notes": [
+        "For coronavirus response; supplements funding from P.L. 116-136 as amended by section 159(3) of P.L. 116-159; includes purchases for Congressional offices in districts and state offices"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "see_also",
+          "target": "Public Law 116-136",
+          "description": "CARES Act original funding"
+        },
+        {
+          "ref_type": "see_also",
+          "target": "Section 159(3) of Public Law 116-159",
+          "description": "Amendment to CARES Act funding"
+        }
+      ],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 11081,
+        "end": 11233,
+        "file": "BILLS-117hr3237enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Capitol Police Buildings, Grounds and Security",
+      "agency": "Architect of the Capitol",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 300000000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$300,000,000"
+      },
+      "fiscal_year": 2021,
+      "availability": "to remain available until September 30, 2023",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "III",
+      "confidence": 0.97,
+      "raw_text": "For an additional amount for ''Capitol Police Buildings, Grounds and Security'', $300,000,000, to remain available until September 30, 2023, to respond ",
+      "notes": [
+        "Including transfer of funds authority; for January 6, 2021 response; three-year availability through FY2023"
+      ],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 12237,
+        "end": 12389,
+        "file": "BILLS-117hr3237enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Capitol Police Buildings, Grounds and Security",
+      "agency": "Architect of the Capitol",
+      "program": "Windows and doors upgrades and physical security hardening",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 283000000
+        },
+        "semantics": "reference_amount",
+        "text_as_written": "$283,000,000"
+      },
+      "fiscal_year": 2021,
+      "availability": null,
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "III",
+      "confidence": 0.95,
+      "raw_text": "of such amount $283,000,000 shall be for necessary upgrade or replacement of windows and doors in the Capitol Building and the House of Representatives ",
+      "notes": [
+        "Sub-allocation for windows, doors, and physical security hardening of Capitol Building and House and Senate office buildings on Capitol grounds"
+      ],
+      "cross_references": [],
+      "detail_level": "sub_allocation",
+      "parent_account": "Capitol Police Buildings, Grounds and Security",
+      "source_span": {
+        "start": 12467,
+        "end": 12619,
+        "file": "BILLS-117hr3237enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Capitol Police Buildings, Grounds and Security",
+      "agency": "Architect of the Capitol",
+      "program": "Cameras for Senate and House office buildings",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 17000000
+        },
+        "semantics": "reference_amount",
+        "text_as_written": "$17,000,000"
+      },
+      "fiscal_year": 2021,
+      "availability": null,
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "III",
+      "confidence": 0.95,
+      "raw_text": "of such amount, $17,000,000 shall be for the purchase and installation of cameras at the Senate and House of Representatives office buildings for the pu",
+      "notes": [
+        "Sub-allocation for safety and security cameras at Senate and House office buildings"
+      ],
+      "cross_references": [],
+      "detail_level": "sub_allocation",
+      "parent_account": "Capitol Police Buildings, Grounds and Security",
+      "source_span": {
+        "start": 12781,
+        "end": 12933,
+        "file": "BILLS-117hr3237enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "transfer_authority",
+      "from_scope": "",
+      "to_scope": "",
+      "limit": "unknown",
+      "conditions": [],
+      "section": "",
+      "division": null,
+      "title": "III",
+      "confidence": 0.93,
+      "raw_text": "amounts necessary for the purpose in the preceding proviso may be transferred between the Architect of the Capitol and the United States Capitol Police,",
+      "notes": [
+        "Transfer authority related to the $17,000,000 cameras sub-allocation; bidirectional between AOC and USCP"
+      ],
+      "cross_references": [],
+      "source_span": {
+        "start": 12987,
+        "end": 13139,
+        "file": "BILLS-117hr3237enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "limitation",
+      "description": "Prohibits use of funds in this or any other Act, past, present, or future, to install permanent above-ground fencing around the perimeter or any portion thereof of the United States Capitol Grounds.",
+      "amount": null,
+      "account_name": null,
+      "section": "SEC. 310",
+      "division": null,
+      "title": "III",
+      "confidence": 0.97,
+      "raw_text": "None of the funds made available in this or any other Act in prior fiscal years, this fiscal year, or any fiscal year thereafter may be used to install ",
+      "notes": [
+        "Permanent government-wide prohibition on permanent above-ground fencing around the Capitol Grounds as described in 40 U.S.C. 5102"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "subject_to",
+          "target": "Section 5102 of title 40, United States Code",
+          "description": "Definition of United States Capitol Grounds"
+        }
+      ],
+      "parent_account": null,
+      "source_span": {
+        "start": 13397,
+        "end": 13549,
+        "file": "BILLS-117hr3237enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "rider",
+      "description": "For FY2021-2022, subject to approval of Appropriations Committee chairs and ranking members, authorizes the Architect of the Capitol to accept contributions and incur obligations for supplies, products, and services necessary to respond to an emergency involving safety of human life or protection of property, as determined by the Capitol Police Board, on a reimbursable or non-reimbursable basis.",
+      "policy_area": "Legislative branch emergency authority",
+      "section": "SEC. 311",
+      "division": null,
+      "title": "III",
+      "confidence": 0.95,
+      "raw_text": "For fiscal years 2021 and 2022, subject to the approval of the Chairs and Ranking Members of Committee on Appropriations of the House of Representative",
+      "notes": [
+        "Temporary authority for two fiscal years; applies to buildings, grounds, and facilities under AOC responsibility"
+      ],
+      "cross_references": [],
+      "source_span": {
+        "start": 13738,
+        "end": 13889,
+        "file": "BILLS-117hr3237enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Migration and Refugee Assistance",
+      "agency": "Department of State",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 100000000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$100,000,000"
+      },
+      "fiscal_year": 2021,
+      "availability": "to remain available until expended",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "IV",
+      "confidence": 0.97,
+      "raw_text": "For an additional amount for ''Migration and Refugee Assistance'', $100,000,000, to remain available until expended, to address humanitarian needs in Afg",
+      "notes": [
+        "No-year funding; for Afghan humanitarian needs and refugee assistance; under Bilateral Economic Assistance / Funds Appropriated to the President heading"
+      ],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 14649,
+        "end": 14802,
+        "file": "BILLS-117hr3237enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "United States Emergency Refugee and Migration Assistance Fund",
+      "agency": "Department of State",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 500000000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$500,000,000"
+      },
+      "fiscal_year": 2021,
+      "availability": "to remain available until expended",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "IV",
+      "confidence": 0.97,
+      "raw_text": "For an additional amount for ''United States Emergency Refugee and Migration Assistance Fund'', $500,000,000, to remain available until expended, notwit",
+      "notes": [
+        "No-year funding; waives the statutory cap in section 2(c)(2) of the Migration and Refugee Assistance Act of 1962"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "notwithstanding",
+          "target": "Section 2(c)(2) of the Migration and Refugee Assistance Act of 1962 (22 U.S.C. 2601(c)(2))",
+          "description": "Waives statutory cap on ERMA Fund"
+        }
+      ],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 15101,
+        "end": 15253,
+        "file": "BILLS-117hr3237enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "rider",
+      "description": "Extends and modifies the Afghan Special Immigrant Visa program: expands employment eligibility to include ISAF employees; modifies appeal processes; increases visa cap from 26,500 to 34,500; extends application deadlines from December 31, 2022 to December 31, 2023; extends reporting deadline from January 31, 2023 to January 31, 2024; adds Chief of Mission approval to processing timeline.",
+      "policy_area": "Immigration \u2014 Afghan Special Immigrant Visas",
+      "section": "SEC. 401",
+      "division": null,
+      "title": "IV",
+      "confidence": 0.95,
+      "raw_text": "Section 602(b) of the Afghan Allies Protection Act of 2009 (8 U.S.C. 1101 note) is amended\u2014 (1) in paragraph (2)\u2014\n(A) in subparagraph (A) by amending ",
+      "notes": [
+        "Subsection (a) contains the amendments; subsection (b) designates as emergency requirement; subsection (c) contains a separate reporting requirement extracted as a directive"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 602(b) of the Afghan Allies Protection Act of 2009 (8 U.S.C. 1101 note)",
+          "description": "Afghan SIV program authorization"
+        }
+      ],
+      "source_span": {
+        "start": 15683,
+        "end": 15833,
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "directive",
+      "description": "Requires the Secretary of State, in consultation with the Secretary of Defense, to submit a report (with classified annex if necessary) on the Afghan SIV program, including total visas issued by fiscal year, types of roles performed, average processing times, pending applications, and estimated eligible population.",
+      "deadlines": [
+        "Not later than 1 year after enactment"
+      ],
+      "section": "SEC. 401",
+      "division": null,
+      "title": "IV",
+      "confidence": 0.95,
+      "raw_text": "Not later than 1 year after the date of the enactment of this Act, the Secretary of State, in consultation with the Secretary of Defense, shall submit t",
+      "notes": [
+        "Subsection (c) of SEC. 401; report to specified committees of both chambers"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "see_also",
+          "target": "Section 602(b) of the Afghan Allies Protection Act of 2009 (8 U.S.C. 1101 note)",
+          "description": "Afghan SIV program"
+        },
+        {
+          "ref_type": "see_also",
+          "target": "Section 1059 of the National Defense Authorization Act of 2006 (8 U.S.C. 1101 note)",
+          "description": "Iraqi/Afghan translator SIV program"
+        }
+      ],
+      "source_span": {
+        "start": 17806,
+        "end": 17958,
+        "file": "BILLS-117hr3237enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "rider",
+      "description": "Authorizes the Secretary of State and Secretary of Homeland Security to jointly issue a blanket waiver of the medical examination requirement for Afghan SIV applicants prior to visa issuance or admission, for renewable 1-year periods. Requires medical exam within 30 days of admission with conditional permanent resident status until exam completed. Includes reporting requirement on exam status. Sunset 3 years after enactment.",
+      "policy_area": "Immigration \u2014 Afghan Special Immigrant Visas",
+      "section": "SEC. 402",
+      "division": null,
+      "title": "IV",
+      "confidence": 0.95,
+      "raw_text": "The Secretary of State and the Secretary of Homeland Security may jointly issue a blanket waiver of the requirement that aliens described in section 602(",
+      "notes": [
+        "Designated as emergency requirement in subsection (h); sunset 3 years after enactment; subsection (d)(3) requires report within 1 year on medical exam status"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "see_also",
+          "target": "Section 602(b)(2) of the Afghan Allies Protection Act of 2009 (8 U.S.C. 1101)",
+          "description": "Afghan SIV eligibility"
+        },
+        {
+          "ref_type": "notwithstanding",
+          "target": "Section 221(d) of the Immigration and Nationality Act (8 U.S.C. 1201(d))",
+          "description": "Medical examination requirement waived"
+        },
+        {
+          "ref_type": "subject_to",
+          "target": "Section 212(a)(1)(A) of the Immigration and Nationality Act (8 U.S.C. 1182(a)(1)(A))",
+          "description": "Health-related inadmissibility grounds still apply after exam"
+        }
+      ],
+      "source_span": {
+        "start": 20023,
+        "end": 20176,
+        "file": "BILLS-117hr3237enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "rider",
+      "description": "Provides special immigrant status eligibility to surviving spouses and children of U.S. government employees abroad who served at least 15 years or were killed in the line of duty. Amends the INA, Afghan Allies Protection Act, and Refugee Crisis in Iraq Act to extend SIV eligibility to surviving family members. Effective retroactively to June 30, 2021.",
+      "policy_area": "Immigration \u2014 Special immigrant visas for surviving family members",
+      "section": "SEC. 403",
+      "division": null,
+      "title": "IV",
+      "confidence": 0.95,
+      "raw_text": "Section 101(a)(27)(D) of the Immigration and Nationality Act (8 U.S.C. 1101(a)(27)(D)) is amended\u2014 (1) by striking ''an immigrant who is an employee''",
+      "notes": [
+        "Designated as emergency requirement in subsection (e); retroactive effective date of June 30, 2021"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 101(a)(27)(D) of the Immigration and Nationality Act (8 U.S.C. 1101(a)(27)(D))",
+          "description": "Special immigrant definition"
+        },
+        {
+          "ref_type": "amends",
+          "target": "Section 602(b)(2)(C) of the Afghan Allies Protection Act of 2009 (8 U.S.C. 1101 note)",
+          "description": "Afghan SIV derivative beneficiaries"
+        },
+        {
+          "ref_type": "amends",
+          "target": "Section 1244(b)(3) of the Refugee Crisis in Iraq Act of 2007 (8 U.S.C. 1157 note)",
+          "description": "Iraqi SIV derivative beneficiaries"
+        }
+      ],
+      "source_span": {
+        "start": 23969,
+        "end": 24119,
+        "file": "BILLS-117hr3237enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "rider",
+      "description": "Amends section 2 of Public Law 110-242 to extend the authority for conversion of petitions for special immigrant status for certain Iraqis until the numerical limitation under section 1244 of the FY2008 NDAA is reached, replacing the prior fixed expiration date.",
+      "policy_area": "Immigration \u2014 Iraqi Special Immigrant Visas",
+      "section": "SEC. 404",
+      "division": null,
+      "title": "IV",
+      "confidence": 0.95,
+      "raw_text": "Section 2 of Public Law 110\u2013242 (8 U.S.C. 1101 note) is amended by striking subsection (b) and inserting the following:",
+      "notes": [
+        "Designated as emergency requirement in subsection (b)"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 2 of Public Law 110-242 (8 U.S.C. 1101 note)",
+          "description": "Iraqi SIV petition conversion authority"
+        },
+        {
+          "ref_type": "see_also",
+          "target": "Section 1244 of the National Defense Authorization Act for Fiscal Year 2008 (Public Law 110-181; 8 U.S.C. 1157 note)",
+          "description": "Iraqi SIV numerical limitation"
+        }
+      ],
+      "source_span": {
+        "start": 27369,
+        "end": 27488,
+        "file": "BILLS-117hr3237enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "State and Local Law Enforcement Assistance",
+      "agency": "Department of Justice",
+      "program": "Office of Justice Programs",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 1100000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$1,100,000"
+      },
+      "fiscal_year": 2021,
+      "availability": "to remain available until September 30, 2022",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "V",
+      "confidence": 0.97,
+      "raw_text": "For an additional amount for ''State and Local Law Enforcement Assistance'', $1,100,000, to remain available until September 30, 2022, for the sole purp",
+      "notes": [
+        "For reimbursement of extraordinary law enforcement costs for President-elect protection from November 4, 2020 through inauguration"
+      ],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 28116,
+        "end": 28268,
+        "file": "BILLS-117hr3237enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "rider",
+      "description": "Each amount appropriated or made available by this Act is in addition to amounts otherwise appropriated for the fiscal year involved.",
+      "policy_area": null,
+      "section": "SEC. 601",
+      "division": null,
+      "title": "VI",
+      "confidence": 0.97,
+      "raw_text": "Each amount appropriated or made available by this Act is in addition to amounts otherwise appropriated for the fiscal year involved.",
+      "notes": [
+        "Standard supplemental appropriations boilerplate"
+      ],
+      "cross_references": [],
+      "source_span": {
+        "start": 29067,
+        "end": 29200,
+        "file": "BILLS-117hr3237enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "limitation",
+      "description": "No appropriation in this Act shall remain available for obligation beyond the current fiscal year unless expressly so provided.",
+      "amount": null,
+      "account_name": null,
+      "section": "SEC. 602",
+      "division": null,
+      "title": "VI",
+      "confidence": 0.97,
+      "raw_text": "No part of any appropriation contained in this Act shall remain available for obligation beyond the current fiscal year unless expressly so provided her",
+      "notes": [
+        "Default one-year availability unless otherwise specified"
+      ],
+      "cross_references": [],
+      "parent_account": null,
+      "source_span": {
+        "start": 29212,
+        "end": 29364,
+        "file": "BILLS-117hr3237enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "rider",
+      "description": "Unless otherwise provided, additional amounts appropriated by this Act shall be available under the authorities and conditions applicable to the appropriations accounts for fiscal year 2021.",
+      "policy_area": null,
+      "section": "SEC. 603",
+      "division": null,
+      "title": "VI",
+      "confidence": 0.95,
+      "raw_text": "Unless otherwise provided for by this Act, the additional amounts appropriated by this Act to appropriations accounts shall be available under the autho",
+      "notes": [
+        "Links supplemental funds to existing account authorities and conditions for FY2021"
+      ],
+      "cross_references": [],
+      "source_span": {
+        "start": 29379,
+        "end": 29531,
+        "file": "BILLS-117hr3237enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "limitation",
+      "description": "Except for funds used to restore amounts for obligations incurred prior to enactment, funds in this Act shall only be used for the purposes specifically described herein, notwithstanding any other provision of law.",
+      "amount": null,
+      "account_name": null,
+      "section": "SEC. 604",
+      "division": null,
+      "title": "VI",
+      "confidence": 0.95,
+      "raw_text": "Except for funds used to restore amounts, either directly or through reimbursement, for obligations incurred prior to the date of the enactment of this",
+      "notes": [
+        "Purpose restriction on all funds in this Act; exception for pre-enactment obligations"
+      ],
+      "cross_references": [],
+      "parent_account": null,
+      "source_span": {
+        "start": 29629,
+        "end": 29780,
+        "file": "BILLS-117hr3237enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "rider",
+      "description": "Defines 'coronavirus' for purposes of this Act as SARS-CoV-2 or another coronavirus with pandemic potential.",
+      "policy_area": null,
+      "section": "SEC. 605",
+      "division": null,
+      "title": "VI",
+      "confidence": 0.97,
+      "raw_text": "In this Act, the term coronavirus means SARS\u2013CoV\u20132 or another coronavirus with pandemic potential.",
+      "notes": [
+        "Definition provision"
+      ],
+      "cross_references": [],
+      "source_span": {
+        "start": 29944,
+        "end": 30042,
+        "file": "BILLS-117hr3237enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "rider",
+      "description": "Amounts designated as emergency requirements under BBEDCA section 251(b)(2)(A)(i) shall be available only if the President subsequently designates all such amounts and transmits such designations to Congress.",
+      "policy_area": "Budget enforcement",
+      "section": "SEC. 606",
+      "division": null,
+      "title": "VI",
+      "confidence": 0.97,
+      "raw_text": "Each amount designated in this Act by the Congress as being for an emergency requirement pursuant to section 251(b)(2)(A)(i) of the Balanced Budget and ",
+      "notes": [
+        "Standard emergency designation trigger requiring Presidential designation"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "subject_to",
+          "target": "Section 251(b)(2)(A)(i) of the Balanced Budget and Emergency Deficit Control Act of 1985",
+          "description": "Emergency spending designation"
+        }
+      ],
+      "source_span": {
+        "start": 30054,
+        "end": 30206,
+        "file": "BILLS-117hr3237enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "rider",
+      "description": "Any amount designated as an emergency requirement and subsequently designated by the President that is transferred pursuant to transfer authorities in this Act shall retain its emergency designation.",
+      "policy_area": "Budget enforcement",
+      "section": "SEC. 607",
+      "division": null,
+      "title": "VI",
+      "confidence": 0.97,
+      "raw_text": "Any amount appropriated by this Act, designated by the Congress as an emergency requirement pursuant to section 251(b)(2)(A)(i) of the Balanced Budget a",
+      "notes": [
+        "Ensures transferred funds retain emergency designation for budget enforcement purposes"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "subject_to",
+          "target": "Section 251(b)(2)(A)(i) of the Balanced Budget and Emergency Deficit Control Act of 1985",
+          "description": "Emergency spending designation"
+        }
+      ],
+      "source_span": {
+        "start": 30433,
+        "end": 30585,
+        "file": "BILLS-117hr3237enr.txt",
+        "verified": true
+      }
+    }
+  ],
+  "summary": {
+    "total_provisions": 47,
+    "by_division": {
+      "?": 47
+    },
+    "by_type": {
+      "rider": 12,
+      "limitation": 5,
+      "directive": 1,
+      "appropriation": 26,
+      "transfer_authority": 3
+    },
+    "total_budget_authority": 2095559925,
+    "total_rescissions": 0,
+    "sections_with_no_provisions": [],
+    "flagged_issues": [
+      "Bill has no division structure; organized into Titles I-VI",
+      "All appropriations designated as emergency requirements under BBEDCA section 251(b)(2)(A)(i)",
+      "SEC. 401-404 amend immigration authorization statutes (Afghan and Iraqi SIV programs) as riders on a supplemental appropriations bill",
+      "SEC. 310 imposes a permanent government-wide prohibition on Capitol perimeter fencing",
+      "General Expenses account receives two separate appropriations: $33,169,000 for January 6 response and $800,000 for coronavirus response"
+    ]
+  },
+  "chunk_map": [
+    {
+      "chunk_id": "01KM8FHZ0X882VKYH4FJNRJNJM",
+      "label": "[1/1] full",
+      "provision_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46
+      ]
+    }
+  ]
+}

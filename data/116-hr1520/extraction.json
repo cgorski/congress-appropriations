@@ -1,0 +1,74 @@
+{
+  "schema_version": "1.0",
+  "bill": {
+    "identifier": "H.R. 1520",
+    "classification": "continuing_resolution",
+    "short_title": "Further Extension of Continuing Appropriations Act, 2021",
+    "fiscal_years": [
+      2021
+    ],
+    "divisions": [],
+    "public_law": null
+  },
+  "provisions": [
+    {
+      "provision_type": "other",
+      "llm_classification": "other",
+      "description": "Extends the Continuing Appropriations Act, 2021 by amending the expiration date in section 106(3) of Public Law 116-159 to December 28, 2020.",
+      "amounts": [],
+      "references": [],
+      "metadata": {
+        "llm_classification": "cr_duration_extension",
+        "new_date": "December 28, 2020"
+      },
+      "section": "",
+      "division": null,
+      "title": null,
+      "confidence": 0.95,
+      "raw_text": "That the Continuing Appropriations Act, 2021 (division A of Public Law 116\u2013159) is further amended by striking the date specified in section 106(3) and inserting ''December 28, 2020''.",
+      "notes": [
+        "This is the sole operative provision of the bill \u2014 a one-sentence CR extension.",
+        "Section 106(3) of P.L. 116-159 specifies the expiration date for the continuing resolution; this amendment extends the CR through December 28, 2020.",
+        "No dollar amounts are appropriated; funding continues at the rate established by the original CR (division A of P.L. 116-159)."
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Public Law 116-159, Division A, Section 106(3)",
+          "description": "Strikes the existing CR expiration date and inserts December 28, 2020"
+        }
+      ],
+      "source_span": {
+        "start": 69,
+        "end": 253,
+        "file": "BILLS-116hr1520enr.txt",
+        "verified": true
+      }
+    }
+  ],
+  "summary": {
+    "total_provisions": 1,
+    "by_division": {
+      "?": 1
+    },
+    "by_type": {
+      "other": 1
+    },
+    "total_budget_authority": 0,
+    "total_rescissions": 0,
+    "sections_with_no_provisions": [],
+    "flagged_issues": [
+      "Extremely short bill with a single operative clause extending the CR expiration date. No explicit dollar amounts or section headers present.",
+      "The short title clause was not extracted as a separate provision per instructions."
+    ]
+  },
+  "chunk_map": [
+    {
+      "chunk_id": "01KM83MC7HCSN3KEEHWDPGH9EV",
+      "label": "[1/1] full",
+      "provision_indices": [
+        0
+      ]
+    }
+  ]
+}

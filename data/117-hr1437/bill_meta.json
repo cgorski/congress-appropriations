@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0",
+  "congress": 117,
+  "fiscal_years": [
+    2023
+  ],
+  "bill_nature": "continuing_resolution",
+  "subcommittees": [
+    {
+      "division": "A",
+      "jurisdiction": "continuing_resolution",
+      "title": "Further Continuing Appropriations Act, 2023",
+      "source": {
+        "type": "pattern_match",
+        "pattern": "continuing appropriations"
+      }
+    },
+    {
+      "division": "B",
+      "jurisdiction": "other",
+      "title": "Other Matters",
+      "source": {
+        "type": "pattern_match",
+        "pattern": "other matters"
+      }
+    },
+    {
+      "division": "C",
+      "jurisdiction": "labor_hhs",
+      "title": "Health and Human Services",
+      "source": {
+        "type": "pattern_match",
+        "pattern": "health"
+      }
+    },
+    {
+      "division": "D",
+      "jurisdiction": "other",
+      "title": "PRECIP Act",
+      "source": {
+        "type": "default_rule"
+      }
+    }
+  ],
+  "provision_timing": [],
+  "canonical_accounts": [],
+  "extraction_sha256": "1460f3c0a00477341b75681460e95e270eef41e928cd748511ce6ba838136a8f"
+}

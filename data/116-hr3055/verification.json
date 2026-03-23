@@ -1,0 +1,627 @@
+{
+  "schema_version": "1.0",
+  "amount_checks": [
+    {
+      "provision_index": 1,
+      "text_as_written": "$7,284,319,000",
+      "found_in_source": true,
+      "source_positions": [
+        1374
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 2,
+      "text_as_written": "$90,000,000",
+      "found_in_source": true,
+      "source_positions": [
+        1413
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 3,
+      "text_as_written": "$26,574,167",
+      "found_in_source": true,
+      "source_positions": [
+        1929
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 4,
+      "text_as_written": "$1,209,111",
+      "found_in_source": true,
+      "source_positions": [
+        1988
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 5,
+      "text_as_written": "$30,000,000",
+      "found_in_source": true,
+      "source_positions": [
+        2066
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 9,
+      "text_as_written": "$400,000",
+      "found_in_source": true,
+      "source_positions": [
+        3353
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 10,
+      "text_as_written": "$174,000",
+      "found_in_source": true,
+      "source_positions": [
+        3635
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 12,
+      "text_as_written": "$887,671,223",
+      "found_in_source": true,
+      "source_positions": [
+        4684
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 13,
+      "text_as_written": "$68,794,521",
+      "found_in_source": true,
+      "source_positions": [
+        4973
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 14,
+      "text_as_written": "$28,072,603",
+      "found_in_source": true,
+      "source_positions": [
+        5282
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 17,
+      "text_as_written": "$33,287,671",
+      "found_in_source": true,
+      "source_positions": [
+        6482,
+        6736
+      ],
+      "status": "ambiguous"
+    },
+    {
+      "provision_index": 18,
+      "text_as_written": "$33,287,671",
+      "found_in_source": true,
+      "source_positions": [
+        6482,
+        6736
+      ],
+      "status": "ambiguous"
+    },
+    {
+      "provision_index": 19,
+      "text_as_written": "$16,643,836",
+      "found_in_source": true,
+      "source_positions": [
+        7397,
+        8024
+      ],
+      "status": "ambiguous"
+    },
+    {
+      "provision_index": 20,
+      "text_as_written": "$16,643,836",
+      "found_in_source": true,
+      "source_positions": [
+        7397,
+        8024
+      ],
+      "status": "ambiguous"
+    },
+    {
+      "provision_index": 24,
+      "text_as_written": "$1,665,000",
+      "found_in_source": true,
+      "source_positions": [
+        9262
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 25,
+      "text_as_written": "$1,033,000",
+      "found_in_source": true,
+      "source_positions": [
+        10879
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 26,
+      "text_as_written": "$597,000",
+      "found_in_source": true,
+      "source_positions": [
+        11296
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 27,
+      "text_as_written": "$397,000",
+      "found_in_source": true,
+      "source_positions": [
+        11727
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 28,
+      "text_as_written": "$953,000",
+      "found_in_source": true,
+      "source_positions": [
+        12187
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 33,
+      "text_as_written": "$1,960,000,000",
+      "found_in_source": true,
+      "source_positions": [
+        14017
+      ],
+      "status": "verified"
+    }
+  ],
+  "raw_text_checks": [
+    {
+      "provision_index": 0,
+      "raw_text_preview": "The Continuing Appropriations Act, 2020 (division A of Public Law 116–59) is a...",
+      "is_verbatim_substring": false,
+      "match_tier": "normalized",
+      "found_at_position": null
+    },
+    {
+      "provision_index": 1,
+      "raw_text_preview": "SEC. 122. Notwithstanding sections 101 and 104, amounts are provided for ''Depar...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 1190
+    },
+    {
+      "provision_index": 2,
+      "raw_text_preview": "of which not less than $90,000,000 is for the delivery of Mobile Questionnaire A...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 1390
+    },
+    {
+      "provision_index": 3,
+      "raw_text_preview": "on section 136, by striking ''$18,397,500'' and inserting ''$26,574,167'' and by...",
+      "is_verbatim_substring": false,
+      "match_tier": "no_match",
+      "found_at_position": null
+    },
+    {
+      "provision_index": 4,
+      "raw_text_preview": "on section 136, by striking ''$18,397,500'' and inserting ''$26,574,167'' and by...",
+      "is_verbatim_substring": false,
+      "match_tier": "no_match",
+      "found_at_position": null
+    },
+    {
+      "provision_index": 5,
+      "raw_text_preview": "on section 138, by striking ''$20,000,000'' and inserting ''$30,000,000''",
+      "is_verbatim_substring": false,
+      "match_tier": "no_match",
+      "found_at_position": null
+    },
+    {
+      "provision_index": 6,
+      "raw_text_preview": "SEC. 146. Amounts made available by section 101 for ''Department of Agriculture...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 2149
+    },
+    {
+      "provision_index": 7,
+      "raw_text_preview": "(1) for monthly basic pay for members of the uniformed services under section 20...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 2601
+    },
+    {
+      "provision_index": 8,
+      "raw_text_preview": "(2) for monthly cadet or midshipmen pay for cadets or midshipmen under section 2...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 2875
+    },
+    {
+      "provision_index": 9,
+      "raw_text_preview": "SEC. 148. In addition to amounts provided in section 101, amounts are provided f...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 3146
+    },
+    {
+      "provision_index": 10,
+      "raw_text_preview": "SEC. 149. Notwithstanding any other provision of this Act, there is hereby appro...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 3411
+    },
+    {
+      "provision_index": 11,
+      "raw_text_preview": "SEC. 150. Notwithstanding section 251(a)(1) of the Balanced Budget and Emergency...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 3645
+    },
+    {
+      "provision_index": 12,
+      "raw_text_preview": "Section 10503(b)(1)(F) of the Patient Protection and Affordable Care Act (42 U.S...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 4518
+    },
+    {
+      "provision_index": 13,
+      "raw_text_preview": "Section 10503(b)(2) of the Patient Protection and Affordable Care Act (42 U.S.C....",
+      "is_verbatim_substring": false,
+      "match_tier": "normalized",
+      "found_at_position": null
+    },
+    {
+      "provision_index": 14,
+      "raw_text_preview": "Section 340H(g)(1) of the Public Health Service Act (42 U.S.C. 256h(g)(1)) is am...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 5145
+    },
+    {
+      "provision_index": 15,
+      "raw_text_preview": "Amounts appropriated pursuant to the amendments made by this section for the per...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 5407
+    },
+    {
+      "provision_index": 16,
+      "raw_text_preview": "Paragraph (4) of section 3014(h) of title 18, United States Code, as amended by ...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 5778
+    },
+    {
+      "provision_index": 17,
+      "raw_text_preview": "Section 330B(b)(2)(D) of the Public Health Service Act (42 U.S.C. 254c–2(b)(2)...",
+      "is_verbatim_substring": false,
+      "match_tier": "normalized",
+      "found_at_position": null
+    },
+    {
+      "provision_index": 18,
+      "raw_text_preview": "Section 330C(c)(2)(D) of the Public Health Service Act (42 U.S.C. 254c–3(c)(2)...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 6589
+    },
+    {
+      "provision_index": 19,
+      "raw_text_preview": "SEC. 1201. \nExtension of sexual risk avoidance education program\nSection 510 of ...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 6858
+    },
+    {
+      "provision_index": 20,
+      "raw_text_preview": "SEC. 1202. \nExtension of personal responsibility education program\nSection 513 o...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 7483
+    },
+    {
+      "provision_index": 21,
+      "raw_text_preview": "Section 223(d)(3) of the Protecting Access to Medicare Act of 2014 (42 U.S.C. 13...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 8215
+    },
+    {
+      "provision_index": 22,
+      "raw_text_preview": "Subsection (ff) of section 1905 of the Social Security Act (42 U.S.C. 1396d) is ...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 8498
+    },
+    {
+      "provision_index": 23,
+      "raw_text_preview": "Section 1923(f)(7)(A) of the Social Security Act (42 U.S.C. 1396r–4(f)(7)(A)) ...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 8717
+    },
+    {
+      "provision_index": 24,
+      "raw_text_preview": "Section 1890(d)(2) of the Social Security Act (42 U.S.C. 1395aaa(d)(2)) is amend...",
+      "is_verbatim_substring": false,
+      "match_tier": "no_match",
+      "found_at_position": null
+    },
+    {
+      "provision_index": 25,
+      "raw_text_preview": "(xi) for the period beginning on November 22, 2019, and ending on December 20, 2...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 10791
+    },
+    {
+      "provision_index": 26,
+      "raw_text_preview": "(xi) for the period beginning on November 22, 2019, and ending on December 20, 2...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 11208
+    },
+    {
+      "provision_index": 27,
+      "raw_text_preview": "(xi) for the period beginning on November 22, 2019, and ending on December 20, 2...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 11639
+    },
+    {
+      "provision_index": 28,
+      "raw_text_preview": "(xi) for the period beginning on November 22, 2019, and ending on December 20, 2...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 12099
+    },
+    {
+      "provision_index": 29,
+      "raw_text_preview": "Section 9511(f) of the Internal Revenue Code of 1986 is amended by striking ''No...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 12289
+    },
+    {
+      "provision_index": 30,
+      "raw_text_preview": "Activities authorized by section 2008 of the Social Security Act shall continue ...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 12535
+    },
+    {
+      "provision_index": 31,
+      "raw_text_preview": "Activities authorized by part A of title IV and section 1108(b) of the Social Se...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 13136
+    },
+    {
+      "provision_index": 32,
+      "raw_text_preview": "Section 424(a) of the Consolidated Appropriations Act, 2014 (Public Law 113–76...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 13559
+    },
+    {
+      "provision_index": 33,
+      "raw_text_preview": "Section 1941(b) of the Social Security Act (42 U.S.C. 1396w–1(b)) is amended o...",
+      "is_verbatim_substring": false,
+      "match_tier": "no_match",
+      "found_at_position": null
+    },
+    {
+      "provision_index": 34,
+      "raw_text_preview": "SEC. 1701. \nUnited States Victims of State Sponsored Terrorism Fund Clarificatio...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 14055
+    },
+    {
+      "provision_index": 35,
+      "raw_text_preview": "SEC. 1702. \nRepeal of rescission\n\n(a) \nIn general\nSection 1438 of the FAST Act (...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 23210
+    },
+    {
+      "provision_index": 36,
+      "raw_text_preview": "SEC. 1703. \nSunsets\n\n(a) Section 102(b)(1) of the USA PATRIOT Improvement and Re...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 23514
+    },
+    {
+      "provision_index": 37,
+      "raw_text_preview": "(b) Section 6001(b)(1) of the Intelligence Reform and Terrorism Prevention Act o...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 23721
+    },
+    {
+      "provision_index": 38,
+      "raw_text_preview": "The budgetary effects of this division shall not be entered on either PAYGO scor...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 23997
+    },
+    {
+      "provision_index": 39,
+      "raw_text_preview": "The budgetary effects of this division shall not be entered on any PAYGO scoreca...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 24192
+    },
+    {
+      "provision_index": 40,
+      "raw_text_preview": "Notwithstanding Rule 3 of the Budget Scorekeeping Guidelines set forth in the jo...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 24393
+    },
+    {
+      "provision_index": 41,
+      "raw_text_preview": "For the purposes of the annual report issued pursuant to section 5 of the Statut...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 24934
+    }
+  ],
+  "completeness": {
+    "total_dollar_amounts_in_text": 40,
+    "accounted_for": 20,
+    "unaccounted": [
+      {
+        "text": "$18,397,500",
+        "value": 18397500,
+        "position": 1899,
+        "context": "apply during the period covered by this Act.; (3) in section 136, by striking ''$18,397,500'' and inserting ''$26,574,167'' and by striking ''$631,000'' and ins"
+      },
+      {
+        "text": "$631,000",
+        "value": 631000,
+        "position": 1961,
+        "context": "36, by striking ''$18,397,500'' and inserting ''$26,574,167'' and by striking ''$631,000'' and inserting ''$1,209,111''; (4) in section 138, by striking ''$20,0"
+      },
+      {
+        "text": "$20,000,000",
+        "value": 20000000,
+        "position": 2036,
+        "context": "ng ''$631,000'' and inserting ''$1,209,111''; (4) in section 138, by striking ''$20,000,000'' and inserting ''$30,000,000''; and (5) by inserting after section"
+      },
+      {
+        "text": "$569,863,014",
+        "value": 569863014,
+        "position": 4653,
+        "context": "fordable Care Act (42 U.S.C. 254b–2(b)(1)(F)) is amended by— (1) striking ''$569,863,014'' and inserting ''$887,671,223''; and (2) striking ''November 21, 2"
+      },
+      {
+        "text": "$44,164,384",
+        "value": 44164384,
+        "position": 4943,
+        "context": "fordable Care Act (42 U.S.C. 254b–2(b)(2)(G)) is amended— (1) by striking ''$44,164,384'' and inserting ''$68,794,521''; and (2) by striking ''November 21,"
+      },
+      {
+        "text": "$18,021,918",
+        "value": 18021918,
+        "position": 5252,
+        "context": "ublic Health Service Act (42 U.S.C. 256h(g)(1)) is amended— (1) by striking ''$18,021,918'' and inserting ''$28,072,603''; and (2) by striking ''November 21,"
+      },
+      {
+        "text": "$21,369,863",
+        "value": 21369863,
+        "position": 6452,
+        "context": "ealth Service Act (42 U.S.C. 254c–2(b)(2)(D)) is amended— (1) by striking ''$21,369,863'' and inserting ''$33,287,671''; and (2) by striking ''November 21,"
+      },
+      {
+        "text": "$21,369,863",
+        "value": 21369863,
+        "position": 6706,
+        "context": "ealth Service Act (42 U.S.C. 254c–3(c)(2)(D)) is amended— (1) by striking ''$21,369,863'' and inserting ''$33,287,671''; and (2) by striking ''November 21,"
+      },
+      {
+        "text": "$10,684,931",
+        "value": 10684931,
+        "position": 7296,
+        "context": "nd inserting ''December 20, 2019''; and (2) in subsection (f)(1), by striking ''$10,684,931 for the period beginning October 1, 2019, and ending November 21, 20"
+      },
+      {
+        "text": "$10,684,931",
+        "value": 10684931,
+        "position": 7923,
+        "context": "' and inserting ''December 20, 2019''; and (2) in subsection (f), by striking ''$10,684,931 for the period beginning October 1, 2019, and ending November 21, 20"
+      },
+      {
+        "text": "$1,069,000",
+        "value": 1069000,
+        "position": 9156,
+        "context": "42 U.S.C. 1395aaa(d)(2)) is amended— (1) in the first sentence, by striking ''$1,069,000 for the period beginning on October 1, 2019, and ending on November 2"
+      },
+      {
+        "text": "$2,387,000,000",
+        "value": 2387000000,
+        "position": 13984,
+        "context": "urity Act (42 U.S.C. 1396w–1(b)) is amended in paragraph (3)(A) by striking ''$2,387,000,000'' and inserting ''$1,960,000,000''. VII  Other Matters  SEC. 1701"
+      },
+      {
+        "text": "$20,000,000",
+        "value": 20000000,
+        "position": 17490,
+        "context": "(I) In the event that a United States person has an eligible claim that exceeds $20,000,000, the Special Master shall treat that claim as if it were for $20,000"
+      },
+      {
+        "text": "$20,000,000",
+        "value": 20000000,
+        "position": 17563,
+        "context": "xceeds $20,000,000, the Special Master shall treat that claim as if it were for $20,000,000 for purposes of this section. (II) In the event that a non-9/11 rela"
+      },
+      {
+        "text": "$35,000,000",
+        "value": 35000000,
+        "position": 17775,
+        "context": "diate family members of such person have claims that if aggregated would exceed $35,000,000, the Special Master shall, for purposes of this section, reduce such"
+      },
+      {
+        "text": "$35,000,000",
+        "value": 35000000,
+        "position": 17936,
+        "context": "claims on a pro rata basis such that in the aggregate such claims do not exceed $35,000,000. (III) In the event that a 9/11 victim, 9/11 spouse, or 9/11 depende"
+      },
+      {
+        "text": "$35,000,000",
+        "value": 35000000,
+        "position": 18173,
+        "context": ", 9/11 spouses, or 9/11 dependents) have claims that if aggregated would exceed $35,000,000, the Special Master shall, for purposes of this section, reduce such"
+      },
+      {
+        "text": "$35,000,000",
+        "value": 35000000,
+        "position": 18334,
+        "context": "claims on a pro rata basis such that in the aggregate such claims do not exceed $35,000,000. (IV) In the event that a 9/11 family member and the family members"
+      },
+      {
+        "text": "$20,000,000",
+        "value": 20000000,
+        "position": 18508,
+        "context": "(who are also 9/11 family members) have claims that if aggregated would exceed $20,000,000, the Special Master shall, for purposes of this section, reduce such"
+      },
+      {
+        "text": "$20,000,000",
+        "value": 20000000,
+        "position": 18669,
+        "context": "claims on a pro rata basis such that in the aggregate such claims do not exceed $20,000,000.; and (ii) in paragraph (4)— (I) by striking ''On'' and inserting"
+      }
+    ]
+  },
+  "summary": {
+    "total_provisions": 42,
+    "amounts_verified": 16,
+    "amounts_not_found": 0,
+    "amounts_ambiguous": 4,
+    "raw_text_exact": 34,
+    "raw_text_normalized": 3,
+    "raw_text_spaceless": 0,
+    "raw_text_no_match": 5,
+    "completeness_pct": 50.0,
+    "provisions_by_detail_level": {
+      "n/a": 38,
+      "top_level": 3,
+      "sub_allocation": 1
+    }
+  }
+}

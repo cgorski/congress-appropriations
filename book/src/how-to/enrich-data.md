@@ -5,7 +5,7 @@ The `enrich` command generates `bill_meta.json` for each bill directory, enablin
 ## Quick Start
 
 ```bash
-# Enrich all bills in the examples directory
+# Enrich all bills in the data directory
 congress-approp enrich --dir data
 ```
 

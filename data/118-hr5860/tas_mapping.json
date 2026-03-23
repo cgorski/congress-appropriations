@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0",
+  "bill_dir": "118-hr5860",
+  "bill_identifier": "H.R. 5860",
+  "fas_reference_hash": "dc6f3d8435cd85ee2ae7a9c3473488206bc8d1324783132d08faa1db203d1671",
+  "timestamp": "2026-03-22T20:50:25.185855+00:00",
+  "mappings": [
+    {
+      "provision_index": 39,
+      "account_name": "Federal Emergency Management Agency—Disaster Relief Fund",
+      "agency": "Department of Homeland Security",
+      "dollars": 16000000000,
+      "fas_code": "070-0702",
+      "fas_title": "Disaster Relief Fund, Federal Emergency Management Agency, Homeland Security",
+      "confidence": "verified",
+      "method": "suffix_match"
+    }
+  ],
+  "summary": {
+    "total_provisions": 1,
+    "deterministic_matched": 1,
+    "llm_matched": 0,
+    "unmatched": 0,
+    "unique_fas_codes": 1,
+    "match_rate_pct": 100.0
+  }
+}

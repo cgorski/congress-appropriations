@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0",
+  "amount_checks": [],
+  "raw_text_checks": [
+    {
+      "provision_index": 0,
+      "raw_text_preview": "That the Continuing Appropriations Act, 2021 (division A of Public Law 116–159...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 69
+    }
+  ],
+  "completeness": {
+    "total_dollar_amounts_in_text": 0,
+    "accounted_for": 0,
+    "unaccounted": []
+  },
+  "summary": {
+    "total_provisions": 1,
+    "amounts_verified": 0,
+    "amounts_not_found": 0,
+    "amounts_ambiguous": 0,
+    "raw_text_exact": 1,
+    "raw_text_normalized": 0,
+    "raw_text_spaceless": 0,
+    "raw_text_no_match": 0,
+    "completeness_pct": 100.0,
+    "provisions_by_detail_level": {
+      "n/a": 1
+    }
+  }
+}

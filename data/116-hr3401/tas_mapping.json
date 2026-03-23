@@ -1,0 +1,136 @@
+{
+  "schema_version": "1.0",
+  "bill_dir": "116-hr3401",
+  "bill_identifier": "H.R. 3401",
+  "model": "claude-opus-4-6",
+  "fas_reference_hash": "dc6f3d8435cd85ee2ae7a9c3473488206bc8d1324783132d08faa1db203d1671",
+  "timestamp": "2026-03-22T20:49:13.926954+00:00",
+  "mappings": [
+    {
+      "provision_index": 0,
+      "account_name": "Executive Office for Immigration Review",
+      "agency": "Department of Justice",
+      "dollars": 65000000,
+      "fas_code": "015-0339",
+      "fas_title": "Executive Office for Immigration Review, General Administration, Justice",
+      "confidence": "verified",
+      "method": "direct_match"
+    },
+    {
+      "provision_index": 4,
+      "account_name": "Federal Prisoner Detention",
+      "agency": "Department of Justice",
+      "dollars": 155000000,
+      "fas_code": "015-1020",
+      "fas_title": "Federal Prisoner Detention, United States Marshals Service, Justice",
+      "confidence": "verified",
+      "method": "direct_match"
+    },
+    {
+      "provision_index": 5,
+      "account_name": "Operation and Maintenance, Army",
+      "agency": "Department of Defense",
+      "dollars": 92800000,
+      "fas_code": "021-2020",
+      "fas_title": "Operation and Maintenance, Army",
+      "confidence": "high",
+      "method": "llm_resolved",
+      "reasoning": "Army O&M uses agency code 021. TAS 021-2020 is the well-known account for Operation and Maintenance, Army. Not in provided list because list only contains 097 (Defense-Wide) codes."
+    },
+    {
+      "provision_index": 6,
+      "account_name": "Operation and Maintenance, Marine Corps",
+      "agency": "Department of Defense",
+      "dollars": 13025000,
+      "fas_code": "017-1106",
+      "fas_title": "Operation and Maintenance, Marine Corps",
+      "confidence": "high",
+      "method": "llm_resolved",
+      "reasoning": "Marine Corps falls under Navy agency code 017. TAS 017-1106 is the standard account for Operation and Maintenance, Marine Corps. Not in provided list because list only contains 097 codes."
+    },
+    {
+      "provision_index": 7,
+      "account_name": "Operation and Maintenance, Air Force",
+      "agency": "Department of Defense",
+      "dollars": 18000000,
+      "fas_code": "057-3400",
+      "fas_title": "Operation and Maintenance, Air Force",
+      "confidence": "high",
+      "method": "llm_resolved",
+      "reasoning": "Air Force uses agency code 057. TAS 057-3400 is the standard account for Operation and Maintenance, Air Force. Not in provided list because list only contains 097 codes."
+    },
+    {
+      "provision_index": 8,
+      "account_name": "Operation and Maintenance, Army National Guard",
+      "agency": "Department of Defense",
+      "dollars": 21024000,
+      "fas_code": "021-2065",
+      "fas_title": "Operation and Maintenance, Army National Guard",
+      "confidence": "high",
+      "method": "llm_resolved",
+      "reasoning": "Army National Guard falls under Army agency code 021. TAS 021-2065 is the standard account for Operation and Maintenance, Army National Guard. Not in provided list because list only contains 097 codes."
+    },
+    {
+      "provision_index": 9,
+      "account_name": "Operations and Support",
+      "agency": "U.S. Customs and Border Protection",
+      "dollars": 1015431000,
+      "fas_code": "070-0530",
+      "fas_title": "Operations and Support, U.S. Customs and Border Protection, Homeland Security",
+      "confidence": "high",
+      "method": "llm_resolved",
+      "reasoning": "Direct match: 'Operations and Support' for 'U.S. Customs and Border Protection' maps to 070-0530."
+    },
+    {
+      "provision_index": 15,
+      "account_name": "Procurement, Construction, and Improvements",
+      "agency": "U.S. Customs and Border Protection",
+      "dollars": 85000000,
+      "fas_code": "070-0532",
+      "fas_title": "Procurement, Construction, and Improvements, U.S. Customs and Border Protection, Homeland Security",
+      "confidence": "high",
+      "method": "llm_resolved",
+      "reasoning": "Direct match: 'Procurement, Construction, and Improvements' for 'U.S. Customs and Border Protection' maps to 070-0532."
+    },
+    {
+      "provision_index": 16,
+      "account_name": "Operations and Support",
+      "agency": "U.S. Immigration and Customs Enforcement",
+      "dollars": 208945000,
+      "fas_code": "070-0540",
+      "fas_title": "Operations and Support, U.S. Immigration and Customs Enforcement, Homeland Security",
+      "confidence": "high",
+      "method": "llm_resolved",
+      "reasoning": "Direct match: 'Operations and Support' for 'U.S. Immigration and Customs Enforcement' maps to 070-0540."
+    },
+    {
+      "provision_index": 24,
+      "account_name": "Federal Assistance",
+      "agency": "Federal Emergency Management Agency",
+      "dollars": 30000000,
+      "fas_code": "070-0413",
+      "fas_title": "Federal Assistance, Federal Emergency Management Agency, Homeland Security",
+      "confidence": "high",
+      "method": "llm_resolved",
+      "reasoning": "Direct match: 'Federal Assistance' for 'Federal Emergency Management Agency' maps to 070-0413."
+    },
+    {
+      "provision_index": 31,
+      "account_name": "Refugee and Entrant Assistance",
+      "agency": "Department of Health and Human Services",
+      "dollars": 2881552000,
+      "fas_code": "075-1503",
+      "fas_title": "Refugee and Entrant Assistance, Administration for Children and Families, Health and Human Services",
+      "confidence": "verified",
+      "method": "direct_match"
+    }
+  ],
+  "summary": {
+    "total_provisions": 11,
+    "deterministic_matched": 3,
+    "llm_matched": 8,
+    "unmatched": 0,
+    "unique_fas_codes": 11,
+    "match_rate_pct": 100.0
+  }
+}

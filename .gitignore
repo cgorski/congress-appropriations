@@ -16,10 +16,8 @@ Thumbs.db
 *.swo
 *~
 
-# Data output (working directories, not examples)
-/data/
+# Working directories
 /cache/
-/tmp/
 
 # Environment / secrets
 *.env

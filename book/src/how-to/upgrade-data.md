@@ -27,7 +27,7 @@ Use `upgrade` when:
 Always start with a dry run:
 
 ```bash
-congress-approp upgrade --dir examples --dry-run
+congress-approp upgrade --dir data --dry-run
 ```
 
 This shows what would change for each bill without writing any files:

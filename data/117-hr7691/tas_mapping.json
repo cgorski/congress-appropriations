@@ -1,0 +1,456 @@
+{
+  "schema_version": "1.0",
+  "bill_dir": "117-hr7691",
+  "bill_identifier": "H.R. 7691",
+  "model": "claude-opus-4-6",
+  "fas_reference_hash": "dc6f3d8435cd85ee2ae7a9c3473488206bc8d1324783132d08faa1db203d1671",
+  "timestamp": "2026-03-22T20:56:52.488479+00:00",
+  "mappings": [
+    {
+      "provision_index": 0,
+      "account_name": "Salaries and Expenses",
+      "agency": "Department of Justice",
+      "dollars": 67000000,
+      "fas_code": "015-0129",
+      "fas_title": "Salaries and Expenses, General Administration, Justice",
+      "confidence": "high",
+      "method": "llm_resolved",
+      "reasoning": "H.R. 7691 is the Additional Ukraine Supplemental Appropriations Act, 2022. A generic 'Salaries and Expenses' provision under 'Department of Justice' without a sub-bureau qualifier most likely maps to the department-level General Administration S&E account (015-0129). However, there are many DOJ 'Salaries and Expenses' accounts (FBI 015-0200, NSD 015-1300, General Legal Activities 015-0128, etc.), and without seeing the exact bill text hierarchy (which typically specifies the bureau heading), this match is plausible but ambiguous. In the Ukraine supplemental context, NSD (015-1300) for sanctions enforcement or General Legal Activities (015-0128) for war crimes work are also strong candidates."
+    },
+    {
+      "provision_index": 1,
+      "account_name": "Military Personnel, Army",
+      "agency": "Department of Defense",
+      "dollars": 12750000,
+      "fas_code": "021-2010",
+      "fas_title": "Military Personnel, Army",
+      "confidence": "verified",
+      "method": "agency_disambiguated"
+    },
+    {
+      "provision_index": 2,
+      "account_name": "Military Personnel, Navy",
+      "agency": "Department of Defense",
+      "dollars": 37500,
+      "fas_code": "017-1453",
+      "fas_title": "Military Personnel, Navy",
+      "confidence": "high",
+      "method": "llm_resolved",
+      "reasoning": "Standard Navy military personnel account under agency 017 (Department of the Navy). Not in provided list but known TAS code."
+    },
+    {
+      "provision_index": 3,
+      "account_name": "Military Personnel, Marine Corps",
+      "agency": "Department of Defense",
+      "dollars": 675000,
+      "fas_code": "017-1105",
+      "fas_title": "Military Personnel, Marine Corps",
+      "confidence": "high",
+      "method": "llm_resolved",
+      "reasoning": "Standard Marine Corps military personnel account under agency 017 (Department of the Navy). Not in provided list but known TAS code."
+    },
+    {
+      "provision_index": 4,
+      "account_name": "Military Personnel, Air Force",
+      "agency": "Department of Defense",
+      "dollars": 1590000,
+      "fas_code": "057-3500",
+      "fas_title": "Military Personnel, Air Force",
+      "confidence": "high",
+      "method": "llm_resolved",
+      "reasoning": "Standard Air Force military personnel account under agency 057 (Department of the Air Force). Not in provided list but known TAS code."
+    },
+    {
+      "provision_index": 5,
+      "account_name": "Operation and Maintenance, Army",
+      "agency": "Department of Defense",
+      "dollars": 1493532000,
+      "fas_code": "021-2020",
+      "fas_title": "Operation and Maintenance, Army",
+      "confidence": "high",
+      "method": "llm_resolved",
+      "reasoning": "Standard Army O&M account under agency 021 (Department of the Army). Not in provided list but known TAS code."
+    },
+    {
+      "provision_index": 6,
+      "account_name": "Operation and Maintenance, Navy",
+      "agency": "Department of Defense",
+      "dollars": 939779000,
+      "fas_code": "017-1804",
+      "fas_title": "Operation and Maintenance, Navy",
+      "confidence": "high",
+      "method": "llm_resolved",
+      "reasoning": "Standard Navy O&M account under agency 017 (Department of the Navy). Not in provided list but known TAS code."
+    },
+    {
+      "provision_index": 7,
+      "account_name": "Operation and Maintenance, Air Force",
+      "agency": "Department of Defense",
+      "dollars": 195262000,
+      "fas_code": "057-3400",
+      "fas_title": "Operation and Maintenance, Air Force",
+      "confidence": "high",
+      "method": "llm_resolved",
+      "reasoning": "Standard Air Force O&M account under agency 057 (Department of the Air Force). Not in provided list but known TAS code."
+    },
+    {
+      "provision_index": 8,
+      "account_name": "Operation and Maintenance, Space Force",
+      "agency": "Department of Defense",
+      "dollars": 800000,
+      "fas_code": "057-3401",
+      "fas_title": "Operation and Maintenance, Space Force",
+      "confidence": "inferred",
+      "method": "llm_resolved",
+      "reasoning": "Space Force O&M account under agency 057 (Department of the Air Force). Not in provided list but known TAS code."
+    },
+    {
+      "provision_index": 9,
+      "account_name": "Operation and Maintenance, Defense-Wide",
+      "agency": "Department of Defense",
+      "dollars": 15256824000,
+      "fas_code": "097-0100",
+      "fas_title": "Operation and Maintenance, Defense-Wide, Defense",
+      "confidence": "verified",
+      "method": "agency_disambiguated"
+    },
+    {
+      "provision_index": 12,
+      "account_name": "Missile Procurement, Army",
+      "agency": "Department of Defense",
+      "dollars": 350970000,
+      "fas_code": "021-2032",
+      "fas_title": "Missile Procurement, Army",
+      "confidence": "verified",
+      "method": "agency_disambiguated"
+    },
+    {
+      "provision_index": 13,
+      "account_name": "Procurement of Weapons and Tracked Combat Vehicles, Army",
+      "agency": "Department of Defense",
+      "dollars": 255000,
+      "fas_code": "021-2033",
+      "fas_title": "Procurement of Weapons and Tracked Combat Vehicles, Army",
+      "confidence": "verified",
+      "method": "direct_match"
+    },
+    {
+      "provision_index": 14,
+      "account_name": "Procurement of Ammunition, Army",
+      "agency": "Department of Defense",
+      "dollars": 45000,
+      "fas_code": "021-2034",
+      "fas_title": "Procurement of Ammunition, Army",
+      "confidence": "verified",
+      "method": "agency_disambiguated"
+    },
+    {
+      "provision_index": 15,
+      "account_name": "Other Procurement, Army",
+      "agency": "Department of Defense",
+      "dollars": 113440000,
+      "fas_code": "021-2035",
+      "fas_title": "Other Procurement, Army",
+      "confidence": "verified",
+      "method": "agency_disambiguated"
+    },
+    {
+      "provision_index": 16,
+      "account_name": "Other Procurement, Navy",
+      "agency": "Department of Defense",
+      "dollars": 1250000,
+      "fas_code": "017-1810",
+      "fas_title": "Other Procurement, Navy",
+      "confidence": "verified",
+      "method": "agency_disambiguated"
+    },
+    {
+      "provision_index": 17,
+      "account_name": "Aircraft Procurement, Air Force",
+      "agency": "Department of Defense",
+      "dollars": 28500000,
+      "fas_code": "057-3010",
+      "fas_title": "Aircraft Procurement, Air Force",
+      "confidence": "verified",
+      "method": "agency_disambiguated"
+    },
+    {
+      "provision_index": 18,
+      "account_name": "Other Procurement, Air Force",
+      "agency": "Department of Defense",
+      "dollars": 155382000,
+      "fas_code": "057-3080",
+      "fas_title": "Other Procurement, Air Force",
+      "confidence": "verified",
+      "method": "agency_disambiguated"
+    },
+    {
+      "provision_index": 19,
+      "account_name": "Procurement, Defense-Wide",
+      "agency": "Department of Defense",
+      "dollars": 24218000,
+      "fas_code": "097-0300",
+      "fas_title": "Procurement, Defense-Wide",
+      "confidence": "verified",
+      "method": "agency_disambiguated"
+    },
+    {
+      "provision_index": 20,
+      "account_name": "Defense Production Act Purchases",
+      "agency": "Department of Defense",
+      "dollars": 600000000,
+      "fas_code": "097-0360",
+      "fas_title": "Defense Production Act Purchases, Defense",
+      "confidence": "verified",
+      "method": "direct_match"
+    },
+    {
+      "provision_index": 21,
+      "account_name": "Research, Development, Test and Evaluation, Army",
+      "agency": "Department of Defense",
+      "dollars": 128700000,
+      "fas_code": "021-2040",
+      "fas_title": "Research, Development, Test and Evaluation, Army",
+      "confidence": "high",
+      "method": "llm_resolved",
+      "reasoning": "Standard Army RDT&E account under agency 021 (Department of the Army). Not in provided list but known TAS code."
+    },
+    {
+      "provision_index": 22,
+      "account_name": "Research, Development, Test and Evaluation, Navy",
+      "agency": "Department of Defense",
+      "dollars": 43000000,
+      "fas_code": "017-1319",
+      "fas_title": "Research, Development, Test and Evaluation, Navy",
+      "confidence": "high",
+      "method": "llm_resolved",
+      "reasoning": "Standard Navy RDT&E account under agency 017 (Department of the Navy). Not in provided list but known TAS code."
+    },
+    {
+      "provision_index": 23,
+      "account_name": "Research, Development, Test and Evaluation, Air Force",
+      "agency": "Department of Defense",
+      "dollars": 119815000,
+      "fas_code": "057-3600",
+      "fas_title": "Research, Development, Test and Evaluation, Air Force",
+      "confidence": "high",
+      "method": "llm_resolved",
+      "reasoning": "Standard Air Force RDT&E account under agency 057 (Department of the Air Force). Not in provided list but known TAS code."
+    },
+    {
+      "provision_index": 24,
+      "account_name": "Research, Development, Test and Evaluation, Defense-Wide",
+      "agency": "Department of Defense",
+      "dollars": 72103000,
+      "fas_code": "097-0400",
+      "fas_title": "Research, Development, Test, and Evaluation, Defense-Wide",
+      "confidence": "high",
+      "method": "llm_resolved",
+      "reasoning": "Direct match to 097-0400 in the provided list. Bill says 'Defense-Wide' which corresponds to DOD-wide agency 097."
+    },
+    {
+      "provision_index": 25,
+      "account_name": "Defense Working Capital Funds",
+      "agency": "Department of Defense",
+      "dollars": 965000,
+      "fas_code": "097-4930",
+      "fas_title": "Defense Working Capital Funds",
+      "confidence": "high",
+      "method": "llm_resolved",
+      "reasoning": "Standard Defense Working Capital Fund account. This is a revolving fund (4000+ range) so not in the provided main-account list, but is the correct TAS code."
+    },
+    {
+      "provision_index": 26,
+      "account_name": "Defense Health Program",
+      "agency": "Department of Defense",
+      "dollars": 13900000,
+      "fas_code": "097-0130",
+      "fas_title": "Defense Health Program, Defense",
+      "confidence": "verified",
+      "method": "direct_match"
+    },
+    {
+      "provision_index": 33,
+      "account_name": "Salaries and Expenses",
+      "agency": "Nuclear Regulatory Commission",
+      "dollars": 2000000,
+      "fas_code": "031-0200",
+      "fas_title": "Salaries and Expenses, Nuclear Regulatory Commission",
+      "confidence": "verified",
+      "method": "agency_disambiguated"
+    },
+    {
+      "provision_index": 34,
+      "account_name": "CDC-Wide Activities and Program Support",
+      "agency": "Department of Health and Human Services",
+      "dollars": 54000000,
+      "fas_code": "075-0943",
+      "fas_title": "CDC-Wide Activities and Program Support, Centers for Disease Control and Prevention, Health and Human Services",
+      "confidence": "verified",
+      "method": "direct_match"
+    },
+    {
+      "provision_index": 35,
+      "account_name": "Refugee and Entrant Assistance",
+      "agency": "Department of Health and Human Services",
+      "dollars": 900000000,
+      "fas_code": "075-1503",
+      "fas_title": "Refugee and Entrant Assistance, Administration for Children and Families, Health and Human Services",
+      "confidence": "verified",
+      "method": "direct_match"
+    },
+    {
+      "provision_index": 37,
+      "account_name": "Diplomatic Programs",
+      "agency": "Department of State",
+      "dollars": 190000000,
+      "fas_code": "019-0113",
+      "fas_title": "Diplomatic and Consular Programs, State",
+      "confidence": "high",
+      "method": "llm_resolved",
+      "reasoning": "Bill uses shorthand 'Diplomatic Programs'; the full TAS title is 'Diplomatic and Consular Programs, State' (019-0113). This is the standard appropriation account for State Department diplomatic operations."
+    },
+    {
+      "provision_index": 38,
+      "account_name": "Capital Investment Fund",
+      "agency": "Department of State",
+      "dollars": 10000000,
+      "fas_code": "019-0120",
+      "fas_title": "Capital Investment Fund, State",
+      "confidence": "verified",
+      "method": "direct_match"
+    },
+    {
+      "provision_index": 39,
+      "account_name": "Office of Inspector General",
+      "agency": "Department of State",
+      "dollars": 4000000,
+      "fas_code": "019-0529",
+      "fas_title": "Office of the Inspector General, State",
+      "confidence": "high",
+      "method": "llm_resolved",
+      "reasoning": "Bill says 'Office of Inspector General'; TAS title is 'Office of the Inspector General, State' (019-0529). Direct match with minor article difference."
+    },
+    {
+      "provision_index": 40,
+      "account_name": "Embassy Security, Construction, and Maintenance",
+      "agency": "Department of State",
+      "dollars": 110000000,
+      "fas_code": "019-0535",
+      "fas_title": "Embassy Security, Construction, and Maintenance, State",
+      "confidence": "verified",
+      "method": "direct_match"
+    },
+    {
+      "provision_index": 41,
+      "account_name": "Operating Expenses",
+      "agency": "United States Agency for International Development",
+      "dollars": 17000000,
+      "fas_code": "072-1000",
+      "fas_title": "Operating Expenses of the United States Agency for International Development, Funds Appropriated to the President",
+      "confidence": "high",
+      "method": "llm_resolved",
+      "reasoning": "Direct match: 'Operating Expenses' of USAID maps to TAS 072-1000."
+    },
+    {
+      "provision_index": 42,
+      "account_name": "Office of Inspector General",
+      "agency": "United States Agency for International Development",
+      "dollars": 1000000,
+      "fas_code": "072-1007",
+      "fas_title": "Operating Expenses of the United States Agency for International Development, Office of Inspector General, Funds Appropriated to the President",
+      "confidence": "high",
+      "method": "llm_resolved",
+      "reasoning": "Direct match: 'Office of Inspector General' of USAID maps to TAS 072-1007, which is the USAID OIG operating expenses account."
+    },
+    {
+      "provision_index": 43,
+      "account_name": "International Disaster Assistance",
+      "agency": "United States Agency for International Development",
+      "dollars": 4348000000,
+      "fas_code": "072-1035",
+      "fas_title": "International Disaster Assistance, Funds Appropriated to the President, U.S. Agency for International Development",
+      "confidence": "verified",
+      "method": "direct_match"
+    },
+    {
+      "provision_index": 44,
+      "account_name": "Economic Support Fund",
+      "agency": "Department of State",
+      "dollars": 8766000000,
+      "fas_code": "072-1037",
+      "fas_title": "Economic Support Fund, Funds Appropriated to the President",
+      "confidence": "verified",
+      "method": "direct_match"
+    },
+    {
+      "provision_index": 46,
+      "account_name": "Migration and Refugee Assistance",
+      "agency": "Department of State",
+      "dollars": 350000000,
+      "fas_code": "019-1143",
+      "fas_title": "Migration and Refugee Assistance, State",
+      "confidence": "verified",
+      "method": "direct_match"
+    },
+    {
+      "provision_index": 47,
+      "account_name": "International Narcotics Control and Law Enforcement",
+      "agency": "Department of State",
+      "dollars": 400000000,
+      "fas_code": "019-1022",
+      "fas_title": "International Narcotics Control and Law Enforcement, State",
+      "confidence": "verified",
+      "method": "agency_disambiguated"
+    },
+    {
+      "provision_index": 48,
+      "account_name": "Nonproliferation, Anti-terrorism, Demining and Related Programs",
+      "agency": "Department of State",
+      "dollars": 100000000,
+      "fas_code": "019-1075",
+      "fas_title": "Nonproliferation, Anti-terrorism, Demining and Related Programs, State",
+      "confidence": "inferred",
+      "method": "llm_resolved",
+      "reasoning": "This is the well-known NADR account at State Department with TAS 019-1075. It is not present in the provided TAS list, but this is the correct TAS code from established knowledge of State Department appropriation accounts."
+    },
+    {
+      "provision_index": 49,
+      "account_name": "Foreign Military Financing Program",
+      "agency": "Department of State",
+      "dollars": 4000000000,
+      "fas_code": "011-1082",
+      "fas_title": "Foreign Military Financing Program, Funds Appropriated to the President",
+      "confidence": "verified",
+      "method": "direct_match"
+    },
+    {
+      "provision_index": 50,
+      "account_name": "Contribution to the European Bank for Reconstruction and Development",
+      "agency": "Department of the Treasury",
+      "dollars": 500000000,
+      "fas_code": "020-0088",
+      "fas_title": "Contribution to the European Bank for Reconstruction and Development, Treasury",
+      "confidence": "verified",
+      "method": "direct_match"
+    },
+    {
+      "provision_index": 51,
+      "account_name": "Global Agriculture and Food Security Program",
+      "agency": "Department of the Treasury",
+      "dollars": 150000000,
+      "fas_code": "020-1475",
+      "fas_title": "Global Agriculture and Food Security Program, Treasury",
+      "confidence": "verified",
+      "method": "direct_match"
+    }
+  ],
+  "summary": {
+    "total_provisions": 42,
+    "deterministic_matched": 24,
+    "llm_matched": 18,
+    "unmatched": 0,
+    "unique_fas_codes": 42,
+    "match_rate_pct": 100.0
+  }
+}

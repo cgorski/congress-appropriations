@@ -1,0 +1,39 @@
+{
+  "schema_version": "1.0",
+  "bill_dir": "116-hr3055",
+  "bill_identifier": "H.R. 3055",
+  "model": "claude-opus-4-6",
+  "fas_reference_hash": "dc6f3d8435cd85ee2ae7a9c3473488206bc8d1324783132d08faa1db203d1671",
+  "timestamp": "2026-03-22T20:48:57.536427+00:00",
+  "mappings": [
+    {
+      "provision_index": 1,
+      "account_name": "Department of Commerce—Bureau of the Census—Periodic Censuses and Programs",
+      "agency": "Department of Commerce",
+      "dollars": 7284319000,
+      "fas_code": "013-0450",
+      "fas_title": "Periodic Census and Programs, Bureau of the Census, Commerce",
+      "confidence": "high",
+      "method": "llm_resolved",
+      "reasoning": "The provision 'Periodic Censuses and Programs' matches TAS 013-0450 'Periodic Census and Programs, Bureau of the Census, Commerce'. The slight difference ('Censuses' vs 'Census') is a common variation between bill text and official TAS title. Agency (Bureau of the Census) and department (Commerce) match exactly."
+    },
+    {
+      "provision_index": 9,
+      "account_name": "Payments in Lieu of Taxes",
+      "agency": "Department of the Interior",
+      "dollars": 400000,
+      "fas_code": "014-1114",
+      "fas_title": "Payments in Lieu of Taxes, Departmental Management, Interior",
+      "confidence": "verified",
+      "method": "direct_match"
+    }
+  ],
+  "summary": {
+    "total_provisions": 2,
+    "deterministic_matched": 1,
+    "llm_matched": 1,
+    "unmatched": 0,
+    "unique_fas_codes": 2,
+    "match_rate_pct": 100.0
+  }
+}

@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="billres.xsl"?>
+<!DOCTYPE bill PUBLIC "-//US Congress//DTDs/bill.dtd//EN" "bill.dtd">
+<bill bill-stage="Enrolled-Bill" bill-type="olc" dms-id="HD27A150FDA02459D823ABA24D4A81417" key="H" public-private="public" stage-count="1"> 
+<metadata xmlns:dc="http://purl.org/dc/elements/1.1/">
+<dublinCore>
+<dc:title> HR 1520 ENR: Further Extension of Continuing Appropriations Act, 2021</dc:title>
+<dc:publisher>U.S. House of Representatives</dc:publisher>
+<dc:date></dc:date>
+<dc:format>text/xml</dc:format>
+<dc:language>EN</dc:language>
+<dc:rights>Pursuant to Title 17 Section 105 of the United States Code, this file is not subject to copyright protection and is in the public domain.</dc:rights>
+</dublinCore>
+</metadata>
+<form>
+<distribution-code display="no">IB</distribution-code> 
+<congress display="yes">One Hundred Sixteenth Congress of the United States of America</congress><session display="yes">At the Second Session</session><enrolled-dateline>Begun and held at the City of Washington on Friday, the third day of January, two thousand and twenty</enrolled-dateline> 
+<legis-num display="yes">H. R. 1520</legis-num> 
+<current-chamber display="no"></current-chamber> 
+<legis-type>AN ACT</legis-type> 
+<official-title display="yes">Making further continuing appropriations for fiscal year 2021, and for other purposes.</official-title> 
+</form> 
+<legis-body display-enacting-clause="yes-display-enacting-clause" style="OLC" id="H89AC3FA5E28B40A4B3A231592A458A4F"> 
+<section id="H61688757182E47A9AEC36AEC89621E48" display-inline="yes-display-inline" section-type="undesignated-section"><text display-inline="yes-display-inline">That the Continuing Appropriations Act, 2021 (division A of <external-xref legal-doc="public-law" parsable-cite="pl/116/159">Public Law 116–159</external-xref>) is further amended by striking the date specified in section 106(3) and inserting <quote>December 28, 2020</quote>.</text></section> <section id="H10B265FD15884C6B87B57466484C1107" display-inline="no-display-inline" section-type="undesignated-section"><text display-inline="yes-display-inline">This Act may be cited as the <quote><short-title>Further Extension of Continuing Appropriations Act, 2021</short-title></quote>.</text></section>
+</legis-body> <attestation><attestation-group><role>Speaker of the House of Representatives.</role></attestation-group><attestation-group><role>Vice President of the United States and President of the Senate.</role></attestation-group></attestation>
+</bill> 
+
+

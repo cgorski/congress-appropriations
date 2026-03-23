@@ -33,7 +33,7 @@ use congress_appropriations::load_bills;
 use std::path::Path;
 
 fn main() -> anyhow::Result<()> {
-    let bills = load_bills(Path::new("examples"))?;
+    let bills = load_bills(Path::new("data"))?;
     println!("Loaded {} bills", bills.len());
 
     for bill in &bills {
@@ -86,7 +86,7 @@ use congress_appropriations::{load_bills, query};
 use std::path::Path;
 
 fn main() -> anyhow::Result<()> {
-    let bills = load_bills(Path::new("examples"))?;
+    let bills = load_bills(Path::new("data"))?;
     let summaries = query::summarize(&bills);
 
     for s in &summaries {
@@ -420,7 +420,7 @@ use std::path::Path;
 
 fn main() -> anyhow::Result<()> {
     // Load all bills under data/
-    let bills = load_bills(Path::new("examples"))?;
+    let bills = load_bills(Path::new("data"))?;
     println!("Loaded {} bills with {} total provisions\n",
         bills.len(),
         bills.iter().map(|b| b.extraction.provisions.len()).sum::<usize>()

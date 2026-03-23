@@ -187,6 +187,8 @@ The `enrich` command also classifies each budget authority provision as current-
 | `data/119-hr6938/` | H.R. 6938 | Minibus: CJS + Energy-Water + Interior | 1,028 |
 | `data/119-hr1968/` | H.R. 1968 | Full-year CR with appropriations (FY2025) | 514 |
 
+> **Note:** Provision counts shown here are from the `extraction.json` files. The `summary` command may report slightly different counts because it includes provisions from enrichment metadata. Use `audit` for definitive per-bill counts.
+
 **Totals:** 32 bills, 34,568 provisions, $21.5 trillion in budget authority across FY2019–FY2026. 1,051 accounts resolved to Treasury Account Symbols with 937 linked across multiple bills.
 
 Each bill directory contains the enrolled XML, extracted provisions (`extraction.json`), verification report, extraction metadata, bill metadata, TAS mapping, embeddings, and clean source text. Every provision carries a `source_span` pointing to its exact byte position in the enrolled bill.
@@ -393,7 +395,7 @@ congress-approp summary --dir data --fy 2026
 0 dollar amounts unverified across all bills. Run `congress-approp audit` for detailed verification.
 ```
 
-Without `--fy`, the summary shows all 14 bills across FY2024–FY2026 ($8.9 trillion total). Use `--subcommittee thud` to narrow further to a specific jurisdiction, and `--show-advance` to separate current-year from advance appropriations.
+Without `--fy`, the summary shows all 32 bills across FY2019–FY2026 ($21.5 trillion total). Use `--subcommittee thud` to narrow further to a specific jurisdiction, and `--show-advance` to separate current-year from advance appropriations.
 
 Budget authority is computed from the actual provisions, not the LLM's self-reported summary.
 
@@ -619,7 +621,16 @@ Normalizations are stored in `dataset.json` — a small, human-editable JSON fil
 | `summary` | Show summary of all extracted bills |
 | `compare` | Compare provisions between two sets of bills (use `--exact` to disable normalization) |
 | `audit` | Show verification and quality report |
+| `verify-text` | Verify raw text against source and add byte-level source spans (no API key needed) |
+| `resolve-tas` | Map provisions to Treasury Account Symbols via FAST Book + Claude Opus |
+| `authority build` | Build cross-bill account registry from TAS mappings (no API key needed) |
+| `authority list` | List all accounts in the authority registry |
+| `trace` | Track a federal account across all fiscal years by FAS code or name |
 | `relate` | Deep-dive on one provision across all bills (requires embeddings) |
+| `link suggest` | Compute cross-bill provision link candidates from embeddings |
+| `link accept` | Persist link candidates by hash |
+| `link remove` | Remove accepted links by hash |
+| `link list` | Show all accepted links |
 | `normalize suggest-text-match` | Discover agency naming variants using local analysis |
 | `normalize suggest-llm` | Discover agency naming variants using LLM with XML context |
 | `normalize accept` | Accept suggestions by hash, write to `dataset.json` |
@@ -723,17 +734,19 @@ Every extraction produces per-chunk artifacts in `chunks/` with ULIDs. Each arti
 
 ### Accuracy
 
-Across 11,136 provisions from fourteen enacted appropriations bills (118th and 119th Congress, FY2024–FY2026):
+Across 34,568 provisions from 32 enacted appropriations bills (116th–119th Congress, FY2019–FY2026):
 
 | Metric | Result |
 |--------|--------|
-| Provisions extracted | 11,136 across 14 bills |
-| Dollar amounts not found in source | **0** |
-| Dollar amount internal consistency | **0 mismatches** across all provisions with parsed amounts |
+| Provisions extracted | 34,568 across 32 bills |
+| Dollar amounts not found in source | **1** (0.005% — a multi-amount edge case in H.R. 2471) |
+| Source traceability | **100%** — every provision has exact byte positions in the enrolled bill |
+| Raw text exact match rate | 94.6% (32,691 of 34,568) |
+| TAS resolution rate | 99.4% (6,645 of 6,685 top-level appropriations mapped to Federal Account Symbols) |
+| Accounts tracked across bills | 1,051 unique FAS codes, 937 linked across multiple bills |
+| Rename events detected | 40 (with fiscal year boundaries) |
 | CR substitution pairs verified | **100%** |
 | Sub-allocation accounting | Correctly excluded from budget authority totals |
-| Raw text exact match rate | 95.5% |
-| Advance appropriations detected | $1.49 trillion (FY-aware classification, 100% accuracy) |
 
 The `audit` command shows a detailed verification breakdown including a coverage metric (percentage of dollar strings in the source text matched to an extracted provision). Coverage below 100% does not indicate errors — many dollar strings in bill text are statutory references, loan guarantee ceilings, or old amounts being struck by amendments, all of which are correctly excluded from extraction.
 

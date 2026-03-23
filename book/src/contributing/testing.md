@@ -64,7 +64,7 @@ The single most important test in the suite is `budget_authority_totals_match_ex
 #[test]
 fn budget_authority_totals_match_expected() {
     let output = cmd()
-        .args(["summary", "--dir", "examples", "--format", "json"])
+        .args(["summary", "--dir", "data", "--format", "json"])
         .output()
         .unwrap();
 
@@ -190,7 +190,7 @@ fn cmd() -> Command {
 #[test]
 fn summary_table_runs_successfully() {
     cmd()
-        .args(["summary", "--dir", "examples"])
+        .args(["summary", "--dir", "data"])
         .assert()
         .success()
         .stdout(predicates::str::contains("H.R. 4366"))
@@ -234,7 +234,7 @@ The test suite covers these commands and scenarios:
 fn my_new_command_works() {
     // 1. Run the command against example data
     let output = cmd()
-        .args(["my-command", "--dir", "examples", "--format", "json"])
+        .args(["my-command", "--dir", "data", "--format", "json"])
         .output()
         .unwrap();
 

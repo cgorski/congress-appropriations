@@ -253,7 +253,7 @@ Add tests in `tests/cli_tests.rs` that run the actual binary against the example
 #[test]
 fn top_runs_successfully() {
     cmd()
-        .args(["top", "--dir", "examples", "-n", "5"])
+        .args(["top", "--dir", "data", "-n", "5"])
         .assert()
         .success()
         .stdout(predicates::str::contains("H.R. 4366"));
@@ -262,7 +262,7 @@ fn top_runs_successfully() {
 #[test]
 fn top_json_output_is_valid() {
     let output = cmd()
-        .args(["top", "--dir", "examples", "-n", "3", "--format", "json"])
+        .args(["top", "--dir", "data", "-n", "3", "--format", "json"])
         .output()
         .unwrap();
 
@@ -280,7 +280,7 @@ fn top_json_output_is_valid() {
 #[test]
 fn top_with_type_filter() {
     let output = cmd()
-        .args(["top", "--dir", "examples", "-n", "5", "--type", "rescission", "--format", "json"])
+        .args(["top", "--dir", "data", "-n", "5", "--type", "rescission", "--format", "json"])
         .output()
         .unwrap();
 
@@ -297,7 +297,7 @@ fn top_with_type_filter() {
 ### Test conventions
 
 - Use the `cmd()` helper function (defined at the top of `cli_tests.rs`) to get a `Command` for the binary
-- Test with `--dir examples` to use the included example data
+- Test with `--dir data` to use the included example data
 - Test all output formats (`table`, `json`, `csv`)
 - Test filter combinations
 - Verify JSON output parses correctly
@@ -328,9 +328,9 @@ congress-approp top [OPTIONS]
 ### Examples
 
 \`\`\`bash
-congress-approp top --dir examples -n 5
-congress-approp top --dir examples -n 10 --type rescission
-congress-approp top --dir examples -n 20 --format csv > top_provisions.csv
+congress-approp top --dir data -n 5
+congress-approp top --dir data -n 10 --type rescission
+congress-approp top --dir data -n 20 --format csv > top_provisions.csv
 \`\`\`
 ```
 
@@ -351,7 +351,7 @@ cargo clippy -- -D warnings         # Lint (CI treats warnings as errors)
 cargo test                          # Run all tests
 
 # Data integrity check (budget totals must be unchanged):
-./target/release/congress-approp summary --dir examples --format json | python3 -c "
+./target/release/congress-approp summary --dir data --format json | python3 -c "
 import sys, json
 expected = {'H.R. 4366': 846137099554, 'H.R. 5860': 16000000000, 'H.R. 9468': 2882482000}
 for b in json.load(sys.stdin):

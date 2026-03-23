@@ -1,0 +1,149 @@
+{
+  "schema_version": "1.0",
+  "congress": 116,
+  "fiscal_years": [
+    2020
+  ],
+  "bill_nature": "continuing_resolution",
+  "subcommittees": [
+    {
+      "division": "A",
+      "jurisdiction": "continuing_resolution",
+      "title": "Continuing Appropriations Act, 2020",
+      "source": {
+        "type": "pattern_match",
+        "pattern": "continuing appropriations"
+      }
+    },
+    {
+      "division": "B",
+      "jurisdiction": "other",
+      "title": "Health and Human Services Extenders and Other Matters",
+      "source": {
+        "type": "pattern_match",
+        "pattern": "other matters"
+      }
+    }
+  ],
+  "provision_timing": [
+    {
+      "provision_index": 20,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 28,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 30,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 32,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 33,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 42,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 43,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    }
+  ],
+  "canonical_accounts": [
+    {
+      "provision_index": 20,
+      "canonical_name": "marketing services"
+    },
+    {
+      "provision_index": 24,
+      "canonical_name": "ukraine security assistance initiative"
+    },
+    {
+      "provision_index": 25,
+      "canonical_name": "ukraine security assistance initiative"
+    },
+    {
+      "provision_index": 26,
+      "canonical_name": "colorado river basins power marketing fund, western area power administration"
+    },
+    {
+      "provision_index": 28,
+      "canonical_name": "committee on foreign investment in the united states fund"
+    },
+    {
+      "provision_index": 30,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 31,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 32,
+      "canonical_name": "business loans program account"
+    },
+    {
+      "provision_index": 33,
+      "canonical_name": "disaster loans program account"
+    },
+    {
+      "provision_index": 34,
+      "canonical_name": "disaster loans program account"
+    },
+    {
+      "provision_index": 35,
+      "canonical_name": "disaster loans program account"
+    },
+    {
+      "provision_index": 36,
+      "canonical_name": "disaster loans program account"
+    },
+    {
+      "provision_index": 37,
+      "canonical_name": "disaster loans program account"
+    },
+    {
+      "provision_index": 42,
+      "canonical_name": "indian health services"
+    },
+    {
+      "provision_index": 43,
+      "canonical_name": "indian health facilities"
+    }
+  ],
+  "extraction_sha256": "60bbb2788916b641bc5e0e557aaf31e82b32b6a6db454b3e746b845da4520176"
+}

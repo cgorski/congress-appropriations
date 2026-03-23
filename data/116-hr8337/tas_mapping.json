@@ -1,0 +1,114 @@
+{
+  "schema_version": "1.0",
+  "bill_dir": "116-hr8337",
+  "bill_identifier": "H.R. 8337",
+  "model": "claude-opus-4-6",
+  "fas_reference_hash": "dc6f3d8435cd85ee2ae7a9c3473488206bc8d1324783132d08faa1db203d1671",
+  "timestamp": "2026-03-22T20:49:58.761345+00:00",
+  "mappings": [
+    {
+      "provision_index": 25,
+      "account_name": "Department of Commerce—Bureau of the Census—Periodic Censuses and Programs",
+      "agency": "Department of Commerce",
+      "dollars": 1514709000,
+      "fas_code": "013-0450",
+      "fas_title": "Periodic Census and Programs, Bureau of the Census, Commerce",
+      "confidence": "high",
+      "method": "llm_resolved",
+      "reasoning": "The provision 'Periodic Censuses and Programs' matches TAS 013-0450 'Periodic Census and Programs, Bureau of the Census, Commerce'. The slight difference ('Censuses' vs 'Census') is a common variation between bill text and official TAS title; the bureau and function are identical."
+    },
+    {
+      "provision_index": 33,
+      "account_name": "District of Columbia—Federal Payment for Emergency Planning and Security Costs in the District of Columbia",
+      "agency": "District of Columbia",
+      "dollars": 13000000,
+      "fas_code": "020-1771",
+      "fas_title": "Federal Payment for Emergency Planning and Security Costs in the District of Columbia, Treasury",
+      "confidence": "verified",
+      "method": "suffix_match"
+    },
+    {
+      "provision_index": 38,
+      "account_name": "General Services Administration—Expenses, Presidential Transition",
+      "agency": "General Services Administration",
+      "dollars": 9900000,
+      "fas_code": "047-0107",
+      "fas_title": "Expenses, Presidential Transition, General Services Administration",
+      "confidence": "high",
+      "method": "llm_resolved",
+      "reasoning": "Direct match: 'Expenses, Presidential Transition' in the provision maps exactly to TAS 047-0107."
+    },
+    {
+      "provision_index": 42,
+      "account_name": "Presidential Transition Administrative Support",
+      "agency": "Executive Office of the President",
+      "dollars": 8000000,
+      "fas_code": "011-0108",
+      "fas_title": "Presidential Transition Administrative Support, Executive Office of the President",
+      "confidence": "verified",
+      "method": "direct_match"
+    },
+    {
+      "provision_index": 43,
+      "account_name": "National Archives and Records Administration—Operating Expenses",
+      "agency": "National Archives and Records Administration",
+      "dollars": 18000000,
+      "fas_code": "088-0300",
+      "fas_title": "Operating Expenses, National Archives and Records Administration",
+      "confidence": "high",
+      "method": "llm_resolved",
+      "reasoning": "Direct match: 'Operating Expenses' under NARA maps to TAS 088-0300."
+    },
+    {
+      "provision_index": 79,
+      "account_name": "House of Representatives—Salaries and Expenses",
+      "agency": "Legislative Branch",
+      "dollars": 1383725000,
+      "fas_code": "000-0400",
+      "fas_title": "Salaries and Expenses, House of Representatives",
+      "confidence": "high",
+      "method": "llm_resolved",
+      "reasoning": "Direct match: 'House of Representatives—Salaries and Expenses' maps to TAS 000-0400."
+    },
+    {
+      "provision_index": 156,
+      "account_name": "Highway Account of the Highway Trust Fund",
+      "agency": "Department of the Treasury",
+      "dollars": 10400000000,
+      "fas_code": "020-8102",
+      "fas_title": "Highway Account, Highway Trust Fund, Bureau of the Fiscal Service, Treasury",
+      "confidence": "inferred",
+      "method": "llm_resolved",
+      "reasoning": "The Highway Account of the Highway Trust Fund is a well-known trust fund account under Treasury with TAS 020-8102. It is not in the provided list because it falls in the 8000+ trust fund range, outside the 0000-3999 main account range."
+    },
+    {
+      "provision_index": 157,
+      "account_name": "Mass Transit Account of the Highway Trust Fund",
+      "agency": "Department of the Treasury",
+      "dollars": 3200000000,
+      "fas_code": "020-8083",
+      "fas_title": "Mass Transit Account, Highway Trust Fund, Bureau of the Fiscal Service, Treasury",
+      "confidence": "inferred",
+      "method": "llm_resolved",
+      "reasoning": "The Mass Transit Account of the Highway Trust Fund is a well-known trust fund account under Treasury with TAS 020-8083. It is not in the provided list because it falls in the 8000+ trust fund range, outside the 0000-3999 main account range."
+    },
+    {
+      "provision_index": 158,
+      "account_name": "Airport and Airway Trust Fund",
+      "agency": "Department of the Treasury",
+      "dollars": 14000000000,
+      "fas_code": "069-8103",
+      "fas_title": "Airport and Airway Trust Fund, Transportation (Footnote 1)",
+      "confidence": "verified",
+      "method": "direct_match"
+    }
+  ],
+  "summary": {
+    "total_provisions": 9,
+    "deterministic_matched": 3,
+    "llm_matched": 6,
+    "unmatched": 0,
+    "unique_fas_codes": 9,
+    "match_rate_pct": 100.0
+  }
+}

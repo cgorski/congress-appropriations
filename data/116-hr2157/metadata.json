@@ -1,0 +1,12 @@
+{
+  "extraction_version": "5.1.0",
+  "prompt_version": "v3",
+  "model": "claude-opus-4-6",
+  "schema_version": "0.3.0",
+  "source_pdf_sha256": null,
+  "source_xml_sha256": "7fdc51cfb77a207e1b4df2977070ae18819986ce4ca348ffff63bcc289dd026e",
+  "extracted_text_sha256": "7f5045d4ba6a7d2fe7a4e0c908729fce0ad78a9a509d364a20d79b4476e7578c",
+  "timestamp": "2026-03-21T12:35:33.163945+00:00",
+  "chunks_total": 1,
+  "chunks_completed": 1
+}

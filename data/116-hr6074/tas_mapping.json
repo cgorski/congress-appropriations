@@ -1,0 +1,131 @@
+{
+  "schema_version": "1.0",
+  "bill_dir": "116-hr6074",
+  "bill_identifier": "H.R. 6074",
+  "model": "claude-opus-4-6",
+  "fas_reference_hash": "dc6f3d8435cd85ee2ae7a9c3473488206bc8d1324783132d08faa1db203d1671",
+  "timestamp": "2026-03-22T20:49:32.016468+00:00",
+  "mappings": [
+    {
+      "provision_index": 0,
+      "account_name": "Salaries and Expenses",
+      "agency": "Department of Health and Human Services, Food and Drug Administration",
+      "dollars": 61000000,
+      "fas_code": "075-0600",
+      "fas_title": "Salaries and Expenses, Food and Drug Administration, Health and Human Services",
+      "confidence": "verified",
+      "method": "agency_disambiguated"
+    },
+    {
+      "provision_index": 1,
+      "account_name": "Disaster Loans Program Account",
+      "agency": "Small Business Administration",
+      "dollars": 20000000,
+      "fas_code": "073-1152",
+      "fas_title": "Disaster Loans Program Account, Small Business Administration",
+      "confidence": "verified",
+      "method": "direct_match"
+    },
+    {
+      "provision_index": 7,
+      "account_name": "CDC–Wide Activities and Program Support",
+      "agency": "Department of Health and Human Services",
+      "dollars": 2200000000,
+      "fas_code": "075-0943",
+      "fas_title": "CDC-Wide Activities and Program Support, Centers for Disease Control and Prevention, Health and Human Services",
+      "confidence": "high",
+      "method": "llm_resolved",
+      "reasoning": "Direct match: 'CDC–Wide Activities and Program Support' in the provision corresponds exactly to TAS 075-0943 'CDC-Wide Activities and Program Support' under the Centers for Disease Control and Prevention within HHS."
+    },
+    {
+      "provision_index": 15,
+      "account_name": "National Institute of Allergy and Infectious Diseases",
+      "agency": "Department of Health and Human Services",
+      "dollars": 836000000,
+      "fas_code": "075-0885",
+      "fas_title": "National Institute of Allergy and Infectious Diseases, National Institutes of Health, Health and Human Services",
+      "confidence": "verified",
+      "method": "direct_match"
+    },
+    {
+      "provision_index": 17,
+      "account_name": "Public Health and Social Services Emergency Fund",
+      "agency": "Department of Health and Human Services",
+      "dollars": 3100000000,
+      "fas_code": "075-0140",
+      "fas_title": "Public Health and Social Services Emergency Fund, Office of the Secretary, Health and Human Services",
+      "confidence": "verified",
+      "method": "direct_match"
+    },
+    {
+      "provision_index": 22,
+      "account_name": "Public Health and Social Services Emergency Fund",
+      "agency": "Department of Health and Human Services",
+      "dollars": 300000000,
+      "fas_code": "075-0140",
+      "fas_title": "Public Health and Social Services Emergency Fund, Office of the Secretary, Health and Human Services",
+      "confidence": "verified",
+      "method": "direct_match"
+    },
+    {
+      "provision_index": 30,
+      "account_name": "Diplomatic Programs",
+      "agency": "Department of State",
+      "dollars": 264000000,
+      "fas_code": "019-0113",
+      "fas_title": "Diplomatic and Consular Programs, State",
+      "confidence": "high",
+      "method": "llm_resolved",
+      "reasoning": "\"Diplomatic Programs\" in the bill is the commonly used short name for the TAS account \"Diplomatic and Consular Programs\" (019-0113). This is the primary operational account for the Department of State and the match is clear."
+    },
+    {
+      "provision_index": 31,
+      "account_name": "Office of Inspector General",
+      "agency": "United States Agency for International Development",
+      "dollars": 1000000,
+      "fas_code": "072-1007",
+      "fas_title": "Operating Expenses of the United States Agency for International Development, Office of Inspector General, Funds Appropriated to the President",
+      "confidence": "high",
+      "method": "llm_resolved",
+      "reasoning": "The provision for 'Office of Inspector General' under USAID matches TAS 072-1007, which is the OIG operating expenses account for USAID."
+    },
+    {
+      "provision_index": 32,
+      "account_name": "Global Health Programs",
+      "agency": "United States Agency for International Development",
+      "dollars": 435000000,
+      "fas_code": "019-1031",
+      "fas_title": "Global Health Programs, State",
+      "confidence": "verified",
+      "method": "direct_match"
+    },
+    {
+      "provision_index": 34,
+      "account_name": "International Disaster Assistance",
+      "agency": "United States Agency for International Development",
+      "dollars": 300000000,
+      "fas_code": "072-1035",
+      "fas_title": "International Disaster Assistance, Funds Appropriated to the President, U.S. Agency for International Development",
+      "confidence": "verified",
+      "method": "direct_match"
+    },
+    {
+      "provision_index": 35,
+      "account_name": "Economic Support Fund",
+      "agency": "Department of State",
+      "dollars": 250000000,
+      "fas_code": "072-1037",
+      "fas_title": "Economic Support Fund, Funds Appropriated to the President",
+      "confidence": "verified",
+      "method": "direct_match"
+    }
+  ],
+  "summary": {
+    "total_provisions": 11,
+    "deterministic_matched": 8,
+    "llm_matched": 3,
+    "unmatched": 0,
+    "unique_fas_codes": 10,
+    "match_rate_pct": 100.0
+  }
+}

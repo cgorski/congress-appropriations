@@ -1,0 +1,2353 @@
+{
+  "schema_version": "1.0",
+  "bill": {
+    "identifier": "H.R. 7691",
+    "classification": "supplemental",
+    "short_title": "Additional Ukraine Supplemental Appropriations Act, 2022",
+    "fiscal_years": [
+      2022
+    ],
+    "divisions": [],
+    "public_law": null
+  },
+  "provisions": [
+    {
+      "provision_type": "appropriation",
+      "account_name": "Salaries and Expenses",
+      "agency": "Department of Justice",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 67000000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$67,000,000"
+      },
+      "fiscal_year": 2022,
+      "availability": "to remain available until expended",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "I",
+      "confidence": 0.98,
+      "raw_text": "For an additional amount for ''Salaries and Expenses'', $67,000,000, to remain available until expended, for expenses authorized by section 524(c) of ti",
+      "notes": [
+        "Supplemental appropriation for DOJ General Administration; authorized by 28 USC 524(c); includes transfer authority to other DOJ accounts and authority for asset seizure/forfeiture related to Russian aggression"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "subject_to",
+          "target": "28 U.S.C. 524(c)",
+          "description": "Authorization for expenses"
+        }
+      ],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 352,
+        "end": 504,
+        "file": "BILLS-117hr7691enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Military Personnel, Army",
+      "agency": "Department of Defense",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 12750000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$12,750,000"
+      },
+      "fiscal_year": 2022,
+      "availability": "to remain available until September 30, 2022",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "II",
+      "confidence": 0.98,
+      "raw_text": "For an additional amount for ''Military Personnel, Army'', $12,750,000, to remain available until September 30, 2022, to respond to the situation in Ukra",
+      "notes": [
+        "Includes hardship duty pay"
+      ],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 1589,
+        "end": 1742,
+        "file": "BILLS-117hr7691enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Military Personnel, Navy",
+      "agency": "Department of Defense",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 37500
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$37,500"
+      },
+      "fiscal_year": 2022,
+      "availability": "to remain available until September 30, 2022",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "II",
+      "confidence": 0.98,
+      "raw_text": "For an additional amount for ''Military Personnel, Navy'', $37,500, to remain available until September 30, 2022, to respond to the situation in Ukraine ",
+      "notes": [
+        "Includes hardship duty pay"
+      ],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 1830,
+        "end": 1983,
+        "file": "BILLS-117hr7691enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Military Personnel, Marine Corps",
+      "agency": "Department of Defense",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 675000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$675,000"
+      },
+      "fiscal_year": 2022,
+      "availability": "to remain available until September 30, 2022",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "II",
+      "confidence": 0.98,
+      "raw_text": "For an additional amount for ''Military Personnel, Marine Corps'', $675,000, to remain available until September 30, 2022, to respond to the situation in",
+      "notes": [
+        "Includes hardship duty pay"
+      ],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 2075,
+        "end": 2228,
+        "file": "BILLS-117hr7691enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Military Personnel, Air Force",
+      "agency": "Department of Defense",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 1590000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$1,590,000"
+      },
+      "fiscal_year": 2022,
+      "availability": "to remain available until September 30, 2022",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "II",
+      "confidence": 0.98,
+      "raw_text": "For an additional amount for ''Military Personnel, Air Force'', $1,590,000, to remain available until September 30, 2022, to respond to the situation in ",
+      "notes": [
+        "Includes hardship duty pay"
+      ],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 2326,
+        "end": 2479,
+        "file": "BILLS-117hr7691enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Operation and Maintenance, Army",
+      "agency": "Department of Defense",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 1493532000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$1,493,532,000"
+      },
+      "fiscal_year": 2022,
+      "availability": "to remain available until September 30, 2022",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "II",
+      "confidence": 0.98,
+      "raw_text": "For an additional amount for ''Operation and Maintenance, Army'', $1,493,532,000, to remain available until September 30, 2022, to respond to the situati",
+      "notes": [],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 2604,
+        "end": 2757,
+        "file": "BILLS-117hr7691enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Operation and Maintenance, Navy",
+      "agency": "Department of Defense",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 939779000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$939,779,000"
+      },
+      "fiscal_year": 2022,
+      "availability": "to remain available until September 30, 2022",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "II",
+      "confidence": 0.98,
+      "raw_text": "For an additional amount for ''Operation and Maintenance, Navy'', $939,779,000, to remain available until September 30, 2022, to respond to the situation",
+      "notes": [],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 2829,
+        "end": 2982,
+        "file": "BILLS-117hr7691enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Operation and Maintenance, Air Force",
+      "agency": "Department of Defense",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 195262000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$195,262,000"
+      },
+      "fiscal_year": 2022,
+      "availability": "to remain available until September 30, 2022",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "II",
+      "confidence": 0.98,
+      "raw_text": "For an additional amount for ''Operation and Maintenance, Air Force'', $195,262,000, to remain available until September 30, 2022, to respond to the situ",
+      "notes": [],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 3058,
+        "end": 3211,
+        "file": "BILLS-117hr7691enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Operation and Maintenance, Space Force",
+      "agency": "Department of Defense",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 800000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$800,000"
+      },
+      "fiscal_year": 2022,
+      "availability": "to remain available until September 30, 2022",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "II",
+      "confidence": 0.98,
+      "raw_text": "For an additional amount for ''Operation and Maintenance, Space Force'', $800,000, to remain available until September 30, 2022, to respond to the situat",
+      "notes": [],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 3293,
+        "end": 3446,
+        "file": "BILLS-117hr7691enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Operation and Maintenance, Defense-Wide",
+      "agency": "Department of Defense",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 15256824000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$15,256,824,000"
+      },
+      "fiscal_year": 2022,
+      "availability": "to remain available until September 30, 2022",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "II",
+      "confidence": 0.97,
+      "raw_text": "For an additional amount for ''Operation and Maintenance, Defense-Wide'', $15,256,824,000, to remain available until September 30, 2022, to respond to th",
+      "notes": [
+        "Largest single appropriation in the bill; includes $6B for Ukraine Security Assistance Initiative and up to $9.05B transfer authority for defense article replacement"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "subject_to",
+          "target": "Section 8139, Department of Defense Appropriations Act, 2022 (division C of Public Law 117-103)",
+          "description": "Terms and conditions for USAI funds"
+        }
+      ],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 3557,
+        "end": 3710,
+        "file": "BILLS-117hr7691enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Operation and Maintenance, Defense-Wide",
+      "agency": "Department of Defense",
+      "program": "Ukraine Security Assistance Initiative",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 6000000000
+        },
+        "semantics": "reference_amount",
+        "text_as_written": "$6,000,000,000"
+      },
+      "fiscal_year": 2022,
+      "availability": "to remain available until September 30, 2023",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "II",
+      "confidence": 0.97,
+      "raw_text": "of the total amount provided under this heading in this Act, $6,000,000,000, to remain available until September 30, 2023, shall be for the Ukraine Secu",
+      "notes": [
+        "Sub-allocation of $15,256,824,000 O&M Defense-Wide; available one year beyond the parent account; subject to same terms as section 8139 of P.L. 117-103 division C"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "subject_to",
+          "target": "Section 8139, Department of Defense Appropriations Act, 2022 (division C of Public Law 117-103)",
+          "description": "Terms and conditions for USAI"
+        }
+      ],
+      "detail_level": "sub_allocation",
+      "parent_account": "Operation and Maintenance, Defense-Wide",
+      "source_span": {
+        "start": 3774,
+        "end": 3926,
+        "file": "BILLS-117hr7691enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "transfer_authority",
+      "from_scope": "",
+      "to_scope": "",
+      "limit": "unknown",
+      "conditions": [],
+      "section": "",
+      "division": null,
+      "title": "II",
+      "confidence": 0.96,
+      "raw_text": "of the total amount provided under this heading in this Act, up to $9,050,000,000, to remain available until September 30, 2023, may be transferred to a",
+      "notes": [
+        "Transfer ceiling for replacement of defense articles from DoD stocks and reimbursement for defense services to Ukraine or supporting countries; transferable to O&M and Procurement accounts; 15-day congressional notification required"
+      ],
+      "cross_references": [],
+      "source_span": {
+        "start": 4267,
+        "end": 4419,
+        "file": "BILLS-117hr7691enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Missile Procurement, Army",
+      "agency": "Department of Defense",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 350970000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$350,970,000"
+      },
+      "fiscal_year": 2022,
+      "availability": "to remain available until September 30, 2024",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "II",
+      "confidence": 0.98,
+      "raw_text": "For an additional amount for ''Missile Procurement, Army'', $350,970,000, to remain available until September 30, 2024, to respond to the situation in Uk",
+      "notes": [],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 5621,
+        "end": 5774,
+        "file": "BILLS-117hr7691enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Procurement of Weapons and Tracked Combat Vehicles, Army",
+      "agency": "Department of Defense",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 255000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$255,000"
+      },
+      "fiscal_year": 2022,
+      "availability": "to remain available until September 30, 2024",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "II",
+      "confidence": 0.98,
+      "raw_text": "For an additional amount for ''Procurement of Weapons and Tracked Combat Vehicles, Army'', $255,000, to remain available until September 30, 2024, to res",
+      "notes": [
+        "Relatively small amount for supplemental procurement"
+      ],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 5863,
+        "end": 6016,
+        "file": "BILLS-117hr7691enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Procurement of Ammunition, Army",
+      "agency": "Department of Defense",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 45000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$45,000"
+      },
+      "fiscal_year": 2022,
+      "availability": "to remain available until September 30, 2024",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "II",
+      "confidence": 0.98,
+      "raw_text": "For an additional amount for ''Procurement of Ammunition, Army'', $45,000, to remain available until September 30, 2024, to respond to the situation in U",
+      "notes": [
+        "Relatively small amount for supplemental procurement"
+      ],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 6107,
+        "end": 6260,
+        "file": "BILLS-117hr7691enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Other Procurement, Army",
+      "agency": "Department of Defense",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 113440000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$113,440,000"
+      },
+      "fiscal_year": 2022,
+      "availability": "to remain available until September 30, 2024",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "II",
+      "confidence": 0.98,
+      "raw_text": "For an additional amount for ''Other Procurement, Army'', $113,440,000, to remain available until September 30, 2024, to respond to the situation in Ukra",
+      "notes": [],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 6317,
+        "end": 6470,
+        "file": "BILLS-117hr7691enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Other Procurement, Navy",
+      "agency": "Department of Defense",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 1250000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$1,250,000"
+      },
+      "fiscal_year": 2022,
+      "availability": "to remain available until September 30, 2024",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "II",
+      "confidence": 0.98,
+      "raw_text": "For an additional amount for ''Other Procurement, Navy'', $1,250,000, to remain available until September 30, 2024, to respond to the situation in Ukrain",
+      "notes": [],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 6524,
+        "end": 6677,
+        "file": "BILLS-117hr7691enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Aircraft Procurement, Air Force",
+      "agency": "Department of Defense",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 28500000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$28,500,000"
+      },
+      "fiscal_year": 2022,
+      "availability": "to remain available until September 30, 2024",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "II",
+      "confidence": 0.98,
+      "raw_text": "For an additional amount for ''Aircraft Procurement, Air Force'', $28,500,000, to remain available until September 30, 2024, to respond to the situation ",
+      "notes": [],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 6737,
+        "end": 6890,
+        "file": "BILLS-117hr7691enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Other Procurement, Air Force",
+      "agency": "Department of Defense",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 155382000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$155,382,000"
+      },
+      "fiscal_year": 2022,
+      "availability": "to remain available until September 30, 2024",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "II",
+      "confidence": 0.98,
+      "raw_text": "For an additional amount for ''Other Procurement, Air Force'', $155,382,000, to remain available until September 30, 2024, to respond to the situation in",
+      "notes": [],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 6956,
+        "end": 7109,
+        "file": "BILLS-117hr7691enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Procurement, Defense-Wide",
+      "agency": "Department of Defense",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 24218000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$24,218,000"
+      },
+      "fiscal_year": 2022,
+      "availability": "to remain available until September 30, 2024",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "II",
+      "confidence": 0.98,
+      "raw_text": "For an additional amount for ''Procurement, Defense-Wide'', $24,218,000, to remain available until September 30, 2024, to respond to the situation in Ukr",
+      "notes": [],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 7170,
+        "end": 7323,
+        "file": "BILLS-117hr7691enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Defense Production Act Purchases",
+      "agency": "Department of Defense",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 600000000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$600,000,000"
+      },
+      "fiscal_year": 2022,
+      "availability": "to remain available until expended",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "II",
+      "confidence": 0.98,
+      "raw_text": "For an additional amount for ''Defense Production Act Purchases'', $600,000,000, to remain available until expended, to respond to the situation in Ukrai",
+      "notes": [],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 7387,
+        "end": 7540,
+        "file": "BILLS-117hr7691enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Research, Development, Test and Evaluation, Army",
+      "agency": "Department of Defense",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 128700000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$128,700,000"
+      },
+      "fiscal_year": 2022,
+      "availability": "to remain available until September 30, 2023",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "II",
+      "confidence": 0.98,
+      "raw_text": "For an additional amount for ''Research, Development, Test and Evaluation, Army'', $128,700,000, to remain available until September 30, 2023, to respond",
+      "notes": [],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 7661,
+        "end": 7814,
+        "file": "BILLS-117hr7691enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Research, Development, Test and Evaluation, Navy",
+      "agency": "Department of Defense",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 43000000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$43,000,000"
+      },
+      "fiscal_year": 2022,
+      "availability": "to remain available until September 30, 2023",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "II",
+      "confidence": 0.98,
+      "raw_text": "For an additional amount for ''Research, Development, Test and Evaluation, Navy'', $43,000,000, to remain available until September 30, 2023, to respond ",
+      "notes": [],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 7918,
+        "end": 8071,
+        "file": "BILLS-117hr7691enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Research, Development, Test and Evaluation, Air Force",
+      "agency": "Department of Defense",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 119815000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$119,815,000"
+      },
+      "fiscal_year": 2022,
+      "availability": "to remain available until September 30, 2023",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "II",
+      "confidence": 0.98,
+      "raw_text": "For an additional amount for ''Research, Development, Test and Evaluation, Air Force'', $119,815,000, to remain available until September 30, 2023, to re",
+      "notes": [],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 8179,
+        "end": 8332,
+        "file": "BILLS-117hr7691enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Research, Development, Test and Evaluation, Defense-Wide",
+      "agency": "Department of Defense",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 72103000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$72,103,000"
+      },
+      "fiscal_year": 2022,
+      "availability": "to remain available until September 30, 2023",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "II",
+      "confidence": 0.98,
+      "raw_text": "For an additional amount for ''Research, Development, Test and Evaluation, Defense-Wide'', $72,103,000, to remain available until September 30, 2023, to ",
+      "notes": [],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 8449,
+        "end": 8602,
+        "file": "BILLS-117hr7691enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Defense Working Capital Funds",
+      "agency": "Department of Defense",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 965000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$965,000"
+      },
+      "fiscal_year": 2022,
+      "availability": "to remain available until September 30, 2022",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "II",
+      "confidence": 0.98,
+      "raw_text": "For an additional amount for ''Defense Working Capital Funds'', $965,000, to remain available until September 30, 2022, to respond to the situation in Uk",
+      "notes": [],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 8725,
+        "end": 8878,
+        "file": "BILLS-117hr7691enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Defense Health Program",
+      "agency": "Department of Defense",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 13900000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$13,900,000"
+      },
+      "fiscal_year": 2022,
+      "availability": "to remain available until September 30, 2022",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "II",
+      "confidence": 0.98,
+      "raw_text": "For an additional amount for ''Defense Health Program'', $13,900,000, to remain available until September 30, 2022, which shall be for operation and main",
+      "notes": [
+        "Funds shall be for operation and maintenance"
+      ],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 8970,
+        "end": 9123,
+        "file": "BILLS-117hr7691enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "",
+      "agency": "Department of Defense",
+      "program": "Critical Munitions Procurement",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 500000000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$500,000,000"
+      },
+      "fiscal_year": 2022,
+      "availability": null,
+      "provisos": [],
+      "earmarks": [],
+      "section": "SEC. 201",
+      "division": null,
+      "title": "II",
+      "confidence": 0.96,
+      "raw_text": "SEC. 201. In addition to any other funds made available for such purposes, $500,000,000 is hereby appropriated for an additional amount for the Departme",
+      "notes": [
+        "Appropriated for DoD and made available for transfer to Missile Procurement Army, Procurement of Ammunition Navy and Marine Corps, Weapons Procurement Navy, Missile Procurement Air Force, and Procurement of Ammunition Air Force; only for procurement of critical munitions to increase DoD stocks"
+      ],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 9258,
+        "end": 9410,
+        "file": "BILLS-117hr7691enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "",
+      "agency": "Department of Defense",
+      "program": "Exportability and Program Protection",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 50000000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$50,000,000"
+      },
+      "fiscal_year": 2022,
+      "availability": null,
+      "provisos": [],
+      "earmarks": [],
+      "section": "SEC. 202",
+      "division": null,
+      "title": "II",
+      "confidence": 0.96,
+      "raw_text": "SEC. 202. In addition to any other funds made available for such purposes, $50,000,000 is hereby appropriated for an additional amount for the Departmen",
+      "notes": [
+        "Appropriated for DoD and made available for transfer to RDT&E Defense-Wide; only for developing program protection strategies for systems identified for possible export, designing exportability features, and integrating interoperability features"
+      ],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 10478,
+        "end": 10630,
+        "file": "BILLS-117hr7691enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "other",
+      "llm_classification": "other",
+      "description": "Temporarily increases the annual cap on DoD humanitarian assistance under 10 USC 331(g)(1) from $450,000,000 to $950,000,000 for fiscal year 2022.",
+      "amounts": [],
+      "references": [],
+      "metadata": {
+        "new_amount": {
+          "dollars": 950000000,
+          "semantics": "other",
+          "text_as_written": "$950,000,000"
+        },
+        "llm_classification": "statutory_authority_modification",
+        "old_amount": {
+          "dollars": 450000000,
+          "semantics": "other",
+          "text_as_written": "$450,000,000"
+        }
+      },
+      "section": "SEC. 203",
+      "division": null,
+      "title": "II",
+      "confidence": 0.95,
+      "raw_text": "SEC. 203. During fiscal year 2022, section 331(g)(1) of title 10, United States Code, shall be applied by substituting ''$950,000,000'' for ''$450,000,0",
+      "notes": [
+        "Increases the DoD international humanitarian assistance authority cap for FY2022 only; uses 'shall be applied by substituting' mechanism"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 331(g)(1) of title 10, United States Code",
+          "description": "Temporary modification for FY2022"
+        }
+      ],
+      "source_span": {
+        "start": 11832,
+        "end": 11984,
+        "file": "BILLS-117hr7691enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "directive",
+      "description": "Requires the Inspector General of the Department of Defense to carry out reviews of DoD activities to execute funds appropriated in Title II, including assistance to Ukraine, and provide a written report to congressional defense committees not later than 120 days after enactment.",
+      "deadlines": [
+        "120 days after enactment"
+      ],
+      "section": "SEC. 204",
+      "division": null,
+      "title": "II",
+      "confidence": 0.97,
+      "raw_text": "SEC. 204. The Inspector General of the Department of Defense shall carry out reviews of the activities of the Department of Defense to execute funds appr",
+      "notes": [],
+      "cross_references": [],
+      "source_span": {
+        "start": 11991,
+        "end": 12144,
+        "file": "BILLS-117hr7691enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "directive",
+      "description": "Requires the Secretary of Defense, in coordination with the Secretary of State, to report on measures to account for U.S. defense articles designated for Ukraine since the February 24, 2022 Russian invasion, including enhanced end-use monitoring and measures to ensure articles reach intended recipients.",
+      "deadlines": [
+        "45 days after enactment"
+      ],
+      "section": "SEC. 205",
+      "division": null,
+      "title": "II",
+      "confidence": 0.97,
+      "raw_text": "SEC. 205. Not later than 45 days after the date of enactment of this Act, the Secretary of Defense, in coordination with the Secretary of State, shall s",
+      "notes": [
+        "Report to House Appropriations, Armed Services, and Foreign Affairs and Senate Appropriations, Armed Services, and Foreign Relations"
+      ],
+      "cross_references": [],
+      "source_span": {
+        "start": 12384,
+        "end": 12536,
+        "file": "BILLS-117hr7691enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "directive",
+      "description": "Requires the Secretary of Defense, in coordination with the Secretary of State, to provide written reports every 30 days through FY2023 describing U.S. security assistance to Ukraine since February 24, 2022, including a comprehensive list of defense articles and services and associated authorities and funding.",
+      "deadlines": [
+        "30 days after enactment",
+        "every 30 days thereafter through fiscal year 2023"
+      ],
+      "section": "SEC. 206",
+      "division": null,
+      "title": "II",
+      "confidence": 0.97,
+      "raw_text": "SEC. 206. Not later than 30 days after the date of enactment of this Act, and every 30 days thereafter through fiscal year 2023, the Secretary of Defen",
+      "notes": [
+        "Report in unclassified form, may be accompanied by classified annex; report to House Appropriations, Armed Services, and Foreign Affairs and Senate Appropriations, Armed Services, and Foreign Relations"
+      ],
+      "cross_references": [],
+      "source_span": {
+        "start": 13182,
+        "end": 13333,
+        "file": "BILLS-117hr7691enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Salaries and Expenses",
+      "agency": "Nuclear Regulatory Commission",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 2000000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$2,000,000"
+      },
+      "fiscal_year": 2022,
+      "availability": "to remain available until expended",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "III",
+      "confidence": 0.98,
+      "raw_text": "For an additional amount for ''Salaries and Expenses'', $2,000,000, to remain available until expended, to provide regulatory and technical support rela",
+      "notes": [
+        "Under Independent Agencies heading; for regulatory and technical support related to the situation in Ukraine; explicitly exempted from NRC fee recovery requirements"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "notwithstanding",
+          "target": "Section 102 of the Nuclear Energy Innovation and Modernization Act (42 U.S.C. 2215)",
+          "description": "Amount shall not be derived from fee revenue"
+        }
+      ],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 14097,
+        "end": 14249,
+        "file": "BILLS-117hr7691enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "CDC-Wide Activities and Program Support",
+      "agency": "Department of Health and Human Services",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 54000000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$54,000,000"
+      },
+      "fiscal_year": 2022,
+      "availability": "to remain available until September 30, 2023",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "IV",
+      "confidence": 0.98,
+      "raw_text": "For an additional amount for ''CDC-Wide Activities and Program Support'', $54,000,000, to remain available until September 30, 2023, for carrying out pub",
+      "notes": [
+        "Under Centers for Disease Control and Prevention; for public health and disease detection activities related to Ukraine, and medical support, screening, and other public health activities related to displaced populations, domestically and internationally"
+      ],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 14578,
+        "end": 14731,
+        "file": "BILLS-117hr7691enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Refugee and Entrant Assistance",
+      "agency": "Department of Health and Human Services",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 900000000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$900,000,000"
+      },
+      "fiscal_year": 2022,
+      "availability": "to remain available until September 30, 2023",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "IV",
+      "confidence": 0.98,
+      "raw_text": "For an additional amount for ''Refugee and Entrant Assistance'', $900,000,000, to remain available until September 30, 2023, for carrying out refugee and",
+      "notes": [
+        "Under Administration for Children and Families; for refugee and entrant assistance activities for citizens/nationals of Ukraine or persons who last habitually resided in Ukraine"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "subject_to",
+          "target": "Section 412(c)(1)(A) of the Immigration and Nationality Act (8 U.S.C. 1522(c)(1)(A))",
+          "description": "Allocation among States"
+        }
+      ],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 15041,
+        "end": 15194,
+        "file": "BILLS-117hr7691enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "rider",
+      "description": "Establishes eligibility for Ukrainian parolees (citizens/nationals of Ukraine or persons who last habitually resided in Ukraine, paroled into the U.S. between 2/24/2022 and 9/30/2023, or later-paroled spouses, children, and parents/guardians of unaccompanied children) for resettlement assistance, entitlement programs, and other benefits available to refugees admitted under INA section 207, except initial resettlement under INA section 412(b)(1). Also eligible for unaccompanied alien child services. Excludes eligibility from Paperwork Reduction Act for translations. Section 421(a) of PRWORA does not apply. Does not confer lawful permanent resident status.",
+      "policy_area": "Immigration and refugee benefits",
+      "section": "SEC. 401",
+      "division": null,
+      "title": "IV",
+      "confidence": 0.95,
+      "raw_text": "SEC. 401. \n(a) \nIn General\nNotwithstanding any other provision of law, a citizen or national of Ukraine (or a person who last habitually resided in Ukrai",
+      "notes": [
+        "Major policy provision extending refugee-equivalent benefits to Ukrainian parolees; includes subsections on eligibility criteria, benefits available, clarifications about immigration status, and Paperwork Reduction Act exemption for translations"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "notwithstanding",
+          "target": "Any other provision of law",
+          "description": "Eligibility notwithstanding other law"
+        },
+        {
+          "ref_type": "see_also",
+          "target": "Section 207 of the Immigration and Nationality Act (8 U.S.C. 1157)",
+          "description": "Refugee admission benefits reference"
+        },
+        {
+          "ref_type": "see_also",
+          "target": "Section 412(b)(1) of the Immigration and Nationality Act (8 U.S.C. 1522(b)(1))",
+          "description": "Initial resettlement exclusion"
+        },
+        {
+          "ref_type": "see_also",
+          "target": "Section 421(a) of the Personal Responsibility and Work Opportunity Reconciliation Act of 1996 (Public Law 104-193)",
+          "description": "Non-application for benefit eligibility determination"
+        }
+      ],
+      "source_span": {
+        "start": 16305,
+        "end": 16458,
+        "file": "BILLS-117hr7691enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Diplomatic Programs",
+      "agency": "Department of State",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 190000000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$190,000,000"
+      },
+      "fiscal_year": 2022,
+      "availability": "to remain available until September 30, 2024",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "V",
+      "confidence": 0.98,
+      "raw_text": "For an additional amount for ''Diplomatic Programs'', $190,000,000, to remain available until September 30, 2024, to respond to the situation in Ukraine",
+      "notes": [
+        "Under Administration of Foreign Affairs"
+      ],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 19097,
+        "end": 19249,
+        "file": "BILLS-117hr7691enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Capital Investment Fund",
+      "agency": "Department of State",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 10000000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$10,000,000"
+      },
+      "fiscal_year": 2022,
+      "availability": "to remain available until expended",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "V",
+      "confidence": 0.98,
+      "raw_text": "For an additional amount for ''Capital Investment Fund'', $10,000,000, to remain available until expended, to respond to the situation in Ukraine and in ",
+      "notes": [],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 19329,
+        "end": 19482,
+        "file": "BILLS-117hr7691enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Office of Inspector General",
+      "agency": "Department of State",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 4000000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$4,000,000"
+      },
+      "fiscal_year": 2022,
+      "availability": "to remain available until September 30, 2024",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "V",
+      "confidence": 0.98,
+      "raw_text": "For an additional amount for ''Office of Inspector General'', $4,000,000, to remain available until September 30, 2024.",
+      "notes": [
+        "Department of State OIG"
+      ],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 19558,
+        "end": 19677,
+        "file": "BILLS-117hr7691enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Embassy Security, Construction, and Maintenance",
+      "agency": "Department of State",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 110000000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$110,000,000"
+      },
+      "fiscal_year": 2022,
+      "availability": "to remain available until expended",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "V",
+      "confidence": 0.98,
+      "raw_text": "For an additional amount for ''Embassy Security, Construction, and Maintenance'', $110,000,000, to remain available until expended, to respond to the sit",
+      "notes": [],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 19726,
+        "end": 19879,
+        "file": "BILLS-117hr7691enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Operating Expenses",
+      "agency": "United States Agency for International Development",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 17000000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$17,000,000"
+      },
+      "fiscal_year": 2022,
+      "availability": "to remain available until September 30, 2024",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "V",
+      "confidence": 0.98,
+      "raw_text": "For an additional amount for ''Operating Expenses'', $17,000,000, to remain available until September 30, 2024, to respond to the situation in Ukraine an",
+      "notes": [
+        "Under USAID, Funds Appropriated to the President"
+      ],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 20058,
+        "end": 20211,
+        "file": "BILLS-117hr7691enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Office of Inspector General",
+      "agency": "United States Agency for International Development",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 1000000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$1,000,000"
+      },
+      "fiscal_year": 2022,
+      "availability": "to remain available until September 30, 2024",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "V",
+      "confidence": 0.98,
+      "raw_text": "For an additional amount for ''Office of Inspector General'', $1,000,000, to remain available until September 30, 2024.",
+      "notes": [
+        "USAID OIG; distinct from Department of State OIG also in this title"
+      ],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 20292,
+        "end": 20411,
+        "file": "BILLS-117hr7691enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "International Disaster Assistance",
+      "agency": "United States Agency for International Development",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 4348000000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$4,348,000,000"
+      },
+      "fiscal_year": 2022,
+      "availability": "to remain available until expended",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "V",
+      "confidence": 0.98,
+      "raw_text": "For an additional amount for ''International Disaster Assistance'', $4,348,000,000, to remain available until expended, to respond to humanitarian needs",
+      "notes": [
+        "Under Bilateral Economic Assistance, Funds Appropriated to the President; for humanitarian needs in Ukraine and impacted countries, including emergency food and shelter, and assistance for vulnerable populations through local and international NGOs"
+      ],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 20512,
+        "end": 20664,
+        "file": "BILLS-117hr7691enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Economic Support Fund",
+      "agency": "Department of State",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 8766000000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$8,766,000,000"
+      },
+      "fiscal_year": 2022,
+      "availability": "to remain available until September 30, 2024",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "V",
+      "confidence": 0.97,
+      "raw_text": "For an additional amount for ''Economic Support Fund'', $8,766,000,000, to remain available until September 30, 2024, for assistance for Ukraine and coun",
+      "notes": [
+        "Under Bilateral Economic Assistance, Funds Appropriated to the President; for assistance to Ukraine and impacted countries, including programs to combat human trafficking; includes notwithstanding authority"
+      ],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 20950,
+        "end": 21103,
+        "file": "BILLS-117hr7691enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Economic Support Fund",
+      "agency": "Department of State",
+      "program": "Food insecurity prevention and response",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 760000000
+        },
+        "semantics": "reference_amount",
+        "text_as_written": "$760,000,000"
+      },
+      "fiscal_year": 2022,
+      "availability": "to remain available until September 30, 2024",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "V",
+      "confidence": 0.95,
+      "raw_text": "of which up to $760,000,000 may be made available to prevent and respond to food insecurity",
+      "notes": [
+        "Sub-allocation of the $8,766,000,000 ESF appropriation; 'up to' indicates a ceiling rather than a fixed allocation"
+      ],
+      "cross_references": [],
+      "detail_level": "sub_allocation",
+      "parent_account": "Economic Support Fund",
+      "source_span": {
+        "start": 21199,
+        "end": 21290,
+        "file": "BILLS-117hr7691enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Migration and Refugee Assistance",
+      "agency": "Department of State",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 350000000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$350,000,000"
+      },
+      "fiscal_year": 2022,
+      "availability": "to remain available until expended",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "V",
+      "confidence": 0.98,
+      "raw_text": "For an additional amount for ''Migration and Refugee Assistance'', $350,000,000, to remain available until expended, to address humanitarian needs in, an",
+      "notes": [
+        "For humanitarian needs and refugee assistance from Ukraine, and support for impacted Eastern European countries"
+      ],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 21566,
+        "end": 21719,
+        "file": "BILLS-117hr7691enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "International Narcotics Control and Law Enforcement",
+      "agency": "Department of State",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 400000000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$400,000,000"
+      },
+      "fiscal_year": 2022,
+      "availability": "to remain available until September 30, 2024",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "V",
+      "confidence": 0.98,
+      "raw_text": "For an additional amount for ''International Narcotics Control and Law Enforcement'', $400,000,000, to remain available until September 30, 2024, for ass",
+      "notes": [
+        "Under International Security Assistance; for Ukraine and impacted countries including programs to combat human trafficking and to document and collect evidence of war crimes and crimes against humanity by Russia in Ukraine"
+      ],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 21971,
+        "end": 22124,
+        "file": "BILLS-117hr7691enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Nonproliferation, Anti-terrorism, Demining and Related Programs",
+      "agency": "Department of State",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 100000000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$100,000,000"
+      },
+      "fiscal_year": 2022,
+      "availability": "to remain available until September 30, 2024",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "V",
+      "confidence": 0.98,
+      "raw_text": "For an additional amount for ''Nonproliferation, Anti-terrorism, Demining and Related Programs'', $100,000,000, to remain available until September 30, 2",
+      "notes": [
+        "Under International Security Assistance"
+      ],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 22456,
+        "end": 22609,
+        "file": "BILLS-117hr7691enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Foreign Military Financing Program",
+      "agency": "Department of State",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 4000000000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$4,000,000,000"
+      },
+      "fiscal_year": 2022,
+      "availability": "to remain available until September 30, 2024",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "V",
+      "confidence": 0.98,
+      "raw_text": "For an additional amount for ''Foreign Military Financing Program'', $4,000,000,000, to remain available until September 30, 2024, for assistance for Ukr",
+      "notes": [
+        "Under International Security Assistance, Funds Appropriated to the President"
+      ],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 22764,
+        "end": 22917,
+        "file": "BILLS-117hr7691enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Contribution to the European Bank for Reconstruction and Development",
+      "agency": "Department of the Treasury",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 500000000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$500,000,000"
+      },
+      "fiscal_year": 2022,
+      "availability": "to remain available until expended",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "V",
+      "confidence": 0.97,
+      "raw_text": "For payment by the Secretary of the Treasury to the European Bank for Reconstruction and Development and its trust funds and facilities, $500,000,000, t",
+      "notes": [
+        "Under Multilateral Assistance, International Financial Institutions; for assistance and related programs for Ukraine and impacted countries; account name inferred from heading as no '' delimiters present in text"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "subject_to",
+          "target": "Title V of division K of Public Law 117-103",
+          "description": "Same authorities and conditions as FY2022 SFOPS Act"
+        }
+      ],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 23105,
+        "end": 23257,
+        "file": "BILLS-117hr7691enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Global Agriculture and Food Security Program",
+      "agency": "Department of the Treasury",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 150000000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$150,000,000"
+      },
+      "fiscal_year": 2022,
+      "availability": "to remain available until expended",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "V",
+      "confidence": 0.97,
+      "raw_text": "For an additional payment to the Global Agriculture and Food Security Program by the Secretary of the Treasury, $150,000,000, to remain available until ",
+      "notes": [
+        "Under Multilateral Assistance; account name inferred from heading"
+      ],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 23698,
+        "end": 23850,
+        "file": "BILLS-117hr7691enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "other",
+      "llm_classification": "other",
+      "description": "Temporarily increases the Presidential drawdown authority under section 506(a)(1) of the Foreign Assistance Act from $100,000,000 to $11,000,000,000 for fiscal year 2022.",
+      "amounts": [],
+      "references": [],
+      "metadata": {
+        "new_amount": {
+          "dollars": 11000000000,
+          "semantics": "other",
+          "text_as_written": "$11,000,000,000"
+        },
+        "old_amount": {
+          "dollars": 100000000,
+          "semantics": "other",
+          "text_as_written": "$100,000,000"
+        },
+        "llm_classification": "statutory_authority_modification"
+      },
+      "section": "SEC. 501",
+      "division": null,
+      "title": "V",
+      "confidence": 0.96,
+      "raw_text": "SEC. 501. During fiscal year 2022, section 506(a)(1) of the Foreign Assistance Act of 1961 (22 U.S.C. 2318(a)(1)) shall be applied by substituting ''$11",
+      "notes": [
+        "Massive increase in Presidential drawdown authority from $100M to $11B for FY2022; enables transfer of defense articles and services from DoD stocks"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 506(a)(1) of the Foreign Assistance Act of 1961 (22 U.S.C. 2318(a)(1))",
+          "description": "Temporary modification for FY2022"
+        }
+      ],
+      "source_span": {
+        "start": 23922,
+        "end": 24074,
+        "file": "BILLS-117hr7691enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "other",
+      "llm_classification": "other",
+      "description": "Temporarily increases multiple Presidential waiver authority caps under section 614 of the Foreign Assistance Act for FY2022: (1) in subsection (a)(4)(A)(ii), substituting $1,000,000,000 for $250,000,000; (2) in subsection (a)(4)(C), substituting $200,000,000 for $50,000,000, $1,000,000,000 for $250,000,000, $1,000,000,000 for $500,000,000, and $1,750,000,000 for $1,000,000,000.",
+      "amounts": [],
+      "references": [],
+      "metadata": {
+        "llm_classification": "statutory_authority_modification"
+      },
+      "section": "SEC. 502",
+      "division": null,
+      "title": "V",
+      "confidence": 0.94,
+      "raw_text": "SEC. 502. During fiscal year 2022, section 614 of the Foreign Assistance Act of 1961 (22 U.S.C. 2364) shall be applied\u2014 (1) in subsection (a)(4)(A)(ii)",
+      "notes": [
+        "Contains five separate substitutions across two subsections of section 614; all are temporary modifications for FY2022 only; increases Presidential waiver authority for foreign assistance restrictions"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 614 of the Foreign Assistance Act of 1961 (22 U.S.C. 2364)",
+          "description": "Temporary modification for FY2022, subsections (a)(4)(A)(ii) and (a)(4)(C)"
+        }
+      ],
+      "source_span": {
+        "start": 24112,
+        "end": 24263,
+        "file": "BILLS-117hr7691enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "other",
+      "llm_classification": "other",
+      "description": "Temporarily increases the peacekeeping operations emergency fund authority under section 552(c) of the Foreign Assistance Act from $25,000,000 to $100,000,000 for fiscal year 2022.",
+      "amounts": [],
+      "references": [],
+      "metadata": {
+        "new_amount": {
+          "dollars": 100000000,
+          "semantics": "other",
+          "text_as_written": "$100,000,000"
+        },
+        "llm_classification": "statutory_authority_modification",
+        "old_amount": {
+          "dollars": 25000000,
+          "semantics": "other",
+          "text_as_written": "$25,000,000"
+        }
+      },
+      "section": "SEC. 503",
+      "division": null,
+      "title": "V",
+      "confidence": 0.96,
+      "raw_text": "SEC. 503. During fiscal year 2022, section 552(c) of the Foreign Assistance Act of 1961 (22 U.S.C. 2348a(c)) shall be applied by substituting ''$100,000",
+      "notes": [
+        "Quadruples the peacekeeping emergency fund authority for FY2022"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 552(c) of the Foreign Assistance Act of 1961 (22 U.S.C. 2348a(c))",
+          "description": "Temporary modification for FY2022"
+        }
+      ],
+      "source_span": {
+        "start": 24540,
+        "end": 24692,
+        "file": "BILLS-117hr7691enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "other",
+      "llm_classification": "other",
+      "description": "Subsection (a) amends section 2606(a) of the Ukraine Supplemental Appropriations Act, 2022 (division N of P.L. 117-103) to extend loan authority from fiscal year 2022 to fiscal years 2022 through 2024; also provides that FMF funds in this title shall be available for such loans. Subsection (b) authorizes Ukraine to use FMF in this Act and prior Acts for procurement of defense articles, services, or design/construction services not sold by USG under the Arms Export Control Act, during FY2022-2023, subject to section 38 notification requirements.",
+      "amounts": [],
+      "references": [],
+      "metadata": {
+        "llm_classification": "legislative_amendment_and_policy"
+      },
+      "section": "SEC. 504",
+      "division": null,
+      "title": "V",
+      "confidence": 0.94,
+      "raw_text": "SEC. 504. \n(a) Section 2606(a) of the Ukraine Supplemental Appropriations Act, 2022 (division N of Public Law 117\u2013103) is amended by striking ''fiscal y",
+      "notes": [
+        "Extends FMF loan authority and enables Ukraine to procure non-USG defense articles with FMF funds; significant policy expansion"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 2606(a) of the Ukraine Supplemental Appropriations Act, 2022 (division N of Public Law 117-103)",
+          "description": "Extends loan authority from FY2022 to FY2022-2024"
+        },
+        {
+          "ref_type": "see_also",
+          "target": "Arms Export Control Act (22 U.S.C. 2751 et seq.)",
+          "description": "Procurement authority for items not sold under AECA"
+        },
+        {
+          "ref_type": "subject_to",
+          "target": "Section 38 of the Arms Export Control Act (22 U.S.C. 2778)",
+          "description": "Notification requirements for non-AECA procurements"
+        }
+      ],
+      "source_span": {
+        "start": 24721,
+        "end": 24873,
+        "file": "BILLS-117hr7691enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "transfer_authority",
+      "from_scope": "",
+      "to_scope": "",
+      "limit": "unknown",
+      "conditions": [],
+      "section": "SEC. 505",
+      "division": null,
+      "title": "V",
+      "confidence": 0.95,
+      "raw_text": "SEC. 505. \n(a) Funds appropriated by this title under the headings ''Diplomatic Programs'', ''Capital Investment Fund'', ''Embassy Security, Constructio",
+      "notes": [
+        "No dollar ceiling specified; permits transfers among related account headings within Title V only; seven subsections covering different heading groups"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "see_also",
+          "target": "Section 3 of the FREEDOM Support Act (22 U.S.C. 5801)",
+          "description": "Countries eligible under AEECA"
+        },
+        {
+          "ref_type": "see_also",
+          "target": "Section 3(c) of the Support for East European Democracy (SEED) Act of 1989 (22 U.S.C. 5402(c))",
+          "description": "Countries eligible under AEECA"
+        }
+      ],
+      "source_span": {
+        "start": 25717,
+        "end": 25869,
+        "file": "BILLS-117hr7691enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "directive",
+      "description": "Requires the Secretary of State and USAID Administrator to jointly report within 30 days on proposed uses of Title V funds (excluding Multilateral Assistance), with updates every 60 days until September 30, 2024 and every 120 days thereafter until all funds expended. The Secretary of the Treasury shall submit a separate report within 30 days for Multilateral Assistance funds on the same schedule.",
+      "deadlines": [
+        "30 days after enactment",
+        "every 60 days until September 30, 2024",
+        "every 120 days thereafter until all funds expended"
+      ],
+      "section": "SEC. 506",
+      "division": null,
+      "title": "V",
+      "confidence": 0.97,
+      "raw_text": "SEC. 506. Not later than 30 days after the date of enactment of this Act, the Secretary of State and Administrator of the United States Agency for Inter",
+      "notes": [
+        "Two parallel reporting requirements: State/USAID for most Title V funds and Treasury for Multilateral Assistance"
+      ],
+      "cross_references": [],
+      "source_span": {
+        "start": 27958,
+        "end": 28110,
+        "file": "BILLS-117hr7691enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "rider",
+      "description": "Establishes conditions for direct financial support to the Government of Ukraine from ESF funds: (a) funds may be used for direct financial support, matched to the maximum extent practicable by non-USG sources; (b) subject to a memorandum of understanding with transparency and accountability safeguards, maintained in a separate auditable account; (c) requires reporting 15 days prior to initial obligation and every six months thereafter; (d) requires reporting on uses and results every 90 days through September 30, 2025; (e) subject to regular notification procedures of Appropriations Committees.",
+      "policy_area": "Foreign assistance\u2014direct budget support",
+      "section": "SEC. 507",
+      "division": null,
+      "title": "V",
+      "confidence": 0.95,
+      "raw_text": "SEC. 507. \n(a) Funds made available by this title under the heading ''Economic Support Fund'' may be made available for direct financial support for the",
+      "notes": [
+        "Critical oversight provision governing direct cash transfers to the Government of Ukraine; includes matching requirement, MOU requirement, separate auditable account, and multiple reporting requirements"
+      ],
+      "cross_references": [],
+      "source_span": {
+        "start": 28775,
+        "end": 28927,
+        "file": "BILLS-117hr7691enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "",
+      "agency": "Department of Agriculture",
+      "program": "Bill Emerson Humanitarian Trust",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 20000000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$20,000,000"
+      },
+      "fiscal_year": 2022,
+      "availability": "to remain available until expended",
+      "provisos": [],
+      "earmarks": [],
+      "section": "SEC. 601",
+      "division": null,
+      "title": "VI",
+      "confidence": 0.97,
+      "raw_text": "SEC. 601. There is hereby appropriated to the Secretary of Agriculture $20,000,000, to remain available until expended, to carry out the Bill Emerson Hu",
+      "notes": [
+        "Appropriated to the Secretary of Agriculture; authorized by the Bill Emerson Humanitarian Trust Act (7 U.S.C. 1736f-1)"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "subject_to",
+          "target": "Bill Emerson Humanitarian Trust Act (7 U.S.C. 1736f-1)",
+          "description": "Authorization"
+        }
+      ],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 31062,
+        "end": 31214,
+        "file": "BILLS-117hr7691enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "",
+      "agency": "Department of the Treasury",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 52000000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$52,000,000"
+      },
+      "fiscal_year": 2022,
+      "availability": "to remain available until September 30, 2023",
+      "provisos": [],
+      "earmarks": [],
+      "section": "SEC. 602",
+      "division": null,
+      "title": "VI",
+      "confidence": 0.96,
+      "raw_text": "SEC. 602. In addition to the amounts otherwise available to the Department of the Treasury, $52,000,000, to remain available until September 30, 2023, t",
+      "notes": [
+        "No specific account name in '' delimiters; general additional amount for Treasury with transfer authority to other Treasury accounts"
+      ],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 31310,
+        "end": 31462,
+        "file": "BILLS-117hr7691enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "",
+      "agency": "United States House of Representatives",
+      "program": "Death gratuity",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 174000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$174,000"
+      },
+      "fiscal_year": 2022,
+      "availability": null,
+      "provisos": [],
+      "earmarks": [],
+      "section": "SEC. 603",
+      "division": null,
+      "title": "VI",
+      "confidence": 0.97,
+      "raw_text": "SEC. 603. For payment to Anne Garland Walton, beneficiary of Don Young, late a Representative from the State of Alaska, $174,000.",
+      "notes": [
+        "Death gratuity payment to the beneficiary of Representative Don Young of Alaska; standard practice when a Member of Congress dies in office; equals one year's salary"
+      ],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 31851,
+        "end": 31980,
+        "file": "BILLS-117hr7691enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "rider",
+      "description": "Funds appropriated by this Act for intelligence or intelligence related activities are deemed to be specifically authorized by Congress for purposes of section 504(a)(1) of the National Security Act of 1947.",
+      "policy_area": "Intelligence authorization",
+      "section": "SEC. 604",
+      "division": null,
+      "title": "VI",
+      "confidence": 0.97,
+      "raw_text": "SEC. 604. Funds appropriated by this Act for intelligence or intelligence related activities are deemed to be specifically authorized by the Congress for",
+      "notes": [
+        "Standard intelligence authorization rider; satisfies the requirement that intelligence funds be specifically authorized"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "subject_to",
+          "target": "Section 504(a)(1) of the National Security Act of 1947 (50 U.S.C. 3094(a)(1))",
+          "description": "Intelligence authorization requirement"
+        }
+      ],
+      "source_span": {
+        "start": 31982,
+        "end": 32135,
+        "file": "BILLS-117hr7691enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "rider",
+      "description": "Each amount appropriated or made available by this Act is in addition to amounts otherwise appropriated for the fiscal year involved.",
+      "policy_area": "Supplemental appropriations",
+      "section": "SEC. 605",
+      "division": null,
+      "title": "VI",
+      "confidence": 0.98,
+      "raw_text": "SEC. 605. Each amount appropriated or made available by this Act is in addition to amounts otherwise appropriated for the fiscal year involved.",
+      "notes": [
+        "Standard supplemental boilerplate confirming additive nature of appropriations"
+      ],
+      "cross_references": [],
+      "source_span": {
+        "start": 32228,
+        "end": 32371,
+        "file": "BILLS-117hr7691enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "limitation",
+      "description": "No part of any appropriation contained in this Act shall remain available for obligation beyond the current fiscal year unless expressly so provided.",
+      "amount": null,
+      "account_name": null,
+      "section": "SEC. 606",
+      "division": null,
+      "title": "VI",
+      "confidence": 0.97,
+      "raw_text": "SEC. 606. No part of any appropriation contained in this Act shall remain available for obligation beyond the current fiscal year unless expressly so pr",
+      "notes": [
+        "Standard provision limiting availability; funds without express multi-year or no-year availability expire at end of FY2022"
+      ],
+      "cross_references": [],
+      "parent_account": null,
+      "source_span": {
+        "start": 32373,
+        "end": 32525,
+        "file": "BILLS-117hr7691enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "rider",
+      "description": "Unless otherwise provided, additional amounts appropriated by this Act to appropriations accounts shall be available under the authorities and conditions applicable to such accounts for fiscal year 2022.",
+      "policy_area": "Supplemental appropriations terms and conditions",
+      "section": "SEC. 607",
+      "division": null,
+      "title": "VI",
+      "confidence": 0.97,
+      "raw_text": "SEC. 607. Unless otherwise provided for by this Act, the additional amounts appropriated by this Act to appropriations accounts shall be available under",
+      "notes": [
+        "Standard supplemental provision ensuring appropriated funds are governed by existing FY2022 account authorities and conditions"
+      ],
+      "cross_references": [],
+      "source_span": {
+        "start": 32541,
+        "end": 32693,
+        "file": "BILLS-117hr7691enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "rider",
+      "description": "Each amount provided by this Act is designated by Congress as being for an emergency requirement pursuant to section 4001(a)(1) and section 4001(b) of S. Con. Res. 14 (117th Congress), the concurrent resolution on the budget for fiscal year 2022.",
+      "policy_area": "Budget enforcement\u2014emergency designation",
+      "section": "SEC. 608",
+      "division": null,
+      "title": "VI",
+      "confidence": 0.98,
+      "raw_text": "SEC. 608. Each amount provided by this Act is designated by the Congress as being for an emergency requirement pursuant to section 4001(a)(1) and sectio",
+      "notes": [
+        "Emergency designation exempts these amounts from discretionary spending caps under the budget resolution"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "subject_to",
+          "target": "Section 4001(a)(1) and section 4001(b) of S. Con. Res. 14 (117th Congress)",
+          "description": "FY2022 budget resolution emergency designation"
+        }
+      ],
+      "source_span": {
+        "start": 32791,
+        "end": 32943,
+        "file": "BILLS-117hr7691enr.txt",
+        "verified": true
+      }
+    }
+  ],
+  "summary": {
+    "total_provisions": 67,
+    "by_division": {
+      "?": 67
+    },
+    "by_type": {
+      "appropriation": 49,
+      "transfer_authority": 2,
+      "other": 5,
+      "directive": 4,
+      "rider": 6,
+      "limitation": 1
+    },
+    "total_budget_authority": 40144966500,
+    "total_rescissions": 0,
+    "sections_with_no_provisions": [],
+    "flagged_issues": [
+      "SEC. 203 increases DoD humanitarian assistance cap from $450M to $950M for FY2022",
+      "SEC. 501 increases Presidential drawdown authority from $100M to $11B for FY2022\u2014a 110x increase",
+      "SEC. 502 increases multiple Presidential waiver authority caps under FAA section 614",
+      "SEC. 503 increases peacekeeping emergency fund from $25M to $100M for FY2022",
+      "SEC. 504 extends FMF loan authority through FY2024 and allows Ukraine non-AECA procurements",
+      "SEC. 603 is a death gratuity for Rep. Don Young, unrelated to Ukraine",
+      "O&M Defense-Wide ($15.256B) contains $6B USAI sub-allocation and $9.05B transfer authority ceiling, both with extended availability through FY2023",
+      "NRC Salaries and Expenses account name collides with DOJ Salaries and Expenses\u2014different agencies in Titles I and III",
+      "Two separate Office of Inspector General accounts in Title V\u2014one for State ($4M) and one for USAID ($1M)"
+    ]
+  },
+  "chunk_map": [
+    {
+      "chunk_id": "01KM8G59QGGQKFCCXBXAS6QJD1",
+      "label": "[1/1] full",
+      "provision_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66
+      ]
+    }
+  ]
+}

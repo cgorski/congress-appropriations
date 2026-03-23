@@ -1,0 +1,946 @@
+{
+  "schema_version": "1.0",
+  "bill": {
+    "identifier": "H.R. 8900",
+    "classification": "continuing_resolution",
+    "short_title": "Further Continuing Appropriations Act, 2021, and Other Extensions Act",
+    "fiscal_years": [
+      2021
+    ],
+    "divisions": [
+      "A",
+      "B"
+    ],
+    "public_law": null
+  },
+  "provisions": [
+    {
+      "provision_type": "other",
+      "llm_classification": "other",
+      "description": "Extends the continuing resolution by striking the existing date in section 106(3) of the Continuing Appropriations Act, 2021 and inserting 'December 18, 2020'.",
+      "amounts": [],
+      "references": [],
+      "metadata": {
+        "account_name": null,
+        "agency": null,
+        "llm_classification": "CR date extension \u2014 amends the existing Continuing Appropriations Act, 2021 (P.L. 116-159) to extend the expiration date to December 18, 2020"
+      },
+      "section": "SEC. 101",
+      "division": "A",
+      "title": null,
+      "confidence": 0.97,
+      "raw_text": "The Continuing Appropriations Act, 2021 (division A of Public Law 116\u2013159) is amended by striking the date specified in section 106(3) and inserting ''December 18, 2020''.",
+      "notes": [
+        "Division A consists solely of this one-section CR extension",
+        "P.L. 116-159 is the Continuing Appropriations Act, 2021, enacted September 30, 2020",
+        "Section 106(3) of P.L. 116-159 originally specified a CR end date; this provision replaces that date with December 18, 2020",
+        "This effectively extends all FY2021 continuing appropriations at the prior-year rate through the new date"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "P.L. 116-159, Division A, Section 106(3)",
+          "description": "Strikes existing CR expiration date and inserts December 18, 2020"
+        }
+      ],
+      "source_span": {
+        "start": 864,
+        "end": 1035,
+        "file": "BILLS-116hr8900enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "mandatory_spending_extension",
+      "program_name": "Work Geographic Index Floor under Medicare",
+      "statutory_reference": "Section 1848(e)(1)(E) of the Social Security Act (42 U.S.C. 1395w\u20134(e)(1)(E))",
+      "amount": null,
+      "period": "December 12, 2020 through December 19, 2020",
+      "extends_through": "December 19, 2020",
+      "section": "SEC. 1101",
+      "division": "B",
+      "title": "I",
+      "confidence": 0.95,
+      "raw_text": "Section 1848(e)(1)(E) of the Social Security Act (42 U.S.C. 1395w\u20134(e)(1)(E)), as amended by section 3801 of the CARES Act (Public Law 116\u2013136) and se",
+      "notes": [
+        "Extends the work geographic index floor from December 12, 2020 to December 19, 2020",
+        "Previously extended by CARES Act and P.L. 116-159"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 1848(e)(1)(E) of the Social Security Act",
+          "description": null
+        },
+        {
+          "ref_type": "see_also",
+          "target": "Section 3801 of the CARES Act (P.L. 116-136)",
+          "description": "Prior extension"
+        },
+        {
+          "ref_type": "see_also",
+          "target": "Section 2201 of P.L. 116-159",
+          "description": "Prior extension"
+        }
+      ],
+      "source_span": {
+        "start": 1261,
+        "end": 1411,
+        "file": "BILLS-116hr8900enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "mandatory_spending_extension",
+      "program_name": "State Health Insurance Programs (Outreach and Assistance for Low-Income Programs)",
+      "statutory_reference": "Section 119(a)(1)(B)(xi) of the Medicare Improvements for Patients and Providers Act of 2008 (42 U.S.C. 1395b\u20133 note)",
+      "amount": null,
+      "period": "December 11, 2020 through December 18, 2020",
+      "extends_through": "December 18, 2020",
+      "section": "SEC. 1102",
+      "division": "B",
+      "title": "I",
+      "confidence": 0.95,
+      "raw_text": "Subsection (a)(1)(B)(xi) of section 119 of the Medicare Improvements for Patients and Providers Act of 2008 (42 U.S.C. 1395b\u20133 note), as amended by se",
+      "notes": [
+        "Subsection (a) \u2014 State health insurance programs",
+        "One of four subsections extending low-income outreach funding"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 119(a)(1)(B)(xi) of the Medicare Improvements for Patients and Providers Act of 2008",
+          "description": null
+        },
+        {
+          "ref_type": "see_also",
+          "target": "Section 2203 of P.L. 116-159",
+          "description": "Prior extension"
+        }
+      ],
+      "source_span": {
+        "start": 1714,
+        "end": 1864,
+        "file": "BILLS-116hr8900enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "mandatory_spending_extension",
+      "program_name": "Area Agencies on Aging (Outreach and Assistance for Low-Income Programs)",
+      "statutory_reference": "Section 119(b)(1)(B)(xi) of the Medicare Improvements for Patients and Providers Act of 2008 (42 U.S.C. 1395b\u20133 note)",
+      "amount": null,
+      "period": "December 11, 2020 through December 18, 2020",
+      "extends_through": "December 18, 2020",
+      "section": "SEC. 1102",
+      "division": "B",
+      "title": "I",
+      "confidence": 0.95,
+      "raw_text": "Subsection (b)(1)(B)(xi) of such section 119, as so amended, is amended by striking ''December 11'' and inserting ''December 18''.",
+      "notes": [
+        "Subsection (b) \u2014 Area agencies on aging"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 119(b)(1)(B)(xi) of the Medicare Improvements for Patients and Providers Act of 2008",
+          "description": null
+        }
+      ],
+      "source_span": {
+        "start": 2986,
+        "end": 3116,
+        "file": "BILLS-116hr8900enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "mandatory_spending_extension",
+      "program_name": "Aging and Disability Resource Centers (Outreach and Assistance for Low-Income Programs)",
+      "statutory_reference": "Section 119(c)(1)(B)(xi) of the Medicare Improvements for Patients and Providers Act of 2008 (42 U.S.C. 1395b\u20133 note)",
+      "amount": null,
+      "period": "December 11, 2020 through December 18, 2020",
+      "extends_through": "December 18, 2020",
+      "section": "SEC. 1102",
+      "division": "B",
+      "title": "I",
+      "confidence": 0.95,
+      "raw_text": "Subsection (c)(1)(B)(xi) of such section 119, as so amended, is amended by striking ''December 11'' and inserting ''December 18''.",
+      "notes": [
+        "Subsection (c) \u2014 Aging and disability resource centers"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 119(c)(1)(B)(xi) of the Medicare Improvements for Patients and Providers Act of 2008",
+          "description": null
+        }
+      ],
+      "source_span": {
+        "start": 3161,
+        "end": 3291,
+        "file": "BILLS-116hr8900enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "mandatory_spending_extension",
+      "program_name": "Contract with the National Center for Benefits and Outreach Enrollment (Outreach and Assistance for Low-Income Programs)",
+      "statutory_reference": "Section 119(d)(2)(xi) of the Medicare Improvements for Patients and Providers Act of 2008 (42 U.S.C. 1395b\u20133 note)",
+      "amount": null,
+      "period": "December 11, 2020 through December 18, 2020",
+      "extends_through": "December 18, 2020",
+      "section": "SEC. 1102",
+      "division": "B",
+      "title": "I",
+      "confidence": 0.95,
+      "raw_text": "Subsection (d)(2)(xi) of such section 119, as so amended, is amended by striking ''December 11'' and inserting ''December 18''.",
+      "notes": [
+        "Subsection (d) \u2014 Contract with the national center for benefits and outreach enrollment"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 119(d)(2)(xi) of the Medicare Improvements for Patients and Providers Act of 2008",
+          "description": null
+        }
+      ],
+      "source_span": {
+        "start": 3368,
+        "end": 3495,
+        "file": "BILLS-116hr8900enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "mandatory_spending_extension",
+      "program_name": "Quality Measure Endorsement, Input, and Selection",
+      "statutory_reference": "Section 1890(d)(2) of the Social Security Act (42 U.S.C. 1395aaa(d)(2))",
+      "amount": null,
+      "period": "December 11, 2020 through December 18, 2020",
+      "extends_through": "December 18, 2020",
+      "section": "SEC. 1103",
+      "division": "B",
+      "title": "I",
+      "confidence": 0.95,
+      "raw_text": "Section 1890(d)(2) of the Social Security Act (42 U.S.C. 1395aaa(d)(2)) is amended by striking ''December 11'' each place such phrase appears and inser",
+      "notes": [
+        "Extends funding for consensus-based entity for quality measure endorsement"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 1890(d)(2) of the Social Security Act",
+          "description": null
+        }
+      ],
+      "source_span": {
+        "start": 3584,
+        "end": 3735,
+        "file": "BILLS-116hr8900enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "mandatory_spending_extension",
+      "program_name": "Community Mental Health Services Demonstration Program",
+      "statutory_reference": "Section 223(d)(3) of the Protecting Access to Medicare Act of 2014 (42 U.S.C. 1396a note)",
+      "amount": null,
+      "period": "December 11, 2020 through December 18, 2020",
+      "extends_through": "December 18, 2020",
+      "section": "SEC. 1104",
+      "division": "B",
+      "title": "I",
+      "confidence": 0.95,
+      "raw_text": "Section 223(d)(3) of the Protecting Access to Medicare Act of 2014 (42 U.S.C. 1396a note), as amended by Public Law 116\u2013159, is amended by striking ''D",
+      "notes": [
+        "Extends Medicaid community mental health services demonstration program"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 223(d)(3) of the Protecting Access to Medicare Act of 2014",
+          "description": null
+        },
+        {
+          "ref_type": "see_also",
+          "target": "P.L. 116-159",
+          "description": "Prior extension"
+        }
+      ],
+      "source_span": {
+        "start": 3857,
+        "end": 4008,
+        "file": "BILLS-116hr8900enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "mandatory_spending_extension",
+      "program_name": "Spousal Impoverishment Protections",
+      "statutory_reference": "Section 2404 of the Patient Protection and Affordable Care Act (42 U.S.C. 1396r\u20135 note)",
+      "amount": null,
+      "period": "December 11, 2020 through December 18, 2020",
+      "extends_through": "December 18, 2020",
+      "section": "SEC. 1105",
+      "division": "B",
+      "title": "I",
+      "confidence": 0.95,
+      "raw_text": "Section 2404 of the Patient Protection and Affordable Care Act (42 U.S.C. 1396r\u20135 note), as amended by Public Law 116\u2013159, is amended by striking ''Dec",
+      "notes": [
+        "Subsection (a) \u2014 extends spousal impoverishment protections for Medicaid HCBS recipients"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 2404 of the Patient Protection and Affordable Care Act",
+          "description": null
+        },
+        {
+          "ref_type": "see_also",
+          "target": "P.L. 116-159",
+          "description": "Prior extension"
+        }
+      ],
+      "source_span": {
+        "start": 4130,
+        "end": 4281,
+        "file": "BILLS-116hr8900enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "rider",
+      "description": "Rule of construction clarifying that nothing in the spousal impoverishment protections or related Social Security Act sections prohibits a State from applying income or resource disregards under Medicaid for individuals needing home and community-based services, or from disregarding spousal income and assets under certain plan amendments.",
+      "policy_area": "Medicaid",
+      "section": "SEC. 1105",
+      "division": "B",
+      "title": "I",
+      "confidence": 0.95,
+      "raw_text": "Nothing in section 2404 of Public Law 111\u2013148 (42 U.S.C. 1396r\u20135 note) or section 1902(a)(17) or 1924 of the Social Security Act (42 U.S.C. 1396a(a)(1",
+      "notes": [
+        "Subsection (b) \u2014 Rule of construction regarding state flexibility for income/resource disregards for HCBS"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "see_also",
+          "target": "Section 2404 of P.L. 111-148",
+          "description": "Spousal impoverishment protections"
+        },
+        {
+          "ref_type": "see_also",
+          "target": "Section 1902(a)(17) and 1924 of the Social Security Act",
+          "description": "Medicaid eligibility and spousal impoverishment provisions"
+        },
+        {
+          "ref_type": "see_also",
+          "target": "Section 1902(r)(2) of the Social Security Act",
+          "description": "Methodology for income/resource disregards"
+        },
+        {
+          "ref_type": "see_also",
+          "target": "Subsections (c), (d), (i), (k) of Section 1915 of the Social Security Act",
+          "description": "HCBS waiver authorities"
+        }
+      ],
+      "source_span": {
+        "start": 4349,
+        "end": 4499,
+        "file": "BILLS-116hr8900enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "mandatory_spending_extension",
+      "program_name": "Delay of Medicaid DSH Reductions",
+      "statutory_reference": "Section 1923(f)(7) of the Social Security Act (42 U.S.C. 1396r\u20134(f)(7)(A))",
+      "amount": null,
+      "period": "December 12, 2020 through December 19, 2020",
+      "extends_through": "December 19, 2020",
+      "section": "SEC. 1106",
+      "division": "B",
+      "title": "I",
+      "confidence": 0.95,
+      "raw_text": "Section 1923(f)(7) of the Social Security Act (42 U.S.C. 1396r\u20134(f)(7)(A)) is amended by striking ''December 12'' each place such phrase appears and in",
+      "notes": [
+        "Extends delay of Medicaid disproportionate share hospital (DSH) payment reductions"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 1923(f)(7) of the Social Security Act",
+          "description": null
+        }
+      ],
+      "source_span": {
+        "start": 5941,
+        "end": 6092,
+        "file": "BILLS-116hr8900enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "mandatory_spending_extension",
+      "program_name": "Money Follows the Person",
+      "statutory_reference": "Section 6071(h)(1)(H) of the Deficit Reduction Act of 2005 (42 U.S.C. 1396a note)",
+      "amount": null,
+      "period": "December 11, 2020 through December 18, 2020",
+      "extends_through": "December 18, 2020",
+      "section": "SEC. 1107",
+      "division": "B",
+      "title": "I",
+      "confidence": 0.95,
+      "raw_text": "Section 6071(h)(1)(H) of the Deficit Reduction Act of 2005 (42 U.S.C. 1396a note) is amended by striking ''December 11'' and inserting ''December 18''.",
+      "notes": [
+        "Extends Money Follows the Person Medicaid rebalancing demonstration"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 6071(h)(1)(H) of the Deficit Reduction Act of 2005",
+          "description": null
+        }
+      ],
+      "source_span": {
+        "start": 6187,
+        "end": 6338,
+        "file": "BILLS-116hr8900enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "mandatory_spending_extension",
+      "program_name": "Community Health Centers",
+      "statutory_reference": "Section 10503(b)(1)(F) of the Patient Protection and Affordable Care Act (42 U.S.C. 254b\u20132(b)(1)(F))",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 865753425
+        },
+        "semantics": "mandatory_spending",
+        "text_as_written": "$865,753,425"
+      },
+      "period": "through December 18, 2020",
+      "extends_through": "December 18, 2020",
+      "section": "SEC. 1201",
+      "division": "B",
+      "title": "II",
+      "confidence": 0.97,
+      "raw_text": "Section 10503(b)(1)(F) of the Patient Protection and Affordable Care Act (42 U.S.C. 254b\u20132(b)(1)(F)) is amended\u2014 (1) by striking ''$789,041,096'' and",
+      "notes": [
+        "Subsection (a) \u2014 Increases community health center funding from $789,041,096 to $865,753,425 and extends through December 18, 2020 (from December 11, 2020)",
+        "Net increase of $76,712,329 for the additional week"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 10503(b)(1)(F) of the Patient Protection and Affordable Care Act",
+          "description": null
+        }
+      ],
+      "source_span": {
+        "start": 6594,
+        "end": 6743,
+        "file": "BILLS-116hr8900enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "mandatory_spending_extension",
+      "program_name": "National Health Service Corps",
+      "statutory_reference": "Section 10503(b)(2)(H) of the Patient Protection and Affordable Care Act (42 U.S.C. 254b\u20132(b)(2)(H))",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 67095890
+        },
+        "semantics": "mandatory_spending",
+        "text_as_written": "$67,095,890"
+      },
+      "period": "through December 18, 2020",
+      "extends_through": "December 18, 2020",
+      "section": "SEC. 1201",
+      "division": "B",
+      "title": "II",
+      "confidence": 0.97,
+      "raw_text": "Section 10503(b)(2)(H) of the Patient Protection and Affordable Care Act (42 U.S.C. 254b\u20132(b)(2)(H)) is amended\u2014 \n(1) by striking ''$61,150,685'' and i",
+      "notes": [
+        "Subsection (b) \u2014 Increases NHSC funding from $61,150,685 to $67,095,890 and extends through December 18, 2020",
+        "Net increase of $5,945,205 for the additional week"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 10503(b)(2)(H) of the Patient Protection and Affordable Care Act",
+          "description": null
+        }
+      ],
+      "source_span": {
+        "start": 6887,
+        "end": 7038,
+        "file": "BILLS-116hr8900enr.txt",
+        "verified": true,
+        "match_tier": "repaired_normalized"
+      }
+    },
+    {
+      "provision_type": "mandatory_spending_extension",
+      "program_name": "Teaching Health Center Graduate Medical Education",
+      "statutory_reference": "Section 340H(g)(1) of the Public Health Service Act (42 U.S.C. 256h(g)(1))",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 27379452
+        },
+        "semantics": "mandatory_spending",
+        "text_as_written": "$27,379,452"
+      },
+      "period": "through December 18, 2020",
+      "extends_through": "December 18, 2020",
+      "section": "SEC. 1201",
+      "division": "B",
+      "title": "II",
+      "confidence": 0.97,
+      "raw_text": "Section 340H(g)(1) of the Public Health Service Act (42 U.S.C. 256h(g)(1)) is amended\u2014 (1) by striking ''$24,953,425'' and inserting ''$27,379,452''; a",
+      "notes": [
+        "Subsection (c) \u2014 Increases Teaching Health Center GME funding from $24,953,425 to $27,379,452 and extends through December 18, 2020",
+        "Net increase of $2,426,027 for the additional week"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 340H(g)(1) of the Public Health Service Act",
+          "description": null
+        }
+      ],
+      "source_span": {
+        "start": 7222,
+        "end": 7373,
+        "file": "BILLS-116hr8900enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "directive",
+      "description": "Amounts appropriated pursuant to the amendments made by SEC. 1201 for the period beginning on December 11, 2020, and ending on December 18, 2020, shall be subject to the requirements contained in Public Law 116-94 for funds for programs authorized under sections 330 through 340 of the Public Health Service Act.",
+      "deadlines": [],
+      "section": "SEC. 1201",
+      "division": "B",
+      "title": "II",
+      "confidence": 0.95,
+      "raw_text": "Amounts appropriated pursuant to the amendments made by this section for the period beginning on December 11, 2020, and ending on December 18, 2020, sha",
+      "notes": [
+        "Subsection (d) \u2014 Application of provisions; subjects the incremental week's funding to requirements from P.L. 116-94 (Further Consolidated Appropriations Act, 2020)"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "subject_to",
+          "target": "P.L. 116-94",
+          "description": "Requirements for programs under PHS Act sections 330-340"
+        }
+      ],
+      "source_span": {
+        "start": 7483,
+        "end": 7635,
+        "file": "BILLS-116hr8900enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "other",
+      "llm_classification": "other",
+      "description": "Technical and conforming amendments to paragraph (4) of section 3014(h) of title 18, United States Code, correcting a punctuation error and adding a cross-reference to section 1201(d) of this Act.",
+      "amounts": [],
+      "references": [],
+      "metadata": {
+        "llm_classification": "Conforming amendment to title 18 USC cross-references"
+      },
+      "section": "SEC. 1201",
+      "division": "B",
+      "title": "II",
+      "confidence": 0.93,
+      "raw_text": "Paragraph (4) of section 3014(h) of title 18, United States Code, as amended by section 3831(e) of the CARES Act (Public Law 116\u2013136), is amended\u2014 (1)",
+      "notes": [
+        "Subsection (e) \u2014 Conforming amendments; fixes punctuation and adds cross-reference to this Act's application-of-provisions clause"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 3014(h)(4) of title 18, United States Code",
+          "description": null
+        },
+        {
+          "ref_type": "see_also",
+          "target": "Section 3831(e) of the CARES Act (P.L. 116-136)",
+          "description": "Prior amendment"
+        }
+      ],
+      "source_span": {
+        "start": 7827,
+        "end": 7977,
+        "file": "BILLS-116hr8900enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "mandatory_spending_extension",
+      "program_name": "Special Diabetes Programs for Type I Diabetes",
+      "statutory_reference": "Section 330B(b)(2)(D) of the Public Health Service Act (42 U.S.C. 254c\u20132(b)(2)(D))",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 32465753
+        },
+        "semantics": "mandatory_spending",
+        "text_as_written": "$32,465,753"
+      },
+      "period": "through December 18, 2020",
+      "extends_through": "December 18, 2020",
+      "section": "SEC. 1202",
+      "division": "B",
+      "title": "II",
+      "confidence": 0.97,
+      "raw_text": "Section 330B(b)(2)(D) of the Public Health Service Act (42 U.S.C. 254c\u20132(b)(2)(D)) is amended\u2014 \n(1) by striking ''$29,589,042'' and inserting ''$32,465,",
+      "notes": [
+        "Subsection (a) \u2014 Increases funding from $29,589,042 to $32,465,753 and extends through December 18, 2020",
+        "Net increase of $2,876,711 for the additional week"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 330B(b)(2)(D) of the Public Health Service Act",
+          "description": null
+        }
+      ],
+      "source_span": {
+        "start": 8446,
+        "end": 8598,
+        "file": "BILLS-116hr8900enr.txt",
+        "verified": true,
+        "match_tier": "repaired_normalized"
+      }
+    },
+    {
+      "provision_type": "mandatory_spending_extension",
+      "program_name": "Special Diabetes Programs for Indians",
+      "statutory_reference": "Section 330C(c)(2)(D) of the Public Health Service Act (42 U.S.C. 254c\u20133(c)(2)(D))",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 32465753
+        },
+        "semantics": "mandatory_spending",
+        "text_as_written": "$32,465,753"
+      },
+      "period": "through December 18, 2020",
+      "extends_through": "December 18, 2020",
+      "section": "SEC. 1202",
+      "division": "B",
+      "title": "II",
+      "confidence": 0.97,
+      "raw_text": "Section 330C(c)(2)(D) of the Public Health Service Act (42 U.S.C. 254c\u20133(c)(2)(D)) is amended\u2014 (1) by striking ''$29,589,042'' and inserting ''$32,465,",
+      "notes": [
+        "Subsection (b) \u2014 Increases funding from $29,589,042 to $32,465,753 and extends through December 18, 2020",
+        "Net increase of $2,876,711 for the additional week"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 330C(c)(2)(D) of the Public Health Service Act",
+          "description": null
+        }
+      ],
+      "source_span": {
+        "start": 8728,
+        "end": 8879,
+        "file": "BILLS-116hr8900enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "mandatory_spending_extension",
+      "program_name": "Sexual Risk Avoidance Education",
+      "statutory_reference": "Section 510 of the Social Security Act (42 U.S.C. 710)",
+      "amount": null,
+      "period": "December 11, 2020 through December 18, 2020",
+      "extends_through": "December 18, 2020",
+      "section": "SEC. 1203",
+      "division": "B",
+      "title": "II",
+      "confidence": 0.95,
+      "raw_text": "Section 510 of the Social Security Act (42 U.S.C. 710) is amended by striking ''December 11, 2020'' each place it appears and inserting ''December 18, 20",
+      "notes": [
+        "Subsection (a) \u2014 Extends sexual risk avoidance education program (formerly abstinence education)"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 510 of the Social Security Act",
+          "description": null
+        }
+      ],
+      "source_span": {
+        "start": 9083,
+        "end": 9236,
+        "file": "BILLS-116hr8900enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "mandatory_spending_extension",
+      "program_name": "Personal Responsibility Education",
+      "statutory_reference": "Section 513 of the Social Security Act (42 U.S.C. 713)",
+      "amount": null,
+      "period": "December 11, 2020 through December 18, 2020",
+      "extends_through": "December 18, 2020",
+      "section": "SEC. 1203",
+      "division": "B",
+      "title": "II",
+      "confidence": 0.95,
+      "raw_text": "Section 513 of the Social Security Act (42 U.S.C. 713) is amended by striking ''December 11, 2020'' each place it appears and inserting ''December 18, 20",
+      "notes": [
+        "Subsection (b) \u2014 Extends personal responsibility education program"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 513 of the Social Security Act",
+          "description": null
+        }
+      ],
+      "source_span": {
+        "start": 9282,
+        "end": 9435,
+        "file": "BILLS-116hr8900enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "rider",
+      "description": "Extends the rare pediatric disease priority review voucher program by changing the application deadline from December 11, 2020 to December 18, 2020, and the voucher use deadline from December 11, 2022 to December 18, 2022.",
+      "policy_area": "FDA regulatory authority",
+      "section": "SEC. 1211",
+      "division": "B",
+      "title": "II",
+      "confidence": 0.93,
+      "raw_text": "Section 529(b)(5) of the Federal Food, Drug, and Cosmetic Act (21 U.S.C. 360ff(b)(5)) is amended\u2014 \n(1) by striking ''December 11, 2020'' each place it a",
+      "notes": [
+        "Subtitle B \u2014 Food and Drug Administration Provisions",
+        "Extends both the application deadline and the voucher use deadline by one week"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 529(b)(5) of the Federal Food, Drug, and Cosmetic Act (21 U.S.C. 360ff(b)(5))",
+          "description": null
+        }
+      ],
+      "source_span": {
+        "start": 9554,
+        "end": 9706,
+        "file": "BILLS-116hr8900enr.txt",
+        "verified": true,
+        "match_tier": "repaired_normalized"
+      }
+    },
+    {
+      "provision_type": "rider",
+      "description": "Requires the Secretary of HHS to provide specified information in response to queries from applicable plans regarding Medicare Secondary Payer determinations, including whether a claimant is or has been entitled to Medicare benefits during the preceding 3 years, and the name and address of any Medicare Advantage or Part D plan in which the claimant is or has been enrolled.",
+      "policy_area": "Medicare Secondary Payer transparency",
+      "section": "SEC. 1301",
+      "division": "B",
+      "title": "III",
+      "confidence": 0.95,
+      "raw_text": "Section 1862(b)(8)(G) of the Social Security Act (42 U.S.C. 395y(b)(8)(G)) is amended\u2014 (1) by striking ''information.\u2014The Secretary'' and inserting",
+      "notes": [
+        "Title III \u2014 Offsets",
+        "Scored as a budgetary offset; new transparency requirements are expected to generate savings by improving coordination of benefits"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 1862(b)(8)(G) of the Social Security Act",
+          "description": null
+        }
+      ],
+      "source_span": {
+        "start": 9940,
+        "end": 10087,
+        "file": "BILLS-116hr8900enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "directive",
+      "description": "Requires the Attorney General to revise 21 CFR 1306.07(b) within 180 days to allow practitioners to dispense not more than a three-day supply of narcotic drugs to one person at one time for the purpose of initiating maintenance treatment or detoxification treatment (or both) for opioid use disorder.",
+      "deadlines": [
+        "180 days after enactment"
+      ],
+      "section": "SEC. 1302",
+      "division": "B",
+      "title": "III",
+      "confidence": 0.96,
+      "raw_text": "Not later than 180 days after the date of enactment of this Act, the Attorney General shall revise section 1306.07(b) of title 21, Code of Federal Regu",
+      "notes": [
+        "Scored as a budgetary offset",
+        "Expands the three-day supply exception for opioid treatment initiation"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "21 CFR 1306.07(b)",
+          "description": "DEA regulation on dispensing narcotic drugs for maintenance or detoxification treatment"
+        }
+      ],
+      "source_span": {
+        "start": 11032,
+        "end": 11183,
+        "file": "BILLS-116hr8900enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "mandatory_spending_extension",
+      "program_name": "Medicaid Improvement Fund",
+      "statutory_reference": "Section 1941(b)(3)(A) of the Social Security Act (42 U.S.C. 1396w\u20131(b)(3)(A))",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 3464000000
+        },
+        "semantics": "mandatory_spending",
+        "text_as_written": "$3,464,000,000"
+      },
+      "period": null,
+      "extends_through": null,
+      "section": "SEC. 1303",
+      "division": "B",
+      "title": "III",
+      "confidence": 0.97,
+      "raw_text": "Section 1941(b)(3)(A) of the Social Security Act (42 U.S.C 1396w\u20131(b)(3)(A)) is amended by striking ''$3,446,000,000'' and inserting ''$3,464,000,000''",
+      "notes": [
+        "Increases Medicaid Improvement Fund from $3,446,000,000 to $3,464,000,000, a net increase of $18,000,000",
+        "Used as a budgetary offset for the costs of this division"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 1941(b)(3)(A) of the Social Security Act",
+          "description": null
+        }
+      ],
+      "source_span": {
+        "start": 11565,
+        "end": 11716,
+        "file": "BILLS-116hr8900enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "rider",
+      "description": "Exempts the budgetary effects of Division B from statutory PAYGO scorecards (section 4(d) of the Statutory Pay-As-You-Go Act of 2010), Senate PAYGO scorecards (H. Con. Res. 71, 115th Congress), and from estimation under the Balanced Budget and Emergency Deficit Control Act of 1985 and the Statutory Pay-As-You-Go Act of 2010.",
+      "policy_area": "Budget enforcement and scorekeeping",
+      "section": "SEC. 1401",
+      "division": "B",
+      "title": "IV",
+      "confidence": 0.97,
+      "raw_text": "The budgetary effects of this division shall not be entered on either PAYGO scorecard maintained pursuant to section 4(d) of the Statutory Pay-As-You-Go",
+      "notes": [
+        "Standard PAYGO exemption provision for health extenders",
+        "Subsections (a), (b), and (c) cover statutory PAYGO, Senate PAYGO, and budget scorekeeping classification respectively"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "notwithstanding",
+          "target": "Section 4(d) of the Statutory Pay-As-You-Go Act of 2010",
+          "description": "Statutory PAYGO scorecard exemption"
+        },
+        {
+          "ref_type": "notwithstanding",
+          "target": "Section 4106 of H. Con. Res. 71 (115th Congress)",
+          "description": "Senate PAYGO scorecard exemption"
+        },
+        {
+          "ref_type": "notwithstanding",
+          "target": "Section 251 of the Balanced Budget and Emergency Deficit Control Act of 1985",
+          "description": "Discretionary spending limits exemption"
+        },
+        {
+          "ref_type": "notwithstanding",
+          "target": "Section 3(4)(C) of the Statutory Pay-As-You-Go Act of 2010",
+          "description": "Exemption from treatment as appropriation Act"
+        }
+      ],
+      "source_span": {
+        "start": 11805,
+        "end": 11957,
+        "file": "BILLS-116hr8900enr.txt",
+        "verified": true
+      }
+    }
+  ],
+  "summary": {
+    "total_provisions": 26,
+    "by_division": {
+      "B": 25,
+      "A": 1
+    },
+    "by_type": {
+      "rider": 4,
+      "directive": 2,
+      "mandatory_spending_extension": 18,
+      "other": 2
+    },
+    "total_budget_authority": 0,
+    "total_rescissions": 0,
+    "sections_with_no_provisions": [],
+    "flagged_issues": [
+      "Division A contains only a single provision extending the CR expiration date; no new dollar amounts are specified",
+      "The short title clause at the end of Division A was not extracted per instructions",
+      "All provisions are one-week extensions (December 11/12 to December 18/19, 2020) of expiring health programs \u2014 part of a short-term CR",
+      "SEC. 1303 increases Medicaid Improvement Fund by $18,000,000 (from $3,446,000,000 to $3,464,000,000) as a budgetary offset",
+      "SEC. 1301 and SEC. 1302 are policy changes scored as budgetary offsets under Title III",
+      "No new discretionary budget authority in Division B; all spending is mandatory"
+    ]
+  },
+  "chunk_map": [
+    {
+      "chunk_id": "01KM83NA5T2FNCADPJQ3BNXYT8",
+      "label": "[1/2] A",
+      "provision_indices": [
+        0
+      ]
+    },
+    {
+      "chunk_id": "01KM83NA5T9GSGM1YH2JS0H8FH",
+      "label": "[2/2] B",
+      "provision_indices": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25
+      ]
+    }
+  ]
+}

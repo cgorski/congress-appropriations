@@ -88,7 +88,7 @@ enum Commands {
     },
     /// Search provisions across all extracted bills
     Search {
-        /// Data directory (try 'examples' for included FY2024 data)
+        /// Data directory (try 'data' for included FY2019–FY2026 dataset)
         #[arg(long, default_value = "./data")]
         dir: String,
         /// Filter by agency name (case-insensitive substring)
@@ -139,7 +139,7 @@ enum Commands {
     },
     /// Show summary of all extracted bills
     Summary {
-        /// Data directory (try 'examples' for included FY2024 data)
+        /// Data directory (try 'data' for included FY2019–FY2026 dataset)
         #[arg(long, default_value = "./data")]
         dir: String,
         /// Output format: table, json, jsonl, csv
@@ -203,7 +203,7 @@ enum Commands {
     /// Audit data quality across all extracted bills
     #[command(alias = "report")]
     Audit {
-        /// Data directory to audit (try 'examples' for included FY2024 data)
+        /// Data directory to audit (try 'data' for included FY2019–FY2026 dataset)
         #[arg(long, default_value = "./data")]
         dir: String,
         /// Show individual problematic provisions

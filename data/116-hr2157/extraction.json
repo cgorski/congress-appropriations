@@ -1,0 +1,4202 @@
+{
+  "schema_version": "1.0",
+  "bill": {
+    "identifier": "H.R. 2157",
+    "classification": "regular_appropriations",
+    "short_title": "Additional Supplemental Appropriations for Disaster Relief Act, 2019",
+    "fiscal_years": [
+      2019
+    ],
+    "divisions": [],
+    "public_law": null
+  },
+  "provisions": [
+    {
+      "provision_type": "appropriation",
+      "account_name": "Office of the Secretary",
+      "agency": "Department of Agriculture",
+      "program": "Processing, Research and Marketing",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 3005442000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$3,005,442,000"
+      },
+      "fiscal_year": 2019,
+      "availability": "shall remain available until December 31, 2020",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "I",
+      "confidence": 0.97,
+      "raw_text": "For an additional amount for the ''Office of the Secretary'', $3,005,442,000, which shall remain available until December 31, 2020, for necessary expen",
+      "notes": [
+        "Supplemental appropriation for crop and livestock disaster losses from hurricanes, floods, tornadoes, typhoons, volcanic activity, snowstorms, and wildfires in 2018 and 2019"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "subject_to",
+          "target": "Section 1501(e) of the Agricultural Act of 2014 (7 U.S.C. 9081(e))",
+          "description": "Tree assistance payments for pecan trees"
+        },
+        {
+          "ref_type": "subject_to",
+          "target": "Federal Crop Insurance Act (7 U.S.C. 1501 et seq.)",
+          "description": "Crop insurance interaction"
+        },
+        {
+          "ref_type": "subject_to",
+          "target": "Section 196 of the Federal Agriculture Improvement and Reform Act of 1996 (7 U.S.C. 7333)",
+          "description": "NAP interaction"
+        }
+      ],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 381,
+        "end": 532,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "limitation",
+      "description": "Not more than $7,000,000 shall be available to make payments to agricultural producers whose Whole Farm Revenue Protection indemnity payments were reduced following 2018 crop year losses due to state-legislated agriculture disaster assistance programs.",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 7000000
+        },
+        "semantics": "limitation",
+        "text_as_written": "$7,000,000"
+      },
+      "account_name": "Office of the Secretary",
+      "section": "",
+      "division": null,
+      "title": "I",
+      "confidence": 0.95,
+      "raw_text": "not more than $7,000,000 shall be available to make payments to agricultural producers whose Whole Farm Revenue Protection indemnity payments were reduc",
+      "notes": [
+        "Cap within the $3,005,442,000 Office of the Secretary appropriation"
+      ],
+      "cross_references": [],
+      "parent_account": "Office of the Secretary",
+      "source_span": {
+        "start": 2105,
+        "end": 2257,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Emergency Forest Restoration Program",
+      "agency": "Department of Agriculture",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 480000000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$480,000,000"
+      },
+      "fiscal_year": 2019,
+      "availability": "to remain available until expended",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "I",
+      "confidence": 0.98,
+      "raw_text": "For an additional amount for the ''Emergency Forest Restoration Program'', for necessary expenses related to the consequences of Hurricanes Michael an",
+      "notes": [
+        "Farm Service Agency account; for Hurricanes Michael and Florence, 2018 wildfires, 2019 tornadoes and floods, and other natural disasters"
+      ],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 4667,
+        "end": 4817,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Emergency Conservation Program",
+      "agency": "Department of Agriculture",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 558000000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$558,000,000"
+      },
+      "fiscal_year": 2019,
+      "availability": "to remain available until expended",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "I",
+      "confidence": 0.98,
+      "raw_text": "For an additional amount for the ''Emergency Conservation Program'', for necessary expenses related to the consequences of Hurricanes Michael and Flore",
+      "notes": [
+        "Farm Service Agency account"
+      ],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 5236,
+        "end": 5387,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Watershed and Flood Prevention Operations",
+      "agency": "Department of Agriculture",
+      "program": "Emergency Watershed Protection Program",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 435000000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$435,000,000"
+      },
+      "fiscal_year": 2019,
+      "availability": "to remain available until expended",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "I",
+      "confidence": 0.98,
+      "raw_text": "For an additional amount for ''Watershed and Flood Prevention Operations'', for necessary expenses for the Emergency Watershed Protection Program rela",
+      "notes": [
+        "Natural Resources Conservation Service account"
+      ],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 5849,
+        "end": 5999,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Rural Community Facilities Program Account",
+      "agency": "Department of Agriculture",
+      "program": "Rural Development",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 150000000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$150,000,000"
+      },
+      "fiscal_year": 2019,
+      "availability": "to remain available until expended",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "I",
+      "confidence": 0.98,
+      "raw_text": "For an additional amount for the cost of grants for rural community facilities programs as authorized by section 306 and described in section 381E(d)(1",
+      "notes": [
+        "For grants authorized by section 306 of the Consolidated Farm and Rural Development Act"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "notwithstanding",
+          "target": "Sections 381E-H and 381N of the Consolidated Farm and Rural Development Act",
+          "description": "Not applicable to these funds"
+        }
+      ],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 6496,
+        "end": 6647,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "",
+      "agency": "Department of Agriculture",
+      "program": "Disaster nutrition assistance\u2014CNMI",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 25200000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$25,200,000"
+      },
+      "fiscal_year": 2019,
+      "availability": "shall remain available for obligation by the Commonwealth until September 30, 2020",
+      "provisos": [],
+      "earmarks": [],
+      "section": "SEC. 101",
+      "division": null,
+      "title": "I",
+      "confidence": 0.95,
+      "raw_text": "In addition to amounts otherwise made available, out of the funds made available under section 18 of the Food and Nutrition Act of 2008, $25,200,000 s",
+      "notes": [
+        "Grant to the Commonwealth of the Northern Mariana Islands for disaster nutrition assistance",
+        "Funded from section 18 of the Food and Nutrition Act of 2008"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "subject_to",
+          "target": "Section 18 of the Food and Nutrition Act of 2008",
+          "description": "Source of funds"
+        }
+      ],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 7371,
+        "end": 7521,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "rider",
+      "description": "Expands the definition of hurricane losses for purposes of administering title I of subdivision 1 of division B of the Bipartisan Budget Act of 2018 to include losses from Tropical Storm Cindy, losses of peach and blueberry crops in calendar year 2017 due to extreme cold, and blueberry productivity losses in calendar year 2018 due to extreme cold and hurricane damage in 2017.",
+      "policy_area": "agriculture_disaster_assistance",
+      "section": "SEC. 102",
+      "division": null,
+      "title": "I",
+      "confidence": 0.95,
+      "raw_text": "For purposes of administering title I of subdivision 1 of division B of the Bipartisan Budget Act of 2018 (Public Law 115\u2013123), losses to agricultura",
+      "notes": [
+        "Expands eligibility under PL 115-123 disaster payments; emergency designation included",
+        "No new dollar amount appropriated; repurposes existing PL 115-123 funds"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Title I of subdivision 1 of division B of P.L. 115-123",
+          "description": "Expands definition of hurricane losses"
+        }
+      ],
+      "source_span": {
+        "start": 8145,
+        "end": 8294,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "limitation",
+      "description": "A person or legal entity with average adjusted gross income greater than $900,000 is not eligible for Market Facilitation Program payments, unless at least 75 percent of the adjusted gross income is derived from farming, ranching, or forestry related activities.",
+      "amount": null,
+      "account_name": null,
+      "section": "SEC. 103",
+      "division": null,
+      "title": "I",
+      "confidence": 0.95,
+      "raw_text": "(1) Except as provided in paragraph (2), a person or legal entity is not eligible to receive a payment under the Market Facilitation Program establish",
+      "notes": [
+        "AGI cap on Market Facilitation Program payments established pursuant to CCC Charter Act",
+        "Emergency designation included"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "subject_to",
+          "target": "Commodity Credit Corporation Charter Act (15 U.S.C. 714 et seq.)",
+          "description": "Market Facilitation Program authority"
+        }
+      ],
+      "parent_account": null,
+      "source_span": {
+        "start": 9205,
+        "end": 9355,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "",
+      "agency": "Department of Agriculture",
+      "program": "Disaster nutrition assistance\u2014Puerto Rico",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 600000000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$600,000,000"
+      },
+      "fiscal_year": 2019,
+      "availability": "shall remain available for obligation by the Commonwealth until September 30, 2020",
+      "provisos": [],
+      "earmarks": [],
+      "section": "SEC. 104",
+      "division": null,
+      "title": "I",
+      "confidence": 0.97,
+      "raw_text": "there is appropriated to the Secretary, out of any moneys in the Treasury not otherwise appropriated, for the fiscal year ending September 30, 2019, $",
+      "notes": [
+        "Grant to the Commonwealth of Puerto Rico for disaster nutrition assistance",
+        "In addition to amounts in section 309 of division A of P.L. 115-72"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "see_also",
+          "target": "Section 309 of division A of P.L. 115-72",
+          "description": "Additional to prior disaster nutrition assistance for Puerto Rico"
+        },
+        {
+          "ref_type": "subject_to",
+          "target": "Robert T. Stafford Disaster Relief and Emergency Assistance Act (42 U.S.C. 5121 et seq.)",
+          "description": null
+        }
+      ],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 10354,
+        "end": 10504,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "",
+      "agency": "Department of Agriculture",
+      "program": "Study of Puerto Rico additional benefits impact",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 5000000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$5,000,000"
+      },
+      "fiscal_year": 2019,
+      "availability": "to remain available until September 30, 2020",
+      "provisos": [],
+      "earmarks": [],
+      "section": "SEC. 105",
+      "division": null,
+      "title": "I",
+      "confidence": 0.95,
+      "raw_text": "There is hereby appropriated $5,000,000, to remain available until September 30, 2020, for the Secretary of Agriculture to conduct an independent stud",
+      "notes": [
+        "For independent study comparing impact of additional benefits under section 309 of PL 115-72 on food insecurity, health status, and well-being in Puerto Rico"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "see_also",
+          "target": "Section 309 of P.L. 115-72",
+          "description": "Benefits being studied"
+        }
+      ],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 11258,
+        "end": 11408,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "",
+      "agency": "Department of Agriculture",
+      "program": "Disaster nutrition assistance\u2014American Samoa",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 18000000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$18,000,000"
+      },
+      "fiscal_year": 2019,
+      "availability": "shall remain available for obligation by the territory until September 30, 2020",
+      "provisos": [],
+      "earmarks": [],
+      "section": "SEC. 106",
+      "division": null,
+      "title": "I",
+      "confidence": 0.95,
+      "raw_text": "In addition to amounts otherwise made available, out of the funds made available under section 18 of the Food and Nutrition Act of 2008, $18,000,000 s",
+      "notes": [
+        "Grant to American Samoa for disaster nutrition assistance",
+        "Funded from section 18 of the Food and Nutrition Act of 2008"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "subject_to",
+          "target": "Section 18 of the Food and Nutrition Act of 2008",
+          "description": "Source of funds"
+        }
+      ],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 11876,
+        "end": 12026,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "directive",
+      "description": "Beginning not later than the 2020 reinsurance year, the Federal Crop Insurance Corporation shall offer coverage under the whole-farm revenue protection insurance policy for hemp as defined in section 297A of the Agricultural Marketing Act of 1946.",
+      "deadlines": [
+        "2020 reinsurance year"
+      ],
+      "section": "SEC. 107",
+      "division": null,
+      "title": "I",
+      "confidence": 0.95,
+      "raw_text": "Beginning not later than the 2020 reinsurance year, the Federal Crop Insurance Corporation shall offer coverage under the wholefarm revenue protection ",
+      "notes": [
+        "Requires FCIC to offer hemp crop insurance; emergency designation included"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "subject_to",
+          "target": "Section 297A of the Agricultural Marketing Act of 1946 (7 U.S.C. 1639o)",
+          "description": "Definition of hemp"
+        }
+      ],
+      "source_span": {
+        "start": 12578,
+        "end": 12729,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "rider",
+      "description": "Any rural community impacted by major declared disaster DR-4407 may have the governor or designee certify the area's population as a rural area for eligibility for USDA rural development programs until data from the 2020 Census is available.",
+      "policy_area": "rural_development_eligibility",
+      "section": "SEC. 108",
+      "division": null,
+      "title": "I",
+      "confidence": 0.95,
+      "raw_text": "Notwithstanding any other provision of law, any rural community impacted by major declared disaster DR\u20134407 may have the governor in the affected stat",
+      "notes": [
+        "Overrides population thresholds for rural development program eligibility until 2020 Census data"
+      ],
+      "cross_references": [],
+      "source_span": {
+        "start": 13097,
+        "end": 13247,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Economic Development Assistance Programs",
+      "agency": "Department of Commerce",
+      "program": "Economic Development Administration",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 600000000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$600,000,000"
+      },
+      "fiscal_year": 2019,
+      "availability": "to remain available until expended",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "II",
+      "confidence": 0.97,
+      "raw_text": "Pursuant to section 703 of the Public Works and Economic Development Act (42 U.S.C. 3233), for an additional amount for ''Economic Development Assista",
+      "notes": [
+        "Includes transfers of funds authority",
+        "For disaster relief, recovery, and infrastructure restoration from 2018 and 2019 disasters"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "subject_to",
+          "target": "Section 703 of the Public Works and Economic Development Act (42 U.S.C. 3233)",
+          "description": null
+        },
+        {
+          "ref_type": "subject_to",
+          "target": "Robert T. Stafford Disaster Relief and Emergency Assistance Act (42 U.S.C. 5121 et seq.)",
+          "description": null
+        }
+      ],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 13862,
+        "end": 14012,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "transfer_authority",
+      "from_scope": "",
+      "to_scope": "",
+      "limit": "unknown",
+      "conditions": [],
+      "section": "",
+      "division": null,
+      "title": "II",
+      "confidence": 0.9,
+      "raw_text": "up to 2 percent of funds may be transferred to the ''Salaries and Expenses'' account for administration and oversight activities",
+      "notes": [
+        "2 percent of $600,000,000 = $12,000,000 maximum transfer",
+        "Transfer from Economic Development Assistance Programs to EDA Salaries and Expenses"
+      ],
+      "cross_references": [],
+      "source_span": {
+        "start": 14856,
+        "end": 14984,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Office of Inspector General",
+      "agency": "Department of Commerce",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 1000000
+        },
+        "semantics": "reference_amount",
+        "text_as_written": "$1,000,000"
+      },
+      "fiscal_year": 2019,
+      "availability": null,
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "II",
+      "confidence": 0.96,
+      "raw_text": "$1,000,000 shall be transferred to the ''Office of Inspector General'' account for carrying out investigations and audits related to the funding provi",
+      "notes": [
+        "Mandatory transfer from EDA appropriation to Commerce OIG"
+      ],
+      "cross_references": [],
+      "detail_level": "sub_allocation",
+      "parent_account": "Economic Development Assistance Programs",
+      "source_span": {
+        "start": 15041,
+        "end": 15191,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Operations, Research, and Facilities",
+      "agency": "Department of Commerce",
+      "program": "National Oceanic and Atmospheric Administration",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 120570000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$120,570,000"
+      },
+      "fiscal_year": 2019,
+      "availability": "to remain available until September 30, 2020",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "II",
+      "confidence": 0.97,
+      "raw_text": "For an additional amount for ''Operations, Research, and Facilities'' for necessary expenses related to the consequences of Hurricanes Florence and Mic",
+      "notes": [
+        "Total broken down into five numbered line items"
+      ],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 15300,
+        "end": 15451,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Operations, Research, and Facilities",
+      "agency": "Department of Commerce",
+      "program": "Repair and replacement of observing assets, real property, and equipment",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 3000000
+        },
+        "semantics": "reference_amount",
+        "text_as_written": "$3,000,000"
+      },
+      "fiscal_year": 2019,
+      "availability": "to remain available until September 30, 2020",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "II",
+      "confidence": 0.97,
+      "raw_text": "(1) $3,000,000 for repair and replacement of observing assets, real property, and equipment;",
+      "notes": [
+        "Item (1) of NOAA O,R&F breakdown"
+      ],
+      "cross_references": [],
+      "detail_level": "line_item",
+      "parent_account": "Operations, Research, and Facilities",
+      "source_span": {
+        "start": 15561,
+        "end": 15653,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Operations, Research, and Facilities",
+      "agency": "Department of Commerce",
+      "program": "Marine debris assessment and removal",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 11000000
+        },
+        "semantics": "reference_amount",
+        "text_as_written": "$11,000,000"
+      },
+      "fiscal_year": 2019,
+      "availability": "to remain available until September 30, 2020",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "II",
+      "confidence": 0.97,
+      "raw_text": "(2) $11,000,000 for marine debris assessment and removal;",
+      "notes": [
+        "Item (2) of NOAA O,R&F breakdown"
+      ],
+      "cross_references": [],
+      "detail_level": "line_item",
+      "parent_account": "Operations, Research, and Facilities",
+      "source_span": {
+        "start": 15655,
+        "end": 15712,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Operations, Research, and Facilities",
+      "agency": "Department of Commerce",
+      "program": "Mapping, charting, and geodesy services",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 31570000
+        },
+        "semantics": "reference_amount",
+        "text_as_written": "$31,570,000"
+      },
+      "fiscal_year": 2019,
+      "availability": "to remain available until September 30, 2020",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "II",
+      "confidence": 0.97,
+      "raw_text": "(3) $31,570,000 for mapping, charting, and geodesy services;",
+      "notes": [
+        "Item (3) of NOAA O,R&F breakdown"
+      ],
+      "cross_references": [],
+      "detail_level": "line_item",
+      "parent_account": "Operations, Research, and Facilities",
+      "source_span": {
+        "start": 15713,
+        "end": 15773,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Operations, Research, and Facilities",
+      "agency": "Department of Commerce",
+      "program": "Hurricane, flood, and wildfire forecasting improvements",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 25000000
+        },
+        "semantics": "reference_amount",
+        "text_as_written": "$25,000,000"
+      },
+      "fiscal_year": 2019,
+      "availability": "to remain available until September 30, 2020",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "II",
+      "confidence": 0.97,
+      "raw_text": "(4) $25,000,000 to improve: (a) hurricane intensity forecasting, including through deployment of unmanned ocean observing platforms and enhanced data a",
+      "notes": [
+        "Item (4) of NOAA O,R&F breakdown; spending plan required within 45 days"
+      ],
+      "cross_references": [],
+      "detail_level": "line_item",
+      "parent_account": "Operations, Research, and Facilities",
+      "source_span": {
+        "start": 15775,
+        "end": 15926,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Operations, Research, and Facilities",
+      "agency": "Department of Commerce",
+      "program": "Title IX Fund grants",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 50000000
+        },
+        "semantics": "reference_amount",
+        "text_as_written": "$50,000,000"
+      },
+      "fiscal_year": 2019,
+      "availability": "to remain available until September 30, 2020",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "II",
+      "confidence": 0.97,
+      "raw_text": "(5) $50,000,000 for Title IX Fund grants as authorized under section 906(c) of division O of Public Law 114\u2013113:",
+      "notes": [
+        "Item (5) of NOAA O,R&F breakdown"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "subject_to",
+          "target": "Section 906(c) of division O of P.L. 114-113",
+          "description": "Title IX Fund grants authorization"
+        }
+      ],
+      "detail_level": "line_item",
+      "parent_account": "Operations, Research, and Facilities",
+      "source_span": {
+        "start": 16064,
+        "end": 16176,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Procurement, Acquisition and Construction",
+      "agency": "Department of Commerce",
+      "program": "National Oceanic and Atmospheric Administration",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 25000000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$25,000,000"
+      },
+      "fiscal_year": 2019,
+      "availability": "to remain available until September 30, 2021",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "II",
+      "confidence": 0.97,
+      "raw_text": "For an additional amount for ''Procurement, Acquisition and Construction'', $25,000,000, to remain available until September 30, 2021, for improvement",
+      "notes": [
+        "For weather supercomputing infrastructure and satellite ground services"
+      ],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 16719,
+        "end": 16869,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Fishery Disaster Assistance",
+      "agency": "Department of Commerce",
+      "program": "National Oceanic and Atmospheric Administration",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 150000000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$150,000,000"
+      },
+      "fiscal_year": 2019,
+      "availability": "to remain available until expended",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "II",
+      "confidence": 0.97,
+      "raw_text": "For an additional amount for ''Fishery Disaster Assistance'' for necessary expenses associated with the mitigation of fishery disasters, $150,000,000,",
+      "notes": [],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 17586,
+        "end": 17736,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Salaries and Expenses",
+      "agency": "Department of Justice",
+      "program": "United States Marshals Service",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 1336000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$1,336,000"
+      },
+      "fiscal_year": 2019,
+      "availability": null,
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "II",
+      "confidence": 0.97,
+      "raw_text": "For an additional amount for ''Salaries and Expenses'' for necessary expenses related to the consequences of Hurricanes Florence and Michael and Typhoo",
+      "notes": [],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 18347,
+        "end": 18498,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Buildings and Facilities",
+      "agency": "Department of Justice",
+      "program": "Federal Prison System",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 28400000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$28,400,000"
+      },
+      "fiscal_year": 2019,
+      "availability": "to remain available until expended",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "II",
+      "confidence": 0.97,
+      "raw_text": "For an additional amount for ''Buildings and Facilities'' for necessary expenses related to the consequences of Hurricanes Florence and Michael and Typ",
+      "notes": [],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 18762,
+        "end": 18913,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Payment to the Legal Services Corporation",
+      "agency": "Legal Services Corporation",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 15000000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$15,000,000"
+      },
+      "fiscal_year": 2019,
+      "availability": null,
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "II",
+      "confidence": 0.96,
+      "raw_text": "For an additional amount for ''Payment to the Legal Services Corporation'' to carry out the purposes of the Legal Services Corporation Act by providing",
+      "notes": [
+        "Related Agencies heading within Title II"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "subject_to",
+          "target": "Sections 501-506 of P.L. 105-119",
+          "description": "LSC restrictions apply"
+        },
+        {
+          "ref_type": "notwithstanding",
+          "target": "Sections 501 and 503 of P.L. 104-134",
+          "description": "These sections do not apply to this amount"
+        }
+      ],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 19256,
+        "end": 19407,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Operation and Maintenance, Marine Corps",
+      "agency": "Department of Defense",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 381000000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$381,000,000"
+      },
+      "fiscal_year": 2019,
+      "availability": null,
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "III",
+      "confidence": 0.98,
+      "raw_text": "For an additional amount for ''Operation and Maintenance, Marine Corps'', $381,000,000, for necessary expenses related to the consequences of Hurrican",
+      "notes": [],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 20777,
+        "end": 20927,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Operation and Maintenance, Air Force",
+      "agency": "Department of Defense",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 670000000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$670,000,000"
+      },
+      "fiscal_year": 2019,
+      "availability": null,
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "III",
+      "confidence": 0.98,
+      "raw_text": "For an additional amount for ''Operation and Maintenance, Air Force'', $670,000,000, for necessary expenses related to the consequences of Hurricanes ",
+      "notes": [],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 21186,
+        "end": 21336,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "limitation",
+      "description": "Funds made available under each heading in Title III shall only be used for the purposes specifically described under that heading.",
+      "amount": null,
+      "account_name": null,
+      "section": "SEC. 301",
+      "division": null,
+      "title": "III",
+      "confidence": 0.95,
+      "raw_text": "Notwithstanding any other provision of law, funds made available under each heading in this title shall only be used for the purposes specifically desc",
+      "notes": [
+        "Restricts use of DoD O&M funds in this title to stated disaster-related purposes"
+      ],
+      "cross_references": [],
+      "parent_account": null,
+      "source_span": {
+        "start": 21638,
+        "end": 21789,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Investigations",
+      "agency": "Department of the Army",
+      "program": "Corps of Engineers\u2014Civil",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 35000000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$35,000,000"
+      },
+      "fiscal_year": 2019,
+      "availability": "to remain available until expended",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "IV",
+      "confidence": 0.97,
+      "raw_text": "For an additional amount for ''Investigations'' for necessary expenses related to the completion, or initiation and completion, of flood and storm dama",
+      "notes": [
+        "For flood and storm damage reduction studies at full Federal expense in states/insular areas impacted by named 2018 storms"
+      ],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 21883,
+        "end": 22034,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Construction",
+      "agency": "Department of the Army",
+      "program": "Corps of Engineers\u2014Civil",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 740000000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$740,000,000"
+      },
+      "fiscal_year": 2019,
+      "availability": "to remain available until expended",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "IV",
+      "confidence": 0.97,
+      "raw_text": "For an additional amount for ''Construction'' for necessary expenses, $740,000,000, to remain available until expended, to construct flood and storm da",
+      "notes": [
+        "For flood and storm damage reduction projects in states/insular areas impacted by named 2018 storms"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "notwithstanding",
+          "target": "Section 902 of the Water Resources Development Act of 1986",
+          "description": "Not applicable to these funds"
+        },
+        {
+          "ref_type": "subject_to",
+          "target": "Section 103(k) of P.L. 99-662",
+          "description": "Non-Federal financing over 30 years"
+        }
+      ],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 23095,
+        "end": 23246,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Construction",
+      "agency": "Department of the Army",
+      "program": "Corps of Engineers\u2014Civil\u2014Continuing authorities projects",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 25000000
+        },
+        "semantics": "reference_amount",
+        "text_as_written": "$25,000,000"
+      },
+      "fiscal_year": 2019,
+      "availability": "to remain available until expended",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "IV",
+      "confidence": 0.95,
+      "raw_text": "up to $25,000,000 of the funds made available under this heading shall be used for continuing authorities projects to reduce the risk of flooding and s",
+      "notes": [
+        "Sub-allocation of $740,000,000 USACE Construction; up to $25M ceiling"
+      ],
+      "cross_references": [],
+      "detail_level": "sub_allocation",
+      "parent_account": "Construction",
+      "source_span": {
+        "start": 24853,
+        "end": 25004,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Mississippi River and Tributaries",
+      "agency": "Department of the Army",
+      "program": "Corps of Engineers\u2014Civil",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 575000000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$575,000,000"
+      },
+      "fiscal_year": 2019,
+      "availability": "to remain available until expended",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "IV",
+      "confidence": 0.98,
+      "raw_text": "For an additional amount for ''Mississippi River and Tributaries'' for necessary expenses to address emergency situations at Corps of Engineers project",
+      "notes": [
+        "For emergency situations and rehabilitation/repair of damages at USACE projects caused by natural disasters"
+      ],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 26155,
+        "end": 26306,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Operation and Maintenance",
+      "agency": "Department of the Army",
+      "program": "Corps of Engineers\u2014Civil",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 908000000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$908,000,000"
+      },
+      "fiscal_year": 2019,
+      "availability": "to remain available until expended",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "IV",
+      "confidence": 0.97,
+      "raw_text": "For an additional amount for ''Operation and Maintenance'' for necessary expenses to dredge Federal navigation projects in response to, and repair dam",
+      "notes": [
+        "For dredging and repair of Federal navigation projects; partial funding from Harbor Maintenance Trust Fund"
+      ],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 27006,
+        "end": 27156,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Flood Control and Coastal Emergencies",
+      "agency": "Department of the Army",
+      "program": "Corps of Engineers\u2014Civil",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 1000000000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$1,000,000,000"
+      },
+      "fiscal_year": 2019,
+      "availability": "to remain available until expended",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "IV",
+      "confidence": 0.98,
+      "raw_text": "For an additional amount for ''Flood Control and Coastal Emergencies'', as authorized by section 5 of the Act of August 18, 1941 (33 U.S.C. 701n), fo",
+      "notes": [
+        "Authorized by 33 U.S.C. 701n"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "subject_to",
+          "target": "Section 5 of the Act of August 18, 1941 (33 U.S.C. 701n)",
+          "description": "Flood control authorization"
+        }
+      ],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 28064,
+        "end": 28213,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Central Utah Project Completion Account",
+      "agency": "Department of the Interior",
+      "program": "Central Utah Project",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 350000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$350,000"
+      },
+      "fiscal_year": 2019,
+      "availability": "to remain available until expended",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "IV",
+      "confidence": 0.97,
+      "raw_text": "For an additional amount for ''Central Utah Project Completion Account'', $350,000, to be deposited into the Utah Reclamation Mitigation and Conservat",
+      "notes": [
+        "Deposited into the Utah Reclamation Mitigation and Conservation Account for fire remediation from 2018 wildfires"
+      ],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 29229,
+        "end": 29379,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Water and Related Resources",
+      "agency": "Department of the Interior",
+      "program": "Bureau of Reclamation",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 15500000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$15,500,000"
+      },
+      "fiscal_year": 2019,
+      "availability": "to remain available until expended",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "IV",
+      "confidence": 0.97,
+      "raw_text": "For an additional amount for ''Water and Related Resources'', $15,500,000, to remain available until expended, for fire remediation and suppression eme",
+      "notes": [
+        "For fire remediation and suppression emergency assistance related to 2017 and 2018 wildfires"
+      ],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 29843,
+        "end": 29994,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Federal Buildings Fund",
+      "agency": "General Services Administration",
+      "program": "Real Property Activities",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 91200000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$91,200,000"
+      },
+      "fiscal_year": 2019,
+      "availability": "to remain available until expended",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "V",
+      "confidence": 0.97,
+      "raw_text": "For an additional amount, to be deposited in the Federal Buildings Fund, $91,200,000, to remain available until expended, for necessary expenses relate",
+      "notes": [
+        "For repair and alteration of buildings related to Hurricane Florence"
+      ],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 30332,
+        "end": 30483,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Operations and Support",
+      "agency": "Department of Homeland Security",
+      "program": "Coast Guard",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 48977000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$48,977,000"
+      },
+      "fiscal_year": 2019,
+      "availability": "see sub-allocations for availability periods",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "VI",
+      "confidence": 0.97,
+      "raw_text": "For an additional amount for ''Operations and Support'' for necessary expenses related to the consequences of Hurricanes Michael, Florence, and Lane, T",
+      "notes": [
+        "Split between two availability periods"
+      ],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 31188,
+        "end": 31339,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Operations and Support",
+      "agency": "Department of Homeland Security",
+      "program": "Coast Guard\u2014general operations",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 46977000
+        },
+        "semantics": "reference_amount",
+        "text_as_written": "$46,977,000"
+      },
+      "fiscal_year": 2019,
+      "availability": "shall remain available until September 30, 2020",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "VI",
+      "confidence": 0.95,
+      "raw_text": "of which $46,977,000 shall remain available until September 30, 2020",
+      "notes": [
+        "Sub-allocation of CG O&S by availability period"
+      ],
+      "cross_references": [],
+      "detail_level": "sub_allocation",
+      "parent_account": "Operations and Support",
+      "source_span": {
+        "start": 31396,
+        "end": 31464,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Operations and Support",
+      "agency": "Department of Homeland Security",
+      "program": "Coast Guard\u2014environmental compliance and restoration",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 2000000
+        },
+        "semantics": "reference_amount",
+        "text_as_written": "$2,000,000"
+      },
+      "fiscal_year": 2019,
+      "availability": "shall remain available until September 30, 2023",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "VI",
+      "confidence": 0.95,
+      "raw_text": "of which $2,000,000 shall remain available until September 30, 2023, for environmental compliance and restoration",
+      "notes": [
+        "Sub-allocation of CG O&S by availability period"
+      ],
+      "cross_references": [],
+      "detail_level": "sub_allocation",
+      "parent_account": "Operations and Support",
+      "source_span": {
+        "start": 31470,
+        "end": 31583,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Procurement, Construction, and Improvements",
+      "agency": "Department of Homeland Security",
+      "program": "Coast Guard",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 476755000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$476,755,000"
+      },
+      "fiscal_year": 2019,
+      "availability": "to remain available until September 30, 2023",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "VI",
+      "confidence": 0.98,
+      "raw_text": "For an additional amount for ''Procurement, Construction, and Improvements'' for necessary expenses related to the consequences of Hurricanes Michael,",
+      "notes": [],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 31826,
+        "end": 31976,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "rider",
+      "description": "In implementing section 20601 of PL 115-123, the FEMA Administrator shall include costs of addressing pre-disaster condition, undamaged components, codes and standards, and industry standards in the cost of repair when calculating the percentage in 44 CFR 206.226(f).",
+      "policy_area": "FEMA_disaster_cost_calculation",
+      "section": "SEC. 601",
+      "division": null,
+      "title": "VI",
+      "confidence": 0.94,
+      "raw_text": "In implementing section 20601 of Public Law 115\u2013123, the Administrator shall include the costs associated with addressing pre-disaster condition, unda",
+      "notes": [
+        "Changes how FEMA calculates repair cost percentage for 50% rule",
+        "Repurposed amounts retain their original emergency/disaster relief designations"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 20601 of P.L. 115-123",
+          "description": "Changes implementation of disaster cost calculation"
+        },
+        {
+          "ref_type": "see_also",
+          "target": "44 CFR 206.226(f)",
+          "description": "Regulation being affected"
+        }
+      ],
+      "source_span": {
+        "start": 32340,
+        "end": 32490,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "limitation",
+      "description": "Funds made available under each heading in Title VI shall only be used for the purposes specifically described under that heading.",
+      "amount": null,
+      "account_name": null,
+      "section": "SEC. 602",
+      "division": null,
+      "title": "VI",
+      "confidence": 0.95,
+      "raw_text": "Notwithstanding any other provision of law, funds made available under each heading in this title shall only be used for the purposes specifically desc",
+      "notes": [
+        "Restricts use of DHS funds in this title"
+      ],
+      "cross_references": [],
+      "parent_account": null,
+      "source_span": {
+        "start": 21638,
+        "end": 21789,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Construction",
+      "agency": "Department of the Interior",
+      "program": "United States Fish and Wildlife Service",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 82400000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$82,400,000"
+      },
+      "fiscal_year": 2019,
+      "availability": "to remain available until expended",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "VII",
+      "confidence": 0.97,
+      "raw_text": "For an additional amount for ''Construction'' for necessary expenses related to the consequences of Hurricanes Florence, Lane, and Michael, and floodin",
+      "notes": [
+        "USFWS Construction under Title VII\u2014Department of the Interior"
+      ],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 33487,
+        "end": 33638,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Construction",
+      "agency": "Department of the Interior",
+      "program": "USFWS\u2014restore and rebuild national wildlife refuges",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 50000000
+        },
+        "semantics": "reference_amount",
+        "text_as_written": "$50,000,000"
+      },
+      "fiscal_year": 2019,
+      "availability": "to remain available until expended",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "VII",
+      "confidence": 0.95,
+      "raw_text": "of this amount $50,000,000 shall be used to restore and rebuild national wildlife refuges and increase the resiliency and capacity of coastal habitat ",
+      "notes": [
+        "Sub-allocation of $82,400,000 USFWS Construction"
+      ],
+      "cross_references": [],
+      "detail_level": "sub_allocation",
+      "parent_account": "Construction",
+      "source_span": {
+        "start": 33789,
+        "end": 33939,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Historic Preservation Fund",
+      "agency": "Department of the Interior",
+      "program": "National Park Service",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 50000000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$50,000,000"
+      },
+      "fiscal_year": 2019,
+      "availability": "to remain available until September 30, 2022",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "VII",
+      "confidence": 0.97,
+      "raw_text": "For an additional amount for the ''Historic Preservation Fund'' for necessary expenses related to the consequences of Hurricanes Florence and Michael,",
+      "notes": [
+        "Includes costs for section 106 compliance (54 USC 306108) and program administration"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "subject_to",
+          "target": "Section 306108 of title 54 (formerly section 106 of the National Historic Preservation Act)",
+          "description": "Compliance activities"
+        }
+      ],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 34287,
+        "end": 34437,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Construction",
+      "agency": "Department of the Interior",
+      "program": "National Park Service",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 78000000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$78,000,000"
+      },
+      "fiscal_year": 2019,
+      "availability": "to remain available until expended",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "VII",
+      "confidence": 0.97,
+      "raw_text": "For an additional amount for ''Construction'' for necessary expenses related to the consequences of Hurricanes Florence and Michael, Typhoons Yutu and ",
+      "notes": [
+        "NPS Construction under Title VII; distinct from USFWS Construction in same title"
+      ],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 35298,
+        "end": 35449,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Surveys, Investigations, and Research",
+      "agency": "Department of the Interior",
+      "program": "United States Geological Survey",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 98500000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$98,500,000"
+      },
+      "fiscal_year": 2019,
+      "availability": "to remain available until expended",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "VII",
+      "confidence": 0.97,
+      "raw_text": "For an additional amount for ''Surveys, Investigations, and Research'' for necessary expenses related to the consequences of Hurricanes Florence and Mi",
+      "notes": [],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 35846,
+        "end": 35997,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Surveys, Investigations, and Research",
+      "agency": "Department of the Interior",
+      "program": "USGS\u2014repair and replacement of equipment and facilities",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 72310000
+        },
+        "semantics": "reference_amount",
+        "text_as_written": "$72,310,000"
+      },
+      "fiscal_year": 2019,
+      "availability": "to remain available until expended",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "VII",
+      "confidence": 0.95,
+      "raw_text": "of this amount, $72,310,000 is for costs related to the repair and replacement of equipment and facilities damaged by disasters in 2018",
+      "notes": [
+        "Sub-allocation of $98,500,000 USGS appropriation"
+      ],
+      "cross_references": [],
+      "detail_level": "sub_allocation",
+      "parent_account": "SurveysViInvestigations, and Research",
+      "source_span": {
+        "start": 36397,
+        "end": 36532,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Technical Assistance",
+      "agency": "Department of the Interior",
+      "program": "Insular Affairs\u2014Assistance to Territories",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 2000000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$2,000,000"
+      },
+      "fiscal_year": 2019,
+      "availability": "to remain available until expended",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "VII",
+      "confidence": 0.96,
+      "raw_text": "For an additional amount for ''Technical Assistance'' for financial management expenses related to the consequences of Typhoon Yutu, $2,000,000, to re",
+      "notes": [
+        "Under Departmental Offices\u2014Insular Affairs\u2014Assistance to Territories heading"
+      ],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 37216,
+        "end": 37366,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Salaries and Expenses",
+      "agency": "Department of the Interior",
+      "program": "Office of Inspector General",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 1000000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$1,000,000"
+      },
+      "fiscal_year": 2019,
+      "availability": "to remain available until expended",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "VII",
+      "confidence": 0.96,
+      "raw_text": "For an additional amount for ''Salaries and Expenses'' for necessary expenses related to the consequences of major disasters declared pursuant to the R",
+      "notes": [
+        "Interior OIG; distinct from USMS S&E in Title II"
+      ],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 37644,
+        "end": 37795,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Science and Technology",
+      "agency": "Environmental Protection Agency",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 600000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$600,000"
+      },
+      "fiscal_year": 2019,
+      "availability": "to remain available until expended",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "VII",
+      "confidence": 0.97,
+      "raw_text": "For an additional amount for ''Science and Technology'' for necessary expenses related to improving preparedness of the water sector, $600,000, to rema",
+      "notes": [
+        "For improving preparedness of the water sector"
+      ],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 38192,
+        "end": 38343,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Leaking Underground Storage Tank Fund",
+      "agency": "Environmental Protection Agency",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 1500000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$1,500,000"
+      },
+      "fiscal_year": 2019,
+      "availability": "to remain available until expended",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "VII",
+      "confidence": 0.97,
+      "raw_text": "For an additional amount for ''Leaking Underground Storage Tank Fund'' for necessary expenses related to the consequences of Hurricanes Florence and Mi",
+      "notes": [],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 38621,
+        "end": 38772,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "State and Tribal Assistance Grants",
+      "agency": "Environmental Protection Agency",
+      "program": "Hazardous waste financial assistance\u2014Hurricanes Florence/Michael and earthquakes",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 1500000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$1,500,000"
+      },
+      "fiscal_year": 2019,
+      "availability": "to remain available until expended",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "VII",
+      "confidence": 0.95,
+      "raw_text": "For additional amounts for ''State and Tribal Assistance Grants'' for necessary expenses related to the consequences of Hurricanes Florence and Michael",
+      "notes": [
+        "First of three amounts in first STAG paragraph; for hazardous waste financial assistance grants"
+      ],
+      "cross_references": [],
+      "detail_level": "line_item",
+      "parent_account": null,
+      "source_span": {
+        "start": 39109,
+        "end": 39260,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "State and Tribal Assistance Grants",
+      "agency": "Environmental Protection Agency",
+      "program": "Hazardous waste and solid waste\u2014Typhoon Yutu",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 56000000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$56,000,000"
+      },
+      "fiscal_year": 2019,
+      "availability": "to remain available until expended",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "VII",
+      "confidence": 0.95,
+      "raw_text": "for necessary expenses related to the consequences of Typhoon Yutu for the hazardous waste financial assistance grants program and for other solid wast",
+      "notes": [
+        "Second of three amounts in first STAG paragraph; for Typhoon Yutu hazardous waste and solid waste management"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "notwithstanding",
+          "target": "Section 3011(b) of the Solid Waste Disposal Act",
+          "description": "Not applicable to these funds"
+        }
+      ],
+      "detail_level": "line_item",
+      "parent_account": null,
+      "source_span": {
+        "start": 39405,
+        "end": 39556,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "State and Tribal Assistance Grants",
+      "agency": "Environmental Protection Agency",
+      "program": "Section 106 FWPCA grants",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 5000000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$5,000,000"
+      },
+      "fiscal_year": 2019,
+      "availability": "to remain available until expended",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "VII",
+      "confidence": 0.95,
+      "raw_text": "and for grants under section 106 of the Federal Water Pollution Control Act, $5,000,000, to remain available until expended, to address impacts of Hur",
+      "notes": [
+        "Third of three amounts in first STAG paragraph; for grants under section 106 of the FWPCA"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "notwithstanding",
+          "target": "Section 106(b), (e), and (f) of the Federal Water Pollution Control Act",
+          "description": "Waiver of certain provisions"
+        }
+      ],
+      "detail_level": "line_item",
+      "parent_account": null,
+      "source_span": {
+        "start": 39733,
+        "end": 39883,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "State and Tribal Assistance Grants",
+      "agency": "Environmental Protection Agency",
+      "program": "Clean Water and Safe Drinking Water SRF capitalization grants",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 349400000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$349,400,000"
+      },
+      "fiscal_year": 2019,
+      "availability": "to remain available until expended",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "VII",
+      "confidence": 0.96,
+      "raw_text": "For an additional amount for ''State and Tribal Assistance Grants'', $349,400,000 to remain available until expended, of which $53,300,000 shall be fo",
+      "notes": [
+        "Second STAG paragraph; for SRF capitalization grants for disaster-impacted water/wastewater systems"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "notwithstanding",
+          "target": "Section 604(a) of the Federal Water Pollution Control Act",
+          "description": "Allocation formula waived"
+        },
+        {
+          "ref_type": "notwithstanding",
+          "target": "Section 1452(a)(1)(D) of the Safe Drinking Water Act",
+          "description": "Allocation formula waived"
+        }
+      ],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 40229,
+        "end": 40379,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "State and Tribal Assistance Grants",
+      "agency": "Environmental Protection Agency",
+      "program": "Clean Water State Revolving Fund capitalization grants",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 53300000
+        },
+        "semantics": "reference_amount",
+        "text_as_written": "$53,300,000"
+      },
+      "fiscal_year": 2019,
+      "availability": "to remain available until expended",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "VII",
+      "confidence": 0.96,
+      "raw_text": "of which $53,300,000 shall be for capitalization grants for the Clean Water State Revolving Funds under title VI of the Federal Water Pollution Control",
+      "notes": [
+        "Sub-allocation of $349,400,000 second STAG paragraph"
+      ],
+      "cross_references": [],
+      "detail_level": "sub_allocation",
+      "parent_account": "State and Tribal Assistance Grants",
+      "source_span": {
+        "start": 40347,
+        "end": 40498,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "State and Tribal Assistance Grants",
+      "agency": "Environmental Protection Agency",
+      "program": "Safe Drinking Water SRF capitalization grants",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 296100000
+        },
+        "semantics": "reference_amount",
+        "text_as_written": "$296,100,000"
+      },
+      "fiscal_year": 2019,
+      "availability": "to remain available until expended",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "VII",
+      "confidence": 0.96,
+      "raw_text": "of which $296,100,000 shall be for capitalization grants under section 1452 of the Safe Drinking Water Act",
+      "notes": [
+        "Sub-allocation of $349,400,000 second STAG paragraph"
+      ],
+      "cross_references": [],
+      "detail_level": "sub_allocation",
+      "parent_account": "State and Tribal Assistance Grants",
+      "source_span": {
+        "start": 40508,
+        "end": 40614,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "State and Tribal Assistance Grants",
+      "agency": "Environmental Protection Agency",
+      "program": "Typhoon Yutu drinking water and wastewater grants",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 10400000
+        },
+        "semantics": "reference_amount",
+        "text_as_written": "$10,400,000"
+      },
+      "fiscal_year": 2019,
+      "availability": "to remain available until expended",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "VII",
+      "confidence": 0.95,
+      "raw_text": "the Administrator shall retain $10,400,000 of the funds appropriated herein for grants for drinking water facilities and waste water treatment plants i",
+      "notes": [
+        "Sub-allocation of $349,400,000 second STAG paragraph; Administrator retains for Typhoon Yutu"
+      ],
+      "cross_references": [],
+      "detail_level": "sub_allocation",
+      "parent_account": "State and Tribal Assistance Grants",
+      "source_span": {
+        "start": 41581,
+        "end": 41732,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "State and Tribal Assistance Grants",
+      "agency": "Environmental Protection Agency",
+      "program": "EPA management and oversight",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 1000000
+        },
+        "semantics": "reference_amount",
+        "text_as_written": "$1,000,000"
+      },
+      "fiscal_year": 2019,
+      "availability": "to remain available until expended",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "VII",
+      "confidence": 0.95,
+      "raw_text": "the Administrator of the Environmental Protection Agency may retain up to $1,000,000 of the funds appropriated herein for management and oversight",
+      "notes": [
+        "Sub-allocation of $349,400,000 second STAG paragraph; up to $1M ceiling"
+      ],
+      "cross_references": [],
+      "detail_level": "sub_allocation",
+      "parent_account": "State and Tribal Assistance Grants",
+      "source_span": {
+        "start": 42281,
+        "end": 42427,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Forest and Rangeland Research",
+      "agency": "Department of Agriculture",
+      "program": "Forest Service",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 1000000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$1,000,000"
+      },
+      "fiscal_year": 2019,
+      "availability": "to remain available until expended",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "VII",
+      "confidence": 0.97,
+      "raw_text": "For an additional amount for ''Forest and Rangeland Research'' for necessary expenses related to the consequences of Hurricanes Florence and Michael, a",
+      "notes": [
+        "Under Related Agencies\u2014Department of Agriculture\u2014Forest Service heading in Title VII; for forest inventory and analysis program"
+      ],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 42722,
+        "end": 42873,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "State and Private Forestry",
+      "agency": "Department of Agriculture",
+      "program": "Forest Service",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 12000000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$12,000,000"
+      },
+      "fiscal_year": 2019,
+      "availability": "to remain available until expended",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "VII",
+      "confidence": 0.97,
+      "raw_text": "For an additional amount for ''State and Private Forestry'' for necessary expenses related to the consequences of Hurricanes Florence and Michael, and ",
+      "notes": [
+        "Forest Service under Title VII Related Agencies"
+      ],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 43228,
+        "end": 43379,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "National Forest System",
+      "agency": "Department of Agriculture",
+      "program": "Forest Service",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 84960000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$84,960,000"
+      },
+      "fiscal_year": 2019,
+      "availability": "to remain available until expended",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "VII",
+      "confidence": 0.97,
+      "raw_text": "For an additional amount for ''National Forest System'' for necessary expenses related to the consequences of Hurricanes Florence and Michael, and the ",
+      "notes": [
+        "Forest Service under Title VII Related Agencies"
+      ],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 43682,
+        "end": 43833,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "National Forest System",
+      "agency": "Department of Agriculture",
+      "program": "Hazardous fuels management activities",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 21000000
+        },
+        "semantics": "reference_amount",
+        "text_as_written": "$21,000,000"
+      },
+      "fiscal_year": 2019,
+      "availability": "to remain available until expended",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "VII",
+      "confidence": 0.95,
+      "raw_text": "of this amount $21,000,000 shall be used for hazardous fuels management activities",
+      "notes": [
+        "Sub-allocation of $84,960,000 National Forest System"
+      ],
+      "cross_references": [],
+      "detail_level": "sub_allocation",
+      "parent_account": "National Forest System",
+      "source_span": {
+        "start": 43927,
+        "end": 44009,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Capital Improvement and Maintenance",
+      "agency": "Department of Agriculture",
+      "program": "Forest Service",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 36040000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$36,040,000"
+      },
+      "fiscal_year": 2019,
+      "availability": "to remain available until expended",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "VII",
+      "confidence": 0.97,
+      "raw_text": "For an additional amount for ''Capital Improvement and Maintenance'' for necessary expenses related to the consequences of Hurricanes Florence and Mich",
+      "notes": [
+        "Forest Service under Title VII Related Agencies"
+      ],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 44252,
+        "end": 44403,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Wildland Fire Management",
+      "agency": "Department of Agriculture",
+      "program": "Forest Service",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 720271000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$720,271,000"
+      },
+      "fiscal_year": 2019,
+      "availability": "to remain available through September 30, 2022",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "VII",
+      "confidence": 0.97,
+      "raw_text": "For an additional amount for ''Wildland Fire Management'', $720,271,000, to remain available through September 30, 2022, for urgent wildland fire supp",
+      "notes": [
+        "Includes transfer of funds authority; sole purpose is to repay FY2018 fire suppression transfers"
+      ],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 44747,
+        "end": 44897,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "National Institute of Environmental Health Sciences",
+      "agency": "Department of Health and Human Services",
+      "program": "National Institutes of Health",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 1000000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$1,000,000"
+      },
+      "fiscal_year": 2019,
+      "availability": "to remain available until expended",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "VII",
+      "confidence": 0.97,
+      "raw_text": "For an additional amount for ''National Institute of Environmental Health Sciences'' for necessary expenses in carrying out activities set forth in sec",
+      "notes": [
+        "Under Related Agencies\u2014HHS\u2014NIH heading in Title VII; for Superfund-related activities"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "subject_to",
+          "target": "Section 311(a) of CERCLA (42 U.S.C. 9660(a))",
+          "description": null
+        },
+        {
+          "ref_type": "subject_to",
+          "target": "Section 126(g) of SARA",
+          "description": null
+        }
+      ],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 45478,
+        "end": 45629,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "directive",
+      "description": "Agencies receiving funds in Title VII shall provide a detailed operating plan of anticipated uses by State, Territory, program, project, and activity within 45 days of enactment. No funds may be obligated before plans provided. Plans updated every 60 days until funds expended.",
+      "deadlines": [
+        "45 days after enactment",
+        "every 60 days until funds expended"
+      ],
+      "section": "SEC. 701",
+      "division": null,
+      "title": "VII",
+      "confidence": 0.95,
+      "raw_text": "Not later than 45 days after the date of enactment of this Act, the agencies receiving funds appropriated by this title shall provide a detailed opera",
+      "notes": [
+        "Applies to all agencies in Title VII; funds may not be obligated before plans submitted"
+      ],
+      "cross_references": [],
+      "source_span": {
+        "start": 46280,
+        "end": 46430,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Training and Employment Services",
+      "agency": "Department of Labor",
+      "program": "Employment and Training Administration\u2014Dislocated Workers Assistance National Reserve",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 50000000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$50,000,000"
+      },
+      "fiscal_year": 2019,
+      "availability": "to remain available through September 30, 2020",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "VIII",
+      "confidence": 0.97,
+      "raw_text": "For an additional amount for ''Training and Employment Services'', $50,000,000, for the dislocated workers assistance national reserve for necessary ex",
+      "notes": [
+        "Includes transfer of funds authority"
+      ],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 47016,
+        "end": 47167,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "transfer_authority",
+      "from_scope": "",
+      "to_scope": "",
+      "limit": "unknown",
+      "conditions": [],
+      "section": "",
+      "division": null,
+      "title": "VIII",
+      "confidence": 0.95,
+      "raw_text": "the Secretary of Labor may transfer up to $1,000,000 of such funds to any other Department of Labor account for reconstruction and recovery needs, inc",
+      "notes": [
+        "Transfer ceiling from Training and Employment Services to any other DOL account"
+      ],
+      "cross_references": [],
+      "source_span": {
+        "start": 47535,
+        "end": 47685,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Office of Inspector General",
+      "agency": "Department of Labor",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 500000
+        },
+        "semantics": "reference_amount",
+        "text_as_written": "$500,000"
+      },
+      "fiscal_year": 2019,
+      "availability": "to remain available until expended",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "VIII",
+      "confidence": 0.95,
+      "raw_text": "up to $500,000, to remain available until expended, shall be transferred to ''Office of Inspector General'' for oversight of activities responding to ",
+      "notes": [
+        "Transfer from TES to DOL OIG; up to $500K ceiling"
+      ],
+      "cross_references": [],
+      "detail_level": "sub_allocation",
+      "parent_account": "Training and Employment Services",
+      "source_span": {
+        "start": 47882,
+        "end": 48032,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Payments to States for the Child Care and Development Block Grant",
+      "agency": "Department of Health and Human Services",
+      "program": "Administration for Children and Families",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 30000000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$30,000,000"
+      },
+      "fiscal_year": 2019,
+      "availability": "to remain available through September 30, 2021",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "VIII",
+      "confidence": 0.97,
+      "raw_text": "For an additional amount for ''Payments to States for the Child Care and Development Block Grant'', $30,000,000, to remain available through September",
+      "notes": [
+        "For areas with major disaster/emergency declarations under Stafford Act"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "notwithstanding",
+          "target": "Sections 658J and 658O of the CCDBG Act of 1990",
+          "description": "Allocation requirements waived"
+        }
+      ],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 48420,
+        "end": 48570,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Children and Families Services Programs",
+      "agency": "Department of Health and Human Services",
+      "program": "Administration for Children and Families",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 90000000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$90,000,000"
+      },
+      "fiscal_year": 2019,
+      "availability": "to remain available through September 30, 2021",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "VIII",
+      "confidence": 0.97,
+      "raw_text": "For an additional amount for ''Children and Families Services Programs'', $90,000,000, to remain available through September 30, 2021, for necessary e",
+      "notes": [
+        "For areas with major disaster/emergency declarations"
+      ],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 50822,
+        "end": 50972,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Children and Families Services Programs",
+      "agency": "Department of Health and Human Services",
+      "program": "Head Start programs",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 55000000
+        },
+        "semantics": "reference_amount",
+        "text_as_written": "$55,000,000"
+      },
+      "fiscal_year": 2019,
+      "availability": "to remain available through September 30, 2021",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "VIII",
+      "confidence": 0.96,
+      "raw_text": "$55,000,000 shall be for Head Start programs, including making payments under the Head Start Act",
+      "notes": [
+        "Sub-allocation of $90M CFSP; not included in base grant, not subject to section 640(a)"
+      ],
+      "cross_references": [],
+      "detail_level": "sub_allocation",
+      "parent_account": "Children and Families Services Programs",
+      "source_span": {
+        "start": 51421,
+        "end": 51517,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Children and Families Services Programs",
+      "agency": "Department of Health and Human Services",
+      "program": "Title IV-B subpart 1 of Social Security Act",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 5000000
+        },
+        "semantics": "reference_amount",
+        "text_as_written": "$5,000,000"
+      },
+      "fiscal_year": 2019,
+      "availability": "to remain available through September 30, 2021",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "VIII",
+      "confidence": 0.95,
+      "raw_text": "$5,000,000 shall be for payments to States, territories, and tribes for activities authorized under subpart 1 of part B of title IV of the Social Secu",
+      "notes": [
+        "Sub-allocation of $90M CFSP; allocated based on assessed need notwithstanding section 423"
+      ],
+      "cross_references": [],
+      "detail_level": "sub_allocation",
+      "parent_account": "Children and Families Services Programs",
+      "source_span": {
+        "start": 51957,
+        "end": 52107,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Children and Families Services Programs",
+      "agency": "Department of Health and Human Services",
+      "program": "Community Services Block Grant",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 25000000
+        },
+        "semantics": "reference_amount",
+        "text_as_written": "$25,000,000"
+      },
+      "fiscal_year": 2019,
+      "availability": "to remain available through September 30, 2021",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "VIII",
+      "confidence": 0.95,
+      "raw_text": "$25,000,000 shall be for payments to States, territories, and tribes authorized under the Community Services Block Grant Act, with such funds allocate",
+      "notes": [
+        "Sub-allocation of $90M CFSP; allocated based on assessed need notwithstanding sections 674(b), 675A, 675B"
+      ],
+      "cross_references": [],
+      "detail_level": "sub_allocation",
+      "parent_account": "Children and Families Services Programs",
+      "source_span": {
+        "start": 52333,
+        "end": 52483,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Children and Families Services Programs",
+      "agency": "Department of Health and Human Services",
+      "program": "Federal administrative expenses",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 5000000
+        },
+        "semantics": "reference_amount",
+        "text_as_written": "$5,000,000"
+      },
+      "fiscal_year": 2019,
+      "availability": "to remain available until expended",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "VIII",
+      "confidence": 0.95,
+      "raw_text": "up to $5,000,000, to remain available until expended, shall be available for Federal administrative expenses",
+      "notes": [
+        "Sub-allocation of $90M CFSP; up to $5M ceiling"
+      ],
+      "cross_references": [],
+      "detail_level": "sub_allocation",
+      "parent_account": "Children and Families Services Programs",
+      "source_span": {
+        "start": 52999,
+        "end": 53107,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Public Health and Social Services Emergency Fund",
+      "agency": "Department of Health and Human Services",
+      "program": "Office of the Secretary",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 201000000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$201,000,000"
+      },
+      "fiscal_year": 2019,
+      "availability": "to remain available through September 30, 2020",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "VIII",
+      "confidence": 0.97,
+      "raw_text": "For an additional amount for the ''Public Health and Social Services Emergency Fund'', $201,000,000, to remain available through September 30, 2020, f",
+      "notes": [
+        "Includes transfers of funds; for areas with major disaster/emergency declarations"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "subject_to",
+          "target": "Section 319(a) of the PHS Act",
+          "description": "Activities authorized"
+        }
+      ],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 53595,
+        "end": 53745,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Health Resources and Services Administration\u2014Primary Health Care",
+      "agency": "Department of Health and Human Services",
+      "program": "Health Centers Program under section 330 of PHS Act",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 80000000
+        },
+        "semantics": "reference_amount",
+        "text_as_written": "$80,000,000"
+      },
+      "fiscal_year": 2019,
+      "availability": "to remain available through September 30, 2020",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "VIII",
+      "confidence": 0.96,
+      "raw_text": "$80,000,000 shall be transferred to ''Health Resources and Services Administration\u2014Primary Health Care'' for expenses directly related to a covered d",
+      "notes": [
+        "Transfer from PHSSEF; includes alteration, renovation, construction, equipment"
+      ],
+      "cross_references": [],
+      "detail_level": "sub_allocation",
+      "parent_account": "Public Health and Social Services Emergency Fund",
+      "source_span": {
+        "start": 54434,
+        "end": 54583,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Centers for Disease Control and Prevention\u2014CDC-Wide Activities and Program Support",
+      "agency": "Department of Health and Human Services",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 20000000
+        },
+        "semantics": "reference_amount",
+        "text_as_written": "$20,000,000"
+      },
+      "fiscal_year": 2019,
+      "availability": "to remain available through September 30, 2020",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "VIII",
+      "confidence": 0.95,
+      "raw_text": "not less than $20,000,000 shall be transferred to ''Centers for Disease Control and Prevention\u2014CDC-Wide Activities and Program Support'' for response,",
+      "notes": [
+        "Transfer from PHSSEF; floor of $20M (not less than)"
+      ],
+      "cross_references": [],
+      "detail_level": "sub_allocation",
+      "parent_account": "Public Health and Social Services Emergency Fund",
+      "source_span": {
+        "start": 55080,
+        "end": 55230,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Substance Abuse and Mental Health Services Administration\u2014Health Surveillance and Program Support",
+      "agency": "Department of Health and Human Services",
+      "program": "Behavioral health treatment and crisis counseling",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 100000000
+        },
+        "semantics": "reference_amount",
+        "text_as_written": "$100,000,000"
+      },
+      "fiscal_year": 2019,
+      "availability": "to remain available through September 30, 2020",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "VIII",
+      "confidence": 0.95,
+      "raw_text": "not less than $100,000,000 shall be transferred to ''Substance Abuse and Mental Health Services Administration\u2014Health Surveillance and Program Support",
+      "notes": [
+        "Transfer from PHSSEF; floor of $100M (not less than); for grants, contracts, cooperative agreements for behavioral health, substance use disorders, crisis counseling"
+      ],
+      "cross_references": [],
+      "detail_level": "sub_allocation",
+      "parent_account": "Public Health and Social Services Emergency Fund",
+      "source_span": {
+        "start": 55372,
+        "end": 55522,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Office of the Secretary\u2014Office of Inspector General",
+      "agency": "Department of Health and Human Services",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 1000000
+        },
+        "semantics": "reference_amount",
+        "text_as_written": "$1,000,000"
+      },
+      "fiscal_year": 2019,
+      "availability": "to remain available until expended",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "VIII",
+      "confidence": 0.95,
+      "raw_text": "up to $1,000,000, to remain available until expended, shall be transferred to \u2018\u2018Office of the Secretary\u2014Office of Inspector General'' for oversight of",
+      "notes": [
+        "Transfer from PHSSEF; up to $1M ceiling"
+      ],
+      "cross_references": [],
+      "detail_level": "sub_allocation",
+      "parent_account": "Public Health and Social Services Emergency Fund",
+      "source_span": {
+        "start": 55850,
+        "end": 56000,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true,
+        "match_tier": "repaired_normalized"
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Hurricane Education Recovery",
+      "agency": "Department of Education",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 165000000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$165,000,000"
+      },
+      "fiscal_year": 2019,
+      "availability": "to remain available through September 30, 2020",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "VIII",
+      "confidence": 0.97,
+      "raw_text": "For an additional amount for ''Hurricane Education Recovery'' for necessary expenses related to the consequences of Hurricanes Florence and Michael, Ty",
+      "notes": [
+        "Includes transfer of funds authority; for areas with major disaster/emergency declarations"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "subject_to",
+          "target": "Title VIII of subdivision 1 of division B of P.L. 115-123",
+          "description": "Authorized programs"
+        }
+      ],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 56353,
+        "end": 56504,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Office of Inspector General",
+      "agency": "Department of Education",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 2000000
+        },
+        "semantics": "reference_amount",
+        "text_as_written": "$2,000,000"
+      },
+      "fiscal_year": 2019,
+      "availability": "to remain available until expended",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "VIII",
+      "confidence": 0.96,
+      "raw_text": "$2,000,000 of the funds made available under this heading, to remain available until expended, shall be transferred to the Office of the Inspector Gen",
+      "notes": [
+        "Transfer from Hurricane Education Recovery to ED OIG"
+      ],
+      "cross_references": [],
+      "detail_level": "sub_allocation",
+      "parent_account": "Hurricane Education Recovery",
+      "source_span": {
+        "start": 57902,
+        "end": 58052,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Hurricane Education Recovery",
+      "agency": "Department of Education",
+      "program": "Program administration",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 1000000
+        },
+        "semantics": "reference_amount",
+        "text_as_written": "$1,000,000"
+      },
+      "fiscal_year": 2019,
+      "availability": "to remain available through September 30, 2020",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "VIII",
+      "confidence": 0.95,
+      "raw_text": "up to $1,000,000 of the funds made available under this heading shall be for program administration",
+      "notes": [
+        "Sub-allocation of $165M Hurricane Education Recovery; up to $1M ceiling"
+      ],
+      "cross_references": [],
+      "detail_level": "sub_allocation",
+      "parent_account": "Hurricane Education Recovery",
+      "source_span": {
+        "start": 58174,
+        "end": 58273,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "directive",
+      "description": "Secretaries of Labor, HHS, and Education shall provide a detailed spend plan of anticipated uses including estimated personnel and administrative costs within 30 days of enactment, updated every 60 days until funds expended or expired.",
+      "deadlines": [
+        "30 days after enactment",
+        "every 60 days"
+      ],
+      "section": "SEC. 801",
+      "division": null,
+      "title": "VIII",
+      "confidence": 0.95,
+      "raw_text": "Not later than 30 days after enactment of this Act, the Secretaries of Labor, Health and Human Services, and Education shall provide a detailed spend ",
+      "notes": [],
+      "cross_references": [],
+      "source_span": {
+        "start": 58521,
+        "end": 58671,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "mandatory_spending_extension",
+      "program_name": "Medicaid\u2014Payments to Territories (Northern Mariana Islands, Guam, American Samoa)",
+      "statutory_reference": "Section 1108(g)(5) of the Social Security Act (42 U.S.C. 1308(g)(5))",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 36000000
+        },
+        "semantics": "mandatory_spending",
+        "text_as_written": "$36,000,000"
+      },
+      "period": "January 1, 2019, through September 30, 2019",
+      "extends_through": "September 30, 2019",
+      "section": "SEC. 802",
+      "division": null,
+      "title": "VIII",
+      "confidence": 0.93,
+      "raw_text": "(a) Section 1108(g)(5) of the Social Security Act (42 U.S.C. 1308(g)(5)) is amended\u2014 (1) in subparagraph (A), by striking ''and (E)'' and inserting ''",
+      "notes": [
+        "Adds $36,000,000 for Northern Mariana Islands for January 1\u2013September 30, 2019",
+        "Increases FMAP to 100% for Guam and American Samoa for the same period",
+        "Requires Guam and American Samoa to submit T-MSIS data plans by September 30, 2019",
+        "Emergency designation under section 251(b)(2)(A)(i) of the BBEDCA"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 1108(g)(5) of the Social Security Act (42 U.S.C. 1308(g)(5))",
+          "description": "Adds new subparagraph (E) and amends subparagraph (F)"
+        }
+      ],
+      "source_span": {
+        "start": 58987,
+        "end": 59137,
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Salaries and Expenses",
+      "agency": "Government Accountability Office",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 10000000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$10,000,000"
+      },
+      "fiscal_year": 2019,
+      "availability": "to remain available until expended",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "IX",
+      "confidence": 0.97,
+      "raw_text": "For an additional amount for ''Salaries and Expenses'', $10,000,000, to remain available until expended, for audits and investigations related to Hurr",
+      "notes": [
+        "Legislative Branch; for disaster audits and investigations"
+      ],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 61086,
+        "end": 61236,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Military Construction, Navy and Marine Corps",
+      "agency": "Department of Defense",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 600000000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$600,000,000"
+      },
+      "fiscal_year": 2019,
+      "availability": "to remain available until September 30, 2023",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "X",
+      "confidence": 0.97,
+      "raw_text": "For an additional amount for ''Military Construction, Navy and Marine Corps'', $600,000,000, to remain available until September 30, 2023, for plannin",
+      "notes": [
+        "For planning, design, and construction related to Hurricanes Florence and Michael on Navy/Marine Corps installations"
+      ],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 62270,
+        "end": 62420,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Military Construction, Air Force",
+      "agency": "Department of Defense",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 1000000000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$1,000,000,000"
+      },
+      "fiscal_year": 2019,
+      "availability": "to remain available until September 30, 2023",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "X",
+      "confidence": 0.97,
+      "raw_text": "For an additional amount for ''Military Construction, Air Force'', $1,000,000,000, to remain available until September 30, 2023, for planning and desi",
+      "notes": [
+        "For Hurricane Michael and 2019 floods"
+      ],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 63437,
+        "end": 63587,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Military Construction, Army National Guard",
+      "agency": "Department of Defense",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 42400000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$42,400,000"
+      },
+      "fiscal_year": 2019,
+      "availability": "to remain available until September 30, 2023",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "X",
+      "confidence": 0.97,
+      "raw_text": "For an additional amount for ''Military Construction, Army National Guard'', $42,400,000, to remain available until September 30, 2023, for necessary ",
+      "notes": [
+        "For Hurricanes Florence and Michael"
+      ],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 64670,
+        "end": 64820,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Medical Facilities",
+      "agency": "Department of Veterans Affairs",
+      "program": "Veterans Health Administration",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 3000000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$3,000,000"
+      },
+      "fiscal_year": 2019,
+      "availability": "to remain available until September 30, 2023",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "X",
+      "confidence": 0.97,
+      "raw_text": "For an additional amount for ''Medical Facilities'', $3,000,000, to remain available until September 30, 2023, for necessary expenses related to the c",
+      "notes": [
+        "Includes transfer of funds authority to any discretionary VA account"
+      ],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 65860,
+        "end": 66010,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "transfer_authority",
+      "from_scope": "",
+      "to_scope": "",
+      "limit": "unknown",
+      "conditions": [],
+      "section": "",
+      "division": null,
+      "title": "X",
+      "confidence": 0.93,
+      "raw_text": "the Secretary of Veterans Affairs, upon determination that such action is necessary to address needs as a result of the consequences of Hurricanes Flo",
+      "notes": [
+        "May transfer the full $3M to any discretionary VA account; ceiling equals the full appropriation"
+      ],
+      "cross_references": [],
+      "source_span": {
+        "start": 66104,
+        "end": 66254,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "limitation",
+      "description": "Funds made available under each heading within 'Department of Defense' in Title X shall only be used for the purposes specifically described under that heading.",
+      "amount": null,
+      "account_name": null,
+      "section": "SEC. 1001",
+      "division": null,
+      "title": "X",
+      "confidence": 0.95,
+      "raw_text": "Notwithstanding any other provision of law, funds made available under each heading within the ''Department of Defense'' in this title shall only be us",
+      "notes": [
+        "Applies only to DoD headings in Title X, not VA"
+      ],
+      "cross_references": [],
+      "parent_account": null,
+      "source_span": {
+        "start": 67120,
+        "end": 67271,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Public Transportation Emergency Relief Program",
+      "agency": "Department of Transportation",
+      "program": "Federal Transit Administration",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 10542000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$10,542,000"
+      },
+      "fiscal_year": 2019,
+      "availability": "to remain available until expended",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "XI",
+      "confidence": 0.97,
+      "raw_text": "For an additional amount for the ''Public Transportation Emergency Relief Program'' as authorized under section 5324 of title 49, United States Code, ",
+      "notes": [
+        "For transit systems affected by major declared disasters in calendar year 2018"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "subject_to",
+          "target": "Section 5324 of title 49, United States Code",
+          "description": "Program authorization"
+        }
+      ],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 67447,
+        "end": 67597,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "other",
+      "llm_classification": "other",
+      "description": "",
+      "amounts": [
+        {
+          "value": {
+            "kind": "specific",
+            "dollars": 18000000
+          },
+          "semantics": "other",
+          "text_as_written": "$18,000,000"
+        }
+      ],
+      "references": [],
+      "metadata": {
+        "account_name": "Federal Aviation Administration\u2014Operations",
+        "program": "Federal Aviation Administration",
+        "llm_classification": "Repurposing of previously appropriated funds\u2014expands authorized uses of existing FAA Operations funds from PL 115-123",
+        "agency": "Department of Transportation"
+      },
+      "section": "",
+      "division": null,
+      "title": "XI",
+      "confidence": 0.9,
+      "raw_text": "Of the amounts made available for ''Federal Aviation Administration\u2014Operations'' in division B of the Bipartisan Budget Act of 2018 (Public Law 115\u201312",
+      "notes": [
+        "Not new appropriation; makes up to $18M of existing PL 115-123 funds available for 2018 disaster consequences",
+        "Repurposed amounts retain emergency designation"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Division B of P.L. 115-123",
+          "description": "Expands authorized uses of FAA Operations funds"
+        }
+      ],
+      "source_span": {
+        "start": 68350,
+        "end": 68500,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "",
+      "agency": "Department of Transportation",
+      "program": "Federal Highway Administration\u2014Emergency Relief Program",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 1650000000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$1,650,000,000"
+      },
+      "fiscal_year": 2019,
+      "availability": "to remain available until expended",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "XI",
+      "confidence": 0.97,
+      "raw_text": "For an additional amount for the Emergency Relief Program as authorized under section 125 of title 23, United States Code, $1,650,000,000, to remain a",
+      "notes": [
+        "Authorized under section 125 of title 23 USC; no '' delimited account name in text"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "subject_to",
+          "target": "Section 125 of title 23, United States Code",
+          "description": "Emergency Relief Program authorization"
+        }
+      ],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 69078,
+        "end": 69228,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Community Development Fund",
+      "agency": "Department of Housing and Urban Development",
+      "program": "Community Planning and Development",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 2431000000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$2,431,000,000"
+      },
+      "fiscal_year": 2019,
+      "availability": "to remain available until expended",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "XI",
+      "confidence": 0.96,
+      "raw_text": "For an additional amount for ''Community Development Fund'', $2,431,000,000, to remain available until expended, for necessary expenses for activities ",
+      "notes": [
+        "Includes transfers of funds; for CDBG-DR disaster relief, recovery, infrastructure, housing, economic revitalization, and mitigation",
+        "For major disasters in 2018 or 2019 under Stafford Act",
+        "Complex allocation structure with infrastructure set-aside for 2017 grantees and mitigation set-aside"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "subject_to",
+          "target": "Title I of the Housing and Community Development Act of 1974 (42 U.S.C. 5301 et seq.)",
+          "description": "Authorized activities"
+        },
+        {
+          "ref_type": "see_also",
+          "target": "Division B of P.L. 115-56",
+          "description": "Prior disaster CDBG-DR allocation"
+        },
+        {
+          "ref_type": "see_also",
+          "target": "Title XI of subdivision 1 of division B of P.L. 115-123",
+          "description": "Prior disaster CDBG-DR allocation"
+        },
+        {
+          "ref_type": "see_also",
+          "target": "Division I of P.L. 115-254",
+          "description": "Prior disaster CDBG-DR allocation"
+        },
+        {
+          "ref_type": "amends",
+          "target": "Division I of P.L. 115-254, first and sixth provisos",
+          "description": "Adds Indian tribe eligibility"
+        }
+      ],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 69587,
+        "end": 69738,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Community Development Fund",
+      "agency": "Department of Housing and Urban Development",
+      "program": "Unmet infrastructure needs\u20142017 disaster grantees",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 431000000
+        },
+        "semantics": "reference_amount",
+        "text_as_written": "$431,000,000"
+      },
+      "fiscal_year": 2019,
+      "availability": "to remain available until expended",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "XI",
+      "confidence": 0.95,
+      "raw_text": "of the amounts made available under this heading $431,000,000 shall be allocated to meet unmet infrastructure needs for grantees that received allocat",
+      "notes": [
+        "Sub-allocation of $2,431,000,000 CDF; for 2017 disaster grantees under PL 115-56 and PL 115-123"
+      ],
+      "cross_references": [],
+      "detail_level": "sub_allocation",
+      "parent_account": "Community Development Fund",
+      "source_span": {
+        "start": 70496,
+        "end": 70646,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Community Development Fund",
+      "agency": "Department of Housing and Urban Development",
+      "program": "Unmet infrastructure\u2014Hurricane Maria grantees",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 331442114
+        },
+        "semantics": "reference_amount",
+        "text_as_written": "$331,442,114"
+      },
+      "fiscal_year": 2019,
+      "availability": "to remain available until expended",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "XI",
+      "confidence": 0.95,
+      "raw_text": "of which $331,442,114 shall be allocated to those grantees affected by Hurricane Maria",
+      "notes": [
+        "Sub-sub-allocation within the $431,000,000 for 2017 disaster grantees"
+      ],
+      "cross_references": [],
+      "detail_level": "sub_allocation",
+      "parent_account": "Community Development Fund",
+      "source_span": {
+        "start": 70808,
+        "end": 70894,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Community Development Fund",
+      "agency": "Department of Housing and Urban Development",
+      "program": "Capacity building and technical assistance",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 5000000
+        },
+        "semantics": "reference_amount",
+        "text_as_written": "$5,000,000"
+      },
+      "fiscal_year": 2019,
+      "availability": "to remain available until expended",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "XI",
+      "confidence": 0.95,
+      "raw_text": "up to $5,000,000 shall be made available for capacity building and technical assistance, including assistance on contracting and procurement processes",
+      "notes": [
+        "Sub-allocation of CDF; up to $5M ceiling"
+      ],
+      "cross_references": [],
+      "detail_level": "sub_allocation",
+      "parent_account": "Community Development Fund",
+      "source_span": {
+        "start": 79697,
+        "end": 79847,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Department of Housing and Urban Development\u2014Program Office Salaries and Expenses\u2014Community Planning and Development",
+      "agency": "Department of Housing and Urban Development",
+      "program": "Program administration",
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 2500000
+        },
+        "semantics": "reference_amount",
+        "text_as_written": "$2,500,000"
+      },
+      "fiscal_year": 2019,
+      "availability": "to remain available until expended",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": "XI",
+      "confidence": 0.95,
+      "raw_text": "up to $2,500,000 shall be transferred, in aggregate, to ''Department of Housing and Urban Development\u2014Program Office Salaries and Expenses\u2014Community P",
+      "notes": [
+        "Transfer from CDF and PL 115-254 amounts; aggregate of $2.5M; combined with PL 115-254 funds for same purpose"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "see_also",
+          "target": "P.L. 115-254, same heading",
+          "description": "Funds combined for administration"
+        }
+      ],
+      "detail_level": "sub_allocation",
+      "parent_account": "Community Development Fund",
+      "source_span": {
+        "start": 80292,
+        "end": 80442,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "directive",
+      "description": "Of amounts under the Community Development Fund heading in PL 115-123 transferred to the Office of Inspector General, no less than $6,000,000 shall be for necessary costs of overseeing and auditing funds made available to grantees affected by Hurricane Maria, including a review of grant expenditure rates.",
+      "deadlines": [],
+      "section": "",
+      "division": null,
+      "title": "XI",
+      "confidence": 0.92,
+      "raw_text": "of the amounts made available under this heading in Public Law 115\u2013123 and transferred to the Office of Inspector General, no less than $6,000,000 sha",
+      "notes": [
+        "Directive about previously appropriated PL 115-123 funds, not new money from this Act"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "subject_to",
+          "target": "P.L. 115-123, Community Development Fund heading",
+          "description": "Source of OIG funds"
+        }
+      ],
+      "source_span": {
+        "start": 72235,
+        "end": 72385,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "rider",
+      "description": "Allows CDBG-DR funds allocated for Hurricane Matthew and Hurricane Florence to be used interchangeably in the most impacted and distressed areas. Amounts from PL 114-223, PL 114-254, PL 115-31, and PL 115-123 allocated for Hurricane Matthew may be used for Hurricane Florence activities, and vice versa. Also allows administrative costs from various disaster CDBG-DR appropriations to be used for any related disaster without regard to the particular disaster appropriation.",
+      "policy_area": "CDBG_disaster_recovery_flexibility",
+      "section": "SEC. 1101",
+      "division": null,
+      "title": "XI",
+      "confidence": 0.94,
+      "raw_text": "(a) Amounts previously made available for activities authorized under title I of the Housing and Community Development Act of 1974 (42 U.S.C. 5301 et",
+      "notes": [
+        "Subsection (a) allows interchangeable use of Matthew/Florence funds",
+        "Subsection (b) allows administrative costs to be used across disaster appropriations",
+        "Subsection (c) provides emergency/disaster relief designations for repurposed amounts"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "see_also",
+          "target": "Section 145 of division C of P.L. 114-223",
+          "description": null
+        },
+        {
+          "ref_type": "see_also",
+          "target": "Section 192 of division C of P.L. 114-223",
+          "description": null
+        },
+        {
+          "ref_type": "see_also",
+          "target": "Section 421 of division K of P.L. 115-31",
+          "description": null
+        },
+        {
+          "ref_type": "see_also",
+          "target": "P.L. 115-123, Community Development Fund heading",
+          "description": null
+        },
+        {
+          "ref_type": "see_also",
+          "target": "Division B of P.L. 115-56",
+          "description": null
+        },
+        {
+          "ref_type": "see_also",
+          "target": "P.L. 115-254",
+          "description": null
+        }
+      ],
+      "source_span": {
+        "start": 81593,
+        "end": 81742,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "directive",
+      "description": "Secretary shall publish in the Federal Register the allocations and administrative requirements for all mitigation activities under the Community Development Fund heading in PL 115-123 within 90 days of enactment. Pending amendments must be reviewed within 15 days and pending plans within 30 days. Secretary may not use waiver authority to alter timelines for grantee plan review after enactment.",
+      "deadlines": [
+        "90 days after enactment",
+        "15 days after enactment for amendments",
+        "30 days after enactment for plans"
+      ],
+      "section": "SEC. 1102",
+      "division": null,
+      "title": "XI",
+      "confidence": 0.94,
+      "raw_text": "Of all amounts made available for mitigation activities under the heading ''Department of Housing and Urban Development\u2014Community Development Fund'' in",
+      "notes": [
+        "Includes provisos requiring final agreement on fixed cost estimates and Secretary certification of financial controls before grants",
+        "Repurposed amounts retain emergency designation"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "subject_to",
+          "target": "P.L. 115-123, Community Development Fund heading",
+          "description": "Mitigation allocations being directed"
+        },
+        {
+          "ref_type": "subject_to",
+          "target": "Section 428 of the Stafford Act",
+          "description": "Alternative procedures grantees must have final cost estimates"
+        }
+      ],
+      "source_span": {
+        "start": 85250,
+        "end": 85401,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "rider",
+      "description": "Each amount appropriated or made available by this Act is in addition to amounts otherwise appropriated for the fiscal year involved.",
+      "policy_area": "supplemental_nature",
+      "section": "SEC. 1201",
+      "division": null,
+      "title": "XII",
+      "confidence": 0.97,
+      "raw_text": "Each amount appropriated or made available by this Act is in addition to amounts otherwise appropriated for the fiscal year involved.",
+      "notes": [
+        "Standard supplemental boilerplate"
+      ],
+      "cross_references": [],
+      "source_span": {
+        "start": 87750,
+        "end": 87883,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "rider",
+      "description": "No part of any appropriation shall remain available for obligation beyond the current fiscal year unless expressly so provided.",
+      "policy_area": "funds_availability",
+      "section": "SEC. 1202",
+      "division": null,
+      "title": "XII",
+      "confidence": 0.97,
+      "raw_text": "No part of any appropriation contained in this Act shall remain available for obligation beyond the current fiscal year unless expressly so provided he",
+      "notes": [
+        "Standard appropriations boilerplate"
+      ],
+      "cross_references": [],
+      "source_span": {
+        "start": 87896,
+        "end": 88047,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "rider",
+      "description": "Unless otherwise provided, additional amounts are available under authorities and conditions applicable to such appropriations accounts for fiscal year 2019.",
+      "policy_area": "general_authorities",
+      "section": "SEC. 1203",
+      "division": null,
+      "title": "XII",
+      "confidence": 0.97,
+      "raw_text": "Unless otherwise provided for by this Act, the additional amounts appropriated by this Act to appropriations accounts shall be available under the auth",
+      "notes": [],
+      "cross_references": [],
+      "source_span": {
+        "start": 88065,
+        "end": 88216,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "rider",
+      "description": "Amounts designated as emergency requirements shall be available only if the President subsequently designates all such amounts and transmits such designations to Congress.",
+      "policy_area": "emergency_designation",
+      "section": "SEC. 1204",
+      "division": null,
+      "title": "XII",
+      "confidence": 0.97,
+      "raw_text": "Each amount designated in this Act by the Congress as being for an emergency requirement pursuant to section 251(b)(2)(A)(i) of the Balanced Budget an",
+      "notes": [
+        "Requires Presidential designation to activate emergency spending"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "subject_to",
+          "target": "Section 251(b)(2)(A)(i) of the Balanced Budget and Emergency Deficit Control Act of 1985",
+          "description": "Emergency designation mechanism"
+        }
+      ],
+      "source_span": {
+        "start": 88316,
+        "end": 88466,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "rider",
+      "description": "For purposes of this Act, consequences or impacts of any hurricane include damages caused during the entirety of its duration as a cyclone, as defined by the National Hurricane Center.",
+      "policy_area": "hurricane_definition",
+      "section": "SEC. 1205",
+      "division": null,
+      "title": "XII",
+      "confidence": 0.95,
+      "raw_text": "For purposes of this Act, the consequences or impacts of any hurricane shall include damages caused by the storm at any time during the entirety of it",
+      "notes": [
+        "Ensures pre-hurricane and tropical storm-phase damages are covered"
+      ],
+      "cross_references": [],
+      "source_span": {
+        "start": 88697,
+        "end": 88847,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "rider",
+      "description": "Any amount designated as emergency and subsequently designated by the President that is transferred pursuant to authorities in this Act shall retain such designation.",
+      "policy_area": "emergency_designation_transfer",
+      "section": "SEC. 1206",
+      "division": null,
+      "title": "XII",
+      "confidence": 0.95,
+      "raw_text": "Any amount appropriated by this Act, designated by the Congress as an emergency requirement pursuant to section 251(b)(2)(A)(i) of the Balanced Budget",
+      "notes": [
+        "Ensures transferred funds retain emergency designation"
+      ],
+      "cross_references": [],
+      "source_span": {
+        "start": 88929,
+        "end": 89079,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "mandatory_spending_extension",
+      "program_name": "National Flood Insurance Program",
+      "statutory_reference": "Section 1309(a) and Section 1319 of the National Flood Insurance Act of 1968 (42 U.S.C. 4016(a) and 42 U.S.C. 4026)",
+      "amount": null,
+      "period": null,
+      "extends_through": "September 30, 2019",
+      "section": "SEC. 1207",
+      "division": null,
+      "title": "XII",
+      "confidence": 0.95,
+      "raw_text": "(a) Section 1309(a) of the National Flood Insurance Act of 1968 (42 U.S.C. 4016(a)) is amended by striking ''June 14, 2019'' and inserting ''Septemb",
+      "notes": [
+        "Extends NFIP borrowing authority and program authorization from June 14, 2019 to September 30, 2019",
+        "If enacted after June 14, 2019, amendments take effect as if enacted on June 14, 2019 (retroactive)"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 1309(a) of the National Flood Insurance Act of 1968 (42 U.S.C. 4016(a))",
+          "description": "Extends borrowing authority date"
+        },
+        {
+          "ref_type": "amends",
+          "target": "Section 1319 of the National Flood Insurance Act of 1968 (42 U.S.C. 4026)",
+          "description": "Extends program authorization date"
+        }
+      ],
+      "source_span": {
+        "start": 89285,
+        "end": 89433,
+        "file": "BILLS-116hr2157enr.txt",
+        "verified": true
+      }
+    }
+  ],
+  "summary": {
+    "total_provisions": 116,
+    "by_division": {
+      "?": 116
+    },
+    "by_type": {
+      "limitation": 5,
+      "other": 1,
+      "mandatory_spending_extension": 2,
+      "directive": 5,
+      "transfer_authority": 3,
+      "rider": 10,
+      "appropriation": 90
+    },
+    "total_budget_authority": 19022843000,
+    "total_rescissions": 0,
+    "sections_with_no_provisions": [],
+    "flagged_issues": [
+      "FAA Operations (Title XI) repurposes up to $18M from PL 115-123; not new budget authority",
+      "SEC. 802 adds $36M mandatory spending for CNMI Medicaid; not included in total_budget_authority",
+      "CDF $331,442,114 for Hurricane Maria is a sub-allocation within the $431M unmet infrastructure sub-allocation",
+      "STAG first paragraph has three separate amounts ($1.5M + $56M + $5M = $62.5M) with no stated total",
+      "Wildland Fire Management $720,271,000 solely for repaying FY2018 fire suppression transfers",
+      "All appropriations designated as emergency requirements under BBEDCA section 251(b)(2)(A)(i), subject to Presidential designation per SEC. 1204"
+    ]
+  },
+  "chunk_map": [
+    {
+      "chunk_id": "01KM85HK4M4GD116E1TE6VK9KE",
+      "label": "[1/1] full",
+      "provision_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112,
+        113,
+        114,
+        115
+      ]
+    }
+  ]
+}

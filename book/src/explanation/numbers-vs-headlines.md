@@ -1,6 +1,6 @@
 # Why the Numbers Might Not Match Headlines
 
-If you run `congress-approp summary --dir examples` and see $846 billion for the FY2024 omnibus, your first reaction might be: *"That doesn't match any number I've seen in the news."* Headlines about the federal budget typically cite figures like $6.7 trillion (total spending), $1.7 trillion (total discretionary), or sometimes $1.2 trillion or $886 billion (specific spending cap categories).
+If you run `congress-approp summary --dir data` and see the budget numbers, your first reaction might be: *"That doesn't match any number I've seen in the news."* Headlines about the federal budget typically cite figures like $6.7 trillion (total spending), $1.7 trillion (total discretionary), or sometimes $1.2 trillion or $886 billion (specific spending cap categories).
 
 This chapter explains the three main reasons for the discrepancy — and why the tool's number is correct for what it measures.
 

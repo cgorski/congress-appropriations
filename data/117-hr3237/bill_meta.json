@@ -1,0 +1,278 @@
+{
+  "schema_version": "1.0",
+  "congress": 117,
+  "fiscal_years": [
+    2021
+  ],
+  "bill_nature": "supplemental",
+  "subcommittees": [],
+  "provision_timing": [
+    {
+      "provision_index": 0,
+      "timing": "supplemental",
+      "available_fy": null,
+      "source": {
+        "type": "note_text"
+      }
+    },
+    {
+      "provision_index": 1,
+      "timing": "supplemental",
+      "available_fy": null,
+      "source": {
+        "type": "note_text"
+      }
+    },
+    {
+      "provision_index": 2,
+      "timing": "supplemental",
+      "available_fy": null,
+      "source": {
+        "type": "note_text"
+      }
+    },
+    {
+      "provision_index": 3,
+      "timing": "supplemental",
+      "available_fy": null,
+      "source": {
+        "type": "note_text"
+      }
+    },
+    {
+      "provision_index": 4,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 5,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 6,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 7,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 8,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 9,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 10,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 14,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 20,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 21,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 25,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 26,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 32,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 33,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 39,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    }
+  ],
+  "canonical_accounts": [
+    {
+      "provision_index": 0,
+      "canonical_name": "national guard personnel, army"
+    },
+    {
+      "provision_index": 1,
+      "canonical_name": "national guard personnel, air force"
+    },
+    {
+      "provision_index": 2,
+      "canonical_name": "operation and maintenance, army national guard"
+    },
+    {
+      "provision_index": 3,
+      "canonical_name": "operation and maintenance, air national guard"
+    },
+    {
+      "provision_index": 4,
+      "canonical_name": "overseas humanitarian, disaster, and civic aid"
+    },
+    {
+      "provision_index": 5,
+      "canonical_name": "refugee and entrant assistance"
+    },
+    {
+      "provision_index": 6,
+      "canonical_name": "sergeant at arms and doorkeeper of the senate"
+    },
+    {
+      "provision_index": 7,
+      "canonical_name": "payments to widows and heirs of deceased members of congress"
+    },
+    {
+      "provision_index": 8,
+      "canonical_name": "payments to widows and heirs of deceased members of congress"
+    },
+    {
+      "provision_index": 9,
+      "canonical_name": "allowances and expenses"
+    },
+    {
+      "provision_index": 10,
+      "canonical_name": "salaries"
+    },
+    {
+      "provision_index": 11,
+      "canonical_name": "salaries"
+    },
+    {
+      "provision_index": 12,
+      "canonical_name": "salaries"
+    },
+    {
+      "provision_index": 13,
+      "canonical_name": "salaries"
+    },
+    {
+      "provision_index": 14,
+      "canonical_name": "general expenses"
+    },
+    {
+      "provision_index": 15,
+      "canonical_name": "general expenses"
+    },
+    {
+      "provision_index": 17,
+      "canonical_name": "general expenses"
+    },
+    {
+      "provision_index": 18,
+      "canonical_name": "general expenses"
+    },
+    {
+      "provision_index": 20,
+      "canonical_name": "general expenses"
+    },
+    {
+      "provision_index": 21,
+      "canonical_name": "united states capitol police mutual aid reimbursements"
+    },
+    {
+      "provision_index": 22,
+      "canonical_name": "united states capitol police mutual aid reimbursements"
+    },
+    {
+      "provision_index": 25,
+      "canonical_name": "capital construction and operations"
+    },
+    {
+      "provision_index": 26,
+      "canonical_name": "capitol police buildings, grounds and security"
+    },
+    {
+      "provision_index": 27,
+      "canonical_name": "capitol police buildings, grounds and security"
+    },
+    {
+      "provision_index": 28,
+      "canonical_name": "capitol police buildings, grounds and security"
+    },
+    {
+      "provision_index": 32,
+      "canonical_name": "migration and refugee assistance"
+    },
+    {
+      "provision_index": 33,
+      "canonical_name": "united states emergency refugee and migration assistance fund"
+    },
+    {
+      "provision_index": 39,
+      "canonical_name": "state and local law enforcement assistance"
+    }
+  ],
+  "extraction_sha256": "deabd85e97ee77333e17ffa42dac8ab6975d808f12792643108bf59fac3aa724"
+}

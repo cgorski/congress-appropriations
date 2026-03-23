@@ -1,0 +1,8 @@
+{
+  "provisions_parsed": 55,
+  "provisions_failed": 0,
+  "null_to_default": 14,
+  "type_coercions": 0,
+  "unknown_provision_types": 1,
+  "warnings": []
+}

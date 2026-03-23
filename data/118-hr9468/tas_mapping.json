@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0",
+  "bill_dir": "118-hr9468",
+  "bill_identifier": "H.R. 9468",
+  "fas_reference_hash": "dc6f3d8435cd85ee2ae7a9c3473488206bc8d1324783132d08faa1db203d1671",
+  "timestamp": "2026-03-22T20:50:25.541505+00:00",
+  "mappings": [
+    {
+      "provision_index": 0,
+      "account_name": "Compensation and Pensions",
+      "agency": "Department of Veterans Affairs",
+      "dollars": 2285513000,
+      "fas_code": "036-0102",
+      "fas_title": "Compensation and Pensions, Veterans Benefits Administration, Veterans Affairs",
+      "confidence": "verified",
+      "method": "direct_match"
+    },
+    {
+      "provision_index": 1,
+      "account_name": "Readjustment Benefits",
+      "agency": "Department of Veterans Affairs",
+      "dollars": 596969000,
+      "fas_code": "036-0137",
+      "fas_title": "Readjustment Benefits, Veterans Benefits Administration, Veterans Affairs",
+      "confidence": "verified",
+      "method": "direct_match"
+    }
+  ],
+  "summary": {
+    "total_provisions": 2,
+    "deterministic_matched": 2,
+    "llm_matched": 0,
+    "unmatched": 0,
+    "unique_fas_codes": 2,
+    "match_rate_pct": 100.0
+  }
+}

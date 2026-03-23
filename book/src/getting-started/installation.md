@@ -27,7 +27,7 @@ rustc --version
 
 ## Install from Source (Recommended)
 
-Cloning the repository gives you the full example data — fourteen bills (FY2024–FY2026) with pre-computed embeddings, ready to query with no API keys.
+Cloning the repository gives you the full dataset — 32 enacted appropriations bills (FY2019–FY2026) with pre-computed embeddings, ready to query with no API keys.
 
 ```bash
 git clone https://github.com/cgorski/congress-appropriations.git
@@ -45,38 +45,29 @@ If you just want the binary without cloning the full repository:
 cargo install congress-appropriations
 ```
 
-> **Note:** The crates.io package does not include the pre-computed embedding vectors (`vectors.bin`) for the example data because they exceed the crates.io 10 MB upload limit. The example bills and extracted provisions are still included. If you want to use semantic search on the example data, run `congress-approp embed --dir examples` after installing (requires `OPENAI_API_KEY`).
+> **Note:** The crates.io package does not include the `data/` directory or pre-computed embedding vectors because they exceed the crates.io upload limit. If you install via crates.io, clone the repository separately to get the dataset, or download and extract your own bills.
 
 ## Verify the Installation
 
-Run the summary command against the included example data:
+Run the summary command against the included data:
 
 ```bash
-congress-approp summary --dir examples
+congress-approp summary --dir data
 ```
 
-You should see:
+You should see a table listing all 32 bills with their provision counts, budget authority, and rescissions. The last line confirms data integrity:
 
 ```text
-┌───────────┬───────────────────────┬────────────┬─────────────────┬─────────────────┬─────────────────┐
-│ Bill      ┆ Classification        ┆ Provisions ┆ Budget Auth ($) ┆ Rescissions ($) ┆      Net BA ($) │
-╞═══════════╪═══════════════════════╪════════════╪═════════════════╪═════════════════╪═════════════════╡
-│ H.R. 4366 ┆ Omnibus               ┆       2364 ┆ 846,137,099,554 ┆  24,659,349,709 ┆ 821,477,749,845 │
-│ H.R. 5860 ┆ Continuing Resolution ┆        130 ┆  16,000,000,000 ┆               0 ┆  16,000,000,000 │
-│ H.R. 9468 ┆ Supplemental          ┆          7 ┆   2,882,482,000 ┆               0 ┆   2,882,482,000 │
-│ TOTAL     ┆                       ┆       2501 ┆ 865,019,581,554 ┆  24,659,349,709 ┆ 840,360,231,845 │
-└───────────┴───────────────────────┴────────────┴─────────────────┴─────────────────┴─────────────────┘
-
 0 dollar amounts unverified across all bills. Run `congress-approp audit` for detailed verification.
 ```
 
-If you see this table with fourteen bills and 11,136 total provisions, everything is working. You're ready to start querying.
+If you see 32 bills and 34,568 total provisions across FY2019–FY2026, everything is working. You're ready to start querying.
 
-> **Tip:** If you're running from the cloned repo directory, `examples` is a relative path that points to the included example data. If you installed via `cargo install` and are running from a different directory, provide the full path to the examples directory inside your clone.
+> **Tip:** If you're running from the cloned repo directory, `data` is a relative path that points to the included dataset. If you installed via `cargo install` and are running from a different directory, provide the full path to the `data/` directory inside your clone.
 
 ## API Keys (Optional)
 
-No API keys are needed to query pre-extracted example data. Keys are only required if you want to download new bills, extract provisions from them, or use semantic search:
+No API keys are needed to query the pre-extracted dataset. Keys are only required if you want to download new bills, extract provisions from them, or use semantic search:
 
 | Environment Variable | Required For | How to Get It |
 |---|---|---|
@@ -106,7 +97,7 @@ For development iteration without reinstalling:
 
 ```bash
 cargo build --release
-./target/release/congress-approp summary --dir examples
+./target/release/congress-approp summary --dir data
 ```
 
 ## Next Steps
