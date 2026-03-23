@@ -479,3 +479,211 @@ An array of account name equivalences.
 - **Read by:** `compare`, `relate`, `link suggest`
 - **Ignored by:** `compare --exact`
 - **Never auto-generated or overwritten** by `enrich`, `extract`, `embed`, or any other command. Contains only user decisions.
+- **Partially superseded by:** `resolve-tas` + `authority build` for cross-bill account matching. The `dataset.json` entity resolution still applies to `compare` output formatting; TAS-based matching via `--use-authorities` is more accurate for account identity.
+
+---
+
+## source_span (inline field on provisions in extraction.json)
+
+Added by the `verify-text --repair` command. Present on each provision object in `extraction.json` after the verify-text pipeline stage has run. Records the exact byte position of the provision's `raw_text` in the enrolled bill source text.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `start` | integer | Start byte offset in the source `.txt` file (inclusive). **UTF-8 byte offset**, not character offset. Matches Rust's native `str` indexing. |
+| `end` | integer | End byte offset in the source `.txt` file (exclusive). UTF-8 byte offset. |
+| `file` | string | Source filename, e.g., `"BILLS-118hr2882enr.txt"` |
+| `verified` | boolean | `true` if `source_bytes[start..end]` is byte-identical to `raw_text` |
+| `match_tier` | string | How the span was established: `"exact"`, `"repaired_prefix"`, `"repaired_substring"`, or `"repaired_normalized"` |
+
+### Invariant
+
+When `verified` is `true`:
+
+```
+source_file_bytes[start .. end] == provision.raw_text
+```
+
+**Important:** `start` and `end` are UTF-8 byte offsets. Languages that use character-based indexing (Python `str`, JavaScript) must use byte-level slicing:
+
+```python
+raw_bytes = open("BILLS-118hr2882enr.txt", "rb").read()
+actual = raw_bytes[span["start"]:span["end"]].decode("utf-8")
+assert actual == provision["raw_text"]
+```
+
+### File Lifecycle
+
+- **Created by:** `verify-text --repair`
+- **Read by:** any consumer of `extraction.json` (the field is on each provision object)
+- **Ignored by:** Rust's typed `Provision` enum (Serde skips unknown fields). The Rust `verify-text` command works at the `serde_json::Value` level.
+- **Invalidated when:** the bill is re-extracted (`extract --force`). Re-run `verify-text --repair` after re-extraction.
+
+---
+
+## tas_mapping.json
+
+Per-bill Treasury Account Symbol mapping. Created by `resolve-tas` and consumed by `authority build` and `compare --use-authorities`. Maps each top-level budget authority appropriation to a Federal Account Symbol (FAS) code.
+
+### Top-Level Fields
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `schema_version` | string | Always `"1.0"` |
+| `bill_dir` | string | Bill directory name (e.g., `"118-hr2882"`) |
+| `bill_identifier` | string | Bill identifier (e.g., `"H.R. 2882"`) |
+| `model` | string or null | LLM model used for Tier 2 matching (e.g., `"claude-opus-4-6"`), or `null` if all deterministic |
+| `fas_reference_hash` | string | SHA-256 of `fas_reference.json` used during this resolution. For staleness detection. |
+| `timestamp` | string | ISO 8601 timestamp of when the resolution was performed |
+| `mappings` | array of TasMapping | One entry per top-level BA appropriation provision |
+| `summary` | TasSummary | Aggregate statistics |
+
+### TasMapping
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `provision_index` | integer | Index into the bill's `provisions` array in `extraction.json` (0-based) |
+| `account_name` | string | Account name as extracted by the LLM |
+| `agency` | string | Agency name as extracted by the LLM |
+| `dollars` | integer or null | Dollar amount (if available) |
+| `fas_code` | string or null | Matched Federal Account Symbol (e.g., `"070-0400"`), or `null` if unmatched |
+| `fas_title` | string or null | Official FAST Book title for the matched FAS code |
+| `confidence` | string | `"verified"` (deterministic match), `"high"` (LLM match confirmed in FAST Book), `"inferred"` (LLM match not in FAST Book), or `"unmatched"` |
+| `method` | string | `"direct_match"`, `"suffix_match"`, `"agency_disambiguated"`, `"llm_resolved"`, or `"none"` |
+| `reasoning` | string or null | LLM reasoning (only populated for `llm_resolved` matches) |
+
+### TasSummary
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `total_provisions` | integer | Total top-level BA provisions considered |
+| `deterministic_matched` | integer | Matched by string comparison against FAST Book (Tier 1) |
+| `llm_matched` | integer | Matched by Claude Opus (Tier 2) |
+| `unmatched` | integer | Could not be resolved |
+| `unique_fas_codes` | integer | Number of distinct FAS codes found in this bill |
+| `match_rate_pct` | float | `(deterministic_matched + llm_matched) / total_provisions * 100` |
+
+### File Lifecycle
+
+- **Created by:** `resolve-tas`
+- **Read by:** `authority build`, `compare --use-authorities`
+- **Invalidated when:** the bill is re-extracted (provision indices may change). Re-run `resolve-tas --force`.
+- **Skipped for:** bills with zero top-level BA provisions (CRs without anomalies, authorization bills)
+
+---
+
+## authorities.json
+
+Cross-bill account authority registry. Stored at the data root directory (alongside bill directories). Created by `authority build` and consumed by `trace` and `authority list`.
+
+### Top-Level Fields
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `schema_version` | string | Always `"1.0"` |
+| `generated_at` | string | ISO 8601 timestamp |
+| `fas_reference_hash` | string | SHA-256 of `fas_reference.json` used during build |
+| `authorities` | array of AccountAuthority | One entry per unique FAS code |
+| `summary` | RegistrySummary | Aggregate statistics |
+
+### AccountAuthority
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `fas_code` | string | Primary identifier — the Federal Account Symbol (e.g., `"070-0400"`) |
+| `agency_code` | string | CGAC agency code (e.g., `"070"`) |
+| `fas_title` | string | Official title from the FAST Book |
+| `agency_name` | string | Agency name from the FAST Book |
+| `name_variants` | array of NameVariant | All distinct account names observed across bills |
+| `provisions` | array of AuthorityProvisionRef | Every provision instance across all bills |
+| `bill_count` | integer | Number of distinct bills this account appears in |
+| `fiscal_years` | array of integers | Fiscal years this account has been seen in |
+| `total_dollars` | integer | Total budget authority across all provisions |
+| `events` | array of AuthorityEvent | Detected lifecycle events (renames) |
+
+### NameVariant
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `name` | string | The account name as extracted by the LLM |
+| `bills` | array of strings | Bill directories where this name was used |
+| `classification` | string or null | `"canonical"`, `"case_variant"`, `"prefix_variant"`, `"name_change"`, or `"inconsistent_extraction"` |
+| `fiscal_years` | array of integers | Fiscal years where this name was observed |
+
+### AuthorityEvent
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `fiscal_year` | integer | The fiscal year when this event was first observed |
+| `event_type` | object | Tagged by `type` field. Currently only `"rename"` with `from` and `to` string fields. |
+
+### AuthorityProvisionRef
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `bill_dir` | string | Bill directory name |
+| `bill_identifier` | string | Bill identifier (e.g., `"H.R. 2882"`) |
+| `provision_index` | integer | Index into the bill's `provisions` array |
+| `fiscal_years` | array of integers | Fiscal years the bill covers |
+| `dollars` | integer or null | Dollar amount |
+| `account_name` | string | The account name as extracted |
+| `confidence` | string | TAS mapping confidence (`"verified"`, `"high"`, etc.) |
+| `method` | string | TAS mapping method (`"direct_match"`, `"llm_resolved"`, etc.) |
+
+### RegistrySummary
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `total_authorities` | integer | Total unique FAS codes |
+| `total_provisions` | integer | Total provision references across all authorities |
+| `bills_included` | integer | Number of bills with TAS mappings |
+| `fiscal_years_covered` | array of integers | All fiscal years represented |
+| `authorities_with_name_variants` | integer | Authorities with more than one distinct account name |
+| `authorities_in_multiple_bills` | integer | Authorities appearing in 2+ bills |
+| `total_events` | integer | Total detected lifecycle events |
+
+### File Lifecycle
+
+- **Created by:** `authority build`
+- **Read by:** `trace`, `authority list`
+- **Rebuilt from scratch** every time `authority build` runs. It is a derived artifact — delete it and rebuild at any time from the per-bill `tas_mapping.json` files.
+- **Use `--force`** to rebuild when new bills have been TAS-resolved.
+
+---
+
+## fas_reference.json
+
+Bundled reference data from the FAST Book (Federal Account Symbols and Titles), published by the Bureau of the Fiscal Service. Stored at the data root. Used by `resolve-tas` for deterministic matching and FAS code verification.
+
+### Top-Level Fields
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `schema_version` | string | Always `"1.0"` |
+| `source` | string | Source description |
+| `source_url` | string | URL where the FAST Book can be downloaded |
+| `publisher` | string | Bureau of the Fiscal Service, U.S. Department of the Treasury |
+| `generated_at` | string | ISO 8601 timestamp of conversion |
+| `statistics` | object | Summary counts |
+| `agencies` | array | Agency code + name pairs |
+| `accounts` | array of FasAccount | All active FAS codes |
+| `discontinued` | array of FasAccount | Discontinued General Fund accounts from the Changes sheet |
+
+### FasAccount
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `fas_code` | string | Federal Account Symbol (e.g., `"070-0400"`) |
+| `agency_code` | string | CGAC agency code (e.g., `"070"`) |
+| `main_account` | string | Main account code (e.g., `"0400"`) |
+| `agency_name` | string | Agency name from the FAST Book |
+| `title` | string | Full account title (e.g., `"Operations and Support, United States Secret Service, Homeland Security"`) |
+| `fund_type` | string | `"general"`, `"revolving"`, `"special"`, `"trust"`, `"deposit"`, `"management"`, or `"consolidated_working"` |
+| `has_no_year_variant` | boolean | Whether a no-year (X) TAS variant exists |
+| `has_annual_variant` | boolean | Whether an annual TAS variant exists |
+| `last_updated` | string or null | Date of last FAST Book update for this account |
+
+### File Lifecycle
+
+- **Generated by:** `python scripts/convert_fast_book.py` from the FAST Book Excel file
+- **Read by:** `resolve-tas`, `authority build`
+- **Updated:** when a new edition of the FAST Book is published (typically annually). Download the updated Excel, run the conversion script, then `resolve-tas --force` to re-resolve.

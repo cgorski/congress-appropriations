@@ -6,15 +6,15 @@ A guide to how `congress-appropriations` works — for new users who want to und
 
 ## What This Is
 
-`congress-appropriations` is a Rust crate (library + CLI binary) that turns U.S. federal appropriations bills into structured, searchable, machine-readable data. It downloads bill XML from Congress.gov, uses an LLM to extract every spending provision, deterministically verifies the extraction against the source text, generates semantic embeddings for meaning-based search, and provides query tools for journalists, staffers, and researchers.
+`congress-appropriations` is a Rust crate (library + CLI binary) that turns U.S. federal appropriations bills into structured, searchable, machine-readable data. It downloads bill XML from Congress.gov, uses an LLM to extract every spending provision, deterministically verifies the extraction against the source text, maps each account to a Treasury Account Symbol for cross-bill tracking, generates semantic embeddings for meaning-based search, and provides query tools for journalists, staffers, and researchers.
 
-The core principle: **the LLM does the hard part (understanding legal text), but every number is verified by code, every query is deterministic, and every artifact is traceable back to its source.**
+The core principle: **the LLM does the hard part (understanding legal text), but every number is verified by code, every provision is traceable to the exact byte in the enrolled bill, every account is linked by a government-assigned identifier, and every query is deterministic.**
 
 ---
 
 ## The Pipeline
 
-A bill flows through six stages. Each stage produces immutable files (except `links.json` which is append-only). Once a stage completes for a bill, its output is never modified (except in rare deliberate re-runs).
+A bill flows through seven stages. Each stage produces files without modifying previous outputs. The hash chain detects when upstream files change.
 
 ```
                     ┌──────────┐
@@ -32,12 +32,27 @@ A bill flows through six stages. Each stage produces immutable files (except `li
                     └──────────┘
                          │
                     ┌──────────┐
-                    │ Enrich   │ ───▶ bill_meta.json          (offline, no API)
-                    │(optional)│
+                    │ Verify   │ ───▶ source_span on each provision     (offline)
+                    │  Text    │      3-tier repair: prefix→substr→norm
                     └──────────┘
                          │
                     ┌──────────┐
-  OpenAI API ◀───── │  Embed   │ ───▶ embeddings.json + vectors.bin
+                    │ Enrich   │ ───▶ bill_meta.json                    (offline)
+                    └──────────┘
+                         │
+              ┌──────────┴──────────┐
+              │                     │
+         ┌──────────┐         ┌──────────┐
+  Claude ◀│ Resolve  │  OpenAI◀│  Embed   │ ───▶ embeddings.json
+  Opus    │   TAS    │         └──────────┘       vectors.bin
+          └──────────┘
+               │
+          tas_mapping.json
+               │
+         ┌──────────┐
+         │Authority │ ───▶ authorities.json      (offline)
+         │  Build   │      1,051 accounts, 937 cross-bill links
+         └──────────┘
                     └──────────┘
                          │
                     ┌──────────┐
@@ -272,42 +287,58 @@ OpenAI embedding vectors are L2-normalized (norm = 1.0), so cosine similarity eq
 
 | Module | Lines | Purpose |
 |--------|-------|---------|
-| `ontology.rs` | ~960 | All data types. The `Provision` enum has 11 variants (Appropriation, Rescission, TransferAuthority, Limitation, DirectedSpending, CrSubstitution, MandatorySpendingExtension, Directive, Rider, ContinuingResolutionBaseline, Other). Also defines `BillExtraction`, `DollarAmount`, `AmountSemantics`, `BillClassification`, `ExtractionMetadata`, and all supporting types. |
+| `ontology.rs` | ~900 | All data types. The `Provision` enum has 11 variants (Appropriation, Rescission, TransferAuthority, Limitation, DirectedSpending, CrSubstitution, MandatorySpendingExtension, Directive, Rider, ContinuingResolutionBaseline, Other). Also defines `BillExtraction`, `TextSpan`, `TextMatchTier`, `DollarAmount`, `AmountSemantics`, `BillClassification`, `ExtractionMetadata`, and all supporting types. Dead types removed in v6.0.0 (Relationship, RelationType, ValidationReport, etc.). |
 | `from_value.rs` | ~690 | Resilient JSON → Provision deserialization. Handles LLM output variance: missing fields get defaults, unexpected types are coerced, unknown provision types become `Other`. This is why extraction rarely fails even when the LLM returns imperfect JSON. |
-| `bill_meta.rs` | ~1280 | Bill-level metadata types and classification functions. `BillMeta`, `BillNature`, `Jurisdiction`, `SubcommitteeMapping`, `ProvisionTiming`, `FundingTiming`, `CanonicalAccount`, `ClassificationSource`. Includes XML division parsing via `roxmltree`, jurisdiction classification via pattern matching, fiscal-year-aware advance appropriation detection, account name normalization, and bill nature classification. No external dependencies — runs entirely offline. 33 unit tests. |
+| `bill_meta.rs` | ~1360 | Bill-level metadata types and classification functions. `BillMeta`, `BillNature`, `Jurisdiction`, `SubcommitteeMapping`, `ProvisionTiming`, `FundingTiming`, `CanonicalAccount`, `ClassificationSource`. Includes XML division parsing via `roxmltree`, jurisdiction classification via pattern matching, fiscal-year-aware advance appropriation detection, account name normalization, and bill nature classification. No external dependencies — runs entirely offline. 33 unit tests. |
 | `links.rs` | ~790 | Persistent cross-bill provision links. `LinksFile`, `AcceptedLink`, `LinkCandidate`, `LinkConfidence`, `LinkRelationship`, `LinkEvidence`, `ProvisionRef`. Core `suggest()` algorithm computes cross-bill similarity for all BA provisions using calibrated thresholds (0.55/0.65). `accept_links()` and `remove_links()` for link management. `load_links()` / `save_links()` for I/O at `<dir>/links/links.json`. 10 unit tests. |
+
+### TAS resolution and authority system (NEW in v6.0.0)
+
+| Module | Lines | Purpose |
+|--------|-------|---------|
+| `tas.rs` | ~1190 | Treasury Account Symbol resolution. `FasReference` loads `fas_reference.json` (2,768 FAS codes from the FAST Book). Two-tier matching: `match_deterministic()` tries 4 strategies (direct, short-title, suffix after em-dash strip, agency disambiguation with DOD service branch detection); LLM tier sends unmatched provisions to Claude Opus in agency-scoped batches. `apply_llm_results()` verifies every LLM response against the FAST Book. `agency_name_to_code()` maps ~80 LLM-extracted agency names to CGAC codes. Produces `tas_mapping.json` per bill. 16 unit tests. |
+| `authority.rs` | ~1050 | Account authority registry. `build_authorities()` aggregates all `tas_mapping.json` files into `authorities.json` — one `AccountAuthority` per FAS code with provision references, name variants, fiscal year coverage, and dollar totals. `classify_variants_and_detect_events()` classifies name differences (case, prefix, name_change, inconsistent) and detects rename events with fiscal year boundaries. `build_timeline()` groups provisions by FY for the `trace` command. `search_authorities()` does word-level matching across title, agency, and variants. 11 unit tests. |
+| `text_repair.rs` | ~675 | Source text verification and repair (the `verify-text` command). 3-tier deterministic algorithm: `try_prefix_match()` → `try_substring_match()` → `try_normalized_match()`. Each tier copies directly from the source text, guaranteeing the result is verbatim. `build_position_map()` creates a normalized-to-original byte offset map for Tier 3. `verify_and_repair_bill_json()` works at the `serde_json::Value` level to write inline `source_span` on each provision. 9 unit tests. |
 
 ### Extraction pipeline
 
 | Module | Lines | Purpose |
 |--------|-------|---------|
-| `extraction.rs` | ~840 | `ExtractionPipeline` — orchestrates parallel LLM chunk extraction, merges results, builds metadata. Contains `build_metadata()` which computes the source XML hash for the hash chain. |
+| `extraction.rs` | ~860 | `ExtractionPipeline` — orchestrates parallel LLM chunk extraction, merges results, builds metadata. Contains `build_metadata()` which computes the source XML hash for the hash chain. `chunks_total` and `chunks_completed` are mandatory fields in metadata (v6.0.0). |
 | `xml.rs` | ~590 | Congressional bill XML parsing via `roxmltree`. Extracts clean text, identifies `<appropriations-major>` headings, and splits into chunks at division/title boundaries. |
 | `text_index.rs` | ~670 | Builds a positional index of every dollar amount (`$X,XXX,XXX`), section header, and proviso clause in the source text. Used by verification and for chunk boundary computation. |
-| `prompts.rs` | ~310 | The system prompt sent to Claude. Defines every provision type, shows real JSON examples, constrains output format, and includes specific instructions for edge cases (CR substitutions, sub-allocations, mandatory spending extensions). |
+| `prompts.rs` | ~310 | The system prompt sent to Claude for extraction. Also contains `TAS_SYSTEM_PROMPT` for TAS resolution. Defines every provision type, shows real JSON examples, constrains output format. |
 | `progress.rs` | ~170 | Extraction progress bar rendering. |
 
 ### Verification and quality
 
 | Module | Lines | Purpose |
 |--------|-------|---------|
-| `verification.rs` | ~370 | Deterministic post-extraction verification. Three checks: (1) dollar amount strings found in source text, (2) raw_text matched via three-tier system (exact → normalized → spaceless), (3) completeness — how many dollar references in the source were accounted for. No LLM involved. |
-| `staleness.rs` | ~100 | Hash chain integrity checking. Compares stored SHA-256 hashes to current file contents. Returns warnings for stale artifacts. |
+| `verification.rs` | ~370 | Deterministic post-extraction verification. Three checks: (1) dollar amount strings found in source text, (2) raw_text matched via three-tier system (exact → normalized → spaceless), (3) completeness — how many dollar references in the source were accounted for. No LLM involved. Note: `text_repair.rs` provides a separate, more thorough verification with repair capability. |
+| `staleness.rs` | ~165 | Hash chain integrity checking. Compares stored SHA-256 hashes to current file contents. Variants: `ExtractionStale`, `EmbeddingsStale`, `BillMetaStale`. Returns warnings for stale artifacts — never blocks execution. |
+
+### Entity resolution
+
+| Module | Lines | Purpose |
+|--------|-------|---------|
+| `normalize.rs` | ~1100 | Entity resolution types and algorithms. `DatasetFile` / `AgencyGroup` / `AccountAlias` for `dataset.json`. `suggest_text_match()` discovers agency naming variants via orphan-pair analysis. `get_xml_context()` extracts structural XML headings for LLM disambiguation. `merge_groups()` for the suggest/accept pattern. 15 unit tests. Note: for cross-bill account matching, TAS resolution (`tas.rs`) is now the preferred approach; `normalize` remains useful for `compare` output formatting. |
+| `cache.rs` | ~420 | Suggest/accept workflow caching at `~/.congress-approp/cache/`. `write_suggestions()` / `read_suggestions()` with SHA-256-based auto-invalidation when extraction files change. Used by both `normalize` and `link` suggest/accept commands. |
 
 ### Query and search
 
 | Module | Lines | Purpose |
 |--------|-------|---------|
-| `query.rs` | ~1300 | The library API. Functions: `summarize()`, `search()`, `compare()`, `audit()`, `rollup_by_department()`, `build_embedding_text()`, `relate()`, `compute_link_hash()`. Also contains `normalize_agency()` (sub-agency-to-parent-department lookup with 35 entries) and `normalize_account_name()` (case-insensitive, em-dash-prefix-stripped). The `compare()` function includes cross-semantics orphan rescue. All functions take `&[LoadedBill]` and return plain data structs. No I/O, no formatting. |
-| `loading.rs` | ~340 | Directory walking via `walkdir`, JSON deserialization, assembly of `LoadedBill` structs. Finds `extraction.json` recursively, loads sibling artifacts including `bill_meta.json`. `LoadedBill` includes `bill_meta: Option<BillMeta>`. |
-| `embeddings.rs` | ~260 | Embedding storage: `load()` / `save()` for the JSON metadata + binary vectors format. Also provides `cosine_similarity()`, `normalize()`, and `top_n_similar()` functions for vector search. |
+| `query.rs` | ~1600 | The library API. Functions: `summarize()`, `search()`, `compare()`, `audit()`, `rollup_by_department()`, `build_embedding_text()`, `relate()`, `compute_link_hash()`. Also contains `normalize_agency()` and `normalize_account_name()`. The `compare()` function includes cross-semantics orphan rescue. All functions take `&[LoadedBill]` and return plain data structs. No I/O, no formatting. |
+| `loading.rs` | ~340 | Directory walking via `walkdir`, JSON deserialization, assembly of `LoadedBill` structs. Finds `extraction.json` recursively, loads sibling artifacts including `bill_meta.json`. |
+| `embeddings.rs` | ~260 | Embedding storage: `load()` / `save()` for the JSON metadata + binary vectors format. `embeddings.json` contains metadata (model, dimensions, count, hashes); `vectors.bin` contains packed float32 vectors. Also provides `cosine_similarity()`, `normalize()`, and `top_n_similar()` functions for vector search. |
+| `inflation.rs` | ~430 | CPI data loading from bundled `cpi.json`, fiscal-year-weighted average computation, real delta calculation, and inflation flags (real_increase, real_cut, inflation_erosion). Used by `compare --real`. |
 
 ### API clients
 
 | Module | Lines | Purpose |
 |--------|-------|---------|
 | `api/congress/` | ~850 | Congress.gov API client. Bill listing, metadata lookup, text download. |
-| `api/anthropic/` | ~660 | Anthropic API client. Message creation with streaming, thinking support, caching. |
+| `api/anthropic/` | ~660 | Anthropic API client. Message creation with streaming, thinking support, caching. Used by both `extract` and `resolve-tas`. |
 | `api/openai/` | ~75 | OpenAI API client. Embeddings endpoint only. Minimal — just enough for `embed` command. |
 
 ---
