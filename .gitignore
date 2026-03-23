@@ -18,17 +18,17 @@ Thumbs.db
 
 # Working directories
 /cache/
+/tmp/
+
+# Cross-bill link decisions (created by `link accept`, user-specific)
+/links/
 
 # Environment / secrets
 *.env
 *.source
 
-# Legacy Python (tools/.venv kept locally but not committed)
+# Python virtual environments
 .venv/
 venv/
 __pycache__/
 *.py[cod]
-NEXT_STEPS.md
-scripts/
-links/
-tmp/
