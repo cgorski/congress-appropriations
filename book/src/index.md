@@ -91,6 +91,7 @@ Finds FEMA provisions across 5 different bills by *meaning*, not just keywords �
 
 This book is organized so you can jump to whatever fits your needs:
 
+- **[Recipes & Demos](./tutorials/cookbook.md)** — Copy-paste recipes for journalists, staffers, and data scientists. Track any program across fiscal years, compare with inflation adjustment, load JSON in Python, and more. Interactive visualizations included. **Start here if you want results fast.**
 - **[Getting Started](./getting-started/installation.md)** — Install the tool and run your first query in under five minutes. Start here if you want hands-on immediately.
 - **Getting to Know the Tool** — Background reading on [what this tool does](./introduction/what-this-tool-does.md), [who it's for](./introduction/who-this-is-for.md), and a [primer on how federal appropriations work](./introduction/appropriations-primer.md) if you're new to the domain.
 - **[Tutorials](./tutorials/find-spending-on-topic.md)** — Step-by-step walkthroughs for common tasks: finding spending on a topic, comparing bills, tracking programs, exporting data, and more.
@@ -101,7 +102,7 @@ This book is organized so you can jump to whatever fits your needs:
 
 ## Version
 
-This documentation covers **congress-approp v4.0.x**.
+This documentation covers **congress-approp v6.0.0**.
 
 - **GitHub:** <https://github.com/cgorski/congress-appropriations>
 - **crates.io:** <https://crates.io/crates/congress-appropriations>
