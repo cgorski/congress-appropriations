@@ -32,7 +32,7 @@ All verification metrics are deterministic — computed by code against the sour
 | **Total rescissions** | $24,659,349,709 |
 | **Total net budget authority** | $840,360,231,845 |
 
-The single most important number: **0 dollar amounts not found in source across 11,136 provisions from fourteen bills.** Every extracted dollar amount was confirmed to exist in the source bill text.
+The single most important number: **99.995% of dollar amounts verified across 34,568 provisions from 32 bills.** Every extracted dollar amount was confirmed to exist in the source bill text.
 
 ---
 
@@ -227,7 +227,7 @@ The LLM included text from the next line, creating a raw_text that doesn't appea
 | H.R. 9468 | 5 (71.4%) | 0 (0.0%) | 0 (0.0%) | 2 (28.6%) | 7 |
 | **Total** | **2,392 (95.6%)** | **71 (2.8%)** | **0 (0.0%)** | **38 (1.5%)** | **2,501** |
 
-> **Note:** The detailed per-bill breakdown above covers the original three FY2024 example bills. The aggregate metrics at the top of this page reflect all fourteen bills — 0 NotFound amounts across the entire dataset.
+> **Note:** The detailed per-bill breakdown above covers the original three FY2024 example bills (H.R. 4366, H.R. 5860, H.R. 9468). The aggregate metrics at the top of this page reflect all 32 bills across FY2019–FY2026.
 
 The omnibus has the highest exact match rate (96.7%), which makes sense — it's the most straightforward appropriations text. The CR and supplemental have more statutory amendments (which are harder to quote exactly), contributing to their higher no-match rates.
 

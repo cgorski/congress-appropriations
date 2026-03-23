@@ -31,9 +31,8 @@ Each bill directory contains the enrolled XML, extracted provisions (`extraction
 | `data/119-hr6938/` | H.R. 6938 | Minibus | CJS + Energy-Water + Interior | 1,061 | $196B |
 | `data/119-hr7148/` | H.R. 7148 | Omnibus | Defense + Labor-HHS + THUD + FinServ + State | 2,837 | $2,788B |
 
-**Totals:** 11,136 provisions, $8.9 trillion in budget authority, 0 unverifiable dollar amounts, 95.5% raw text exact match.
+**Totals:** 34,568 provisions, $21.5 trillion in budget authority, 99.995% dollar verification, 100% source traceability. See [Accuracy Metrics](./accuracy-metrics.md) for the full breakdown.
 
-**Missing:** H.R. 2882 (FY2024 second omnibus covering Defense, Labor-HHS, Homeland, State, FinServ, LegBranch). Extraction failed due to 15 persistent chunk failures. The enrolled XML is available on Congress.gov if someone wants to retry with a future extraction resume feature.
 
 ---
 
@@ -338,7 +337,7 @@ See [Data Directory Layout](../reference/data-directory.md) for the complete fil
 
 | Metric | Value |
 |--------|-------|
-| **Total provisions** | 11,136 |
+| **Total provisions** | 34,568 |
 | **Total budget authority** | $6,412,476,574,673 |
 | **Total rescissions** | $84,074,524,379 |
 | **Amounts NOT found in source** | **0** |
@@ -346,7 +345,7 @@ See [Data Directory Layout](../reference/data-directory.md) for the complete fil
 | **Advance appropriations detected** | $1.49 trillion (18% of total BA) |
 | **FY2026 subcommittee coverage** | All 12 subcommittees |
 
-The headline number: **0 dollar amounts unverifiable across 11,136 provisions from fourteen bills.** Every extracted dollar amount was found in the source bill text.
+The headline number: **99.995% of dollar amounts verified across 34,568 provisions from 32 bills.** Every provision has byte-level source spans in the enrolled bill text.
 
 ---
 

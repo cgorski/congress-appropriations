@@ -97,7 +97,7 @@ The leftmost column tells you the verification status of each provision's dollar
 |--------|---------|-------------------|
 | **✓** | The exact dollar string (e.g., `$2,285,513,000`) was found at **one unique position** in the source bill text. | No — this is the best result. |
 | **≈** | The dollar string was found at **multiple positions** in the source text. The amount is correct, but it can't be pinned to a single location. | No — very common for round numbers like `$5,000,000` which may appear 50 times in an omnibus. |
-| **✗** | The dollar string was **not found** in the source text. | **Yes** — this provision needs manual review. Across the included example data, this never occurs (0 of 11,136). |
+| **✗** | The dollar string was **not found** in the source text. | **Yes** — this provision needs manual review. Across the included dataset, this occurs only once in 18,584 dollar amounts (99.995%). |
 | *(blank)* | The provision doesn't carry a dollar amount (riders, directives, some policy provisions). | No — nothing to verify. |
 
 ### CR substitution table

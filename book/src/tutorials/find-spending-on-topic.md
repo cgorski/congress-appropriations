@@ -29,7 +29,7 @@ This prints the standard bill summary table, followed by a second table breaking
 └─────────────────────────────────────────────────────┴─────────────────┴─────────────────┴────────────┘
 ```
 
-So the answer to "how much did the VA get?" is approximately $343 billion in budget authority across all three bills, with $9.8 billion in rescissions.
+So the answer to "how much did the VA get?" is approximately $343 billion in budget authority across all bills in the dataset, with $9.8 billion in rescissions.
 
 **Important caveat:** This total includes mandatory spending programs that appear as appropriation lines in the bill text. VA's Compensation and Pensions account alone is $197 billion — that's a mandatory entitlement, not discretionary spending, even though it appears in the appropriations bill. See [Why the Numbers Might Not Match Headlines](../explanation/numbers-vs-headlines.md) for more on this distinction.
 

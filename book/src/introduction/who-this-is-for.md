@@ -54,7 +54,7 @@
 
 **What you'd use this for:**
 
-- **Validating extracted numbers.** The `audit` command gives you a per-bill breakdown of verification status: how many dollar amounts were found in the source text, how many raw text excerpts matched byte-for-byte, and a completeness metric showing what percentage of dollar strings in the source were accounted for. Across the included example data, 0 of 2,501 provisions had unverifiable dollar amounts.
+- **Validating extracted numbers.** The `audit` command gives you a per-bill breakdown of verification status: how many dollar amounts were found in the source text, how many raw text excerpts matched byte-for-byte, and a completeness metric showing what percentage of dollar strings in the source were accounted for. Across the included dataset, 99.995% of dollar amounts are verified against the source text. See [Accuracy Metrics](../appendix/accuracy-metrics.md) for the full breakdown.
 - **Assessing extraction completeness.** The verification report flags any dollar amount that appears in the source XML but isn't captured by an extracted provision. A completeness percentage below 100% doesn't necessarily indicate a missed provision — many dollar strings in bill text are statutory cross-references, loan guarantee ceilings, or old amounts being struck by amendments — but it gives you a starting point for investigation.
 - **Tracing numbers to source.** Every verified dollar amount includes a character position in the source text. Every provision includes `raw_text` that can be matched against the bill XML. You can independently confirm any number the tool reports by opening the source file and checking the indicated position.
 

@@ -21,7 +21,7 @@ This separation means:
 
 ## Accuracy Metrics Across Example Data
 
-The included example data — fourteen bills across FY2024–FY2026 with 11,136 total provisions — provides a concrete benchmark for extraction quality:
+The included dataset — 32 bills across FY2019–FY2026 — provides a concrete benchmark for extraction quality:
 
 ### Dollar amount verification
 
@@ -243,7 +243,7 @@ The tool's advantage is the combination of **structured data** (searchable, filt
 
 | Question | Answer |
 |----------|--------|
-| Can the LLM hallucinate dollar amounts? | In theory, yes. In practice, 0 of 11,136 dollar amounts were unverifiable across the fourteen bills. |
+| Can the LLM hallucinate dollar amounts? | In theory, yes. In practice, 99.995% of dollar amounts were verified across the full dataset (1 unverifiable out of 18,584). |
 | Can the LLM misclassify provisions? | Yes — classification is LLM judgment. Dollar amounts and raw text are verified; classification is not. |
 | Can the LLM miss provisions? | Yes — 94.2% coverage on the omnibus means some provisions may be missed. |
 | Is the budget authority total reliable? | Yes — computed from provisions (not LLM summaries), regression-tested, and independently reproducible. |

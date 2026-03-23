@@ -243,7 +243,7 @@ The budget authority number has several layers of protection against errors:
 
 1. **Computed from provisions, not LLM summaries.** The `compute_totals()` function sums individual provisions. The LLM's self-reported totals are diagnostic only.
 
-2. **Dollar amounts are verified against source text.** Every `text_as_written` dollar string is searched for in the bill XML. Across 11,136 provisions in the example data: 0 amounts not found.
+2. **Dollar amounts are verified against source text.** Every `text_as_written` dollar string is searched for in the bill XML. Across the full dataset: 99.995% of dollar amounts verified against the source text.
 
 3. **Sub-allocation exclusion prevents double-counting.** The `detail_level` filter is deterministic and applied in Rust code, not by the LLM.
 

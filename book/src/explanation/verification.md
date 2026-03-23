@@ -80,7 +80,7 @@ The `raw_text` is searched as a **byte-identical** substring of the source text.
 - Extracted `raw_text`: `For an additional amount for ''Compensation and Pensions'', $2,285,513,000, to remain available until expended.`
 - Result: ✓ **Exact** — byte-identical substring
 
-In the example data: **8,164 of 11,136 provisions (95.5%)** match at the exact tier. This is the strongest evidence that the provision was faithfully extracted from the correct location in the bill.
+In the example data: **approximately 95% of provisions across the full dataset** match at the exact tier. This is the strongest evidence that the provision was faithfully extracted from the correct location in the bill.
 
 #### Tier 2: Normalized Match
 
@@ -185,7 +185,7 @@ The three checks provide layered confidence:
 
 For the included example data, the combined picture is strong:
 
-- **0** dollar amounts not found in source (across 11,136 provisions)
+- **99.995%** of dollar amounts verified against source text across the full dataset
 - **95.6%** of raw text excerpts are byte-identical to the source
 - **0** internal consistency mismatches between parsed dollars and text_as_written
 - **13/13** CR substitution pairs fully verified (both new and old amounts)

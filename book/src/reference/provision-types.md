@@ -371,20 +371,23 @@ Community project funding items:
 
 ## Distribution in Example Data
 
-| Type | H.R. 4366 (Omnibus) | H.R. 5860 (CR) | H.R. 9468 (Supp) | Total |
-|------|:---:|:---:|:---:|:---:|
-| `appropriation` | 1,216 | 5 | 2 | 1,223 |
-| `limitation` | 456 | 4 | — | 460 |
-| `rider` | 285 | 49 | 2 | 336 |
-| `directive` | 120 | 2 | 3 | 125 |
-| `other` | 84 | 12 | — | 96 |
-| `rescission` | 78 | — | — | 78 |
-| `transfer_authority` | 77 | — | — | 77 |
-| `mandatory_spending_extension` | 40 | 44 | — | 84 |
-| `directed_spending` | 8 | — | — | 8 |
-| `cr_substitution` | — | 13 | — | 13 |
-| `continuing_resolution_baseline` | — | 1 | — | 1 |
-| **Total** | **2,364** | **130** | **7** | **2,501** |
+The distribution varies by bill type. Here's a sample from three FY2024 bills to illustrate — run `congress-approp search --dir data --list-types` for current counts across the full 32-bill dataset:
+
+| Type | H.R. 4366 (Omnibus) | H.R. 5860 (CR) | H.R. 9468 (Supp) |
+|------|:---:|:---:|:---:|
+| `appropriation` | 1,216 | 5 | 2 |
+| `limitation` | 456 | 4 | — |
+| `rider` | 285 | 49 | 2 |
+| `directive` | 120 | 2 | 3 |
+| `other` | 84 | 12 | — |
+| `rescission` | 78 | — | — |
+| `transfer_authority` | 77 | — | — |
+| `mandatory_spending_extension` | 40 | 44 | — |
+| `directed_spending` | 8 | — | — |
+| `cr_substitution` | — | 13 | — |
+| `continuing_resolution_baseline` | — | 1 | — |
+
+Notice how bill type shapes the distribution: the omnibus is dominated by appropriations and limitations, the CR by riders and mandatory spending extensions, and the supplemental by a handful of targeted appropriations and directives.
 
 ## Next Steps
 

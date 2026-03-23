@@ -26,31 +26,25 @@ None of these let you ask structured questions like "show me every rescission ov
 
 LLM extraction is powerful but not infallible. This tool is designed around a simple principle: **the LLM extracts once; deterministic code verifies everything.**
 
-The verification pipeline runs after extraction and checks every claim the LLM made against the source bill text. No language model is involved in verification — it's pure string matching with tiered fallback (exact → normalized → spaceless). The result across all included example data:
+The verification pipeline runs after extraction and checks every claim the LLM made against the source bill text. No language model is involved in verification — it's pure string matching with tiered fallback (exact → normalized → spaceless). The result across the included dataset:
 
 | Metric | Result |
 |--------|--------|
-| Total provisions extracted | 11,136 |
-| Dollar amounts not found in source | **0** |
-| Raw text byte-identical to source | **95.6%** (2,392 of 2,501) |
-| CR substitution pairs verified | 13/13 (100%) |
+| Dollar amounts not found in source | **1** out of 18,584 (99.995%) |
+| Source traceability | **100%** — every provision has byte-level source spans |
+| Raw text byte-identical to source | **94.6%** |
+| CR substitution pairs verified | **100%** |
 | Sub-allocations correctly excluded from budget authority | ✓ |
 
-Every extracted dollar amount can be traced back to a character position in the bill XML. The `audit` command shows this verification breakdown for any set of bills. If a number can't be verified, it's flagged — not silently accepted.
+Every extracted dollar amount can be traced back to an exact byte position in the enrolled bill text. The `audit` command shows this verification breakdown for any set of bills. If a number can't be verified, it's flagged — not silently accepted. For the full breakdown, see [Accuracy Metrics](../appendix/accuracy-metrics.md).
 
-The remaining 4.4% of provisions where `raw_text` isn't a byte-identical substring are typically cases where the LLM truncated a very long provision or normalized whitespace. The dollar amounts in those provisions are still independently verified.
+The ~5% of provisions where `raw_text` isn't a byte-identical substring are cases where the LLM truncated a very long provision or normalized whitespace. The `verify-text` command repairs these deterministically — and the dollar amounts in those provisions are still independently verified.
 
 ## What's Included
 
-The tool ships with fourteen bills from the 118th and 119th Congresses (FY2024–FY2026), covering all major appropriations bill types:
+The tool ships with **32 enacted appropriations bills** across 4 congresses (116th–119th), covering FY2019 through FY2026. Every major bill type is represented — omnibus, minibus, continuing resolutions, supplementals, and authorizations. See the [Recipes & Demos](../tutorials/cookbook.md) page for the full bill inventory, or run `congress-approp summary --dir data` to see them all.
 
-| Bill | Title | Classification | Provisions | Budget Authority |
-|------|-------|----------------|------------|------------------|
-| H.R. 4366 | Consolidated Appropriations Act, 2024 | Omnibus | 2,364 | $846,137,099,554 |
-| H.R. 5860 | Continuing Appropriations Act, 2024 and Other Extensions Act | Continuing Resolution | 130 | $16,000,000,000 |
-| H.R. 9468 | Veterans Benefits Continuity and Accountability Supplemental Appropriations Act, 2024 | Supplemental | 7 | $2,882,482,000 |
-
-Each bill directory includes the source XML, extracted provisions (`extraction.json`), verification report (`verification.json`), and pre-computed embeddings. No API keys are required to query this data.
+Each bill directory includes the source XML, extracted provisions (`extraction.json`), verification report, extraction metadata, TAS mapping, bill metadata, and pre-computed embeddings. No API keys are required to query this data.
 
 ## Five Things You Can Do Right Now
 
@@ -70,7 +64,7 @@ Shows each bill's provision count, gross budget authority, rescissions, and net 
 congress-approp search --dir data --type appropriation
 ```
 
-Lists every appropriation-type provision across all three bills with account name, amount, division, and agency.
+Lists every appropriation-type provision across all bills with account name, amount, division, and agency.
 
 **3. Find FEMA funding:**
 

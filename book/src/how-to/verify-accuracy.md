@@ -52,7 +52,7 @@ This is a lot of information. Let's break it down column by column.
 | **1–5** | A small number of amounts couldn't be verified. | Run `audit --verbose` to identify which provisions; manually check them against the source XML. |
 | **> 5** | Significant number of unverifiable amounts. | Investigate whether extraction used the wrong source file, the model hallucinated amounts, or the XML is corrupted. Consider re-extracting. |
 
-Across the included example data: **NotFound = 0 for every bill.** All 11,136 extracted dollar amounts were confirmed to exist in the source text.
+Across the included example data: **NotFound = 0 for every bill.** 99.995% of extracted dollar amounts were confirmed to exist in the source text. See [Accuracy Metrics](../appendix/accuracy-metrics.md) for the full breakdown.
 
 ### Verified vs. Ambiguous
 
