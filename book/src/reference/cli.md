@@ -555,6 +555,195 @@ See [Enrich Bills with Metadata](../how-to/enrich-data.md) for a detailed guide 
 
 ---
 
+## verify-text
+
+Check that every provision's `raw_text` is a verbatim substring of the enrolled bill source text. Optionally repair mismatches and add `source_span` byte positions. No API key required.
+
+```
+congress-approp verify-text [OPTIONS]
+  --dir <DIR>       Data directory [default: ./data]
+  --repair          Fix broken raw_text and add source_span to every provision
+  --bill <BILL>     Single bill directory (e.g., 118-hr2882)
+  --format <FMT>    Output format: table, json [default: table]
+```
+
+### Examples
+
+```bash
+# Analyze all bills (no changes)
+congress-approp verify-text --dir data
+
+# Repair and add source spans
+congress-approp verify-text --dir data --repair
+
+# Single bill
+congress-approp verify-text --dir data --bill 118-hr2882 --repair
+```
+
+### Output
+
+Reports the number of provisions at each match tier:
+
+```text
+34568 provisions: 34568 exact, 0 repaired (0 prefix, 0 substring, 0 normalized), 0 unverified
+Traceable: 34568/34568 (100.000%)
+
+✅ Every provision is traceable to the enrolled bill source text.
+```
+
+When `--repair` is used, a backup is created at `extraction.json.pre-repair` before any modifications. Each provision gets a `source_span` field with UTF-8 byte offsets into the source `.txt` file.
+
+See [Verifying Extraction Data](../how-to/verify-data.md) for details on the 3-tier repair algorithm and the source span invariant.
+
+---
+
+## resolve-tas
+
+Map each top-level budget authority provision to a Federal Account Symbol (FAS) code from the Treasury's FAST Book. Uses deterministic string matching for unambiguous names and Claude Opus for the rest.
+
+```
+congress-approp resolve-tas [OPTIONS]
+  --dir <DIR>              Data directory [default: ./data]
+  --bill <BILL>            Single bill directory (e.g., 118-hr2882)
+  --dry-run                Show what would be resolved and estimated cost
+  --no-llm                 Deterministic matching only (no API key needed)
+  --force                  Re-resolve even if tas_mapping.json exists
+  --batch-size <N>         Provisions per LLM batch [default: 40]
+  --fas-reference <PATH>   Path to FAS reference JSON [default: data/fas_reference.json]
+```
+
+Requires `ANTHROPIC_API_KEY` for the LLM tier. With `--no-llm`, no API key is needed (resolves ~56% of provisions).
+
+### Examples
+
+```bash
+# Preview cost before running
+congress-approp resolve-tas --dir data --dry-run
+
+# Full resolution (deterministic + LLM)
+congress-approp resolve-tas --dir data
+
+# Free mode (deterministic only, no API key)
+congress-approp resolve-tas --dir data --no-llm
+
+# Single bill
+congress-approp resolve-tas --dir data --bill 118-hr2882
+```
+
+### Output
+
+Produces `tas_mapping.json` per bill with one mapping per top-level budget authority provision. Reports match rates:
+
+```text
+6685 provisions: 6645 matched (99.4%), 40 unmatched
+  Deterministic: 3731, LLM: 2914
+```
+
+See [Resolving Treasury Account Symbols](../how-to/tas-resolution.md) for details on the two-tier matching algorithm, confidence levels, and the FAST Book reference.
+
+---
+
+## authority build
+
+Aggregate all `tas_mapping.json` files into a single `authorities.json` account registry at the data root. Groups provisions by FAS code, collects name variants, and detects rename events.
+
+```
+congress-approp authority build [OPTIONS]
+  --dir <DIR>       Data directory [default: ./data]
+  --force           Rebuild even if authorities.json already exists
+```
+
+No API key required. Runs in ~1 second.
+
+### Example
+
+```bash
+congress-approp authority build --dir data
+
+# Output:
+# Built authorities.json:
+#   1051 authorities, 6645 provisions, 24 bills, FYs [2019, 2020, ..., 2026]
+#   937 in multiple bills, 443 with name variants
+```
+
+---
+
+## authority list
+
+Browse the account authority registry. Shows FAS code, bill count, fiscal years, total budget authority, and official title for each authority.
+
+```
+congress-approp authority list [OPTIONS]
+  --dir <DIR>       Data directory [default: ./data]
+  --agency <CODE>   Filter by CGAC agency code (e.g., 070 for DHS)
+  --format <FMT>    Output format: table, json [default: table]
+```
+
+### Examples
+
+```bash
+# List all authorities
+congress-approp authority list --dir data
+
+# Filter to DHS accounts
+congress-approp authority list --dir data --agency 070
+
+# JSON for programmatic use
+congress-approp authority list --dir data --format json
+```
+
+---
+
+## trace
+
+Show the funding timeline for a federal budget account across all fiscal years in the dataset. Accepts a FAS code or a name search query.
+
+```
+congress-approp trace <QUERY> [OPTIONS]
+  <QUERY>           FAS code (e.g., 070-0400) or account name fragment
+  --dir <DIR>       Data directory [default: ./data]
+  --format <FMT>    Output format: table, json [default: table]
+```
+
+Name search splits the query into words and matches authorities where all words appear across the title, agency name, FAS code, and name variants. If multiple authorities match, the command lists candidates and asks you to be more specific.
+
+### Examples
+
+```bash
+# By FAS code (exact)
+congress-approp trace 070-0400 --dir data
+
+# By name (word-level search)
+congress-approp trace "coast guard operations" --dir data
+congress-approp trace "disaster relief" --dir data
+
+# JSON output
+congress-approp trace 070-0400 --dir data --format json
+```
+
+### Output
+
+```text
+TAS 070-0400: Operations and Support, United States Secret Service, Homeland Security
+  Agency: Department of Homeland Security
+
+┌──────┬──────────────────────┬────────────────┬──────────────────────────────┐
+│ FY   ┆ Budget Authority ($) ┆ Bill(s)        ┆ Account Name(s)              │
+╞══════╪══════════════════════╪════════════════╪══════════════════════════════╡
+│ 2020 ┆        2,336,401,000 ┆ H.R. 1158      ┆ United States Secret Servi…  │
+│ 2021 ┆        2,373,109,000 ┆ H.R. 133       ┆ United States Secret Servi…  │
+│ 2022 ┆        2,554,729,000 ┆ H.R. 2471      ┆ Operations and Support       │
+│ 2024 ┆        3,007,982,000 ┆ H.R. 2882      ┆ Operations and Support       │
+│ 2025 ┆          231,000,000 ┆ H.R. 9747 (CR) ┆ United States Secret Servi…  │
+└──────┴──────────────────────┴────────────────┴──────────────────────────────┘
+```
+
+Bill classification labels — `(CR)`, `(supplemental)`, `(full-year CR)` — are shown when the bill is not a regular or omnibus appropriation. Detected rename events are shown below the timeline. Name variants are listed with their classification type.
+
+See [The Authority System](../explanation/authority-system.md) for details on how account tracking works across fiscal years.
+
+---
+
 ## normalize suggest-text-match
 
 Discover agency and account naming variants using orphan-pair analysis and structural regex patterns. Scans all bills for cross-FY orphan pairs (same account name, different agency) and common naming patterns (prefix expansion, preposition variants, abbreviation differences). Results are cached for the `normalize accept` command.
@@ -790,6 +979,21 @@ congress-approp link list --dir data --bill hr4366
 # JSON output for programmatic use
 congress-approp link list --dir data --format json
 ```
+
+---
+
+## compare --use-authorities
+
+The `compare` command accepts a `--use-authorities` flag that rescues orphan provisions by matching on FAS code instead of account name. When two provisions have the same FAS code but different names or agency attributions, they are recognized as the same account.
+
+```bash
+congress-approp compare --base-fy 2024 --current-fy 2026 \
+    --subcommittee thud --dir data --use-authorities
+```
+
+Requires `tas_mapping.json` files for the bills being compared (run `resolve-tas` first). Orphan provisions rescued via TAS matching are labeled with their FAS code in the status column (e.g., `matched (TAS 069-1775)`).
+
+This flag can be combined with `--use-links`, `--real`, and `--exact`. Entity resolution via `dataset.json` still applies unless `--exact` is specified.
 
 ---
 

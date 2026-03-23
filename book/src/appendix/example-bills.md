@@ -1,8 +1,10 @@
-# Included Example Bills
+# Included Bills
 
-The `data/` directory ships with **fourteen bills** across the 118th and 119th Congresses, covering FY2024 through FY2026. These are real enacted laws with real data — no API keys are needed to query them. All twelve appropriations subcommittees are represented for FY2026.
+The `data/` directory contains **32 enacted appropriations bills** across 4 congresses (116th–119th), covering FY2019 through FY2026. These are real enacted laws with real data — no API keys are needed to query them. All twelve appropriations subcommittees are represented for FY2024 and FY2026.
 
-Each bill directory contains the source XML, extraction.json, verification.json, metadata.json, bill_meta.json (from `enrich`), embeddings.json, and vectors.bin (pre-computed embeddings for semantic search).
+Each bill directory contains the enrolled XML, extracted provisions (`extraction.json`) with source spans, verification report, extraction metadata, bill metadata (`bill_meta.json`), TAS mapping (`tas_mapping.json` where applicable), and pre-computed embeddings (`embeddings.json` + `vectors.bin`). The data root also contains `fas_reference.json` (FAST Book reference data) and `authorities.json` (the cross-bill account registry).
+
+**Dataset totals:** 34,568 provisions, $21.5 trillion in budget authority, 1,051 accounts tracked by Treasury Account Symbol across 937 cross-bill links.
 
 ## Bill Summary
 

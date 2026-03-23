@@ -1,23 +1,34 @@
 # Accuracy Metrics
 
-This appendix provides a comprehensive breakdown of every verification metric across the included example data. These numbers are the empirical basis for the trust claims made throughout this documentation.
+This appendix provides a comprehensive breakdown of every verification metric across the included dataset. These numbers are the empirical basis for the trust claims made throughout this documentation.
 
-All metrics are deterministic — computed by code against the source bill text, with zero LLM involvement.
+All verification metrics are deterministic — computed by code against the source bill text, with zero LLM involvement. TAS resolution metrics include both deterministic matching and LLM-verified results.
 
 ## Aggregate Summary
 
 | Metric | Value |
 |--------|-------|
-| **Total provisions extracted** | 11,136 (across 14 bills) |
-| **Total budget authority** | $8.9 trillion |
-| **Dollar amounts NOT found in source** | **0** |
-| **Dollar amount internal consistency mismatches** | **0** |
-| **Raw text exact match rate** | 95.5% |
-| **Advance appropriations detected** | $1.49 trillion (18% of total BA) |
-| **FY2026 subcommittee coverage** | All 12 subcommittees |
-| **Raw text byte-identical to source** | **2,392 (95.6%)** |
-| **Raw text not found at any tier** | 38 (1.5%) |
-| **Total budget authority (computed from provisions)** | $865,019,581,554 |
+| **Bills processed** | 32 (across 4 congresses, 116th–119th) |
+| **Fiscal years covered** | FY2019–FY2026 (8 years) |
+| **Total provisions extracted** | 34,568 |
+| **Total budget authority** | $21.5 trillion |
+| **Dollar amounts NOT found in source** | **1** (0.005% — a multi-amount edge case in H.R. 2471) |
+| **Dollar amounts verified (unique match)** | 10,468 (56.3%) |
+| **Dollar amounts ambiguous (multiple matches)** | 8,115 (43.7%) |
+| **Source traceability (raw_text in source)** | **34,568 / 34,568 (100.000%)** |
+| **Source spans (byte-level provenance)** | 34,568 / 34,568 (100%) |
+| **Raw text byte-identical to source** | 33,276 (96.3%) |
+| **Raw text repaired by verify-text** | 1,292 (3.7%) — deterministic, zero LLM calls |
+| **Raw text not found at any tier** | **0** |
+| **TAS resolution (provisions mapped to FAS codes)** | 6,645 / 6,685 (99.4%) |
+| **TAS deterministic matches** | 3,731 (55.8%) — zero false positives |
+| **TAS LLM-resolved matches** | 2,914 (43.6%) — 20/20 spot-check correct |
+| **TAS unresolved** | 40 (0.6%) — edge cases: Postal, intelligence, FDIC |
+| **Authority registry accounts** | 1,051 unique FAS codes |
+| **Cross-bill linked accounts** | 937 (appear in 2+ bills) |
+| **Name variants tracked** | 443 authorities with multiple names |
+| **Rename events detected** | 40 (with fiscal year boundary) |
+| **Budget regression pins** | 8 / 8 bills match expected totals |
 | **Total rescissions** | $24,659,349,709 |
 | **Total net budget authority** | $840,360,231,845 |
 
