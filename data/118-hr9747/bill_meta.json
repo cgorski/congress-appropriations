@@ -51,7 +51,7 @@
       }
     },
     {
-      "provision_index": 38,
+      "provision_index": 37,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -59,7 +59,7 @@
       }
     },
     {
-      "provision_index": 45,
+      "provision_index": 44,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -67,7 +67,15 @@
       }
     },
     {
-      "provision_index": 48,
+      "provision_index": 47,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 50,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -83,7 +91,7 @@
       }
     },
     {
-      "provision_index": 52,
+      "provision_index": 53,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -91,7 +99,7 @@
       }
     },
     {
-      "provision_index": 54,
+      "provision_index": 55,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -108,14 +116,6 @@
     },
     {
       "provision_index": 57,
-      "timing": "current_year",
-      "available_fy": null,
-      "source": {
-        "type": "default_rule"
-      }
-    },
-    {
-      "provision_index": 58,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -162,52 +162,48 @@
     },
     {
       "provision_index": 36,
-      "canonical_name": "expenses, presidential transition"
-    },
-    {
-      "provision_index": 37,
       "canonical_name": "pre-election presidential transition"
     },
     {
-      "provision_index": 38,
+      "provision_index": 37,
       "canonical_name": "operating expenses"
+    },
+    {
+      "provision_index": 38,
+      "canonical_name": "salaries and expenses"
     },
     {
       "provision_index": 39,
       "canonical_name": "salaries and expenses"
     },
     {
-      "provision_index": 40,
-      "canonical_name": "salaries and expenses"
-    },
-    {
-      "provision_index": 45,
+      "provision_index": 44,
       "canonical_name": "operations and support"
     },
     {
-      "provision_index": 48,
+      "provision_index": 47,
       "canonical_name": "operation of the national park system"
     },
     {
-      "provision_index": 51,
+      "provision_index": 50,
       "canonical_name": "indian health services"
     },
     {
-      "provision_index": 52,
+      "provision_index": 51,
       "canonical_name": "indian health facilities"
     },
     {
-      "provision_index": 54,
+      "provision_index": 53,
       "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 60,
+      "canonical_name": "construction, major projects"
     },
     {
       "provision_index": 61,
       "canonical_name": "construction, major projects"
-    },
-    {
-      "provision_index": 62,
-      "canonical_name": "construction, major projects"
     }
   ],
-  "extraction_sha256": "5864176ae79d2e81915751b07b934bc6514cbea2a6bcd52c6d079d93f8f3963c"
+  "extraction_sha256": "1d7c41a7f4d082f1359c3f7ebd9df2992b027dfcd23f58a48fcc42cca6efc244"
 }

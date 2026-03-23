@@ -81,45 +81,45 @@
     },
     {
       "provision_index": 7,
-      "raw_text_preview": "The Commission shall—(A) coordinate all work of the Commission relating to—(...",
+      "raw_text_preview": "SEC. 101. \nInternational nuclear export and innovation activities\n(a) \nCommissio...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 2557
+      "found_at_position": 2446
     },
     {
       "provision_index": 8,
-      "raw_text_preview": "Section 102 of the Nuclear Energy Innovation and Modernization Act (42 U.S.C. 22...",
-      "is_verbatim_substring": false,
-      "match_tier": "no_match",
-      "found_at_position": null
+      "raw_text_preview": "(c) \nExclusion of international activities from the fee base\n(1) \nIn general\nSec...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 4412
     },
     {
       "provision_index": 9,
-      "raw_text_preview": "Unless specifically authorized by the Commission in a license issued under secti...",
+      "raw_text_preview": "SEC. 102. \nDenial of certain domestic licenses for national security purposes\n(a...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 6164
+      "found_at_position": 5529
     },
     {
       "provision_index": 10,
-      "raw_text_preview": "If the Commission, after consultation with the Secretary of State and any other ...",
+      "raw_text_preview": "SEC. 103. \nExport license notification\n(a) \nDefinition of low-Enriched uranium\nI...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 9795
+      "found_at_position": 9577
     },
     {
       "provision_index": 11,
-      "raw_text_preview": "Not later than 1 year after the date of enactment of this Act, the Secretary of ...",
+      "raw_text_preview": "SEC. 104. \nGlobal nuclear energy assessment\n(a) \nStudy required\nNot later than 1...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 11535
+      "found_at_position": 11471
     },
     {
       "provision_index": 12,
-      "raw_text_preview": "Not later than 90 days after the date of enactment of this Act, the Secretary of...",
+      "raw_text_preview": "SEC. 105. \nProcess for review and amendment of part 810 generally authorized des...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 14506
+      "found_at_position": 14370
     },
     {
       "provision_index": 13,
@@ -144,230 +144,244 @@
     },
     {
       "provision_index": 16,
-      "raw_text_preview": "Section 102(b)(1)(B) of the Nuclear Energy Innovation and Modernization Act (42 ...",
+      "raw_text_preview": "SEC. 204. \nEnabling preparations for the demonstration of advanced nuclear react...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 28810
+      "found_at_position": 28629
     },
     {
       "provision_index": 17,
-      "raw_text_preview": "Section 11 of the Atomic Energy Act of 1954 (42 U.S.C. 2014) is amended—(1) in...",
+      "raw_text_preview": "SEC. 205. \nFusion energy regulation\n(a) \nDefinition\nSection 11 of the Atomic Ene...",
       "is_verbatim_substring": false,
       "match_tier": "no_match",
       "found_at_position": null
     },
     {
       "provision_index": 18,
-      "raw_text_preview": "Section 103(a) of the Nuclear Energy Innovation and Modernization Act (42 U.S.C....",
-      "is_verbatim_substring": false,
-      "match_tier": "no_match",
-      "found_at_position": null
+      "raw_text_preview": "(b) \nTechnical and conforming changes\n(1) \nIn general\nSection 103(a) of the Nucl...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 31269
     },
     {
       "provision_index": 19,
-      "raw_text_preview": "Not later than 1 year after the date of enactment of this Act, the Commission sh...",
+      "raw_text_preview": "(2) \nRequirement\nNot later than 1 year after the date of enactment of this Act, ...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 32690
+      "found_at_position": 32673
     },
     {
       "provision_index": 20,
-      "raw_text_preview": "Not later than 1 year after the date of enactment of this Act, the Commission sh...",
-      "is_verbatim_substring": true,
-      "match_tier": "exact",
-      "found_at_position": 34589
+      "raw_text_preview": "SEC. 206. \nRegulatory issues for nuclear facilities at brownfield sites\n(a) \nDef...",
+      "is_verbatim_substring": false,
+      "match_tier": "spaceless",
+      "found_at_position": null
     },
     {
       "provision_index": 21,
-      "raw_text_preview": "Not later than 2 years after the date of enactment of this Act, the Commission s...",
+      "raw_text_preview": "(3) \nReport\nNot later than 14 months after the date of enactment of this Act, th...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 35983
+      "found_at_position": 35713
     },
     {
       "provision_index": 22,
-      "raw_text_preview": "Not later than 3 years after the date of enactment of this Act, the Commission s...",
+      "raw_text_preview": "(c) \nLicensing\n(1) \nIn general\nNot later than 2 years after the date of enactmen...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 37138
+      "found_at_position": 35952
     },
     {
       "provision_index": 23,
-      "raw_text_preview": "In accordance with this section, the Commission shall establish and carry out an...",
+      "raw_text_preview": "(d) \nReport\nNot later than 3 years after the date of enactment of this Act, the ...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 37414
+      "found_at_position": 37126
     },
     {
       "provision_index": 24,
-      "raw_text_preview": "Not later than 30 days after the applicable deadline, the Executive Director for...",
+      "raw_text_preview": "SEC. 207. \nCombined license review procedure\n(a) \nIn general\nIn accordance with ...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 39800
+      "found_at_position": 37353
     },
     {
       "provision_index": 25,
-      "raw_text_preview": "The Commission shall—(1) not later than 18 months after the date of enactment ...",
+      "raw_text_preview": "(d) \nPerformance and reporting\n(1) \nDelays in issuance\nNot later than 30 days af...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 40473
+      "found_at_position": 39745
     },
     {
       "provision_index": 26,
+      "raw_text_preview": "SEC. 208. \nRegulatory requirements for micro-reactors\n(a) \nMicro-Reactor licensi...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 40390
+    },
+    {
+      "provision_index": 27,
       "raw_text_preview": "The prohibitions against issuing certain licenses for utilization facilities to ...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 42955
     },
     {
-      "provision_index": 27,
+      "provision_index": 28,
       "raw_text_preview": "Section 103 d. of the Atomic Energy Act of 1954 (42 U.S.C. 2133(d)) is amended, ...",
       "is_verbatim_substring": false,
       "match_tier": "no_match",
       "found_at_position": null
     },
     {
-      "provision_index": 28,
+      "provision_index": 29,
       "raw_text_preview": "Nothing in this section affects the requirements of section 721 of the Defense P...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 45000
     },
     {
-      "provision_index": 29,
+      "provision_index": 30,
       "raw_text_preview": "Not later than 180 days after the date of enactment of this Act, the Commission ...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 45304
     },
     {
-      "provision_index": 30,
+      "provision_index": 31,
       "raw_text_preview": "Section 313 of division C of the Omnibus Appropriations Act, 2009 (42 U.S.C. 162...",
       "is_verbatim_substring": false,
       "match_tier": "no_match",
       "found_at_position": null
     },
     {
-      "provision_index": 31,
+      "provision_index": 32,
       "raw_text_preview": "Not later than January 1, 2026, and biennially thereafter, the Secretary of Ener...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 51280
     },
     {
-      "provision_index": 32,
+      "provision_index": 33,
       "raw_text_preview": "The Commission shall establish an initiative to enhance preparedness and coordin...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 53364
     },
     {
-      "provision_index": 33,
+      "provision_index": 34,
+      "raw_text_preview": "Not later than 2 years after the date of enactment of this Act, the Commission s...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 55537
+    },
+    {
+      "provision_index": 35,
       "raw_text_preview": "Not later than 1 year after the date of enactment of this Act, the Commission sh...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 56781
     },
     {
-      "provision_index": 34,
+      "provision_index": 36,
       "raw_text_preview": "The Atomic Energy Act of 1954 (42 U.S.C. 2011 et seq.) is amended by inserting a...",
       "is_verbatim_substring": false,
       "match_tier": "normalized",
       "found_at_position": null
     },
     {
-      "provision_index": 35,
+      "provision_index": 37,
       "raw_text_preview": "Not later than September 30, 2033, the Comptroller General of the United States ...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 69390
     },
     {
-      "provision_index": 36,
+      "provision_index": 38,
       "raw_text_preview": "The Commission, on an annual basis, shall solicit applications for the Nuclear R...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 70828
     },
     {
-      "provision_index": 37,
-      "raw_text_preview": "Not later than 3 years after the date of enactment of this Act, the Commission s...",
-      "is_verbatim_substring": true,
-      "match_tier": "exact",
-      "found_at_position": 71002
-    },
-    {
-      "provision_index": 38,
-      "raw_text_preview": "Section 102(a)(3) of the Nuclear Energy Innovation and Modernization Act (42 U.S...",
-      "is_verbatim_substring": true,
-      "match_tier": "exact",
-      "found_at_position": 71519
-    },
-    {
       "provision_index": 39,
-      "raw_text_preview": "Paragraph (10) of section 3 of the Nuclear Energy Innovation and Modernization A...",
+      "raw_text_preview": "SEC. 503. \nCommission corporate support funding\n(a) \nReport\nNot later than 3 yea...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 71804
+      "found_at_position": 70942
     },
     {
       "provision_index": 40,
-      "raw_text_preview": "Section 102(c) of the Nuclear Energy Innovation and Modernization Act (42 U.S.C....",
+      "raw_text_preview": "(b) \nLimitation on corporate support costs\nSection 102(a)(3) of the Nuclear Ener...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 71476
+    },
+    {
+      "provision_index": 41,
+      "raw_text_preview": "(c) \nCorporate support costs clarification\nParagraph (10) of section 3 of the Nu...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 71761
+    },
+    {
+      "provision_index": 42,
+      "raw_text_preview": "SEC. 504. \nPerformance metrics and milestones\nSection 102(c) of the Nuclear Ener...",
       "is_verbatim_substring": false,
       "match_tier": "no_match",
       "found_at_position": null
     },
     {
-      "provision_index": 41,
-      "raw_text_preview": "Section 203 of the Energy Reorganization Act of 1974 (42 U.S.C. 5843) is amended...",
-      "is_verbatim_substring": true,
-      "match_tier": "exact",
-      "found_at_position": 73411
-    },
-    {
-      "provision_index": 42,
-      "raw_text_preview": "Section 181 of the Atomic Energy Act of 1954 (42 U.S.C. 2231) is amended—(A) b...",
-      "is_verbatim_substring": true,
-      "match_tier": "exact",
-      "found_at_position": 74988
-    },
-    {
       "provision_index": 43,
-      "raw_text_preview": "Section 185 of the Atomic Energy Act of 1954 (42 U.S.C. 2235) is amended by addi...",
-      "is_verbatim_substring": true,
-      "match_tier": "exact",
-      "found_at_position": 75502
+      "raw_text_preview": "SEC. 505. \nNuclear licensing efficiency\n(a) \nOffice of nuclear reactor regulatio...",
+      "is_verbatim_substring": false,
+      "match_tier": "no_match",
+      "found_at_position": null
     },
     {
       "provision_index": 44,
-      "raw_text_preview": "Not later than 180 days after the date of enactment of this Act, the Commission ...",
-      "is_verbatim_substring": true,
-      "match_tier": "exact",
-      "found_at_position": 76237
+      "raw_text_preview": "(b) \nEfficient licensing reviews\n(1) \nGeneral\nSection 181 of the Atomic Energy A...",
+      "is_verbatim_substring": false,
+      "match_tier": "spaceless",
+      "found_at_position": null
     },
     {
       "provision_index": 45,
-      "raw_text_preview": "Not later than 1 year after the date of enactment of this Act, the Commission sh...",
-      "is_verbatim_substring": true,
-      "match_tier": "exact",
-      "found_at_position": 81044
+      "raw_text_preview": "(c) \nConstruction Permits and Operating Licenses\nSection 185 of the Atomic Energ...",
+      "is_verbatim_substring": false,
+      "match_tier": "spaceless",
+      "found_at_position": null
     },
     {
       "provision_index": 46,
+      "raw_text_preview": "SEC. 506. \nModernization of nuclear reactor environmental reviews\n(a) \nIn genera...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 76155
+    },
+    {
+      "provision_index": 47,
+      "raw_text_preview": "SEC. 507. \nImproving oversight and inspection programs\n(a) \nDefinition of licens...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 80790
+    },
+    {
+      "provision_index": 48,
       "raw_text_preview": "Section 104 c. of the Atomic Energy Act of 1954 (42 U.S.C. 2134(c)) is amended...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 84637
     },
     {
-      "provision_index": 47,
+      "provision_index": 49,
       "raw_text_preview": "Not later than 1 year after the date of enactment of this Act, the Commission sh...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 85859
     },
     {
-      "provision_index": 48,
+      "provision_index": 50,
       "raw_text_preview": "Nothing in this Act affects authorities of the Department of State.",
       "is_verbatim_substring": true,
       "match_tier": "exact",
@@ -393,17 +407,17 @@
     ]
   },
   "summary": {
-    "total_provisions": 49,
+    "total_provisions": 51,
     "amounts_verified": 3,
     "amounts_not_found": 0,
     "amounts_ambiguous": 0,
     "raw_text_exact": 40,
     "raw_text_normalized": 1,
-    "raw_text_spaceless": 0,
-    "raw_text_no_match": 8,
+    "raw_text_spaceless": 3,
+    "raw_text_no_match": 7,
     "completeness_pct": 60.0,
     "provisions_by_detail_level": {
-      "n/a": 49
+      "n/a": 51
     }
   }
 }

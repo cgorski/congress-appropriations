@@ -11,7 +11,7 @@
       "A",
       "B"
     ],
-    "public_law": "P.L. 118-22"
+    "public_law": null
   },
   "provisions": [
     {
@@ -21,8 +21,8 @@
         "P.L. 118-15",
         "P.L. 117-328"
       ],
-      "rate": "at a rate for operations as provided in the applicable appropriations Acts for fiscal year 2023 (per P.L. 118-15 as amended)",
-      "duration": "through February 2, 2024 (general); through January 19, 2024 (for sections 101(1), 101(4), 101(10), 101(12), 134, and 137)",
+      "rate": "at a rate for operations as provided in the applicable appropriations Acts for fiscal year 2023 (as amended by P.L. 118-15)",
+      "duration": "through February 2, 2024, except January 19, 2024 for provisions under sections 101(1), 101(4), 101(10), 101(12), 134, and 137",
       "anomalies": [],
       "section": "SEC. 101",
       "division": "A",
@@ -30,97 +30,156 @@
       "confidence": 0.95,
       "raw_text": "by striking the date specified in section 106(3) and inserting ''February 2, 2024, except as provided in paragraph (4)''",
       "notes": [
-        "SEC. 101 paragraphs (1) and (2) of H.R. 6363",
-        "Amends P.L. 118-15 to extend the CR from its prior expiration date",
-        "Creates a laddered CR: sections 101(1), 101(4), 101(10), 101(12), 134, and 137 expire January 19, 2024; all other provisions expire February 2, 2024",
-        "Paragraph (1) modifies section 106(3); paragraph (2) adds new section 106(4)"
+        "SEC. 101(1) of H.R. 6363 amends P.L. 118-15, section 106(3) to extend the CR end date to February 2, 2024",
+        "The original P.L. 118-15 CR date was November 17, 2023"
       ],
       "cross_references": [
         {
           "ref_type": "amends",
-          "target": "P.L. 118-15, Division A, Section 106",
-          "description": "Modifies CR expiration dates"
-        },
-        {
-          "ref_type": "baseline_from",
-          "target": "P.L. 117-328",
-          "description": "FY2023 appropriations acts"
+          "target": "P.L. 118-15, Section 106(3)",
+          "description": "Extends CR expiration date to February 2, 2024"
         }
-      ]
-    },
-    {
-      "provision_type": "rider",
-      "description": "Modifies section 101(1) of P.L. 118-15 to apply the Rural Water and Waste Disposal Program Account language by inserting 'direct loans and,' before 'loan guarantees', thereby broadening the program to include direct loans during the CR period.",
-      "policy_area": "Agriculture—Rural Development",
-      "section": "SEC. 101",
-      "division": "A",
-      "title": null,
-      "confidence": 0.92,
-      "raw_text": "on section 101(1) by inserting after ''except section 729,'' the following: ''and except that the language under the heading 'Rural Utilities Service",
-      "notes": [
-        "SEC. 101 paragraph (3) of H.R. 6363",
-        "CR anomaly expanding program authority to include direct loans in addition to loan guarantees",
-        "Applies to title III language of the underlying appropriations act"
       ],
-      "cross_references": [
-        {
-          "ref_type": "amends",
-          "target": "P.L. 118-15, Division A, Section 101(1)",
-          "description": "Adds direct loan authority to Rural Water program"
-        }
-      ]
-    },
-    {
-      "provision_type": "rider",
-      "description": "Modifies section 101(10) of P.L. 118-15 to except section 123 and provisions carrying the same restriction in prior Acts from being continued under the CR.",
-      "policy_area": "Government Operations",
-      "section": "SEC. 101",
-      "division": "A",
-      "title": null,
-      "confidence": 0.88,
-      "raw_text": "on section 101(10), by inserting before the period '', except section 123 as well as the provisions carrying the same restriction in prior Acts''",
-      "notes": [
-        "SEC. 101 paragraph (4) of H.R. 6363",
-        "Exempts section 123 and equivalent provisions in prior acts from continuation under the CR base text"
-      ],
-      "cross_references": [
-        {
-          "ref_type": "amends",
-          "target": "P.L. 118-15, Division A, Section 101(10)",
-          "description": null
-        }
-      ]
+      "source_span": {
+        "start": 938,
+        "end": 1058,
+        "file": "BILLS-118hr6363enr.txt",
+        "verified": true
+      }
     },
     {
       "provision_type": "other",
       "llm_classification": "other",
-      "description": "Modifies section 123 of P.L. 118-15 by changing the notification/restriction period from 17 days to 94 days and '17-day' to '94-day', adjusting for the extended CR duration.",
+      "description": "Creates a staggered CR expiration: January 19, 2024 for appropriations under sections 101(1) (Agriculture), 101(4) (Energy-Water), 101(10) (Transportation-HUD), 101(12) (Military Construction-VA), 134, and 137 of P.L. 118-15.",
       "amounts": [],
       "references": [],
       "metadata": {
-        "llm_classification": "cr_anomaly_timeframe_modification"
+        "llm_classification": "cr_staggered_expiration"
       },
       "section": "SEC. 101",
       "division": "A",
       "title": null,
-      "confidence": 0.88,
-      "raw_text": "on section 123, by striking ''17 days'' and inserting ''94 days'' and by striking ''17-day'' and inserting ''94-day''",
+      "confidence": 0.95,
+      "raw_text": "by inserting after paragraph (3) of section 106 the following: \n\n(4) In the case of appropriations and funds made available and authority granted",
       "notes": [
-        "SEC. 101 paragraph (5) of H.R. 6363",
-        "Adjusts timeframe in section 123 of the original CR to reflect the longer CR duration"
+        "SEC. 101(2) of H.R. 6363 inserts new paragraph (4) into section 106 of P.L. 118-15",
+        "Creates laddered expiration: Jan 19 for certain divisions, Feb 2 for the rest"
       ],
       "cross_references": [
         {
           "ref_type": "amends",
-          "target": "P.L. 118-15, Division A, Section 123",
-          "description": "Changes notification/restriction period"
+          "target": "P.L. 118-15, Section 106",
+          "description": "Adds paragraph (4) for staggered expiration"
         }
-      ]
+      ],
+      "source_span": {
+        "start": 1064,
+        "end": 1209,
+        "file": "BILLS-118hr6363enr.txt",
+        "verified": true,
+        "match_tier": "repaired_normalized"
+      }
+    },
+    {
+      "provision_type": "other",
+      "llm_classification": "other",
+      "description": "Modifies the CR baseline for the Rural Water and Waste Disposal Program Account to include direct loans in addition to loan guarantees.",
+      "amounts": [],
+      "references": [],
+      "metadata": {
+        "llm_classification": "cr_anomaly_program_modification",
+        "agency": "Department of Agriculture",
+        "account_name": "Rural Utilities Service\u2014Rural Water and Waste Disposal Program Account"
+      },
+      "section": "SEC. 101",
+      "division": "A",
+      "title": null,
+      "confidence": 0.92,
+      "raw_text": "in section 101(1) by inserting after ''except section 729,'' the following: ''and except that the language under the heading \u2018Rural Utilities Service\u2014",
+      "notes": [
+        "SEC. 101(3) of H.R. 6363 amends section 101(1) of P.L. 118-15",
+        "Inserts 'direct loans and,' before 'loan guarantees' in the first sentence of the second paragraph under this heading in title III",
+        "Allows the Rural Water and Waste Disposal Program to make direct loans during the CR period"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "P.L. 118-15, Section 101(1)",
+          "description": "Adds direct loan authority for Rural Water and Waste Disposal"
+        }
+      ],
+      "source_span": {
+        "start": 1302,
+        "end": 1452,
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "other",
+      "llm_classification": "other",
+      "description": "Amends section 101(10) of P.L. 118-15 to except section 123 as well as provisions carrying the same restriction in prior Acts.",
+      "amounts": [],
+      "references": [],
+      "metadata": {
+        "llm_classification": "cr_exception_modification"
+      },
+      "section": "SEC. 101",
+      "division": "A",
+      "title": null,
+      "confidence": 0.9,
+      "raw_text": "in section 101(10), by inserting before the period '', except section 123 as well as the provisions carrying the same restriction in prior Acts''; (5)",
+      "notes": [
+        "SEC. 101(4) of H.R. 6363 amends section 101(10) of P.L. 118-15",
+        "Section 101(10) covers Transportation-HUD appropriations; this excepts section 123 restrictions"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "P.L. 118-15, Section 101(10)",
+          "description": "Adds exception for section 123 and similar prior Act restrictions"
+        }
+      ],
+      "source_span": {
+        "start": 1660,
+        "end": 1810,
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "other",
+      "llm_classification": "other",
+      "description": "Extends the duration referenced in section 123 of P.L. 118-15 from 17 days to 94 days.",
+      "amounts": [],
+      "references": [],
+      "metadata": {
+        "llm_classification": "cr_duration_modification"
+      },
+      "section": "SEC. 101",
+      "division": "A",
+      "title": null,
+      "confidence": 0.93,
+      "raw_text": "in section 123, by striking ''17 days'' and inserting ''94 days'' and by striking ''17-day'' and inserting ''94-day''; \n(6) in section 124, by strikin",
+      "notes": [
+        "SEC. 101(5) of H.R. 6363 amends section 123 of P.L. 118-15",
+        "Changes 17 days/17-day to 94 days/94-day reflecting the longer CR period"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "P.L. 118-15, Section 123",
+          "description": "Extends duration from 17 days to 94 days"
+        }
+      ],
+      "source_span": {
+        "start": 1811,
+        "end": 1961,
+        "verified": true
+      }
     },
     {
       "provision_type": "cr_substitution",
       "reference_act": "P.L. 118-15",
-      "reference_section": "Division A, Section 124",
+      "reference_section": "Section 124",
       "new_amount": {
         "value": {
           "kind": "specific",
@@ -141,55 +200,69 @@
       "section": "SEC. 101",
       "division": "A",
       "title": null,
-      "confidence": 0.9,
-      "raw_text": "on section 124, by striking ''$621,270,000'' and inserting ''$663,070,000''",
+      "confidence": 0.93,
+      "raw_text": "in section 124, by striking ''$621,270,000'' and inserting ''$663,070,000''; (7) in section 125, by striking ''During the period covered by this Act''",
       "notes": [
-        "SEC. 101 paragraph (6) of H.R. 6363",
-        "Increases the CR anomaly amount in section 124 of P.L. 118-15 by $41,800,000",
-        "Section 124 of P.L. 118-15 was an anomaly providing additional funding above the CR rate for the Special Supplemental Nutrition Program for Women, Infants, and Children (WIC)",
-        "Account name not explicitly stated in H.R. 6363 text; inferred from referenced section of P.L. 118-15"
+        "SEC. 101(6) of H.R. 6363 amends section 124 of P.L. 118-15",
+        "Section 124 of P.L. 118-15 was a CR anomaly provision; the specific account is not named in this bill text",
+        "Increases the anomaly level by $41,800,000"
       ],
       "cross_references": [
         {
           "ref_type": "amends",
-          "target": "P.L. 118-15, Division A, Section 124",
-          "description": "Increases CR anomaly amount for WIC"
+          "target": "P.L. 118-15, Section 124",
+          "description": "Increases anomaly amount from $621,270,000 to $663,070,000"
         }
-      ]
+      ],
+      "source_span": {
+        "start": 1935,
+        "end": 2085,
+        "verified": true
+      }
     },
     {
-      "provision_type": "rider",
-      "description": "Modifies section 125 of P.L. 118-15 to apply 'through the date specified in section 106(3) of this Act' instead of 'during the period covered by this Act', ensuring the provision extends through the new CR end date.",
-      "policy_area": "Government Operations",
+      "provision_type": "other",
+      "llm_classification": "other",
+      "description": "Modifies section 125 of P.L. 118-15 to replace 'During the period covered by this Act' with 'Through the date specified in section 106(3) of this Act', limiting applicability to the general CR end date rather than any staggered date.",
+      "amounts": [],
+      "references": [],
+      "metadata": {
+        "llm_classification": "cr_period_language_modification"
+      },
       "section": "SEC. 101",
       "division": "A",
       "title": null,
       "confidence": 0.9,
-      "raw_text": "on section 125, by striking ''During the period covered by this Act'' and inserting ''Through the date specified in section 106(3) of this Act''",
+      "raw_text": "in section 125, by striking ''During the period covered by this Act'' and inserting ''Through the date specified in section 106(3) of this Act''; and ",
       "notes": [
-        "SEC. 101 paragraph (7) of H.R. 6363",
-        "Clarifies the applicability period of section 125 to extend through the new CR end date rather than the original CR period"
+        "SEC. 101(7) of H.R. 6363 amends section 125 of P.L. 118-15",
+        "Ties section 125 to the Feb 2, 2024 date in section 106(3), not the staggered Jan 19 date"
       ],
       "cross_references": [
         {
           "ref_type": "amends",
-          "target": "P.L. 118-15, Division A, Section 125",
-          "description": "Clarifies duration of provision"
+          "target": "P.L. 118-15, Section 125",
+          "description": "Changes period reference language"
         }
-      ]
+      ],
+      "source_span": {
+        "start": 2016,
+        "end": 2166,
+        "verified": true
+      }
     },
     {
       "provision_type": "rider",
-      "description": "Extends the Undetectable Firearms Act of 1988 through the date specified in section 106(3) of P.L. 118-15 (as amended) by substituting '36' for '35' in the sunset provision at section 2(f)(2).",
-      "policy_area": "Firearms Regulation",
+      "description": "Extends the Undetectable Firearms Act of 1988 through the date specified in section 106(3) of P.L. 118-15 (February 2, 2024) by substituting '36' for '35' in the sunset provision.",
+      "policy_area": "Firearms",
       "section": "SEC. 138",
       "division": "A",
       "title": null,
-      "confidence": 0.93,
-      "raw_text": "SEC. 138. Section 2(f)(2) of the Undetectable Firearms Act of 1988 (18 U.S.C. 922 note) shall be applied through the date specified in section 106(3",
+      "confidence": 0.95,
+      "raw_text": "Section 2(f)(2) of the Undetectable Firearms Act of 1988 (18 U.S.C. 922 note) shall be applied through the date specified in section 106(3) of th",
       "notes": [
         "Added to P.L. 118-15 by SEC. 101(8) of H.R. 6363",
-        "Substitutes '36' for '35' to extend the Undetectable Firearms Act authorization by one additional year"
+        "Extends the Undetectable Firearms Act sunset provision by one year (substituting 36 for 35)"
       ],
       "cross_references": [
         {
@@ -197,43 +270,55 @@
           "target": "Section 2(f)(2) of the Undetectable Firearms Act of 1988 (18 U.S.C. 922 note)",
           "description": "Extends sunset provision"
         }
-      ]
+      ],
+      "source_span": {
+        "start": 2238,
+        "end": 2383,
+        "file": "BILLS-118hr6363enr.txt",
+        "verified": true
+      }
     },
     {
       "provision_type": "other",
       "llm_classification": "other",
-      "description": "Allows amounts appropriated in section 124 of the Continuing Appropriations Act, 2023 (P.L. 117-180) to be charged for any proper expense under 31 U.S.C. 1553(b)(1), notwithstanding the limitation in 31 U.S.C. 1553(b)(2), through the CR end date.",
+      "description": "Allows amounts appropriated in section 124 of the Continuing Appropriations Act, 2023 (P.L. 117-180) to be charged for proper expenses under 31 U.S.C. 1553(b)(1), notwithstanding the limitation in 31 U.S.C. 1553(b)(2), through February 2, 2024.",
       "amounts": [],
       "references": [],
       "metadata": {
-        "llm_classification": "expired_appropriation_charging_authority"
+        "llm_classification": "expired_account_spending_authority"
       },
       "section": "SEC. 139",
       "division": "A",
       "title": null,
-      "confidence": 0.87,
-      "raw_text": "SEC. 139. Through the date specified in section 106(3) of this Act, amounts appropriated in section 124 of the Continuing Appropriations Act, 2023 (d",
+      "confidence": 0.88,
+      "raw_text": "Through the date specified in section 106(3) of this Act, amounts appropriated in section 124 of the Continuing Appropriations Act, 2023 (division",
       "notes": [
         "Added to P.L. 118-15 by SEC. 101(8) of H.R. 6363",
-        "Allows expired FY2023 CR appropriations to be used for legitimate obligations discovered after account closure",
-        "Section 1553(b)(2) normally limits such charges; this provision waives that limit"
+        "Waives the limitation in 31 U.S.C. 1553(b)(2) for adjusting obligations on expired accounts",
+        "References section 124 of P.L. 117-180, not section 124 of P.L. 118-15"
       ],
       "cross_references": [
         {
-          "ref_type": "notwithstanding",
-          "target": "31 U.S.C. 1553(b)(2)",
-          "description": "Overrides limitation on charging expired appropriations"
-        },
-        {
           "ref_type": "see_also",
           "target": "P.L. 117-180, Division A, Section 124",
-          "description": "Source of appropriations being charged"
+          "description": "Source of the appropriated amounts"
+        },
+        {
+          "ref_type": "notwithstanding",
+          "target": "31 U.S.C. 1553(b)(2)",
+          "description": "Overrides limitation on charging expired accounts"
         }
-      ]
+      ],
+      "source_span": {
+        "start": 2436,
+        "end": 2582,
+        "file": "BILLS-118hr6363enr.txt",
+        "verified": true
+      }
     },
     {
       "provision_type": "limitation",
-      "description": "Allows apportionment of CR funds for Shipbuilding and Conversion, Navy up to the rate necessary for Columbia Class Submarine (AP), not to exceed $3,338,413,000, notwithstanding sections 102 and 104 of P.L. 118-15.",
+      "description": "Allows apportionment of CR funds for Shipbuilding and Conversion, Navy up to the rate for operations necessary for Columbia Class Submarine (AP), not to exceed $3,338,413,000, notwithstanding sections 102 and 104 of the CR.",
       "amount": {
         "value": {
           "kind": "specific",
@@ -242,176 +327,223 @@
         "semantics": "limitation",
         "text_as_written": "$3,338,413,000"
       },
-      "account_name": "Procurement—Shipbuilding and Conversion, Navy",
+      "account_name": "Procurement\u2014Shipbuilding and Conversion, Navy",
       "section": "SEC. 140",
       "division": "A",
       "title": null,
       "confidence": 0.94,
-      "raw_text": "SEC. 140. Notwithstanding sections 102 and 104, amounts made available by section 101 to the Department of Defense for ''Procurement—Shipbuilding and",
+      "raw_text": "Notwithstanding sections 102 and 104, amounts made available by section 101 to the Department of Defense for ''Procurement\u2014Shipbuilding and Conver",
       "notes": [
         "Added to P.L. 118-15 by SEC. 101(8) of H.R. 6363",
-        "CR anomaly allowing higher apportionment rate for the Columbia Class Submarine program above normal CR proportional rate",
-        "Overrides sections 102 (proportional apportionment) and 104 (rate cap) of P.L. 118-15"
+        "CR anomaly allowing higher apportionment rate for Columbia Class Submarine procurement",
+        "The $3,338,413,000 is a ceiling on apportionment, not new budget authority",
+        "Overrides sections 102 (pro-rata limitation) and 104 (apportionment rate cap) of the CR"
       ],
       "cross_references": [
         {
           "ref_type": "notwithstanding",
           "target": "P.L. 118-15, Sections 102 and 104",
-          "description": "Overrides normal CR apportionment and rate limitations"
+          "description": "Overrides pro-rata and apportionment rate limitations"
         }
       ],
-      "parent_account": null
+      "parent_account": null,
+      "source_span": {
+        "start": 2789,
+        "end": 2935,
+        "file": "BILLS-118hr6363enr.txt",
+        "verified": true
+      }
     },
     {
       "provision_type": "rider",
-      "description": "Extends locality pay adjustments under section 747 of title VII of division E of P.L. 117-328 through the CR end date, rolling forward applicable years by one and updating the cross-reference, effective the first applicable pay period on or after January 1, 2024.",
-      "policy_area": "Federal Employee Compensation",
+      "description": "Extends the application of section 747 of division E of P.L. 117-328 (locality pay adjustments) through the CR period, with updated year references. Takes effect on the first applicable pay period beginning on or after January 1, 2024.",
+      "policy_area": "Federal employee pay",
       "section": "SEC. 141",
       "division": "A",
       "title": null,
-      "confidence": 0.9,
-      "raw_text": "(a) Notwithstanding section 101, section 747 of title VII of division E of Public Law 117–328 shall be applied through the date specified in section",
+      "confidence": 0.92,
+      "raw_text": "(a) Notwithstanding section 101, section 747 of title VII of division E of Public Law 117\u2013328 shall be applied through the date specified in secti",
       "notes": [
         "Added to P.L. 118-15 by SEC. 101(8) of H.R. 6363",
-        "Substitutes '2025' for '2024', '2024' for '2023', '2023' for '2022' to roll forward pay provisions by one year",
-        "Also updates cross-reference from P.L. 117-103 to P.L. 117-328 as in effect on September 30, 2023",
-        "Effective date: first applicable pay period beginning on or after January 1, 2024",
-        "Section 747 of division E of P.L. 117-328 relates to locality pay for certain areas"
+        "Section 747 of division E of P.L. 117-328 relates to locality pay adjustments for federal employees",
+        "Substitutes year references: 2025 for 2024, 2024 for 2023, 2023 for 2022",
+        "Effective date delayed to first pay period on or after January 1, 2024"
       ],
       "cross_references": [
         {
           "ref_type": "amends",
-          "target": "Section 747, Title VII, Division E of P.L. 117-328",
-          "description": "Extends locality pay provisions"
+          "target": "P.L. 117-328, Division E, Section 747",
+          "description": "Extends locality pay adjustment provisions with updated years"
         },
         {
           "ref_type": "notwithstanding",
           "target": "P.L. 118-15, Section 101",
           "description": null
         }
-      ]
+      ],
+      "source_span": {
+        "start": 3100,
+        "end": 3246,
+        "file": "BILLS-118hr6363enr.txt",
+        "verified": true
+      }
     },
     {
       "provision_type": "rider",
-      "description": "Extends Section 302 of title III of P.L. 108-494 (Commercial Spectrum Enhancement Act) by substituting the date specified in section 106(3) of the CR for 'December 31, 2023' each place it appears.",
-      "policy_area": "Telecommunications",
+      "description": "Extends section 302 of title III of P.L. 108-494 (National 911 Implementation Coordination Office) by substituting the CR end date for 'December 31, 2023' each place it appears.",
+      "policy_area": "Telecommunications / 911",
       "section": "SEC. 142",
       "division": "A",
       "title": null,
-      "confidence": 0.9,
-      "raw_text": "SEC. 142. Section 302 of title III of Public Law 108–494 shall be applied by substituting the date specified in section 106(3) of this Act for 'Decem",
+      "confidence": 0.93,
+      "raw_text": "Section 302 of title III of Public Law 108\u2013494 shall be applied by substituting the date specified in section 106(3) of this Act for \u2018December 31,",
       "notes": [
         "Added to P.L. 118-15 by SEC. 101(8) of H.R. 6363",
-        "P.L. 108-494 is the Commercial Spectrum Enhancement Act",
-        "Extends provisions through the CR end date (February 2, 2024)"
+        "P.L. 108-494 is the ENHANCE 911 Act of 2004; Section 302 relates to the National 911 Implementation Coordination Office",
+        "Extends the authorization through February 2, 2024"
       ],
       "cross_references": [
         {
           "ref_type": "amends",
-          "target": "Section 302 of Title III of P.L. 108-494",
-          "description": "Extends applicability through CR end date"
+          "target": "P.L. 108-494, Title III, Section 302",
+          "description": "Extends authorization by substituting CR end date for December 31, 2023"
         }
-      ]
+      ],
+      "source_span": {
+        "start": 3772,
+        "end": 3918,
+        "file": "BILLS-118hr6363enr.txt",
+        "verified": true,
+        "match_tier": "repaired_normalized"
+      }
     },
     {
       "provision_type": "other",
       "llm_classification": "other",
-      "description": "Allows apportionment of CR funds for United States Secret Service—Operations and Support up to the rate necessary for National Special Security Events and 2024 Presidential Campaign activities.",
+      "description": "Allows apportionment of CR funds for the United States Secret Service\u2014Operations and Support at a rate necessary to carry out activities related to National Special Security Events and the 2024 Presidential Campaign.",
       "amounts": [],
       "references": [],
       "metadata": {
-        "account_name": "United States Secret Service—Operations and Support",
+        "account_name": "United States Secret Service\u2014Operations and Support",
         "agency": "Department of Homeland Security",
-        "llm_classification": "cr_anomaly_apportionment_authority"
+        "llm_classification": "cr_apportionment_anomaly"
       },
       "section": "SEC. 143",
       "division": "A",
       "title": null,
-      "confidence": 0.92,
-      "raw_text": "SEC. 143. Amounts made available by section 101 to the Department of Homeland Security under the heading ''United States Secret Service—Operations and",
+      "confidence": 0.93,
+      "raw_text": "Amounts made available by section 101 to the Department of Homeland Security under the heading ''United States Secret Service\u2014Operations and Suppor",
       "notes": [
         "Added to P.L. 118-15 by SEC. 101(8) of H.R. 6363",
-        "CR anomaly allowing higher apportionment rate for Secret Service for NSSE and 2024 Presidential Campaign",
-        "No specific dollar ceiling specified, unlike SEC. 140"
+        "CR anomaly allowing higher apportionment rate for Secret Service without a specified dollar ceiling",
+        "Covers both National Special Security Events and 2024 Presidential Campaign activities"
       ],
-      "cross_references": []
+      "cross_references": [],
+      "source_span": {
+        "start": 3959,
+        "end": 4106,
+        "file": "BILLS-118hr6363enr.txt",
+        "verified": true
+      }
     },
     {
       "provision_type": "rider",
-      "description": "Extends section 1901(e) of the Homeland Security Act of 2002 (Countering Weapons of Mass Destruction Office authorization) by substituting the date that is 1 day after the CR end date for the original 5-year sunset date.",
-      "policy_area": "Homeland Security",
+      "description": "Extends the sunset provision of section 1901(e) of the Homeland Security Act of 2002 (Countering Weapons of Mass Destruction Office) through 1 day after the CR end date by substituting that date for the original 5-year sunset date.",
+      "policy_area": "Homeland Security / WMD",
       "section": "SEC. 144",
       "division": "A",
       "title": null,
-      "confidence": 0.91,
-      "raw_text": "SEC. 144. Section 1901(e) of the Homeland Security Act of 2002 (6 U.S.C. 591(e)) shall be applied by substituting the date that is 1 day after the d",
+      "confidence": 0.93,
+      "raw_text": "Section 1901(e) of the Homeland Security Act of 2002 (6 U.S.C. 591(e)) shall be applied by substituting the date that is 1 day after the date spec",
       "notes": [
         "Added to P.L. 118-15 by SEC. 101(8) of H.R. 6363",
-        "Section 1901(e) of the Homeland Security Act relates to the Countering Weapons of Mass Destruction Office",
-        "Extends the 5-year sunset provision from the Countering Weapons of Mass Destruction Act of 2018 through 1 day after the CR end date"
+        "The Countering Weapons of Mass Destruction Act of 2018 established a 5-year sunset for the CWMD Office",
+        "This extends the office authorization through February 3, 2024 (1 day after Feb 2, 2024)"
       ],
       "cross_references": [
         {
           "ref_type": "amends",
           "target": "Section 1901(e) of the Homeland Security Act of 2002 (6 U.S.C. 591(e))",
-          "description": "Extends CWMD Office authorization"
+          "description": "Extends CWMD Office sunset provision"
         }
-      ]
+      ],
+      "source_span": {
+        "start": 4284,
+        "end": 4430,
+        "file": "BILLS-118hr6363enr.txt",
+        "verified": true
+      }
     },
     {
       "provision_type": "other",
       "llm_classification": "other",
-      "description": "Allows apportionment of CR funds for Department of Education—Student Aid Administration up to the rate necessary for student loan servicing activities, including supporting borrowers reentering repayment.",
+      "description": "Allows apportionment of CR funds for Department of Education\u2014Student Aid Administration at a rate necessary to ensure the continuation of student loan servicing activities, including supporting borrowers reentering repayment.",
       "amounts": [],
       "references": [],
       "metadata": {
-        "account_name": "Department of Education—Student Aid Administration",
         "agency": "Department of Education",
-        "llm_classification": "cr_anomaly_apportionment_authority"
+        "account_name": "Department of Education\u2014Student Aid Administration",
+        "llm_classification": "cr_apportionment_anomaly"
+      },
+      "section": "SEC. 145",
+      "division": "A",
+      "title": null,
+      "confidence": 0.93,
+      "raw_text": "Amounts made available by section 101 for ''Department of Education\u2014Student Aid Administration'' may be apportioned up to the rate for operations n",
+      "notes": [
+        "SEC. 145(a); added to P.L. 118-15 by SEC. 101(8) of H.R. 6363",
+        "CR anomaly allowing higher apportionment rate for Student Aid Administration without a specified dollar ceiling",
+        "Addresses increased demand from borrowers reentering repayment after pandemic forbearance ended"
+      ],
+      "cross_references": [],
+      "source_span": {
+        "start": 4605,
+        "end": 4752,
+        "file": "BILLS-118hr6363enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "other",
+      "llm_classification": "other",
+      "description": "Modifies the transfer limitation in section 302 of division H of P.L. 117-328 for transfers to Student Aid Administration, substituting '10 percent' for '3 percent' through the CR end date, for purposes of basic operations including student loan servicing, business process operations, digital customer care, common origination and disbursement, cybersecurity activities, and IT systems.",
+      "amounts": [],
+      "references": [],
+      "metadata": {
+        "agency": "Department of Education",
+        "account_name": "Department of Education\u2014Student Aid Administration",
+        "llm_classification": "transfer_limitation_modification"
       },
       "section": "SEC. 145",
       "division": "A",
       "title": null,
       "confidence": 0.92,
-      "raw_text": "SEC. 145. (a) Amounts made available by section 101 for ''Department of Education—Student Aid Administration'' may be apportioned up to the rate for o",
+      "raw_text": "The limitation in section 302 of division H of Public Law 117\u2013328 regarding transfers increasing any appropriation shall be applied to transfers to",
       "notes": [
-        "Added to P.L. 118-15 by SEC. 101(8) of H.R. 6363",
-        "Subsection (a) of SEC. 145",
-        "CR anomaly allowing higher apportionment rate for student loan servicing",
-        "No specific dollar ceiling specified"
-      ],
-      "cross_references": []
-    },
-    {
-      "provision_type": "transfer_authority",
-      "from_scope": "",
-      "to_scope": "",
-      "limit": "unknown",
-      "conditions": [],
-      "section": "SEC. 145",
-      "division": "A",
-      "title": null,
-      "confidence": 0.9,
-      "raw_text": "(b) The limitation in section 302 of division H of Public Law 117–328 regarding transfers increasing any appropriation shall be applied to transfers",
-      "notes": [
-        "Added to P.L. 118-15 by SEC. 101(8) of H.R. 6363",
-        "Subsection (b) of SEC. 145",
-        "Increases transfer ceiling from 3% to 10% for transfers to Student Aid Administration",
-        "Applies through the date specified in section 106(3) of P.L. 118-15 as amended"
+        "SEC. 145(b); added to P.L. 118-15 by SEC. 101(8) of H.R. 6363",
+        "Loosens transfer cap from 3% to 10% for transfers INTO Student Aid Administration",
+        "Applies only through the date specified in section 106(3) \u2014 February 2, 2024",
+        "The increased transfer flexibility supports continuation of student loan servicing operations"
       ],
       "cross_references": [
         {
           "ref_type": "amends",
-          "target": "Section 302, Division H, P.L. 117-328",
-          "description": "Modifies transfer limitation percentage from 3% to 10%"
+          "target": "P.L. 117-328, Division H, Section 302",
+          "description": "Modifies transfer limitation from 3% to 10% for Student Aid Administration"
         }
-      ]
+      ],
+      "source_span": {
+        "start": 4884,
+        "end": 5031,
+        "file": "BILLS-118hr6363enr.txt",
+        "verified": true
+      }
     },
     {
       "provision_type": "appropriation",
       "account_name": "",
       "agency": "United States Senate",
-      "program": "Death gratuity—Katherine Anne Feinstein, beneficiary of Senator Dianne Feinstein",
+      "program": null,
       "amount": {
         "value": {
           "kind": "specific",
@@ -428,136 +560,167 @@
       "division": "A",
       "title": null,
       "confidence": 0.97,
-      "raw_text": "SEC. 146. Notwithstanding any other provision of this Act, there is hereby appropriated for fiscal year 2024, out of any money in the Treasury not ot",
+      "raw_text": "Notwithstanding any other provision of this Act, there is hereby appropriated for fiscal year 2024, out of any money in the Treasury not otherwise a",
       "notes": [
         "Added to P.L. 118-15 by SEC. 101(8) of H.R. 6363",
-        "Death gratuity payment to Katherine Anne Feinstein, beneficiary of Dianne Feinstein, late a Senator from the State of California",
-        "Standard death gratuity equal to one year's salary for deceased Members of Congress",
-        "Standalone appropriation—notwithstanding any other provision of this Act"
+        "Death gratuity payment to Katherine Anne Feinstein, beneficiary of Senator Dianne Feinstein of California",
+        "Standard congressional death gratuity equal to one year's salary",
+        "Appropriated out of the general fund of the Treasury"
       ],
-      "cross_references": [
-        {
-          "ref_type": "notwithstanding",
-          "target": "All other provisions of this Act",
-          "description": "Standalone appropriation not subject to CR restrictions"
-        }
-      ],
+      "cross_references": [],
       "detail_level": "top_level",
-      "parent_account": null
+      "parent_account": null,
+      "source_span": {
+        "start": 5480,
+        "end": 5628,
+        "file": "BILLS-118hr6363enr.txt",
+        "verified": true
+      }
     },
     {
       "provision_type": "mandatory_spending_extension",
       "program_name": "Compacts of Free Association with the Federated States of Micronesia and the Republic of the Marshall Islands",
-      "statutory_reference": "Section 2101 of the Continuing Appropriations Act, 2024 and Other Extensions Act (Public Law 118-15; 137 Stat. 81)",
+      "statutory_reference": "Section 2101 of the Continuing Appropriations Act, 2024 and Other Extensions Act (Public Law 118\u201315; 137 Stat. 81)",
       "amount": null,
       "period": "through February 2, 2024",
       "extends_through": "February 2, 2024",
       "section": "SEC. 101",
       "division": "B",
       "title": "I",
-      "confidence": 0.92,
-      "raw_text": "Section 2101 of the Continuing Appropriations Act, 2024 and Other Extensions Act (Public Law 118–15; 137 Stat. 81) is amended—",
+      "confidence": 0.95,
+      "raw_text": "Section 2101 of the Continuing Appropriations Act, 2024 and Other Extensions Act (Public Law 118\u201315; 137 Stat. 81) is amended\u2014 (1) in the section head",
       "notes": [
-        "Extends applicable Compact provisions from November 17, 2023 to February 2, 2024",
-        "Expands coverage to include the Republic of the Marshall Islands in addition to the Federated States of Micronesia",
-        "Adds references to section 103(f)(2) of the Compact of Free Association Amendments Act of 2003 and sections 211, 213, and 216 of the Marshall Islands Compact"
+        "Extends date from November 17, 2023 to February 2, 2024",
+        "Expands scope to include the Republic of the Marshall Islands in addition to the Federated States of Micronesia",
+        "Adds references to section 103(f)(2) of the Compact of Free Association Amendments Act of 2003 and sections 211, 213, and 216 of the RMI Compact"
       ],
       "cross_references": [
         {
           "ref_type": "amends",
           "target": "Section 2101 of P.L. 118-15",
-          "description": "Continuing Appropriations Act, 2024 and Other Extensions Act"
+          "description": "Extends and broadens Compact of Free Association provisions"
         },
         {
           "ref_type": "see_also",
-          "target": "Section 103(f)(2) of the Compact of Free Association Amendments Act of 2003 (48 U.S.C. 1921b(f)(2))",
-          "description": null
+          "target": "48 U.S.C. 1921b(f)(2)",
+          "description": "Compact of Free Association Amendments Act of 2003 section 103(f)(2)"
         },
         {
           "ref_type": "see_also",
-          "target": "Sections 211, 213, and 216 of the RMI Compact (48 U.S.C. 1921 note; P.L. 108-188)",
-          "description": null
+          "target": "48 U.S.C. 1921 note; Public Law 108-188",
+          "description": "RMI Compact sections 211, 213, and 216"
         }
-      ]
+      ],
+      "source_span": {
+        "start": 6140,
+        "end": 6290,
+        "verified": true
+      }
     },
     {
       "provision_type": "mandatory_spending_extension",
-      "program_name": "Agricultural Programs (General Extension)",
-      "statutory_reference": "Agriculture Improvement Act of 2018 (Public Law 115-334; 132 Stat. 4490)",
+      "program_name": "Agriculture Improvement Act of 2018 Programs (General Extension)",
+      "statutory_reference": "Agriculture Improvement Act of 2018 (Public Law 115\u2013334; 132 Stat. 4490)",
       "amount": null,
-      "period": "through September 30, 2024 or later",
+      "period": "through the later of September 30, 2024, or the date specified in the provision",
       "extends_through": "September 30, 2024",
       "section": "SEC. 102",
       "division": "B",
       "title": "I",
       "confidence": 0.95,
-      "raw_text": "Except as otherwise provided in this section and the amendments made by this section, notwithstanding any other provision of law, the authorities (inclu",
+      "raw_text": "Except as otherwise provided in this section and the amendments made by this section, notwithstanding any other provision of law, the authorities (incl",
       "notes": [
-        "Blanket extension of all authorities in the Agriculture Improvement Act of 2018 and provisions of law amended by that Act",
-        "Extends through the later of September 30, 2024 or the date specified in the original provision",
-        "Mandatory programs continue at existing funding levels as in effect on September 30, 2023"
+        "General extension of all Agriculture Improvement Act of 2018 (Farm Bill) authorities and mandatory funding levels",
+        "Extends through later of September 30, 2024 or date specified in underlying law",
+        "Contains notwithstanding clause overriding other provisions of law",
+        "Subsection (a) only; subject to exceptions in subsection (d)(9) and other subsections"
       ],
       "cross_references": [
         {
           "ref_type": "amends",
-          "target": "Agriculture Improvement Act of 2018 (P.L. 115-334; 132 Stat. 4490)",
-          "description": "Blanket extension of all authorities"
+          "target": "Public Law 115-334 (Agriculture Improvement Act of 2018)",
+          "description": "Extends all authorities at existing mandatory funding levels"
+        },
+        {
+          "ref_type": "notwithstanding",
+          "target": "any other provision of law",
+          "description": null
         }
-      ]
+      ],
+      "source_span": {
+        "start": 7266,
+        "end": 7417,
+        "file": "BILLS-118hr6363enr.txt",
+        "verified": true
+      }
     },
     {
       "provision_type": "limitation",
-      "description": "Programs carried out using the extended agricultural authorities that are funded by discretionary appropriations shall be subject to the availability of appropriations.",
+      "description": "Discretionary programs carried out under the general farm bill extension are subject to the availability of appropriations.",
       "amount": null,
       "account_name": null,
       "section": "SEC. 102",
       "division": "B",
       "title": "I",
-      "confidence": 0.95,
+      "confidence": 0.93,
       "raw_text": "Programs carried out using the authorities described in subsection (a) that are funded by discretionary appropriations (as defined in section 250(c) of",
       "notes": [
-        "Limits the general extension in SEC. 102(a) for discretionary programs to available appropriations"
+        "Subsection (b); limits general extension to mandatory programs unless discretionary appropriations are available",
+        "References Balanced Budget and Emergency Deficit Control Act definition of discretionary appropriations"
       ],
       "cross_references": [
         {
-          "ref_type": "subject_to",
+          "ref_type": "see_also",
           "target": "Section 250(c) of the Balanced Budget and Emergency Deficit Control Act of 1985 (2 U.S.C. 900(c))",
           "description": "Definition of discretionary appropriations"
         }
       ],
-      "parent_account": null
+      "parent_account": null,
+      "source_span": {
+        "start": 7933,
+        "end": 8084,
+        "file": "BILLS-118hr6363enr.txt",
+        "verified": true
+      }
     },
     {
       "provision_type": "mandatory_spending_extension",
-      "program_name": "Commodity Programs",
-      "statutory_reference": "Title I of the Agricultural Act of 2014 (7 U.S.C. 9011 et seq.) and subtitle C of title I of the Agriculture Improvement Act of 2018 (Public Law 115-334; 132 Stat. 4511)",
+      "program_name": "Commodity Programs (Covered Commodities, Loan Commodities, Sugarcane, Sugar Beets)",
+      "statutory_reference": "Title I of the Agricultural Act of 2014 (7 U.S.C. 9011 et seq.) and subtitle C of title I of the Agriculture Improvement Act of 2018 (Public Law 115\u2013334; 132 Stat. 4511)",
       "amount": null,
       "period": "2024 crop year",
       "extends_through": "2024 crop year",
       "section": "SEC. 102",
       "division": "B",
       "title": "I",
-      "confidence": 0.93,
+      "confidence": 0.95,
       "raw_text": "The provisions of law applicable to a covered commodity (as defined in section 1111 of the Agricultural Act of 2014 (7 U.S.C. 9011)), a loan commodity",
       "notes": [
-        "Extends commodity programs from the 2023 crop year to the 2024 crop year for covered commodities, loan commodities, sugarcane, and sugar beets"
+        "Subsection (c)(1); extends 2023 crop year commodity programs to 2024 crop year",
+        "Covers covered commodities, loan commodities, sugarcane, and sugar beets"
       ],
       "cross_references": [
         {
-          "ref_type": "amends",
-          "target": "Title I of the Agricultural Act of 2014 (7 U.S.C. 9011 et seq.)",
-          "description": null
+          "ref_type": "see_also",
+          "target": "Section 1111 of the Agricultural Act of 2014 (7 U.S.C. 9011)",
+          "description": "Definition of covered commodity"
         },
         {
-          "ref_type": "amends",
-          "target": "Subtitle C of title I of the Agriculture Improvement Act of 2018 (P.L. 115-334; 132 Stat. 4511)",
-          "description": null
+          "ref_type": "see_also",
+          "target": "Section 1201 of the Agricultural Act of 2014 (7 U.S.C. 9031)",
+          "description": "Definition of loan commodity"
         }
-      ]
+      ],
+      "source_span": {
+        "start": 8262,
+        "end": 8412,
+        "file": "BILLS-118hr6363enr.txt",
+        "verified": true
+      }
     },
     {
       "provision_type": "mandatory_spending_extension",
-      "program_name": "Dairy Margin Coverage - Base Production History Adjustment",
+      "program_name": "Dairy Margin Coverage\u2014Base Production History Adjustment",
       "statutory_reference": "Section 1405(a) of the Agricultural Act of 2014 (7 U.S.C. 9055(a))",
       "amount": null,
       "period": null,
@@ -565,23 +728,29 @@
       "section": "SEC. 102",
       "division": "B",
       "title": "I",
-      "confidence": 0.9,
-      "raw_text": "Section 1405(a) of the Agricultural Act of 2014 (7 U.S.C. 9055(a)) is amended— (i) paragraph (1), by inserting ''paragraph (4) and'' before ''subsecti",
+      "confidence": 0.95,
+      "raw_text": "Section 1405(a) of the Agricultural Act of 2014 (7 U.S.C. 9055(a)) is amended\u2014 (i) in paragraph (1), by inserting ''paragraph (4) and'' before ''subse",
       "notes": [
-        "Adds new paragraph (4) to Section 1405(a) allowing dairy operations with production under 5,000,000 pounds to adjust base production history",
-        "Adjustment equals paragraph (1) amount plus 75% of the difference between 2019 production and the paragraph (1) amount"
+        "Subsection (c)(2)(A); adds new paragraph (4) allowing dairy operations with production under 5,000,000 pounds to adjust base production history",
+        "Adjustment equals the paragraph (1) amount plus 75% of (2019 production minus paragraph (1) amount)",
+        "New structural provision, not just a date extension"
       ],
       "cross_references": [
         {
           "ref_type": "amends",
           "target": "Section 1405(a) of the Agricultural Act of 2014 (7 U.S.C. 9055(a))",
-          "description": null
+          "description": "Adds base production history adjustment for small dairy operations"
         }
-      ]
+      ],
+      "source_span": {
+        "start": 8952,
+        "end": 9102,
+        "verified": true
+      }
     },
     {
       "provision_type": "mandatory_spending_extension",
-      "program_name": "Dairy Margin Coverage",
+      "program_name": "Dairy Margin Coverage\u2014Duration",
       "statutory_reference": "Section 1409 of the Agricultural Act of 2014 (7 U.S.C. 9059)",
       "amount": null,
       "period": "through 2024",
@@ -592,37 +761,50 @@
       "confidence": 0.95,
       "raw_text": "Section 1409 of the Agricultural Act of 2014 (7 U.S.C. 9059) is amended by striking ''2023'' and inserting ''2024''.",
       "notes": [
-        "Extends dairy margin coverage program duration from 2023 to 2024"
+        "Subsection (c)(2)(B)(i); extends dairy margin coverage program from 2023 to 2024"
       ],
       "cross_references": [
         {
           "ref_type": "amends",
           "target": "Section 1409 of the Agricultural Act of 2014 (7 U.S.C. 9059)",
-          "description": null
+          "description": "Extends dairy margin coverage duration through 2024"
         }
-      ]
+      ],
+      "source_span": {
+        "start": 9880,
+        "end": 9996,
+        "file": "BILLS-118hr6363enr.txt",
+        "verified": true
+      }
     },
     {
       "provision_type": "limitation",
-      "description": "For coverage in calendar year 2024, the dairy margin coverage premium discount under Section 1407(g) of the Agricultural Act of 2014 shall only apply to participating dairy operations that had premiums reduced under that section for calendar year 2023.",
+      "description": "For calendar year 2024, the dairy margin coverage premium discount under section 1407(g) shall only apply to dairy operations that received the discount in calendar year 2023.",
       "amount": null,
       "account_name": null,
       "section": "SEC. 102",
       "division": "B",
       "title": "I",
-      "confidence": 0.9,
+      "confidence": 0.92,
       "raw_text": "With respect to coverage for calendar year 2024, section 1407(g) of the Agricultural Act of 2014 (7 U.S.C. 9057(g)) shall only apply to a participatin",
       "notes": [
-        "Limits availability of dairy margin coverage premium discount for 2024 to operations that received the discount in 2023"
+        "Subsection (c)(2)(B)(ii); limits availability of premium discount to operations already receiving it in 2023",
+        "Does not amend the statute directly but conditions its application for 2024"
       ],
       "cross_references": [
         {
           "ref_type": "subject_to",
           "target": "Section 1407(g) of the Agricultural Act of 2014 (7 U.S.C. 9057(g))",
-          "description": "Dairy margin coverage premium discount"
+          "description": "Premium discount availability conditioned on 2023 participation"
         }
       ],
-      "parent_account": null
+      "parent_account": null,
+      "source_span": {
+        "start": 10037,
+        "end": 10187,
+        "file": "BILLS-118hr6363enr.txt",
+        "verified": true
+      }
     },
     {
       "provision_type": "mandatory_spending_extension",
@@ -637,69 +819,89 @@
       "confidence": 0.95,
       "raw_text": "Section 1502(e)(2) of the Food, Conservation, and Energy Act of 2008 (7 U.S.C. 8772(e)(2)) is amended by striking ''2026'' and inserting ''2027''.",
       "notes": [
-        "Extends dairy forward pricing program from 2026 to 2027"
+        "Subsection (c)(2)(C); extends dairy forward pricing program from 2026 to 2027"
       ],
       "cross_references": [
         {
           "ref_type": "amends",
           "target": "Section 1502(e)(2) of the Food, Conservation, and Energy Act of 2008 (7 U.S.C. 8772(e)(2))",
-          "description": null
+          "description": "Extends dairy forward pricing program through 2027"
         }
-      ]
+      ],
+      "source_span": {
+        "start": 10342,
+        "end": 10488,
+        "file": "BILLS-118hr6363enr.txt",
+        "verified": true
+      }
     },
     {
       "provision_type": "mandatory_spending_extension",
       "program_name": "Price Loss Coverage Payment Amount",
       "statutory_reference": "Section 1116(d) of the Agricultural Act of 2014 (7 U.S.C. 9016(d))",
       "amount": null,
-      "period": "through 2024 crop year",
+      "period": "through 2024",
       "extends_through": "2024",
       "section": "SEC. 102",
       "division": "B",
       "title": "I",
-      "confidence": 0.93,
-      "raw_text": "Section 1116(d) of the Agricultural Act of 2014 (7 U.S.C. 9016(d)) is amended, the matter preceding paragraph (1), by striking ''2018'' and inserting ",
+      "confidence": 0.95,
+      "raw_text": "Section 1116(d) of the Agricultural Act of 2014 (7 U.S.C. 9016(d)) is amended, in the matter preceding paragraph (1), by striking ''2018'' and inserti",
       "notes": [
-        "Extends price loss coverage payment amount provisions from 2018 to 2024 crop years"
+        "Subsection (c)(3); extends payment amount provision from 2018 to 2024"
       ],
       "cross_references": [
         {
           "ref_type": "amends",
           "target": "Section 1116(d) of the Agricultural Act of 2014 (7 U.S.C. 9016(d))",
-          "description": null
+          "description": "Extends payment amount through 2024"
         }
-      ]
+      ],
+      "source_span": {
+        "start": 10523,
+        "end": 10673,
+        "file": "BILLS-118hr6363enr.txt",
+        "verified": true
+      }
     },
     {
       "provision_type": "rider",
-      "description": "Suspends permanent price support authorities for 2024 crops of covered commodities, cotton, and sugar; for milk through December 31, 2024; and for wheat planted for harvest in calendar year 2024.",
-      "policy_area": "Agriculture",
+      "description": "Suspends permanent price support authorities for 2024 crops of covered commodities, cotton, and sugar; milk through December 31, 2024; and wheat planted for harvest in 2024.",
+      "policy_area": "agriculture",
       "section": "SEC. 102",
       "division": "B",
       "title": "I",
       "confidence": 0.93,
-      "raw_text": "The provisions of law specified in— (A) subsections (a) and (b) of section 1602 of the Agricultural Act of 2014 (7 U.S.C. 9092)— (i) shall not be ap",
+      "raw_text": "The provisions of law specified in\u2014 \n(A) subsections (a) and (b) of section 1602 of the Agricultural Act of 2014 (7 U.S.C. 9092)\u2014 (i) shall not be ap",
       "notes": [
-        "Extends the suspension of permanent price support authorities (old parity-based farm programs) to prevent their reactivation during the farm bill extension period",
-        "Section 1602(a) and (b) cover covered commodities, cotton, sugar, and milk; Section 1602(c) covers wheat"
+        "Subsection (c)(4); prevents permanent price support authorities from taking effect for 2024",
+        "Without this suspension, much higher permanent law price supports (dating to 1938 and 1949 Acts) would apply",
+        "Covers covered commodities, cotton, sugar (2024 crop), milk (through Dec 31, 2024), and wheat (harvest 2024)"
       ],
       "cross_references": [
         {
-          "ref_type": "subject_to",
+          "ref_type": "see_also",
           "target": "Section 1602(a) and (b) of the Agricultural Act of 2014 (7 U.S.C. 9092)",
-          "description": "Suspension of permanent price support authorities for covered commodities, cotton, sugar, and milk"
+          "description": "Permanent price support authorities suspended for 2024"
         },
         {
-          "ref_type": "subject_to",
+          "ref_type": "see_also",
           "target": "Section 1602(c) of the Agricultural Act of 2014 (7 U.S.C. 9092(c))",
-          "description": "Suspension of permanent price support authorities for wheat"
+          "description": "Wheat provision suspended for 2024 harvest"
         }
-      ]
+      ],
+      "source_span": {
+        "start": 10741,
+        "end": 10890,
+        "file": "BILLS-118hr6363enr.txt",
+        "verified": true,
+        "match_tier": "repaired_normalized"
+      }
     },
     {
       "provision_type": "mandatory_spending_extension",
       "program_name": "Grassroots Source Water Protection Program",
-      "statutory_reference": "Section 1240O(b)(3) of the Food Security Act of 1985 (16 U.S.C. 3839bb-2(b)(3))",
+      "statutory_reference": "Section 1240O(b)(3) of the Food Security Act of 1985 (16 U.S.C. 3839bb\u20132(b)(3))",
       "amount": {
         "value": {
           "kind": "specific",
@@ -713,23 +915,30 @@
       "section": "SEC. 102",
       "division": "B",
       "title": "I",
-      "confidence": 0.93,
-      "raw_text": "Section 1240O(b)(3) of the Food Security Act of 1985 (16 U.S.C. 3839bb–2(b)(3)) is amended—",
+      "confidence": 0.95,
+      "raw_text": "Section 1240O(b)(3) of the Food Security Act of 1985 (16 U.S.C. 3839bb\u20132(b)(3)) is amended\u2014 (i) by striking the period at the end and inserting ''; a",
       "notes": [
-        "Adds $1,000,000 beginning in fiscal year 2024, to remain available until expended"
+        "Subsection (d)(1)(A); adds $1,000,000 beginning in FY2024 to remain available until expended",
+        "This is in addition to the existing $5,000,000 annual authorization"
       ],
       "cross_references": [
         {
           "ref_type": "amends",
           "target": "Section 1240O(b)(3) of the Food Security Act of 1985 (16 U.S.C. 3839bb-2(b)(3))",
-          "description": null
+          "description": "Adds $1M for FY2024"
         }
-      ]
+      ],
+      "source_span": {
+        "start": 11319,
+        "end": 11468,
+        "file": "BILLS-118hr6363enr.txt",
+        "verified": true
+      }
     },
     {
       "provision_type": "mandatory_spending_extension",
       "program_name": "Voluntary Public Access and Habitat Incentive Program",
-      "statutory_reference": "Section 1240R(f)(1) of the Food Security Act of 1985 (16 U.S.C. 3839bb-5(f)(1))",
+      "statutory_reference": "Section 1240R(f)(1) of the Food Security Act of 1985 (16 U.S.C. 3839bb\u20135(f)(1))",
       "amount": {
         "value": {
           "kind": "specific",
@@ -744,22 +953,29 @@
       "division": "B",
       "title": "I",
       "confidence": 0.95,
-      "raw_text": "Section 1240R(f)(1) of the Food Security Act of 1985 (16 U.S.C. 3839bb–5(f)(1)) is amended—",
+      "raw_text": "Section 1240R(f)(1) of the Food Security Act of 1985 (16 U.S.C. 3839bb\u20135(f)(1)) is amended\u2014 \n(i) by striking ''and'' after ''2018,''; and (ii) by inser",
       "notes": [
-        "Adds $10,000,000 for fiscal year 2024"
+        "Subsection (d)(1)(B); adds $10,000,000 for fiscal year 2024"
       ],
       "cross_references": [
         {
           "ref_type": "amends",
           "target": "Section 1240R(f)(1) of the Food Security Act of 1985 (16 U.S.C. 3839bb-5(f)(1))",
-          "description": null
+          "description": "Adds $10M for FY2024"
         }
-      ]
+      ],
+      "source_span": {
+        "start": 11752,
+        "end": 11903,
+        "file": "BILLS-118hr6363enr.txt",
+        "verified": true,
+        "match_tier": "repaired_normalized"
+      }
     },
     {
       "provision_type": "mandatory_spending_extension",
       "program_name": "Feral Swine Eradication and Control Pilot Program",
-      "statutory_reference": "Section 2408(g)(1) of the Agriculture Improvement Act of 2018 (7 U.S.C. 8351 note; Public Law 115-334)",
+      "statutory_reference": "Section 2408(g)(1) of the Agriculture Improvement Act of 2018 (7 U.S.C. 8351 note; Public Law 115\u2013334)",
       "amount": {
         "value": {
           "kind": "specific",
@@ -774,22 +990,28 @@
       "division": "B",
       "title": "I",
       "confidence": 0.95,
-      "raw_text": "Section 2408(g)(1) of the Agriculture Improvement Act of 2018 (7 U.S.C. 8351 note; Public Law 115–334) is amended by inserting ''and $15,000,000 for f",
+      "raw_text": "Section 2408(g)(1) of the Agriculture Improvement Act of 2018 (7 U.S.C. 8351 note; Public Law 115\u2013334) is amended by inserting ''and $15,000,000 for fi",
       "notes": [
-        "Adds $15,000,000 for fiscal year 2024"
+        "Subsection (d)(1)(C); adds $15,000,000 for fiscal year 2024"
       ],
       "cross_references": [
         {
           "ref_type": "amends",
-          "target": "Section 2408(g)(1) of the Agriculture Improvement Act of 2018 (7 U.S.C. 8351 note; P.L. 115-334)",
-          "description": null
+          "target": "Section 2408(g)(1) of the Agriculture Improvement Act of 2018 (7 U.S.C. 8351 note; Public Law 115-334)",
+          "description": "Adds $15M for FY2024"
         }
-      ]
+      ],
+      "source_span": {
+        "start": 12037,
+        "end": 12188,
+        "file": "BILLS-118hr6363enr.txt",
+        "verified": true
+      }
     },
     {
       "provision_type": "mandatory_spending_extension",
       "program_name": "Bill Emerson Humanitarian Trust",
-      "statutory_reference": "Section 302(h)(2) of the Bill Emerson Humanitarian Trust Act (7 U.S.C. 1736f-1(h)(2))",
+      "statutory_reference": "Section 302(h)(2) of the Bill Emerson Humanitarian Trust Act (7 U.S.C. 1736f\u20131(h)(2))",
       "amount": null,
       "period": "through 2024",
       "extends_through": "2024",
@@ -797,21 +1019,27 @@
       "division": "B",
       "title": "I",
       "confidence": 0.95,
-      "raw_text": "Section 302(h)(2) of the Bill Emerson Humanitarian Trust Act (7 U.S.C. 1736f–1(h)(2)) is amended by striking ''2023'' and inserting ''2024''.",
+      "raw_text": "Section 302(h)(2) of the Bill Emerson Humanitarian Trust Act (7 U.S.C. 1736f\u20131(h)(2)) is amended by striking ''2023'' and inserting ''2024''.",
       "notes": [
-        "Extends the Bill Emerson Humanitarian Trust from 2023 to 2024"
+        "Subsection (d)(2); extends Bill Emerson Humanitarian Trust authority from 2023 to 2024"
       ],
       "cross_references": [
         {
           "ref_type": "amends",
           "target": "Section 302(h)(2) of the Bill Emerson Humanitarian Trust Act (7 U.S.C. 1736f-1(h)(2))",
-          "description": null
+          "description": "Extends through 2024"
         }
-      ]
+      ],
+      "source_span": {
+        "start": 12246,
+        "end": 12387,
+        "file": "BILLS-118hr6363enr.txt",
+        "verified": true
+      }
     },
     {
       "provision_type": "mandatory_spending_extension",
-      "program_name": "Emergency Food Assistance - Commodity Purchases",
+      "program_name": "Emergency Food Assistance Program (TEFAP) Farm-to-Food-Bank Projects",
       "statutory_reference": "Section 203D(d)(5) of the Emergency Food Assistance Act of 1983 (7 U.S.C. 7507(d)(5))",
       "amount": null,
       "period": "through 2024",
@@ -822,20 +1050,26 @@
       "confidence": 0.95,
       "raw_text": "Section 203D(d)(5) of the Emergency Food Assistance Act of 1983 (7 U.S.C. 7507(d)(5)) is amended by striking ''2023'' and inserting ''2024''.",
       "notes": [
-        "Extends Emergency Food Assistance Act provision from 2023 to 2024"
+        "Subsection (d)(3); extends nutrition program authority from 2023 to 2024"
       ],
       "cross_references": [
         {
           "ref_type": "amends",
           "target": "Section 203D(d)(5) of the Emergency Food Assistance Act of 1983 (7 U.S.C. 7507(d)(5))",
-          "description": null
+          "description": "Extends through 2024"
         }
-      ]
+      ],
+      "source_span": {
+        "start": 12404,
+        "end": 12545,
+        "file": "BILLS-118hr6363enr.txt",
+        "verified": true
+      }
     },
     {
       "provision_type": "mandatory_spending_extension",
       "program_name": "Rural Economic Development Program",
-      "statutory_reference": "Section 313B(e)(2) of the Rural Electrification Act of 1936 (7 U.S.C. 940c-2(e)(2))",
+      "statutory_reference": "Section 313B(e)(2) of the Rural Electrification Act of 1936 (7 U.S.C. 940c\u20132(e)(2))",
       "amount": null,
       "period": "through 2024",
       "extends_through": "2024",
@@ -843,17 +1077,23 @@
       "division": "B",
       "title": "I",
       "confidence": 0.95,
-      "raw_text": "Section 313B(e)(2) of the Rural Electrification Act of 1936 (7 U.S.C. 940c–2(e)(2)) is amended by striking ''and 2023'' and inserting ''through 2024''",
+      "raw_text": "Section 313B(e)(2) of the Rural Electrification Act of 1936 (7 U.S.C. 940c\u20132(e)(2)) is amended by striking ''and 2023'' and inserting ''through 2024''.",
       "notes": [
-        "Extends rural economic development program from 2023 to through 2024"
+        "Subsection (d)(4); extends rural economic development program from 2023 through 2024"
       ],
       "cross_references": [
         {
           "ref_type": "amends",
           "target": "Section 313B(e)(2) of the Rural Electrification Act of 1936 (7 U.S.C. 940c-2(e)(2))",
-          "description": null
+          "description": "Extends through 2024"
         }
-      ]
+      ],
+      "source_span": {
+        "start": 12586,
+        "end": 12737,
+        "file": "BILLS-118hr6363enr.txt",
+        "verified": true
+      }
     },
     {
       "provision_type": "mandatory_spending_extension",
@@ -872,19 +1112,24 @@
       "section": "SEC. 102",
       "division": "B",
       "title": "I",
-      "confidence": 0.93,
-      "raw_text": "Section 1446 of the National Agricultural Research, Extension, and Teaching Policy Act of 1977 (7 U.S.C. 3222a) is amended—",
+      "confidence": 0.95,
+      "raw_text": "Section 1446 of the National Agricultural Research, Extension, and Teaching Policy Act of 1977 (7 U.S.C. 3222a) is amended\u2014 (i) in subsection (a)(3), ",
       "notes": [
-        "Increases scholarship duration from 3 to 4 years",
-        "Provides $10,000,000 from Commodity Credit Corporation funds within 30 days of enactment, to remain available until expended"
+        "Subsection (d)(5)(A); extends scholarship duration from 3 to 4 years and provides $10,000,000 from CCC funds to remain available until expended",
+        "Not later than 30 days after enactment, Secretary shall make available from Commodity Credit Corporation funds"
       ],
       "cross_references": [
         {
           "ref_type": "amends",
           "target": "Section 1446 of the National Agricultural Research, Extension, and Teaching Policy Act of 1977 (7 U.S.C. 3222a)",
-          "description": null
+          "description": "Extends scholarship duration and adds $10M CCC funding"
         }
-      ]
+      ],
+      "source_span": {
+        "start": 12785,
+        "end": 12935,
+        "verified": true
+      }
     },
     {
       "provision_type": "mandatory_spending_extension",
@@ -904,17 +1149,24 @@
       "division": "B",
       "title": "I",
       "confidence": 0.95,
-      "raw_text": "Section 1672E(d)(1) of the Food, Agriculture, Conservation, and Trade Act of 1990 (7 U.S.C. 5925g(d)(1)) is amended—",
+      "raw_text": "Section 1672E(d)(1) of the Food, Agriculture, Conservation, and Trade Act of 1990 (7 U.S.C. 5925g(d)(1)) is amended\u2014 \n(i) by striking the period at the",
       "notes": [
-        "Adds $2,000,000 for fiscal year 2024, to remain available until expended"
+        "Subsection (d)(5)(B); adds $2,000,000 for fiscal year 2024, to remain available until expended"
       ],
       "cross_references": [
         {
           "ref_type": "amends",
           "target": "Section 1672E(d)(1) of the Food, Agriculture, Conservation, and Trade Act of 1990 (7 U.S.C. 5925g(d)(1))",
-          "description": null
+          "description": "Adds $2M for FY2024"
         }
-      ]
+      ],
+      "source_span": {
+        "start": 13495,
+        "end": 13646,
+        "file": "BILLS-118hr6363enr.txt",
+        "verified": true,
+        "match_tier": "repaired_normalized"
+      }
     },
     {
       "provision_type": "mandatory_spending_extension",
@@ -934,44 +1186,59 @@
       "division": "B",
       "title": "I",
       "confidence": 0.95,
-      "raw_text": "Section 7601(g)(1)(A) of the Agricultural Act of 2014 (7 U.S.C. 5939(g)(1)(A)) is amended by adding at the end the following:",
+      "raw_text": "Section 7601(g)(1)(A) of the Agricultural Act of 2014 (7 U.S.C. 5939(g)(1)(A)) is amended by adding at the end the following: (iii) \nAdditional funding",
       "notes": [
-        "Directs Secretary to transfer $37,000,000 from Commodity Credit Corporation funds to the Foundation within 30 days of enactment, to remain available until expended"
+        "Subsection (d)(5)(C); adds $37,000,000 CCC transfer to the Foundation, to remain available until expended",
+        "Not later than 30 days after enactment, Secretary shall transfer from CCC funds"
       ],
       "cross_references": [
         {
           "ref_type": "amends",
           "target": "Section 7601(g)(1)(A) of the Agricultural Act of 2014 (7 U.S.C. 5939(g)(1)(A))",
-          "description": null
+          "description": "Adds $37M CCC transfer to Foundation"
         }
-      ]
+      ],
+      "source_span": {
+        "start": 13945,
+        "end": 14096,
+        "file": "BILLS-118hr6363enr.txt",
+        "verified": true,
+        "match_tier": "repaired_normalized"
+      }
     },
     {
       "provision_type": "mandatory_spending_extension",
       "program_name": "Grazinglands Research Laboratory",
-      "statutory_reference": "Section 7502 of the Food, Conservation, and Energy Act of 2008 (Public Law 110-246; 122 Stat. 2019; 132 Stat. 4817)",
+      "statutory_reference": "Section 7502 of the Food, Conservation, and Energy Act of 2008 (Public Law 110\u2013246; 122 Stat. 2019; 132 Stat. 4817)",
       "amount": null,
       "period": "through September 30, 2024",
       "extends_through": "September 30, 2024",
       "section": "SEC. 102",
       "division": "B",
       "title": "I",
-      "confidence": 0.9,
-      "raw_text": "Section 7502 of the Food, Conservation, and Energy Act of 2008 (Public Law 110–246; 122 Stat. 2019; 132 Stat. 4817) shall be applied by substituting '",
+      "confidence": 0.93,
+      "raw_text": "Section 7502 of the Food, Conservation, and Energy Act of 2008 (Public Law 110\u2013246; 122 Stat. 2019; 132 Stat. 4817) shall be applied by substituting '",
       "notes": [
-        "Changes applicability period from 'the 15-year period beginning on the date of enactment of this Act' to 'the period beginning on the date of enactment of this Act and ending on September 30, 2024'"
+        "Subsection (d)(5)(D); applies the Grazinglands Research Laboratory provision by substituting a specific period ending September 30, 2024 for the original 15-year period",
+        "Uses 'shall be applied by substituting' construction rather than directly amending the statute"
       ],
       "cross_references": [
         {
           "ref_type": "amends",
-          "target": "Section 7502 of the Food, Conservation, and Energy Act of 2008 (P.L. 110-246)",
-          "description": null
+          "target": "Section 7502 of the Food, Conservation, and Energy Act of 2008 (Public Law 110-246)",
+          "description": "Extends application through September 30, 2024"
         }
-      ]
+      ],
+      "source_span": {
+        "start": 14376,
+        "end": 14526,
+        "file": "BILLS-118hr6363enr.txt",
+        "verified": true
+      }
     },
     {
       "provision_type": "mandatory_spending_extension",
-      "program_name": "Biobased Markets Program",
+      "program_name": "Biobased Markets Program (BioPreferred)",
       "statutory_reference": "Section 9002(k)(1) of the Farm Security and Rural Investment Act of 2002 (7 U.S.C. 8102(k)(1))",
       "amount": null,
       "period": "through 2024",
@@ -982,15 +1249,21 @@
       "confidence": 0.95,
       "raw_text": "Section 9002(k)(1) of the Farm Security and Rural Investment Act of 2002 (7 U.S.C. 8102(k)(1)) is amended by striking ''2023'' and inserting ''2024''.",
       "notes": [
-        "Extends biobased markets program from 2023 to 2024"
+        "Subsection (d)(6)(A); extends biobased markets program from 2023 to 2024"
       ],
       "cross_references": [
         {
           "ref_type": "amends",
           "target": "Section 9002(k)(1) of the Farm Security and Rural Investment Act of 2002 (7 U.S.C. 8102(k)(1))",
-          "description": null
+          "description": "Extends through 2024"
         }
-      ]
+      ],
+      "source_span": {
+        "start": 14737,
+        "end": 14887,
+        "file": "BILLS-118hr6363enr.txt",
+        "verified": true
+      }
     },
     {
       "provision_type": "mandatory_spending_extension",
@@ -1003,21 +1276,27 @@
       "division": "B",
       "title": "I",
       "confidence": 0.95,
-      "raw_text": "Section 9005(g)(1)(F) of the Farm Security and Rural Investment Act of 2002 (7 U.S.C. 8105(g)(1)(F)) is amended by striking ''2023'' and inserting ''2",
+      "raw_text": "Section 9005(g)(1)(F) of the Farm Security and Rural Investment Act of 2002 (7 U.S.C. 8105(g)(1)(F)) is amended by striking ''2023'' and inserting ''20",
       "notes": [
-        "Extends bioenergy program for advanced biofuels from 2023 to 2024"
+        "Subsection (d)(6)(B); extends bioenergy program from 2023 to 2024"
       ],
       "cross_references": [
         {
           "ref_type": "amends",
           "target": "Section 9005(g)(1)(F) of the Farm Security and Rural Investment Act of 2002 (7 U.S.C. 8105(g)(1)(F))",
-          "description": null
+          "description": "Extends through 2024"
         }
-      ]
+      ],
+      "source_span": {
+        "start": 14934,
+        "end": 15085,
+        "file": "BILLS-118hr6363enr.txt",
+        "verified": true
+      }
     },
     {
       "provision_type": "mandatory_spending_extension",
-      "program_name": "Feedstock Flexibility Program",
+      "program_name": "Feedstock Flexibility Program for Bioenergy Producers",
       "statutory_reference": "Section 9010(b) of the Farm Security and Rural Investment Act of 2002 (7 U.S.C. 8110(b))",
       "amount": null,
       "period": "through 2024",
@@ -1026,17 +1305,22 @@
       "division": "B",
       "title": "I",
       "confidence": 0.95,
-      "raw_text": "Section 9010(b) of the Farm Security and Rural Investment Act of 2002 (7 U.S.C. 8110(b)) is amended on paragraphs (1)(A) and (2)(A) by striking ''2023",
+      "raw_text": "Section 9010(b) of the Farm Security and Rural Investment Act of 2002 (7 U.S.C. 8110(b)) is amended in paragraphs (1)(A) and (2)(A) by striking ''2023",
       "notes": [
-        "Extends feedstock flexibility program from 2023 to 2024 in paragraphs (1)(A) and (2)(A)"
+        "Subsection (d)(6)(C); extends feedstock flexibility program from 2023 to 2024 in two places"
       ],
       "cross_references": [
         {
           "ref_type": "amends",
           "target": "Section 9010(b) of the Farm Security and Rural Investment Act of 2002 (7 U.S.C. 8110(b))",
-          "description": null
+          "description": "Extends through 2024"
         }
-      ]
+      ],
+      "source_span": {
+        "start": 15126,
+        "end": 15276,
+        "verified": true
+      }
     },
     {
       "provision_type": "mandatory_spending_extension",
@@ -1056,21 +1340,26 @@
       "division": "B",
       "title": "I",
       "confidence": 0.95,
-      "raw_text": "Section 7407(d)(1) of the Farm Security and Rural Investment Act of 2002 (7 U.S.C. 5925c(d)(1)) is amended—",
+      "raw_text": "Section 7407(d)(1) of the Farm Security and Rural Investment Act of 2002 (7 U.S.C. 5925c(d)(1)) is amended\u2014 (i) in subparagraph (A), by striking ''and",
       "notes": [
-        "Adds new subparagraph (C) providing $1,000,000 for fiscal year 2024"
+        "Subsection (d)(7)(A); adds new subparagraph (C) providing $1,000,000 for fiscal year 2024"
       ],
       "cross_references": [
         {
           "ref_type": "amends",
           "target": "Section 7407(d)(1) of the Farm Security and Rural Investment Act of 2002 (7 U.S.C. 5925c(d)(1))",
-          "description": null
+          "description": "Adds $1M for FY2024"
         }
-      ]
+      ],
+      "source_span": {
+        "start": 15397,
+        "end": 15547,
+        "verified": true
+      }
     },
     {
       "provision_type": "mandatory_spending_extension",
-      "program_name": "Modernization and Improvement of International Trade Technology Systems and Data Collection",
+      "program_name": "Modernization and Improvement of International Organic Trade Technology Systems and Data Collection",
       "statutory_reference": "Section 2123(c)(4) of the Organic Foods Production Act of 1990 (7 U.S.C. 6522(c)(4))",
       "amount": {
         "value": {
@@ -1086,17 +1375,22 @@
       "division": "B",
       "title": "I",
       "confidence": 0.95,
-      "raw_text": "Section 2123(c)(4) of the Organic Foods Production Act of 1990 (7 U.S.C. 6522(c)(4)) is amended, on the matter preceding subparagraph (A), by insertin",
+      "raw_text": "Section 2123(c)(4) of the Organic Foods Production Act of 1990 (7 U.S.C. 6522(c)(4)) is amended, in the matter preceding subparagraph (A), by insertin",
       "notes": [
-        "Adds $1,000,000 for fiscal year 2024"
+        "Subsection (d)(7)(B); adds $1,000,000 for fiscal year 2024"
       ],
       "cross_references": [
         {
           "ref_type": "amends",
           "target": "Section 2123(c)(4) of the Organic Foods Production Act of 1990 (7 U.S.C. 6522(c)(4))",
-          "description": null
+          "description": "Adds $1M for FY2024"
         }
-      ]
+      ],
+      "source_span": {
+        "start": 15831,
+        "end": 15981,
+        "verified": true
+      }
     },
     {
       "provision_type": "mandatory_spending_extension",
@@ -1109,22 +1403,28 @@
       "division": "B",
       "title": "I",
       "confidence": 0.95,
-      "raw_text": "Section 10606(d)(1)(C) of the Farm Security and Rural Investment Act of 2002 (7 U.S.C. 6523(d)(1)(C)) is amended by striking ''and 2023'' and insertin",
+      "raw_text": "Section 10606(d)(1)(C) of the Farm Security and Rural Investment Act of 2002 (7 U.S.C. 6523(d)(1)(C)) is amended by striking ''and 2023'' and inserting",
       "notes": [
-        "Extends national organic certification cost-share program from 2023 to through 2024"
+        "Subsection (d)(7)(C); extends cost-share program from 2023 through 2024"
       ],
       "cross_references": [
         {
           "ref_type": "amends",
           "target": "Section 10606(d)(1)(C) of the Farm Security and Rural Investment Act of 2002 (7 U.S.C. 6523(d)(1)(C))",
-          "description": null
+          "description": "Extends through 2024"
         }
-      ]
+      ],
+      "source_span": {
+        "start": 16095,
+        "end": 16246,
+        "file": "BILLS-118hr6363enr.txt",
+        "verified": true
+      }
     },
     {
       "provision_type": "mandatory_spending_extension",
       "program_name": "Multiple Crop and Pesticide Use Survey",
-      "statutory_reference": "Section 10109(c)(1) of the Agriculture Improvement Act of 2018 (Public Law 115-334; 132 Stat. 4906)",
+      "statutory_reference": "Section 10109(c)(1) of the Agriculture Improvement Act of 2018 (Public Law 115\u2013334; 132 Stat. 4906)",
       "amount": {
         "value": {
           "kind": "specific",
@@ -1139,22 +1439,28 @@
       "division": "B",
       "title": "I",
       "confidence": 0.95,
-      "raw_text": "Section 10109(c)(1) of the Agriculture Improvement Act of 2018 (Public Law 115–334; 132 Stat. 4906) is amended by inserting ''and $100,000 for fiscal y",
+      "raw_text": "Section 10109(c)(1) of the Agriculture Improvement Act of 2018 (Public Law 115\u2013334; 132 Stat. 4906) is amended by inserting ''and $100,000 for fiscal y",
       "notes": [
-        "Adds $100,000 for fiscal year 2024"
+        "Subsection (d)(7)(D); adds $100,000 for fiscal year 2024"
       ],
       "cross_references": [
         {
           "ref_type": "amends",
-          "target": "Section 10109(c)(1) of the Agriculture Improvement Act of 2018 (P.L. 115-334; 132 Stat. 4906)",
-          "description": null
+          "target": "Section 10109(c)(1) of the Agriculture Improvement Act of 2018 (Public Law 115-334; 132 Stat. 4906)",
+          "description": "Adds $100K for FY2024"
         }
-      ]
+      ],
+      "source_span": {
+        "start": 16309,
+        "end": 16460,
+        "file": "BILLS-118hr6363enr.txt",
+        "verified": true
+      }
     },
     {
       "provision_type": "mandatory_spending_extension",
       "program_name": "Pima Agriculture Cotton Trust Fund",
-      "statutory_reference": "Section 12314 of the Agricultural Act of 2014 (7 U.S.C. 2101 note; Public Law 113-79)",
+      "statutory_reference": "Section 12314 of the Agricultural Act of 2014 (7 U.S.C. 2101 note; Public Law 113\u201379)",
       "amount": null,
       "period": "through 2024",
       "extends_through": "2024",
@@ -1162,22 +1468,27 @@
       "division": "B",
       "title": "I",
       "confidence": 0.95,
-      "raw_text": "Section 12314 of the Agricultural Act of 2014 (7 U.S.C. 2101 note; Public Law 113–79) is amended—",
+      "raw_text": "Section 12314 of the Agricultural Act of 2014 (7 U.S.C. 2101 note; Public Law 113\u201379) is amended\u2014 (i) in subsection (b), in the matter preceding parag",
       "notes": [
-        "Extends Pima agriculture cotton trust fund from 2023 to 2024 in subsections (b) and (h)"
+        "Subsection (d)(8)(A); extends Pima cotton trust fund from 2023 to 2024 in both subsections (b) and (h)"
       ],
       "cross_references": [
         {
           "ref_type": "amends",
-          "target": "Section 12314 of the Agricultural Act of 2014 (7 U.S.C. 2101 note; P.L. 113-79)",
-          "description": null
+          "target": "Section 12314 of the Agricultural Act of 2014 (7 U.S.C. 2101 note; Public Law 113-79)",
+          "description": "Extends through 2024"
         }
-      ]
+      ],
+      "source_span": {
+        "start": 16548,
+        "end": 16698,
+        "verified": true
+      }
     },
     {
       "provision_type": "mandatory_spending_extension",
       "program_name": "Agriculture Wool Apparel Manufacturers Trust Fund",
-      "statutory_reference": "Section 12315 of the Agricultural Act of 2014 (7 U.S.C. 7101 note; Public Law 113-79)",
+      "statutory_reference": "Section 12315 of the Agricultural Act of 2014 (7 U.S.C. 7101 note; Public Law 113\u201379)",
       "amount": null,
       "period": "through 2024",
       "extends_through": "2024",
@@ -1185,22 +1496,28 @@
       "division": "B",
       "title": "I",
       "confidence": 0.95,
-      "raw_text": "Section 12315 of the Agricultural Act of 2014 (7 U.S.C. 7101 note; Public Law 113–79) is amended by striking ''2023'' each place it appears and insert",
+      "raw_text": "Section 12315 of the Agricultural Act of 2014 (7 U.S.C. 7101 note; Public Law 113\u201379) is amended by striking ''2023'' each place it appears and inserti",
       "notes": [
-        "Extends agriculture wool apparel manufacturers trust fund from 2023 to 2024"
+        "Subsection (d)(8)(B); extends wool apparel trust fund from 2023 to 2024 in multiple places"
       ],
       "cross_references": [
         {
           "ref_type": "amends",
-          "target": "Section 12315 of the Agricultural Act of 2014 (7 U.S.C. 7101 note; P.L. 113-79)",
-          "description": null
+          "target": "Section 12315 of the Agricultural Act of 2014 (7 U.S.C. 7101 note; Public Law 113-79)",
+          "description": "Extends through 2024"
         }
-      ]
+      ],
+      "source_span": {
+        "start": 16882,
+        "end": 17033,
+        "file": "BILLS-118hr6363enr.txt",
+        "verified": true
+      }
     },
     {
       "provision_type": "mandatory_spending_extension",
       "program_name": "Wool Research and Promotion",
-      "statutory_reference": "Section 12316(a) of the Agricultural Act of 2014 (7 U.S.C. 7101 note; Public Law 113-79)",
+      "statutory_reference": "Section 12316(a) of the Agricultural Act of 2014 (7 U.S.C. 7101 note; Public Law 113\u201379)",
       "amount": null,
       "period": "through 2024",
       "extends_through": "2024",
@@ -1208,22 +1525,28 @@
       "division": "B",
       "title": "I",
       "confidence": 0.95,
-      "raw_text": "Section 12316(a) of the Agricultural Act of 2014 (7 U.S.C. 7101 note; Public Law 113–79) is amended by striking ''2023'' and inserting ''2024''.",
+      "raw_text": "Section 12316(a) of the Agricultural Act of 2014 (7 U.S.C. 7101 note; Public Law 113\u201379) is amended by striking ''2023'' and inserting ''2024''.",
       "notes": [
-        "Extends wool research and promotion from 2023 to 2024"
+        "Subsection (d)(8)(C); extends wool research and promotion from 2023 to 2024"
       ],
       "cross_references": [
         {
           "ref_type": "amends",
-          "target": "Section 12316(a) of the Agricultural Act of 2014 (7 U.S.C. 7101 note; P.L. 113-79)",
-          "description": null
+          "target": "Section 12316(a) of the Agricultural Act of 2014 (7 U.S.C. 7101 note; Public Law 113-79)",
+          "description": "Extends through 2024"
         }
-      ]
+      ],
+      "source_span": {
+        "start": 17080,
+        "end": 17224,
+        "file": "BILLS-118hr6363enr.txt",
+        "verified": true
+      }
     },
     {
       "provision_type": "mandatory_spending_extension",
       "program_name": "Emergency Citrus Disease Research and Development Trust Fund",
-      "statutory_reference": "Section 12605(d) of the Agriculture Improvement Act of 2018 (7 U.S.C. 7632 note; Public Law 115-334)",
+      "statutory_reference": "Section 12605(d) of the Agriculture Improvement Act of 2018 (7 U.S.C. 7632 note; Public Law 115\u2013334)",
       "amount": null,
       "period": "through 2024",
       "extends_through": "2024",
@@ -1231,17 +1554,23 @@
       "division": "B",
       "title": "I",
       "confidence": 0.95,
-      "raw_text": "Section 12605(d) of the Agriculture Improvement Act of 2018 (7 U.S.C. 7632 note; Public Law 115–334) is amended by striking ''2023'' and inserting ''20",
+      "raw_text": "Section 12605(d) of the Agriculture Improvement Act of 2018 (7 U.S.C. 7632 note; Public Law 115\u2013334) is amended by striking ''2023'' and inserting ''202",
       "notes": [
-        "Extends emergency citrus disease research and development trust fund from 2023 to 2024"
+        "Subsection (d)(8)(D); extends citrus disease trust fund from 2023 to 2024"
       ],
       "cross_references": [
         {
           "ref_type": "amends",
-          "target": "Section 12605(d) of the Agriculture Improvement Act of 2018 (7 U.S.C. 7632 note; P.L. 115-334)",
-          "description": null
+          "target": "Section 12605(d) of the Agriculture Improvement Act of 2018 (7 U.S.C. 7632 note; Public Law 115-334)",
+          "description": "Extends through 2024"
         }
-      ]
+      ],
+      "source_span": {
+        "start": 17291,
+        "end": 17443,
+        "file": "BILLS-118hr6363enr.txt",
+        "verified": true
+      }
     },
     {
       "provision_type": "mandatory_spending_extension",
@@ -1261,69 +1590,89 @@
       "division": "B",
       "title": "I",
       "confidence": 0.95,
-      "raw_text": "Section 209(c) of the Agricultural Marketing Act of 1946 (7 U.S.C. 1627a(c)) is amended by inserting ''and $400,000 for fiscal year 2024,'' after ''20",
+      "raw_text": "Section 209(c) of the Agricultural Marketing Act of 1946 (7 U.S.C. 1627a(c)) is amended by inserting ''and $400,000 for fiscal year 2024,'' after ''201",
       "notes": [
-        "Adds $400,000 for fiscal year 2024"
+        "Subsection (d)(8)(E); adds $400,000 for fiscal year 2024"
       ],
       "cross_references": [
         {
           "ref_type": "amends",
           "target": "Section 209(c) of the Agricultural Marketing Act of 1946 (7 U.S.C. 1627a(c))",
-          "description": null
+          "description": "Adds $400K for FY2024"
         }
-      ]
+      ],
+      "source_span": {
+        "start": 17499,
+        "end": 17650,
+        "file": "BILLS-118hr6363enr.txt",
+        "verified": true
+      }
     },
     {
       "provision_type": "limitation",
-      "description": "Excludes certain mandatory funding provisions from the general agricultural extension in SEC. 102(a): supplemental agricultural disaster assistance under Section 1614(c)(4) and conservation program funding levels under Section 1241(a)(1)(A) and (B).",
+      "description": "The general farm bill extension in subsection (a) does not apply to mandatory funding under: (A) Section 1614(c)(4) of the Agricultural Act of 2014 (supplemental agricultural disaster assistance) and (B) Section 1241(a)(1)(A) and (B) of the Food Security Act of 1985 (conservation program funding).",
       "amount": null,
       "account_name": null,
       "section": "SEC. 102",
       "division": "B",
       "title": "I",
       "confidence": 0.93,
-      "raw_text": "Subsection (a) shall not apply with respect to mandatory funding under the following provisions of law:",
+      "raw_text": "Subsection (a) shall not apply with respect to mandatory funding under the following provisions of law: \n(A) Section 1614(c)(4) of the Agricultural Act",
       "notes": [
-        "Exempts supplemental agricultural disaster assistance (Section 1614(c)(4) of the Agricultural Act of 2014) and conservation program mandatory funding levels (Section 1241(a)(1)(A) and (B) of the Food Security Act of 1985) from the general extension"
+        "Subsection (d)(9); carves out specific mandatory funding provisions from the general extension",
+        "Excludes supplemental agricultural disaster assistance and certain conservation program mandatory funding levels"
       ],
       "cross_references": [
         {
           "ref_type": "see_also",
           "target": "Section 1614(c)(4) of the Agricultural Act of 2014 (7 U.S.C. 9097(c)(4))",
-          "description": "Supplemental agricultural disaster assistance"
+          "description": "Supplemental agricultural disaster assistance excluded from extension"
         },
         {
           "ref_type": "see_also",
           "target": "Section 1241(a)(1)(A) and (B) of the Food Security Act of 1985 (16 U.S.C. 3841(a)(1))",
-          "description": "Conservation program mandatory funding"
+          "description": "Conservation program funding levels excluded from extension"
         }
       ],
-      "parent_account": null
+      "parent_account": null,
+      "source_span": {
+        "start": 17672,
+        "end": 17823,
+        "file": "BILLS-118hr6363enr.txt",
+        "verified": true,
+        "match_tier": "repaired_normalized"
+      }
     },
     {
       "provision_type": "directive",
-      "description": "Extends recurring reporting requirements under agricultural program authorities described in SEC. 102(a) through the later of September 30, 2024 or the date specified in the original provision, subject to availability of appropriations for discretionary reporting requirements.",
+      "description": "Requires continuation of recurring reports under the Agriculture Improvement Act of 2018 through the later of September 30, 2024 or the date specified in underlying law, subject to availability of appropriations for reports requiring discretionary funding.",
       "deadlines": [],
       "section": "SEC. 102",
       "division": "B",
       "title": "I",
-      "confidence": 0.92,
+      "confidence": 0.93,
       "raw_text": "Subject to paragraph (2), any requirement under a provision of law described in subsection (a) to submit a report on a recurring basis, and the final r",
       "notes": [
-        "Extends report due dates in parallel with the general program extension in SEC. 102(a)",
-        "Discretionary reporting requirements are subject to availability of appropriations per subsection (e)(2)"
+        "Subsection (e); extends recurring reporting requirements whose final report was due in FY2023",
+        "Paragraph (2) conditions discretionary-funded reports on availability of appropriations"
       ],
       "cross_references": [
         {
-          "ref_type": "subject_to",
+          "ref_type": "see_also",
           "target": "Section 250(c) of the Balanced Budget and Emergency Deficit Control Act of 1985 (2 U.S.C. 900(c))",
-          "description": "Definition of discretionary appropriations for reporting requirements"
+          "description": "Definition of discretionary appropriations for paragraph (2)"
         }
-      ]
+      ],
+      "source_span": {
+        "start": 17995,
+        "end": 18146,
+        "file": "BILLS-118hr6363enr.txt",
+        "verified": true
+      }
     },
     {
       "provision_type": "rescission",
-      "account_name": "Biorefinery, Renewable Chemical, and Biobased Product Manufacturing Assistance Program",
+      "account_name": "",
       "agency": "Department of Agriculture",
       "amount": {
         "value": {
@@ -1338,38 +1687,46 @@
       "section": "SEC. 102",
       "division": "B",
       "title": "I",
-      "confidence": 0.95,
-      "raw_text": "Of the unobligated balances of amounts made available under section 9003(g)(1)(A) of the Farm Security and Rural Investment Act of 2002 (7 U.S.C. 8103",
+      "confidence": 0.97,
+      "raw_text": "Of the unobligated balances of amounts made available under section 9003(g)(1)(A) of the Farm Security and Rural Investment Act of 2002 (7 U.S.C. 8103(",
       "notes": [
-        "Rescinds $177,350,000 in unobligated balances from the Biorefinery, Renewable Chemical, and Biobased Product Manufacturing Assistance Program"
+        "Subsection (f); rescinds $177,350,000 in unobligated balances from the Biorefinery, Renewable Chemical, and Biobased Product Manufacturing Assistance Program",
+        "Section 9003 is the biorefinery assistance program; this rescinds unobligated mandatory CCC funds"
       ],
       "cross_references": [
         {
           "ref_type": "rescinds_from",
           "target": "Section 9003(g)(1)(A) of the Farm Security and Rural Investment Act of 2002 (7 U.S.C. 8103(g)(1)(A))",
-          "description": "Biorefinery assistance program unobligated balances"
+          "description": "Unobligated balances of biorefinery assistance program mandatory funding"
         }
-      ]
+      ],
+      "source_span": {
+        "start": 18780,
+        "end": 18931,
+        "file": "BILLS-118hr6363enr.txt",
+        "verified": true
+      }
     },
     {
-      "provision_type": "other",
-      "llm_classification": "other",
-      "description": "Applies SEC. 102 and its amendments as if enacted on September 30, 2023, with exceptions for the rescission in subsection (f) and the amendments made by subparagraphs (A) and (C) of subsection (d)(5) (scholarships and Foundation for Food and Agriculture Research).",
-      "amounts": [],
-      "references": [],
-      "metadata": {
-        "llm_classification": "Retroactive effective date provision"
-      },
+      "provision_type": "rider",
+      "description": "This section and its amendments (except subsection (f) and the amendments made by subparagraphs (A) and (C) of subsection (d)(5)) shall be applied and administered as if enacted on September 30, 2023.",
+      "policy_area": "agriculture",
       "section": "SEC. 102",
       "division": "B",
       "title": "I",
-      "confidence": 0.92,
+      "confidence": 0.93,
       "raw_text": "This section and the amendments made by this section (except subsection (f) and the amendments made by subparagraphs (A) and (C) of subsection (d)(5))",
       "notes": [
-        "Makes the agricultural program extensions retroactive to September 30, 2023 to avoid a gap in authority",
-        "Excludes the rescission (subsection (f)), the scholarships amendment (subsection (d)(5)(A)), and the Foundation for Food and Agriculture Research amendment (subsection (d)(5)(C)) from retroactive application"
+        "Subsection (g); retroactive effective date of September 30, 2023 to ensure seamless continuation from FY2023",
+        "Exceptions: the rescission in subsection (f), the 1890 scholarships in (d)(5)(A), and the Foundation for Food and Agriculture Research transfer in (d)(5)(C) are not retroactive"
       ],
-      "cross_references": []
+      "cross_references": [],
+      "source_span": {
+        "start": 18989,
+        "end": 19139,
+        "file": "BILLS-118hr6363enr.txt",
+        "verified": true
+      }
     },
     {
       "provision_type": "mandatory_spending_extension",
@@ -1391,9 +1748,8 @@
       "confidence": 0.97,
       "raw_text": "Section 340H(g)(1) of the Public Health Service Act (42 U.S.C. 256h(g)) is amended by striking ''and $16,635,616 for the period beginning on October 1",
       "notes": [
-        "Subsection (a) of SEC. 201",
-        "Adds a new funding period (Nov 18 – Jan 19, 2024) on top of the earlier CR period (Oct 1 – Nov 17, 2023) of $16,635,616",
-        "Falls under Subtitle A—Public Health Extenders"
+        "Subsection (a). Adds a new funding period of $21,834,247 for Nov 18, 2023 through Jan 19, 2024, supplementing the prior $16,635,616 for the Oct 1\u2013Nov 17, 2023 period",
+        "Part of Subtitle A\u2014Public Health Extenders"
       ],
       "cross_references": [
         {
@@ -1404,14 +1760,20 @@
         {
           "ref_type": "see_also",
           "target": "Continuing Appropriations Act, 2024 and Other Extensions Act",
-          "description": "Prior CR that established the Oct 1 – Nov 17 period"
+          "description": "Prior CR that established the Oct 1\u2013Nov 17 period"
         }
-      ]
+      ],
+      "source_span": {
+        "start": 19528,
+        "end": 19678,
+        "file": "BILLS-118hr6363enr.txt",
+        "verified": true
+      }
     },
     {
       "provision_type": "mandatory_spending_extension",
       "program_name": "Community health centers",
-      "statutory_reference": "Section 10503(b)(1)(F) of the Patient Protection and Affordable Care Act (42 U.S.C. 254b–2(b)(1)(F))",
+      "statutory_reference": "Section 10503(b)(1)(F) of the Patient Protection and Affordable Care Act (42 U.S.C. 254b-2(b)(1)(F))",
       "amount": {
         "value": {
           "kind": "specific",
@@ -1426,11 +1788,10 @@
       "division": "B",
       "title": "II",
       "confidence": 0.97,
-      "raw_text": "Section 10503(b)(1)(F) of the Patient Protection and Affordable Care Act (42 U.S.C. 254b–2(b)(1)(F)), as amended by the Continuing Appropriations Act,",
+      "raw_text": "Section 10503(b)(1)(F) of the Patient Protection and Affordable Care Act (42 U.S.C. 254b\u20132(b)(1)(F)), as amended by the Continuing Appropriations Act,",
       "notes": [
-        "Subsection (b) of SEC. 201",
-        "Adds a new funding period (Nov 18 – Jan 19, 2024) on top of the earlier CR period (Oct 1 – Nov 17, 2023) of $526,027,397",
-        "Funds community health centers authorized under Section 330 of the PHS Act"
+        "Subsection (b). Adds $690,410,959 for the Nov 18, 2023 through Jan 19, 2024 period, supplementing the prior $526,027,397 for the Oct 1\u2013Nov 17, 2023 period",
+        "Part of Subtitle A\u2014Public Health Extenders"
       ],
       "cross_references": [
         {
@@ -1441,14 +1802,20 @@
         {
           "ref_type": "see_also",
           "target": "Continuing Appropriations Act, 2024 and Other Extensions Act",
-          "description": "Prior CR that established the Oct 1 – Nov 17 period"
+          "description": "Prior CR that established the Oct 1\u2013Nov 17 period"
         }
-      ]
+      ],
+      "source_span": {
+        "start": 19967,
+        "end": 20117,
+        "file": "BILLS-118hr6363enr.txt",
+        "verified": true
+      }
     },
     {
       "provision_type": "mandatory_spending_extension",
       "program_name": "National Health Service Corps",
-      "statutory_reference": "Section 10503(b)(2)(I) of the Patient Protection and Affordable Care Act (42 U.S.C. 254b–2(b)(2)(I))",
+      "statutory_reference": "Section 10503(b)(2)(I) of the Patient Protection and Affordable Care Act (42 U.S.C. 254b-2(b)(2)(I))",
       "amount": {
         "value": {
           "kind": "specific",
@@ -1463,10 +1830,10 @@
       "division": "B",
       "title": "II",
       "confidence": 0.97,
-      "raw_text": "Section 10503(b)(2)(I) of the Patient Protection and Affordable Care Act (42 U.S.C. 254b–2(b)(2)(I)), as amended by the Continuing Appropriations Act,",
+      "raw_text": "Section 10503(b)(2)(I) of the Patient Protection and Affordable Care Act (42 U.S.C. 254b\u20132(b)(2)(I)), as amended by the Continuing Appropriations Act,",
       "notes": [
-        "Subsection (c) of SEC. 201",
-        "Adds a new funding period (Nov 18 – Jan 19, 2024) on top of the earlier CR period (Oct 1 – Nov 17, 2023) of $40,767,123"
+        "Subsection (c). Adds $53,506,849 for the Nov 18, 2023 through Jan 19, 2024 period, supplementing the prior $40,767,123 for the Oct 1\u2013Nov 17, 2023 period",
+        "Part of Subtitle A\u2014Public Health Extenders"
       ],
       "cross_references": [
         {
@@ -1477,49 +1844,53 @@
         {
           "ref_type": "see_also",
           "target": "Continuing Appropriations Act, 2024 and Other Extensions Act",
-          "description": "Prior CR that established the Oct 1 – Nov 17 period"
+          "description": "Prior CR that established the Oct 1\u2013Nov 17 period"
         }
-      ]
+      ],
+      "source_span": {
+        "start": 20537,
+        "end": 20687,
+        "file": "BILLS-118hr6363enr.txt",
+        "verified": true
+      }
     },
     {
       "provision_type": "rider",
-      "description": "Amounts appropriated pursuant to the amendments made by SEC. 201 shall be subject to the requirements contained in Public Law 117-328 for funds for programs authorized under sections 330 through 340 of the Public Health Service Act.",
-      "policy_area": "Public health funding requirements",
+      "description": "Amounts appropriated pursuant to the amendments in SEC. 201 shall be subject to the requirements contained in Public Law 117-328 for funds for programs authorized under sections 330 through 340 of the Public Health Service Act.",
+      "policy_area": "Public Health",
       "section": "SEC. 201",
       "division": "B",
       "title": "II",
       "confidence": 0.95,
-      "raw_text": "Amounts appropriated pursuant to the amendments made by this section shall be subject to the requirements contained in Public Law 117–328 for funds for",
+      "raw_text": "Amounts appropriated pursuant to the amendments made by this section shall be subject to the requirements contained in Public Law 117\u2013328 for funds for",
       "notes": [
-        "Subsection (d) of SEC. 201",
-        "Ensures the extended funding is subject to the same conditions as were applied under the FY2023 omnibus (P.L. 117-328)"
+        "Subsection (d). Application of provisions\u2014cross-references P.L. 117-328 requirements for community health center and NHSC programs"
       ],
       "cross_references": [
         {
           "ref_type": "subject_to",
           "target": "P.L. 117-328",
-          "description": "Requirements for programs under PHS Act sections 330-340"
+          "description": "Requirements for programs authorized under sections 330 through 340 of the PHSA"
         }
-      ]
+      ],
+      "source_span": {
+        "start": 21077,
+        "end": 21228,
+        "file": "BILLS-118hr6363enr.txt",
+        "verified": true
+      }
     },
     {
-      "provision_type": "other",
-      "llm_classification": "other",
-      "description": "Conforming amendment to 18 U.S.C. 3014(h)(4) to add a cross-reference to section 201(d) of this Act alongside the prior reference to the first CR.",
-      "amounts": [],
-      "references": [],
-      "metadata": {
-        "llm_classification": "conforming_amendment",
-        "detail_level": ""
-      },
+      "provision_type": "rider",
+      "description": "Conforming amendment to 18 U.S.C. 3014(h)(4) adding a reference to section 201(d) of this Act alongside the prior reference to section 2321(d) of the Continuing Appropriations Act, 2024.",
+      "policy_area": "Criminal Justice / Public Health",
       "section": "SEC. 201",
       "division": "B",
       "title": "II",
       "confidence": 0.93,
-      "raw_text": "Section 3014(h)(4) of title 18, United States Code, is amended by striking ''and section 2321(d) of the Continuing Appropriations Act, 2024 and Other E",
+      "raw_text": "Section 3014(h)(4) of title 18, United States Code, is amended by striking ''and section 2321(d) of the Continuing Appropriations Act, 2024 and Other Ex",
       "notes": [
-        "Subsection (e) of SEC. 201",
-        "Technical conforming amendment to the Crime Victims Fund assessment provision in title 18"
+        "Subsection (e). Conforming amendment to the Special Assessment for Domestic Trafficking Victims Fund to reference this Act's application-of-provisions subsection"
       ],
       "cross_references": [
         {
@@ -1530,14 +1901,20 @@
         {
           "ref_type": "see_also",
           "target": "Section 2321(d) of the Continuing Appropriations Act, 2024 and Other Extensions Act",
-          "description": "Prior CR provision being cross-referenced"
+          "description": "Prior corresponding provision"
         }
-      ]
+      ],
+      "source_span": {
+        "start": 21366,
+        "end": 21518,
+        "file": "BILLS-118hr6363enr.txt",
+        "verified": true
+      }
     },
     {
       "provision_type": "mandatory_spending_extension",
       "program_name": "Special diabetes programs for Type I diabetes",
-      "statutory_reference": "Section 330B(b)(2)(E) of the Public Health Service Act (42 U.S.C. 254c–2(b)(2)(E))",
+      "statutory_reference": "Section 330B(b)(2)(E) of the Public Health Service Act (42 U.S.C. 254c-2(b)(2)(E))",
       "amount": {
         "value": {
           "kind": "specific",
@@ -1552,23 +1929,34 @@
       "division": "B",
       "title": "II",
       "confidence": 0.97,
-      "raw_text": "Section 330B(b)(2)(E) of the Public Health Service Act (42 U.S.C. 254c–2(b)(2)(E)), as amended by the Continuing Appropriations Act, 2024 and Other Ext",
+      "raw_text": "Section 330B(b)(2)(E) of the Public Health Service Act (42 U.S.C. 254c\u20132(b)(2)(E)), as amended by the Continuing Appropriations Act, 2024 and Other Ext",
       "notes": [
-        "Subsection (a) of SEC. 202",
-        "Adds a new funding period (Nov 18 – Jan 19, 2024) on top of the earlier CR period (Oct 1 – Nov 17, 2023) of $19,726,027"
+        "Subsection (a). Adds $25,890,411 for the Nov 18, 2023 through Jan 19, 2024 period, supplementing the prior $19,726,027 for the Oct 1\u2013Nov 17, 2023 period",
+        "Part of Subtitle A\u2014Public Health Extenders"
       ],
       "cross_references": [
         {
           "ref_type": "amends",
           "target": "Section 330B(b)(2)(E) of the Public Health Service Act",
           "description": null
+        },
+        {
+          "ref_type": "see_also",
+          "target": "Continuing Appropriations Act, 2024 and Other Extensions Act",
+          "description": "Prior CR that established the Oct 1\u2013Nov 17 period"
         }
-      ]
+      ],
+      "source_span": {
+        "start": 21843,
+        "end": 21994,
+        "file": "BILLS-118hr6363enr.txt",
+        "verified": true
+      }
     },
     {
       "provision_type": "mandatory_spending_extension",
       "program_name": "Special diabetes programs for Indians",
-      "statutory_reference": "Section 330C(c)(2)(E) of the Public Health Service Act (42 U.S.C. 254c–3(c)(2)(E))",
+      "statutory_reference": "Section 330C(c)(2)(E) of the Public Health Service Act (42 U.S.C. 254c-3(c)(2)(E))",
       "amount": {
         "value": {
           "kind": "specific",
@@ -1583,18 +1971,29 @@
       "division": "B",
       "title": "II",
       "confidence": 0.97,
-      "raw_text": "Section 330C(c)(2)(E) of the Public Health Service Act (42 U.S.C. 254c–3(c)(2)(E)), as amended by the Continuing Appropriations Act, 2024 and Other Ext",
+      "raw_text": "Section 330C(c)(2)(E) of the Public Health Service Act (42 U.S.C. 254c\u20133(c)(2)(E)), as amended by the Continuing Appropriations Act, 2024 and Other Ext",
       "notes": [
-        "Subsection (b) of SEC. 202",
-        "Adds a new funding period (Nov 18 – Jan 19, 2024) on top of the earlier CR period (Oct 1 – Nov 17, 2023) of $19,726,027"
+        "Subsection (b). Adds $25,890,411 for the Nov 18, 2023 through Jan 19, 2024 period, supplementing the prior $19,726,027 for the Oct 1\u2013Nov 17, 2023 period",
+        "Part of Subtitle A\u2014Public Health Extenders"
       ],
       "cross_references": [
         {
           "ref_type": "amends",
           "target": "Section 330C(c)(2)(E) of the Public Health Service Act",
           "description": null
+        },
+        {
+          "ref_type": "see_also",
+          "target": "Continuing Appropriations Act, 2024 and Other Extensions Act",
+          "description": "Prior CR that established the Oct 1\u2013Nov 17 period"
         }
-      ]
+      ],
+      "source_span": {
+        "start": 22400,
+        "end": 22551,
+        "file": "BILLS-118hr6363enr.txt",
+        "verified": true
+      }
     },
     {
       "provision_type": "mandatory_spending_extension",
@@ -1607,11 +2006,10 @@
       "division": "B",
       "title": "II",
       "confidence": 0.95,
-      "raw_text": "Section 319(e)(8) of the Public Health Service Act (42 U.S.C. 247d(e)(8)) is amended by striking ''November 17, 2023'' and inserting ''January 19, 2024",
+      "raw_text": "Section 319(e)(8) of the Public Health Service Act (42 U.S.C. 247d(e)(8)) is amended by striking ''November 17, 2023'' and inserting ''January 19, 2024'",
       "notes": [
-        "Subsection (a) of SEC. 203",
-        "Extends the public health emergency fund authorization from November 17, 2023, to January 19, 2024",
-        "No dollar amount specified; date extension only"
+        "Subsection (a). Extends authorization expiration from November 17, 2023 to January 19, 2024",
+        "Part of Subtitle A\u2014Public Health Extenders, National Health Security Extensions"
       ],
       "cross_references": [
         {
@@ -1619,12 +2017,18 @@
           "target": "Section 319(e)(8) of the Public Health Service Act",
           "description": null
         }
-      ]
+      ],
+      "source_span": {
+        "start": 22943,
+        "end": 23095,
+        "file": "BILLS-118hr6363enr.txt",
+        "verified": true
+      }
     },
     {
       "provision_type": "mandatory_spending_extension",
       "program_name": "Biomedical Advanced Research and Development Authority (BARDA)",
-      "statutory_reference": "Section 319L(e)(1)(D) of the Public Health Service Act (42 U.S.C. 247d–7e(e)(1)(D))",
+      "statutory_reference": "Section 319L(e)(1)(D) of the Public Health Service Act (42 U.S.C. 247d-7e(e)(1)(D))",
       "amount": null,
       "period": null,
       "extends_through": "January 19, 2024",
@@ -1632,34 +2036,45 @@
       "division": "B",
       "title": "II",
       "confidence": 0.95,
-      "raw_text": "Section 319L(e)(1)(D) of the Public Health Service Act (42 U.S.C. 247d–7e(e)(1)(D)) is amended by striking ''on the date that is 17 years after the dat",
+      "raw_text": "Section 319L(e)(1)(D) of the Public Health Service Act (42 U.S.C. 247d\u20137e(e)(1)(D)) is amended by striking ''on the date that is 17 years after the dat",
       "notes": [
-        "Subsection (b) of SEC. 203",
-        "Extends BARDA authorization sunset to after January 19, 2024, replacing the prior 17-year sunset from the Pandemic and All-Hazards Preparedness Act"
+        "Subsection (b). Replaces the 17-year sunset (from PAHPA enactment) with an explicit date of January 19, 2024",
+        "Part of Subtitle A\u2014Public Health Extenders, National Health Security Extensions"
       ],
       "cross_references": [
         {
           "ref_type": "amends",
           "target": "Section 319L(e)(1)(D) of the Public Health Service Act",
           "description": null
+        },
+        {
+          "ref_type": "see_also",
+          "target": "Pandemic and All-Hazards Preparedness Act",
+          "description": "Original authorizing act for BARDA"
         }
-      ]
+      ],
+      "source_span": {
+        "start": 23103,
+        "end": 23254,
+        "file": "BILLS-118hr6363enr.txt",
+        "verified": true
+      }
     },
     {
       "provision_type": "mandatory_spending_extension",
-      "program_name": "BARDA Transaction Authority",
-      "statutory_reference": "Section 319L–1(b) of the Public Health Service Act (42 U.S.C. 247d–7f(b))",
+      "program_name": "BARDA Strategic Innovation",
+      "statutory_reference": "Section 319L-1(b) of the Public Health Service Act (42 U.S.C. 247d-7f(b))",
       "amount": null,
       "period": null,
       "extends_through": "January 19, 2024",
       "section": "SEC. 203",
       "division": "B",
       "title": "II",
-      "confidence": 0.94,
-      "raw_text": "Section 319L–1(b) of the Public Health Service Act (42 U.S.C. 247d–7f(b)) is amended by striking ''at the end of the 17-year period that begins on the",
+      "confidence": 0.93,
+      "raw_text": "Section 319L\u20131(b) of the Public Health Service Act (42 U.S.C. 247d\u20137f(b)) is amended by striking ''at the end of the 17-year period that begins on the d",
       "notes": [
-        "Subsection (c) of SEC. 203",
-        "Extends BARDA-related transaction authority sunset to after January 19, 2024"
+        "Subsection (c). Replaces the 17-year sunset with an explicit date of January 19, 2024",
+        "Part of Subtitle A\u2014Public Health Extenders, National Health Security Extensions"
       ],
       "cross_references": [
         {
@@ -1667,12 +2082,18 @@
           "target": "Section 319L-1(b) of the Public Health Service Act",
           "description": null
         }
-      ]
+      ],
+      "source_span": {
+        "start": 23366,
+        "end": 23518,
+        "file": "BILLS-118hr6363enr.txt",
+        "verified": true
+      }
     },
     {
       "provision_type": "mandatory_spending_extension",
-      "program_name": "Health care preparedness and response programs (ASPR advisory committees and regional preparedness)",
-      "statutory_reference": "Sections 2811A(g), 2811B(g)(1), and 2811C(g)(1) of the Public Health Service Act",
+      "program_name": "Regional Health Care Preparedness and Response",
+      "statutory_reference": "Section 2811A(g) of the Public Health Service Act (42 U.S.C. 300hh-10b(g))",
       "amount": null,
       "period": null,
       "extends_through": "January 19, 2024",
@@ -1680,36 +2101,29 @@
       "division": "B",
       "title": "II",
       "confidence": 0.95,
-      "raw_text": "Section 2811A(g) of the Public Health Service Act (42 U.S.C. 300hh–10b(g)) is amended by striking ''November 17, 2023'' and inserting ''January 19, 2024",
+      "raw_text": "Section 2811A(g) of the Public Health Service Act (42 U.S.C. 300hh\u201310b(g)) is amended by striking ''November 17, 2023'' and inserting ''January 19, 2024'",
       "notes": [
-        "Subsection (d) of SEC. 203, paragraphs (1) through (3)",
-        "(d)(1) extends Section 2811A(g) (42 U.S.C. 300hh-10b(g)) — Regional Health Care Preparedness and Response",
-        "(d)(2) extends Section 2811B(g)(1) (42 U.S.C. 300hh-10c(g)(1)) — National Advisory Committee on Children and Disasters",
-        "(d)(3) extends Section 2811C(g)(1) (42 U.S.C. 300hh-10d(g)(1)) — National Advisory Committee on Seniors and Disasters",
-        "All three date extensions change November 17, 2023 to January 19, 2024"
+        "Subsection (d)(1). Extends authorization from November 17, 2023 to January 19, 2024",
+        "Part of Subtitle A\u2014Public Health Extenders, National Health Security Extensions"
       ],
       "cross_references": [
         {
           "ref_type": "amends",
           "target": "Section 2811A(g) of the Public Health Service Act",
-          "description": "Regional Health Care Preparedness and Response"
-        },
-        {
-          "ref_type": "amends",
-          "target": "Section 2811B(g)(1) of the Public Health Service Act",
-          "description": "National Advisory Committee on Children and Disasters"
-        },
-        {
-          "ref_type": "amends",
-          "target": "Section 2811C(g)(1) of the Public Health Service Act",
-          "description": "National Advisory Committee on Seniors and Disasters"
+          "description": null
         }
-      ]
+      ],
+      "source_span": {
+        "start": 23601,
+        "end": 23754,
+        "file": "BILLS-118hr6363enr.txt",
+        "verified": true
+      }
     },
     {
       "provision_type": "mandatory_spending_extension",
-      "program_name": "National Disaster Medical System",
-      "statutory_reference": "Section 2812(c)(4)(B) of the Public Health Service Act (42 U.S.C. 300hh–11(c)(4)(B))",
+      "program_name": "National Advisory Committee on Children and Disasters",
+      "statutory_reference": "Section 2811B(g)(1) of the Public Health Service Act (42 U.S.C. 300hh-10c(g)(1))",
       "amount": null,
       "period": null,
       "extends_through": "January 19, 2024",
@@ -1717,10 +2131,70 @@
       "division": "B",
       "title": "II",
       "confidence": 0.95,
-      "raw_text": "Section 2812(c)(4)(B) of the Public Health Service Act (42 U.S.C. 300hh–11(c)(4)(B)) is amended by striking ''November 17, 2023'' and inserting ''Janua",
+      "raw_text": "Section 2811B(g)(1) of the Public Health Service Act (42 U.S.C. 300hh\u201310c(g)(1)) is amended by striking ''November 17, 2023'' and inserting ''January 19",
       "notes": [
-        "Subsection (e) of SEC. 203",
-        "Extends the National Disaster Medical System employment protections authorization from November 17, 2023, to January 19, 2024"
+        "Subsection (d)(2). Extends authorization from November 17, 2023 to January 19, 2024",
+        "Part of Subtitle A\u2014Public Health Extenders, National Health Security Extensions"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 2811B(g)(1) of the Public Health Service Act",
+          "description": null
+        }
+      ],
+      "source_span": {
+        "start": 23761,
+        "end": 23913,
+        "file": "BILLS-118hr6363enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "mandatory_spending_extension",
+      "program_name": "Advisory Committee on Seniors and Disasters",
+      "statutory_reference": "Section 2811C(g)(1) of the Public Health Service Act (42 U.S.C. 300hh-10d(g)(1))",
+      "amount": null,
+      "period": null,
+      "extends_through": "January 19, 2024",
+      "section": "SEC. 203",
+      "division": "B",
+      "title": "II",
+      "confidence": 0.95,
+      "raw_text": "Section 2811C(g)(1) of the Public Health Service Act (42 U.S.C. 300hh\u201310d(g)(1)) is amended by striking ''November 17, 2023'' and inserting ''January 19",
+      "notes": [
+        "Subsection (d)(3). Extends authorization from November 17, 2023 to January 19, 2024",
+        "Part of Subtitle A\u2014Public Health Extenders, National Health Security Extensions"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "amends",
+          "target": "Section 2811C(g)(1) of the Public Health Service Act",
+          "description": null
+        }
+      ],
+      "source_span": {
+        "start": 23928,
+        "end": 24080,
+        "file": "BILLS-118hr6363enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "mandatory_spending_extension",
+      "program_name": "National Disaster Medical System",
+      "statutory_reference": "Section 2812(c)(4)(B) of the Public Health Service Act (42 U.S.C. 300hh-11(c)(4)(B))",
+      "amount": null,
+      "period": null,
+      "extends_through": "January 19, 2024",
+      "section": "SEC. 203",
+      "division": "B",
+      "title": "II",
+      "confidence": 0.95,
+      "raw_text": "Section 2812(c)(4)(B) of the Public Health Service Act (42 U.S.C. 300hh\u201311(c)(4)(B)) is amended by striking ''November 17, 2023'' and inserting ''Januar",
+      "notes": [
+        "Subsection (e). Extends authorization from November 17, 2023 to January 19, 2024",
+        "Part of Subtitle A\u2014Public Health Extenders, National Health Security Extensions"
       ],
       "cross_references": [
         {
@@ -1728,12 +2202,18 @@
           "target": "Section 2812(c)(4)(B) of the Public Health Service Act",
           "description": null
         }
-      ]
+      ],
+      "source_span": {
+        "start": 24094,
+        "end": 24246,
+        "file": "BILLS-118hr6363enr.txt",
+        "verified": true
+      }
     },
     {
       "provision_type": "mandatory_spending_extension",
-      "program_name": "Medicaid Disproportionate Share Hospital (DSH) payment allotments",
-      "statutory_reference": "Section 1923(f)(7)(A) of the Social Security Act (42 U.S.C. 1396r–4(f)(7)(A))",
+      "program_name": "Medicaid Disproportionate Share Hospital (DSH) payments",
+      "statutory_reference": "Section 1923(f)(7)(A) of the Social Security Act (42 U.S.C. 1396r-4(f)(7)(A))",
       "amount": null,
       "period": null,
       "extends_through": "January 20, 2024",
@@ -1741,25 +2221,29 @@
       "division": "B",
       "title": "II",
       "confidence": 0.96,
-      "raw_text": "Section 1923(f)(7)(A) of the Social Security Act (42 U.S.C. 1396r–4(f)(7)(A)) is amended— (1) in saved clause (i), by striking ''November 18, 2023'' a",
+      "raw_text": "Section 1923(f)(7)(A) of the Social Security Act (42 U.S.C. 1396r\u20134(f)(7)(A)) is amended\u2014 (1) in clause (i), by striking ''November 18, 2023'' and inse",
       "notes": [
-        "Falls under Subtitle B—Medicaid",
-        "Delays scheduled Medicaid DSH payment reductions from November 18, 2023, to January 20, 2024",
-        "Amends clauses (i) and (ii) of Section 1923(f)(7)(A)",
-        "No dollar amount specified; date extension only"
+        "Subtitle B\u2014Medicaid. Delays Medicaid DSH payment reductions from November 18, 2023 to January 20, 2024 in both clauses (i) and (ii) of Section 1923(f)(7)(A)",
+        "No specific dollar amount; the delay effectively maintains higher DSH payments for the extended period"
       ],
       "cross_references": [
         {
           "ref_type": "amends",
           "target": "Section 1923(f)(7)(A) of the Social Security Act",
-          "description": "Clauses (i) and (ii)"
+          "description": null
         }
-      ]
+      ],
+      "source_span": {
+        "start": 24338,
+        "end": 24489,
+        "file": "BILLS-118hr6363enr.txt",
+        "verified": true
+      }
     },
     {
       "provision_type": "mandatory_spending_extension",
       "program_name": "Medicaid Improvement Fund",
-      "statutory_reference": "Section 1941(b)(3)(A) of the Social Security Act (42 U.S.C. 1396w–1(b)(3)(A))",
+      "statutory_reference": "Section 1941(b)(3)(A) of the Social Security Act (42 U.S.C. 1396w-1(b)(3)(A))",
       "amount": {
         "value": {
           "kind": "specific",
@@ -1774,12 +2258,10 @@
       "division": "B",
       "title": "II",
       "confidence": 0.97,
-      "raw_text": "Section 1941(b)(3)(A) of the Social Security Act (42 U.S.C. 1396w–1(b)(3)(A)), as amended by the Continuing Appropriations Act, 2024 and Other Extensio",
+      "raw_text": "Section 1941(b)(3)(A) of the Social Security Act (42 U.S.C. 1396w\u20131(b)(3)(A)), as amended by the Continuing Appropriations Act, 2024 and Other Extensio",
       "notes": [
-        "Falls under Subtitle B—Medicaid",
-        "Reduces Medicaid Improvement Fund from $6,357,117,810 to $5,796,117,810, a net reduction of $561,000,000",
-        "Used as a budget offset to pay for other provisions in this Act",
-        "The prior CR (P.L. 118-15) had already reduced the fund from $7,000,000,000 to $6,357,117,810"
+        "Subtitle B\u2014Medicaid. Reduces Medicaid Improvement Fund from $6,357,117,810 to $5,796,117,810, a net reduction of $561,000,000 used as a budget offset",
+        "Previously reduced from $7,000,000,000 by the Continuing Appropriations Act, 2024 and Other Extensions Act"
       ],
       "cross_references": [
         {
@@ -1790,35 +2272,45 @@
         {
           "ref_type": "see_also",
           "target": "Continuing Appropriations Act, 2024 and Other Extensions Act",
-          "description": "Prior CR that set the $6,357,117,810 level"
+          "description": "Prior CR that reduced the fund from $7B to $6.357B"
         }
-      ]
+      ],
+      "source_span": {
+        "start": 24660,
+        "end": 24811,
+        "file": "BILLS-118hr6363enr.txt",
+        "verified": true
+      }
     },
     {
       "provision_type": "mandatory_spending_extension",
       "program_name": "Child and family services programs (Part B of Title IV of the Social Security Act)",
       "statutory_reference": "Part B of title IV of the Social Security Act",
       "amount": null,
-      "period": "through January 19, 2024, in the manner authorized for fiscal year 2023",
+      "period": "through January 19, 2024",
       "extends_through": "January 19, 2024",
       "section": "SEC. 401",
       "division": "B",
       "title": "II",
       "confidence": 0.95,
-      "raw_text": "Activities authorized by part B of title IV of the Social Security Act shall continue through January 19, 2024, in the manner authorized for fiscal yea",
+      "raw_text": "Activities authorized by part B of title IV of the Social Security Act shall continue through January 19, 2024, in the manner authorized for fiscal year",
       "notes": [
-        "Falls under Subtitle C—Human Services",
-        "Extends child welfare programs (Stephanie Tubbs Jones Child Welfare Services, Promoting Safe and Stable Families, etc.)",
-        "Includes an indefinite appropriation: 'there are hereby appropriated such sums as may be necessary'",
-        "Programs continue in the manner authorized for FY2023"
+        "Subtitle C\u2014Human Services. Continues child and family services programs through January 19, 2024 in the manner authorized for FY2023",
+        "Appropriates such sums as may be necessary from the Treasury (indefinite appropriation)"
       ],
       "cross_references": [
         {
-          "ref_type": "amends",
+          "ref_type": "subject_to",
           "target": "Part B of title IV of the Social Security Act",
-          "description": "Child and family services programs"
+          "description": "Authorization for child and family services programs"
         }
-      ]
+      ],
+      "source_span": {
+        "start": 24982,
+        "end": 25134,
+        "file": "BILLS-118hr6363enr.txt",
+        "verified": true
+      }
     },
     {
       "provision_type": "mandatory_spending_extension",
@@ -1833,10 +2325,8 @@
       "confidence": 0.95,
       "raw_text": "Section 510 of the Social Security Act (42 U.S.C. 710), as amended by the Continuing Appropriations Act, 2024 and Other Extensions Act, is further amend",
       "notes": [
-        "Falls under Subtitle C—Human Services",
-        "Extends the sexual risk avoidance education program for a new period (Nov 18 – Jan 19, 2024)",
-        "Funding is at the pro rata portion of the amount appropriated for the corresponding period for fiscal year 2023",
-        "No specific dollar amount; funded at pro rata FY2023 rate"
+        "Subtitle C\u2014Human Services. Extends sexual risk avoidance education funding for the Nov 18, 2023 through Jan 19, 2024 period at a pro rata portion of the FY2023 appropriated amount",
+        "Amends both subsection (a) (program authority) and subsection (f) (funding)"
       ],
       "cross_references": [
         {
@@ -1847,9 +2337,15 @@
         {
           "ref_type": "see_also",
           "target": "Continuing Appropriations Act, 2024 and Other Extensions Act",
-          "description": "Prior CR that established the Oct 1 – Nov 17 period"
+          "description": "Prior CR that established the Oct 1\u2013Nov 17 period"
         }
-      ]
+      ],
+      "source_span": {
+        "start": 25359,
+        "end": 25511,
+        "file": "BILLS-118hr6363enr.txt",
+        "verified": true
+      }
     },
     {
       "provision_type": "mandatory_spending_extension",
@@ -1864,10 +2360,8 @@
       "confidence": 0.95,
       "raw_text": "Section 513 of the Social Security Act (42 U.S.C. 713), as amended by the Continuing Appropriations Act, 2024 and Other Extensions Act, is further amend",
       "notes": [
-        "Falls under Subtitle C—Human Services",
-        "Extends the personal responsibility education program for a new period (Nov 18 – Jan 19, 2024)",
-        "Funding is at the pro rata portion of the amount appropriated for the corresponding period for fiscal year 2023",
-        "No specific dollar amount; funded at pro rata FY2023 rate"
+        "Subtitle C\u2014Human Services. Extends personal responsibility education funding for the Nov 18, 2023 through Jan 19, 2024 period at a pro rata portion of the FY2023 appropriated amount",
+        "Amends subsection (a) (program authority), subsection (c) (allotments), and subsection (f) (funding)"
       ],
       "cross_references": [
         {
@@ -1878,14 +2372,20 @@
         {
           "ref_type": "see_also",
           "target": "Continuing Appropriations Act, 2024 and Other Extensions Act",
-          "description": "Prior CR that established the Oct 1 – Nov 17 period"
+          "description": "Prior CR that established the Oct 1\u2013Nov 17 period"
         }
-      ]
+      ],
+      "source_span": {
+        "start": 27002,
+        "end": 27154,
+        "file": "BILLS-118hr6363enr.txt",
+        "verified": true
+      }
     },
     {
       "provision_type": "mandatory_spending_extension",
-      "program_name": "Medicare physician work geographic practice cost index floor",
-      "statutory_reference": "Section 1848(e)(1)(E) of the Social Security Act (42 U.S.C. 1395w–4(e)(1)(E))",
+      "program_name": "Medicare work geographic index floor",
+      "statutory_reference": "Section 1848(e)(1)(E) of the Social Security Act (42 U.S.C. 1395w-4(e)(1)(E))",
       "amount": null,
       "period": null,
       "extends_through": "January 20, 2024",
@@ -1893,11 +2393,9 @@
       "division": "B",
       "title": "II",
       "confidence": 0.96,
-      "raw_text": "Section 1848(e)(1)(E) of the Social Security Act (42 U.S.C. 1395w–4(e)(1)(E)) is amended by striking ''January 1, 2024'' and inserting ''January 20, 202",
+      "raw_text": "Section 1848(e)(1)(E) of the Social Security Act (42 U.S.C. 1395w\u20134(e)(1)(E)) is amended by striking ''January 1, 2024'' and inserting ''January 20, 202",
       "notes": [
-        "Falls under Subtitle D—Medicare",
-        "Extends the 1.0 floor on the Medicare physician work geographic practice cost index from January 1, 2024, to January 20, 2024",
-        "Prevents a scheduled reduction in physician payment rates for certain geographic areas"
+        "Subtitle D\u2014Medicare. Extends the 1.0 floor on the Medicare physician fee schedule work geographic practice cost index from January 1, 2024 to January 20, 2024"
       ],
       "cross_references": [
         {
@@ -1905,12 +2403,18 @@
           "target": "Section 1848(e)(1)(E) of the Social Security Act",
           "description": null
         }
-      ]
+      ],
+      "source_span": {
+        "start": 29223,
+        "end": 29375,
+        "file": "BILLS-118hr6363enr.txt",
+        "verified": true
+      }
     },
     {
       "provision_type": "mandatory_spending_extension",
-      "program_name": "Medicare clinical laboratory test payment (PAMA phase-in)",
-      "statutory_reference": "Section 1834A of the Social Security Act (42 U.S.C. 1395m–1)",
+      "program_name": "Medicare clinical laboratory test payment phase-in",
+      "statutory_reference": "Section 1834A(b)(3) of the Social Security Act (42 U.S.C. 1395m-1(b)(3))",
       "amount": null,
       "period": null,
       "extends_through": null,
@@ -1918,12 +2422,11 @@
       "division": "B",
       "title": "II",
       "confidence": 0.95,
-      "raw_text": "Section 1834A(b)(3) of the Social Security Act (42 U.S.C. 1395m–1(b)(3)) is amended— (1) on subparagraph (A), by striking ''2026'' and inserting ''2027'",
+      "raw_text": "Section 1834A(b)(3) of the Social Security Act (42 U.S.C. 1395m\u20131(b)(3)) is amended\u2014 \n(1) in subparagraph (A), by striking ''2026'' and inserting ''20",
       "notes": [
-        "Falls under Subtitle D—Medicare",
-        "Subsection (a) revises the phase-in of reductions: extends cap on reductions from private payor rate implementation by one year (2026→2027; 2023→2024; 2024-2026→2025-2027)",
-        "Subsection (b) revises the reporting period for private sector payment rates: pushes reporting by one year (2023→2024; 2024→2025)",
-        "No direct dollar amount; modifies the schedule for PAMA-mandated lab test payment reforms"
+        "Subtitle D\u2014Medicare. Subsection (a) revises the phase-in of reductions from private payor rate implementation: extends the phase-in end date from 2026 to 2027, and delays year references by one year",
+        "Subsection (b) revises reporting period for private sector payment rates: delays reporting deadlines by one year (2023\u21922024, 2024\u21922025)",
+        "Amends both Section 1834A(b)(3) and Section 1834A(a)(1)(B) of the Social Security Act"
       ],
       "cross_references": [
         {
@@ -1936,7 +2439,12 @@
           "target": "Section 1834A(a)(1)(B) of the Social Security Act",
           "description": "Reporting period for private sector payment rates"
         }
-      ]
+      ],
+      "source_span": {
+        "start": 29538,
+        "end": 29688,
+        "verified": true
+      }
     },
     {
       "provision_type": "mandatory_spending_extension",
@@ -1958,9 +2466,8 @@
       "confidence": 0.97,
       "raw_text": "Section 1898(b)(1) of the Social Security Act (42 U.S.C. 1395iii(b)(1)) is amended by striking ''$180,000,000'' and inserting ''$466,795,056''.",
       "notes": [
-        "Falls under Subtitle D—Medicare",
-        "Increases the Medicare Improvement Fund from $180,000,000 to $466,795,056, a net increase of $286,795,056",
-        "The Medicare Improvement Fund is frequently used as a budget offset vehicle and adjusted in legislation"
+        "Subtitle D\u2014Medicare. Increases the Medicare Improvement Fund from $180,000,000 to $466,795,056, a net increase of $286,795,056",
+        "The Medicare Improvement Fund is frequently used as an offset or reserve account in health legislation"
       ],
       "cross_references": [
         {
@@ -1968,126 +2475,185 @@
           "target": "Section 1898(b)(1) of the Social Security Act",
           "description": null
         }
-      ]
+      ],
+      "source_span": {
+        "start": 30291,
+        "end": 30434,
+        "file": "BILLS-118hr6363enr.txt",
+        "verified": true
+      }
     },
     {
       "provision_type": "mandatory_spending_extension",
       "program_name": "Counter-UAS Authorities",
       "statutory_reference": "Section 210G(i) of the Homeland Security Act of 2002 (6 U.S.C. 124n(i))",
       "amount": null,
-      "period": "through February 3, 2024",
+      "period": "from November 18, 2023 through February 3, 2024",
       "extends_through": "February 3, 2024",
       "section": "SEC. 601",
       "division": "B",
       "title": "III",
-      "confidence": 0.93,
+      "confidence": 0.95,
       "raw_text": "Section 210G(i) of the Homeland Security Act of 2002 (6 U.S.C. 124n(i)) is amended by striking ''November 18, 2023'' and inserting ''February 3, 2024''.",
       "notes": [
-        "Extends the sunset date of DHS Counter-UAS authorities from November 18, 2023 to February 3, 2024",
-        "This is an authorization extension rather than a dollar-amount mandatory spending change"
+        "Extends DHS counter-unmanned aircraft system authorities by striking the prior expiration date of November 18, 2023 and replacing it with February 3, 2024",
+        "No dollar amount associated with this extension; it is a statutory authority extension"
       ],
       "cross_references": [
         {
           "ref_type": "amends",
           "target": "Section 210G(i) of the Homeland Security Act of 2002 (6 U.S.C. 124n(i))",
-          "description": "Extends sunset date for Counter-UAS authorities"
+          "description": "Extends expiration date of counter-UAS authorities from November 18, 2023 to February 3, 2024"
         }
-      ]
+      ],
+      "source_span": {
+        "start": 30501,
+        "end": 30653,
+        "file": "BILLS-118hr6363enr.txt",
+        "verified": true
+      }
     },
     {
       "provision_type": "rider",
-      "description": "Exempts the budgetary effects of Division B from: (a) both PAYGO scorecards under the Statutory Pay-As-You-Go Act of 2010; (b) Senate PAYGO scorecards under H. Con. Res. 71 (115th Congress); and (c) budget scorekeeping for purposes of section 251 of the Balanced Budget and Emergency Deficit Control Act of 1985, section 302(a) allocations under the Congressional Budget Act of 1974, and classification as an appropriation Act under the Statutory Pay-As-You-Go Act of 2010.",
-      "policy_area": "Budget enforcement and scorekeeping",
+      "description": "Exempts the budgetary effects of Division B from the Statutory PAYGO scorecards maintained pursuant to section 4(d) of the Statutory Pay-As-You-Go Act of 2010.",
+      "policy_area": "Budget enforcement",
       "section": "SEC. 701",
       "division": "B",
       "title": "IV",
-      "confidence": 0.97,
-      "raw_text": "SEC. 701. \nBudgetary Effects\n(a) \nStatutory PAYGO Scorecards\nThe budgetary effects of this division shall not be entered on either PAYGO scorecard maintained pursuant to section 4(d) of the Statutory Pay-As-You-Go Act of 2010.",
+      "confidence": 0.96,
+      "raw_text": "The budgetary effects of this division shall not be entered on either PAYGO scorecard maintained pursuant to section 4(d) of the Statutory Pay-As-You-Go",
       "notes": [
-        "Standard budget enforcement exemption provision for non-appropriations divisions of CR/omnibus bills",
-        "Subsection (a) exempts from Statutory PAYGO scorecards under section 4(d) of P.L. 111-139",
-        "Subsection (b) exempts from Senate PAYGO scorecards under H. Con. Res. 71 (115th Congress) section 4106",
-        "Subsection (c) exempts from BCA section 251 discretionary caps, CBA section 302(a) allocations, and Statutory PAYGO classification as appropriation Act, notwithstanding Budget Scorekeeping Guidelines from Conference Report 105-217 and section 250(c)(8) of the BCA"
+        "Subsection (a) \u2014 Statutory PAYGO Scorecards exemption"
       ],
       "cross_references": [
         {
           "ref_type": "notwithstanding",
-          "target": "Rule 3, Budget Scorekeeping Guidelines, Conference Report 105-217",
+          "target": "Section 4(d) of the Statutory Pay-As-You-Go Act of 2010",
+          "description": "Exempts division's budgetary effects from statutory PAYGO scorecards"
+        }
+      ],
+      "source_span": {
+        "start": 30738,
+        "end": 30890,
+        "file": "BILLS-118hr6363enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "rider",
+      "description": "Exempts the budgetary effects of Division B from any PAYGO scorecard maintained for purposes of section 4106 of H. Con. Res. 71 (115th Congress).",
+      "policy_area": "Budget enforcement",
+      "section": "SEC. 701",
+      "division": "B",
+      "title": "IV",
+      "confidence": 0.96,
+      "raw_text": "The budgetary effects of this division shall not be entered on any PAYGO scorecard maintained for purposes of section 4106 of H. Con. Res. 71 (115th Co",
+      "notes": [
+        "Subsection (b) \u2014 Senate PAYGO Scorecards exemption"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "notwithstanding",
+          "target": "Section 4106 of H. Con. Res. 71 (115th Congress)",
+          "description": "Exempts division's budgetary effects from Senate PAYGO scorecards"
+        }
+      ],
+      "source_span": {
+        "start": 30934,
+        "end": 31085,
+        "file": "BILLS-118hr6363enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "rider",
+      "description": "Notwithstanding Rule 3 of the Budget Scorekeeping Guidelines and section 250(c)(8) of the Balanced Budget and Emergency Deficit Control Act of 1985, the budgetary effects of this division shall not be estimated for purposes of section 251 of such Act, for purposes of a 302(a) allocation to the Committee on Appropriations, or for purposes of paragraph (4)(C) of section 3 of the Statutory Pay-As-You-Go Act of 2010 as being included in an appropriation Act.",
+      "policy_area": "Budget enforcement",
+      "section": "SEC. 701",
+      "division": "B",
+      "title": "IV",
+      "confidence": 0.96,
+      "raw_text": "Notwithstanding Rule 3 of the Budget Scorekeeping Guidelines set forth in the joint explanatory statement of the committee of conference accompanying Con",
+      "notes": [
+        "Subsection (c) \u2014 Classification of Budgetary Effects",
+        "Exempts from: (1) section 251 discretionary spending limits, (2) 302(a) allocations, (3) statutory PAYGO classification as an appropriation Act"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "notwithstanding",
+          "target": "Rule 3 of the Budget Scorekeeping Guidelines (Conference Report 105-217)",
           "description": "Overrides budget scorekeeping classification rules"
         },
         {
           "ref_type": "notwithstanding",
           "target": "Section 250(c)(8) of the Balanced Budget and Emergency Deficit Control Act of 1985",
-          "description": null
+          "description": "Overrides classification of budgetary effects"
         },
         {
-          "ref_type": "subject_to",
-          "target": "Section 4(d) of the Statutory Pay-As-You-Go Act of 2010",
-          "description": "Exempts division from statutory PAYGO scorecards"
-        },
-        {
-          "ref_type": "subject_to",
-          "target": "Section 4106 of H. Con. Res. 71 (115th Congress)",
-          "description": "Exempts division from Senate PAYGO scorecards"
-        },
-        {
-          "ref_type": "subject_to",
+          "ref_type": "see_also",
           "target": "Section 251 of the Balanced Budget and Emergency Deficit Control Act of 1985",
-          "description": "Exempts from discretionary spending limits"
+          "description": "Discretionary spending limits"
         },
         {
-          "ref_type": "subject_to",
+          "ref_type": "see_also",
           "target": "Section 302(a) of the Congressional Budget Act of 1974",
-          "description": "Exempts from committee allocations"
+          "description": "Committee allocations"
         },
         {
-          "ref_type": "subject_to",
-          "target": "Section 3, paragraph (4)(C) of the Statutory Pay-As-You-Go Act of 2010",
-          "description": "Exempts from classification as appropriation Act"
+          "ref_type": "see_also",
+          "target": "Section 3(4)(C) of the Statutory Pay-As-You-Go Act of 2010",
+          "description": "Classification as appropriation Act"
         }
-      ]
+      ],
+      "source_span": {
+        "start": 31135,
+        "end": 31288,
+        "file": "BILLS-118hr6363enr.txt",
+        "verified": true
+      }
     }
   ],
   "summary": {
-    "total_provisions": 74,
+    "total_provisions": 79,
     "by_division": {
-      "B": 58,
-      "A": 16
+      "B": 62,
+      "A": 17
     },
     "by_type": {
-      "transfer_authority": 1,
-      "rider": 10,
-      "cr_substitution": 1,
-      "appropriation": 1,
-      "other": 6,
       "directive": 1,
-      "mandatory_spending_extension": 48,
-      "limitation": 4,
+      "appropriation": 1,
       "continuing_resolution_baseline": 1,
+      "cr_substitution": 1,
+      "other": 9,
+      "rider": 11,
+      "mandatory_spending_extension": 50,
+      "limitation": 4,
       "rescission": 1
     },
     "total_budget_authority": 174000,
     "total_rescissions": 177350000,
     "sections_with_no_provisions": [],
     "flagged_issues": [
-      "Bill uses a laddered CR with two expiration dates: January 19, 2024 (for Agriculture, Interior, Military Construction-VA, Transportation-HUD, and certain other provisions under sections 101(1), 101(4), 101(10), 101(12), 134, 137) and February 2, 2024 (all other provisions)",
-      "SEC. 101(6) modifies section 124 of P.L. 118-15 which is likely the WIC anomaly; account name not explicitly stated in H.R. 6363 text",
-      "SEC. 140 Columbia Class Submarine apportionment ceiling of $3,338,413,000 overrides normal CR rate restrictions",
-      "SEC. 145(b) increases transfer authority to Student Aid Administration from 3% to 10%",
-      "SEC. 102(a) provides a blanket extension of all Agriculture Improvement Act of 2018 authorities — individual programs are also separately extended with specific amendments in subsections (c) and (d)",
-      "SEC. 102(d)(9) carves out conservation program mandatory funding (Section 1241(a)(1)(A) and (B)) and supplemental disaster assistance (Section 1614(c)(4)) from the general extension",
-      "SEC. 102(g) retroactive effective date excludes the rescission and two research provisions from retroactive application",
-      "Total new mandatory spending from specific dollar amounts: $77,500,000 (across 10 provisions with explicit amounts); additional mandatory spending from blanket extension at prior-year rates is not quantified in the bill text",
-      "All provisions in this title are mandatory spending extensions or policy provisions; no discretionary appropriations are present",
-      "SEC. 302 reduces Medicaid Improvement Fund by $561,000,000 (from $6,357,117,810 to $5,796,117,810) as a budget offset",
+      "SEC. 101(6) cr_substitution modifies section 124 of P.L. 118-15 but the underlying account name is not stated in this bill text \u2014 cross-reference to P.L. 118-15 section 124 required to identify the account",
+      "SEC. 101 creates a staggered/laddered CR expiration: January 19, 2024 for Agriculture, Energy-Water, Transportation-HUD, MilCon-VA divisions; February 2, 2024 for all others",
+      "SEC. 140 allows apportionment up to $3,338,413,000 for Columbia Class Submarine \u2014 this is a ceiling, not new budget authority",
+      "SEC. 143 and SEC. 145(a) allow higher apportionment rates for Secret Service and Student Aid Administration respectively without specifying dollar ceilings",
+      "SEC. 102(a) provides a broad general extension of the entire Agriculture Improvement Act of 2018 (Farm Bill) through September 30, 2024, with specific provisions overriding or supplementing in subsequent subsections",
+      "SEC. 102(f) rescinds $177,350,000 from biorefinery assistance program unobligated balances as a partial offset",
+      "Total new mandatory spending authorized in specific provisions: approximately $77,500,000 (not counted in total_budget_authority per extraction rules)",
+      "SEC. 102(d)(9) carves out conservation program mandatory funding (EQIP/CSP/ACEP baseline levels) and supplemental disaster assistance from the general extension",
+      "SEC. 102(g) makes most provisions retroactive to September 30, 2023, except the rescission and certain research funding provisions",
+      "SEC. 302 reduces Medicaid Improvement Fund by $561,000,000 (from $6,357,117,810 to $5,796,117,810), used as a budgetary offset",
       "SEC. 503 increases Medicare Improvement Fund by $286,795,056 (from $180,000,000 to $466,795,056)",
-      "SEC. 401 contains an indefinite appropriation ('such sums as may be necessary') with no specified dollar amount",
-      "SEC. 402 and SEC. 403 fund programs at pro rata FY2023 rates with no explicit dollar amounts"
+      "All provisions in this title are mandatory spending extensions or policy riders\u2014no discretionary appropriations; total_budget_authority is $0 for discretionary accounts",
+      "SEC. 401 appropriates indefinite sums ('such sums as may be necessary') for child and family services programs through January 19, 2024",
+      "SEC. 402 and SEC. 403 extend programs at pro rata portions of FY2023 levels without specifying exact dollar amounts",
+      "SEC. 701 is a standard budget enforcement waiver provision exempting Division B spending from PAYGO scorecards and discretionary spending limits"
     ]
   },
   "chunk_map": [
     {
-      "chunk_id": "01KKZJH7PHF6Y0Z81G9246VE9T",
+      "chunk_id": "01KM8GM8TNR1JFQ0BP09RAGW7E",
       "label": "[1/5] A",
       "provision_indices": [
         0,
@@ -2105,14 +2671,14 @@
         12,
         13,
         14,
-        15
+        15,
+        16
       ]
     },
     {
-      "chunk_id": "01KKZJH7PHZH2DVYJ630HEQECB",
+      "chunk_id": "01KM8GM8TNF7XMMX84BD4KZMQ4",
       "label": "[2/5] B-I",
       "provision_indices": [
-        16,
         17,
         18,
         19,
@@ -2147,14 +2713,14 @@
         48,
         49,
         50,
-        51
+        51,
+        52
       ]
     },
     {
-      "chunk_id": "01KKZJH7PHDF8N47T7798DS30Y",
+      "chunk_id": "01KM8GM8TNFT223QA55185J9PF",
       "label": "[3/5] B-II",
       "provision_indices": [
-        52,
         53,
         54,
         55,
@@ -2173,21 +2739,26 @@
         68,
         69,
         70,
-        71
+        71,
+        72,
+        73,
+        74
       ]
     },
     {
-      "chunk_id": "01KKZJH7PH42X384741TZ6M51S",
+      "chunk_id": "01KM8GM8TPS9QR08DRH6G90HVA",
       "label": "[4/5] B-III",
       "provision_indices": [
-        72
+        75
       ]
     },
     {
-      "chunk_id": "01KKZJH7PHP9C5BJRYR0WS2GAE",
+      "chunk_id": "01KM8GM8TPM0KYAT1K827A6YJ8",
       "label": "[5/5] B-IV",
       "provision_indices": [
-        73
+        76,
+        77,
+        78
       ]
     }
   ]

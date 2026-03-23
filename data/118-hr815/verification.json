@@ -205,17 +205,6 @@
     },
     {
       "provision_index": 44,
-      "text_as_written": "$0",
-      "found_in_source": true,
-      "source_positions": [
-        28661,
-        84403,
-        100436
-      ],
-      "status": "ambiguous"
-    },
-    {
-      "provision_index": 45,
       "text_as_written": "$557,758,000",
       "found_in_source": true,
       "source_positions": [
@@ -224,7 +213,7 @@
       "status": "verified"
     },
     {
-      "provision_index": 46,
+      "provision_index": 45,
       "text_as_written": "$1,900,000,000",
       "found_in_source": true,
       "source_positions": [
@@ -233,7 +222,7 @@
       "status": "verified"
     },
     {
-      "provision_index": 47,
+      "provision_index": 46,
       "text_as_written": "$2,155,000,000",
       "found_in_source": true,
       "source_positions": [
@@ -242,7 +231,7 @@
       "status": "verified"
     },
     {
-      "provision_index": 48,
+      "provision_index": 47,
       "text_as_written": "$1,955,000,000",
       "found_in_source": true,
       "source_positions": [
@@ -251,7 +240,7 @@
       "status": "verified"
     },
     {
-      "provision_index": 49,
+      "provision_index": 48,
       "text_as_written": "$200,000,000",
       "found_in_source": true,
       "source_positions": [
@@ -263,7 +252,7 @@
       "status": "ambiguous"
     },
     {
-      "provision_index": 50,
+      "provision_index": 49,
       "text_as_written": "$293,570,000",
       "found_in_source": true,
       "source_positions": [
@@ -272,7 +261,7 @@
       "status": "verified"
     },
     {
-      "provision_index": 51,
+      "provision_index": 50,
       "text_as_written": "$132,600,000",
       "found_in_source": true,
       "source_positions": [
@@ -281,7 +270,7 @@
       "status": "verified"
     },
     {
-      "provision_index": 52,
+      "provision_index": 51,
       "text_as_written": "$7,000,000",
       "found_in_source": true,
       "source_positions": [
@@ -290,7 +279,7 @@
       "status": "verified"
     },
     {
-      "provision_index": 53,
+      "provision_index": 52,
       "text_as_written": "$542,400,000",
       "found_in_source": true,
       "source_positions": [
@@ -299,7 +288,7 @@
       "status": "verified"
     },
     {
-      "provision_index": 54,
+      "provision_index": 53,
       "text_as_written": "$281,914,000",
       "found_in_source": true,
       "source_positions": [
@@ -308,7 +297,7 @@
       "status": "verified"
     },
     {
-      "provision_index": 58,
+      "provision_index": 56,
       "text_as_written": "$2,000,000,000",
       "found_in_source": true,
       "source_positions": [
@@ -317,7 +306,7 @@
       "status": "verified"
     },
     {
-      "provision_index": 59,
+      "provision_index": 57,
       "text_as_written": "$5,000,000",
       "found_in_source": true,
       "source_positions": [
@@ -329,7 +318,7 @@
       "status": "ambiguous"
     },
     {
-      "provision_index": 60,
+      "provision_index": 58,
       "text_as_written": "$250,000,000",
       "found_in_source": true,
       "source_positions": [
@@ -340,7 +329,7 @@
       "status": "ambiguous"
     },
     {
-      "provision_index": 72,
+      "provision_index": 71,
       "text_as_written": "$0",
       "found_in_source": true,
       "source_positions": [
@@ -351,7 +340,7 @@
       "status": "ambiguous"
     },
     {
-      "provision_index": 149,
+      "provision_index": 148,
       "text_as_written": "$10,000,000",
       "found_in_source": true,
       "source_positions": [
@@ -362,7 +351,7 @@
       "status": "ambiguous"
     },
     {
-      "provision_index": 150,
+      "provision_index": 149,
       "text_as_written": "$390,000,000",
       "found_in_source": true,
       "source_positions": [
@@ -371,7 +360,7 @@
       "status": "verified"
     },
     {
-      "provision_index": 151,
+      "provision_index": 150,
       "text_as_written": "$160,000,000",
       "found_in_source": true,
       "source_positions": [
@@ -380,7 +369,7 @@
       "status": "verified"
     },
     {
-      "provision_index": 152,
+      "provision_index": 151,
       "text_as_written": "$230,000,000",
       "found_in_source": true,
       "source_positions": [
@@ -518,7 +507,7 @@
       "status": "ambiguous"
     },
     {
-      "provision_index": 265,
+      "provision_index": 268,
       "text_as_written": "$0",
       "found_in_source": true,
       "source_positions": [
@@ -529,7 +518,7 @@
       "status": "ambiguous"
     },
     {
-      "provision_index": 266,
+      "provision_index": 269,
       "text_as_written": "$207,158,000",
       "found_in_source": true,
       "source_positions": [
@@ -538,7 +527,7 @@
       "status": "verified"
     },
     {
-      "provision_index": 267,
+      "provision_index": 270,
       "text_as_written": "$3,538,000",
       "found_in_source": true,
       "source_positions": [
@@ -547,7 +536,7 @@
       "status": "verified"
     },
     {
-      "provision_index": 268,
+      "provision_index": 271,
       "text_as_written": "$23,302,000",
       "found_in_source": true,
       "source_positions": [
@@ -556,7 +545,7 @@
       "status": "verified"
     },
     {
-      "provision_index": 269,
+      "provision_index": 272,
       "text_as_written": "$4,192,000",
       "found_in_source": true,
       "source_positions": [
@@ -565,7 +554,7 @@
       "status": "verified"
     },
     {
-      "provision_index": 270,
+      "provision_index": 273,
       "text_as_written": "$4,887,581,000",
       "found_in_source": true,
       "source_positions": [
@@ -574,7 +563,7 @@
       "status": "verified"
     },
     {
-      "provision_index": 271,
+      "provision_index": 274,
       "text_as_written": "$976,405,000",
       "found_in_source": true,
       "source_positions": [
@@ -583,7 +572,7 @@
       "status": "verified"
     },
     {
-      "provision_index": 272,
+      "provision_index": 275,
       "text_as_written": "$69,045,000",
       "found_in_source": true,
       "source_positions": [
@@ -592,7 +581,7 @@
       "status": "verified"
     },
     {
-      "provision_index": 273,
+      "provision_index": 276,
       "text_as_written": "$371,475,000",
       "found_in_source": true,
       "source_positions": [
@@ -601,7 +590,7 @@
       "status": "verified"
     },
     {
-      "provision_index": 274,
+      "provision_index": 277,
       "text_as_written": "$8,443,000",
       "found_in_source": true,
       "source_positions": [
@@ -610,7 +599,7 @@
       "status": "verified"
     },
     {
-      "provision_index": 275,
+      "provision_index": 278,
       "text_as_written": "$27,930,780,000",
       "found_in_source": true,
       "source_positions": [
@@ -619,7 +608,7 @@
       "status": "verified"
     },
     {
-      "provision_index": 276,
+      "provision_index": 279,
       "text_as_written": "$13,772,460,000",
       "found_in_source": true,
       "source_positions": [
@@ -628,7 +617,7 @@
       "status": "verified"
     },
     {
-      "provision_index": 278,
+      "provision_index": 281,
       "text_as_written": "$2,742,757,000",
       "found_in_source": true,
       "source_positions": [
@@ -637,7 +626,7 @@
       "status": "verified"
     },
     {
-      "provision_index": 279,
+      "provision_index": 282,
       "text_as_written": "$5,612,900,000",
       "found_in_source": true,
       "source_positions": [
@@ -646,7 +635,7 @@
       "status": "verified"
     },
     {
-      "provision_index": 280,
+      "provision_index": 283,
       "text_as_written": "$308,991,000",
       "found_in_source": true,
       "source_positions": [
@@ -655,7 +644,7 @@
       "status": "verified"
     },
     {
-      "provision_index": 281,
+      "provision_index": 284,
       "text_as_written": "$706,976,000",
       "found_in_source": true,
       "source_positions": [
@@ -664,7 +653,7 @@
       "status": "verified"
     },
     {
-      "provision_index": 282,
+      "provision_index": 285,
       "text_as_written": "$26,000,000",
       "found_in_source": true,
       "source_positions": [
@@ -673,7 +662,7 @@
       "status": "verified"
     },
     {
-      "provision_index": 283,
+      "provision_index": 286,
       "text_as_written": "$212,443,000",
       "found_in_source": true,
       "source_positions": [
@@ -682,7 +671,7 @@
       "status": "verified"
     },
     {
-      "provision_index": 284,
+      "provision_index": 287,
       "text_as_written": "$366,001,000",
       "found_in_source": true,
       "source_positions": [
@@ -691,7 +680,7 @@
       "status": "verified"
     },
     {
-      "provision_index": 285,
+      "provision_index": 288,
       "text_as_written": "$3,284,072,000",
       "found_in_source": true,
       "source_positions": [
@@ -700,7 +689,7 @@
       "status": "verified"
     },
     {
-      "provision_index": 286,
+      "provision_index": 289,
       "text_as_written": "$46,780,000",
       "found_in_source": true,
       "source_positions": [
@@ -709,7 +698,7 @@
       "status": "verified"
     },
     {
-      "provision_index": 287,
+      "provision_index": 290,
       "text_as_written": "$18,594,000",
       "found_in_source": true,
       "source_positions": [
@@ -718,7 +707,7 @@
       "status": "verified"
     },
     {
-      "provision_index": 288,
+      "provision_index": 291,
       "text_as_written": "$13,825,000",
       "found_in_source": true,
       "source_positions": [
@@ -727,7 +716,7 @@
       "status": "verified"
     },
     {
-      "provision_index": 289,
+      "provision_index": 292,
       "text_as_written": "$406,834,000",
       "found_in_source": true,
       "source_positions": [
@@ -736,7 +725,7 @@
       "status": "verified"
     },
     {
-      "provision_index": 290,
+      "provision_index": 293,
       "text_as_written": "$194,125,000",
       "found_in_source": true,
       "source_positions": [
@@ -745,7 +734,7 @@
       "status": "verified"
     },
     {
-      "provision_index": 291,
+      "provision_index": 294,
       "text_as_written": "$8,000,000",
       "found_in_source": true,
       "source_positions": [
@@ -755,7 +744,7 @@
       "status": "ambiguous"
     },
     {
-      "provision_index": 293,
+      "provision_index": 296,
       "text_as_written": "$2,000,000",
       "found_in_source": true,
       "source_positions": [
@@ -764,7 +753,7 @@
       "status": "verified"
     },
     {
-      "provision_index": 298,
+      "provision_index": 301,
       "text_as_written": "$98,000,000",
       "found_in_source": true,
       "source_positions": [
@@ -773,7 +762,7 @@
       "status": "verified"
     },
     {
-      "provision_index": 299,
+      "provision_index": 302,
       "text_as_written": "$143,915,000",
       "found_in_source": true,
       "source_positions": [
@@ -782,7 +771,7 @@
       "status": "verified"
     },
     {
-      "provision_index": 300,
+      "provision_index": 303,
       "text_as_written": "$5,540,000",
       "found_in_source": true,
       "source_positions": [
@@ -791,7 +780,7 @@
       "status": "verified"
     },
     {
-      "provision_index": 301,
+      "provision_index": 304,
       "text_as_written": "$481,000,000",
       "found_in_source": true,
       "source_positions": [
@@ -894,24 +883,24 @@
     },
     {
       "provision_index": 13,
-      "raw_text_preview": "of the total amount provided under this heading in this division, $7,849,000,000...",
+      "raw_text_preview": "Provided, That of the total amount provided under this heading in this division,...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 51606
+      "found_at_position": 51591
     },
     {
       "provision_index": 14,
-      "raw_text_preview": "none of the funds made available for budget support pursuant to the preceding pr...",
+      "raw_text_preview": "Provided further, That none of the funds made available for budget support pursu...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 51903
+      "found_at_position": 51880
     },
     {
       "provision_index": 15,
-      "raw_text_preview": "of the total amount provided under this heading in this division, $50,000,000 sh...",
+      "raw_text_preview": "Provided further, That of the total amount provided under this heading in this d...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 52069
+      "found_at_position": 52046
     },
     {
       "provision_index": 16,
@@ -943,10 +932,10 @@
     },
     {
       "provision_index": 20,
-      "raw_text_preview": "up to $5,000,000 of funds made available under this heading in this division, in...",
+      "raw_text_preview": "Provided further, That up to $5,000,000 of funds made available under this headi...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 15254
+      "found_at_position": 15231
     },
     {
       "provision_index": 21,
@@ -964,178 +953,178 @@
     },
     {
       "provision_index": 23,
-      "raw_text_preview": "and by substituting ''$150,000,000'' for ''$75,000,000'' in clause (i).",
-      "is_verbatim_substring": true,
-      "match_tier": "exact",
-      "found_at_position": 17111
-    },
-    {
-      "provision_index": 24,
       "raw_text_preview": "SEC. 403. During fiscal year 2024, section 552(c)(2) of the Foreign Assistance A...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 56808
     },
     {
-      "provision_index": 25,
+      "provision_index": 24,
       "raw_text_preview": "SEC. 404. (a) Funds appropriated by this division under the headings ''Economic ...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 56994
     },
     {
-      "provision_index": 26,
+      "provision_index": 25,
       "raw_text_preview": "SEC. 405. Section 1705 of the Additional Ukraine Supplemental Appropriations Act...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 58067
     },
     {
-      "provision_index": 27,
+      "provision_index": 26,
       "raw_text_preview": "SEC. 406. None of the funds appropriated or otherwise made available by this tit...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 58315
     },
     {
-      "provision_index": 28,
+      "provision_index": 27,
       "raw_text_preview": "SEC. 407. \n(a) Section 2606 of the Ukraine Supplemental Appropriations Act, 2022...",
       "is_verbatim_substring": false,
       "match_tier": "no_match",
       "found_at_position": null
     },
     {
-      "provision_index": 29,
+      "provision_index": 28,
       "raw_text_preview": "SEC. 408. Funds appropriated under the headings ''Economic Support Fund'' and ''...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 60984
     },
     {
-      "provision_index": 30,
+      "provision_index": 29,
       "raw_text_preview": "SEC. 409. Prior to the initial obligation of funds made available in this title ...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 61248
     },
     {
-      "provision_index": 31,
+      "provision_index": 30,
       "raw_text_preview": "SEC. 501. Each amount appropriated or made available by this division is in addi...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 62845
     },
     {
-      "provision_index": 32,
+      "provision_index": 31,
       "raw_text_preview": "SEC. 502. No part of any appropriation contained in this division shall remain a...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 62995
     },
     {
-      "provision_index": 33,
+      "provision_index": 32,
       "raw_text_preview": "SEC. 503. Unless otherwise provided for by this division, the additional amounts...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 63168
     },
     {
-      "provision_index": 34,
+      "provision_index": 33,
       "raw_text_preview": "SEC. 504. Not later than 45 days after the date of enactment of this division, t...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 63428
     },
     {
-      "provision_index": 35,
+      "provision_index": 34,
       "raw_text_preview": "SEC. 505. (a) Transfer of Long-Range ATACMS Required As soon as practicable afte...",
       "is_verbatim_substring": false,
       "match_tier": "normalized",
       "found_at_position": null
     },
     {
-      "provision_index": 36,
+      "provision_index": 35,
       "raw_text_preview": "SEC. 506. (a) In-Person Monitoring The Secretary of State shall, to the maximum ...",
       "is_verbatim_substring": false,
       "match_tier": "normalized",
       "found_at_position": null
     },
     {
-      "provision_index": 37,
+      "provision_index": 36,
       "raw_text_preview": "Not later than 15 days prior to the initial obligation of funds appropriated by ...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 68004
     },
     {
-      "provision_index": 38,
+      "provision_index": 37,
       "raw_text_preview": "Funds appropriated by this division and prior Acts for fiscal year 2024 under th...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 69183
     },
     {
-      "provision_index": 39,
+      "provision_index": 38,
       "raw_text_preview": "SEC. 507. (a) Arrangement Required Notwithstanding any other provision of law, n...",
       "is_verbatim_substring": false,
       "match_tier": "normalized",
       "found_at_position": null
     },
     {
-      "provision_index": 40,
+      "provision_index": 39,
       "raw_text_preview": "SEC. 508. (a) Report Required (1) In General Notwithstanding any other provision...",
       "is_verbatim_substring": false,
       "match_tier": "normalized",
       "found_at_position": null
     },
     {
-      "provision_index": 41,
+      "provision_index": 40,
       "raw_text_preview": "SEC. 509. Funds appropriated by this division for foreign assistance (including ...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 82947
     },
     {
-      "provision_index": 42,
+      "provision_index": 41,
       "raw_text_preview": "SEC. 510. Each amount designated in this division by the Congress as being for a...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 83616
     },
     {
-      "provision_index": 43,
+      "provision_index": 42,
       "raw_text_preview": "SEC. 511. Any amount appropriated by this division, designated by the Congress a...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 84000
     },
     {
-      "provision_index": 44,
+      "provision_index": 43,
       "raw_text_preview": "SEC. 512. \nSpending Reduction Account\n$0.",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 84365
     },
     {
-      "provision_index": 45,
+      "provision_index": 44,
       "raw_text_preview": "For an additional amount for ''Operation and Maintenance, Navy'', $557,758,000, ...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 84647
     },
     {
-      "provision_index": 46,
+      "provision_index": 45,
       "raw_text_preview": "For an additional amount for ''Operation and Maintenance, Defense-Wide'', $1,900...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 85124
     },
     {
-      "provision_index": 47,
+      "provision_index": 46,
       "raw_text_preview": "For an additional amount for ''Shipbuilding and Conversion, Navy'', $2,155,000,0...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 86940
+    },
+    {
+      "provision_index": 47,
+      "raw_text_preview": "Columbia Class Submarine (AP), $1,955,000,000; and Virginia Class Submarine (AP)...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 87272
     },
     {
       "provision_index": 48,
@@ -1146,731 +1135,731 @@
     },
     {
       "provision_index": 49,
-      "raw_text_preview": "Columbia Class Submarine (AP), $1,955,000,000; and Virginia Class Submarine (AP)...",
-      "is_verbatim_substring": true,
-      "match_tier": "exact",
-      "found_at_position": 87272
-    },
-    {
-      "provision_index": 50,
       "raw_text_preview": "For an additional amount for ''Other Procurement, Navy'', $293,570,000, to remai...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 87598
     },
     {
-      "provision_index": 51,
+      "provision_index": 50,
       "raw_text_preview": "For an additional amount for ''Defense Production Act Purchases'', $132,600,000,...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 88029
     },
     {
-      "provision_index": 52,
+      "provision_index": 51,
       "raw_text_preview": "For an additional amount for ''Research, Development, Test and Evaluation, Navy'...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 88788
     },
     {
-      "provision_index": 53,
+      "provision_index": 52,
       "raw_text_preview": "For an additional amount for the Department of Defense, $542,400,000, to remain ...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 89252
     },
     {
-      "provision_index": 54,
+      "provision_index": 53,
       "raw_text_preview": "For an additional amount for ''Military Construction, Navy and Marine Corps'', $...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 90833
     },
     {
-      "provision_index": 55,
+      "provision_index": 54,
       "raw_text_preview": "Provided, That not later than 60 days after the date of enactment of this divisi...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 91055
     },
     {
-      "provision_index": 56,
+      "provision_index": 55,
       "raw_text_preview": "Provided further, That such funds may be obligated or expended for planning and ...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 91357
     },
     {
-      "provision_index": 57,
-      "raw_text_preview": "Provided further, That such amount is designated by the Congress as being for an...",
-      "is_verbatim_substring": true,
-      "match_tier": "exact",
-      "found_at_position": 3396
-    },
-    {
-      "provision_index": 58,
+      "provision_index": 56,
       "raw_text_preview": "For an additional amount for ''Foreign Military Financing Program'', $2,000,000,...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 91866
     },
     {
-      "provision_index": 59,
+      "provision_index": 57,
       "raw_text_preview": "up to $5,000,000 of funds made available under this heading in this division, in...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 15254
     },
     {
-      "provision_index": 60,
+      "provision_index": 58,
       "raw_text_preview": "For an additional amount for ''Contribution to the International Development Ass...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 93630
     },
     {
-      "provision_index": 61,
-      "raw_text_preview": "SEC. 301. During fiscal year 2024, section 506(a)(1) of the Foreign Assistance A...",
+      "provision_index": 59,
+      "raw_text_preview": "During fiscal year 2024, section 506(a)(1) of the Foreign Assistance Act of 1961...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 94178
+      "found_at_position": 16705
+    },
+    {
+      "provision_index": 60,
+      "raw_text_preview": "During fiscal year 2024, section 506(a)(2)(B) of the Foreign Assistance Act of 1...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 16894
+    },
+    {
+      "provision_index": 61,
+      "raw_text_preview": "and by substituting ''$150,000,000'' for ''$75,000,000'' in clause (i).",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 17111
     },
     {
       "provision_index": 62,
-      "raw_text_preview": "SEC. 302. During fiscal year 2024, section 506(a)(2)(B) of the Foreign Assistanc...",
+      "raw_text_preview": "During fiscal year 2024, section 552(c)(2) of the Foreign Assistance Act of 1961...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 94367
+      "found_at_position": 17194
     },
     {
       "provision_index": 63,
-      "raw_text_preview": "SEC. 303. During fiscal year 2024, section 552(c)(2) of the Foreign Assistance A...",
-      "is_verbatim_substring": true,
-      "match_tier": "exact",
-      "found_at_position": 94667
+      "raw_text_preview": "Section 2606 of the Ukraine Supplemental Appropriations Act, 2022 (division N of...",
+      "is_verbatim_substring": false,
+      "match_tier": "no_match",
+      "found_at_position": null
     },
     {
       "provision_index": 64,
-      "raw_text_preview": "SEC. 304. (a) Section 2606 of the Ukraine Supplemental Appropriations Act, 2022 ...",
+      "raw_text_preview": "Prior to the initial obligation of funds made available in this title in this di...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 94853
+      "found_at_position": 97271
     },
     {
       "provision_index": 65,
-      "raw_text_preview": "SEC. 305. Prior to the initial obligation of funds made available in this title ...",
+      "raw_text_preview": "SEC. 401. Each amount appropriated or made available by this division is in addi...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 97261
+      "found_at_position": 25839
     },
     {
       "provision_index": 66,
-      "raw_text_preview": "Each amount appropriated or made available by this division is in addition to am...",
+      "raw_text_preview": "SEC. 402. No part of any appropriation contained in this division shall remain a...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 25849
+      "found_at_position": 25989
     },
     {
       "provision_index": 67,
-      "raw_text_preview": "No part of any appropriation contained in this division shall remain available f...",
+      "raw_text_preview": "SEC. 403. Unless otherwise provided for by this division, the additional amounts...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 25999
+      "found_at_position": 26162
     },
     {
       "provision_index": 68,
-      "raw_text_preview": "Unless otherwise provided for by this division, the additional amounts appropria...",
+      "raw_text_preview": "SEC. 404. Funds appropriated by this division for foreign assistance (including ...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 26172
+      "found_at_position": 98980
     },
     {
       "provision_index": 69,
-      "raw_text_preview": "Funds appropriated by this division for foreign assistance (including foreign mi...",
+      "raw_text_preview": "SEC. 405. Each amount designated in this division by the Congress as being for a...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 27215
+      "found_at_position": 99649
     },
     {
       "provision_index": 70,
-      "raw_text_preview": "Each amount designated in this division by the Congress as being for an emergenc...",
+      "raw_text_preview": "SEC. 406. Any amount appropriated by this division, designated by the Congress a...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 27884
+      "found_at_position": 100033
     },
     {
       "provision_index": 71,
-      "raw_text_preview": "Any amount appropriated by this division, designated by the Congress as an emerg...",
+      "raw_text_preview": "SEC. 407. \nSpending Reduction Account\n$0.",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 28268
+      "found_at_position": 100398
     },
     {
       "provision_index": 72,
-      "raw_text_preview": "Spending Reduction Account\n$0.",
-      "is_verbatim_substring": true,
-      "match_tier": "exact",
-      "found_at_position": 28634
-    },
-    {
-      "provision_index": 73,
       "raw_text_preview": "Sec. 3002. Sense of Congress.",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 100825
     },
     {
-      "provision_index": 74,
+      "provision_index": 73,
       "raw_text_preview": "Sec. 3101. Finding; policy.",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 101001
     },
     {
-      "provision_index": 75,
+      "provision_index": 74,
       "raw_text_preview": "Sec. 3102. Use of national emergency authorities; reporting.",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 101030
     },
     {
-      "provision_index": 76,
+      "provision_index": 75,
       "raw_text_preview": "Sec. 3103. Imposition of sanctions with respect to fentanyl trafficking by trans...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 101092
     },
     {
-      "provision_index": 77,
+      "provision_index": 76,
       "raw_text_preview": "Sec. 3104. Penalties; waivers; exceptions.",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 101206
     },
     {
-      "provision_index": 78,
+      "provision_index": 77,
       "raw_text_preview": "Sec. 3105. Treatment of forfeited property of transnational criminal organizatio...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 101250
     },
     {
-      "provision_index": 79,
+      "provision_index": 78,
       "raw_text_preview": "Sec. 3111. Ten-year statute of limitations for violations of sanctions.",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 101363
     },
     {
-      "provision_index": 80,
+      "provision_index": 79,
       "raw_text_preview": "Sec. 3112. Classified report and briefing on staffing of office of foreign asset...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 101436
     },
     {
-      "provision_index": 81,
+      "provision_index": 80,
       "raw_text_preview": "Sec. 3113. Report on drug transportation routes and use of vessels with mislabel...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 101528
     },
     {
-      "provision_index": 82,
+      "provision_index": 81,
       "raw_text_preview": "Sec. 3114. Report on actions of People's Republic of China with respect to perso...",
       "is_verbatim_substring": false,
       "match_tier": "normalized",
       "found_at_position": null
     },
     {
-      "provision_index": 83,
+      "provision_index": 82,
       "raw_text_preview": "Sec. 3201. Designation of illicit fentanyl transactions of sanctioned persons as...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 101782
     },
     {
-      "provision_index": 84,
+      "provision_index": 83,
       "raw_text_preview": "Sec. 3202. Treatment of transnational criminal organizations in suspicious trans...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 101901
     },
     {
-      "provision_index": 85,
+      "provision_index": 84,
       "raw_text_preview": "Sec. 3203. Report on trade-based money laundering in trade with Mexico, the Peop...",
       "is_verbatim_substring": false,
       "match_tier": "normalized",
       "found_at_position": null
     },
     {
-      "provision_index": 86,
+      "provision_index": 85,
       "raw_text_preview": "Sec. 3301. Exception relating to importation of goods.",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 102217
     },
     {
-      "provision_index": 87,
+      "provision_index": 86,
       "raw_text_preview": "Sec. 101. Findings; sense of Congress.",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 102545
     },
     {
-      "provision_index": 88,
+      "provision_index": 87,
       "raw_text_preview": "Sec. 102. Sense of Congress regarding importance of the Russian Federation provi...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 102585
     },
     {
-      "provision_index": 89,
+      "provision_index": 88,
       "raw_text_preview": "Sec. 103. Prohibition on release of blocked Russian sovereign assets.",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 102696
     },
     {
-      "provision_index": 90,
+      "provision_index": 89,
       "raw_text_preview": "Sec. 104. Authority to ensure compensation to Ukraine using seized Russian sover...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 102767
     },
     {
-      "provision_index": 91,
+      "provision_index": 90,
       "raw_text_preview": "Sec. 105. International mechanism to use Russian sovereign assets and Russian ag...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 102906
     },
     {
-      "provision_index": 92,
+      "provision_index": 91,
       "raw_text_preview": "Sec. 106. Report on use of transferred Russian sovereign assets for reconstructi...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 103064
     },
     {
-      "provision_index": 93,
+      "provision_index": 92,
       "raw_text_preview": "Sec. 107. Assessment by Secretary of State and Administrator of USAID on reconst...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 103149
     },
     {
-      "provision_index": 94,
+      "provision_index": 93,
       "raw_text_preview": "Sec. 108. Extensions.",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 103271
     },
     {
-      "provision_index": 95,
+      "provision_index": 94,
       "raw_text_preview": "Sec. 1. Report and imposition of sanctions to harmonize with allied sanctions.",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 103322
     },
     {
-      "provision_index": 96,
+      "provision_index": 95,
       "raw_text_preview": "Sec. 2. Inclusion of information on emerging technological developments in annua...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 103402
     },
     {
-      "provision_index": 97,
+      "provision_index": 96,
       "raw_text_preview": "Sec. 2. Prohibition of foreign adversary controlled applications.",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 103622
     },
     {
-      "provision_index": 98,
+      "provision_index": 97,
       "raw_text_preview": "Sec. 3. Judicial review.",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 103689
     },
     {
-      "provision_index": 99,
+      "provision_index": 98,
       "raw_text_preview": "Sec. 2. Prohibition on transfer of personally identifiable sensitive data of Uni...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 103817
     },
     {
-      "provision_index": 100,
+      "provision_index": 99,
       "raw_text_preview": "Sec. 2. Statement of policy.",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 103990
     },
     {
-      "provision_index": 101,
+      "provision_index": 100,
       "raw_text_preview": "Sec. 3. Imposition of sanctions with respect to Iranian petroleum.",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 104020
     },
     {
-      "provision_index": 102,
+      "provision_index": 101,
       "raw_text_preview": "Sec. 4. Report on Iranian petroleum and petroleum products exports.",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 104088
     },
     {
-      "provision_index": 103,
+      "provision_index": 102,
       "raw_text_preview": "Sec. 5. Strategy to counter role of the People's Republic of China in evasion of...",
       "is_verbatim_substring": false,
       "match_tier": "normalized",
       "found_at_position": null
     },
     {
-      "provision_index": 104,
+      "provision_index": 103,
       "raw_text_preview": "Sec. 2. Findings.",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 104347
     },
     {
-      "provision_index": 105,
+      "provision_index": 104,
       "raw_text_preview": "Sec. 3. Statement of policy.",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 104366
     },
     {
-      "provision_index": 106,
+      "provision_index": 105,
       "raw_text_preview": "Sec. 4. Report.",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 104396
     },
     {
-      "provision_index": 107,
+      "provision_index": 106,
       "raw_text_preview": "Sec. 5. Sanctions to combat the proliferation of Iranian missiles.",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 104413
     },
     {
-      "provision_index": 108,
+      "provision_index": 107,
       "raw_text_preview": "Sec. 6. Report to identify, and designation as foreign terrorist organizations o...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 104481
     },
     {
-      "provision_index": 109,
+      "provision_index": 108,
       "raw_text_preview": "Sec. 2. Imposition of sanctions on Iran's supreme leader's office, its appointee...",
       "is_verbatim_substring": false,
       "match_tier": "normalized",
       "found_at_position": null
     },
     {
-      "provision_index": 110,
+      "provision_index": 109,
       "raw_text_preview": "Sec. 2. Statement of policy.",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 103990
     },
     {
-      "provision_index": 111,
+      "provision_index": 110,
       "raw_text_preview": "Sec. 3. Imposition of sanctions with respect to foreign persons supporting acts ...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 105019
     },
     {
-      "provision_index": 112,
+      "provision_index": 111,
       "raw_text_preview": "Sec. 4. Imposition of measures with respect to foreign states providing support ...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 105256
     },
     {
-      "provision_index": 113,
+      "provision_index": 112,
       "raw_text_preview": "Sec. 5. Reports on activities to disrupt global fundraising, financing, and mone...",
-      "is_verbatim_substring": false,
-      "match_tier": "normalized",
-      "found_at_position": null
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 105420
     },
     {
-      "provision_index": 114,
+      "provision_index": 113,
       "raw_text_preview": "Sec. 6. Termination.",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 105643
     },
     {
-      "provision_index": 115,
+      "provision_index": 114,
       "raw_text_preview": "Sec. 2. Application of foreign-direct product rules to Iran.",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 105752
     },
     {
-      "provision_index": 116,
+      "provision_index": 115,
       "raw_text_preview": "Sec. 2. Statement of policy.",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 103990
     },
     {
-      "provision_index": 117,
+      "provision_index": 116,
       "raw_text_preview": "Sec. 3. Modification and extension of Sanctioning the Use of Civilians as Defens...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 105940
     },
     {
-      "provision_index": 118,
+      "provision_index": 117,
       "raw_text_preview": "Sec. 4. Report on countering the use of human shields.",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 106040
     },
     {
-      "provision_index": 119,
+      "provision_index": 118,
       "raw_text_preview": "Sec. 5. Confronting asymmetric and malicious cyber activities.",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 106096
     },
     {
-      "provision_index": 120,
+      "provision_index": 119,
       "raw_text_preview": "Sec. 6. Sanctions with respect to threats to current or former united states off...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 106160
     },
     {
-      "provision_index": 121,
+      "provision_index": 120,
       "raw_text_preview": "Sec. 2. Findings.",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 104347
     },
     {
-      "provision_index": 122,
+      "provision_index": 121,
       "raw_text_preview": "Sec. 3. Statement of policy.",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 104366
     },
     {
-      "provision_index": 123,
+      "provision_index": 122,
       "raw_text_preview": "Sec. 4. Imposition of sanctions with respect to illicit captagon trafficking.",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 106379
     },
     {
-      "provision_index": 124,
+      "provision_index": 123,
       "raw_text_preview": "Sec. 5. Determinations with respect to the government of Syria, hizballah, and n...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 106458
     },
     {
-      "provision_index": 125,
+      "provision_index": 124,
       "raw_text_preview": "Sec. 2. Report on financing for Hamas.",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 106719
     },
     {
-      "provision_index": 126,
+      "provision_index": 125,
       "raw_text_preview": "Sec. 3. Multilateral Strategy to Disrupt Hamas Financing.",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 106759
     },
     {
-      "provision_index": 127,
+      "provision_index": 126,
       "raw_text_preview": "Sec. 2. Findings.",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 104347
     },
     {
-      "provision_index": 128,
+      "provision_index": 127,
       "raw_text_preview": "Sec. 3. Report on financial institutions and assets connected to certain Iranian...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 106913
     },
     {
-      "provision_index": 129,
+      "provision_index": 128,
       "raw_text_preview": "Sec. 4. Restrictions on certain financial institutions.",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 107006
     },
     {
-      "provision_index": 130,
+      "provision_index": 129,
       "raw_text_preview": "Sec. 5. Exceptions for national security; implementation authority.",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 107063
     },
     {
-      "provision_index": 131,
+      "provision_index": 130,
       "raw_text_preview": "Sec. 6. Sunset.",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 107132
     },
     {
-      "provision_index": 132,
+      "provision_index": 131,
       "raw_text_preview": "Sec. 2. Sanctions on foreign financial institutions with respect to the purchase...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 107247
     },
     {
-      "provision_index": 133,
+      "provision_index": 132,
       "raw_text_preview": "Sec. 1. Budgetary effects.",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 107423
     },
     {
+      "provision_index": 133,
+      "raw_text_preview": "SEC. 3101. \nFinding; policy\n(a) \nFinding\nCongress finds that international traff...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 107576
+    },
+    {
       "provision_index": 134,
-      "raw_text_preview": "SEC. 3101. Finding; policy (a) Finding Congress finds that international traffic...",
-      "is_verbatim_substring": false,
-      "match_tier": "normalized",
-      "found_at_position": null
+      "raw_text_preview": "SEC. 3102. \nUse of national emergency authorities; reporting\n(a) \nIn general\nThe...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 108177
     },
     {
       "provision_index": 135,
-      "raw_text_preview": "SEC. 3102. Use of national emergency authorities; reporting (a) In general The P...",
-      "is_verbatim_substring": false,
-      "match_tier": "normalized",
-      "found_at_position": null
+      "raw_text_preview": "Not later than 180 days after the date of the enactment of this division, and an...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 108477
     },
     {
       "provision_index": 136,
-      "raw_text_preview": "Not later than 180 days after the date of the enactment of this division, and an...",
+      "raw_text_preview": "SEC. 3103. \nImposition of sanctions with respect to fentanyl trafficking by tran...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 108477
+      "found_at_position": 109499
     },
     {
       "provision_index": 137,
-      "raw_text_preview": "SEC. 3103. Imposition of sanctions with respect to fentanyl trafficking by trans...",
-      "is_verbatim_substring": false,
-      "match_tier": "normalized",
-      "found_at_position": null
-    },
-    {
-      "provision_index": 138,
       "raw_text_preview": "Not later than 180 days after the date of the enactment of this division, and an...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 108477
     },
     {
+      "provision_index": 138,
+      "raw_text_preview": "SEC. 3104. \nPenalties; waivers; exceptions\n(a) \nPenalties\nAny person that violat...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 110881
+    },
+    {
       "provision_index": 139,
-      "raw_text_preview": "SEC. 3104. Penalties; waivers; exceptions (a) Penalties Any person that violates...",
-      "is_verbatim_substring": false,
-      "match_tier": "normalized",
-      "found_at_position": null
+      "raw_text_preview": "SEC. 3105. \nTreatment of forfeited property of transnational criminal organizati...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 112826
     },
     {
       "provision_index": 140,
-      "raw_text_preview": "SEC. 3105. Treatment of forfeited property of transnational criminal organizatio...",
-      "is_verbatim_substring": false,
-      "match_tier": "normalized",
-      "found_at_position": null
-    },
-    {
-      "provision_index": 141,
       "raw_text_preview": "Not later than 180 days after the date of the enactment of this division, and ev...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 113289
     },
     {
+      "provision_index": 141,
+      "raw_text_preview": "SEC. 3111. \nTen-year statute of limitations for violations of sanctions\n(a) \nInt...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 114460
+    },
+    {
       "provision_index": 142,
-      "raw_text_preview": "SEC. 3111. Ten-year statute of limitations for violations of sanctions (a) Inter...",
-      "is_verbatim_substring": false,
-      "match_tier": "normalized",
-      "found_at_position": null
+      "raw_text_preview": "SEC. 3112. \nClassified report and briefing on staffing of office of foreign asse...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 116520
     },
     {
       "provision_index": 143,
-      "raw_text_preview": "SEC. 3112. Classified report and briefing on staffing of office of foreign asset...",
-      "is_verbatim_substring": false,
-      "match_tier": "normalized",
-      "found_at_position": null
+      "raw_text_preview": "SEC. 3113. \nReport on drug transportation routes and use of vessels with mislabe...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 116976
     },
     {
       "provision_index": 144,
-      "raw_text_preview": "SEC. 3113. Report on drug transportation routes and use of vessels with mislabel...",
+      "raw_text_preview": "SEC. 3114. \nReport on actions of People's Republic of China with respect to pers...",
       "is_verbatim_substring": false,
       "match_tier": "normalized",
       "found_at_position": null
     },
     {
       "provision_index": 145,
-      "raw_text_preview": "SEC. 3114. Report on actions of People's Republic of China with respect to perso...",
-      "is_verbatim_substring": false,
-      "match_tier": "normalized",
-      "found_at_position": null
+      "raw_text_preview": "Subtitle A of the Fentanyl Sanctions Act (21 U.S.C. 2311 et seq.) is amended by ...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 118411
     },
     {
       "provision_index": 146,
-      "raw_text_preview": "Subtitle A of the Fentanyl Sanctions Act (21 U.S.C. 2311 et seq.) is amended by ...",
-      "is_verbatim_substring": false,
-      "match_tier": "normalized",
-      "found_at_position": null
-    },
-    {
-      "provision_index": 147,
       "raw_text_preview": "Not later than 180 days after the date of the enactment of this division, the Di...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 122120
     },
     {
-      "provision_index": 148,
+      "provision_index": 147,
       "raw_text_preview": "In the first update to the national strategy for combating the financing of terr...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 122997
     },
     {
-      "provision_index": 149,
+      "provision_index": 148,
       "raw_text_preview": "For an additional amount for ''Federal Emergency Management Agency—Operations ...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 7823
     },
     {
-      "provision_index": 150,
+      "provision_index": 149,
       "raw_text_preview": "For an additional amount for ''Federal Emergency Management Agency—Federal Ass...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 8276
     },
     {
-      "provision_index": 151,
+      "provision_index": 150,
       "raw_text_preview": "of which $160,000,000 shall remain available until September 30, 2025",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 8381
     },
     {
-      "provision_index": 152,
+      "provision_index": 151,
       "raw_text_preview": "and $230,000,000 shall remain available until September 30, 2026",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 8452
+    },
+    {
+      "provision_index": 152,
+      "raw_text_preview": "Provided further, That notwithstanding any provision of 6 U.S.C. 609a, and in ad...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 9014
     },
     {
       "provision_index": 153,
@@ -1895,38 +1884,38 @@
     },
     {
       "provision_index": 156,
+      "raw_text_preview": "It is the sense of Congress that, having committed an act of aggression, as reco...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 132173
+    },
+    {
+      "provision_index": 157,
       "raw_text_preview": "It is the sense of Congress that— (1) the Russian Federation bears responsibil...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 132792
     },
     {
-      "provision_index": 157,
+      "provision_index": 158,
       "raw_text_preview": "No Russian sovereign asset that is blocked or effectively immobilized by the Dep...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 135703
     },
     {
-      "provision_index": 158,
+      "provision_index": 159,
       "raw_text_preview": "Not later than 90 days after the date of the enactment of this division, the Pre...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 138437
     },
     {
-      "provision_index": 159,
+      "provision_index": 160,
       "raw_text_preview": "On and after the date that is 30 days after the President submits to the appropr...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 139593
-    },
-    {
-      "provision_index": 160,
-      "raw_text_preview": "The certification described in this subsection, with respect to Russian aggresso...",
-      "is_verbatim_substring": true,
-      "match_tier": "exact",
-      "found_at_position": 141089
     },
     {
       "provision_index": 161,
@@ -1937,269 +1926,269 @@
     },
     {
       "provision_index": 162,
-      "raw_text_preview": "Nothing in this section may be construed to provide the President with the autho...",
+      "raw_text_preview": "Funds in the Ukraine Support Fund shall be available to the Secretary of State, ...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 142985
+      "found_at_position": 143427
     },
     {
       "provision_index": 163,
-      "raw_text_preview": "Subject to paragraphs (2) and (3), Funds in the Ukraine Support Fund shall be av...",
-      "is_verbatim_substring": true,
-      "match_tier": "exact",
-      "found_at_position": 143392
+      "raw_text_preview": "No funds may be transferred or otherwise expended from the Ukraine Support Fund ...",
+      "is_verbatim_substring": false,
+      "match_tier": "normalized",
+      "found_at_position": null
     },
     {
       "provision_index": 164,
-      "raw_text_preview": "No funds may be transferred or otherwise expended from the Ukraine Support Fund ...",
-      "is_verbatim_substring": true,
-      "match_tier": "exact",
-      "found_at_position": 144886
-    },
-    {
-      "provision_index": 165,
-      "raw_text_preview": "No funds may be transferred pursuant to subsection (f) if, within 15 days of rec...",
-      "is_verbatim_substring": true,
-      "match_tier": "exact",
-      "found_at_position": 145378
-    },
-    {
-      "provision_index": 166,
       "raw_text_preview": "Not later than 90 days after the date of the enactment of this division, and not...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 145595
     },
     {
-      "provision_index": 167,
+      "provision_index": 165,
       "raw_text_preview": "The authorities provided by this section may not be exercised in a manner incons...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 146687
     },
     {
-      "provision_index": 168,
+      "provision_index": 166,
       "raw_text_preview": "Notwithstanding any other provision of law, any action taken under this section ...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 147439
     },
     {
-      "provision_index": 169,
+      "provision_index": 167,
       "raw_text_preview": "The authorities conferred under this section shall terminate on the earlier of...",
+      "is_verbatim_substring": false,
+      "match_tier": "normalized",
+      "found_at_position": null
+    },
+    {
+      "provision_index": 168,
+      "raw_text_preview": "SEC. 105. \nInternational mechanism to use Russian sovereign assets and Russian a...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 148811
+      "found_at_position": 149940
+    },
+    {
+      "provision_index": 169,
+      "raw_text_preview": "The President shall notify the appropriate congressional committees not later th...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 152141
     },
     {
       "provision_index": 170,
-      "raw_text_preview": "The President shall take such actions as the President determines appropriate to...",
-      "is_verbatim_substring": true,
-      "match_tier": "exact",
-      "found_at_position": 150113
-    },
-    {
-      "provision_index": 171,
       "raw_text_preview": "No funds may be transferred from the Ukraine Support Fund to a fund or mechanism...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 153583
     },
     {
-      "provision_index": 172,
+      "provision_index": 171,
       "raw_text_preview": "No funds may be transferred from the Ukraine Support Fund to a fund or mechanism...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 154167
     },
     {
-      "provision_index": 173,
+      "provision_index": 172,
       "raw_text_preview": "Not later than 90 days after the date of the enactment of this division, and not...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 154444
     },
     {
-      "provision_index": 174,
+      "provision_index": 173,
       "raw_text_preview": "Not later than 90 days after the date of the enactment of this division, and eve...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 155431
     },
     {
-      "provision_index": 175,
+      "provision_index": 174,
       "raw_text_preview": "Not later than 180 days after the date of the enactment of this division, the Se...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 156176
     },
     {
-      "provision_index": 176,
+      "provision_index": 175,
       "raw_text_preview": "Section 5(a) of the Elie Wiesel Genocide and Atrocities Prevention Act of 2018 (...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 157897
     },
     {
-      "provision_index": 177,
+      "provision_index": 176,
       "raw_text_preview": "Not later than 90 days after the date of the enactment of this division, the Pre...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 158238
     },
     {
-      "provision_index": 178,
+      "provision_index": 177,
       "raw_text_preview": "The President may impose the sanctions authorized by the applicable provision of...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 159622
     },
     {
-      "provision_index": 179,
+      "provision_index": 178,
       "raw_text_preview": "As part of each annual report submitted under section 1202 of the National Defen...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 160126
     },
     {
-      "provision_index": 180,
+      "provision_index": 179,
       "raw_text_preview": "It shall be unlawful for an entity to distribute, maintain, or update (or enable...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 163003
     },
     {
-      "provision_index": 181,
+      "provision_index": 180,
       "raw_text_preview": "Before the date on which a prohibition under subsection (a) applies to a foreign...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 165181
     },
     {
-      "provision_index": 182,
+      "provision_index": 181,
       "raw_text_preview": "Subsection (a)— (A) does not apply to a foreign adversary controlled applicati...",
       "is_verbatim_substring": false,
       "match_tier": "normalized",
       "found_at_position": null
     },
     {
-      "provision_index": 183,
+      "provision_index": 182,
       "raw_text_preview": "An entity that violates subsection (a) shall be subject to pay a civil penalty i...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 166685
     },
     {
+      "provision_index": 183,
+      "raw_text_preview": "If any provision of this section or the application of this section to any perso...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 167873
+    },
+    {
       "provision_index": 184,
       "raw_text_preview": "Nothing in this division may be construed— (1) to authorize the Attorney Gener...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 168627
+    },
+    {
+      "provision_index": 185,
+      "raw_text_preview": "The term controlled by a foreign adversary means, with respect to a covered comp...",
       "is_verbatim_substring": false,
       "match_tier": "normalized",
       "found_at_position": null
     },
     {
-      "provision_index": 185,
+      "provision_index": 186,
       "raw_text_preview": "A petition for review challenging this division or any action, finding, or deter...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 173997
     },
     {
-      "provision_index": 186,
+      "provision_index": 187,
       "raw_text_preview": "It shall be unlawful for a data broker to sell, license, rent, trade, transfer, ...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 175139
     },
     {
-      "provision_index": 187,
-      "raw_text_preview": "A violation of this section shall be treated as a violation of a rule defining a...",
+      "provision_index": 188,
+      "raw_text_preview": "The Commission shall enforce this section in the same manner, by the same means,...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 175547
+      "found_at_position": 175797
     },
     {
-      "provision_index": 188,
+      "provision_index": 189,
       "raw_text_preview": "It is the policy of the United States— (1) to deny Iran the ability to engage ...",
       "is_verbatim_substring": false,
       "match_tier": "normalized",
       "found_at_position": null
     },
     {
-      "provision_index": 189,
+      "provision_index": 190,
       "raw_text_preview": "On and after the date that is 180 days after the date of the enactment of this d...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 183889
     },
     {
-      "provision_index": 190,
+      "provision_index": 191,
       "raw_text_preview": "Not later than 120 days after the date of enactment of this division, and annual...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 193449
     },
     {
-      "provision_index": 191,
+      "provision_index": 192,
       "raw_text_preview": "Not later than 120 days after the date of the enactment of this division, the Se...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 195581
     },
     {
-      "provision_index": 192,
+      "provision_index": 193,
       "raw_text_preview": "In this division: (1) Appropriate congressional committees The term ''appropriat...",
       "is_verbatim_substring": false,
       "match_tier": "normalized",
       "found_at_position": null
     },
     {
-      "provision_index": 193,
-      "raw_text_preview": "Congress makes the following findings: (1) Annex B to United Nations Security Co...",
-      "is_verbatim_substring": false,
-      "match_tier": "normalized",
-      "found_at_position": null
-    },
-    {
       "provision_index": 194,
-      "raw_text_preview": "It is the policy of the United States— (1) to urgently seek the extension of m...",
-      "is_verbatim_substring": false,
-      "match_tier": "normalized",
-      "found_at_position": null
+      "raw_text_preview": "SEC. 2. \nFindings\nCongress makes the following findings: \n(1) Annex B to United ...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 200757
     },
     {
       "provision_index": 195,
-      "raw_text_preview": "Not later than 90 days after the date of the enactment of this division, and ann...",
+      "raw_text_preview": "SEC. 3. \nStatement of policy\nIt is the policy of the United States— \n(1) to ur...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 202972
+      "found_at_position": 201830
     },
     {
       "provision_index": 196,
-      "raw_text_preview": "The sanctions described in subsection (b) shall apply to any foreign person the ...",
+      "raw_text_preview": "SEC. 4. \nReport\n\n(a) \nIn general\nNot later than 90 days after the date of the en...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 206943
+      "found_at_position": 202939
     },
     {
       "provision_index": 197,
-      "raw_text_preview": "Not later than 90 days after the date of the enactment of this division, and eve...",
+      "raw_text_preview": "SEC. 5. \nSanctions to combat the proliferation of Iranian missiles\n(a) \nIn gener...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 213577
+      "found_at_position": 206860
     },
     {
       "provision_index": 198,
-      "raw_text_preview": "The President shall designate any person identified in a report submitted under ...",
+      "raw_text_preview": "SEC. 6. \nReport to identify, and designation as foreign terrorist organizations ...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 214492
+      "found_at_position": 213380
     },
     {
       "provision_index": 199,
-      "raw_text_preview": "In this division: (1) Appropriate congressional committees The term appropriate ...",
-      "is_verbatim_substring": false,
-      "match_tier": "normalized",
-      "found_at_position": null
+      "raw_text_preview": "SEC. 7. \nDefinitions\nIn this division: \n(1) \nAppropriate congressional committee...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 215473
     },
     {
       "provision_index": 200,
@@ -2322,70 +2311,70 @@
     },
     {
       "provision_index": 217,
-      "raw_text_preview": "SEC. 301. During fiscal year 2024, up to $250,000,000 of funds deposited in the ...",
+      "raw_text_preview": "During fiscal year 2024, up to $250,000,000 of funds deposited in the Consular a...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 15861
+      "found_at_position": 15871
     },
     {
       "provision_index": 218,
-      "raw_text_preview": "SEC. 302. During fiscal year 2024, section 506(a)(1) of the Foreign Assistance A...",
+      "raw_text_preview": "During fiscal year 2024, section 506(a)(1) of the Foreign Assistance Act of 1961...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 16695
+      "found_at_position": 16705
     },
     {
       "provision_index": 219,
-      "raw_text_preview": "SEC. 303. During fiscal year 2024, section 506(a)(2)(B) of the Foreign Assistanc...",
+      "raw_text_preview": "During fiscal year 2024, section 506(a)(2)(B) of the Foreign Assistance Act of 1...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 16884
+      "found_at_position": 16894
     },
     {
       "provision_index": 220,
-      "raw_text_preview": "and by substituting ''$150,000,000'' for ''$75,000,000'' in clause (i)",
+      "raw_text_preview": "and by substituting ''$150,000,000'' for ''$75,000,000'' in clause (i).",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 17111
     },
     {
       "provision_index": 221,
-      "raw_text_preview": "SEC. 304. During fiscal year 2024, section 552(c)(2) of the Foreign Assistance A...",
+      "raw_text_preview": "During fiscal year 2024, section 552(c)(2) of the Foreign Assistance Act of 1961...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 17184
+      "found_at_position": 17194
     },
     {
       "provision_index": 222,
-      "raw_text_preview": "SEC. 305. Section 12001 of the Department of Defense Appropriations Act, 2005 (P...",
+      "raw_text_preview": "Section 12001 of the Department of Defense Appropriations Act, 2005 (Public Law ...",
       "is_verbatim_substring": false,
       "match_tier": "no_match",
       "found_at_position": null
     },
     {
       "provision_index": 223,
-      "raw_text_preview": "SEC. 306. For fiscal year 2024, section 514(b) of the Foreign Assistance Act of ...",
+      "raw_text_preview": "For fiscal year 2024, section 514(b) of the Foreign Assistance Act of 1961 (22 U...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 18328
+      "found_at_position": 18338
     },
     {
       "provision_index": 224,
-      "raw_text_preview": "SEC. 307. (a) Funds appropriated by this division under the headings ''Internati...",
+      "raw_text_preview": "(a) Funds appropriated by this division under the headings ''International Disas...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 18585
+      "found_at_position": 18595
     },
     {
       "provision_index": 225,
-      "raw_text_preview": "SEC. 308. None of the funds appropriated or otherwise made available by this div...",
+      "raw_text_preview": "None of the funds appropriated or otherwise made available by this division and ...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 19577
+      "found_at_position": 19587
     },
     {
       "provision_index": 226,
-      "raw_text_preview": "SEC. 309. (a) Certification The Secretary of State shall certify and report to t...",
+      "raw_text_preview": "(a) Certification\nThe Secretary of State shall certify and report to the appropr...",
       "is_verbatim_substring": false,
       "match_tier": "normalized",
       "found_at_position": null
@@ -2434,489 +2423,510 @@
     },
     {
       "provision_index": 233,
-      "raw_text_preview": "SEC. 2. \nApplication of foreign-direct product rules to Iran\n\n(a) \nIn general\nBe...",
+      "raw_text_preview": "Beginning on the date that is 90 days after the date of the enactment of this di...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 246123
+      "found_at_position": 246201
     },
     {
       "provision_index": 234,
+      "raw_text_preview": "submits to the Committee on Foreign Affairs and the Committee on Financial Servi...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 249250
+    },
+    {
+      "provision_index": 235,
       "raw_text_preview": "It shall be the policy of the United States to fully implement and enforce sanct...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 250777
     },
     {
-      "provision_index": 235,
+      "provision_index": 236,
       "raw_text_preview": "Section 3 of the Sanctioning the Use of Civilians as Defenseless Shields Act (Pu...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 251080
     },
     {
-      "provision_index": 236,
+      "provision_index": 237,
       "raw_text_preview": "Not later than 120 days after the date of the enactment of this division, the Se...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 254185
     },
     {
-      "provision_index": 237,
+      "provision_index": 238,
       "raw_text_preview": "On and after the date that is 180 days after the date of the enactment of this d...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 256459
     },
     {
-      "provision_index": 238,
+      "provision_index": 239,
       "raw_text_preview": "On and after the date that is 180 days after the date of the enactment of this d...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 260555
     },
     {
-      "provision_index": 239,
+      "provision_index": 240,
       "raw_text_preview": "Congress finds the following: (1) Industrial scale production of the amphetamine...",
       "is_verbatim_substring": false,
       "match_tier": "normalized",
       "found_at_position": null
     },
     {
-      "provision_index": 240,
+      "provision_index": 241,
       "raw_text_preview": "It is the policy of the United States to target individuals, entities, and netwo...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 265162
     },
     {
-      "provision_index": 241,
+      "provision_index": 242,
       "raw_text_preview": "(a) In general The sanctions described in subsection (b) shall be imposed with r...",
       "is_verbatim_substring": false,
       "match_tier": "normalized",
       "found_at_position": null
     },
     {
-      "provision_index": 242,
-      "raw_text_preview": "Not later than 180 days after the date of the enactment of this division, the Pr...",
-      "is_verbatim_substring": true,
-      "match_tier": "exact",
-      "found_at_position": 271825
-    },
-    {
       "provision_index": 243,
-      "raw_text_preview": "In this division: (1) Appropriate congressional committees The term appropriate ...",
+      "raw_text_preview": "(f) Regulations (1) In general The President shall, not later than 120 days afte...",
       "is_verbatim_substring": false,
       "match_tier": "normalized",
       "found_at_position": null
     },
     {
       "provision_index": 244,
+      "raw_text_preview": "Not later than 180 days after the date of the enactment of this division, the Pr...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 271825
+    },
+    {
+      "provision_index": 245,
+      "raw_text_preview": "In this division: (1) Appropriate congressional committees The term appropriate ...",
+      "is_verbatim_substring": false,
+      "match_tier": "normalized",
+      "found_at_position": null
+    },
+    {
+      "provision_index": 246,
       "raw_text_preview": "Not later than 180 days after the date of the enactment of this division, the Se...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 275379
     },
     {
-      "provision_index": 245,
+      "provision_index": 247,
       "raw_text_preview": "The Secretary of the Treasury, through participation in the G7, and other approp...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 276268
     },
     {
-      "provision_index": 246,
+      "provision_index": 248,
       "raw_text_preview": "The Congress finds the following: (1) Iran is characterized by high levels of of...",
       "is_verbatim_substring": false,
       "match_tier": "normalized",
       "found_at_position": null
     },
     {
-      "provision_index": 247,
+      "provision_index": 249,
       "raw_text_preview": "Not later than 180 days after the date of the enactment of this division, and ev...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 278520
     },
     {
-      "provision_index": 248,
+      "provision_index": 250,
       "raw_text_preview": "Not later than 30 days after the date of the enactment of this division, the Sec...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 283400
     },
     {
-      "provision_index": 249,
+      "provision_index": 251,
       "raw_text_preview": "Not later than the date that is 90 days after submitting a report described unde...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 285516
     },
     {
-      "provision_index": 250,
+      "provision_index": 252,
       "raw_text_preview": "The following activities shall be exempt from requirements under sections 3 and ...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 286712
     },
     {
-      "provision_index": 251,
+      "provision_index": 253,
       "raw_text_preview": "The provisions of this division shall have no force or effect on the earlier of...",
-      "is_verbatim_substring": true,
-      "match_tier": "exact",
-      "found_at_position": 287985
+      "is_verbatim_substring": false,
+      "match_tier": "normalized",
+      "found_at_position": null
     },
     {
-      "provision_index": 252,
+      "provision_index": 254,
+      "raw_text_preview": "For purposes of this division: (1) Appropriate members of congress The term ''ap...",
+      "is_verbatim_substring": false,
+      "match_tier": "normalized",
+      "found_at_position": null
+    },
+    {
+      "provision_index": 255,
       "raw_text_preview": "Section 1245(d) of the National Defense Authorization Act for Fiscal Year 2012 (...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 290726
     },
     {
-      "provision_index": 253,
+      "provision_index": 256,
       "raw_text_preview": "Not later than 180 days after the date of the enactment of this paragraph and ev...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 291649
     },
     {
-      "provision_index": 254,
+      "provision_index": 257,
       "raw_text_preview": "The budgetary effects of division D and each subsequent division of this Act sha...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 292415
     },
     {
-      "provision_index": 255,
+      "provision_index": 258,
       "raw_text_preview": "The budgetary effects of division D and each subsequent division of this Act sha...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 292649
     },
     {
-      "provision_index": 256,
+      "provision_index": 259,
       "raw_text_preview": "Notwithstanding Rule 3 of the Budget Scorekeeping Guidelines set forth in the jo...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 292888
     },
     {
-      "provision_index": 257,
+      "provision_index": 260,
       "raw_text_preview": "SEC. 310. Prior to the initial obligation of funds made available in this title ...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 24399
     },
     {
-      "provision_index": 258,
+      "provision_index": 261,
       "raw_text_preview": "SEC. 401. Each amount appropriated or made available by this division is in addi...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 25839
     },
     {
-      "provision_index": 259,
+      "provision_index": 262,
       "raw_text_preview": "SEC. 402. No part of any appropriation contained in this division shall remain a...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 25989
     },
     {
-      "provision_index": 260,
+      "provision_index": 263,
       "raw_text_preview": "SEC. 403. Unless otherwise provided for by this division, the additional amounts...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 26162
     },
     {
-      "provision_index": 261,
+      "provision_index": 264,
       "raw_text_preview": "SEC. 404. (a) Not later than 45 days after the date of enactment of this divisio...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 26422
     },
     {
-      "provision_index": 262,
+      "provision_index": 265,
       "raw_text_preview": "SEC. 405. Funds appropriated by this division for foreign assistance (including ...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 27205
     },
     {
-      "provision_index": 263,
+      "provision_index": 266,
       "raw_text_preview": "SEC. 406. Each amount designated in this division by the Congress as being for a...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 27874
     },
     {
-      "provision_index": 264,
+      "provision_index": 267,
       "raw_text_preview": "SEC. 407. Any amount appropriated by this division, designated by the Congress a...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 28258
     },
     {
-      "provision_index": 265,
-      "raw_text_preview": "SEC. 408. Spending Reduction Account $0.",
-      "is_verbatim_substring": false,
-      "match_tier": "normalized",
-      "found_at_position": null
+      "provision_index": 268,
+      "raw_text_preview": "SEC. 408. \nSpending Reduction Account\n$0.",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 28623
     },
     {
-      "provision_index": 266,
+      "provision_index": 269,
       "raw_text_preview": "For an additional amount for ''Military Personnel, Army'', $207,158,000, to rema...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 28885
     },
     {
-      "provision_index": 267,
+      "provision_index": 270,
       "raw_text_preview": "For an additional amount for ''Military Personnel, Marine Corps'', $3,538,000, t...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 29298
     },
     {
-      "provision_index": 268,
+      "provision_index": 271,
       "raw_text_preview": "For an additional amount for ''Military Personnel, Air Force'', $23,302,000, to ...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 29714
     },
     {
-      "provision_index": 269,
+      "provision_index": 272,
       "raw_text_preview": "For an additional amount for ''Military Personnel, Space Force'', $4,192,000, to...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 30130
     },
     {
-      "provision_index": 270,
+      "provision_index": 273,
       "raw_text_preview": "For an additional amount for ''Operation and Maintenance, Army'', $4,887,581,000...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 30573
     },
     {
-      "provision_index": 271,
+      "provision_index": 274,
       "raw_text_preview": "For an additional amount for ''Operation and Maintenance, Navy'', $976,405,000, ...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 30994
     },
     {
-      "provision_index": 272,
+      "provision_index": 275,
       "raw_text_preview": "For an additional amount for ''Operation and Maintenance, Marine Corps'', $69,04...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 31421
     },
     {
-      "provision_index": 273,
+      "provision_index": 276,
       "raw_text_preview": "For an additional amount for ''Operation and Maintenance, Air Force'', $371,475,...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 31852
     },
     {
-      "provision_index": 274,
+      "provision_index": 277,
       "raw_text_preview": "For an additional amount for ''Operation and Maintenance, Space Force'', $8,443,...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 32283
     },
     {
-      "provision_index": 275,
+      "provision_index": 278,
       "raw_text_preview": "For an additional amount for ''Operation and Maintenance, Defense-Wide'', $27,93...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 32746
     },
     {
-      "provision_index": 276,
+      "provision_index": 279,
       "raw_text_preview": "of the total amount provided under this heading in this division, $13,772,460,00...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 32962
     },
     {
-      "provision_index": 277,
+      "provision_index": 280,
       "raw_text_preview": "of the total amount provided under this heading in this division, up to $13,414,...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 33462
     },
     {
-      "provision_index": 278,
+      "provision_index": 281,
       "raw_text_preview": "For an additional amount for ''Missile Procurement, Army'', $2,742,757,000, to r...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 35218
     },
     {
-      "provision_index": 279,
+      "provision_index": 282,
       "raw_text_preview": "For an additional amount for ''Procurement of Ammunition, Army'', $5,612,900,000...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 35634
     },
     {
-      "provision_index": 280,
+      "provision_index": 283,
       "raw_text_preview": "For an additional amount for ''Other Procurement, Army'', $308,991,000, to remai...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 36048
     },
     {
-      "provision_index": 281,
+      "provision_index": 284,
       "raw_text_preview": "For an additional amount for ''Weapons Procurement, Navy'', $706,976,000, to rem...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 36454
     },
     {
-      "provision_index": 282,
+      "provision_index": 285,
       "raw_text_preview": "For an additional amount for ''Other Procurement, Navy'', $26,000,000, to remain...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 36860
     },
     {
-      "provision_index": 283,
+      "provision_index": 286,
       "raw_text_preview": "For an additional amount for ''Procurement, Marine Corps'', $212,443,000, to rem...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 37265
     },
     {
-      "provision_index": 284,
+      "provision_index": 287,
       "raw_text_preview": "For an additional amount for ''Missile Procurement, Air Force'', $366,001,000, t...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 37678
     },
     {
-      "provision_index": 285,
+      "provision_index": 288,
       "raw_text_preview": "For an additional amount for ''Other Procurement, Air Force'', $3,284,072,000, t...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 38094
     },
     {
-      "provision_index": 286,
+      "provision_index": 289,
       "raw_text_preview": "For an additional amount for ''Procurement, Defense-Wide'', $46,780,000, to rema...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 38505
     },
     {
-      "provision_index": 287,
+      "provision_index": 290,
       "raw_text_preview": "For an additional amount for ''Research, Development, Test and Evaluation, Army'...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 38978
     },
     {
-      "provision_index": 288,
+      "provision_index": 291,
       "raw_text_preview": "For an additional amount for ''Research, Development, Test and Evaluation, Navy'...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 39431
     },
     {
-      "provision_index": 289,
+      "provision_index": 292,
       "raw_text_preview": "For an additional amount for ''Research, Development, Test and Evaluation, Air F...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 39889
     },
     {
-      "provision_index": 290,
+      "provision_index": 293,
       "raw_text_preview": "For an additional amount for ''Research, Development, Test and Evaluation, Defen...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 40356
     },
     {
-      "provision_index": 291,
+      "provision_index": 294,
       "raw_text_preview": "For an additional amount for ''Office of the Inspector General'', $8,000,000, to...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 40839
     },
     {
-      "provision_index": 292,
+      "provision_index": 295,
       "raw_text_preview": "the Inspector General of the Department of Defense shall provide to the congress...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 41293
     },
     {
-      "provision_index": 293,
+      "provision_index": 296,
       "raw_text_preview": "For an additional amount for ''Intelligence Community Management Account'', $2,0...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 41742
     },
     {
-      "provision_index": 294,
+      "provision_index": 297,
       "raw_text_preview": "(a) Upon the determination of the Secretary of Defense that such action is neces...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 42213
     },
     {
-      "provision_index": 295,
+      "provision_index": 298,
       "raw_text_preview": "(b) Upon the determination by the Director of National Intelligence that such ac...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 43107
     },
     {
-      "provision_index": 296,
+      "provision_index": 299,
       "raw_text_preview": "Not later than 60 days after the date of enactment of this division, the Secreta...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 43991
     },
     {
-      "provision_index": 297,
+      "provision_index": 300,
       "raw_text_preview": "Not later than 30 days after the date of enactment of this division, and every 3...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 45118
     },
     {
-      "provision_index": 298,
+      "provision_index": 301,
       "raw_text_preview": "For an additional amount for ''Science'', $98,000,000, to remain available until...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 45998
     },
     {
-      "provision_index": 299,
+      "provision_index": 302,
       "raw_text_preview": "For an additional amount for ''Defense Nuclear Nonproliferation'', $143,915,000,...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 46515
     },
     {
-      "provision_index": 300,
+      "provision_index": 303,
       "raw_text_preview": "For an additional amount for ''Federal Salaries and Expenses'', $5,540,000, to r...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 46935
     },
     {
-      "provision_index": 301,
+      "provision_index": 304,
       "raw_text_preview": "For an additional amount for ''Refugee and Entrant Assistance'', $481,000,000, t...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 47436
     },
     {
-      "provision_index": 302,
+      "provision_index": 305,
       "raw_text_preview": "SEC. 301. Section 401(a)(1)(A) of the Additional Ukraine Supplemental Appropriat...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
@@ -3044,19 +3054,19 @@
     ]
   },
   "summary": {
-    "total_provisions": 303,
+    "total_provisions": 306,
     "amounts_verified": 59,
     "amounts_not_found": 0,
-    "amounts_ambiguous": 23,
-    "raw_text_exact": 266,
-    "raw_text_normalized": 35,
+    "amounts_ambiguous": 22,
+    "raw_text_exact": 277,
+    "raw_text_normalized": 26,
     "raw_text_spaceless": 0,
-    "raw_text_no_match": 2,
+    "raw_text_no_match": 3,
     "completeness_pct": 85.27131782945736,
     "provisions_by_detail_level": {
-      "top_level": 68,
-      "sub_allocation": 13,
-      "n/a": 222
+      "n/a": 227,
+      "top_level": 67,
+      "sub_allocation": 12
     }
   }
 }

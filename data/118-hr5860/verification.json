@@ -92,16 +92,7 @@
       "status": "verified"
     },
     {
-      "provision_index": 33,
-      "text_as_written": "$621,270,000",
-      "found_in_source": true,
-      "source_positions": [
-        23248
-      ],
-      "status": "verified"
-    },
-    {
-      "provision_index": 35,
+      "provision_index": 36,
       "text_as_written": "$219,076,000",
       "found_in_source": true,
       "source_positions": [
@@ -110,7 +101,7 @@
       "status": "verified"
     },
     {
-      "provision_index": 38,
+      "provision_index": 39,
       "text_as_written": "$16,000,000,000",
       "found_in_source": true,
       "source_positions": [
@@ -119,7 +110,7 @@
       "status": "verified"
     },
     {
-      "provision_index": 39,
+      "provision_index": 40,
       "text_as_written": "$2,000,000",
       "found_in_source": true,
       "source_positions": [
@@ -128,7 +119,7 @@
       "status": "verified"
     },
     {
-      "provision_index": 40,
+      "provision_index": 41,
       "text_as_written": "$15,500,000,000",
       "found_in_source": true,
       "source_positions": [
@@ -137,14 +128,14 @@
       "status": "verified"
     },
     {
-      "provision_index": 44,
+      "provision_index": 45,
       "text_as_written": "",
       "found_in_source": true,
       "source_positions": [],
       "status": "verified"
     },
     {
-      "provision_index": 48,
+      "provision_index": 49,
       "text_as_written": "$617,000,000",
       "found_in_source": true,
       "source_positions": [
@@ -153,7 +144,7 @@
       "status": "verified"
     },
     {
-      "provision_index": 49,
+      "provision_index": 50,
       "text_as_written": "$2,174,200,000",
       "found_in_source": true,
       "source_positions": [
@@ -162,14 +153,7 @@
       "status": "verified"
     },
     {
-      "provision_index": 50,
-      "text_as_written": "",
-      "found_in_source": true,
-      "source_positions": [],
-      "status": "verified"
-    },
-    {
-      "provision_index": 53,
+      "provision_index": 54,
       "text_as_written": "$842,076,502",
       "found_in_source": true,
       "source_positions": [
@@ -178,7 +162,7 @@
       "status": "verified"
     },
     {
-      "provision_index": 64,
+      "provision_index": 65,
       "text_as_written": "$140,401,803",
       "found_in_source": true,
       "source_positions": [
@@ -187,7 +171,7 @@
       "status": "verified"
     },
     {
-      "provision_index": 67,
+      "provision_index": 68,
       "text_as_written": "$9,803,278",
       "found_in_source": true,
       "source_positions": [
@@ -196,7 +180,7 @@
       "status": "verified"
     },
     {
-      "provision_index": 80,
+      "provision_index": 81,
       "text_as_written": "$2,995,027,322",
       "found_in_source": true,
       "source_positions": [
@@ -205,7 +189,7 @@
       "status": "verified"
     },
     {
-      "provision_index": 81,
+      "provision_index": 82,
       "text_as_written": "$740,273,224",
       "found_in_source": true,
       "source_positions": [
@@ -214,7 +198,7 @@
       "status": "verified"
     },
     {
-      "provision_index": 82,
+      "provision_index": 83,
       "text_as_written": "$64,098,360",
       "found_in_source": true,
       "source_positions": [
@@ -223,7 +207,7 @@
       "status": "verified"
     },
     {
-      "provision_index": 83,
+      "provision_index": 84,
       "text_as_written": "$89,191,486",
       "found_in_source": true,
       "source_positions": [
@@ -232,7 +216,7 @@
       "status": "verified"
     },
     {
-      "provision_index": 84,
+      "provision_index": 85,
       "text_as_written": "$2,513,661",
       "found_in_source": true,
       "source_positions": [
@@ -241,7 +225,7 @@
       "status": "verified"
     },
     {
-      "provision_index": 91,
+      "provision_index": 97,
       "text_as_written": "$33,500,000",
       "found_in_source": true,
       "source_positions": [
@@ -250,7 +234,7 @@
       "status": "verified"
     },
     {
-      "provision_index": 101,
+      "provision_index": 107,
       "text_as_written": "$25,000,000",
       "found_in_source": true,
       "source_positions": [
@@ -259,7 +243,16 @@
       "status": "verified"
     },
     {
-      "provision_index": 112,
+      "provision_index": 108,
+      "text_as_written": "$50,000",
+      "found_in_source": true,
+      "source_positions": [
+        56324
+      ],
+      "status": "verified"
+    },
+    {
+      "provision_index": 118,
       "text_as_written": "$16,635,616",
       "found_in_source": true,
       "source_positions": [
@@ -268,7 +261,7 @@
       "status": "verified"
     },
     {
-      "provision_index": 113,
+      "provision_index": 119,
       "text_as_written": "$526,027,397",
       "found_in_source": true,
       "source_positions": [
@@ -277,7 +270,7 @@
       "status": "verified"
     },
     {
-      "provision_index": 114,
+      "provision_index": 120,
       "text_as_written": "$40,767,123",
       "found_in_source": true,
       "source_positions": [
@@ -286,7 +279,7 @@
       "status": "verified"
     },
     {
-      "provision_index": 117,
+      "provision_index": 123,
       "text_as_written": "$19,726,027",
       "found_in_source": true,
       "source_positions": [
@@ -296,7 +289,7 @@
       "status": "ambiguous"
     },
     {
-      "provision_index": 118,
+      "provision_index": 124,
       "text_as_written": "$19,726,027",
       "found_in_source": true,
       "source_positions": [
@@ -306,7 +299,7 @@
       "status": "ambiguous"
     },
     {
-      "provision_index": 125,
+      "provision_index": 131,
       "text_as_written": "$6,357,117,810",
       "found_in_source": true,
       "source_positions": [
@@ -318,10 +311,10 @@
   "raw_text_checks": [
     {
       "provision_index": 0,
-      "raw_text_preview": "SEC. 101. Such amounts as may be necessary, at a rate for operations as provided...",
+      "raw_text_preview": "Such amounts as may be necessary, at a rate for operations as provided in the ap...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 1119
+      "found_at_position": 1129
     },
     {
       "provision_index": 1,
@@ -395,839 +388,880 @@
     },
     {
       "provision_index": 11,
-      "raw_text_preview": "SEC. 102. (a) No appropriation or funds made available or authority granted purs...",
+      "raw_text_preview": "No appropriation or funds made available or authority granted pursuant to sectio...",
       "is_verbatim_substring": false,
       "match_tier": "normalized",
       "found_at_position": null
     },
     {
       "provision_index": 12,
-      "raw_text_preview": "SEC. 103. Appropriations made by section 101 shall be available to the extent an...",
+      "raw_text_preview": "Appropriations made by section 101 shall be available to the extent and in the m...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 9332
+      "found_at_position": 9342
     },
     {
       "provision_index": 13,
-      "raw_text_preview": "SEC. 104. Except as otherwise provided in section 102, no appropriation or funds...",
+      "raw_text_preview": "Except as otherwise provided in section 102, no appropriation or funds made avai...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 9489
+      "found_at_position": 9499
     },
     {
       "provision_index": 14,
-      "raw_text_preview": "SEC. 105. Appropriations made and authority granted pursuant to this Act shall c...",
+      "raw_text_preview": "Appropriations made and authority granted pursuant to this Act shall cover all o...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 9787
+      "found_at_position": 9797
     },
     {
       "provision_index": 15,
-      "raw_text_preview": "SEC. 106. Unless otherwise provided for in this Act or in the applicable appropr...",
+      "raw_text_preview": "Unless otherwise provided for in this Act or in the applicable appropriations Ac...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 10048
+      "found_at_position": 10058
     },
     {
       "provision_index": 16,
-      "raw_text_preview": "SEC. 107. Expenditures made pursuant to this Act shall be charged to the applica...",
+      "raw_text_preview": "Expenditures made pursuant to this Act shall be charged to the applicable approp...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 10575
+      "found_at_position": 10585
     },
     {
       "provision_index": 17,
-      "raw_text_preview": "SEC. 108. Appropriations made and funds made available by or authority granted p...",
+      "raw_text_preview": "Appropriations made and funds made available by or authority granted pursuant to...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 10811
+      "found_at_position": 10821
     },
     {
       "provision_index": 18,
-      "raw_text_preview": "SEC. 109. Notwithstanding any other provision of this Act, except section 106, f...",
+      "raw_text_preview": "Notwithstanding any other provision of this Act, except section 106, for those p...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 11183
+      "found_at_position": 11193
     },
     {
       "provision_index": 19,
-      "raw_text_preview": "SEC. 110. This Act shall be implemented so that only the most limited funding ac...",
+      "raw_text_preview": "This Act shall be implemented so that only the most limited funding action of th...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 11706
+      "found_at_position": 11716
     },
     {
       "provision_index": 20,
-      "raw_text_preview": "SEC. 111. (a) For entitlements and other mandatory payments whose budget authori...",
+      "raw_text_preview": "For entitlements and other mandatory payments whose budget authority was provide...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 11901
+      "found_at_position": 11915
     },
     {
       "provision_index": 21,
-      "raw_text_preview": "SEC. 112. Amounts made available under section 101 for civilian personnel compen...",
+      "raw_text_preview": "Amounts made available under section 101 for civilian personnel compensation and...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 12767
+      "found_at_position": 12777
     },
     {
       "provision_index": 22,
-      "raw_text_preview": "SEC. 113. Funds appropriated by this Act may be obligated and expended notwithst...",
+      "raw_text_preview": "Funds appropriated by this Act may be obligated and expended notwithstanding sec...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 13290
+      "found_at_position": 13300
     },
     {
       "provision_index": 23,
-      "raw_text_preview": "SEC. 114. (a) (1) For each amount incorporated by reference in this Act from amo...",
+      "raw_text_preview": "(a) (1) For each amount incorporated by reference in this Act from amounts provi...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 13697
+      "found_at_position": 13707
     },
     {
       "provision_index": 24,
-      "raw_text_preview": "SEC. 115. (a) Rescissions or cancellations of discretionary budget authority tha...",
-      "is_verbatim_substring": false,
-      "match_tier": "normalized",
-      "found_at_position": null
+      "raw_text_preview": "Rescissions or cancellations of discretionary budget authority that continue pur...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 18364
     },
     {
       "provision_index": 25,
-      "raw_text_preview": "SEC. 116. Amounts made available by section 101 for ''Farm Service Agency—Agri...",
+      "raw_text_preview": "No later than November 17, 2023, the Director of the Office of Management and Bu...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 20140
+      "found_at_position": 19419
     },
     {
       "provision_index": 26,
-      "raw_text_preview": "SEC. 117. Amounts made available by section 101 for ''Rural Housing Service—Re...",
+      "raw_text_preview": "Amounts made available by section 101 for ''Farm Service Agency—Agricultural C...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 20453
+      "found_at_position": 20150
     },
     {
       "provision_index": 27,
-      "raw_text_preview": "SEC. 118. Amounts made available by section 101 for ''Domestic Food Programs—F...",
+      "raw_text_preview": "Amounts made available by section 101 for ''Rural Housing Service—Rental Assis...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 20705
+      "found_at_position": 20463
     },
     {
       "provision_index": 28,
-      "raw_text_preview": "SEC. 119. Amounts made available by section 101 for ''Domestic Food Programs—F...",
+      "raw_text_preview": "Amounts made available by section 101 for ''Domestic Food Programs—Food and Nu...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 20977
+      "found_at_position": 20715
     },
     {
       "provision_index": 29,
-      "raw_text_preview": "SEC. 120. Section 260 of the Agricultural Marketing Act of 1946 (7 U.S.C. 1636i)...",
+      "raw_text_preview": "Amounts made available by section 101 for ''Domestic Food Programs—Food and Nu...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 21257
+      "found_at_position": 20987
     },
     {
       "provision_index": 30,
-      "raw_text_preview": "SEC. 121. Amounts made available by section 101 for ''National Telecommunication...",
+      "raw_text_preview": "Section 260 of the Agricultural Marketing Act of 1946 (7 U.S.C. 1636i) and secti...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 21556
+      "found_at_position": 21267
     },
     {
       "provision_index": 31,
-      "raw_text_preview": "SEC. 122. (a) Funds previously made available in the Consolidated Appropriations...",
+      "raw_text_preview": "Amounts made available by section 101 for ''National Telecommunications and Info...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 21789
+      "found_at_position": 21566
     },
     {
       "provision_index": 32,
-      "raw_text_preview": "SEC. 123. For purposes of section 235(b) of the Sentencing Reform Act of 1984 (1...",
+      "raw_text_preview": "Funds previously made available in the Consolidated Appropriations Act, 2017 (Pu...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 22531
+      "found_at_position": 21803
     },
     {
       "provision_index": 33,
-      "raw_text_preview": "SEC. 124. Notwithstanding sections 102 and 104, amounts made available by sectio...",
+      "raw_text_preview": "For purposes of section 235(b) of the Sentencing Reform Act of 1984 (18 U.S.C. 3...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 22955
+      "found_at_position": 22541
     },
     {
       "provision_index": 34,
-      "raw_text_preview": "SEC. 125. During the period covered by this Act, section 714(b)(2)(B) of title 1...",
+      "raw_text_preview": "Notwithstanding sections 102 and 104, amounts made available by section 101 to t...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 23315
+      "found_at_position": 22965
     },
     {
       "provision_index": 35,
-      "raw_text_preview": "SEC. 126. Notwithstanding section 101, the matter preceding the first proviso un...",
+      "raw_text_preview": "During the period covered by this Act, section 714(b)(2)(B) of title 10, United ...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 23486
+      "found_at_position": 23325
     },
     {
       "provision_index": 36,
-      "raw_text_preview": "SEC. 127. Notwithstanding any other provision of this Act, except section 106, t...",
+      "raw_text_preview": "Notwithstanding section 101, the matter preceding the first proviso under the he...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 23752
+      "found_at_position": 23496
     },
     {
       "provision_index": 37,
-      "raw_text_preview": "SEC. 128. Amounts made available by section 101 to the Department of Homeland Se...",
+      "raw_text_preview": "Notwithstanding any other provision of this Act, except section 106, the Distric...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 24250
+      "found_at_position": 23762
     },
     {
       "provision_index": 38,
-      "raw_text_preview": "SEC. 129. In addition to amounts otherwise provided by section 101, for ''Federa...",
+      "raw_text_preview": "Amounts made available by section 101 to the Department of Homeland Security und...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 24624
+      "found_at_position": 24260
     },
     {
       "provision_index": 39,
+      "raw_text_preview": "In addition to amounts otherwise provided by section 101, for ''Federal Emergenc...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 24634
+    },
+    {
+      "provision_index": 40,
       "raw_text_preview": "of which $2,000,000 shall be transferred to ''Office of the Inspector General—...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 24882
     },
     {
-      "provision_index": 40,
-      "raw_text_preview": "and $15,500,000,000 shall be for major disasters declared pursuant to the Robert...",
-      "is_verbatim_substring": true,
-      "match_tier": "exact",
-      "found_at_position": 25107
-    },
-    {
       "provision_index": 41,
-      "raw_text_preview": "SEC. 130. (a) Sections 1309(a) and 1319 of the National Flood Insurance Act of 1...",
+      "raw_text_preview": "$15,500,000,000 shall be for major disasters declared pursuant to the Robert T. ...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 25469
+      "found_at_position": 25111
     },
     {
       "provision_index": 42,
-      "raw_text_preview": "SEC. 131. Section 227(a) of the Federal Cybersecurity Enhancement Act of 2015 (6...",
+      "raw_text_preview": "Sections 1309(a) and 1319 of the National Flood Insurance Act of 1968 (42 U.S.C....",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 25935
+      "found_at_position": 25483
     },
     {
       "provision_index": 43,
-      "raw_text_preview": "SEC. 132. Amounts made available by section 101 for ''Department of the Interior...",
+      "raw_text_preview": "Section 227(a) of the Federal Cybersecurity Enhancement Act of 2015 (6 U.S.C. 15...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 26143
+      "found_at_position": 25945
     },
     {
       "provision_index": 44,
-      "raw_text_preview": "SEC. 133. Activities authorized by part A of title IV (other than under section ...",
+      "raw_text_preview": "Amounts made available by section 101 for ''Department of the Interior—Departm...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 26607
+      "found_at_position": 26153
     },
     {
       "provision_index": 45,
-      "raw_text_preview": "SEC. 134. Notwithstanding section 101, section 126 of division J of Public Law 1...",
+      "raw_text_preview": "Activities authorized by part A of title IV (other than under section 403(c) or ...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 27022
+      "found_at_position": 26617
     },
     {
       "provision_index": 46,
-      "raw_text_preview": "SEC. 135. The authority provided by section 2401 of the Afghanistan Supplemental...",
+      "raw_text_preview": "Notwithstanding section 101, section 126 of division J of Public Law 117–328 s...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 27291
+      "found_at_position": 27032
     },
     {
       "provision_index": 47,
-      "raw_text_preview": "SEC. 136. Notwithstanding section 101, the matter under the heading ''Bilateral ...",
+      "raw_text_preview": "The authority provided by section 2401 of the Afghanistan Supplemental Appropria...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 27517
+      "found_at_position": 27301
     },
     {
       "provision_index": 48,
-      "raw_text_preview": "SEC. 137. Notwithstanding section 101, the matter preceding the first proviso un...",
+      "raw_text_preview": "Notwithstanding section 101, the matter under the heading ''Bilateral Economic A...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 28395
+      "found_at_position": 27527
     },
     {
       "provision_index": 49,
+      "raw_text_preview": "Notwithstanding section 101, the matter preceding the first proviso under the he...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 28405
+    },
+    {
+      "provision_index": 50,
       "raw_text_preview": "substituting ''$2,174,200,000'' for ''$2,221,200,000''",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 28709
     },
     {
-      "provision_index": 50,
-      "raw_text_preview": "There is appropriated, out of any money in the Treasury not otherwise appropriat...",
+      "provision_index": 51,
+      "raw_text_preview": "During the period beginning on October 1, 2023, and ending on November 17, 2023,...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 29777
+      "found_at_position": 29120
     },
     {
-      "provision_index": 51,
+      "provision_index": 52,
       "raw_text_preview": "During the period beginning on October 1, 2023, and ending on the date on which ...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 30065
     },
     {
-      "provision_index": 52,
+      "provision_index": 53,
       "raw_text_preview": "Section 413(a) of the Indian Self-Determination and Education Assistance Act (25...",
-      "is_verbatim_substring": false,
-      "match_tier": "no_match",
-      "found_at_position": null
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 31549
     },
     {
-      "provision_index": 53,
+      "provision_index": 54,
       "raw_text_preview": "Section 48103(a) of title 49, United States Code, is amended— (1) paragraph (5...",
       "is_verbatim_substring": false,
       "match_tier": "no_match",
       "found_at_position": null
     },
     {
-      "provision_index": 54,
+      "provision_index": 55,
       "raw_text_preview": "Subject to limitations specified in advance in appropriation Acts, sums made ava...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 32314
     },
     {
-      "provision_index": 55,
+      "provision_index": 56,
       "raw_text_preview": "For purposes of calculating funding apportionments and meeting other requirement...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 32578
     },
     {
-      "provision_index": 56,
+      "provision_index": 57,
       "raw_text_preview": "Section 47104(c) of title 49, United States Code, is amended on the matter prece...",
       "is_verbatim_substring": false,
       "match_tier": "no_match",
       "found_at_position": null
     },
     {
-      "provision_index": 57,
+      "provision_index": 58,
       "raw_text_preview": "Section 47114(c)(1)(J) of title 49, United States Code, is amended by striking '...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 33539
     },
     {
-      "provision_index": 58,
+      "provision_index": 59,
       "raw_text_preview": "Section 44310(b) of title 49, United States Code, is amended by striking ''Septe...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 33854
     },
     {
-      "provision_index": 59,
+      "provision_index": 60,
       "raw_text_preview": "Section 44803(h) of title 49, United States Code, is amended by striking ''Septe...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 34022
     },
     {
-      "provision_index": 60,
+      "provision_index": 61,
       "raw_text_preview": "Section 44807(d) of title 49, United States Code, is amended by striking ''Septe...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 34217
     },
     {
-      "provision_index": 61,
+      "provision_index": 62,
       "raw_text_preview": "Section 44810(h) of title 49, United States Code, is amended by striking ''Septe...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 34430
     },
     {
-      "provision_index": 62,
+      "provision_index": 63,
       "raw_text_preview": "Section 47107(r)(3) of title 49, United States Code, is amended by striking ''Oc...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 34610
     },
     {
-      "provision_index": 63,
+      "provision_index": 64,
       "raw_text_preview": "Section 47115(i) of title 49, United States Code, is amended by inserting '', an...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 34786
     },
     {
-      "provision_index": 64,
+      "provision_index": 65,
       "raw_text_preview": "Section 47115(j)(4)(A) of title 49, United States Code, is amended by inserting ...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 35028
     },
     {
-      "provision_index": 65,
+      "provision_index": 66,
       "raw_text_preview": "Section 47141(f) of title 49, United States Code, is amended by striking ''Septe...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 35310
     },
     {
-      "provision_index": 66,
+      "provision_index": 67,
       "raw_text_preview": "Section 47143(c) of title 49, United States Code, is amended by striking ''Octob...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 35493
     },
     {
-      "provision_index": 67,
+      "provision_index": 68,
       "raw_text_preview": "Section 48105 of title 49, United States Code, is amended by adding at the end t...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 35654
     },
     {
-      "provision_index": 68,
+      "provision_index": 69,
       "raw_text_preview": "Section 50905(c)(9) of title 51, United States Code, is amended by striking ''Oc...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 35864
     },
     {
-      "provision_index": 69,
+      "provision_index": 70,
       "raw_text_preview": "Section 186(d) of the Vision 100—Century of Aviation Reauthorization Act (Publ...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 36022
     },
     {
-      "provision_index": 70,
+      "provision_index": 71,
       "raw_text_preview": "Section 409(d) of the Vision 100—Century of Aviation Reauthorization Act (49 U...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 36354
     },
     {
-      "provision_index": 71,
+      "provision_index": 72,
       "raw_text_preview": "Section 2306(b) of the FAA Extension, Safety, and Security Act of 2016 (Public L...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 36567
     },
     {
-      "provision_index": 72,
+      "provision_index": 73,
       "raw_text_preview": "Section 161(a)(10) of the FAA Reauthorization Act of 2018 (49 U.S.C. 47104 note)...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 36787
     },
     {
-      "provision_index": 73,
+      "provision_index": 74,
       "raw_text_preview": "Section 162 of the FAA Reauthorization Act of 2018 (49 U.S.C. 47102 note) is ame...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 37044
     },
     {
-      "provision_index": 74,
+      "provision_index": 75,
       "raw_text_preview": "Section 372(d) of the FAA Reauthorization Act of 2018 (49 U.S.C. 44810 note) is ...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 37329
     },
     {
-      "provision_index": 75,
+      "provision_index": 76,
       "raw_text_preview": "Section 411(h) of the FAA Modernization and Reform Act of 2012 (49 U.S.C. 42301 ...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 37546
     },
     {
-      "provision_index": 76,
+      "provision_index": 77,
       "raw_text_preview": "Section 424(e) of the FAA Reauthorization Act of 2018 (49 U.S.C. 42302 note) is ...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 37748
     },
     {
-      "provision_index": 77,
+      "provision_index": 78,
       "raw_text_preview": "Section 439(g) of the FAA Reauthorization Act of 2018 (49 U.S.C. 41705 note) is ...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 37984
     },
     {
-      "provision_index": 78,
+      "provision_index": 79,
       "raw_text_preview": "Section 547(e) of the FAA Reauthorization Act of 2018 (49 U.S.C. 40103 note) is ...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 38176
     },
     {
-      "provision_index": 79,
+      "provision_index": 80,
       "raw_text_preview": "Section 822(k) of the FAA Modernization and Reform Act of 2012 (49 U.S.C. 47141 ...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 38395
     },
     {
-      "provision_index": 80,
-      "raw_text_preview": "Section 106(k) of title 49, United States Code, is amended— (1) on paragraph (...",
+      "provision_index": 81,
+      "raw_text_preview": "Section 106(k) of title 49, United States Code, is amended— (1) paragraph (1)...",
       "is_verbatim_substring": false,
       "match_tier": "no_match",
       "found_at_position": null
     },
     {
-      "provision_index": 81,
+      "provision_index": 82,
       "raw_text_preview": "Section 48101(a) of title 49, United States Code, is amended by adding at the en...",
       "is_verbatim_substring": false,
       "match_tier": "normalized",
       "found_at_position": null
     },
     {
-      "provision_index": 82,
+      "provision_index": 83,
       "raw_text_preview": "Section 48102(a) of title 49, United States Code, is amended— (1) paragraph (1...",
       "is_verbatim_substring": false,
       "match_tier": "no_match",
       "found_at_position": null
     },
     {
-      "provision_index": 83,
+      "provision_index": 84,
       "raw_text_preview": "Section 41742(a)(2) of title 49, United States Code, is amended by striking ''20...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 39884
     },
     {
-      "provision_index": 84,
+      "provision_index": 85,
       "raw_text_preview": "Section 41743(e)(2) of title 49, United States Code, is amended by inserting '',...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 40135
     },
     {
-      "provision_index": 85,
+      "provision_index": 86,
       "raw_text_preview": "Section 9502(d)(1) of the Internal Revenue Code of 1986 is amended— (1) the ma...",
       "is_verbatim_substring": false,
       "match_tier": "no_match",
       "found_at_position": null
     },
     {
-      "provision_index": 86,
+      "provision_index": 87,
       "raw_text_preview": "Section 4081(d)(2)(B) of the Internal Revenue Code of 1986 is amended by strikin...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 41057
     },
     {
-      "provision_index": 87,
+      "provision_index": 88,
+      "raw_text_preview": "Section 4261(k)(1)(A)(ii) of such Code is amended by striking ''September 30, 20...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 41230
+    },
+    {
+      "provision_index": 89,
+      "raw_text_preview": "Section 4271(d)(1)(A)(ii) of such Code is amended by striking ''September 30, 20...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 41367
+    },
+    {
+      "provision_index": 90,
+      "raw_text_preview": "Section 4043(d) of such Code is amended by striking ''September 30, 2023'' and i...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 41538
+    },
+    {
+      "provision_index": 91,
+      "raw_text_preview": "Section 4083(b) of such Code is amended by striking ''October 1, 2023'' and inse...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 41692
+    },
+    {
+      "provision_index": 92,
+      "raw_text_preview": "Section 4261(j) of such Code is amended by striking ''September 30, 2023'' and i...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 41830
+    },
+    {
+      "provision_index": 93,
       "raw_text_preview": "Section 210G(i) of the Homeland Security Act of 2002 (6 U.S.C. 124n(i)) is amend...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 42059
     },
     {
-      "provision_index": 88,
-      "raw_text_preview": "This chapter may be cited as the ''Animal Drug User Fee Amendments of 2023''. (b...",
-      "is_verbatim_substring": false,
-      "match_tier": "normalized",
-      "found_at_position": null
+      "provision_index": 94,
+      "raw_text_preview": "Congress finds that the fees authorized by the amendments made in this chapter w...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 42536
     },
     {
-      "provision_index": 89,
+      "provision_index": 95,
       "raw_text_preview": "Section 739 of the Federal Food, Drug, and Cosmetic Act (21 U.S.C. 379j–11) is...",
       "is_verbatim_substring": false,
       "match_tier": "no_match",
       "found_at_position": null
     },
     {
-      "provision_index": 90,
+      "provision_index": 96,
       "raw_text_preview": "Section 740(a)(1)(A)(ii) of the Federal Food, Drug, and Cosmetic Act (21 U.S.C. ...",
       "is_verbatim_substring": false,
       "match_tier": "no_match",
       "found_at_position": null
     },
     {
-      "provision_index": 91,
-      "raw_text_preview": "Section 740(b)(1) of the Federal Food, Drug, and Cosmetic Act (21 U.S.C. 379j–...",
+      "provision_index": 97,
+      "raw_text_preview": "Subject to subsections (c), (d), (f), and (g), for each of fiscal years 2024 thr...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 44776
+    },
+    {
+      "provision_index": 98,
+      "raw_text_preview": "Not later than 60 days before the start of each fiscal year beginning after Sept...",
       "is_verbatim_substring": false,
       "match_tier": "normalized",
       "found_at_position": null
     },
     {
-      "provision_index": 92,
-      "raw_text_preview": "Section 740(c)(1) of the Federal Food, Drug, and Cosmetic Act (21 U.S.C. 379j–...",
-      "is_verbatim_substring": false,
-      "match_tier": "normalized",
-      "found_at_position": null
-    },
-    {
-      "provision_index": 93,
+      "provision_index": 99,
       "raw_text_preview": "Fees under paragraphs (2), (3), and (4) of subsection (a) shall not apply with r...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 48756
     },
     {
-      "provision_index": 94,
+      "provision_index": 100,
       "raw_text_preview": "Section 740(g)(3) of the Federal Food, Drug, and Cosmetic Act (21 U.S.C. 379j–...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 49296
     },
     {
-      "provision_index": 95,
+      "provision_index": 101,
       "raw_text_preview": "Section 740A of the Federal Food, Drug, and Cosmetic Act (21 U.S.C. 379j–13) i...",
       "is_verbatim_substring": false,
       "match_tier": "no_match",
       "found_at_position": null
     },
     {
-      "provision_index": 96,
+      "provision_index": 102,
       "raw_text_preview": "Notwithstanding the amendments made by this chapter, part 4 of subchapter C of c...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 50197
     },
     {
-      "provision_index": 97,
+      "provision_index": 103,
       "raw_text_preview": "The amendments made by this chapter shall take effect on October 1, 2023, or the...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 50855
     },
     {
-      "provision_index": 98,
-      "raw_text_preview": "(a) Authorization Sections 739 and 740 of the Federal Food, Drug, and Cosmetic A...",
-      "is_verbatim_substring": false,
-      "match_tier": "no_match",
-      "found_at_position": null
+      "provision_index": 104,
+      "raw_text_preview": "Sections 739 and 740 of the Federal Food, Drug, and Cosmetic Act (21 U.S.C. 21 U...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 51380
     },
     {
-      "provision_index": 99,
-      "raw_text_preview": "This chapter may be cited as the ''Animal Generic Drug User Fee Amendments of 20...",
-      "is_verbatim_substring": false,
-      "match_tier": "normalized",
-      "found_at_position": null
+      "provision_index": 105,
+      "raw_text_preview": "Congress finds that the fees authorized by the amendments made in this chapter w...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 52061
     },
     {
-      "provision_index": 100,
+      "provision_index": 106,
       "raw_text_preview": "Section 741(a) of the Federal Food, Drug, and Cosmetic Act (21 U.S.C. 379j–21(...",
       "is_verbatim_substring": false,
       "match_tier": "normalized",
       "found_at_position": null
     },
     {
-      "provision_index": 101,
-      "raw_text_preview": "Section 741(b) of the Federal Food, Drug, and Cosmetic Act (21 U.S.C. 379j– 21...",
-      "is_verbatim_substring": false,
-      "match_tier": "no_match",
-      "found_at_position": null
-    },
-    {
-      "provision_index": 102,
-      "raw_text_preview": "Section 741(c)(1) of the Federal Food, Drug, and Cosmetic Act (21 U.S.C. 379j–...",
+      "provision_index": 107,
+      "raw_text_preview": "paragraph (1)— (A) by striking ''2019 through 2023'' and inserting ''2024 thro...",
       "is_verbatim_substring": false,
       "match_tier": "normalized",
       "found_at_position": null
     },
     {
-      "provision_index": 103,
-      "raw_text_preview": "Subsection (d) of section 741 of the Federal Food, Drug, and Cosmetic Act (21 U....",
-      "is_verbatim_substring": false,
-      "match_tier": "normalized",
-      "found_at_position": null
+      "provision_index": 108,
+      "raw_text_preview": "The Secretary shall establish, not later than 60 days before the start of each f...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 55659
     },
     {
-      "provision_index": 104,
+      "provision_index": 109,
+      "raw_text_preview": "The Secretary shall grant a waiver from, or a reduction of, one or more fees ass...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 58259
+    },
+    {
+      "provision_index": 110,
       "raw_text_preview": "Section 741(e) of the Federal Food, Drug, and Cosmetic Act (21 U.S.C. 379j–21(...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 58537
     },
     {
-      "provision_index": 105,
+      "provision_index": 111,
       "raw_text_preview": "Section 741(f)(2) of the Federal Food, Drug, and Cosmetic Act (21 U.S.C. 379j–...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 59024
     },
     {
-      "provision_index": 106,
+      "provision_index": 112,
       "raw_text_preview": "Section 741(g) of the Federal Food, Drug, and Cosmetic Act (21 U.S.C. 379j–21(...",
       "is_verbatim_substring": false,
       "match_tier": "no_match",
       "found_at_position": null
     },
     {
-      "provision_index": 107,
+      "provision_index": 113,
       "raw_text_preview": "Section 741(k) of the Federal Food, Drug, and Cosmetic Act (21 U.S.C. 379j–21(...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 60656
     },
     {
-      "provision_index": 108,
+      "provision_index": 114,
       "raw_text_preview": "Section 742 of the Federal Food, Drug, and Cosmetic Act (21 U.S.C. 379j–22) is...",
       "is_verbatim_substring": false,
       "match_tier": "no_match",
       "found_at_position": null
     },
     {
-      "provision_index": 109,
+      "provision_index": 115,
       "raw_text_preview": "Notwithstanding the amendments made by this chapter, part 5 of subchapter C of c...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 62657
     },
     {
-      "provision_index": 110,
+      "provision_index": 116,
       "raw_text_preview": "The amendments made by this chapter shall take effect on October 1, 2023, or the...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 50855
     },
     {
-      "provision_index": 111,
-      "raw_text_preview": "Section 741 of the Federal Food, Drug, and Cosmetic Act (21 U.S.C. 379j–21) sh...",
+      "provision_index": 117,
+      "raw_text_preview": "(a) \nAuthorization\nSection 741 of the Federal Food, Drug, and Cosmetic Act (21 U...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 63957
+      "found_at_position": 63938
     },
     {
-      "provision_index": 112,
+      "provision_index": 118,
       "raw_text_preview": "Section 340H(g) of the Public Health Service Act (42 U.S.C. 256h(g)) is amended...",
-      "is_verbatim_substring": false,
-      "match_tier": "normalized",
-      "found_at_position": null
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 64666
     },
     {
-      "provision_index": 113,
+      "provision_index": 119,
       "raw_text_preview": "Section 10503(b)(1)(F) of the Patient Protection and Affordable Care Act (42 U.S...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 65015
     },
     {
-      "provision_index": 114,
-      "raw_text_preview": "(3) by adding at the end the following: (I) $40,767,123 for the period beginning...",
-      "is_verbatim_substring": true,
-      "match_tier": "exact",
-      "found_at_position": 65662
+      "provision_index": 120,
+      "raw_text_preview": "Section 10503(b)(2) of the Patient Protection and Affordable Care Act (42 U.S.C....",
+      "is_verbatim_substring": false,
+      "match_tier": "no_match",
+      "found_at_position": null
     },
     {
-      "provision_index": 115,
+      "provision_index": 121,
       "raw_text_preview": "Amounts appropriated pursuant to the amendments made by this section shall be su...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 65829
     },
     {
-      "provision_index": 116,
-      "raw_text_preview": "Section 3014(h)(4) of title 18, United States Code, is amended— (1) by strikin...",
-      "is_verbatim_substring": false,
-      "match_tier": "normalized",
-      "found_at_position": null
-    },
-    {
-      "provision_index": 117,
-      "raw_text_preview": "(E) $19,726,027 for the period beginning on October 1, 2023, and ending on Novem...",
-      "is_verbatim_substring": true,
-      "match_tier": "exact",
-      "found_at_position": 66958
-    },
-    {
-      "provision_index": 118,
-      "raw_text_preview": "(E) $19,726,027 for the period beginning on October 1, 2023, and ending on Novem...",
-      "is_verbatim_substring": true,
-      "match_tier": "exact",
-      "found_at_position": 66958
-    },
-    {
-      "provision_index": 119,
-      "raw_text_preview": "Section 2812(c)(4)(B) of the Public Health Service Act (42 U.S.C. 300hh–11(c)(...",
-      "is_verbatim_substring": true,
-      "match_tier": "exact",
-      "found_at_position": 67713
-    },
-    {
-      "provision_index": 120,
-      "raw_text_preview": "Section 319(e)(8) of the Public Health Service Act (42 U.S.C. 247d(e)(8)) is ame...",
-      "is_verbatim_substring": true,
-      "match_tier": "exact",
-      "found_at_position": 67981
-    },
-    {
-      "provision_index": 121,
-      "raw_text_preview": "Section 2811A(g) of the Public Health Service Act (42 U.S.C. 300hh–10b(g)) is ...",
-      "is_verbatim_substring": true,
-      "match_tier": "exact",
-      "found_at_position": 68253
-    },
-    {
       "provision_index": 122,
-      "raw_text_preview": "Section 2811B(g)(1) of the Public Health Service Act (42 U.S.C. 300hh–10c(g)(1...",
+      "raw_text_preview": "Section 3014(h)(4) of title 18, United States Code, is amended— \n(1) by striki...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 68471
+      "found_at_position": 66133
     },
     {
       "provision_index": 123,
-      "raw_text_preview": "Section 2811C(g)(1) of the Public Health Service Act (42 U.S.C. 300hh–10d(g)(1...",
-      "is_verbatim_substring": true,
-      "match_tier": "exact",
-      "found_at_position": 68718
+      "raw_text_preview": "Section 330B(b)(2) of the Public Health Service Act (42 U.S.C. 254c–2(b)(2)) i...",
+      "is_verbatim_substring": false,
+      "match_tier": "no_match",
+      "found_at_position": null
     },
     {
       "provision_index": 124,
-      "raw_text_preview": "Section 1923(f)(7)(A) of the Social Security Act (42 U.S.C. 1396r–4(f)(7)(A)) ...",
+      "raw_text_preview": "Section 330C(c)(2) of the Public Health Service Act (42 U.S.C. 254c–3(c)(2)) i...",
       "is_verbatim_substring": false,
       "match_tier": "no_match",
       "found_at_position": null
     },
     {
       "provision_index": 125,
+      "raw_text_preview": "Section 2812(c)(4)(B) of the Public Health Service Act (42 U.S.C. 300hh–11(c)(...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 67713
+    },
+    {
+      "provision_index": 126,
+      "raw_text_preview": "Section 319(e)(8) of the Public Health Service Act (42 U.S.C. 247d(e)(8)) is ame...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 67981
+    },
+    {
+      "provision_index": 127,
+      "raw_text_preview": "Section 2811A(g) of the Public Health Service Act (42 U.S.C. 300hh–10b(g)) is ...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 68253
+    },
+    {
+      "provision_index": 128,
+      "raw_text_preview": "Section 2811B(g)(1) of the Public Health Service Act (42 U.S.C. 300hh–10c(g)(1...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 68471
+    },
+    {
+      "provision_index": 129,
+      "raw_text_preview": "Section 2811C(g)(1) of the Public Health Service Act (42 U.S.C. 300hh–10d(g)(1...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 68718
+    },
+    {
+      "provision_index": 130,
+      "raw_text_preview": "Section 1923(f)(7)(A) of the Social Security Act (42 U.S.C. 1396r–4(f)(7)(A)) ...",
+      "is_verbatim_substring": false,
+      "match_tier": "no_match",
+      "found_at_position": null
+    },
+    {
+      "provision_index": 131,
       "raw_text_preview": "Section 1941(b)(3)(A) of the Social Security Act (42 U.S.C. 1396w–1(b)(3)(A)) ...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 69643
     },
     {
-      "provision_index": 126,
+      "provision_index": 132,
       "raw_text_preview": "Activities authorized by part B of title IV of the Social Security Act shall con...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 69878
     },
     {
-      "provision_index": 127,
+      "provision_index": 133,
       "raw_text_preview": "Section 510 of the Social Security Act (42 U.S.C. 710) is amended— (1) subsect...",
       "is_verbatim_substring": false,
       "match_tier": "no_match",
       "found_at_position": null
     },
     {
-      "provision_index": 128,
-      "raw_text_preview": "Section 513 of the Social Security Act (42 U.S.C. 713) is amended— (1) subsect...",
+      "provision_index": 134,
+      "raw_text_preview": "Section 513 of the Social Security Act (42 U.S.C. 713) is amended— \n(1) subsec...",
       "is_verbatim_substring": false,
       "match_tier": "no_match",
       "found_at_position": null
     },
     {
-      "provision_index": 129,
+      "provision_index": 135,
       "raw_text_preview": "SEC. 2401. \nBudgetary effects\n(a) \nStatutory paygo scorecards\nThe budgetary effe...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 73504
     }
   ],
-  "arithmetic_checks": [],
   "completeness": {
     "total_dollar_amounts_in_text": 54,
     "accounted_for": 33,
@@ -1293,6 +1327,12 @@
         "context": "except that such matter shall be applied by substituting ''$74,996,000'' for ''$374,996,000'') in title VII of division M of Public Law 117–328.  (12) The Tr"
       },
       {
+        "text": "$621,270,000",
+        "value": 621270000,
+        "position": 23248,
+        "context": "ry for ''Ohio Replacement Submarine (Full Funding)'' in an amount not to exceed $621,270,000 for the procurement of one Columbia Class Submarine.  SEC. 125. Dur"
+      },
+      {
         "text": "$190,784,000",
         "value": 190784000,
         "position": 23735,
@@ -1321,12 +1361,6 @@
         "value": 18336340,
         "position": 54948,
         "context": "2019 through 2023'' and inserting ''2024 through 2028''; and  (B) by striking ''$18,336,340'' and inserting ''$25,000,000''; and (2) in paragraph (2)—  (A) in"
-      },
-      {
-        "text": "$50,000",
-        "value": 50000,
-        "position": 56324,
-        "context": "this subsection; and (C) a generic investigational new animal drug file fee of $50,000 for each request or submission described in subsection (a)(4)(A)..  (2)"
       },
       {
         "text": "$126,500,000",
@@ -1361,19 +1395,19 @@
     ]
   },
   "summary": {
-    "total_provisions": 130,
-    "amounts_verified": 33,
+    "total_provisions": 136,
+    "amounts_verified": 32,
     "amounts_not_found": 0,
     "amounts_ambiguous": 2,
-    "raw_text_exact": 102,
-    "raw_text_normalized": 12,
+    "raw_text_exact": 115,
+    "raw_text_normalized": 5,
     "raw_text_spaceless": 0,
     "raw_text_no_match": 16,
     "completeness_pct": 61.111111111111114,
     "provisions_by_detail_level": {
-      "top_level": 3,
+      "n/a": 132,
       "sub_allocation": 2,
-      "n/a": 125
+      "top_level": 2
     }
   }
 }

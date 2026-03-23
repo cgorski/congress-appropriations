@@ -26,11 +26,6 @@
     }
   ],
   "provision_timing": [],
-  "canonical_accounts": [
-    {
-      "provision_index": 4,
-      "canonical_name": "weapons activities"
-    }
-  ],
-  "extraction_sha256": "c4fece22e18fff076462523b31212a72662f4ad7b66a2c71249d0211821773b5"
+  "canonical_accounts": [],
+  "extraction_sha256": "9071a2d4d19caf77d94c98bf73d185e81b02fd5ea7b5b380097ee327380ca483"
 }

@@ -27,7 +27,7 @@
   ],
   "provision_timing": [
     {
-      "provision_index": 38,
+      "provision_index": 39,
       "timing": "supplemental",
       "available_fy": null,
       "source": {
@@ -73,33 +73,29 @@
       "canonical_name": "international narcotics control and law enforcement"
     },
     {
-      "provision_index": 33,
-      "canonical_name": "shipbuilding and conversion, navy"
-    },
-    {
-      "provision_index": 35,
+      "provision_index": 36,
       "canonical_name": "salaries and expenses"
     },
     {
-      "provision_index": 38,
-      "canonical_name": "disaster relief fund"
-    },
-    {
       "provision_index": 39,
-      "canonical_name": "operations and support"
+      "canonical_name": "disaster relief fund"
     },
     {
       "provision_index": 40,
-      "canonical_name": "disaster relief fund"
+      "canonical_name": "operations and support"
     },
     {
-      "provision_index": 48,
-      "canonical_name": "facilities and equipment"
+      "provision_index": 41,
+      "canonical_name": "disaster relief fund"
     },
     {
       "provision_index": 49,
       "canonical_name": "facilities and equipment"
+    },
+    {
+      "provision_index": 50,
+      "canonical_name": "facilities and equipment"
     }
   ],
-  "extraction_sha256": "7409745a3be6ea5e59cb7e60557ed4559acceb27dff847ee1e8fe26028f1522b"
+  "extraction_sha256": "c3333bf2d9d2930b76df980b145e0a1873e5018a4b51b4b04e8ab40bd585f224"
 }

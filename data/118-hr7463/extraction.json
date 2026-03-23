@@ -17,69 +17,80 @@
     {
       "provision_type": "other",
       "llm_classification": "other",
-      "description": "Extends the Continuing Appropriations Act, 2024 by striking the date specified in section 106(3) and inserting March 22, 2024.",
+      "description": "Strikes the date specified in section 106(3) of the Continuing Appropriations Act, 2024 and inserts 'March 22, 2024', extending the overall CR duration.",
       "amounts": [],
       "references": [],
       "metadata": {
-        "detail_level": "",
-        "llm_classification": "continuing_resolution_date_extension — amends section 106(3) of P.L. 118-15 to extend the CR end date to March 22, 2024"
+        "llm_classification": "cr_date_extension \u2014 amends the primary CR end date in section 106(3) of P.L. 118-15 to extend funding through March 22, 2024"
       },
       "section": "SEC. 101",
       "division": "A",
       "title": null,
-      "confidence": 0.96,
-      "raw_text": "(1) by striking the date specified in section 106(3) and inserting ''March 22, 2024''",
+      "confidence": 0.95,
+      "raw_text": "by striking the date specified in section 106(3) and inserting ''March 22, 2024''",
       "notes": [
-        "Section 106(3) of the Continuing Appropriations Act, 2024 (division A of P.L. 118-15) specifies the general CR expiration date. This paragraph extends it to March 22, 2024.",
-        "This is paragraph (1) of SEC. 101."
+        "Section 106(3) of P.L. 118-15 specifies the general expiration date of the continuing resolution. This paragraph extends it to March 22, 2024.",
+        "This is paragraph (1) of SEC. 101, which amends division A of Public Law 118-15."
       ],
       "cross_references": [
         {
           "ref_type": "amends",
-          "target": "Section 106(3) of the Continuing Appropriations Act, 2024 (division A of Public Law 118-15)",
-          "description": "Extends the CR expiration date to March 22, 2024"
+          "target": "P.L. 118-15, Division A, Section 106(3)",
+          "description": "Extends the CR end date to March 22, 2024"
         }
-      ]
+      ],
+      "source_span": {
+        "start": 797,
+        "end": 878,
+        "file": "BILLS-118hr7463enr.txt",
+        "verified": true
+      }
     },
     {
       "provision_type": "other",
       "llm_classification": "other",
-      "description": "Amends the Continuing Appropriations Act, 2024 by striking the date specified in section 106(4) and inserting March 8, 2024.",
+      "description": "Strikes the date specified in section 106(4) of the Continuing Appropriations Act, 2024 and inserts 'March 8, 2024'.",
       "amounts": [],
       "references": [],
       "metadata": {
-        "llm_classification": "continuing_resolution_date_extension — amends section 106(4) of P.L. 118-15 to change the secondary CR date to March 8, 2024",
-        "detail_level": ""
+        "llm_classification": "cr_date_extension \u2014 amends the secondary date in section 106(4) of P.L. 118-15 to March 8, 2024"
       },
       "section": "SEC. 101",
       "division": "A",
       "title": null,
-      "confidence": 0.96,
-      "raw_text": "(2) by striking the date specified in section 106(4) and inserting ''March 8, 2024''",
+      "confidence": 0.93,
+      "raw_text": "by striking the date specified in section 106(4) and inserting ''March 8, 2024''",
       "notes": [
-        "Section 106(4) of the Continuing Appropriations Act, 2024 (division A of P.L. 118-15) specifies a secondary date, typically a staggered expiration for certain divisions. This paragraph sets it to March 8, 2024.",
-        "This is paragraph (2) of SEC. 101.",
-        "The two different dates (March 8 and March 22) create a laddered CR expiration, with some appropriations bills expiring earlier than others."
+        "Section 106(4) of P.L. 118-15 specifies a secondary date within the CR, typically for a subset of appropriations or a different funding ladder step.",
+        "This is paragraph (2) of SEC. 101, which amends division A of Public Law 118-15.",
+        "The March 8 date is earlier than the March 22 general CR expiration, suggesting a two-step funding ladder structure."
       ],
       "cross_references": [
         {
           "ref_type": "amends",
-          "target": "Section 106(4) of the Continuing Appropriations Act, 2024 (division A of Public Law 118-15)",
-          "description": "Changes the secondary CR expiration date to March 8, 2024"
+          "target": "P.L. 118-15, Division A, Section 106(4)",
+          "description": "Changes the secondary CR date to March 8, 2024"
         }
-      ]
+      ],
+      "source_span": {
+        "start": 888,
+        "end": 968,
+        "file": "BILLS-118hr7463enr.txt",
+        "verified": true
+      }
     },
     {
       "provision_type": "rider",
-      "description": "Amends the FAFSA student available income formula in Section 475(g)(1) of the Higher Education Act of 1965, setting the income assessment at 50 percent of adjusted income with a floor of -$1,500 for award year 2024-2025 and zero for 2025-2026 and thereafter.",
-      "policy_area": "Higher Education / Student Financial Aid",
+      "description": "Amends the FAFSA student available income formula in Section 475(g)(1) of the Higher Education Act to set the income assessment at 50% of the difference between total income and adjustments, with a floor of -$1,500 for award year 2024-2025 and zero for 2025-2026 and thereafter.",
+      "policy_area": "Higher Education / Financial Aid",
       "section": "SEC. 101",
       "division": "B",
       "title": null,
       "confidence": 0.95,
       "raw_text": "Section 475(g)(1) of the Higher Education Act of 1965 (20 U.S.C. 1087oo(g)(1)), as amended by the FAFSA Simplification Act (title VII of division FF o",
       "notes": [
-        "Subsection (a). Modifies the student available income calculation formula to allow a negative floor of -$1,500 for award year 2024-2025, effectively increasing aid eligibility."
+        "Subsection (a) of SEC. 101",
+        "Modifies the student available income calculation to allow a negative floor of -$1,500 for award year 2024-2025, effectively increasing Pell Grant eligibility"
       ],
       "cross_references": [
         {
@@ -87,11 +98,17 @@
           "target": "Section 475(g)(1) of the Higher Education Act of 1965 (20 U.S.C. 1087oo(g)(1))",
           "description": "As previously amended by the FAFSA Simplification Act (title VII of division FF of P.L. 116-260)"
         }
-      ]
+      ],
+      "source_span": {
+        "start": 1126,
+        "end": 1276,
+        "file": "BILLS-118hr7463enr.txt",
+        "verified": true
+      }
     },
     {
       "provision_type": "mandatory_spending_extension",
-      "program_name": "Federal Pell Grants",
+      "program_name": "Federal Pell Grant Program",
       "statutory_reference": "Section 401(b)(7)(A) of the Higher Education Act of 1965 (20 U.S.C. 1070a(b)(7)(A))",
       "amount": {
         "value": {
@@ -106,10 +123,12 @@
       "section": "SEC. 101",
       "division": "B",
       "title": null,
-      "confidence": 0.97,
+      "confidence": 0.96,
       "raw_text": "(i) $1,170,000,000 for fiscal year 2024;",
       "notes": [
-        "Subsection (b). Mandatory appropriation out of any money in the Treasury not otherwise appropriated. This is clause (i) of the amended Section 401(b)(7)(A)."
+        "Subsection (b) of SEC. 101, clause (i)",
+        "Mandatory appropriation out of the Treasury not otherwise appropriated",
+        "In addition to discretionary Pell Grant funds under paragraph (6) and any other appropriations Act"
       ],
       "cross_references": [
         {
@@ -117,11 +136,17 @@
           "target": "Section 401(b)(7)(A) of the Higher Education Act of 1965 (20 U.S.C. 1070a(b)(7)(A))",
           "description": "As previously amended by the FAFSA Simplification Act (title VII of division FF of P.L. 116-260)"
         }
-      ]
+      ],
+      "source_span": {
+        "start": 2351,
+        "end": 2391,
+        "file": "BILLS-118hr7463enr.txt",
+        "verified": true
+      }
     },
     {
       "provision_type": "mandatory_spending_extension",
-      "program_name": "Federal Pell Grants",
+      "program_name": "Federal Pell Grant Program",
       "statutory_reference": "Section 401(b)(7)(A) of the Higher Education Act of 1965 (20 U.S.C. 1070a(b)(7)(A))",
       "amount": {
         "value": {
@@ -136,10 +161,11 @@
       "section": "SEC. 101",
       "division": "B",
       "title": null,
-      "confidence": 0.97,
+      "confidence": 0.96,
       "raw_text": "(ii) $3,170,000,000 for fiscal year 2025;",
       "notes": [
-        "Subsection (b). Clause (ii) of the amended Section 401(b)(7)(A). Peak year of mandatory Pell Grant funding."
+        "Subsection (b) of SEC. 101, clause (ii)",
+        "Mandatory appropriation out of the Treasury not otherwise appropriated"
       ],
       "cross_references": [
         {
@@ -147,11 +173,17 @@
           "target": "Section 401(b)(7)(A) of the Higher Education Act of 1965 (20 U.S.C. 1070a(b)(7)(A))",
           "description": null
         }
-      ]
+      ],
+      "source_span": {
+        "start": 2393,
+        "end": 2434,
+        "file": "BILLS-118hr7463enr.txt",
+        "verified": true
+      }
     },
     {
       "provision_type": "mandatory_spending_extension",
-      "program_name": "Federal Pell Grants",
+      "program_name": "Federal Pell Grant Program",
       "statutory_reference": "Section 401(b)(7)(A) of the Higher Education Act of 1965 (20 U.S.C. 1070a(b)(7)(A))",
       "amount": {
         "value": {
@@ -166,10 +198,11 @@
       "section": "SEC. 101",
       "division": "B",
       "title": null,
-      "confidence": 0.97,
+      "confidence": 0.96,
       "raw_text": "(iii) $2,170,000,000 for fiscal year 2026; and",
       "notes": [
-        "Subsection (b). Clause (iii) of the amended Section 401(b)(7)(A)."
+        "Subsection (b) of SEC. 101, clause (iii)",
+        "Mandatory appropriation out of the Treasury not otherwise appropriated"
       ],
       "cross_references": [
         {
@@ -177,11 +210,17 @@
           "target": "Section 401(b)(7)(A) of the Higher Education Act of 1965 (20 U.S.C. 1070a(b)(7)(A))",
           "description": null
         }
-      ]
+      ],
+      "source_span": {
+        "start": 2435,
+        "end": 2481,
+        "file": "BILLS-118hr7463enr.txt",
+        "verified": true
+      }
     },
     {
       "provision_type": "mandatory_spending_extension",
-      "program_name": "Federal Pell Grants",
+      "program_name": "Federal Pell Grant Program",
       "statutory_reference": "Section 401(b)(7)(A) of the Higher Education Act of 1965 (20 U.S.C. 1070a(b)(7)(A))",
       "amount": {
         "value": {
@@ -192,14 +231,16 @@
         "text_as_written": "$1,236,000,000"
       },
       "period": "fiscal year 2027 and each succeeding fiscal year",
-      "extends_through": "indefinite (permanent appropriation)",
+      "extends_through": "permanent",
       "section": "SEC. 101",
       "division": "B",
       "title": null,
-      "confidence": 0.97,
+      "confidence": 0.96,
       "raw_text": "(iv) $1,236,000,000 for fiscal year 2027 and each succeeding fiscal year.",
       "notes": [
-        "Subsection (b). Clause (iv) of the amended Section 401(b)(7)(A). This is a permanent annual mandatory appropriation of $1.236B starting in FY2027."
+        "Subsection (b) of SEC. 101, clause (iv)",
+        "Mandatory appropriation out of the Treasury not otherwise appropriated",
+        "Permanent annual appropriation at $1,236,000,000 starting FY2027"
       ],
       "cross_references": [
         {
@@ -207,56 +248,76 @@
           "target": "Section 401(b)(7)(A) of the Higher Education Act of 1965 (20 U.S.C. 1070a(b)(7)(A))",
           "description": null
         }
-      ]
+      ],
+      "source_span": {
+        "start": 2483,
+        "end": 2556,
+        "file": "BILLS-118hr7463enr.txt",
+        "verified": true
+      }
     },
     {
       "provision_type": "rider",
-      "description": "Amends Section 401(b)(7)(B)(i) of the Higher Education Act to add fiscal year 2024 to the list of years for which previous discretionary appropriations are not affected by the new mandatory appropriation, by striking 'or 2023' and inserting '2023, or 2024'.",
-      "policy_area": "Higher Education / Student Financial Aid",
+      "description": "Amends Section 401(b)(7)(B)(i) of the Higher Education Act to add fiscal year 2024 to the list of years for which the mandatory Pell Grant appropriation does not affect previously enacted discretionary appropriations, by striking 'or 2023' and inserting '2023, or 2024'.",
+      "policy_area": "Higher Education / Financial Aid",
       "section": "SEC. 101",
       "division": "B",
       "title": null,
-      "confidence": 0.95,
-      "raw_text": "Section 401(b)(7)(B)(i) of the Higher Education Act of 1965 (20 U.S.C. 1070a(b)(7)(B)(i)), as amended by the FAFSA Simplification Act (title VII of di",
+      "confidence": 0.94,
+      "raw_text": "Section 401(b)(7)(B)(i) of the Higher Education Act of 1965 (20 U.S.C. 1070a(b)(7)(B)(i)), as amended by the FAFSA Simplification Act (title VII of d",
       "notes": [
-        "Subsection (c). Ensures that the new mandatory Pell Grant appropriations do not reduce or replace previously enacted discretionary appropriations for FY2024."
+        "Subsection (c) of SEC. 101",
+        "Ensures that the mandatory Pell Grant appropriations do not reduce or replace existing discretionary Pell appropriations for FY2024"
       ],
       "cross_references": [
         {
           "ref_type": "amends",
           "target": "Section 401(b)(7)(B)(i) of the Higher Education Act of 1965 (20 U.S.C. 1070a(b)(7)(B)(i))",
-          "description": "As amended by FAFSA Simplification Act and section 102(b) of the FAFSA Simplification Act Technical Corrections Act (division R of P.L. 117-103)"
+          "description": "As amended by FAFSA Simplification Act and section 102(b) of division R of P.L. 117-103"
         }
-      ]
+      ],
+      "source_span": {
+        "start": 2600,
+        "end": 2749,
+        "file": "BILLS-118hr7463enr.txt",
+        "verified": true
+      }
     },
     {
       "provision_type": "rider",
-      "description": "Provides that the amendments in SEC. 101 take effect and apply as if included in the FAFSA Simplification Act and in accordance with section 701(b) of that Act, as amended by the FAFSA Simplification Act Technical Corrections Act.",
-      "policy_area": "Higher Education / Student Financial Aid",
+      "description": "Provides that the amendments made by SEC. 101 take effect and apply as if included in the FAFSA Simplification Act, in accordance with section 701(b) of that Act as amended.",
+      "policy_area": "Higher Education / Financial Aid",
       "section": "SEC. 101",
       "division": "B",
       "title": null,
-      "confidence": 0.95,
+      "confidence": 0.94,
       "raw_text": "The amendments made by this section shall take effect and apply as if included in the FAFSA Simplification Act and in accordance with section 701(b) of",
       "notes": [
-        "Subsection (d). Retroactive effective date provision linking to the original FAFSA Simplification Act timeline."
+        "Subsection (d) of SEC. 101",
+        "Retroactive effective date provision linking to the original FAFSA Simplification Act implementation timeline"
       ],
       "cross_references": [
         {
           "ref_type": "see_also",
-          "target": "FAFSA Simplification Act (title VII of division FF of P.L. 116-260), section 701(b)",
-          "description": null
+          "target": "Section 701(b) of the FAFSA Simplification Act (title VII of division FF of P.L. 116-260)",
+          "description": "Effective date provision of original act"
         },
         {
           "ref_type": "see_also",
-          "target": "FAFSA Simplification Act Technical Corrections Act (division R of P.L. 117-103), section 102(a) and 102(c)(1)(A)",
-          "description": null
+          "target": "Section 102(a) and 102(c)(1)(A) of the FAFSA Simplification Act Technical Corrections Act (division R of P.L. 117-103)",
+          "description": "Technical corrections to implementation timeline"
         }
-      ]
+      ],
+      "source_span": {
+        "start": 2985,
+        "end": 3136,
+        "file": "BILLS-118hr7463enr.txt",
+        "verified": true
+      }
     },
     {
       "provision_type": "rider",
-      "description": "Exempts the budgetary effects of Division B from the Statutory PAYGO scorecards maintained pursuant to section 4(d) of the Statutory Pay-As-You-Go Act of 2010, from Senate PAYGO scorecards under H. Con. Res. 71 (115th Congress), and from classification under the Balanced Budget and Emergency Deficit Control Act for purposes of section 251 sequestration, 302(a) allocations, and Statutory PAYGO scoring.",
+      "description": "Exempts the budgetary effects of Division B from Statutory PAYGO scorecards, Senate PAYGO scorecards, and budget scorekeeping rules including section 251 sequestration, section 302(a) allocations, and classification as an appropriation Act under the Statutory Pay-As-You-Go Act.",
       "policy_area": "Budget Process",
       "section": "SEC. 102",
       "division": "B",
@@ -264,45 +325,53 @@
       "confidence": 0.96,
       "raw_text": "The budgetary effects of this division shall not be entered on either PAYGO scorecard maintained pursuant to section 4(d) of the Statutory Pay-As-You-Go",
       "notes": [
-        "Standard PAYGO exemption provision ensuring the mandatory Pell Grant spending in this division does not trigger sequestration or create points of order. Covers both statutory PAYGO (P.L. 111-139), Senate PAYGO (H. Con. Res. 71), and BCA section 251 caps/302(a) allocations."
+        "Comprehensive PAYGO and budget scoring exemption for the Pell Grant mandatory spending provisions in Division B",
+        "Ensures the mandatory Pell Grant amounts do not trigger sequestration or count against appropriations committee allocations",
+        "Exempts from: Statutory PAYGO (subsection a), Senate PAYGO (subsection b), and budget classification rules (subsection c)"
       ],
       "cross_references": [
         {
           "ref_type": "notwithstanding",
           "target": "Section 4(d) of the Statutory Pay-As-You-Go Act of 2010",
-          "description": "Exempts from statutory PAYGO scorecards"
+          "description": "Statutory PAYGO scorecard exemption"
         },
         {
           "ref_type": "notwithstanding",
           "target": "Section 4106 of H. Con. Res. 71 (115th Congress)",
-          "description": "Exempts from Senate PAYGO scorecards"
+          "description": "Senate PAYGO scorecard exemption"
         },
         {
           "ref_type": "notwithstanding",
-          "target": "Budget Scorekeeping Guidelines, Conference Report 105-217",
-          "description": "Exempts from Rule 3 of scorekeeping guidelines"
+          "target": "Rule 3 of Budget Scorekeeping Guidelines (Conference Report 105-217)",
+          "description": "Budget classification exemption"
         },
         {
           "ref_type": "notwithstanding",
           "target": "Section 250(c)(8) of the Balanced Budget and Emergency Deficit Control Act of 1985",
-          "description": null
+          "description": "Budget classification exemption"
         },
         {
           "ref_type": "notwithstanding",
           "target": "Section 251 of the Balanced Budget and Emergency Deficit Control Act of 1985",
-          "description": "Not estimated for discretionary spending limits"
+          "description": "Exemption from discretionary spending limits"
         },
         {
           "ref_type": "notwithstanding",
           "target": "Section 302(a) of the Congressional Budget Act of 1974",
-          "description": "Not estimated for committee allocations"
+          "description": "Exemption from committee allocations"
         },
         {
           "ref_type": "notwithstanding",
           "target": "Section 3(4)(C) of the Statutory Pay-As-You-Go Act of 2010",
-          "description": "Not scored as an appropriation Act for PAYGO purposes"
+          "description": "Not classified as appropriation Act spending"
         }
-      ]
+      ],
+      "source_span": {
+        "start": 3410,
+        "end": 3562,
+        "file": "BILLS-118hr7463enr.txt",
+        "verified": true
+      }
     }
   ],
   "summary": {
@@ -320,16 +389,17 @@
     "total_rescissions": 0,
     "sections_with_no_provisions": [],
     "flagged_issues": [
-      "Division A contains no new dollar amounts — it solely extends the dates of the existing CR (P.L. 118-15, Division A).",
-      "The laddered dates (March 8 vs March 22, 2024) correspond to sections 106(4) and 106(3) respectively, creating a staggered expiration for different sets of appropriations bills.",
-      "SEC. 101(b) creates permanent mandatory appropriations for Pell Grants totaling $7.746B over FY2024-2027 plus $1.236B/year thereafter",
-      "SEC. 102 exempts all Division B spending from PAYGO enforcement, meaning the $7.746B+ in new mandatory spending will not trigger sequestration",
-      "The FY2027 amount of $1,236,000,000 applies to 'each succeeding fiscal year' — a permanent indefinite-duration mandatory appropriation"
+      "Division A contains no new dollar amounts \u2014 it solely extends the dates of the existing CR (P.L. 118-15, Division A).",
+      "SEC. 101 creates a two-step CR expiration: March 8, 2024 (sec 106(4)) and March 22, 2024 (sec 106(3)).",
+      "Division B ('Other Matters') was not extracted per the instruction scope.",
+      "SEC. 101(b) appropriates a total of $7,746,000,000 in mandatory Pell Grant funding across FY2024-FY2027, with $1,236,000,000/year permanently thereafter",
+      "SEC. 102 exempts all Division B budgetary effects from PAYGO and budget scoring, effectively treating the mandatory Pell spending as budget-neutral for enforcement purposes",
+      "All mandatory_spending_extension amounts use semantics 'mandatory_spending' and are not counted in total_budget_authority per extraction rules"
     ]
   },
   "chunk_map": [
     {
-      "chunk_id": "01KKZJA7S73QG0Y9YTM964KRGX",
+      "chunk_id": "01KM8F50VDRMTN99SFYTVCZDE7",
       "label": "[1/2] A",
       "provision_indices": [
         0,
@@ -337,7 +407,7 @@
       ]
     },
     {
-      "chunk_id": "01KKZJA7S7JNTM4NNGYQ4ZFP9G",
+      "chunk_id": "01KM8F50VD4XKQF1P24212QFTJ",
       "label": "[2/2] B",
       "provision_indices": [
         2,

@@ -2,7 +2,7 @@
   "schema_version": "1.0",
   "amount_checks": [
     {
-      "provision_index": 3,
+      "provision_index": 2,
       "text_as_written": "$2,199,260,000",
       "found_in_source": true,
       "source_positions": [
@@ -11,16 +11,7 @@
       "status": "verified"
     },
     {
-      "provision_index": 4,
-      "text_as_written": "$760,000,000",
-      "found_in_source": true,
-      "source_positions": [
-        1759
-      ],
-      "status": "verified"
-    },
-    {
-      "provision_index": 7,
+      "provision_index": 6,
       "text_as_written": "$16,982,192",
       "found_in_source": true,
       "source_positions": [
@@ -29,7 +20,7 @@
       "status": "verified"
     },
     {
-      "provision_index": 8,
+      "provision_index": 7,
       "text_as_written": "$536,986,301",
       "found_in_source": true,
       "source_positions": [
@@ -38,13 +29,23 @@
       "status": "verified"
     },
     {
-      "provision_index": 9,
+      "provision_index": 8,
       "text_as_written": "$41,616,438",
       "found_in_source": true,
       "source_positions": [
         4266
       ],
       "status": "verified"
+    },
+    {
+      "provision_index": 11,
+      "text_as_written": "$20,136,986",
+      "found_in_source": true,
+      "source_positions": [
+        5489,
+        5960
+      ],
+      "status": "ambiguous"
     },
     {
       "provision_index": 12,
@@ -57,17 +58,7 @@
       "status": "ambiguous"
     },
     {
-      "provision_index": 13,
-      "text_as_written": "$20,136,986",
-      "found_in_source": true,
-      "source_positions": [
-        5489,
-        5960
-      ],
-      "status": "ambiguous"
-    },
-    {
-      "provision_index": 22,
+      "provision_index": 21,
       "text_as_written": "$5,140,428,729",
       "found_in_source": true,
       "source_positions": [
@@ -76,7 +67,7 @@
       "status": "verified"
     },
     {
-      "provision_index": 24,
+      "provision_index": 23,
       "text_as_written": "$2,197,795,056",
       "found_in_source": true,
       "source_positions": [
@@ -88,216 +79,209 @@
   "raw_text_checks": [
     {
       "provision_index": 0,
-      "raw_text_preview": "by striking the date specified in section 106(3) and inserting ''March 8, 2024''",
+      "raw_text_preview": "(1) by striking the date specified in section 106(3) and inserting ''March 8, 20...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 960
+      "found_at_position": 956
     },
     {
       "provision_index": 1,
-      "raw_text_preview": "by striking the date specified in section 106(4) and inserting ''March 1, 2024''",
+      "raw_text_preview": "(3) in section 123, by striking ''94 days'' and inserting ''129 days'' and by st...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 1046
+      "found_at_position": 1129
     },
     {
       "provision_index": 2,
-      "raw_text_preview": "in section 123, by striking ''94 days'' and inserting ''129 days'' and by striki...",
-      "is_verbatim_substring": true,
-      "match_tier": "exact",
-      "found_at_position": 1133
-    },
-    {
-      "provision_index": 3,
-      "raw_text_preview": "on section 124, by striking ''$663,070,000'' and inserting ''$2,199,260,000''",
+      "raw_text_preview": "(4) on section 124, by striking ''$663,070,000'' and inserting ''$2,199,260,000'...",
       "is_verbatim_substring": false,
       "match_tier": "no_match",
       "found_at_position": null
     },
     {
-      "provision_index": 4,
-      "raw_text_preview": "Amounts made available by section 101 for ''Department of Energy—Atomic Energy...",
+      "provision_index": 3,
+      "raw_text_preview": "SEC. 147. (a) Amounts made available by section 101 for ''Department of Energy...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 1417
+      "found_at_position": 1403
+    },
+    {
+      "provision_index": 4,
+      "raw_text_preview": "(b) The Director of the Office of Management and Budget shall notify the Committ...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 1774
     },
     {
       "provision_index": 5,
-      "raw_text_preview": "The Director of the Office of Management and Budget shall notify the Committees ...",
+      "raw_text_preview": "SEC. 148. Amounts made available by section 101 for ''Department of Transportati...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 1778
+      "found_at_position": 2202
     },
     {
       "provision_index": 6,
-      "raw_text_preview": "Amounts made available by section 101 for ''Department of Transportation—Feder...",
-      "is_verbatim_substring": true,
-      "match_tier": "exact",
-      "found_at_position": 2212
-    },
-    {
-      "provision_index": 7,
       "raw_text_preview": "Section 340H(g)(1) of the Public Health Service Act (42 U.S.C. 256h(g)) is amend...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 3013
     },
     {
-      "provision_index": 8,
+      "provision_index": 7,
       "raw_text_preview": "Section 10503(b)(1)(F) of the Patient Protection and Affordable Care Act (42 U.S...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 3451
     },
     {
-      "provision_index": 9,
+      "provision_index": 8,
       "raw_text_preview": "Section 10503(b)(2)(I) of the Patient Protection and Affordable Care Act (42 U.S...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 3931
     },
     {
-      "provision_index": 10,
+      "provision_index": 9,
       "raw_text_preview": "Amounts appropriated pursuant to the amendments made by this section shall be su...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 4387
     },
     {
-      "provision_index": 11,
+      "provision_index": 10,
       "raw_text_preview": "Section 3014(h)(4) of title 18, United States Code, is amended by striking ''and...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 4677
     },
     {
-      "provision_index": 12,
+      "provision_index": 11,
       "raw_text_preview": "Section 330B(b)(2)(E) of the Public Health Service Act (42 U.S.C. 254c–2(b)(2)...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 5172
     },
     {
-      "provision_index": 13,
+      "provision_index": 12,
       "raw_text_preview": "Section 330C(c)(2)(E) of the Public Health Service Act (42 U.S.C. 254c–3(c)(2)...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 5643
     },
     {
-      "provision_index": 14,
+      "provision_index": 13,
       "raw_text_preview": "Section 319(e)(8) of the Public Health Service Act (42 U.S.C. 247d(e)(8)) is ame...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 6102
     },
     {
-      "provision_index": 15,
+      "provision_index": 14,
       "raw_text_preview": "Section 319L(e)(1)(D) of the Public Health Service Act (42 U.S.C. 247d–7e(e)(1...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 6257
     },
     {
-      "provision_index": 16,
+      "provision_index": 15,
       "raw_text_preview": "Section 319L–1(b) of the Public Health Service Act (42 U.S.C. 247d–7f(b)) is...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 6425
     },
     {
-      "provision_index": 17,
+      "provision_index": 16,
       "raw_text_preview": "Section 2811A(g) of the Public Health Service Act (42 U.S.C. 300hh–10b(g)) is ...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 6588
     },
     {
-      "provision_index": 18,
+      "provision_index": 17,
       "raw_text_preview": "Section 2811B(g)(1) of the Public Health Service Act (42 U.S.C. 300hh–10c(g)(1...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 6747
     },
     {
-      "provision_index": 19,
+      "provision_index": 18,
       "raw_text_preview": "Section 2811C(g)(1) of the Public Health Service Act (42 U.S.C. 300hh–10d(g)(1...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 6911
     },
     {
-      "provision_index": 20,
+      "provision_index": 19,
       "raw_text_preview": "Section 2812(c)(4)(B) of the Public Health Service Act (42 U.S.C. 300hh–11(c)(...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 7076
     },
     {
-      "provision_index": 21,
+      "provision_index": 20,
       "raw_text_preview": "Section 1923(f)(7)(A) of the Social Security Act (42 U.S.C. 1396r–4(f)(7)(A)) ...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 7317
     },
     {
-      "provision_index": 22,
+      "provision_index": 21,
       "raw_text_preview": "Section 1941(b)(3)(A) of the Social Security Act (42 U.S.C. 1396w–1(b)(3)(A)) ...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 7544
     },
     {
-      "provision_index": 23,
+      "provision_index": 22,
       "raw_text_preview": "Section 1848(e)(1)(E) of the Social Security Act (42 U.S.C. 1395w–4(e)(1)(E)) ...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 7796
     },
     {
-      "provision_index": 24,
+      "provision_index": 23,
       "raw_text_preview": "Section 1898(b)(1) of the Social Security Act (42 U.S.C. 1395iii(b)(1)) is amend...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 7991
     },
     {
-      "provision_index": 25,
+      "provision_index": 24,
       "raw_text_preview": "Activities authorized by part B of title IV of the Social Security Act shall con...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 8217
     },
     {
-      "provision_index": 26,
-      "raw_text_preview": "Section 510 of the Social Security Act (42 U.S.C. 710) is amended— (1) in <br/...",
-      "is_verbatim_substring": false,
-      "match_tier": "no_match",
-      "found_at_position": null
+      "provision_index": 25,
+      "raw_text_preview": "Section 510 of the Social Security Act (42 U.S.C. 710) is amended— (1) in subs...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 8591
     },
     {
-      "provision_index": 27,
+      "provision_index": 26,
       "raw_text_preview": "Section 513 of the Social Security Act (42 U.S.C. 713) is amended— (1) in subs...",
       "is_verbatim_substring": false,
       "match_tier": "normalized",
       "found_at_position": null
     },
     {
-      "provision_index": 28,
+      "provision_index": 27,
       "raw_text_preview": "Section 2101(a)(1) of the Continuing Appropriations Act, 2024 and Other Extensio...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 10447
     },
     {
-      "provision_index": 29,
+      "provision_index": 28,
       "raw_text_preview": "Section 210G(i) of the Homeland Security Act of 2002 (6 U.S.C. 124n(i)) is amend...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 10728
     },
     {
-      "provision_index": 30,
+      "provision_index": 29,
       "raw_text_preview": "The budgetary effects of this division shall not be entered on either PAYGO scor...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
@@ -306,13 +290,19 @@
   ],
   "completeness": {
     "total_dollar_amounts_in_text": 22,
-    "accounted_for": 9,
+    "accounted_for": 8,
     "unaccounted": [
       {
         "text": "$663,070,000",
         "value": 663070000,
         "position": 1288,
         "context": "triking ''94-day'' and inserting ''129-day''; (4) in section 124, by striking ''$663,070,000'' and inserting ''$2,199,260,000''; and  (5) by adding after sectio"
+      },
+      {
+        "text": "$760,000,000",
+        "value": 760000000,
+        "position": 1759,
+        "context": "''06–D–141 Uranium Processing Facility, Y–12'' in an amount not to exceed $760,000,000.  (b) The Director of the Office of Management and Budget shall not"
       },
       {
         "text": "$21,834,247",
@@ -389,17 +379,17 @@
     ]
   },
   "summary": {
-    "total_provisions": 31,
-    "amounts_verified": 7,
+    "total_provisions": 30,
+    "amounts_verified": 6,
     "amounts_not_found": 0,
     "amounts_ambiguous": 2,
     "raw_text_exact": 28,
     "raw_text_normalized": 1,
     "raw_text_spaceless": 0,
-    "raw_text_no_match": 2,
-    "completeness_pct": 40.909090909090914,
+    "raw_text_no_match": 1,
+    "completeness_pct": 36.36363636363637,
     "provisions_by_detail_level": {
-      "n/a": 31
+      "n/a": 30
     }
   }
 }

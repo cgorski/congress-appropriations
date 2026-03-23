@@ -2,8 +2,8 @@
   "schema_version": "1.0",
   "model": "text-embedding-3-large",
   "dimensions": 3072,
-  "count": 31,
-  "extraction_sha256": "c4fece22e18fff076462523b31212a72662f4ad7b66a2c71249d0211821773b5",
+  "count": 30,
+  "extraction_sha256": "9071a2d4d19caf77d94c98bf73d185e81b02fd5ea7b5b380097ee327380ca483",
   "vectors_file": "vectors.bin",
-  "vectors_sha256": "3095a61a8a5934e44bc383f39bb135d80b3d767621d2743a537b257154e9e893"
+  "vectors_sha256": "5dc66b4a1e73b87b4bbd979517dc53d9c59a398dc279ebf05ee10e88256421e1"
 }

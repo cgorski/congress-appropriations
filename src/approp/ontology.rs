@@ -47,21 +47,48 @@ impl AmountValue {
     }
 }
 
-// ─── Source Location ─────────────────────────────────────────────────────────
+// ─── Source Text Span ────────────────────────────────────────────────────────
 
-/// Structural location of a provision within a bill.
-/// Uses human-readable section references, not character offsets.
+/// UTF-8 byte-range reference linking a provision to its exact location in
+/// the enrolled bill source text. Added by the `verify-text` pipeline stage.
+///
+/// **`start` and `end` are byte offsets into the UTF-8 encoded file**, matching
+/// Rust's native `str` indexing (`&source[start..end]`). Languages that use
+/// character-based indexing (Python `str`, JavaScript) must use byte-level
+/// slicing (e.g., `open(path, 'rb').read()[start:end].decode('utf-8')`) to
+/// honour these offsets correctly—especially when the source contains
+/// multi-byte characters such as curly quotes (`\u{2018}`, 3 bytes each).
+///
+/// Invariant: `source_bytes[start..end].as_utf8() == provision.raw_text`
+/// when `verified == true`.
+#[derive(Debug, Clone, Serialize, Deserialize, PartialEq)]
+pub struct TextSpan {
+    /// Start byte offset in the source `.txt` file (inclusive, UTF-8 bytes).
+    pub start: usize,
+    /// End byte offset in the source `.txt` file (exclusive, UTF-8 bytes).
+    pub end: usize,
+    /// Source filename, e.g. `"BILLS-118hr2882enr.txt"`.
+    pub file: String,
+    /// True if `source_text[start..end]` is byte-identical to `raw_text`.
+    pub verified: bool,
+    /// How the span was established.
+    #[serde(default)]
+    pub match_tier: TextMatchTier,
+}
+
+/// How a [`TextSpan`] was established during the verify-text stage.
 #[derive(Debug, Clone, Serialize, Deserialize, PartialEq, Default)]
-pub struct SourceSpan {
-    /// Section header, e.g. "SEC. 1401"
-    #[serde(default)]
-    pub section: String,
-    /// Division letter, e.g. "A"
-    #[serde(default)]
-    pub division: Option<String>,
-    /// Title numeral, e.g. "IV"
-    #[serde(default)]
-    pub title: Option<String>,
+#[serde(rename_all = "snake_case")]
+pub enum TextMatchTier {
+    /// `raw_text` was already a verbatim substring of the source.
+    #[default]
+    Exact,
+    /// Fixed via longest-prefix match + source copy.
+    RepairedPrefix,
+    /// Fixed via longest internal substring match + walk-back.
+    RepairedSubstring,
+    /// Fixed via normalized (whitespace/quote) position mapping.
+    RepairedNormalized,
 }
 
 // ─── Cross-References ────────────────────────────────────────────────────────
@@ -776,38 +803,7 @@ impl BillExtraction {
     }
 }
 
-// ─── Relationships ───────────────────────────────────────────────────────────
 
-#[derive(Debug, Clone, Serialize, Deserialize)]
-pub struct Relationship {
-    pub from_id: String,
-    pub to_id: String,
-    pub rel_type: RelationType,
-    #[serde(default)]
-    pub attributes: HashMap<String, serde_json::Value>,
-    pub source: SourceSpan,
-    pub confidence: f32,
-}
-
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(rename_all = "snake_case")]
-#[non_exhaustive]
-pub enum RelationType {
-    FundsAccount,
-    AdministeredBy,
-    JurisdictionOf,
-    EnactedAs,
-    Modifies,
-    RequestedBy,
-    AmendedBy,
-    ContainsEarmark,
-    SubjectToProviso,
-    HasTransferAuthorityTo,
-    References,
-    CrossReferences,
-    Supersedes,
-    Other(String),
-}
 
 // ─── Bill-Level Output ───────────────────────────────────────────────────────
 
@@ -889,75 +885,7 @@ pub struct ExtractionSummary {
     pub flagged_issues: Vec<String>,
 }
 
-// ─── Provenance & How a Fact Was Determined ──────────────────────────────────
 
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(tag = "type", rename_all = "snake_case")]
-#[non_exhaustive]
-pub enum ProvenanceLevel {
-    LlmExtraction {
-        model: String,
-        confidence: f32,
-    },
-    Computed {
-        inputs: Vec<String>,
-        method: String,
-    },
-    ExternalReference {
-        source_name: String,
-        url: Option<String>,
-    },
-}
-
-// ─── Verification (Rust-produced, not LLM-produced) ──────────────────────────
-
-#[derive(Debug, Clone, Serialize, Deserialize)]
-pub struct ValidationReport {
-    #[serde(default)]
-    pub arithmetic_checks: Vec<ArithmeticCheck>,
-    #[serde(default)]
-    pub missing_sections: Vec<String>,
-    #[serde(default)]
-    pub low_confidence_items: Vec<String>,
-    #[serde(default)]
-    pub corrections: Vec<Correction>,
-    pub overall_quality: Quality,
-    pub summary: String,
-}
-
-#[derive(Debug, Clone, Serialize, Deserialize)]
-pub struct ArithmeticCheck {
-    pub scope: String,
-    #[serde(default)]
-    pub expected_total: Option<i64>,
-    pub extracted_sum: i64,
-    pub discrepancy: i64,
-    pub status: CheckStatus,
-}
-
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(rename_all = "snake_case")]
-pub enum CheckStatus {
-    Pass,
-    Fail,
-    NoReferenceTotal,
-}
-
-#[derive(Debug, Clone, Serialize, Deserialize)]
-pub struct Correction {
-    pub field: String,
-    pub old_value: serde_json::Value,
-    pub new_value: serde_json::Value,
-    pub reasoning: String,
-}
-
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(rename_all = "snake_case")]
-pub enum Quality {
-    High,
-    Medium,
-    Low,
-}
 
 // ─── Extraction Metadata ─────────────────────────────────────────────────────
 
@@ -974,11 +902,8 @@ pub struct ExtractionMetadata {
     pub extracted_text_sha256: String,
     pub timestamp: String,
     /// Total number of chunks the bill was split into for extraction.
-    /// If None, this is a pre-v5.1 extraction without completeness tracking.
-    #[serde(default, skip_serializing_if = "Option::is_none")]
-    pub chunks_total: Option<usize>,
+    pub chunks_total: usize,
     /// Number of chunks that completed successfully.
     /// If chunks_completed < chunks_total, the extraction is partial.
-    #[serde(default, skip_serializing_if = "Option::is_none")]
-    pub chunks_completed: Option<usize>,
+    pub chunks_completed: usize,
 }

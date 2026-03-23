@@ -169,18 +169,18 @@
     },
     {
       "provision_index": 103,
-      "timing": "supplemental",
+      "timing": "current_year",
       "available_fy": null,
       "source": {
-        "type": "note_text"
+        "type": "default_rule"
       }
     },
     {
       "provision_index": 106,
-      "timing": "supplemental",
+      "timing": "current_year",
       "available_fy": null,
       "source": {
-        "type": "note_text"
+        "type": "default_rule"
       }
     },
     {
@@ -216,6 +216,14 @@
       }
     },
     {
+      "provision_index": 117,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
       "provision_index": 118,
       "timing": "current_year",
       "available_fy": null,
@@ -224,7 +232,7 @@
       }
     },
     {
-      "provision_index": 119,
+      "provision_index": 139,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -232,19 +240,19 @@
       }
     },
     {
-      "provision_index": 140,
-      "timing": "current_year",
-      "available_fy": null,
-      "source": {
-        "type": "default_rule"
-      }
-    },
-    {
-      "provision_index": 150,
+      "provision_index": 149,
       "timing": "supplemental",
       "available_fy": null,
       "source": {
         "type": "note_text"
+      }
+    },
+    {
+      "provision_index": 158,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
       }
     },
     {
@@ -264,7 +272,7 @@
       }
     },
     {
-      "provision_index": 161,
+      "provision_index": 175,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -336,7 +344,7 @@
       }
     },
     {
-      "provision_index": 184,
+      "provision_index": 185,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -344,7 +352,7 @@
       }
     },
     {
-      "provision_index": 186,
+      "provision_index": 188,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -352,7 +360,7 @@
       }
     },
     {
-      "provision_index": 189,
+      "provision_index": 243,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -376,7 +384,7 @@
       }
     },
     {
-      "provision_index": 246,
+      "provision_index": 251,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -392,7 +400,7 @@
       }
     },
     {
-      "provision_index": 253,
+      "provision_index": 254,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -400,7 +408,7 @@
       }
     },
     {
-      "provision_index": 255,
+      "provision_index": 259,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -408,7 +416,7 @@
       }
     },
     {
-      "provision_index": 260,
+      "provision_index": 261,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -416,7 +424,7 @@
       }
     },
     {
-      "provision_index": 262,
+      "provision_index": 265,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -432,7 +440,7 @@
       }
     },
     {
-      "provision_index": 267,
+      "provision_index": 268,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -440,7 +448,7 @@
       }
     },
     {
-      "provision_index": 269,
+      "provision_index": 270,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -448,7 +456,7 @@
       }
     },
     {
-      "provision_index": 271,
+      "provision_index": 273,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -456,7 +464,7 @@
       }
     },
     {
-      "provision_index": 274,
+      "provision_index": 276,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -464,7 +472,7 @@
       }
     },
     {
-      "provision_index": 277,
+      "provision_index": 279,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -472,7 +480,7 @@
       }
     },
     {
-      "provision_index": 280,
+      "provision_index": 281,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -480,7 +488,7 @@
       }
     },
     {
-      "provision_index": 282,
+      "provision_index": 284,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -488,7 +496,7 @@
       }
     },
     {
-      "provision_index": 285,
+      "provision_index": 287,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -496,7 +504,7 @@
       }
     },
     {
-      "provision_index": 288,
+      "provision_index": 291,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -504,7 +512,7 @@
       }
     },
     {
-      "provision_index": 292,
+      "provision_index": 294,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -512,7 +520,7 @@
       }
     },
     {
-      "provision_index": 295,
+      "provision_index": 302,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -520,7 +528,7 @@
       }
     },
     {
-      "provision_index": 304,
+      "provision_index": 303,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -536,7 +544,7 @@
       }
     },
     {
-      "provision_index": 309,
+      "provision_index": 310,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -544,7 +552,7 @@
       }
     },
     {
-      "provision_index": 311,
+      "provision_index": 313,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -552,7 +560,7 @@
       }
     },
     {
-      "provision_index": 314,
+      "provision_index": 316,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -560,7 +568,7 @@
       }
     },
     {
-      "provision_index": 317,
+      "provision_index": 320,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -568,7 +576,7 @@
       }
     },
     {
-      "provision_index": 321,
+      "provision_index": 322,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -576,7 +584,7 @@
       }
     },
     {
-      "provision_index": 323,
+      "provision_index": 334,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -592,7 +600,7 @@
       }
     },
     {
-      "provision_index": 336,
+      "provision_index": 339,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -600,7 +608,7 @@
       }
     },
     {
-      "provision_index": 340,
+      "provision_index": 342,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -608,7 +616,7 @@
       }
     },
     {
-      "provision_index": 343,
+      "provision_index": 345,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -616,7 +624,7 @@
       }
     },
     {
-      "provision_index": 346,
+      "provision_index": 348,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -624,7 +632,7 @@
       }
     },
     {
-      "provision_index": 349,
+      "provision_index": 351,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -632,7 +640,7 @@
       }
     },
     {
-      "provision_index": 352,
+      "provision_index": 355,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -640,7 +648,7 @@
       }
     },
     {
-      "provision_index": 356,
+      "provision_index": 358,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -648,7 +656,7 @@
       }
     },
     {
-      "provision_index": 359,
+      "provision_index": 361,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -656,7 +664,7 @@
       }
     },
     {
-      "provision_index": 362,
+      "provision_index": 364,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -664,7 +672,7 @@
       }
     },
     {
-      "provision_index": 365,
+      "provision_index": 367,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -672,7 +680,7 @@
       }
     },
     {
-      "provision_index": 368,
+      "provision_index": 370,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -760,7 +768,7 @@
       }
     },
     {
-      "provision_index": 381,
+      "provision_index": 406,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -792,14 +800,6 @@
       }
     },
     {
-      "provision_index": 410,
-      "timing": "current_year",
-      "available_fy": null,
-      "source": {
-        "type": "default_rule"
-      }
-    },
-    {
       "provision_index": 412,
       "timing": "current_year",
       "available_fy": null,
@@ -808,7 +808,15 @@
       }
     },
     {
-      "provision_index": 428,
+      "provision_index": 427,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 431,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -832,7 +840,7 @@
       }
     },
     {
-      "provision_index": 434,
+      "provision_index": 435,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -872,7 +880,7 @@
       }
     },
     {
-      "provision_index": 440,
+      "provision_index": 441,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -888,7 +896,7 @@
       }
     },
     {
-      "provision_index": 443,
+      "provision_index": 444,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -912,7 +920,7 @@
       }
     },
     {
-      "provision_index": 447,
+      "provision_index": 448,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -928,7 +936,7 @@
       }
     },
     {
-      "provision_index": 450,
+      "provision_index": 452,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -936,7 +944,7 @@
       }
     },
     {
-      "provision_index": 453,
+      "provision_index": 455,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -944,7 +952,7 @@
       }
     },
     {
-      "provision_index": 457,
+      "provision_index": 458,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -952,7 +960,7 @@
       }
     },
     {
-      "provision_index": 460,
+      "provision_index": 461,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -960,7 +968,15 @@
       }
     },
     {
-      "provision_index": 464,
+      "provision_index": 462,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 463,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -976,7 +992,7 @@
       }
     },
     {
-      "provision_index": 467,
+      "provision_index": 466,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -984,7 +1000,7 @@
       }
     },
     {
-      "provision_index": 469,
+      "provision_index": 471,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -992,7 +1008,7 @@
       }
     },
     {
-      "provision_index": 470,
+      "provision_index": 472,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -1000,7 +1016,7 @@
       }
     },
     {
-      "provision_index": 475,
+      "provision_index": 480,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -1008,7 +1024,7 @@
       }
     },
     {
-      "provision_index": 476,
+      "provision_index": 482,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -1016,15 +1032,7 @@
       }
     },
     {
-      "provision_index": 485,
-      "timing": "current_year",
-      "available_fy": null,
-      "source": {
-        "type": "default_rule"
-      }
-    },
-    {
-      "provision_index": 487,
+      "provision_index": 483,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -1033,6 +1041,30 @@
     },
     {
       "provision_index": 488,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 489,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 490,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 492,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -1049,14 +1081,6 @@
     },
     {
       "provision_index": 494,
-      "timing": "current_year",
-      "available_fy": null,
-      "source": {
-        "type": "default_rule"
-      }
-    },
-    {
-      "provision_index": 495,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -1088,41 +1112,15 @@
       }
     },
     {
-      "provision_index": 499,
-      "timing": "current_year",
+      "provision_index": 502,
+      "timing": "supplemental",
       "available_fy": null,
       "source": {
-        "type": "default_rule"
+        "type": "note_text"
       }
     },
     {
-      "provision_index": 500,
-      "timing": "current_year",
-      "available_fy": null,
-      "source": {
-        "type": "default_rule"
-      }
-    },
-    {
-      "provision_index": 501,
-      "timing": "current_year",
-      "available_fy": null,
-      "source": {
-        "type": "default_rule"
-      }
-    },
-    {
-      "provision_index": 504,
-      "timing": "current_year",
-      "available_fy": 2026,
-      "source": {
-        "type": "fiscal_year_comparison",
-        "availability_fy": 2026,
-        "bill_fy": 2026
-      }
-    },
-    {
-      "provision_index": 505,
+      "provision_index": 503,
       "timing": "advance",
       "available_fy": 2027,
       "source": {
@@ -1132,37 +1130,41 @@
       }
     },
     {
-      "provision_index": 508,
-      "timing": "current_year",
-      "available_fy": 2026,
+      "provision_index": 506,
+      "timing": "supplemental",
+      "available_fy": null,
+      "source": {
+        "type": "note_text"
+      }
+    },
+    {
+      "provision_index": 507,
+      "timing": "advance",
+      "available_fy": 2027,
       "source": {
         "type": "fiscal_year_comparison",
-        "availability_fy": 2026,
+        "availability_fy": 2027,
         "bill_fy": 2026
       }
     },
     {
       "provision_index": 509,
-      "timing": "advance",
-      "available_fy": 2027,
+      "timing": "current_year",
+      "available_fy": null,
       "source": {
-        "type": "fiscal_year_comparison",
-        "availability_fy": 2027,
-        "bill_fy": 2026
+        "type": "default_rule"
       }
     },
     {
-      "provision_index": 511,
-      "timing": "advance",
-      "available_fy": 2027,
+      "provision_index": 512,
+      "timing": "current_year",
+      "available_fy": null,
       "source": {
-        "type": "fiscal_year_comparison",
-        "availability_fy": 2027,
-        "bill_fy": 2026
+        "type": "default_rule"
       }
     },
     {
-      "provision_index": 514,
+      "provision_index": 513,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -1178,7 +1180,7 @@
       }
     },
     {
-      "provision_index": 517,
+      "provision_index": 516,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -1194,7 +1196,7 @@
       }
     },
     {
-      "provision_index": 520,
+      "provision_index": 519,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -1203,6 +1205,54 @@
     },
     {
       "provision_index": 521,
+      "timing": "advance",
+      "available_fy": 2027,
+      "source": {
+        "type": "fiscal_year_comparison",
+        "availability_fy": 2027,
+        "bill_fy": 2026
+      }
+    },
+    {
+      "provision_index": 530,
+      "timing": "advance",
+      "available_fy": 2027,
+      "source": {
+        "type": "fiscal_year_comparison",
+        "availability_fy": 2027,
+        "bill_fy": 2026
+      }
+    },
+    {
+      "provision_index": 532,
+      "timing": "advance",
+      "available_fy": 2027,
+      "source": {
+        "type": "fiscal_year_comparison",
+        "availability_fy": 2027,
+        "bill_fy": 2026
+      }
+    },
+    {
+      "provision_index": 535,
+      "timing": "supplemental",
+      "available_fy": null,
+      "source": {
+        "type": "note_text"
+      }
+    },
+    {
+      "provision_index": 536,
+      "timing": "advance",
+      "available_fy": 2027,
+      "source": {
+        "type": "fiscal_year_comparison",
+        "availability_fy": 2027,
+        "bill_fy": 2026
+      }
+    },
+    {
+      "provision_index": 538,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -1210,57 +1260,7 @@
       }
     },
     {
-      "provision_index": 522,
-      "timing": "advance",
-      "available_fy": 2027,
-      "source": {
-        "type": "fiscal_year_comparison",
-        "availability_fy": 2027,
-        "bill_fy": 2026
-      }
-    },
-    {
-      "provision_index": 531,
-      "timing": "advance",
-      "available_fy": 2027,
-      "source": {
-        "type": "fiscal_year_comparison",
-        "availability_fy": 2027,
-        "bill_fy": 2026
-      }
-    },
-    {
-      "provision_index": 533,
-      "timing": "advance",
-      "available_fy": 2027,
-      "source": {
-        "type": "fiscal_year_comparison",
-        "availability_fy": 2027,
-        "bill_fy": 2026
-      }
-    },
-    {
-      "provision_index": 536,
-      "timing": "current_year",
-      "available_fy": 2026,
-      "source": {
-        "type": "fiscal_year_comparison",
-        "availability_fy": 2026,
-        "bill_fy": 2026
-      }
-    },
-    {
-      "provision_index": 537,
-      "timing": "advance",
-      "available_fy": 2027,
-      "source": {
-        "type": "fiscal_year_comparison",
-        "availability_fy": 2027,
-        "bill_fy": 2026
-      }
-    },
-    {
-      "provision_index": 539,
+      "provision_index": 540,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -1276,7 +1276,7 @@
       }
     },
     {
-      "provision_index": 542,
+      "provision_index": 543,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -1292,7 +1292,7 @@
       }
     },
     {
-      "provision_index": 545,
+      "provision_index": 551,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -1300,7 +1300,7 @@
       }
     },
     {
-      "provision_index": 552,
+      "provision_index": 555,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -1316,7 +1316,7 @@
       }
     },
     {
-      "provision_index": 557,
+      "provision_index": 565,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -1324,7 +1324,7 @@
       }
     },
     {
-      "provision_index": 566,
+      "provision_index": 569,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -1341,14 +1341,6 @@
     },
     {
       "provision_index": 571,
-      "timing": "current_year",
-      "available_fy": null,
-      "source": {
-        "type": "default_rule"
-      }
-    },
-    {
-      "provision_index": 572,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -1388,6 +1380,14 @@
       }
     },
     {
+      "provision_index": 711,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
       "provision_index": 712,
       "timing": "current_year",
       "available_fy": null,
@@ -1396,7 +1396,7 @@
       }
     },
     {
-      "provision_index": 714,
+      "provision_index": 715,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -1404,7 +1404,15 @@
       }
     },
     {
-      "provision_index": 717,
+      "provision_index": 722,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 724,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -1420,7 +1428,7 @@
       }
     },
     {
-      "provision_index": 728,
+      "provision_index": 736,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -1428,7 +1436,7 @@
       }
     },
     {
-      "provision_index": 730,
+      "provision_index": 737,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -1436,7 +1444,7 @@
       }
     },
     {
-      "provision_index": 740,
+      "provision_index": 738,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -1444,7 +1452,7 @@
       }
     },
     {
-      "provision_index": 741,
+      "provision_index": 739,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -1460,7 +1468,7 @@
       }
     },
     {
-      "provision_index": 743,
+      "provision_index": 745,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -1468,7 +1476,7 @@
       }
     },
     {
-      "provision_index": 746,
+      "provision_index": 748,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -1476,7 +1484,7 @@
       }
     },
     {
-      "provision_index": 749,
+      "provision_index": 752,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -1484,7 +1492,7 @@
       }
     },
     {
-      "provision_index": 753,
+      "provision_index": 820,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -1492,7 +1500,7 @@
       }
     },
     {
-      "provision_index": 757,
+      "provision_index": 821,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -1500,15 +1508,7 @@
       }
     },
     {
-      "provision_index": 822,
-      "timing": "current_year",
-      "available_fy": null,
-      "source": {
-        "type": "default_rule"
-      }
-    },
-    {
-      "provision_index": 823,
+      "provision_index": 834,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -1517,6 +1517,14 @@
     },
     {
       "provision_index": 836,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 837,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -1564,7 +1572,7 @@
       }
     },
     {
-      "provision_index": 843,
+      "provision_index": 847,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -1572,7 +1580,7 @@
       }
     },
     {
-      "provision_index": 844,
+      "provision_index": 848,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -1581,14 +1589,6 @@
     },
     {
       "provision_index": 849,
-      "timing": "current_year",
-      "available_fy": null,
-      "source": {
-        "type": "default_rule"
-      }
-    },
-    {
-      "provision_index": 850,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -1612,7 +1612,7 @@
       }
     },
     {
-      "provision_index": 855,
+      "provision_index": 854,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -1620,7 +1620,7 @@
       }
     },
     {
-      "provision_index": 856,
+      "provision_index": 857,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -1628,7 +1628,7 @@
       }
     },
     {
-      "provision_index": 859,
+      "provision_index": 864,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -1636,7 +1636,7 @@
       }
     },
     {
-      "provision_index": 866,
+      "provision_index": 873,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -1644,7 +1644,7 @@
       }
     },
     {
-      "provision_index": 875,
+      "provision_index": 876,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -1652,7 +1652,7 @@
       }
     },
     {
-      "provision_index": 878,
+      "provision_index": 879,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -1660,7 +1660,7 @@
       }
     },
     {
-      "provision_index": 881,
+      "provision_index": 885,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -1676,7 +1676,7 @@
       }
     },
     {
-      "provision_index": 889,
+      "provision_index": 890,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -1684,7 +1684,15 @@
       }
     },
     {
-      "provision_index": 892,
+      "provision_index": 912,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 913,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -1708,23 +1716,7 @@
       }
     },
     {
-      "provision_index": 916,
-      "timing": "current_year",
-      "available_fy": null,
-      "source": {
-        "type": "default_rule"
-      }
-    },
-    {
-      "provision_index": 917,
-      "timing": "current_year",
-      "available_fy": null,
-      "source": {
-        "type": "default_rule"
-      }
-    },
-    {
-      "provision_index": 920,
+      "provision_index": 918,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -1748,7 +1740,7 @@
       }
     },
     {
-      "provision_index": 928,
+      "provision_index": 929,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -1756,7 +1748,7 @@
       }
     },
     {
-      "provision_index": 940,
+      "provision_index": 941,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -1764,7 +1756,7 @@
       }
     },
     {
-      "provision_index": 948,
+      "provision_index": 949,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -1772,7 +1764,7 @@
       }
     },
     {
-      "provision_index": 960,
+      "provision_index": 961,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -1780,15 +1772,7 @@
       }
     },
     {
-      "provision_index": 968,
-      "timing": "current_year",
-      "available_fy": null,
-      "source": {
-        "type": "default_rule"
-      }
-    },
-    {
-      "provision_index": 970,
+      "provision_index": 969,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -1804,7 +1788,7 @@
       }
     },
     {
-      "provision_index": 973,
+      "provision_index": 972,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -1812,7 +1796,7 @@
       }
     },
     {
-      "provision_index": 979,
+      "provision_index": 974,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -1820,7 +1804,7 @@
       }
     },
     {
-      "provision_index": 980,
+      "provision_index": 981,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -1836,7 +1820,7 @@
       }
     },
     {
-      "provision_index": 983,
+      "provision_index": 984,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -1844,7 +1828,15 @@
       }
     },
     {
-      "provision_index": 1013,
+      "provision_index": 985,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 1015,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -1954,132 +1946,148 @@
       "canonical_name": "united states capitol police mutual aid reimbursements"
     },
     {
-      "provision_index": 123,
+      "provision_index": 109,
+      "canonical_name": "office of the secretary"
+    },
+    {
+      "provision_index": 117,
+      "canonical_name": "office of the secretary"
+    },
+    {
+      "provision_index": 122,
       "canonical_name": "conservation operations"
     },
     {
-      "provision_index": 124,
+      "provision_index": 123,
       "canonical_name": "research and education activities"
     },
     {
-      "provision_index": 125,
+      "provision_index": 124,
       "canonical_name": "distance learning, telemedicine, and broadband program"
     },
     {
-      "provision_index": 126,
+      "provision_index": 125,
       "canonical_name": "working capital fund"
+    },
+    {
+      "provision_index": 127,
+      "canonical_name": "salaries and expenses"
     },
     {
       "provision_index": 128,
       "canonical_name": "salaries and expenses"
     },
     {
-      "provision_index": 129,
-      "canonical_name": "salaries and expenses"
+      "provision_index": 149,
+      "canonical_name": "meat and poultry processing expansion program"
     },
     {
-      "provision_index": 152,
+      "provision_index": 151,
       "canonical_name": "treasury forfeiture fund"
     },
     {
-      "provision_index": 159,
+      "provision_index": 158,
       "canonical_name": "expense allowances"
     },
     {
-      "provision_index": 160,
+      "provision_index": 159,
       "canonical_name": "representation allowances"
     },
     {
-      "provision_index": 161,
+      "provision_index": 160,
       "canonical_name": "salaries, officers and employees"
     },
     {
-      "provision_index": 162,
+      "provision_index": 161,
       "canonical_name": "office of the vice president"
     },
     {
-      "provision_index": 163,
+      "provision_index": 162,
       "canonical_name": "office of the president pro tempore"
     },
     {
-      "provision_index": 164,
+      "provision_index": 163,
       "canonical_name": "office of the president pro tempore emeritus"
     },
     {
-      "provision_index": 165,
+      "provision_index": 164,
       "canonical_name": "offices of the majority and minority leaders"
     },
     {
-      "provision_index": 166,
+      "provision_index": 165,
       "canonical_name": "offices of the majority and minority whips"
     },
     {
-      "provision_index": 167,
+      "provision_index": 166,
       "canonical_name": "committee on appropriations"
     },
     {
-      "provision_index": 168,
+      "provision_index": 167,
       "canonical_name": "conference committees"
     },
     {
-      "provision_index": 169,
+      "provision_index": 168,
       "canonical_name": "offices of the secretaries of the conference of the majority and the conference of the minority"
     },
     {
-      "provision_index": 170,
+      "provision_index": 169,
       "canonical_name": "policy committees"
     },
     {
-      "provision_index": 171,
+      "provision_index": 170,
       "canonical_name": "office of the chaplain"
     },
     {
-      "provision_index": 172,
+      "provision_index": 171,
       "canonical_name": "office of the secretary"
     },
     {
-      "provision_index": 173,
+      "provision_index": 172,
       "canonical_name": "office of the sergeant at arms and doorkeeper"
     },
     {
-      "provision_index": 174,
+      "provision_index": 173,
       "canonical_name": "offices of the secretaries for the majority and minority"
     },
     {
-      "provision_index": 175,
+      "provision_index": 174,
       "canonical_name": "agency contributions and related expenses"
     },
     {
-      "provision_index": 176,
+      "provision_index": 175,
       "canonical_name": "office of the legislative counsel of the senate"
     },
     {
-      "provision_index": 177,
+      "provision_index": 176,
       "canonical_name": "office of senate legal counsel"
     },
     {
-      "provision_index": 178,
+      "provision_index": 177,
       "canonical_name": "expense allowances of the secretary of the senate, sergeant at arms and doorkeeper of the senate, and secretaries for the majority and minority of the senate"
     },
     {
-      "provision_index": 179,
+      "provision_index": 178,
       "canonical_name": "inquiries and investigations"
     },
     {
-      "provision_index": 180,
+      "provision_index": 179,
       "canonical_name": "u.s. senate caucus on international narcotics control"
     },
     {
-      "provision_index": 181,
+      "provision_index": 180,
       "canonical_name": "secretary of the senate"
     },
     {
-      "provision_index": 182,
+      "provision_index": 181,
       "canonical_name": "sergeant at arms and doorkeeper of the senate"
     },
     {
-      "provision_index": 183,
+      "provision_index": 182,
       "canonical_name": "miscellaneous items"
+    },
+    {
+      "provision_index": 183,
+      "canonical_name": "senators' official personnel and office expense account"
     },
     {
       "provision_index": 184,
@@ -2087,55 +2095,55 @@
     },
     {
       "provision_index": 185,
-      "canonical_name": "senate intern compensation"
-    },
-    {
-      "provision_index": 186,
       "canonical_name": "official mail costs"
     },
     {
-      "provision_index": 187,
+      "provision_index": 186,
       "canonical_name": "senators' official personnel and office expense account"
     },
     {
-      "provision_index": 189,
+      "provision_index": 188,
       "canonical_name": "salaries and expenses"
     },
     {
-      "provision_index": 190,
+      "provision_index": 189,
       "canonical_name": "house leadership offices"
     },
     {
-      "provision_index": 191,
+      "provision_index": 190,
       "canonical_name": "office of the speaker"
     },
     {
-      "provision_index": 192,
+      "provision_index": 191,
       "canonical_name": "office of the majority floor leader"
     },
     {
-      "provision_index": 193,
+      "provision_index": 192,
       "canonical_name": "office of the minority floor leader"
     },
     {
-      "provision_index": 194,
+      "provision_index": 193,
       "canonical_name": "office of the majority whip"
     },
     {
-      "provision_index": 195,
+      "provision_index": 194,
       "canonical_name": "office of the minority whip"
     },
     {
-      "provision_index": 196,
+      "provision_index": 195,
       "canonical_name": "republican conference"
     },
     {
-      "provision_index": 197,
+      "provision_index": 196,
       "canonical_name": "democratic caucus"
     },
     {
-      "provision_index": 198,
+      "provision_index": 197,
       "canonical_name": "members' representational allowances"
+    },
+    {
+      "provision_index": 198,
+      "canonical_name": "allowance for compensation of interns in member offices"
     },
     {
       "provision_index": 199,
@@ -2143,7 +2151,7 @@
     },
     {
       "provision_index": 200,
-      "canonical_name": "allowance for compensation of interns in member offices"
+      "canonical_name": "allowance for compensation of interns in house leadership offices"
     },
     {
       "provision_index": 201,
@@ -2151,11 +2159,11 @@
     },
     {
       "provision_index": 202,
-      "canonical_name": "majority"
+      "canonical_name": "allowance for compensation of interns in house leadership offices"
     },
     {
       "provision_index": 203,
-      "canonical_name": "minority"
+      "canonical_name": "allowance for compensation of interns in house standing, special and select committee offices"
     },
     {
       "provision_index": 204,
@@ -2163,11 +2171,11 @@
     },
     {
       "provision_index": 205,
-      "canonical_name": "majority"
+      "canonical_name": "allowance for compensation of interns in house standing, special and select committee offices"
     },
     {
       "provision_index": 206,
-      "canonical_name": "minority"
+      "canonical_name": "allowance for compensation of interns in house appropriations committee offices"
     },
     {
       "provision_index": 207,
@@ -2175,75 +2183,75 @@
     },
     {
       "provision_index": 208,
-      "canonical_name": "majority"
+      "canonical_name": "allowance for compensation of interns in house appropriations committee offices"
     },
     {
       "provision_index": 209,
-      "canonical_name": "minority"
+      "canonical_name": "committee employees, standing committees, special and select"
     },
     {
       "provision_index": 210,
-      "canonical_name": "standing committees, special and select"
+      "canonical_name": "committee employees, standing committees, special and select"
     },
     {
       "provision_index": 211,
-      "canonical_name": "committee room upgrading"
-    },
-    {
-      "provision_index": 212,
       "canonical_name": "committee on appropriations"
     },
     {
-      "provision_index": 213,
+      "provision_index": 212,
       "canonical_name": "salaries, officers and employees"
     },
     {
-      "provision_index": 214,
+      "provision_index": 213,
       "canonical_name": "office of the clerk"
     },
     {
-      "provision_index": 215,
+      "provision_index": 214,
       "canonical_name": "office of the sergeant at arms"
     },
     {
-      "provision_index": 216,
-      "canonical_name": "member security"
-    },
-    {
-      "provision_index": 217,
+      "provision_index": 215,
       "canonical_name": "office of the chief administrative officer"
     },
     {
-      "provision_index": 218,
+      "provision_index": 216,
       "canonical_name": "office of the whistleblower ombuds"
     },
     {
-      "provision_index": 219,
+      "provision_index": 217,
       "canonical_name": "office of the inspector general"
     },
     {
-      "provision_index": 220,
+      "provision_index": 218,
       "canonical_name": "office of general counsel"
     },
     {
-      "provision_index": 221,
+      "provision_index": 219,
       "canonical_name": "office of the parliamentarian"
     },
     {
-      "provision_index": 222,
+      "provision_index": 220,
       "canonical_name": "office of the law revision counsel of the house"
     },
     {
-      "provision_index": 223,
+      "provision_index": 221,
       "canonical_name": "office of the legislative counsel of the house"
     },
     {
-      "provision_index": 224,
+      "provision_index": 222,
       "canonical_name": "office of interparliamentary affairs"
     },
     {
-      "provision_index": 225,
+      "provision_index": 223,
       "canonical_name": "other authorized employees"
+    },
+    {
+      "provision_index": 224,
+      "canonical_name": "office of the sergeant at arms"
+    },
+    {
+      "provision_index": 225,
+      "canonical_name": "allowances and expenses"
     },
     {
       "provision_index": 226,
@@ -2251,51 +2259,51 @@
     },
     {
       "provision_index": 227,
-      "canonical_name": "supplies, materials, administrative costs and federal tort claims"
+      "canonical_name": "allowances and expenses"
     },
     {
       "provision_index": 228,
-      "canonical_name": "official mail for committees, leadership offices, and administrative offices of the house"
+      "canonical_name": "allowances and expenses"
     },
     {
       "provision_index": 229,
-      "canonical_name": "government contributions for health, retirement, social security, and other employee benefits"
+      "canonical_name": "allowances and expenses"
     },
     {
       "provision_index": 230,
-      "canonical_name": "business continuity and disaster recovery"
+      "canonical_name": "allowances and expenses"
     },
     {
       "provision_index": 231,
-      "canonical_name": "transition activities for new members and staff"
+      "canonical_name": "allowances and expenses"
     },
     {
       "provision_index": 232,
-      "canonical_name": "green and gold congressional aide program"
+      "canonical_name": "allowances and expenses"
     },
     {
       "provision_index": 233,
-      "canonical_name": "office of congressional conduct"
+      "canonical_name": "allowances and expenses"
     },
     {
       "provision_index": 234,
-      "canonical_name": "miscellaneous items"
-    },
-    {
-      "provision_index": 235,
       "canonical_name": "house of representatives modernization initiatives account"
     },
     {
-      "provision_index": 237,
+      "provision_index": 235,
       "canonical_name": "members' representational allowances"
     },
     {
-      "provision_index": 244,
+      "provision_index": 243,
       "canonical_name": "joint economic committee"
     },
     {
-      "provision_index": 245,
+      "provision_index": 244,
       "canonical_name": "joint committee on taxation"
+    },
+    {
+      "provision_index": 245,
+      "canonical_name": "office of the attending physician"
     },
     {
       "provision_index": 246,
@@ -2319,11 +2327,11 @@
     },
     {
       "provision_index": 251,
-      "canonical_name": "office of the attending physician"
+      "canonical_name": "office of congressional accessibility services"
     },
     {
       "provision_index": 252,
-      "canonical_name": "office of congressional accessibility services"
+      "canonical_name": "salaries"
     },
     {
       "provision_index": 253,
@@ -2331,43 +2339,43 @@
     },
     {
       "provision_index": 254,
-      "canonical_name": "salaries"
-    },
-    {
-      "provision_index": 255,
       "canonical_name": "general expenses"
     },
     {
-      "provision_index": 257,
+      "provision_index": 256,
       "canonical_name": "general expenses"
+    },
+    {
+      "provision_index": 259,
+      "canonical_name": "office of congressional workplace rights"
     },
     {
       "provision_index": 260,
-      "canonical_name": "salaries and expenses"
+      "canonical_name": "office of congressional workplace rights"
     },
     {
       "provision_index": 261,
-      "canonical_name": "salaries and expenses"
+      "canonical_name": "congressional budget office"
     },
     {
       "provision_index": 262,
-      "canonical_name": "salaries and expenses"
+      "canonical_name": "congressional budget office"
     },
     {
       "provision_index": 263,
-      "canonical_name": "salaries and expenses"
+      "canonical_name": "congressional budget office"
     },
     {
       "provision_index": 264,
-      "canonical_name": "salaries and expenses"
+      "canonical_name": "congressional budget office"
     },
     {
       "provision_index": 265,
-      "canonical_name": "salaries and expenses"
+      "canonical_name": "capital construction and operations"
     },
     {
       "provision_index": 266,
-      "canonical_name": "capital construction and operations"
+      "canonical_name": "capitol building"
     },
     {
       "provision_index": 267,
@@ -2375,7 +2383,7 @@
     },
     {
       "provision_index": 268,
-      "canonical_name": "capitol building"
+      "canonical_name": "capitol grounds"
     },
     {
       "provision_index": 269,
@@ -2383,7 +2391,7 @@
     },
     {
       "provision_index": 270,
-      "canonical_name": "capitol grounds"
+      "canonical_name": "senate office buildings"
     },
     {
       "provision_index": 271,
@@ -2395,7 +2403,7 @@
     },
     {
       "provision_index": 273,
-      "canonical_name": "senate office buildings"
+      "canonical_name": "house office buildings"
     },
     {
       "provision_index": 274,
@@ -2407,7 +2415,7 @@
     },
     {
       "provision_index": 276,
-      "canonical_name": "house office buildings"
+      "canonical_name": "capitol power plant"
     },
     {
       "provision_index": 277,
@@ -2419,7 +2427,7 @@
     },
     {
       "provision_index": 279,
-      "canonical_name": "capitol power plant"
+      "canonical_name": "library buildings and grounds"
     },
     {
       "provision_index": 280,
@@ -2427,7 +2435,7 @@
     },
     {
       "provision_index": 281,
-      "canonical_name": "library buildings and grounds"
+      "canonical_name": "capitol police buildings, grounds and security"
     },
     {
       "provision_index": 282,
@@ -2439,91 +2447,91 @@
     },
     {
       "provision_index": 284,
-      "canonical_name": "capitol police buildings, grounds and security"
+      "canonical_name": "botanic garden"
     },
     {
       "provision_index": 285,
       "canonical_name": "botanic garden"
     },
     {
-      "provision_index": 286,
-      "canonical_name": "botanic garden"
-    },
-    {
-      "provision_index": 288,
+      "provision_index": 287,
       "canonical_name": "capitol visitor center"
     },
     {
+      "provision_index": 291,
+      "canonical_name": "library of congress, salaries and expenses"
+    },
+    {
       "provision_index": 292,
-      "canonical_name": "salaries and expenses"
+      "canonical_name": "library of congress, salaries and expenses"
     },
     {
       "provision_index": 293,
-      "canonical_name": "salaries and expenses"
+      "canonical_name": "library of congress, salaries and expenses"
     },
     {
       "provision_index": 294,
-      "canonical_name": "salaries and expenses"
+      "canonical_name": "copyright office, salaries and expenses"
     },
     {
       "provision_index": 295,
-      "canonical_name": "salaries and expenses"
+      "canonical_name": "copyright office, salaries and expenses"
     },
     {
       "provision_index": 296,
-      "canonical_name": "salaries and expenses"
+      "canonical_name": "copyright office, salaries and expenses"
     },
     {
       "provision_index": 297,
-      "canonical_name": "salaries and expenses"
+      "canonical_name": "copyright office, salaries and expenses"
     },
     {
       "provision_index": 298,
-      "canonical_name": "salaries and expenses"
+      "canonical_name": "copyright office, salaries and expenses"
     },
     {
       "provision_index": 299,
-      "canonical_name": "salaries and expenses"
+      "canonical_name": "copyright office, salaries and expenses"
     },
     {
       "provision_index": 300,
-      "canonical_name": "salaries and expenses"
-    },
-    {
-      "provision_index": 301,
-      "canonical_name": "salaries and expenses"
+      "canonical_name": "copyright office, salaries and expenses"
     },
     {
       "provision_index": 302,
-      "canonical_name": "salaries and expenses"
+      "canonical_name": "congressional research service, salaries and expenses"
+    },
+    {
+      "provision_index": 303,
+      "canonical_name": "national library service for the blind and print disabled, salaries and expenses"
     },
     {
       "provision_index": 304,
-      "canonical_name": "salaries and expenses"
-    },
-    {
-      "provision_index": 305,
-      "canonical_name": "salaries and expenses"
+      "canonical_name": "national library service for the blind and print disabled, salaries and expenses"
     },
     {
       "provision_index": 306,
-      "canonical_name": "salaries and expenses"
-    },
-    {
-      "provision_index": 307,
-      "canonical_name": "salaries and expenses"
-    },
-    {
-      "provision_index": 309,
       "canonical_name": "congressional publishing"
     },
     {
-      "provision_index": 311,
-      "canonical_name": "salaries and expenses"
+      "provision_index": 307,
+      "canonical_name": "congressional publishing"
     },
     {
-      "provision_index": 312,
-      "canonical_name": "salaries and expenses"
+      "provision_index": 308,
+      "canonical_name": "congressional publishing"
+    },
+    {
+      "provision_index": 310,
+      "canonical_name": "public information programs of the superintendent of documents, salaries and expenses"
+    },
+    {
+      "provision_index": 311,
+      "canonical_name": "public information programs of the superintendent of documents, salaries and expenses"
+    },
+    {
+      "provision_index": 313,
+      "canonical_name": "government publishing office business operations revolving fund"
     },
     {
       "provision_index": 314,
@@ -2535,23 +2543,23 @@
     },
     {
       "provision_index": 316,
-      "canonical_name": "government publishing office business operations revolving fund"
+      "canonical_name": "government accountability office, salaries and expenses"
     },
     {
       "provision_index": 317,
-      "canonical_name": "salaries and expenses"
+      "canonical_name": "government accountability office, salaries and expenses"
     },
     {
       "provision_index": 318,
-      "canonical_name": "salaries and expenses"
+      "canonical_name": "government accountability office, salaries and expenses"
     },
     {
       "provision_index": 319,
-      "canonical_name": "salaries and expenses"
+      "canonical_name": "government accountability office, salaries and expenses"
     },
     {
       "provision_index": 320,
-      "canonical_name": "salaries and expenses"
+      "canonical_name": "congressional office for international leadership fund"
     },
     {
       "provision_index": 321,
@@ -2559,15 +2567,15 @@
     },
     {
       "provision_index": 322,
-      "canonical_name": "congressional office for international leadership fund"
-    },
-    {
-      "provision_index": 323,
       "canonical_name": "john c. stennis center for public service training and development"
     },
     {
-      "provision_index": 335,
+      "provision_index": 334,
       "canonical_name": "senators' official personnel and office expense account"
+    },
+    {
+      "provision_index": 335,
+      "canonical_name": "sergeant at arms and doorkeeper of the senate"
     },
     {
       "provision_index": 336,
@@ -2583,11 +2591,11 @@
     },
     {
       "provision_index": 339,
-      "canonical_name": "sergeant at arms and doorkeeper of the senate"
+      "canonical_name": "miscellaneous items"
     },
     {
-      "provision_index": 340,
-      "canonical_name": "miscellaneous items"
+      "provision_index": 342,
+      "canonical_name": "military construction, army"
     },
     {
       "provision_index": 343,
@@ -2599,7 +2607,7 @@
     },
     {
       "provision_index": 345,
-      "canonical_name": "military construction, army"
+      "canonical_name": "military construction, navy and marine corps"
     },
     {
       "provision_index": 346,
@@ -2611,7 +2619,7 @@
     },
     {
       "provision_index": 348,
-      "canonical_name": "military construction, navy and marine corps"
+      "canonical_name": "military construction, air force"
     },
     {
       "provision_index": 349,
@@ -2623,10 +2631,10 @@
     },
     {
       "provision_index": 351,
-      "canonical_name": "military construction, air force"
+      "canonical_name": "military construction, defense-wide"
     },
     {
-      "provision_index": 352,
+      "provision_index": 353,
       "canonical_name": "military construction, defense-wide"
     },
     {
@@ -2635,7 +2643,7 @@
     },
     {
       "provision_index": 355,
-      "canonical_name": "military construction, defense-wide"
+      "canonical_name": "military construction, army national guard"
     },
     {
       "provision_index": 356,
@@ -2647,7 +2655,7 @@
     },
     {
       "provision_index": 358,
-      "canonical_name": "military construction, army national guard"
+      "canonical_name": "military construction, air national guard"
     },
     {
       "provision_index": 359,
@@ -2659,7 +2667,7 @@
     },
     {
       "provision_index": 361,
-      "canonical_name": "military construction, air national guard"
+      "canonical_name": "military construction, army reserve"
     },
     {
       "provision_index": 362,
@@ -2671,7 +2679,7 @@
     },
     {
       "provision_index": 364,
-      "canonical_name": "military construction, army reserve"
+      "canonical_name": "military construction, navy reserve"
     },
     {
       "provision_index": 365,
@@ -2683,7 +2691,7 @@
     },
     {
       "provision_index": 367,
-      "canonical_name": "military construction, navy reserve"
+      "canonical_name": "military construction, air force reserve"
     },
     {
       "provision_index": 368,
@@ -2695,70 +2703,66 @@
     },
     {
       "provision_index": 370,
-      "canonical_name": "military construction, air force reserve"
-    },
-    {
-      "provision_index": 371,
       "canonical_name": "north atlantic treaty organization security investment program"
     },
     {
-      "provision_index": 372,
+      "provision_index": 371,
       "canonical_name": "department of defense base closure account"
     },
     {
-      "provision_index": 373,
+      "provision_index": 372,
       "canonical_name": "family housing construction, army"
     },
     {
-      "provision_index": 374,
+      "provision_index": 373,
       "canonical_name": "family housing operation and maintenance, army"
     },
     {
-      "provision_index": 375,
+      "provision_index": 374,
       "canonical_name": "family housing construction, navy and marine corps"
     },
     {
-      "provision_index": 376,
+      "provision_index": 375,
       "canonical_name": "family housing operation and maintenance, navy and marine corps"
     },
     {
-      "provision_index": 377,
+      "provision_index": 376,
       "canonical_name": "family housing construction, air force"
     },
     {
-      "provision_index": 378,
+      "provision_index": 377,
       "canonical_name": "family housing operation and maintenance, air force"
     },
     {
-      "provision_index": 379,
+      "provision_index": 378,
       "canonical_name": "family housing operation and maintenance, defense-wide"
     },
     {
-      "provision_index": 380,
+      "provision_index": 379,
       "canonical_name": "department of defense family housing improvement fund"
     },
     {
-      "provision_index": 381,
+      "provision_index": 380,
       "canonical_name": "department of defense military unaccompanied housing improvement fund"
     },
     {
-      "provision_index": 403,
+      "provision_index": 402,
       "canonical_name": "ford island improvement account"
     },
     {
-      "provision_index": 407,
+      "provision_index": 406,
       "canonical_name": "military construction, army"
     },
     {
-      "provision_index": 408,
+      "provision_index": 407,
       "canonical_name": "military construction, army national guard"
     },
     {
-      "provision_index": 409,
+      "provision_index": 408,
       "canonical_name": "military construction, air national guard"
     },
     {
-      "provision_index": 410,
+      "provision_index": 409,
       "canonical_name": "military construction, army reserve"
     },
     {
@@ -2814,6 +2818,10 @@
       "canonical_name": "office of the secretary"
     },
     {
+      "provision_index": 427,
+      "canonical_name": "office of the chief economist"
+    },
+    {
       "provision_index": 428,
       "canonical_name": "office of the chief economist"
     },
@@ -2827,15 +2835,15 @@
     },
     {
       "provision_index": 431,
-      "canonical_name": "office of the chief economist"
-    },
-    {
-      "provision_index": 432,
       "canonical_name": "office of hearings and appeals"
     },
     {
-      "provision_index": 433,
+      "provision_index": 432,
       "canonical_name": "office of budget and program analysis"
+    },
+    {
+      "provision_index": 433,
+      "canonical_name": "office of the chief information officer"
     },
     {
       "provision_index": 434,
@@ -2843,31 +2851,31 @@
     },
     {
       "provision_index": 435,
-      "canonical_name": "office of the chief information officer"
-    },
-    {
-      "provision_index": 436,
       "canonical_name": "office of the chief financial officer"
     },
     {
-      "provision_index": 437,
+      "provision_index": 436,
       "canonical_name": "office of the assistant secretary for civil rights"
     },
     {
-      "provision_index": 438,
+      "provision_index": 437,
       "canonical_name": "office of civil rights"
     },
     {
-      "provision_index": 439,
+      "provision_index": 438,
       "canonical_name": "agriculture buildings and facilities"
     },
     {
-      "provision_index": 440,
+      "provision_index": 439,
       "canonical_name": "hazardous materials management"
     },
     {
-      "provision_index": 442,
+      "provision_index": 441,
       "canonical_name": "office of safety, security, and protection"
+    },
+    {
+      "provision_index": 442,
+      "canonical_name": "office of inspector general"
     },
     {
       "provision_index": 443,
@@ -2875,15 +2883,15 @@
     },
     {
       "provision_index": 444,
-      "canonical_name": "office of inspector general"
-    },
-    {
-      "provision_index": 445,
       "canonical_name": "office of the general counsel"
     },
     {
-      "provision_index": 446,
+      "provision_index": 445,
       "canonical_name": "office of ethics"
+    },
+    {
+      "provision_index": 446,
+      "canonical_name": "office of the under secretary for research, education, and economics"
     },
     {
       "provision_index": 447,
@@ -2891,27 +2899,27 @@
     },
     {
       "provision_index": 448,
-      "canonical_name": "office of the under secretary for research, education, and economics"
+      "canonical_name": "economic research service"
     },
     {
       "provision_index": 449,
-      "canonical_name": "economic research service"
+      "canonical_name": "national agricultural statistics service"
     },
     {
       "provision_index": 450,
       "canonical_name": "national agricultural statistics service"
     },
     {
-      "provision_index": 451,
-      "canonical_name": "national agricultural statistics service"
-    },
-    {
-      "provision_index": 453,
+      "provision_index": 452,
       "canonical_name": "salaries and expenses"
     },
     {
-      "provision_index": 454,
-      "canonical_name": "salaries and expenses"
+      "provision_index": 455,
+      "canonical_name": "buildings and facilities"
+    },
+    {
+      "provision_index": 456,
+      "canonical_name": "buildings and facilities"
     },
     {
       "provision_index": 457,
@@ -2919,11 +2927,11 @@
     },
     {
       "provision_index": 458,
-      "canonical_name": "buildings and facilities"
+      "canonical_name": "research and education activities"
     },
     {
       "provision_index": 459,
-      "canonical_name": "buildings and facilities"
+      "canonical_name": "research and education activities"
     },
     {
       "provision_index": 460,
@@ -2931,55 +2939,51 @@
     },
     {
       "provision_index": 461,
-      "canonical_name": "research and education activities"
-    },
-    {
-      "provision_index": 462,
-      "canonical_name": "research and education activities"
-    },
-    {
-      "provision_index": 463,
-      "canonical_name": "research and education activities"
-    },
-    {
-      "provision_index": 464,
       "canonical_name": "native american institutions endowment fund"
     },
     {
+      "provision_index": 462,
+      "canonical_name": "extension activities"
+    },
+    {
+      "provision_index": 463,
+      "canonical_name": "integrated activities"
+    },
+    {
       "provision_index": 465,
-      "canonical_name": "extension activities"
-    },
-    {
-      "provision_index": 466,
-      "canonical_name": "extension activities"
-    },
-    {
-      "provision_index": 467,
-      "canonical_name": "integrated activities"
-    },
-    {
-      "provision_index": 468,
-      "canonical_name": "integrated activities"
-    },
-    {
-      "provision_index": 469,
       "canonical_name": "office of the under secretary for marketing and regulatory programs"
     },
     {
-      "provision_index": 470,
+      "provision_index": 466,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 467,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 468,
       "canonical_name": "salaries and expenses"
     },
     {
       "provision_index": 471,
-      "canonical_name": "salaries and expenses"
+      "canonical_name": "buildings and facilities"
     },
     {
       "provision_index": 472,
-      "canonical_name": "salaries and expenses"
+      "canonical_name": "marketing services"
+    },
+    {
+      "provision_index": 473,
+      "canonical_name": "marketing services"
+    },
+    {
+      "provision_index": 474,
+      "canonical_name": "marketing services"
     },
     {
       "provision_index": 475,
-      "canonical_name": "buildings and facilities"
+      "canonical_name": "marketing services"
     },
     {
       "provision_index": 476,
@@ -2987,62 +2991,58 @@
     },
     {
       "provision_index": 477,
-      "canonical_name": "marketing services"
-    },
-    {
-      "provision_index": 478,
-      "canonical_name": "marketing services"
-    },
-    {
-      "provision_index": 479,
-      "canonical_name": "marketing services"
-    },
-    {
-      "provision_index": 480,
-      "canonical_name": "marketing services"
-    },
-    {
-      "provision_index": 482,
       "canonical_name": "limitation on administrative expenses"
     },
     {
-      "provision_index": 483,
+      "provision_index": 478,
       "canonical_name": "funds for strengthening markets, income, and supply (section 32)"
     },
     {
-      "provision_index": 484,
+      "provision_index": 479,
       "canonical_name": "funds for strengthening markets, income, and supply (section 32)"
     },
     {
-      "provision_index": 485,
+      "provision_index": 480,
       "canonical_name": "payments to states and possessions"
     },
     {
-      "provision_index": 486,
+      "provision_index": 481,
       "canonical_name": "limitation on inspection and weighing services expenses"
     },
     {
-      "provision_index": 487,
+      "provision_index": 482,
       "canonical_name": "office of the under secretary for food safety"
     },
     {
+      "provision_index": 483,
+      "canonical_name": "food safety and inspection service"
+    },
+    {
+      "provision_index": 484,
+      "canonical_name": "food safety and inspection service"
+    },
+    {
       "provision_index": 488,
-      "canonical_name": "food safety and inspection service"
-    },
-    {
-      "provision_index": 490,
-      "canonical_name": "food safety and inspection service"
-    },
-    {
-      "provision_index": 493,
       "canonical_name": "military construction, army"
     },
     {
-      "provision_index": 494,
+      "provision_index": 489,
       "canonical_name": "military construction, navy and marine corps"
     },
     {
-      "provision_index": 495,
+      "provision_index": 490,
+      "canonical_name": "military construction, air force"
+    },
+    {
+      "provision_index": 492,
+      "canonical_name": "military construction, army"
+    },
+    {
+      "provision_index": 493,
+      "canonical_name": "military construction, navy and marine corps"
+    },
+    {
+      "provision_index": 494,
       "canonical_name": "military construction, air force"
     },
     {
@@ -3058,40 +3058,36 @@
       "canonical_name": "military construction, air force"
     },
     {
-      "provision_index": 499,
-      "canonical_name": "military construction, army"
+      "provision_index": 502,
+      "canonical_name": "compensation and pensions"
     },
     {
-      "provision_index": 500,
-      "canonical_name": "military construction, navy and marine corps"
-    },
-    {
-      "provision_index": 501,
-      "canonical_name": "military construction, air force"
+      "provision_index": 503,
+      "canonical_name": "compensation and pensions"
     },
     {
       "provision_index": 504,
       "canonical_name": "compensation and pensions"
     },
     {
-      "provision_index": 505,
-      "canonical_name": "compensation and pensions"
-    },
-    {
       "provision_index": 506,
-      "canonical_name": "compensation and pensions"
+      "canonical_name": "readjustment benefits"
     },
     {
-      "provision_index": 508,
+      "provision_index": 507,
       "canonical_name": "readjustment benefits"
     },
     {
       "provision_index": 509,
-      "canonical_name": "readjustment benefits"
+      "canonical_name": "veterans insurance and indemnities"
+    },
+    {
+      "provision_index": 510,
+      "canonical_name": "veterans housing benefit program fund"
     },
     {
       "provision_index": 511,
-      "canonical_name": "veterans insurance and indemnities"
+      "canonical_name": "veterans housing benefit program fund"
     },
     {
       "provision_index": 512,
@@ -3099,11 +3095,11 @@
     },
     {
       "provision_index": 513,
-      "canonical_name": "veterans housing benefit program fund"
+      "canonical_name": "vocational rehabilitation loans program account"
     },
     {
       "provision_index": 514,
-      "canonical_name": "veterans housing benefit program fund"
+      "canonical_name": "vocational rehabilitation loans program account"
     },
     {
       "provision_index": 515,
@@ -3111,11 +3107,11 @@
     },
     {
       "provision_index": 516,
-      "canonical_name": "vocational rehabilitation loans program account"
+      "canonical_name": "native american veteran housing loan program account"
     },
     {
       "provision_index": 517,
-      "canonical_name": "vocational rehabilitation loans program account"
+      "canonical_name": "native american veteran housing loan program account"
     },
     {
       "provision_index": 518,
@@ -3123,15 +3119,11 @@
     },
     {
       "provision_index": 519,
-      "canonical_name": "native american veteran housing loan program account"
-    },
-    {
-      "provision_index": 520,
-      "canonical_name": "native american veteran housing loan program account"
+      "canonical_name": "general operating expenses, veterans benefits administration"
     },
     {
       "provision_index": 521,
-      "canonical_name": "general operating expenses, veterans benefits administration"
+      "canonical_name": "medical services"
     },
     {
       "provision_index": 522,
@@ -3142,12 +3134,12 @@
       "canonical_name": "medical services"
     },
     {
-      "provision_index": 524,
+      "provision_index": 527,
       "canonical_name": "medical services"
     },
     {
-      "provision_index": 528,
-      "canonical_name": "medical services"
+      "provision_index": 530,
+      "canonical_name": "medical community care"
     },
     {
       "provision_index": 531,
@@ -3155,7 +3147,7 @@
     },
     {
       "provision_index": 532,
-      "canonical_name": "medical community care"
+      "canonical_name": "medical support and compliance"
     },
     {
       "provision_index": 533,
@@ -3167,7 +3159,7 @@
     },
     {
       "provision_index": 535,
-      "canonical_name": "medical support and compliance"
+      "canonical_name": "medical facilities"
     },
     {
       "provision_index": 536,
@@ -3179,23 +3171,23 @@
     },
     {
       "provision_index": 538,
-      "canonical_name": "medical facilities"
-    },
-    {
-      "provision_index": 539,
       "canonical_name": "medical and prosthetic research"
     },
     {
-      "provision_index": 541,
+      "provision_index": 540,
       "canonical_name": "national cemetery administration"
     },
     {
-      "provision_index": 542,
+      "provision_index": 541,
       "canonical_name": "general administration"
     },
     {
-      "provision_index": 544,
+      "provision_index": 543,
       "canonical_name": "board of veterans appeals"
+    },
+    {
+      "provision_index": 544,
+      "canonical_name": "information technology systems"
     },
     {
       "provision_index": 545,
@@ -3214,11 +3206,11 @@
       "canonical_name": "information technology systems"
     },
     {
-      "provision_index": 549,
-      "canonical_name": "information technology systems"
+      "provision_index": 551,
+      "canonical_name": "veterans electronic health record"
     },
     {
-      "provision_index": 552,
+      "provision_index": 553,
       "canonical_name": "veterans electronic health record"
     },
     {
@@ -3227,11 +3219,11 @@
     },
     {
       "provision_index": 555,
-      "canonical_name": "veterans electronic health record"
+      "canonical_name": "office of inspector general"
     },
     {
       "provision_index": 556,
-      "canonical_name": "office of inspector general"
+      "canonical_name": "construction, major projects"
     },
     {
       "provision_index": 557,
@@ -3250,12 +3242,12 @@
       "canonical_name": "construction, major projects"
     },
     {
-      "provision_index": 561,
+      "provision_index": 562,
       "canonical_name": "construction, major projects"
     },
     {
-      "provision_index": 563,
-      "canonical_name": "construction, major projects"
+      "provision_index": 565,
+      "canonical_name": "construction, minor projects"
     },
     {
       "provision_index": 566,
@@ -3271,22 +3263,18 @@
     },
     {
       "provision_index": 569,
-      "canonical_name": "construction, minor projects"
-    },
-    {
-      "provision_index": 570,
       "canonical_name": "grants for construction of state extended care facilities"
     },
     {
-      "provision_index": 571,
+      "provision_index": 570,
       "canonical_name": "grants for construction of veterans cemeteries"
     },
     {
-      "provision_index": 572,
+      "provision_index": 571,
       "canonical_name": "cost of war toxic exposures fund"
     },
     {
-      "provision_index": 577,
+      "provision_index": 576,
       "canonical_name": "medical services"
     },
     {
@@ -3346,52 +3334,72 @@
       "canonical_name": "trust fund"
     },
     {
-      "provision_index": 712,
+      "provision_index": 662,
+      "canonical_name": "special account, army national military cemeteries"
+    },
+    {
+      "provision_index": 711,
       "canonical_name": "office of the under secretary for farm production and conservation"
     },
     {
-      "provision_index": 714,
+      "provision_index": 712,
+      "canonical_name": "farm production and conservation business center, salaries and expenses"
+    },
+    {
+      "provision_index": 713,
       "canonical_name": "farm production and conservation business center, salaries and expenses"
     },
     {
       "provision_index": 715,
-      "canonical_name": "farm production and conservation business center, salaries and expenses"
+      "canonical_name": "farm service agency, salaries and expenses"
+    },
+    {
+      "provision_index": 716,
+      "canonical_name": "farm service agency, salaries and expenses"
     },
     {
       "provision_index": 717,
       "canonical_name": "farm service agency, salaries and expenses"
     },
     {
-      "provision_index": 718,
+      "provision_index": 719,
+      "canonical_name": "farm service agency, salaries and expenses"
+    },
+    {
+      "provision_index": 720,
       "canonical_name": "farm service agency, salaries and expenses"
     },
     {
       "provision_index": 722,
-      "canonical_name": "farm service agency, salaries and expenses"
-    },
-    {
-      "provision_index": 724,
-      "canonical_name": "farm service agency, salaries and expenses"
-    },
-    {
-      "provision_index": 725,
-      "canonical_name": "farm service agency, salaries and expenses"
-    },
-    {
-      "provision_index": 726,
       "canonical_name": "state mediation grants"
     },
     {
-      "provision_index": 728,
+      "provision_index": 724,
       "canonical_name": "grassroots source water protection program"
     },
     {
-      "provision_index": 729,
+      "provision_index": 725,
       "canonical_name": "dairy indemnity program"
     },
     {
-      "provision_index": 730,
+      "provision_index": 726,
       "canonical_name": "geographically disadvantaged farmers and ranchers"
+    },
+    {
+      "provision_index": 727,
+      "canonical_name": "agricultural credit insurance fund program account"
+    },
+    {
+      "provision_index": 728,
+      "canonical_name": "agricultural credit insurance fund program account"
+    },
+    {
+      "provision_index": 729,
+      "canonical_name": "agricultural credit insurance fund program account"
+    },
+    {
+      "provision_index": 730,
+      "canonical_name": "agricultural credit insurance fund program account"
     },
     {
       "provision_index": 731,
@@ -3410,10 +3418,6 @@
       "canonical_name": "agricultural credit insurance fund program account"
     },
     {
-      "provision_index": 735,
-      "canonical_name": "agricultural credit insurance fund program account"
-    },
-    {
       "provision_index": 736,
       "canonical_name": "agricultural credit insurance fund program account"
     },
@@ -3426,80 +3430,76 @@
       "canonical_name": "agricultural credit insurance fund program account"
     },
     {
+      "provision_index": 739,
+      "canonical_name": "agricultural credit insurance fund program account"
+    },
+    {
       "provision_index": 740,
-      "canonical_name": "agricultural credit insurance fund program account"
-    },
-    {
-      "provision_index": 741,
-      "canonical_name": "agricultural credit insurance fund program account"
-    },
-    {
-      "provision_index": 742,
-      "canonical_name": "agricultural credit insurance fund program account"
-    },
-    {
-      "provision_index": 743,
-      "canonical_name": "agricultural credit insurance fund program account"
-    },
-    {
-      "provision_index": 744,
       "canonical_name": "farm service agency, salaries and expenses"
     },
     {
-      "provision_index": 746,
+      "provision_index": 742,
       "canonical_name": "risk management agency, salaries and expenses"
+    },
+    {
+      "provision_index": 743,
+      "canonical_name": "risk management agency, salaries and expenses"
+    },
+    {
+      "provision_index": 744,
+      "canonical_name": "risk management agency, salaries and expenses"
+    },
+    {
+      "provision_index": 745,
+      "canonical_name": "conservation operations"
+    },
+    {
+      "provision_index": 746,
+      "canonical_name": "conservation operations"
     },
     {
       "provision_index": 747,
-      "canonical_name": "risk management agency, salaries and expenses"
+      "canonical_name": "conservation operations"
     },
     {
       "provision_index": 748,
-      "canonical_name": "risk management agency, salaries and expenses"
+      "canonical_name": "watershed and flood prevention operations"
     },
     {
       "provision_index": 749,
-      "canonical_name": "natural resources conservation service, conservation operations"
+      "canonical_name": "watershed and flood prevention operations"
     },
     {
       "provision_index": 750,
-      "canonical_name": "natural resources conservation service, conservation operations"
-    },
-    {
-      "provision_index": 751,
-      "canonical_name": "natural resources conservation service, conservation operations"
-    },
-    {
-      "provision_index": 753,
       "canonical_name": "watershed and flood prevention operations"
     },
     {
-      "provision_index": 754,
-      "canonical_name": "watershed and flood prevention operations"
-    },
-    {
-      "provision_index": 756,
-      "canonical_name": "watershed and flood prevention operations"
-    },
-    {
-      "provision_index": 757,
+      "provision_index": 752,
       "canonical_name": "watershed rehabilitation program"
     },
     {
-      "provision_index": 759,
+      "provision_index": 754,
       "canonical_name": "federal crop insurance corporation fund"
     },
     {
-      "provision_index": 760,
+      "provision_index": 755,
       "canonical_name": "commodity credit corporation fund, reimbursement for net realized losses"
     },
     {
-      "provision_index": 763,
+      "provision_index": 758,
       "canonical_name": "commodity credit corporation fund, hazardous waste management"
     },
     {
-      "provision_index": 822,
+      "provision_index": 820,
       "canonical_name": "office of the under secretary for rural development"
+    },
+    {
+      "provision_index": 821,
+      "canonical_name": "rural development, salaries and expenses"
+    },
+    {
+      "provision_index": 822,
+      "canonical_name": "rural development, salaries and expenses"
     },
     {
       "provision_index": 823,
@@ -3507,11 +3507,11 @@
     },
     {
       "provision_index": 824,
-      "canonical_name": "rural development, salaries and expenses"
+      "canonical_name": "rural housing insurance fund program account"
     },
     {
       "provision_index": 825,
-      "canonical_name": "rural development, salaries and expenses"
+      "canonical_name": "rural housing insurance fund program account"
     },
     {
       "provision_index": 826,
@@ -3582,11 +3582,7 @@
       "canonical_name": "rural housing insurance fund program account"
     },
     {
-      "provision_index": 843,
-      "canonical_name": "rural housing insurance fund program account"
-    },
-    {
-      "provision_index": 844,
+      "provision_index": 845,
       "canonical_name": "rural housing insurance fund program account"
     },
     {
@@ -3594,36 +3590,40 @@
       "canonical_name": "rural housing insurance fund program account"
     },
     {
-      "provision_index": 849,
+      "provision_index": 848,
       "canonical_name": "rural housing insurance fund program account"
     },
     {
+      "provision_index": 849,
+      "canonical_name": "rental assistance program"
+    },
+    {
       "provision_index": 850,
-      "canonical_name": "rural development, salaries and expenses"
+      "canonical_name": "rental assistance program"
     },
     {
       "provision_index": 851,
-      "canonical_name": "rental assistance program"
+      "canonical_name": "rural housing voucher account"
     },
     {
       "provision_index": 852,
-      "canonical_name": "rental assistance program"
+      "canonical_name": "rural housing voucher account"
     },
     {
       "provision_index": 853,
-      "canonical_name": "rural housing voucher account"
-    },
-    {
-      "provision_index": 854,
-      "canonical_name": "rural housing voucher account"
-    },
-    {
-      "provision_index": 855,
       "canonical_name": "mutual and self-help housing grants"
     },
     {
-      "provision_index": 856,
+      "provision_index": 854,
       "canonical_name": "rural housing assistance grants"
+    },
+    {
+      "provision_index": 855,
+      "canonical_name": "rural community facilities program account"
+    },
+    {
+      "provision_index": 856,
+      "canonical_name": "rural community facilities program account"
     },
     {
       "provision_index": 857,
@@ -3651,11 +3651,11 @@
     },
     {
       "provision_index": 863,
-      "canonical_name": "rural community facilities program account"
+      "canonical_name": "rural business program account"
     },
     {
       "provision_index": 864,
-      "canonical_name": "rural community facilities program account"
+      "canonical_name": "rural business program account"
     },
     {
       "provision_index": 865,
@@ -3687,11 +3687,11 @@
     },
     {
       "provision_index": 872,
-      "canonical_name": "rural business program account"
+      "canonical_name": "intermediary relending program fund account"
     },
     {
       "provision_index": 873,
-      "canonical_name": "rural business program account"
+      "canonical_name": "intermediary relending program fund account"
     },
     {
       "provision_index": 874,
@@ -3707,19 +3707,19 @@
     },
     {
       "provision_index": 877,
-      "canonical_name": "intermediary relending program fund account"
+      "canonical_name": "rural economic development loans program account"
     },
     {
       "provision_index": 878,
-      "canonical_name": "rural development, salaries and expenses"
+      "canonical_name": "rural economic development loans program account"
     },
     {
       "provision_index": 879,
-      "canonical_name": "rural economic development loans program account"
+      "canonical_name": "rural cooperative development grants"
     },
     {
       "provision_index": 880,
-      "canonical_name": "rural economic development loans program account"
+      "canonical_name": "rural cooperative development grants"
     },
     {
       "provision_index": 881,
@@ -3735,27 +3735,27 @@
     },
     {
       "provision_index": 884,
-      "canonical_name": "rural cooperative development grants"
+      "canonical_name": "rural microentrepreneur assistance program"
     },
     {
       "provision_index": 885,
-      "canonical_name": "rural cooperative development grants"
+      "canonical_name": "rural microentrepreneur assistance program"
     },
     {
       "provision_index": 886,
-      "canonical_name": "rural microentrepreneur assistance program"
-    },
-    {
-      "provision_index": 887,
-      "canonical_name": "rural microentrepreneur assistance program"
-    },
-    {
-      "provision_index": 888,
       "canonical_name": "rural energy for america program"
     },
     {
-      "provision_index": 889,
+      "provision_index": 887,
       "canonical_name": "healthy food financing initiative"
+    },
+    {
+      "provision_index": 888,
+      "canonical_name": "rural water and waste disposal program account"
+    },
+    {
+      "provision_index": 889,
+      "canonical_name": "rural water and waste disposal program account"
     },
     {
       "provision_index": 890,
@@ -3823,11 +3823,11 @@
     },
     {
       "provision_index": 906,
-      "canonical_name": "rural water and waste disposal program account"
+      "canonical_name": "rural electrification and telecommunications loans program account"
     },
     {
       "provision_index": 907,
-      "canonical_name": "rural utilities service, high energy cost grants account"
+      "canonical_name": "rural electrification and telecommunications loans program account"
     },
     {
       "provision_index": 908,
@@ -3859,11 +3859,11 @@
     },
     {
       "provision_index": 915,
-      "canonical_name": "rural electrification and telecommunications loans program account"
+      "canonical_name": "distance learning, telemedicine, and broadband program"
     },
     {
       "provision_index": 916,
-      "canonical_name": "rural development, salaries and expenses"
+      "canonical_name": "distance learning, telemedicine, and broadband program"
     },
     {
       "provision_index": 917,
@@ -3894,11 +3894,7 @@
       "canonical_name": "office of the under secretary for food, nutrition, and consumer services"
     },
     {
-      "provision_index": 928,
-      "canonical_name": "child nutrition programs"
-    },
-    {
-      "provision_index": 930,
+      "provision_index": 929,
       "canonical_name": "child nutrition programs"
     },
     {
@@ -3926,8 +3922,8 @@
       "canonical_name": "child nutrition programs"
     },
     {
-      "provision_index": 940,
-      "canonical_name": "special supplemental nutrition program for women, infants, and children (wic)"
+      "provision_index": 937,
+      "canonical_name": "child nutrition programs"
     },
     {
       "provision_index": 941,
@@ -3942,7 +3938,7 @@
       "canonical_name": "special supplemental nutrition program for women, infants, and children (wic)"
     },
     {
-      "provision_index": 945,
+      "provision_index": 944,
       "canonical_name": "special supplemental nutrition program for women, infants, and children (wic)"
     },
     {
@@ -3950,8 +3946,8 @@
       "canonical_name": "special supplemental nutrition program for women, infants, and children (wic)"
     },
     {
-      "provision_index": 948,
-      "canonical_name": "supplemental nutrition assistance program"
+      "provision_index": 947,
+      "canonical_name": "special supplemental nutrition program for women, infants, and children (wic)"
     },
     {
       "provision_index": 949,
@@ -3962,7 +3958,7 @@
       "canonical_name": "supplemental nutrition assistance program"
     },
     {
-      "provision_index": 952,
+      "provision_index": 951,
       "canonical_name": "supplemental nutrition assistance program"
     },
     {
@@ -3974,12 +3970,12 @@
       "canonical_name": "supplemental nutrition assistance program"
     },
     {
-      "provision_index": 958,
+      "provision_index": 955,
       "canonical_name": "supplemental nutrition assistance program"
     },
     {
-      "provision_index": 960,
-      "canonical_name": "commodity assistance program"
+      "provision_index": 959,
+      "canonical_name": "supplemental nutrition assistance program"
     },
     {
       "provision_index": 961,
@@ -4002,12 +3998,12 @@
       "canonical_name": "commodity assistance program"
     },
     {
-      "provision_index": 967,
+      "provision_index": 966,
       "canonical_name": "commodity assistance program"
     },
     {
       "provision_index": 968,
-      "canonical_name": "nutrition programs administration"
+      "canonical_name": "commodity assistance program"
     },
     {
       "provision_index": 969,
@@ -4015,11 +4011,11 @@
     },
     {
       "provision_index": 970,
-      "canonical_name": "office of the under secretary for trade and foreign agricultural affairs"
+      "canonical_name": "nutrition programs administration"
     },
     {
       "provision_index": 971,
-      "canonical_name": "office of codex alimentarius"
+      "canonical_name": "office of the under secretary for trade and foreign agricultural affairs"
     },
     {
       "provision_index": 972,
@@ -4027,7 +4023,7 @@
     },
     {
       "provision_index": 973,
-      "canonical_name": "foreign agricultural service, salaries and expenses"
+      "canonical_name": "office of codex alimentarius"
     },
     {
       "provision_index": 974,
@@ -4051,27 +4047,23 @@
     },
     {
       "provision_index": 979,
-      "canonical_name": "food for peace title ii grants"
-    },
-    {
-      "provision_index": 980,
-      "canonical_name": "mcgovern-dole international food for education and child nutrition program grants"
+      "canonical_name": "foreign agricultural service, salaries and expenses"
     },
     {
       "provision_index": 981,
-      "canonical_name": "mcgovern-dole international food for education and child nutrition program grants"
+      "canonical_name": "food for peace title ii grants"
     },
     {
       "provision_index": 982,
-      "canonical_name": "commodity credit corporation export (loans) credit guarantee program account"
+      "canonical_name": "mcgovern-dole international food for education and child nutrition program grants"
     },
     {
       "provision_index": 983,
-      "canonical_name": "salaries and expenses"
+      "canonical_name": "mcgovern-dole international food for education and child nutrition program grants"
     },
     {
       "provision_index": 984,
-      "canonical_name": "salaries and expenses"
+      "canonical_name": "commodity credit corporation export (loans) credit guarantee program account"
     },
     {
       "provision_index": 985,
@@ -4098,11 +4090,11 @@
       "canonical_name": "salaries and expenses"
     },
     {
-      "provision_index": 994,
+      "provision_index": 991,
       "canonical_name": "salaries and expenses"
     },
     {
-      "provision_index": 995,
+      "provision_index": 992,
       "canonical_name": "salaries and expenses"
     },
     {
@@ -4158,21 +4150,29 @@
       "canonical_name": "salaries and expenses"
     },
     {
+      "provision_index": 1009,
+      "canonical_name": "salaries and expenses"
+    },
+    {
       "provision_index": 1010,
+      "canonical_name": "salaries and expenses"
+    },
+    {
+      "provision_index": 1012,
       "canonical_name": "office of inspector general"
     },
     {
-      "provision_index": 1013,
+      "provision_index": 1015,
       "canonical_name": "buildings and facilities"
     },
     {
-      "provision_index": 1014,
+      "provision_index": 1016,
       "canonical_name": "limitation on administrative expenses"
     },
     {
-      "provision_index": 1044,
+      "provision_index": 1047,
       "canonical_name": "working capital fund"
     }
   ],
-  "extraction_sha256": "71d858a475ac6bc44c0101485d39e876ce640e5cd5e0a33b72b6b1546daebf0e"
+  "extraction_sha256": "6fa409b085017080f1b3bcb7dd0532e3bd8021ad271e5a06b7cd98776683d051"
 }

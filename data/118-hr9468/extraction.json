@@ -1,17 +1,230 @@
 {
+  "schema_version": "1.0",
   "bill": {
-    "classification": "supplemental",
-    "divisions": [],
+    "identifier": "H.R. 9468",
+    "classification": "regular",
+    "short_title": "Veterans Benefits Continuity and Accountability Supplemental Appropriations Act, 2024",
     "fiscal_years": [
       2024
     ],
-    "identifier": "H.R. 9468",
-    "public_law": null,
-    "short_title": "Veterans Benefits Continuity and Accountability Supplemental Appropriations Act, 2024"
+    "divisions": [],
+    "public_law": null
+  },
+  "provisions": [
+    {
+      "provision_type": "appropriation",
+      "account_name": "Compensation and Pensions",
+      "agency": "Department of Veterans Affairs",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 2285513000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$2,285,513,000"
+      },
+      "fiscal_year": 2024,
+      "availability": "to remain available until expended",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": null,
+      "confidence": 0.99,
+      "raw_text": "For an additional amount for ''Compensation and Pensions'', $2,285,513,000, to remain available until expended.",
+      "notes": [
+        "Supplemental appropriation under Veterans Benefits Administration heading",
+        "No-year funds"
+      ],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 371,
+        "end": 482,
+        "file": "BILLS-118hr9468enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "appropriation",
+      "account_name": "Readjustment Benefits",
+      "agency": "Department of Veterans Affairs",
+      "program": null,
+      "amount": {
+        "value": {
+          "kind": "specific",
+          "dollars": 596969000
+        },
+        "semantics": "new_budget_authority",
+        "text_as_written": "$596,969,000"
+      },
+      "fiscal_year": 2024,
+      "availability": "to remain available until expended",
+      "provisos": [],
+      "earmarks": [],
+      "section": "",
+      "division": null,
+      "title": null,
+      "confidence": 0.99,
+      "raw_text": "For an additional amount for ''Readjustment Benefits'', $596,969,000, to remain available until expended.",
+      "notes": [
+        "Supplemental appropriation under Veterans Benefits Administration heading",
+        "No-year funds"
+      ],
+      "cross_references": [],
+      "detail_level": "top_level",
+      "parent_account": null,
+      "source_span": {
+        "start": 538,
+        "end": 643,
+        "file": "BILLS-118hr9468enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "rider",
+      "description": "Establishes that each amount appropriated or made available by this Act is in addition to amounts otherwise appropriated for the fiscal year involved.",
+      "policy_area": "supplemental appropriations",
+      "section": "SEC. 101",
+      "division": null,
+      "title": null,
+      "confidence": 0.99,
+      "raw_text": "Each amount appropriated or made available by this Act is in addition to amounts otherwise appropriated for the fiscal year involved.",
+      "notes": [
+        "Standard supplemental boilerplate ensuring these funds are additive to regular appropriations"
+      ],
+      "cross_references": [],
+      "source_span": {
+        "start": 683,
+        "end": 816,
+        "file": "BILLS-118hr9468enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "rider",
+      "description": "Unless otherwise provided, additional amounts appropriated by this Act shall be available under the authorities and conditions applicable to such appropriations accounts for fiscal year 2024.",
+      "policy_area": "supplemental appropriations",
+      "section": "SEC. 102",
+      "division": null,
+      "title": null,
+      "confidence": 0.98,
+      "raw_text": "Unless otherwise provided for by this Act, the additional amounts appropriated by this Act to appropriations accounts shall be available under the auth",
+      "notes": [
+        "Standard supplemental boilerplate applying existing FY2024 terms and conditions"
+      ],
+      "cross_references": [],
+      "source_span": {
+        "start": 828,
+        "end": 979,
+        "file": "BILLS-118hr9468enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "directive",
+      "description": "Requires the Secretary of Veterans Affairs to submit a report within 30 days detailing corrections the Department will make to improve forecasting, data quality, and budget assumptions relating to budget submissions for Compensation and Pensions and Readjustment Benefits.",
+      "deadlines": [
+        "30 days after enactment"
+      ],
+      "section": "SEC. 103",
+      "division": null,
+      "title": null,
+      "confidence": 0.98,
+      "raw_text": "Not later than 30 days after the date of enactment of this Act, the Secretary of Veterans Affairs shall submit to the Committees on Appropriations and ",
+      "notes": [
+        "Subsection (a) \u2014 Budget formulation and forecasting report",
+        "Directed to Committees on Appropriations and Committees on Veterans Affairs of both chambers"
+      ],
+      "cross_references": [],
+      "source_span": {
+        "start": 1118,
+        "end": 1269,
+        "file": "BILLS-118hr9468enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "directive",
+      "description": "Requires the Secretary of Veterans Affairs to submit within 60 days a report on the status of funds under Compensation and Pensions and Readjustment Benefits for fiscal years 2024, 2025, and 2026, with updates every 90 days thereafter until September 30, 2026, including information on changes to estimates or assumptions on obligations and expenditures.",
+      "deadlines": [
+        "60 days after enactment",
+        "every 90 days thereafter until September 30, 2026"
+      ],
+      "section": "SEC. 103",
+      "division": null,
+      "title": null,
+      "confidence": 0.98,
+      "raw_text": "Not later than 60 days after the enactment of this Act, the Secretary of Veterans Affairs shall submit to the Committees on Appropriations and the Comm",
+      "notes": [
+        "Subsection (b) \u2014 Reporting requirement",
+        "Proviso requires the report to be updated every 90 days with details on changes to estimates or assumptions",
+        "Covers FY2024, FY2025, and FY2026 funds in this or any other Act"
+      ],
+      "cross_references": [],
+      "source_span": {
+        "start": 1626,
+        "end": 1777,
+        "file": "BILLS-118hr9468enr.txt",
+        "verified": true
+      }
+    },
+    {
+      "provision_type": "directive",
+      "description": "Requires the Inspector General of the Department of Veterans Affairs to conduct a review of the circumstances and causes of the VBA FY2024 funding shortfall (announced July 19, 2024) and the VHA FY2025 funding shortfall (announced July 31, 2024), including comparisons of monthly obligations and expenditures against spend plans, accuracy of projections, changes in fund transfers or reallocations, and actions to improve accuracy and prevent future shortfalls. A report on the findings must be submitted within 180 days of enactment.",
+      "deadlines": [
+        "180 days after enactment"
+      ],
+      "section": "SEC. 104",
+      "division": null,
+      "title": null,
+      "confidence": 0.97,
+      "raw_text": "The Inspector General of the Department of Veterans Affairs shall conduct a review of the circumstances surrounding and the underlying causes of the ann",
+      "notes": [
+        "Subsection (a) establishes the IG review scope covering VBA FY2024 and VHA FY2025 shortfalls",
+        "Subsection (b) requires comparison of monthly obligations/expenditures against spend plans and analysis of projection accuracy",
+        "Subsection (c) requires review of fund transfers, reallocations, and movements within VHA including VISN, facility, VERA, and MCAS",
+        "Subsection (d) requires recommendations for improving accuracy of budget submissions under 31 U.S.C. 1105(a)",
+        "Subsection (e) requires report to Appropriations and Veterans Affairs Committees of both chambers within 180 days"
+      ],
+      "cross_references": [
+        {
+          "ref_type": "see_also",
+          "target": "31 U.S.C. 1105(a)",
+          "description": "Budget submission supporting information requirements"
+        }
+      ],
+      "source_span": {
+        "start": 2335,
+        "end": 2487,
+        "file": "BILLS-118hr9468enr.txt",
+        "verified": true
+      }
+    }
+  ],
+  "summary": {
+    "total_provisions": 7,
+    "by_division": {
+      "?": 7
+    },
+    "by_type": {
+      "appropriation": 2,
+      "rider": 2,
+      "directive": 3
+    },
+    "total_budget_authority": 2882482000,
+    "total_rescissions": 0,
+    "sections_with_no_provisions": [],
+    "flagged_issues": [
+      "This is a supplemental appropriations bill to address announced VA funding shortfalls in VBA (FY2024) and VHA (FY2025)",
+      "Both appropriation accounts are no-year funds (available until expended)"
+    ]
   },
   "chunk_map": [
     {
-      "chunk_id": "01KKWW9T5RR0JTQ6C9FYYE96A8",
+      "chunk_id": "01KM8F41K5N9JP38GDGCJFRKDJ",
       "label": "[1/1] full",
       "provision_indices": [
         0,
@@ -23,177 +236,5 @@
         6
       ]
     }
-  ],
-  "provisions": [
-    {
-      "account_name": "Compensation and Pensions",
-      "agency": "Department of Veterans Affairs",
-      "amount": {
-        "semantics": "new_budget_authority",
-        "text_as_written": "$2,285,513,000",
-        "value": {
-          "dollars": 2285513000,
-          "kind": "specific"
-        }
-      },
-      "availability": "to remain available until expended",
-      "confidence": 0.99,
-      "cross_references": [],
-      "detail_level": "top_level",
-      "division": null,
-      "earmarks": [],
-      "fiscal_year": 2024,
-      "notes": [
-        "Supplemental appropriation under Veterans Benefits Administration heading",
-        "No-year funding"
-      ],
-      "parent_account": null,
-      "program": null,
-      "provision_type": "appropriation",
-      "provisos": [],
-      "raw_text": "For an additional amount for ''Compensation and Pensions'', $2,285,513,000, to remain available until expended.",
-      "section": "",
-      "title": null
-    },
-    {
-      "account_name": "Readjustment Benefits",
-      "agency": "Department of Veterans Affairs",
-      "amount": {
-        "semantics": "new_budget_authority",
-        "text_as_written": "$596,969,000",
-        "value": {
-          "dollars": 596969000,
-          "kind": "specific"
-        }
-      },
-      "availability": "to remain available until expended",
-      "confidence": 0.99,
-      "cross_references": [],
-      "detail_level": "top_level",
-      "division": null,
-      "earmarks": [],
-      "fiscal_year": 2024,
-      "notes": [
-        "Supplemental appropriation under Veterans Benefits Administration heading",
-        "No-year funding"
-      ],
-      "parent_account": null,
-      "program": null,
-      "provision_type": "appropriation",
-      "provisos": [],
-      "raw_text": "For an additional amount for ''Readjustment Benefits'', $596,969,000, to remain available until expended.",
-      "section": "",
-      "title": null
-    },
-    {
-      "confidence": 0.99,
-      "cross_references": [],
-      "description": "Establishes that each amount appropriated or made available by this Act is in addition to amounts otherwise appropriated for the fiscal year involved.",
-      "division": null,
-      "notes": [
-        "Standard supplemental appropriations boilerplate ensuring funds are additive"
-      ],
-      "policy_area": "supplemental appropriations",
-      "provision_type": "rider",
-      "raw_text": "SEC. 101. Each amount appropriated or made available by this Act is in addition to amounts otherwise appropriated for the fiscal year involved.",
-      "section": "SEC. 101",
-      "title": null
-    },
-    {
-      "confidence": 0.99,
-      "cross_references": [],
-      "description": "Unless otherwise provided, the additional amounts appropriated by this Act shall be available under the authorities and conditions applicable to such appropriations accounts for fiscal year 2024.",
-      "division": null,
-      "notes": [
-        "Standard boilerplate applying existing FY2024 account authorities to the supplemental funds"
-      ],
-      "policy_area": "supplemental appropriations",
-      "provision_type": "rider",
-      "raw_text": "SEC. 102. Unless otherwise provided for by this Act, the additional amounts appropriated by this Act to appropriations accounts shall be available un",
-      "section": "SEC. 102",
-      "title": null
-    },
-    {
-      "confidence": 0.98,
-      "cross_references": [],
-      "deadlines": [
-        "30 days after enactment"
-      ],
-      "description": "Requires the Secretary of Veterans Affairs to submit a report detailing corrections the Department will make to improve forecasting, data quality, and budget assumptions relating to budget submissions for Compensation and Pensions and Readjustment Benefits.",
-      "division": null,
-      "notes": [
-        "Subsection (a): Budget formulation and forecasting report due within 30 days",
-        "Report to be submitted to both Appropriations and Veterans Affairs committees in both chambers"
-      ],
-      "provision_type": "directive",
-      "raw_text": "SEC. 103. (a) Not later than 30 days after the date of enactment of this Act, the Secretary of Veterans Affairs shall submit to the Committees on App",
-      "section": "SEC. 103",
-      "title": null
-    },
-    {
-      "confidence": 0.98,
-      "cross_references": [],
-      "deadlines": [
-        "60 days after enactment",
-        "every 90 days thereafter until September 30, 2026"
-      ],
-      "description": "Requires the Secretary of Veterans Affairs to submit a report on the status of funds made available under Compensation and Pensions and Readjustment Benefits for fiscal years 2024, 2025, and 2026. Report must be updated and submitted every 90 days thereafter until September 30, 2026, including information on changes to estimates or assumptions on obligations and expenditures.",
-      "division": null,
-      "notes": [
-        "Subsection (b): Recurring reporting requirement on status of funds",
-        "Proviso requires updates every 90 days through end of FY2026",
-        "Covers funds in this Act and any other Act for FY2024-2026"
-      ],
-      "provision_type": "directive",
-      "raw_text": "(b) Not later than 60 days after the enactment of this Act, the Secretary of Veterans Affairs shall submit to the Committees on Appropriations and th",
-      "section": "SEC. 103",
-      "title": null
-    },
-    {
-      "confidence": 0.97,
-      "cross_references": [
-        {
-          "description": "Presidential budget submission requirements; IG to recommend improvements for VA supporting information",
-          "ref_type": "see_also",
-          "target": "31 U.S.C. 1105(a)"
-        }
-      ],
-      "deadlines": [
-        "180 days after enactment"
-      ],
-      "description": "Requires the Inspector General of the Department of Veterans Affairs to conduct a review of the circumstances surrounding and underlying causes of the announced VBA funding shortfall for FY2024 and the announced VHA funding shortfall for FY2025, including comparison of monthly obligations against spend plans, accuracy of projections, fund transfers and reallocations, and recommendations to improve accuracy and prevent future shortfalls. IG must submit a report within 180 days of enactment.",
-      "division": null,
-      "notes": [
-        "Subsection (a): IG review of VBA FY2024 shortfall (per July 19, 2024 letter) and VHA FY2025 shortfall (per July 31, 2024 letter)",
-        "Subsection (b): Scope includes monthly obligations vs. spend plan, reasons for diversions, accuracy of projections",
-        "Subsection (c): Additional VHA-specific scope includes fund transfers, VERA process, MCAS changes",
-        "Subsection (d): Recommendations to improve accuracy of budget submissions under 31 U.S.C. 1105(a)",
-        "Subsection (e): Report due within 180 days to Appropriations and Veterans Affairs committees"
-      ],
-      "provision_type": "directive",
-      "raw_text": "SEC. 104. (a) The Inspector General of the Department of Veterans Affairs shall conduct a review of the circumstances surrounding and the underlying c",
-      "section": "SEC. 104",
-      "title": null
-    }
-  ],
-  "schema_version": "1.0",
-  "summary": {
-    "by_division": {
-      "?": 7
-    },
-    "by_type": {
-      "appropriation": 2,
-      "directive": 3,
-      "rider": 2
-    },
-    "flagged_issues": [
-      "Supplemental bill responding to announced VA funding shortfalls in VBA (FY2024) and VHA (FY2025)",
-      "Both appropriation accounts are no-year (available until expended)",
-      "SEC. 103 and SEC. 104 impose extensive reporting and IG oversight requirements as accountability measures"
-    ],
-    "sections_with_no_provisions": [],
-    "total_budget_authority": 2882482000,
-    "total_provisions": 7,
-    "total_rescissions": 0
-  }
+  ]
 }

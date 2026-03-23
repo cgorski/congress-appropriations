@@ -4,7 +4,7 @@
   "fiscal_years": [
     2024
   ],
-  "bill_nature": "supplemental",
+  "bill_nature": "regular",
   "subcommittees": [],
   "provision_timing": [
     {
@@ -34,5 +34,5 @@
       "canonical_name": "readjustment benefits"
     }
   ],
-  "extraction_sha256": "06a169f51812388aa2a5a79d145ac62bee7aad2594c9b27a455d786c6494d4d0"
+  "extraction_sha256": "6c2bd60bab00c79f1ff852b43a4a8bb3d2ca0c83a43277325d2f474dd7a8d0c6"
 }

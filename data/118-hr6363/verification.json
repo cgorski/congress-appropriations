@@ -2,7 +2,7 @@
   "schema_version": "1.0",
   "amount_checks": [
     {
-      "provision_index": 4,
+      "provision_index": 5,
       "text_as_written": "$663,070,000",
       "found_in_source": true,
       "source_positions": [
@@ -11,7 +11,7 @@
       "status": "verified"
     },
     {
-      "provision_index": 8,
+      "provision_index": 9,
       "text_as_written": "$3,338,413,000",
       "found_in_source": true,
       "source_positions": [
@@ -20,7 +20,7 @@
       "status": "verified"
     },
     {
-      "provision_index": 15,
+      "provision_index": 16,
       "text_as_written": "$174,000",
       "found_in_source": true,
       "source_positions": [
@@ -29,7 +29,7 @@
       "status": "verified"
     },
     {
-      "provision_index": 26,
+      "provision_index": 27,
       "text_as_written": "$1,000,000",
       "found_in_source": true,
       "source_positions": [
@@ -40,7 +40,7 @@
       "status": "ambiguous"
     },
     {
-      "provision_index": 27,
+      "provision_index": 28,
       "text_as_written": "$10,000,000",
       "found_in_source": true,
       "source_positions": [
@@ -52,7 +52,7 @@
       "status": "ambiguous"
     },
     {
-      "provision_index": 28,
+      "provision_index": 29,
       "text_as_written": "$15,000,000",
       "found_in_source": true,
       "source_positions": [
@@ -61,7 +61,7 @@
       "status": "verified"
     },
     {
-      "provision_index": 32,
+      "provision_index": 33,
       "text_as_written": "$10,000,000",
       "found_in_source": true,
       "source_positions": [
@@ -73,7 +73,7 @@
       "status": "ambiguous"
     },
     {
-      "provision_index": 33,
+      "provision_index": 34,
       "text_as_written": "$2,000,000",
       "found_in_source": true,
       "source_positions": [
@@ -82,24 +82,13 @@
       "status": "verified"
     },
     {
-      "provision_index": 34,
+      "provision_index": 35,
       "text_as_written": "$37,000,000",
       "found_in_source": true,
       "source_positions": [
         14391
       ],
       "status": "verified"
-    },
-    {
-      "provision_index": 39,
-      "text_as_written": "$1,000,000",
-      "found_in_source": true,
-      "source_positions": [
-        11700,
-        15808,
-        16097
-      ],
-      "status": "ambiguous"
     },
     {
       "provision_index": 40,
@@ -113,7 +102,18 @@
       "status": "ambiguous"
     },
     {
-      "provision_index": 42,
+      "provision_index": 41,
+      "text_as_written": "$1,000,000",
+      "found_in_source": true,
+      "source_positions": [
+        11700,
+        15808,
+        16097
+      ],
+      "status": "ambiguous"
+    },
+    {
+      "provision_index": 43,
       "text_as_written": "$100,000",
       "found_in_source": true,
       "source_positions": [
@@ -122,7 +122,7 @@
       "status": "verified"
     },
     {
-      "provision_index": 47,
+      "provision_index": 48,
       "text_as_written": "$400,000",
       "found_in_source": true,
       "source_positions": [
@@ -131,7 +131,7 @@
       "status": "verified"
     },
     {
-      "provision_index": 50,
+      "provision_index": 51,
       "text_as_written": "$177,350,000",
       "found_in_source": true,
       "source_positions": [
@@ -140,7 +140,7 @@
       "status": "verified"
     },
     {
-      "provision_index": 52,
+      "provision_index": 53,
       "text_as_written": "$21,834,247",
       "found_in_source": true,
       "source_positions": [
@@ -149,7 +149,7 @@
       "status": "verified"
     },
     {
-      "provision_index": 53,
+      "provision_index": 54,
       "text_as_written": "$690,410,959",
       "found_in_source": true,
       "source_positions": [
@@ -158,23 +158,13 @@
       "status": "verified"
     },
     {
-      "provision_index": 54,
+      "provision_index": 55,
       "text_as_written": "$53,506,849",
       "found_in_source": true,
       "source_positions": [
         21077
       ],
       "status": "verified"
-    },
-    {
-      "provision_index": 57,
-      "text_as_written": "$25,890,411",
-      "found_in_source": true,
-      "source_positions": [
-        22369,
-        22928
-      ],
-      "status": "ambiguous"
     },
     {
       "provision_index": 58,
@@ -187,7 +177,17 @@
       "status": "ambiguous"
     },
     {
-      "provision_index": 65,
+      "provision_index": 59,
+      "text_as_written": "$25,890,411",
+      "found_in_source": true,
+      "source_positions": [
+        22369,
+        22928
+      ],
+      "status": "ambiguous"
+    },
+    {
+      "provision_index": 68,
       "text_as_written": "$5,796,117,810",
       "found_in_source": true,
       "source_positions": [
@@ -196,7 +196,7 @@
       "status": "verified"
     },
     {
-      "provision_index": 71,
+      "provision_index": 74,
       "text_as_written": "$466,795,056",
       "found_in_source": true,
       "source_positions": [
@@ -215,514 +215,549 @@
     },
     {
       "provision_index": 1,
+      "raw_text_preview": "by inserting after paragraph (3) of section 106 the following: \n(4) In the case ...",
+      "is_verbatim_substring": false,
+      "match_tier": "normalized",
+      "found_at_position": null
+    },
+    {
+      "provision_index": 2,
       "raw_text_preview": "on section 101(1) by inserting after ''except section 729,'' the following: ''an...",
       "is_verbatim_substring": false,
       "match_tier": "no_match",
       "found_at_position": null
     },
     {
-      "provision_index": 2,
+      "provision_index": 3,
       "raw_text_preview": "on section 101(10), by inserting before the period '', except section 123 as wel...",
       "is_verbatim_substring": false,
       "match_tier": "no_match",
       "found_at_position": null
     },
     {
-      "provision_index": 3,
+      "provision_index": 4,
       "raw_text_preview": "on section 123, by striking ''17 days'' and inserting ''94 days'' and by strikin...",
       "is_verbatim_substring": false,
       "match_tier": "no_match",
       "found_at_position": null
     },
     {
-      "provision_index": 4,
+      "provision_index": 5,
       "raw_text_preview": "on section 124, by striking ''$621,270,000'' and inserting ''$663,070,000''",
       "is_verbatim_substring": false,
       "match_tier": "no_match",
       "found_at_position": null
     },
     {
-      "provision_index": 5,
+      "provision_index": 6,
       "raw_text_preview": "on section 125, by striking ''During the period covered by this Act'' and insert...",
       "is_verbatim_substring": false,
       "match_tier": "no_match",
       "found_at_position": null
     },
     {
-      "provision_index": 6,
-      "raw_text_preview": "SEC. 138. Section 2(f)(2) of the Undetectable Firearms Act of 1988 (18 U.S.C. 92...",
-      "is_verbatim_substring": true,
-      "match_tier": "exact",
-      "found_at_position": 2258
-    },
-    {
       "provision_index": 7,
-      "raw_text_preview": "SEC. 139. Through the date specified in section 106(3) of this Act, amounts appr...",
+      "raw_text_preview": "Section 2(f)(2) of the Undetectable Firearms Act of 1988 (18 U.S.C. 922 note) sh...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 2456
+      "found_at_position": 2268
     },
     {
       "provision_index": 8,
-      "raw_text_preview": "SEC. 140. Notwithstanding sections 102 and 104, amounts made available by sectio...",
+      "raw_text_preview": "Through the date specified in section 106(3) of this Act, amounts appropriated i...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 2811
+      "found_at_position": 2466
     },
     {
       "provision_index": 9,
+      "raw_text_preview": "Notwithstanding sections 102 and 104, amounts made available by section 101 to t...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 2821
+    },
+    {
+      "provision_index": 10,
       "raw_text_preview": "(a) Notwithstanding section 101, section 747 of title VII of division E of Publi...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 3134
     },
     {
-      "provision_index": 10,
-      "raw_text_preview": "SEC. 142. Section 302 of title III of Public Law 108–494 shall be applied by s...",
+      "provision_index": 11,
+      "raw_text_preview": "Section 302 of title III of Public Law 108–494 shall be applied by substitutin...",
       "is_verbatim_substring": false,
       "match_tier": "normalized",
       "found_at_position": null
     },
     {
-      "provision_index": 11,
-      "raw_text_preview": "SEC. 143. Amounts made available by section 101 to the Department of Homeland Se...",
-      "is_verbatim_substring": true,
-      "match_tier": "exact",
-      "found_at_position": 3997
-    },
-    {
       "provision_index": 12,
-      "raw_text_preview": "SEC. 144. Section 1901(e) of the Homeland Security Act of 2002 (6 U.S.C. 591(e))...",
+      "raw_text_preview": "Amounts made available by section 101 to the Department of Homeland Security und...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 4324
+      "found_at_position": 4007
     },
     {
       "provision_index": 13,
-      "raw_text_preview": "SEC. 145. (a) Amounts made available by section 101 for ''Department of Educatio...",
+      "raw_text_preview": "Section 1901(e) of the Homeland Security Act of 2002 (6 U.S.C. 591(e)) shall be ...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 4641
+      "found_at_position": 4334
     },
     {
       "provision_index": 14,
-      "raw_text_preview": "(b) The limitation in section 302 of division H of Public Law 117–328 regardin...",
+      "raw_text_preview": "Amounts made available by section 101 for ''Department of Education—Student Ai...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 4932
+      "found_at_position": 4655
     },
     {
       "provision_index": 15,
-      "raw_text_preview": "SEC. 146. Notwithstanding any other provision of this Act, there is hereby appro...",
+      "raw_text_preview": "The limitation in section 302 of division H of Public Law 117–328 regarding tr...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 5526
+      "found_at_position": 4936
     },
     {
       "provision_index": 16,
-      "raw_text_preview": "Section 2101 of the Continuing Appropriations Act, 2024 and Other Extensions Act...",
+      "raw_text_preview": "Notwithstanding any other provision of this Act, there is hereby appropriated fo...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 6196
+      "found_at_position": 5536
     },
     {
       "provision_index": 17,
+      "raw_text_preview": "Section 2101 of the Continuing Appropriations Act, 2024 and Other Extensions Act...",
+      "is_verbatim_substring": false,
+      "match_tier": "no_match",
+      "found_at_position": null
+    },
+    {
+      "provision_index": 18,
       "raw_text_preview": "Except as otherwise provided in this section and the amendments made by this sec...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 7330
     },
     {
-      "provision_index": 18,
+      "provision_index": 19,
       "raw_text_preview": "Programs carried out using the authorities described in subsection (a) that are ...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 8001
     },
     {
-      "provision_index": 19,
+      "provision_index": 20,
       "raw_text_preview": "The provisions of law applicable to a covered commodity (as defined in section 1...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 8330
     },
     {
-      "provision_index": 20,
+      "provision_index": 21,
       "raw_text_preview": "Section 1405(a) of the Agricultural Act of 2014 (7 U.S.C. 9055(a)) is amended—...",
       "is_verbatim_substring": false,
       "match_tier": "no_match",
       "found_at_position": null
     },
     {
-      "provision_index": 21,
+      "provision_index": 22,
       "raw_text_preview": "Section 1409 of the Agricultural Act of 2014 (7 U.S.C. 9059) is amended by strik...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 9956
     },
     {
-      "provision_index": 22,
+      "provision_index": 23,
       "raw_text_preview": "With respect to coverage for calendar year 2024, section 1407(g) of the Agricult...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 10113
     },
     {
-      "provision_index": 23,
+      "provision_index": 24,
       "raw_text_preview": "Section 1502(e)(2) of the Food, Conservation, and Energy Act of 2008 (7 U.S.C. 8...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 10418
     },
     {
-      "provision_index": 24,
-      "raw_text_preview": "Section 1116(d) of the Agricultural Act of 2014 (7 U.S.C. 9016(d)) is amended, t...",
-      "is_verbatim_substring": false,
-      "match_tier": "no_match",
-      "found_at_position": null
+      "provision_index": 25,
+      "raw_text_preview": "Section 1116(d) of the Agricultural Act of 2014 (7 U.S.C. 9016(d)) is amended, i...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 10599
     },
     {
-      "provision_index": 25,
+      "provision_index": 26,
       "raw_text_preview": "The provisions of law specified in— (A) subsections (a) and (b) of section 160...",
       "is_verbatim_substring": false,
       "match_tier": "normalized",
       "found_at_position": null
     },
     {
-      "provision_index": 26,
+      "provision_index": 27,
       "raw_text_preview": "Section 1240O(b)(3) of the Food Security Act of 1985 (16 U.S.C. 3839bb–2(b)(3)...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 11399
     },
     {
-      "provision_index": 27,
+      "provision_index": 28,
       "raw_text_preview": "Section 1240R(f)(1) of the Food Security Act of 1985 (16 U.S.C. 3839bb–5(f)(1)...",
-      "is_verbatim_substring": true,
-      "match_tier": "exact",
-      "found_at_position": 11838
+      "is_verbatim_substring": false,
+      "match_tier": "normalized",
+      "found_at_position": null
     },
     {
-      "provision_index": 28,
+      "provision_index": 29,
       "raw_text_preview": "Section 2408(g)(1) of the Agriculture Improvement Act of 2018 (7 U.S.C. 8351 not...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 12127
     },
     {
-      "provision_index": 29,
+      "provision_index": 30,
       "raw_text_preview": "Section 302(h)(2) of the Bill Emerson Humanitarian Trust Act (7 U.S.C. 1736f–1...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 12338
     },
     {
-      "provision_index": 30,
+      "provision_index": 31,
       "raw_text_preview": "Section 203D(d)(5) of the Emergency Food Assistance Act of 1983 (7 U.S.C. 7507(d...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 12498
     },
     {
-      "provision_index": 31,
+      "provision_index": 32,
       "raw_text_preview": "Section 313B(e)(2) of the Rural Electrification Act of 1936 (7 U.S.C. 940c–2(e...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 12680
     },
     {
-      "provision_index": 32,
-      "raw_text_preview": "Section 1446 of the National Agricultural Research, Extension, and Teaching Poli...",
-      "is_verbatim_substring": true,
-      "match_tier": "exact",
-      "found_at_position": 12881
-    },
-    {
       "provision_index": 33,
-      "raw_text_preview": "Section 1672E(d)(1) of the Food, Agriculture, Conservation, and Trade Act of 199...",
-      "is_verbatim_substring": true,
-      "match_tier": "exact",
-      "found_at_position": 13595
+      "raw_text_preview": "Section 1446 of the National Agricultural Research, Extension, and Teaching Poli...",
+      "is_verbatim_substring": false,
+      "match_tier": "no_match",
+      "found_at_position": null
     },
     {
       "provision_index": 34,
-      "raw_text_preview": "Section 7601(g)(1)(A) of the Agricultural Act of 2014 (7 U.S.C. 5939(g)(1)(A)) i...",
-      "is_verbatim_substring": true,
-      "match_tier": "exact",
-      "found_at_position": 14049
+      "raw_text_preview": "Section 1672E(d)(1) of the Food, Agriculture, Conservation, and Trade Act of 199...",
+      "is_verbatim_substring": false,
+      "match_tier": "normalized",
+      "found_at_position": null
     },
     {
       "provision_index": 35,
+      "raw_text_preview": "Section 7601(g)(1)(A) of the Agricultural Act of 2014 (7 U.S.C. 5939(g)(1)(A)) i...",
+      "is_verbatim_substring": false,
+      "match_tier": "normalized",
+      "found_at_position": null
+    },
+    {
+      "provision_index": 36,
       "raw_text_preview": "Section 7502 of the Food, Conservation, and Energy Act of 2008 (Public Law 110...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 14480
     },
     {
-      "provision_index": 36,
+      "provision_index": 37,
       "raw_text_preview": "Section 9002(k)(1) of the Farm Security and Rural Investment Act of 2002 (7 U.S....",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 14843
     },
     {
-      "provision_index": 37,
+      "provision_index": 38,
       "raw_text_preview": "Section 9005(g)(1)(F) of the Farm Security and Rural Investment Act of 2002 (7 U...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 15040
     },
     {
-      "provision_index": 38,
+      "provision_index": 39,
       "raw_text_preview": "Section 9010(b) of the Farm Security and Rural Investment Act of 2002 (7 U.S.C. ...",
       "is_verbatim_substring": false,
       "match_tier": "no_match",
       "found_at_position": null
     },
     {
-      "provision_index": 39,
-      "raw_text_preview": "Section 7407(d)(1) of the Farm Security and Rural Investment Act of 2002 (7 U.S....",
-      "is_verbatim_substring": true,
-      "match_tier": "exact",
-      "found_at_position": 15503
-    },
-    {
       "provision_index": 40,
-      "raw_text_preview": "Section 2123(c)(4) of the Organic Foods Production Act of 1990 (7 U.S.C. 6522(c)...",
+      "raw_text_preview": "Section 7407(d)(1) of the Farm Security and Rural Investment Act of 2002 (7 U.S....",
       "is_verbatim_substring": false,
       "match_tier": "no_match",
       "found_at_position": null
     },
     {
       "provision_index": 41,
+      "raw_text_preview": "Section 2123(c)(4) of the Organic Foods Production Act of 1990 (7 U.S.C. 6522(c)...",
+      "is_verbatim_substring": false,
+      "match_tier": "no_match",
+      "found_at_position": null
+    },
+    {
+      "provision_index": 42,
       "raw_text_preview": "Section 10606(d)(1)(C) of the Farm Security and Rural Investment Act of 2002 (7 ...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 16203
     },
     {
-      "provision_index": 42,
+      "provision_index": 43,
       "raw_text_preview": "Section 10109(c)(1) of the Agriculture Improvement Act of 2018 (Public Law 115...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 16417
     },
     {
-      "provision_index": 43,
+      "provision_index": 44,
       "raw_text_preview": "Section 12314 of the Agricultural Act of 2014 (7 U.S.C. 2101 note; Public Law 11...",
-      "is_verbatim_substring": true,
-      "match_tier": "exact",
-      "found_at_position": 16658
+      "is_verbatim_substring": false,
+      "match_tier": "no_match",
+      "found_at_position": null
     },
     {
-      "provision_index": 44,
+      "provision_index": 45,
       "raw_text_preview": "Section 12315 of the Agricultural Act of 2014 (7 U.S.C. 7101 note; Public Law 11...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 16996
     },
     {
-      "provision_index": 45,
+      "provision_index": 46,
       "raw_text_preview": "Section 12316(a) of the Agricultural Act of 2014 (7 U.S.C. 7101 note; Public Law...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 17196
     },
     {
-      "provision_index": 46,
+      "provision_index": 47,
       "raw_text_preview": "Section 12605(d) of the Agriculture Improvement Act of 2018 (7 U.S.C. 7632 note;...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 17409
     },
     {
-      "provision_index": 47,
+      "provision_index": 48,
       "raw_text_preview": "Section 209(c) of the Agricultural Marketing Act of 1946 (7 U.S.C. 1627a(c)) is ...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 17619
     },
     {
-      "provision_index": 48,
+      "provision_index": 49,
       "raw_text_preview": "Subsection (a) shall not apply with respect to mandatory funding under the follo...",
-      "is_verbatim_substring": true,
-      "match_tier": "exact",
-      "found_at_position": 17792
+      "is_verbatim_substring": false,
+      "match_tier": "normalized",
+      "found_at_position": null
     },
     {
-      "provision_index": 49,
+      "provision_index": 50,
       "raw_text_preview": "Subject to paragraph (2), any requirement under a provision of law described in ...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 18115
     },
     {
-      "provision_index": 50,
+      "provision_index": 51,
       "raw_text_preview": "Of the unobligated balances of amounts made available under section 9003(g)(1)(A...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 18900
     },
     {
-      "provision_index": 51,
+      "provision_index": 52,
       "raw_text_preview": "This section and the amendments made by this section (except subsection (f) and ...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 19109
     },
     {
-      "provision_index": 52,
+      "provision_index": 53,
       "raw_text_preview": "Section 340H(g)(1) of the Public Health Service Act (42 U.S.C. 256h(g)) is amend...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 19648
     },
     {
-      "provision_index": 53,
+      "provision_index": 54,
       "raw_text_preview": "Section 10503(b)(1)(F) of the Patient Protection and Affordable Care Act (42 U.S...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 20087
     },
     {
-      "provision_index": 54,
+      "provision_index": 55,
       "raw_text_preview": "Section 10503(b)(2)(I) of the Patient Protection and Affordable Care Act (42 U.S...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 20659
     },
     {
-      "provision_index": 55,
+      "provision_index": 56,
       "raw_text_preview": "Amounts appropriated pursuant to the amendments made by this section shall be su...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 21201
     },
     {
-      "provision_index": 56,
+      "provision_index": 57,
       "raw_text_preview": "Section 3014(h)(4) of title 18, United States Code, is amended by striking ''and...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 21492
     },
     {
-      "provision_index": 57,
+      "provision_index": 58,
       "raw_text_preview": "Section 330B(b)(2)(E) of the Public Health Service Act (42 U.S.C. 254c–2(b)(2)...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 21969
     },
     {
-      "provision_index": 58,
+      "provision_index": 59,
       "raw_text_preview": "Section 330C(c)(2)(E) of the Public Health Service Act (42 U.S.C. 254c–3(c)(2)...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 22528
     },
     {
-      "provision_index": 59,
+      "provision_index": 60,
       "raw_text_preview": "Section 319(e)(8) of the Public Health Service Act (42 U.S.C. 247d(e)(8)) is ame...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 23073
     },
     {
-      "provision_index": 60,
+      "provision_index": 61,
       "raw_text_preview": "Section 319L(e)(1)(D) of the Public Health Service Act (42 U.S.C. 247d–7e(e)(1...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 23233
     },
     {
-      "provision_index": 61,
+      "provision_index": 62,
       "raw_text_preview": "Section 319L–1(b) of the Public Health Service Act (42 U.S.C. 247d–7f(b)) is...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 23498
     },
     {
-      "provision_index": 62,
+      "provision_index": 63,
       "raw_text_preview": "Section 2811A(g) of the Public Health Service Act (42 U.S.C. 300hh–10b(g)) is ...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 23737
     },
     {
-      "provision_index": 63,
+      "provision_index": 64,
+      "raw_text_preview": "Section 2811B(g)(1) of the Public Health Service Act (42 U.S.C. 300hh–10c(g)(1...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 23899
+    },
+    {
+      "provision_index": 65,
+      "raw_text_preview": "Section 2811C(g)(1) of the Public Health Service Act (42 U.S.C. 300hh–10d(g)(1...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 24068
+    },
+    {
+      "provision_index": 66,
       "raw_text_preview": "Section 2812(c)(4)(B) of the Public Health Service Act (42 U.S.C. 300hh–11(c)(...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 24236
     },
     {
-      "provision_index": 64,
+      "provision_index": 67,
       "raw_text_preview": "Section 1923(f)(7)(A) of the Social Security Act (42 U.S.C. 1396r–4(f)(7)(A)) ...",
-      "is_verbatim_substring": false,
-      "match_tier": "no_match",
-      "found_at_position": null
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 24482
     },
     {
-      "provision_index": 65,
+      "provision_index": 68,
       "raw_text_preview": "Section 1941(b)(3)(A) of the Social Security Act (42 U.S.C. 1396w–1(b)(3)(A)),...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 24808
     },
     {
-      "provision_index": 66,
+      "provision_index": 69,
       "raw_text_preview": "Activities authorized by part B of title IV of the Social Security Act shall con...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 25132
     },
     {
-      "provision_index": 67,
+      "provision_index": 70,
       "raw_text_preview": "Section 510 of the Social Security Act (42 U.S.C. 710), as amended by the Contin...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 25509
     },
     {
-      "provision_index": 68,
+      "provision_index": 71,
       "raw_text_preview": "Section 513 of the Social Security Act (42 U.S.C. 713), as amended by the Contin...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 27160
     },
     {
-      "provision_index": 69,
+      "provision_index": 72,
       "raw_text_preview": "Section 1848(e)(1)(E) of the Social Security Act (42 U.S.C. 1395w–4(e)(1)(E)) ...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 29389
     },
     {
-      "provision_index": 70,
+      "provision_index": 73,
       "raw_text_preview": "Section 1834A(b)(3) of the Social Security Act (42 U.S.C. 1395m–1(b)(3)) is am...",
       "is_verbatim_substring": false,
       "match_tier": "no_match",
       "found_at_position": null
     },
     {
-      "provision_index": 71,
+      "provision_index": 74,
       "raw_text_preview": "Section 1898(b)(1) of the Social Security Act (42 U.S.C. 1395iii(b)(1)) is amend...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 30469
     },
     {
-      "provision_index": 72,
+      "provision_index": 75,
       "raw_text_preview": "Section 210G(i) of the Homeland Security Act of 2002 (6 U.S.C. 124n(i)) is amend...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
       "found_at_position": 30679
     },
     {
-      "provision_index": 73,
-      "raw_text_preview": "SEC. 701. \nBudgetary Effects\n(a) \nStatutory PAYGO Scorecards\nThe budgetary effec...",
+      "provision_index": 76,
+      "raw_text_preview": "The budgetary effects of this division shall not be entered on either PAYGO scor...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 30855
+      "found_at_position": 30916
+    },
+    {
+      "provision_index": 77,
+      "raw_text_preview": "The budgetary effects of this division shall not be entered on any PAYGO scoreca...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 31112
+    },
+    {
+      "provision_index": 78,
+      "raw_text_preview": "Notwithstanding Rule 3 of the Budget Scorekeeping Guidelines set forth in the jo...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 31313
     }
   ],
   "completeness": {
@@ -822,18 +857,18 @@
     ]
   },
   "summary": {
-    "total_provisions": 74,
+    "total_provisions": 79,
     "amounts_verified": 14,
     "amounts_not_found": 0,
     "amounts_ambiguous": 7,
-    "raw_text_exact": 61,
-    "raw_text_normalized": 2,
+    "raw_text_exact": 59,
+    "raw_text_normalized": 7,
     "raw_text_spaceless": 0,
-    "raw_text_no_match": 11,
+    "raw_text_no_match": 13,
     "completeness_pct": 60.526315789473685,
     "provisions_by_detail_level": {
       "top_level": 1,
-      "n/a": 73
+      "n/a": 78
     }
   }
 }

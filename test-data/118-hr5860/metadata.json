@@ -6,5 +6,7 @@
   "schema_version": "1.0",
   "source_pdf_sha256": null,
   "timestamp": "unknown",
-  "source_xml_sha256": "b9638201f3cfff01711a79de84e612237903bbc6bd77da70bbcd794e84698788"
+  "source_xml_sha256": "b9638201f3cfff01711a79de84e612237903bbc6bd77da70bbcd794e84698788",
+  "chunks_total": 1,
+  "chunks_completed": 1
 }

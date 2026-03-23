@@ -1,9 +1,9 @@
 {
-  "provisions_parsed": 2582,
+  "provisions_parsed": 2608,
   "provisions_failed": 0,
-  "null_to_default": 279,
+  "null_to_default": 258,
   "type_coercions": 0,
-  "unknown_provision_types": 58,
+  "unknown_provision_types": 52,
   "warnings": [
     "SEC : missing amount on appropriation",
     "SEC : missing amount on appropriation",
@@ -11,6 +11,10 @@
     "SEC : missing amount on appropriation",
     "SEC : missing amount on appropriation",
     "SEC : missing amount on appropriation",
+    "SEC SEC. 618: missing amount on appropriation",
+    "SEC SEC. 618: missing amount on appropriation",
+    "SEC SEC. 618: missing amount on appropriation",
+    "SEC SEC. 618: missing amount on appropriation",
     "SEC SEC. 618: missing amount on appropriation",
     "SEC SEC. 801: missing amount on appropriation",
     "SEC : missing amount on appropriation",

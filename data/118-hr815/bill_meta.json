@@ -2,9 +2,11 @@
   "schema_version": "1.0",
   "congress": 118,
   "fiscal_years": [
-    2024
+    2024,
+    2025,
+    2026
   ],
-  "bill_nature": "supplemental",
+  "bill_nature": "omnibus",
   "subcommittees": [
     {
       "division": "A",
@@ -220,10 +222,10 @@
     },
     {
       "provision_index": 8,
-      "timing": "supplemental",
+      "timing": "current_year",
       "available_fy": null,
       "source": {
-        "type": "note_text"
+        "type": "default_rule"
       }
     },
     {
@@ -284,18 +286,18 @@
     },
     {
       "provision_index": 19,
-      "timing": "supplemental",
-      "available_fy": null,
-      "source": {
-        "type": "note_text"
-      }
-    },
-    {
-      "provision_index": 44,
       "timing": "current_year",
       "available_fy": null,
       "source": {
         "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 44,
+      "timing": "supplemental",
+      "available_fy": null,
+      "source": {
+        "type": "note_text"
       }
     },
     {
@@ -308,18 +310,18 @@
     },
     {
       "provision_index": 46,
-      "timing": "current_year",
+      "timing": "supplemental",
       "available_fy": null,
       "source": {
-        "type": "default_rule"
+        "type": "note_text"
       }
     },
     {
-      "provision_index": 47,
-      "timing": "current_year",
+      "provision_index": 49,
+      "timing": "supplemental",
       "available_fy": null,
       "source": {
-        "type": "default_rule"
+        "type": "note_text"
       }
     },
     {
@@ -332,10 +334,10 @@
     },
     {
       "provision_index": 51,
-      "timing": "current_year",
+      "timing": "supplemental",
       "available_fy": null,
       "source": {
-        "type": "default_rule"
+        "type": "note_text"
       }
     },
     {
@@ -348,38 +350,22 @@
     },
     {
       "provision_index": 53,
-      "timing": "current_year",
-      "available_fy": null,
-      "source": {
-        "type": "default_rule"
-      }
-    },
-    {
-      "provision_index": 54,
       "timing": "supplemental",
       "available_fy": null,
       "source": {
         "type": "note_text"
+      }
+    },
+    {
+      "provision_index": 56,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
       }
     },
     {
       "provision_index": 58,
-      "timing": "supplemental",
-      "available_fy": null,
-      "source": {
-        "type": "note_text"
-      }
-    },
-    {
-      "provision_index": 60,
-      "timing": "supplemental",
-      "available_fy": null,
-      "source": {
-        "type": "note_text"
-      }
-    },
-    {
-      "provision_index": 72,
       "timing": "current_year",
       "available_fy": null,
       "source": {
@@ -387,7 +373,15 @@
       }
     },
     {
-      "provision_index": 149,
+      "provision_index": 71,
+      "timing": "current_year",
+      "available_fy": null,
+      "source": {
+        "type": "default_rule"
+      }
+    },
+    {
+      "provision_index": 148,
       "timing": "supplemental",
       "available_fy": null,
       "source": {
@@ -395,7 +389,7 @@
       }
     },
     {
-      "provision_index": 150,
+      "provision_index": 149,
       "timing": "supplemental",
       "available_fy": null,
       "source": {
@@ -475,35 +469,11 @@
       }
     },
     {
-      "provision_index": 265,
+      "provision_index": 268,
       "timing": "current_year",
       "available_fy": null,
       "source": {
         "type": "default_rule"
-      }
-    },
-    {
-      "provision_index": 266,
-      "timing": "supplemental",
-      "available_fy": null,
-      "source": {
-        "type": "note_text"
-      }
-    },
-    {
-      "provision_index": 267,
-      "timing": "supplemental",
-      "available_fy": null,
-      "source": {
-        "type": "note_text"
-      }
-    },
-    {
-      "provision_index": 268,
-      "timing": "supplemental",
-      "available_fy": null,
-      "source": {
-        "type": "note_text"
       }
     },
     {
@@ -556,34 +526,34 @@
     },
     {
       "provision_index": 275,
-      "timing": "current_year",
+      "timing": "supplemental",
       "available_fy": null,
       "source": {
-        "type": "default_rule"
+        "type": "note_text"
+      }
+    },
+    {
+      "provision_index": 276,
+      "timing": "supplemental",
+      "available_fy": null,
+      "source": {
+        "type": "note_text"
+      }
+    },
+    {
+      "provision_index": 277,
+      "timing": "supplemental",
+      "available_fy": null,
+      "source": {
+        "type": "note_text"
       }
     },
     {
       "provision_index": 278,
-      "timing": "supplemental",
+      "timing": "current_year",
       "available_fy": null,
       "source": {
-        "type": "note_text"
-      }
-    },
-    {
-      "provision_index": 279,
-      "timing": "supplemental",
-      "available_fy": null,
-      "source": {
-        "type": "note_text"
-      }
-    },
-    {
-      "provision_index": 280,
-      "timing": "supplemental",
-      "available_fy": null,
-      "source": {
-        "type": "note_text"
+        "type": "default_rule"
       }
     },
     {
@@ -668,10 +638,18 @@
     },
     {
       "provision_index": 291,
-      "timing": "current_year",
+      "timing": "supplemental",
       "available_fy": null,
       "source": {
-        "type": "default_rule"
+        "type": "note_text"
+      }
+    },
+    {
+      "provision_index": 292,
+      "timing": "supplemental",
+      "available_fy": null,
+      "source": {
+        "type": "note_text"
       }
     },
     {
@@ -683,23 +661,15 @@
       }
     },
     {
-      "provision_index": 298,
-      "timing": "supplemental",
+      "provision_index": 294,
+      "timing": "current_year",
       "available_fy": null,
       "source": {
-        "type": "note_text"
+        "type": "default_rule"
       }
     },
     {
-      "provision_index": 299,
-      "timing": "supplemental",
-      "available_fy": null,
-      "source": {
-        "type": "note_text"
-      }
-    },
-    {
-      "provision_index": 300,
+      "provision_index": 296,
       "timing": "supplemental",
       "available_fy": null,
       "source": {
@@ -708,6 +678,30 @@
     },
     {
       "provision_index": 301,
+      "timing": "supplemental",
+      "available_fy": null,
+      "source": {
+        "type": "note_text"
+      }
+    },
+    {
+      "provision_index": 302,
+      "timing": "supplemental",
+      "available_fy": null,
+      "source": {
+        "type": "note_text"
+      }
+    },
+    {
+      "provision_index": 303,
+      "timing": "supplemental",
+      "available_fy": null,
+      "source": {
+        "type": "note_text"
+      }
+    },
+    {
+      "provision_index": 304,
       "timing": "supplemental",
       "available_fy": null,
       "source": {
@@ -798,15 +792,15 @@
     },
     {
       "provision_index": 44,
-      "canonical_name": "spending reduction account"
-    },
-    {
-      "provision_index": 45,
       "canonical_name": "operation and maintenance, navy"
     },
     {
-      "provision_index": 46,
+      "provision_index": 45,
       "canonical_name": "operation and maintenance, defense-wide"
+    },
+    {
+      "provision_index": 46,
+      "canonical_name": "shipbuilding and conversion, navy"
     },
     {
       "provision_index": 47,
@@ -818,43 +812,43 @@
     },
     {
       "provision_index": 49,
-      "canonical_name": "shipbuilding and conversion, navy"
-    },
-    {
-      "provision_index": 50,
       "canonical_name": "other procurement, navy"
     },
     {
-      "provision_index": 51,
+      "provision_index": 50,
       "canonical_name": "defense production act purchases"
     },
     {
-      "provision_index": 52,
+      "provision_index": 51,
       "canonical_name": "research, development, test and evaluation, navy"
     },
     {
-      "provision_index": 54,
+      "provision_index": 53,
       "canonical_name": "military construction, navy and marine corps"
     },
     {
+      "provision_index": 56,
+      "canonical_name": "foreign military financing program"
+    },
+    {
+      "provision_index": 57,
+      "canonical_name": "foreign military financing program"
+    },
+    {
       "provision_index": 58,
-      "canonical_name": "foreign military financing program"
-    },
-    {
-      "provision_index": 59,
-      "canonical_name": "foreign military financing program"
-    },
-    {
-      "provision_index": 60,
       "canonical_name": "contribution to the international development association"
     },
     {
-      "provision_index": 72,
+      "provision_index": 71,
       "canonical_name": "spending reduction account"
     },
     {
-      "provision_index": 149,
+      "provision_index": 148,
       "canonical_name": "operations and support"
+    },
+    {
+      "provision_index": 149,
+      "canonical_name": "federal assistance"
     },
     {
       "provision_index": 150,
@@ -869,7 +863,7 @@
       "canonical_name": "federal assistance"
     },
     {
-      "provision_index": 164,
+      "provision_index": 163,
       "canonical_name": "ukraine support fund"
     },
     {
@@ -921,129 +915,129 @@
       "canonical_name": "foreign military financing program"
     },
     {
-      "provision_index": 265,
+      "provision_index": 268,
       "canonical_name": "spending reduction account"
     },
     {
-      "provision_index": 266,
+      "provision_index": 269,
       "canonical_name": "military personnel, army"
     },
     {
-      "provision_index": 267,
+      "provision_index": 270,
       "canonical_name": "military personnel, marine corps"
     },
     {
-      "provision_index": 268,
+      "provision_index": 271,
       "canonical_name": "military personnel, air force"
     },
     {
-      "provision_index": 269,
+      "provision_index": 272,
       "canonical_name": "military personnel, space force"
     },
     {
-      "provision_index": 270,
+      "provision_index": 273,
       "canonical_name": "operation and maintenance, army"
     },
     {
-      "provision_index": 271,
+      "provision_index": 274,
       "canonical_name": "operation and maintenance, navy"
     },
     {
-      "provision_index": 272,
+      "provision_index": 275,
       "canonical_name": "operation and maintenance, marine corps"
     },
     {
-      "provision_index": 273,
+      "provision_index": 276,
       "canonical_name": "operation and maintenance, air force"
     },
     {
-      "provision_index": 274,
+      "provision_index": 277,
       "canonical_name": "operation and maintenance, space force"
     },
     {
-      "provision_index": 275,
-      "canonical_name": "operation and maintenance, defense-wide"
-    },
-    {
-      "provision_index": 276,
-      "canonical_name": "operation and maintenance, defense-wide"
-    },
-    {
       "provision_index": 278,
-      "canonical_name": "missile procurement, army"
+      "canonical_name": "operation and maintenance, defense-wide"
     },
     {
       "provision_index": 279,
-      "canonical_name": "procurement of ammunition, army"
-    },
-    {
-      "provision_index": 280,
-      "canonical_name": "other procurement, army"
+      "canonical_name": "operation and maintenance, defense-wide"
     },
     {
       "provision_index": 281,
-      "canonical_name": "weapons procurement, navy"
+      "canonical_name": "missile procurement, army"
     },
     {
       "provision_index": 282,
-      "canonical_name": "other procurement, navy"
+      "canonical_name": "procurement of ammunition, army"
     },
     {
       "provision_index": 283,
-      "canonical_name": "procurement, marine corps"
+      "canonical_name": "other procurement, army"
     },
     {
       "provision_index": 284,
-      "canonical_name": "missile procurement, air force"
+      "canonical_name": "weapons procurement, navy"
     },
     {
       "provision_index": 285,
-      "canonical_name": "other procurement, air force"
+      "canonical_name": "other procurement, navy"
     },
     {
       "provision_index": 286,
-      "canonical_name": "procurement, defense-wide"
+      "canonical_name": "procurement, marine corps"
     },
     {
       "provision_index": 287,
-      "canonical_name": "research, development, test and evaluation, army"
+      "canonical_name": "missile procurement, air force"
     },
     {
       "provision_index": 288,
-      "canonical_name": "research, development, test and evaluation, navy"
+      "canonical_name": "other procurement, air force"
     },
     {
       "provision_index": 289,
-      "canonical_name": "research, development, test and evaluation, air force"
+      "canonical_name": "procurement, defense-wide"
     },
     {
       "provision_index": 290,
-      "canonical_name": "research, development, test and evaluation, defense-wide"
+      "canonical_name": "research, development, test and evaluation, army"
     },
     {
       "provision_index": 291,
-      "canonical_name": "office of the inspector general"
+      "canonical_name": "research, development, test and evaluation, navy"
+    },
+    {
+      "provision_index": 292,
+      "canonical_name": "research, development, test and evaluation, air force"
     },
     {
       "provision_index": 293,
+      "canonical_name": "research, development, test and evaluation, defense-wide"
+    },
+    {
+      "provision_index": 294,
+      "canonical_name": "office of the inspector general"
+    },
+    {
+      "provision_index": 296,
       "canonical_name": "intelligence community management account"
     },
     {
-      "provision_index": 298,
+      "provision_index": 301,
       "canonical_name": "science"
     },
     {
-      "provision_index": 299,
+      "provision_index": 302,
       "canonical_name": "defense nuclear nonproliferation"
     },
     {
-      "provision_index": 300,
+      "provision_index": 303,
       "canonical_name": "federal salaries and expenses"
     },
     {
-      "provision_index": 301,
+      "provision_index": 304,
       "canonical_name": "refugee and entrant assistance"
     }
   ],
-  "extraction_sha256": "0589ca94548aba34a69d5e12b20069e8cf62a77fd85c57bb58b47b115ca38b2d"
+  "extraction_sha256": "f94c424d82057550a1bedc33746f7bf30115f7a7f5571bb87ceaf7e0253b2573"
 }

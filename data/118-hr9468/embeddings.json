@@ -3,7 +3,7 @@
   "model": "text-embedding-3-large",
   "dimensions": 3072,
   "count": 7,
-  "extraction_sha256": "06a169f51812388aa2a5a79d145ac62bee7aad2594c9b27a455d786c6494d4d0",
+  "extraction_sha256": "6c2bd60bab00c79f1ff852b43a4a8bb3d2ca0c83a43277325d2f474dd7a8d0c6",
   "vectors_file": "vectors.bin",
-  "vectors_sha256": "7c6a62bd25c0bac7d1e8ff417f11b29f49da3749486232b7f53d24eb3b2c56fd"
+  "vectors_sha256": "b616cbae31797f74cd0f62a4eb8c96608b711a378a57e658b10674482c6f7ab7"
 }

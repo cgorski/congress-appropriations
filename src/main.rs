@@ -184,6 +184,9 @@ enum Commands {
         /// Use accepted links for matching across renames
         #[arg(long)]
         use_links: bool,
+        /// Use TAS-based authority matching for cross-bill comparison (more accurate than name matching)
+        #[arg(long)]
+        use_authorities: bool,
         /// Show inflation-adjusted "Real Δ %" column using CPI-U
         #[arg(long)]
         real: bool,
@@ -256,6 +259,61 @@ enum Commands {
         #[command(subcommand)]
         action: NormalizeCommands,
     },
+    /// Resolve provisions to Treasury Account Symbol (TAS) codes using FAST Book reference
+    ResolveTas {
+        /// Data directory containing extracted bills
+        #[arg(long, default_value = "./data")]
+        dir: String,
+        /// Single bill directory to resolve (e.g., 118-hr2882)
+        #[arg(long)]
+        bill: Option<String>,
+        /// Show what would be resolved without calling LLM
+        #[arg(long)]
+        dry_run: bool,
+        /// Deterministic matching only — no LLM calls, no API key needed
+        #[arg(long)]
+        no_llm: bool,
+        /// Re-resolve even if tas_mapping.json already exists
+        #[arg(long)]
+        force: bool,
+        /// Provisions per LLM batch [default: 40]
+        #[arg(long, default_value = "40")]
+        batch_size: usize,
+        /// Path to FAS reference JSON [default: data/fas_reference.json]
+        #[arg(long)]
+        fas_reference: Option<String>,
+    },
+    /// Build and query the account authority registry (aggregates TAS mappings)
+    Authority {
+        #[command(subcommand)]
+        action: AuthorityCommands,
+    },
+    /// Show funding timeline for a Treasury account across all bills
+    Trace {
+        /// FAS code (e.g., 070-0400) or account name fragment
+        query: String,
+        /// Data directory
+        #[arg(long, default_value = "./data")]
+        dir: String,
+        /// Output format: table, json
+        #[arg(long, default_value = "table")]
+        format: String,
+    },
+    /// Verify raw_text against source and optionally repair mismatches (no API key needed)
+    VerifyText {
+        /// Data directory containing extracted bills
+        #[arg(long, default_value = "./data")]
+        dir: String,
+        /// Repair broken raw_text by copying verbatim source excerpts
+        #[arg(long)]
+        repair: bool,
+        /// Single bill directory to verify (e.g., 118-hr2882)
+        #[arg(long)]
+        bill: Option<String>,
+        /// Output format: table, json
+        #[arg(long, default_value = "table")]
+        format: String,
+    },
     /// Deep-dive on one provision across all bills (requires embeddings)
     Relate {
         /// Provision reference: bill_directory:index (e.g., hr9468:0)
@@ -273,6 +331,32 @@ enum Commands {
         #[arg(long)]
         fy_timeline: bool,
     },
+}
+
+#[derive(Subcommand)]
+enum AuthorityCommands {
+    /// Build authorities.json from TAS mapping files
+    Build {
+        /// Data directory
+        #[arg(long, default_value = "./data")]
+        dir: String,
+        /// Rebuild even if authorities.json already exists
+        #[arg(long)]
+        force: bool,
+    },
+    /// List all known authorities in the registry
+    List {
+        /// Data directory
+        #[arg(long, default_value = "./data")]
+        dir: String,
+        /// Filter by agency code (e.g., 070 for DHS)
+        #[arg(long)]
+        agency: Option<String>,
+        /// Output format: table, json
+        #[arg(long, default_value = "table")]
+        format: String,
+    },
+
 }
 
 #[derive(Subcommand)]
@@ -537,6 +621,7 @@ async fn main() -> Result<()> {
             agency,
             subcommittee,
             use_links,
+            use_authorities,
             real,
             cpi_file,
             exact,
@@ -550,6 +635,7 @@ async fn main() -> Result<()> {
             agency.as_deref(),
             subcommittee.as_deref(),
             use_links,
+            use_authorities,
             real,
             cpi_file.as_deref(),
             &format,
@@ -571,6 +657,38 @@ async fn main() -> Result<()> {
             dry_run,
             force,
         } => handle_enrich(&dir, dry_run, force),
+        Commands::ResolveTas {
+            dir,
+            bill,
+            dry_run,
+            no_llm,
+            force,
+            batch_size,
+            fas_reference,
+        } => {
+            handle_resolve_tas(
+                &dir,
+                bill.as_deref(),
+                dry_run,
+                no_llm,
+                force,
+                batch_size,
+                fas_reference.as_deref(),
+            )
+            .await
+        }
+        Commands::Authority { action } => handle_authority(action),
+        Commands::Trace {
+            query,
+            dir,
+            format,
+        } => handle_trace(&query, &dir, &format),
+        Commands::VerifyText {
+            dir,
+            repair,
+            bill,
+            format,
+        } => handle_verify_text(&dir, repair, bill.as_deref(), &format),
         Commands::Relate {
             source,
             dir,
@@ -579,6 +697,727 @@ async fn main() -> Result<()> {
             fy_timeline,
         } => handle_relate(&source, &dir, top, &format, fy_timeline),
     }
+}
+
+#[allow(clippy::too_many_arguments)]
+async fn handle_resolve_tas(
+    dir: &str,
+    bill: Option<&str>,
+    dry_run: bool,
+    no_llm: bool,
+    force: bool,
+    _batch_size: usize,
+    fas_reference_path: Option<&str>,
+) -> Result<()> {
+    use congress_appropriations::approp::tas;
+
+    // Load FAS reference
+    let ref_path = fas_reference_path
+        .map(std::path::PathBuf::from)
+        .unwrap_or_else(|| std::path::Path::new(dir).join("fas_reference.json"));
+
+    if !ref_path.exists() {
+        anyhow::bail!(
+            "FAS reference file not found: {}\n\
+             Download the FAST Book and convert it:\n  \
+             python scripts/convert_fast_book.py",
+            ref_path.display()
+        );
+    }
+
+    let reference = tas::load_fas_reference(&ref_path)?;
+    let ref_hash = tas::fas_reference_hash(&ref_path)?;
+    eprintln!(
+        "Loaded FAS reference: {} active + {} discontinued accounts",
+        reference.accounts.len(),
+        reference.discontinued.len()
+    );
+
+    // Find target bill directories
+    let target_dirs: Vec<std::path::PathBuf> = if let Some(bill_name) = bill {
+        let p = std::path::Path::new(dir).join(bill_name);
+        if !p.join("extraction.json").exists() {
+            anyhow::bail!("No extraction.json in {}", p.display());
+        }
+        vec![p]
+    } else {
+        let mut dirs: Vec<_> = std::fs::read_dir(dir)?
+            .filter_map(|e| e.ok())
+            .map(|e| e.path())
+            .filter(|p| p.join("extraction.json").exists())
+            .collect();
+        dirs.sort();
+        dirs
+    };
+
+    let mut grand_total = 0usize;
+    let mut grand_det = 0usize;
+    let mut grand_unmatched = 0usize;
+
+    for bill_dir in &target_dirs {
+        let bill_dir_name = bill_dir
+            .file_name()
+            .map(|n| n.to_string_lossy().to_string())
+            .unwrap_or_default();
+
+        // Skip if already resolved (unless --force)
+        if !force && bill_dir.join("tas_mapping.json").exists() {
+            continue;
+        }
+
+        // Load extraction as JSON Value
+        let ext_path = bill_dir.join("extraction.json");
+        let ext_text = std::fs::read_to_string(&ext_path)
+            .with_context(|| format!("Failed to read {}", ext_path.display()))?;
+        let ext_value: serde_json::Value = serde_json::from_str(&ext_text)
+            .with_context(|| format!("Failed to parse {}", ext_path.display()))?;
+
+        let bill_id = ext_value
+            .get("bill")
+            .and_then(|b| b.get("identifier"))
+            .and_then(|v| v.as_str())
+            .unwrap_or("unknown")
+            .to_string();
+
+        // Extract top-level BA provisions
+        let provisions = tas::extract_provisions_for_tas(&ext_value);
+        if provisions.is_empty() {
+            continue;
+        }
+
+        // Tier 1: Deterministic matching
+        let mappings = tas::resolve_deterministic(&provisions, &reference);
+
+        let det_matched = mappings
+            .iter()
+            .filter(|m| m.confidence == tas::TasConfidence::Verified)
+            .count();
+        let unmatched_count = mappings
+            .iter()
+            .filter(|m| m.confidence == tas::TasConfidence::Unmatched)
+            .count();
+
+        if dry_run {
+            let est_cost = unmatched_count as f64 * 0.03;
+            eprintln!(
+                "  {bill_id:20} {det_matched:>4}/{:<4} deterministic, {unmatched_count} need LLM (~${est_cost:.2})",
+                provisions.len()
+            );
+            grand_total += provisions.len();
+            grand_det += det_matched;
+            grand_unmatched += unmatched_count;
+            continue;
+        }
+
+        // Tier 2: LLM matching for unresolved provisions
+        let mut mappings = mappings;
+        let mut llm_model_used: Option<String> = None;
+
+        if !no_llm && unmatched_count > 0 {
+            use congress_appropriations::api::anthropic::{AnthropicClient, MessageBuilder};
+
+            let anthropic = match AnthropicClient::from_env() {
+                Ok(client) => Some(client),
+                Err(e) => {
+                    eprintln!(
+                        "  {bill_id}: {unmatched_count} need LLM but no API key ({e}). Use --no-llm to skip."
+                    );
+                    None
+                }
+            };
+
+            if let Some(client) = anthropic {
+                // Collect unmatched provisions
+                let unmatched_provs: Vec<tas::UnmatchedProvision> = mappings
+                    .iter()
+                    .filter(|m| m.confidence == tas::TasConfidence::Unmatched)
+                    .map(|m| tas::UnmatchedProvision {
+                        provision_index: m.provision_index,
+                        account_name: m.account_name.clone(),
+                        agency: m.agency.clone(),
+                        dollars: m.dollars,
+                    })
+                    .collect();
+
+                // Group by agency code for focused prompts
+                let mut by_agency: std::collections::HashMap<String, Vec<&tas::UnmatchedProvision>> =
+                    std::collections::HashMap::new();
+                for p in &unmatched_provs {
+                    let code = tas::agency_name_to_code(&p.agency)
+                        .unwrap_or("unknown")
+                        .to_string();
+                    by_agency.entry(code).or_default().push(p);
+                }
+
+                let model_name = "claude-opus-4-6";
+                llm_model_used = Some(model_name.to_string());
+                let mut total_llm_resolved = 0usize;
+
+                for (agency_code, agency_provs) in &by_agency {
+                    // Get FAS accounts for this agency
+                    let agency_fas: Vec<&tas::FasAccount> = if agency_code == "unknown" {
+                        reference
+                            .accounts
+                            .iter()
+                            .filter(|a| a.fund_type == "general")
+                            .collect()
+                    } else {
+                        reference.accounts_for_agency(agency_code)
+                    };
+
+                    // Batch provisions
+                    for batch in agency_provs.chunks(_batch_size) {
+                        let batch_provs: Vec<tas::UnmatchedProvision> = batch
+                            .iter()
+                            .map(|p| tas::UnmatchedProvision {
+                                provision_index: p.provision_index,
+                                account_name: p.account_name.clone(),
+                                agency: p.agency.clone(),
+                                dollars: p.dollars,
+                            })
+                            .collect();
+
+                        let prompt =
+                            tas::build_llm_prompt(&batch_provs, &agency_fas, &bill_id);
+
+                        let request = MessageBuilder::new(model_name)
+                            .system(tas::TAS_SYSTEM_PROMPT)
+                            .user(prompt)
+                            .max_tokens(16000)
+                            .thinking_enabled(10000)
+                            .temperature(1.0)
+                            .build();
+
+                        let response = match client.send_message(&request).await {
+                            Ok(resp) => resp,
+                            Err(e) => {
+                                eprintln!(
+                                    "    LLM call failed for agency {agency_code}: {e}"
+                                );
+                                continue;
+                            }
+                        };
+
+                        // Extract text from response (may have thinking blocks)
+                        use congress_appropriations::api::anthropic::types::ContentBlock;
+                        let response_text = response
+                            .content
+                            .iter()
+                            .filter_map(|block| match block {
+                                ContentBlock::Text { text, .. } => Some(text.as_str()),
+                                _ => None,
+                            })
+                            .collect::<Vec<_>>()
+                            .join("");
+
+                        eprintln!(
+                            "    agency={agency_code}: {} tokens in, {} out",
+                            response.usage.input_tokens,
+                            response.usage.output_tokens,
+                        );
+
+                        match tas::parse_llm_response(&response_text) {
+                            Ok(llm_results) => {
+                                let count_before = mappings
+                                    .iter()
+                                    .filter(|m| m.confidence != tas::TasConfidence::Unmatched)
+                                    .count();
+                                tas::apply_llm_results(
+                                    &mut mappings,
+                                    &llm_results,
+                                    &reference,
+                                );
+                                let count_after = mappings
+                                    .iter()
+                                    .filter(|m| m.confidence != tas::TasConfidence::Unmatched)
+                                    .count();
+                                total_llm_resolved += count_after - count_before;
+                            }
+                            Err(e) => {
+                                eprintln!(
+                                    "    Failed to parse LLM response for agency {agency_code}: {e}"
+                                );
+                            }
+                        }
+                    }
+                }
+
+                if total_llm_resolved > 0 {
+                    eprintln!(
+                        "    LLM resolved {total_llm_resolved} additional provisions"
+                    );
+                }
+            }
+        }
+
+        // Build and save the mapping file
+        let mapping_file = tas::build_mapping_file(
+            mappings,
+            &bill_dir_name,
+            &bill_id,
+            llm_model_used.as_deref(),
+            &ref_hash,
+        );
+
+        let matched_total =
+            mapping_file.summary.deterministic_matched + mapping_file.summary.llm_matched;
+        eprintln!(
+            "  {bill_id:20} {matched_total:>4}/{:<4} matched ({:.1}%), {} unmatched",
+            mapping_file.summary.total_provisions,
+            mapping_file.summary.match_rate_pct,
+            mapping_file.summary.unmatched,
+        );
+
+        grand_total += mapping_file.summary.total_provisions;
+        grand_det += mapping_file.summary.deterministic_matched;
+        grand_unmatched += mapping_file.summary.unmatched;
+
+        if !dry_run {
+            tas::save_tas_mapping(bill_dir, &mapping_file)?;
+        }
+    }
+
+    // Summary
+    let grand_llm = grand_total - grand_det - grand_unmatched;
+    let grand_matched = grand_det + grand_llm;
+    let pct = if grand_total > 0 {
+        100.0 * grand_matched as f64 / grand_total as f64
+    } else {
+        0.0
+    };
+
+    println!();
+    println!(
+        "{grand_total} provisions: {grand_matched} matched ({pct:.1}%), {grand_unmatched} unmatched"
+    );
+    if grand_llm > 0 {
+        println!("  Deterministic: {grand_det}, LLM: {grand_llm}");
+    }
+    if grand_unmatched > 0 && no_llm {
+        let est = grand_unmatched as f64 * 0.03;
+        println!(
+            "Run without --no-llm to resolve {grand_unmatched} remaining provisions (~${est:.0})"
+        );
+    } else if grand_unmatched > 0 {
+        println!("{grand_unmatched} provisions could not be resolved even with LLM.");
+    }
+
+    Ok(())
+}
+
+fn handle_authority(action: AuthorityCommands) -> Result<()> {
+    use congress_appropriations::approp::authority;
+    use congress_appropriations::approp::tas;
+
+    match action {
+        AuthorityCommands::Build { dir, force } => {
+            let dir_path = std::path::Path::new(&dir);
+
+            if !force && dir_path.join("authorities.json").exists() {
+                println!("authorities.json already exists. Use --force to rebuild.");
+                return Ok(());
+            }
+
+            let ref_path = dir_path.join("fas_reference.json");
+            if !ref_path.exists() {
+                anyhow::bail!(
+                    "FAS reference file not found: {}\nRun: python scripts/convert_fast_book.py",
+                    ref_path.display()
+                );
+            }
+            let fas_reference = tas::load_fas_reference(&ref_path)?;
+
+            eprintln!("Building authority registry from TAS mappings...");
+            let registry = authority::build_authorities(dir_path, &fas_reference)?;
+            authority::save_authorities(dir_path, &registry)?;
+
+            let s = &registry.summary;
+            println!("Built authorities.json:");
+            println!(
+                "  {} authorities, {} provisions, {} bills, FYs {:?}",
+                s.total_authorities, s.total_provisions, s.bills_included, s.fiscal_years_covered
+            );
+            println!(
+                "  {} in multiple bills, {} with name variants",
+                s.authorities_in_multiple_bills, s.authorities_with_name_variants
+            );
+        }
+        AuthorityCommands::List {
+            dir,
+            agency,
+            format,
+        } => {
+            let dir_path = std::path::Path::new(&dir);
+            let registry = authority::load_authorities(dir_path)?
+                .ok_or_else(|| anyhow::anyhow!("No authorities.json found. Run: authority build --dir {dir}"))?;
+
+            let filtered: Vec<&authority::AccountAuthority> = if let Some(ref code) = agency {
+                registry
+                    .authorities
+                    .iter()
+                    .filter(|a| a.agency_code == *code)
+                    .collect()
+            } else {
+                registry.authorities.iter().collect()
+            };
+
+            if format == "json" {
+                println!("{}", serde_json::to_string_pretty(&filtered)?);
+            } else {
+                let mut table = Table::new();
+                table.load_preset(UTF8_FULL_CONDENSED);
+                table.set_header(vec![
+                    Cell::new("FAS Code"),
+                    Cell::new("Bills"),
+                    Cell::new("FYs"),
+                    Cell::new("Total BA ($)"),
+                    Cell::new("Title"),
+                ]);
+
+                for a in &filtered {
+                    let fys_str = a
+                        .fiscal_years
+                        .iter()
+                        .map(|fy| fy.to_string())
+                        .collect::<Vec<_>>()
+                        .join(", ");
+                    table.add_row(vec![
+                        Cell::new(&a.fas_code),
+                        Cell::new(a.bill_count).set_alignment(CellAlignment::Right),
+                        Cell::new(&fys_str),
+                        Cell::new(format_dollars(a.total_dollars))
+                            .set_alignment(CellAlignment::Right),
+                        Cell::new(truncate(&a.fas_title, 50)),
+                    ]);
+                }
+                println!("{table}");
+                println!(
+                    "{} authorities{}",
+                    filtered.len(),
+                    if let Some(ref code) = agency {
+                        format!(" (agency {code})")
+                    } else {
+                        String::new()
+                    }
+                );
+            }
+        }
+    }
+
+    Ok(())
+}
+
+fn handle_trace(query: &str, dir: &str, format: &str) -> Result<()> {
+    use congress_appropriations::approp::authority;
+
+    let dir_path = std::path::Path::new(dir);
+    let registry = authority::load_authorities(dir_path)?
+        .ok_or_else(|| anyhow::anyhow!("No authorities.json found. Run: authority build --dir {dir}"))?;
+
+    // Try exact FAS code match first, then search by name
+    let auth = authority::get_authority(&registry, query).or_else(|| {
+        let results = authority::search_authorities(&registry, query);
+        if results.len() == 1 {
+            Some(results[0])
+        } else {
+            None
+        }
+    });
+
+    let Some(auth) = auth else {
+        // Try search and show candidates
+        let results = authority::search_authorities(&registry, query);
+        if results.is_empty() {
+            println!("No authority found matching \"{query}\".");
+        } else {
+            println!(
+                "Multiple authorities match \"{query}\". Be more specific or use the FAS code:\n"
+            );
+            for a in &results[..results.len().min(10)] {
+                println!("  {} — {}", a.fas_code, truncate(&a.fas_title, 60));
+            }
+            if results.len() > 10 {
+                println!("  ... and {} more", results.len() - 10);
+            }
+        }
+        return Ok(());
+    };
+
+    let timeline = authority::build_timeline(auth);
+
+    // Load bill classifications for labeling (CR, supplemental, etc.)
+    let mut bill_classifications: std::collections::HashMap<String, String> =
+        std::collections::HashMap::new();
+    for prov in &auth.provisions {
+        if bill_classifications.contains_key(&prov.bill_dir) {
+            continue;
+        }
+        let bm_path = std::path::Path::new(dir).join(&prov.bill_dir).join("bill_meta.json");
+        if let Ok(text) = std::fs::read_to_string(&bm_path)
+            && let Ok(val) = serde_json::from_str::<serde_json::Value>(&text)
+        {
+            let nature = val
+                .get("bill_nature")
+                .and_then(|v| v.as_str())
+                .unwrap_or("");
+            let label = match nature {
+                "continuing_resolution" => " (CR)",
+                "full_year_cr_with_appropriations" => " (full-year CR)",
+                "supplemental" => " (supplemental)",
+                "omnibus" => "",
+                "minibus" => "",
+                "regular" => "",
+                "authorization" => " (auth)",
+                _ => "",
+            };
+            bill_classifications.insert(prov.bill_dir.clone(), label.to_string());
+        }
+    }
+
+    if format == "json" {
+        let output = serde_json::json!({
+            "fas_code": auth.fas_code,
+            "fas_title": auth.fas_title,
+            "agency_name": auth.agency_name,
+            "bill_count": auth.bill_count,
+            "total_dollars": auth.total_dollars,
+            "name_variants": auth.name_variants,
+            "timeline": timeline,
+        });
+        println!("{}", serde_json::to_string_pretty(&output)?);
+    } else {
+        println!(
+            "TAS {}: {}\n  Agency: {}\n",
+            auth.fas_code, auth.fas_title, auth.agency_name
+        );
+
+        if timeline.is_empty() {
+            println!("  No fiscal year data available.");
+        } else {
+            let mut table = Table::new();
+            table.load_preset(UTF8_FULL_CONDENSED);
+            table.set_header(vec![
+                Cell::new("FY"),
+                Cell::new("Budget Authority ($)"),
+                Cell::new("Bill(s)"),
+                Cell::new("Account Name(s)"),
+            ]);
+
+            for entry in &timeline {
+                // Append classification labels to bill names
+                let labeled_bills: Vec<String> = entry
+                    .bills
+                    .iter()
+                    .map(|b| {
+                        // Find the bill_dir for this identifier
+                        let label = auth
+                            .provisions
+                            .iter()
+                            .find(|p| p.bill_identifier == *b)
+                            .and_then(|p| bill_classifications.get(&p.bill_dir))
+                            .map(|s| s.as_str())
+                            .unwrap_or("");
+                        format!("{b}{label}")
+                    })
+                    .collect();
+
+                table.add_row(vec![
+                    Cell::new(entry.fiscal_year),
+                    Cell::new(format_dollars(entry.dollars))
+                        .set_alignment(CellAlignment::Right),
+                    Cell::new(labeled_bills.join(", ")),
+                    Cell::new(truncate(&entry.account_names.join(" / "), 45)),
+                ]);
+            }
+            println!("{table}");
+        }
+
+        if !auth.events.is_empty() {
+            println!("\n  Events:");
+            for event in &auth.events {
+                match &event.event_type {
+                    congress_appropriations::approp::authority::AuthorityEventType::Rename { from, to } => {
+                        println!(
+                            "    ⟹  FY{}: renamed from \"{}\" to \"{}\"",
+                            event.fiscal_year,
+                            truncate(from, 45),
+                            truncate(to, 45),
+                        );
+                    }
+                }
+            }
+        }
+
+        if auth.name_variants.len() > 1 {
+            println!("\n  Name variants across bills:");
+            for v in &auth.name_variants {
+                let cls_label = v.classification.as_ref().map(|c| match c {
+                    congress_appropriations::approp::authority::VariantClassification::Canonical => " [canonical]",
+                    congress_appropriations::approp::authority::VariantClassification::CaseVariant => " [case]",
+                    congress_appropriations::approp::authority::VariantClassification::PrefixVariant => " [prefix]",
+                    congress_appropriations::approp::authority::VariantClassification::NameChange => " [renamed]",
+                    congress_appropriations::approp::authority::VariantClassification::InconsistentExtraction => " [inconsistent]",
+                }).unwrap_or("");
+                println!("    \"{}\" ({}){}", truncate(&v.name, 50), v.bills.join(", "), cls_label);
+            }
+        }
+
+        println!(
+            "\n  {} fiscal years, {} bills, {} total",
+            auth.fiscal_years.len(),
+            auth.bill_count,
+            format_dollars(auth.total_dollars)
+        );
+    }
+
+    Ok(())
+}
+
+fn handle_verify_text(dir: &str, repair: bool, bill: Option<&str>, format: &str) -> Result<()> {
+    use congress_appropriations::approp::text_repair;
+
+    let target_dirs: Vec<std::path::PathBuf> = if let Some(bill_name) = bill {
+        let p = std::path::Path::new(dir).join(bill_name);
+        if !p.join("extraction.json").exists() {
+            anyhow::bail!("No extraction.json in {}", p.display());
+        }
+        vec![p]
+    } else {
+        let mut dirs: Vec<_> = std::fs::read_dir(dir)?
+            .filter_map(|e| e.ok())
+            .map(|e| e.path())
+            .filter(|p| p.join("extraction.json").exists())
+            .collect();
+        dirs.sort();
+        dirs
+    };
+
+    if target_dirs.is_empty() {
+        println!("No bills with extraction.json found in {dir}");
+        return Ok(());
+    }
+
+    let mut grand_total = text_repair::VerifyTextReport::default();
+    let mut bill_reports: Vec<(String, text_repair::VerifyTextReport)> = Vec::new();
+
+    for bill_dir in &target_dirs {
+        // Load extraction as raw JSON Value (so we can write inline source_span
+        // without modifying the typed Provision enum)
+        let ext_path = bill_dir.join("extraction.json");
+        let ext_text = std::fs::read_to_string(&ext_path)
+            .with_context(|| format!("Failed to read {}", ext_path.display()))?;
+        let mut ext_value: serde_json::Value = serde_json::from_str(&ext_text)
+            .with_context(|| format!("Failed to parse {}", ext_path.display()))?;
+
+        let bill_id = ext_value
+            .get("bill")
+            .and_then(|b| b.get("identifier"))
+            .and_then(|v| v.as_str())
+            .unwrap_or("unknown")
+            .to_string();
+
+        // Load source text
+        let source = match text_repair::load_source_text(bill_dir) {
+            Some(s) => s,
+            None => {
+                eprintln!("  {bill_id}: no source .txt file, skipping");
+                continue;
+            }
+        };
+        let source_file = text_repair::source_filename(bill_dir).unwrap_or_default();
+
+        // Run verify (and optionally repair) at the JSON Value level
+        let report =
+            text_repair::verify_and_repair_bill_json(&mut ext_value, &source, &source_file, repair);
+
+        if repair && (report.repaired_prefix > 0 || report.repaired_substring > 0 || report.repaired_normalized > 0 || report.spans_added > 0) {
+            // Backup original
+            let backup_path = ext_path.with_extension("json.pre-repair");
+            if !backup_path.exists() {
+                std::fs::copy(&ext_path, &backup_path)?;
+            }
+            // Write back the modified JSON (with inline source_span on provisions)
+            std::fs::write(&ext_path, serde_json::to_string_pretty(&ext_value)?)?;
+        }
+
+        // Accumulate
+        grand_total.total += report.total;
+        grand_total.exact += report.exact;
+        grand_total.repaired_prefix += report.repaired_prefix;
+        grand_total.repaired_substring += report.repaired_substring;
+        grand_total.repaired_normalized += report.repaired_normalized;
+        grand_total.unverified += report.unverified;
+        grand_total.spans_added += report.spans_added;
+
+        if report.unverified > 0 || report.repaired_prefix > 0 || report.repaired_substring > 0 || report.repaired_normalized > 0 {
+            bill_reports.push((bill_id, report));
+        }
+    }
+
+    // Output
+    if format == "json" {
+        let output = serde_json::json!({
+            "total": grand_total.total,
+            "exact": grand_total.exact,
+            "repaired_prefix": grand_total.repaired_prefix,
+            "repaired_substring": grand_total.repaired_substring,
+            "repaired_normalized": grand_total.repaired_normalized,
+            "unverified": grand_total.unverified,
+            "spans_added": grand_total.spans_added,
+            "traceable_pct": if grand_total.total > 0 {
+                100.0 * grand_total.traceable() as f64 / grand_total.total as f64
+            } else { 0.0 },
+        });
+        println!("{}", serde_json::to_string_pretty(&output)?);
+    } else {
+        // Table output
+        if !bill_reports.is_empty() {
+            for (bill_id, report) in &bill_reports {
+                let repaired = report.repaired_prefix + report.repaired_substring + report.repaired_normalized;
+                if repaired > 0 || report.unverified > 0 {
+                    eprintln!(
+                        "  {bill_id:15} {repaired:4} repaired, {} unverified",
+                        report.unverified
+                    );
+                }
+            }
+            eprintln!();
+        }
+
+        let traceable = grand_total.traceable();
+        let pct = if grand_total.total > 0 {
+            100.0 * traceable as f64 / grand_total.total as f64
+        } else {
+            0.0
+        };
+
+        println!(
+            "{} provisions: {} exact, {} repaired ({} prefix, {} substring, {} normalized), {} unverified",
+            grand_total.total,
+            grand_total.exact,
+            grand_total.repaired_prefix + grand_total.repaired_substring + grand_total.repaired_normalized,
+            grand_total.repaired_prefix,
+            grand_total.repaired_substring,
+            grand_total.repaired_normalized,
+            grand_total.unverified,
+        );
+        println!("Traceable: {traceable}/{} ({pct:.3}%)", grand_total.total);
+
+        if repair {
+            println!("Source spans added: {}", grand_total.spans_added);
+        }
+
+        if grand_total.unverified > 0 {
+            eprintln!(
+                "\n⚠ {} provisions could not be located in source text.",
+                grand_total.unverified
+            );
+        } else if grand_total.total > 0 {
+            println!("\n✅ Every provision is traceable to the enrolled bill source text.");
+        }
+    }
+
+    Ok(())
 }
 
 // ─── Normalize Handler ───────────────────────────────────────────────────────
@@ -2094,8 +2933,8 @@ async fn handle_extract(
         let metadata = pipeline.build_metadata(
             &bill_text,
             Some(source_path),
-            Some(chunks_total),
-            Some(chunks_completed),
+            chunks_total,
+            chunks_completed,
         );
         std::fs::write(
             bill_dir.join("metadata.json"),
@@ -3700,14 +4539,15 @@ fn handle_summary(
 
 #[allow(clippy::too_many_arguments)]
 fn handle_compare(
-    base_dir: Option<&str>,
-    current_dir: Option<&str>,
+    base: Option<&str>,
+    current: Option<&str>,
     base_fy: Option<u32>,
     current_fy: Option<u32>,
     dir: Option<&str>,
-    agency_filter: Option<&str>,
+    agency: Option<&str>,
     subcommittee: Option<&str>,
     use_links: bool,
+    use_authorities: bool,
     real: bool,
     cpi_file: Option<&str>,
     format: &str,
@@ -3745,7 +4585,7 @@ fn handle_compare(
         }
 
         (base, current)
-    } else if let (Some(bd), Some(cd)) = (base_dir, current_dir) {
+    } else if let (Some(bd), Some(cd)) = (base, current) {
         let base = loading::load_bills(std::path::Path::new(bd))?;
         let current = loading::load_bills(std::path::Path::new(cd))?;
         if base.is_empty() {
@@ -3782,7 +4622,7 @@ fn handle_compare(
     let dataset = if exact {
         None
     } else {
-        let data_dir = dir.or(base_dir).unwrap_or("./data");
+        let data_dir = dir.or(base).unwrap_or("./data");
         normalize::load_dataset(std::path::Path::new(data_dir)).unwrap_or(None)
     };
     let agency_groups = dataset
@@ -3797,7 +4637,7 @@ fn handle_compare(
     let mut result = query::compare(
         &base_filtered,
         &current_filtered,
-        agency_filter,
+        agency,
         agency_groups,
         account_aliases,
     );
@@ -3854,8 +4694,101 @@ fn handle_compare(
         None
     };
 
+    // If --use-authorities, load TAS mappings and rescue orphans by FAS code.
+    // When two provisions have the same FAS code but different names/agencies,
+    // they are the same account — match them regardless of name differences.
+    if use_authorities {
+        let data_dir = dir.or(base).unwrap_or("./data");
+        let data_path = std::path::Path::new(data_dir);
+
+        // Build FAS→dollars maps for base and current bills
+        let mut base_fas: std::collections::HashMap<String, (i64, String)> =
+            std::collections::HashMap::new();
+        let mut current_fas: std::collections::HashMap<String, (i64, String)> =
+            std::collections::HashMap::new();
+
+        for bill in &base_filtered {
+            let bill_dir_name = bill.dir.file_name().map(|n| n.to_string_lossy().to_string()).unwrap_or_default();
+            let tm_path = data_path.join(&bill_dir_name).join("tas_mapping.json");
+            if let Ok(text) = std::fs::read_to_string(&tm_path)
+                && let Ok(tm) = serde_json::from_str::<congress_appropriations::approp::tas::TasMappingFile>(&text)
+            {
+                for m in &tm.mappings {
+                    if let Some(ref fas) = m.fas_code {
+                        let entry = base_fas.entry(fas.clone()).or_insert((0, m.account_name.clone()));
+                        entry.0 += m.dollars.unwrap_or(0);
+                    }
+                }
+            }
+        }
+        for bill in &current_filtered {
+            let bill_dir_name = bill.dir.file_name().map(|n| n.to_string_lossy().to_string()).unwrap_or_default();
+            let tm_path = data_path.join(&bill_dir_name).join("tas_mapping.json");
+            if let Ok(text) = std::fs::read_to_string(&tm_path)
+                && let Ok(tm) = serde_json::from_str::<congress_appropriations::approp::tas::TasMappingFile>(&text)
+            {
+                for m in &tm.mappings {
+                    if let Some(ref fas) = m.fas_code {
+                        let entry = current_fas.entry(fas.clone()).or_insert((0, m.account_name.clone()));
+                        entry.0 += m.dollars.unwrap_or(0);
+                    }
+                }
+            }
+        }
+
+        // Rescue orphans: find "only in base" rows where the account's FAS code
+        // also appears in current (just under a different name), and vice versa.
+        let mut authority_rescued = 0usize;
+        for row in &mut result.rows {
+            if row.status == "only in base" {
+                for (fas, (base_dollars, _)) in &base_fas {
+                    if let Some((cur_dollars, _)) = current_fas.get(fas)
+                        && *base_dollars == row.base_dollars && row.current_dollars == 0
+                    {
+                            row.current_dollars = *cur_dollars;
+                            row.delta = row.current_dollars - row.base_dollars;
+                            row.delta_pct = if row.base_dollars != 0 {
+                                Some((row.delta as f64 / row.base_dollars as f64) * 100.0)
+                            } else {
+                                None
+                            };
+                        row.status = format!("matched (TAS {fas})");
+                        row.normalized = true;
+                        authority_rescued += 1;
+                        break;
+                    }
+                }
+            } else if row.status == "only in current" {
+                for (fas, (cur_dollars, _)) in &current_fas {
+                    if let Some((base_dollars, _)) = base_fas.get(fas)
+                        && *cur_dollars == row.current_dollars && row.base_dollars == 0
+                    {
+                            row.base_dollars = *base_dollars;
+                            row.delta = row.current_dollars - row.base_dollars;
+                            row.delta_pct = if row.base_dollars != 0 {
+                                Some((row.delta as f64 / row.base_dollars as f64) * 100.0)
+                            } else {
+                                None
+                            };
+                        row.status = format!("matched (TAS {fas})");
+                        row.normalized = true;
+                        authority_rescued += 1;
+                        break;
+                    }
+                }
+            }
+        }
+
+        if authority_rescued > 0 {
+            eprintln!("  {authority_rescued} orphan(s) rescued via TAS authority matching");
+        } else if base_fas.is_empty() || current_fas.is_empty() {
+            eprintln!("  hint: no TAS mappings found. Run `resolve-tas --dir {data_dir}` first.");
+        }
+    }
+
     // If --use-links, load accepted links and rescue orphans that have a link
     // connecting them across bills (handles renames and reorganizations).
+
     if use_links {
         let data_dir = dir.unwrap_or("./data");
         if let Ok(Some(links_file)) =
@@ -4211,7 +5144,7 @@ fn handle_compare(
                 .filter(|d| d.status == "only in base" || d.status == "only in current")
                 .count();
             if orphan_count > 0 {
-                let data_dir = dir.or(base_dir).unwrap_or("./data");
+                let data_dir = dir.or(base).unwrap_or("./data");
                 let has_dataset = std::path::Path::new(data_dir).join("dataset.json").exists();
                 if has_dataset {
                     eprintln!(

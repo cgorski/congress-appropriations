@@ -545,8 +545,8 @@ impl ExtractionPipeline {
         &self,
         text: &str,
         source_path: Option<&std::path::Path>,
-        chunks_total: Option<usize>,
-        chunks_completed: Option<usize>,
+        chunks_total: usize,
+        chunks_completed: usize,
     ) -> ExtractionMetadata {
         use crate::approp::text_index::TextIndex;
         use sha2::{Digest, Sha256};

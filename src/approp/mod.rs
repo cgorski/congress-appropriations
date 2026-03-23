@@ -1,3 +1,4 @@
+pub mod authority;
 pub mod bill_meta;
 pub mod cache;
 pub mod extraction;
@@ -6,6 +7,8 @@ pub mod links;
 pub mod normalize;
 pub mod ontology;
 pub mod query;
+pub mod tas;
+pub mod text_repair;
 
 pub mod embeddings;
 pub mod from_value;

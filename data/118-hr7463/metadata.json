@@ -1,10 +1,12 @@
 {
-  "extraction_version": "3.1.0",
+  "extraction_version": "5.1.0",
   "prompt_version": "v3",
   "model": "claude-opus-4-6",
   "schema_version": "0.3.0",
   "source_pdf_sha256": null,
   "source_xml_sha256": "9d1186209f9e7d8877ee19a613c8eef14adf79c78543d1ca863d8799fc82e3fc",
   "extracted_text_sha256": "c5913f460002407cdd7e0eb6a7baddbf8c3b024a385cf7cb4a0bbd0ddcfb64e9",
-  "timestamp": "2026-03-18T04:13:37.473681+00:00"
+  "timestamp": "2026-03-21T15:11:27.966976+00:00",
+  "chunks_total": 2,
+  "chunks_completed": 2
 }

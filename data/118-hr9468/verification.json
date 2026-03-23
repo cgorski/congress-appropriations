@@ -37,41 +37,40 @@
     },
     {
       "provision_index": 2,
-      "raw_text_preview": "SEC. 101. Each amount appropriated or made available by this Act is in addition ...",
+      "raw_text_preview": "Each amount appropriated or made available by this Act is in addition to amounts...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 675
+      "found_at_position": 685
     },
     {
       "provision_index": 3,
-      "raw_text_preview": "SEC. 102. Unless otherwise provided for by this Act, the additional amounts appr...",
+      "raw_text_preview": "Unless otherwise provided for by this Act, the additional amounts appropriated b...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 820
+      "found_at_position": 830
     },
     {
       "provision_index": 4,
-      "raw_text_preview": "SEC. 103. (a) Not later than 30 days after the date of enactment of this Act, th...",
-      "is_verbatim_substring": false,
-      "match_tier": "no_match",
-      "found_at_position": null
+      "raw_text_preview": "Not later than 30 days after the date of enactment of this Act, the Secretary of...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 1120
     },
     {
       "provision_index": 5,
-      "raw_text_preview": "(b) Not later than 60 days after the enactment of this Act, the Secretary of Vet...",
-      "is_verbatim_substring": false,
-      "match_tier": "no_match",
-      "found_at_position": null
+      "raw_text_preview": "Not later than 60 days after the enactment of this Act, the Secretary of Veteran...",
+      "is_verbatim_substring": true,
+      "match_tier": "exact",
+      "found_at_position": 1628
     },
     {
       "provision_index": 6,
-      "raw_text_preview": "SEC. 104. (a) The Inspector General of the Department of Veterans Affairs shall ...",
+      "raw_text_preview": "The Inspector General of the Department of Veterans Affairs shall conduct a revi...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 2323
+      "found_at_position": 2337
     }
   ],
-  "arithmetic_checks": [],
   "completeness": {
     "total_dollar_amounts_in_text": 2,
     "accounted_for": 2,
@@ -82,10 +81,10 @@
     "amounts_verified": 2,
     "amounts_not_found": 0,
     "amounts_ambiguous": 0,
-    "raw_text_exact": 5,
+    "raw_text_exact": 7,
     "raw_text_normalized": 0,
     "raw_text_spaceless": 0,
-    "raw_text_no_match": 2,
+    "raw_text_no_match": 0,
     "completeness_pct": 100.0,
     "provisions_by_detail_level": {
       "top_level": 2,

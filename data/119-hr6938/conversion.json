@@ -1,25 +1,21 @@
 {
-  "provisions_parsed": 1061,
+  "provisions_parsed": 1028,
   "provisions_failed": 0,
-  "null_to_default": 98,
+  "null_to_default": 97,
   "type_coercions": 0,
-  "unknown_provision_types": 24,
+  "unknown_provision_types": 27,
   "warnings": [
     "SEC : missing amount on appropriation",
     "SEC : missing amount on appropriation",
+    "SEC Service Charges, Deposits, and Forfeitures: missing amount on appropriation",
+    "SEC Miscellaneous Trust Funds: missing amount on appropriation",
+    "SEC Operation of the National Park System: missing amount on appropriation",
+    "SEC Contract Support Costs: missing amount on appropriation",
+    "SEC Payments for Tribal Leases: missing amount on appropriation",
     "SEC : missing amount on appropriation",
     "SEC : missing amount on appropriation",
     "SEC : missing amount on appropriation",
     "SEC : missing amount on appropriation",
-    "SEC : missing amount on appropriation",
-    "SEC : missing amount on appropriation",
-    "SEC : missing amount on appropriation",
-    "SEC : missing amount on appropriation",
-    "SEC : missing amount on appropriation",
-    "SEC : missing amount on appropriation",
-    "SEC : missing amount on appropriation",
-    "SEC : missing amount on appropriation",
-    "SEC : missing amount on appropriation",
-    "SEC SEC. 510: missing amount on appropriation"
+    "SEC : missing amount on appropriation"
   ]
 }

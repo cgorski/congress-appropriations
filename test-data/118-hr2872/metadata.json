@@ -6,5 +6,7 @@
   "source_pdf_sha256": null,
   "source_xml_sha256": "974cde2b2319dbe883154ee850bd715035df1abc3e0edc086ad7e90db52d242d",
   "extracted_text_sha256": "023fc3cb8de28b12b4ba2d81403a3b9dfd98a4cc44c7b9a4c80bc06446d34ac0",
-  "timestamp": "2026-03-18T04:16:17.627048+00:00"
+  "timestamp": "2026-03-18T04:16:17.627048+00:00",
+  "chunks_total": 1,
+  "chunks_completed": 1
 }

@@ -41,17 +41,17 @@
   "raw_text_checks": [
     {
       "provision_index": 0,
-      "raw_text_preview": "(1) by striking the date specified in section 106(3) and inserting ''March 22, 2...",
+      "raw_text_preview": "by striking the date specified in section 106(3) and inserting ''March 22, 2024'...",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 801
+      "found_at_position": 805
     },
     {
       "provision_index": 1,
-      "raw_text_preview": "(2) by striking the date specified in section 106(4) and inserting ''March 8, 20...",
+      "raw_text_preview": "by striking the date specified in section 106(4) and inserting ''March 8, 2024''",
       "is_verbatim_substring": true,
       "match_tier": "exact",
-      "found_at_position": 892
+      "found_at_position": 896
     },
     {
       "provision_index": 2,
