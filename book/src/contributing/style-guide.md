@@ -455,6 +455,31 @@ All logging goes to stderr via `tracing-subscriber`. Stdout is reserved for comm
 | Never `block_on()` in async | Causes runtime panics |
 | Include verification line in commits | Proves you ran the full test cycle |
 
+## Writing and Documentation Tone
+
+All documentation, comments, commit messages, and user-facing text should be **direct, factual, and professional**. The project's credibility depends on the data and the verification methodology — not on persuasive language.
+
+### Do
+
+- State what the tool does and how: *"Dollar amounts are verified by deterministic string matching against the enrolled bill text."*
+- Let the data speak: *"99.995% of dollar amounts confirmed in source text (18,583 of 18,584)."*
+- Describe limitations plainly: *"FY2025 subcommittee filtering is not available because H.R. 1968 wraps all jurisdictions into a single division."*
+- Use precise language: *"budget authority"* not *"spending"*; *"enrolled bill"* not *"the law"*.
+
+### Do not
+
+- Use marketing language: ~~"Turn federal spending bills into searchable, structured data."~~
+- Use breathless phrasing: ~~"Copy-paste and go!"~~, ~~"Zero keyword overlap — yet it's the top result!"~~
+- Label features by audience: ~~"For Journalists"~~, ~~"For Staffers"~~. Describe the task instead.
+- Use callout labels like "Trust callout" or "Key insight" — if the information is important, state it directly.
+- Editorialize about what numbers mean: ~~"That's a story-saving feature."~~ Describe the data; let the reader draw conclusions.
+
+### README and book chapter guidelines
+
+- The README and book chapters should read like technical documentation, not a product landing page.
+- Embed specific numbers only in the cookbook dataset card and the accuracy-metrics appendix. Other pages should use relative language (*"across the full dataset"*) and link to those reference pages. This prevents staleness when bills are added.
+- Every command example should use output that was verified against the actual dataset. Do not fabricate or approximate CLI output.
+
 ## Next Steps
 
 - **[Testing Strategy](./testing.md)** — how to write and run tests

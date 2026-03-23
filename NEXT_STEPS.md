@@ -297,6 +297,7 @@ book/
 6. **No team member names in code, comments, or docs.** (NEXT_STEPS methodology section is the exception.)
 7. **Source spans use UTF-8 byte offsets.** Document this explicitly on any new position-based types.
 8. **TAS confidence is binary for deterministic matches.** `verified` (mechanically provable) or `unmatched` (needs LLM). No guessing.
+9. **Documentation tone is direct and factual.** No marketing language ("Turn spending bills into data!"), no breathless phrasing ("Copy-paste and go!"), no audience labels ("For Journalists"). State what the tool does, let the data speak, describe limitations plainly. Specific dataset numbers belong only in the cookbook dataset card and accuracy-metrics appendix — other pages use relative language and link to those references.
 
 ## Technical Decisions and Rationale (v6.0.0)
 
