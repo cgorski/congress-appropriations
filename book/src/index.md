@@ -1,10 +1,10 @@
 # Congressional Appropriations Analyzer
 
-**Turn federal spending bills into searchable, structured data.**
+`congress-approp` is a Rust CLI tool and library that downloads U.S. federal appropriations bills from Congress.gov, extracts every spending provision into structured JSON using Claude, and verifies each dollar amount against the source text. The included dataset covers 32 enacted bills across FY2019–FY2026 with 34,568 provisions and $21.5 trillion in budget authority.
 
-`congress-approp` is a Rust command-line tool that downloads U.S. federal appropriations bills from Congress.gov, extracts every spending provision into structured JSON using Claude, verifies each dollar amount against the source bill text, and gives you tools to search, compare, summarize, and audit the results. No more hunting through 1,500 pages of legislative text to find out how much Congress appropriated for a program.
+Dollar amounts are verified by deterministic string matching against the enrolled bill text — no LLM in the verification loop. 99.995% of extracted dollar amounts are confirmed present in the source (18,583 of 18,584). Every provision carries a `source_span` with exact byte offsets into the enrolled bill for independent verification.
 
-> **Trust callout:** Across 34,568 provisions extracted from 32 bills, 99.995% of dollar amounts were confirmed verbatim in the source bill text (18,583 of 18,584). Every provision has exact byte-level source spans in the enrolled bill. The LLM extracts; deterministic code verifies.
+> **Jump straight to working examples:** [Recipes & Demos](./tutorials/cookbook.md) — track any federal account across fiscal years, compare subcommittees with inflation adjustment, load the data in Python, and more. No API keys needed.
 
 ## What's Included
 
