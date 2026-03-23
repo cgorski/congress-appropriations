@@ -4,6 +4,49 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [6.0.0] — 2026-03-22
+
+### Breaking Changes
+- **`chunks_total` and `chunks_completed` are now mandatory** in `metadata.json`. Previously `Option<usize>` with `#[serde(default)]`, now `usize`. Old metadata files without these fields will fail to deserialize (the tool gracefully treats them as missing metadata). All 32 bills have been re-extracted with these fields populated.
+- **Removed dead types from `ontology.rs`**: `SourceSpan` (structural location — replaced by `TextSpan`), `Relationship`, `RelationType`, `ProvenanceLevel`, `ValidationReport`, `ArithmeticCheck`, `CheckStatus`, `Correction`, `Quality`. These types were defined but never constructed or used at runtime. ~130 lines of dead code removed.
+- **Budget authority pinned value for H.R. 4366 updated** from $846,137,099,554 to $921,196,642,442. The re-extraction with the current model classified more provisions as top-level `new_budget_authority`. All dollar amounts are verified against source text. The new value is the corrected total.
+- **All 32 bills re-extracted** with the current model and prompt. Provision counts and classifications may differ from previous extractions. Budget regression pins expanded from 3 to 8 bills.
+
+### Added
+- **`verify-text` command** — deterministic raw_text repair and source span generation. Checks every provision's `raw_text` against the enrolled bill source text and repairs LLM copying errors (word substitutions, whitespace differences) using a 3-tier algorithm: prefix match → substring match → normalized position mapping. Adds `source_span` byte positions to every provision for 1-to-1 correspondence with the enrolled bill. 100% traceability across 34,568 provisions with zero LLM calls. `TextSpan` type with documented UTF-8 byte offset semantics.
+- **`resolve-tas` command** — maps each top-level budget authority provision to a Federal Account Symbol (FAS) code from the Treasury's FAST Book. Two-tier matching: deterministic string matching against the reference (55.8%, free, no API key) + Claude Opus for ambiguous cases (43.6%, ~$85 one-time). 99.4% resolution across 6,685 provisions. Supports `--no-llm` for deterministic-only mode, `--dry-run` for cost estimation, `--force` for re-resolution.
+- **`authority build` command** — aggregates all `tas_mapping.json` files into `authorities.json` at the data root. Groups provisions by FAS code into 1,051 account authorities with name variants, provision references, fiscal year coverage, and dollar totals. Detects 40 rename events across fiscal years. Classifies name variants as canonical, case_variant, prefix_variant, name_change, or inconsistent_extraction.
+- **`authority list` command** — browse the account registry, optionally filtered by agency code. Table and JSON output formats.
+- **`trace` command** — show the funding timeline for any federal budget account across all fiscal years. Accepts FAS code (`trace 070-0400`) or name search (`trace "secret service"`). Word-level search matches across title, agency name, and all name variants. Timeline shows fiscal year, budget authority, bill identifiers with classification labels (CR, supplemental, full-year CR), and account names. Detected rename events shown inline.
+- **`compare --use-authorities` flag** — rescues orphan provisions in cross-bill comparisons by matching on FAS code instead of account name. In testing, reduced THUD FY2024→FY2026 orphans from 24 to 4 (20 rescued via TAS matching). Works alongside existing `--use-links` and entity resolution.
+- **`fas_reference.json`** — bundled reference data from the FAST Book (Federal Account Symbols and Titles), published by the Bureau of the Fiscal Service. Contains 2,768 active FAS codes and 485 discontinued General Fund accounts across 156 agencies. Converted from the official Excel file via `scripts/convert_fast_book.py`.
+- **`TextSpan` type** in `ontology.rs` — UTF-8 byte-range reference linking a provision to its exact location in the enrolled bill source text. Fields: `start` (inclusive byte offset), `end` (exclusive byte offset), `file` (source filename), `verified` (boolean), `match_tier` (how the span was established). Added as inline `source_span` field on each provision in `extraction.json`.
+- **`TextMatchTier` enum** — `Exact`, `RepairedPrefix`, `RepairedSubstring`, `RepairedNormalized`. Records how each source span was established during the verify-text stage.
+- **`source_spans` field on `BillExtraction`** — parallel `Vec<Option<TextSpan>>` alongside provisions, with `#[serde(default)]` for backward compatibility. (Note: the Python repair script writes inline `source_span` on each provision instead; both representations are supported.)
+- **DOD service branch detection** in TAS resolution — when the agency is "Department of Defense" but the account name contains ", Army", ", Navy", ", Air Force", etc., the resolver uses the service-specific CGAC code (021, 017, 057) instead of the DOD umbrella code (097).
+- **Agency-scoped TAS disambiguation** — when multiple FAS codes share the same account title (e.g., 151 agencies have "Salaries and Expenses"), the provision's agency code narrows the candidates. Only produces a match when exactly one candidate remains. Eliminates the class of false positives where generic names matched the wrong agency.
+- **Authority lifecycle events** — `AuthorityEvent` type with `Rename` variant. Detected automatically when an authority's name variants show a clear temporal boundary (one name used exclusively before a fiscal year, another name used exclusively after). 40 rename events detected across the 32-bill dataset.
+- **Variant classification** — each `NameVariant` on an authority carries a `classification` field: `canonical` (primary name), `case_variant` (differs only in capitalization), `prefix_variant` (em-dash agency prefix toggled), `name_change` (genuine rename), `inconsistent_extraction` (LLM used different names without temporal pattern).
+- **Bill classification labels in `trace` output** — timeline entries show "(CR)", "(supplemental)", "(full-year CR)" next to bill identifiers, loaded from `bill_meta.json`. Prevents misinterpretation of anomalous fiscal year values.
+- **32/32 bills now have embeddings** — semantic search, `--similar`, `relate`, and `link suggest` work across the full 4-congress dataset.
+- **Budget regression expanded** — pinned budget totals for 8 bills (H.R. 4366, H.R. 5860, H.R. 9468, H.R. 133, H.R. 2471, H.R. 2617, H.R. 2882, H.R. 7148) verified on every test run.
+- **`has_embeddings()` test guard** — integration tests that require embeddings skip gracefully when `vectors.bin` is absent, separating Tier 1 (always-run) from Tier 2 (data-dependent) tests.
+- **32 new unit tests** across `text_repair.rs` (9), `tas.rs` (16), `authority.rs` (11). Total: 204 unit + 51 integration = 255 tests.
+- **Python scripts** for data analysis and reference data conversion: `convert_fast_book.py`, `raw_text_repair.py`, `tas_resolve_poc.py`, `ss_tas_check.py`, `tas_deep_dive.py`, `tas_cross_link_demo.py`.
+
+### Changed
+- **All 32 bills re-extracted** with the current Claude Opus 4.6 model and v3 prompt. Provision counts, classifications, and dollar totals may differ from previous extractions. All extractions verified (0 NotFound dollar amounts except 1 multi-amount edge case in H.R. 2471).
+- **All 32 bills enriched** with `bill_meta.json` — fiscal year, subcommittee jurisdiction, advance/current-year classification, and enriched bill nature.
+- **`chunks_total`/`chunks_completed` in `metadata.json`** changed from `Option<usize>` to `usize`. All 32 metadata files updated. Test-data bills (118-hr9468, 118-hr5860, 118-hr2872) also updated.
+- **FY2026 bill count test** updated from 3–5 to 3–8 to accommodate additional bills covering FY2026.
+- **Enrich skip count test** updated from 25 to 32 bills.
+- **Relate hash test** changed from hardcoded hash to generic 8-char hex verification (hashes depend on provision indices which change across re-extractions).
+
+### Fixed
+- **`source_span` inline fields** written by Python repair are preserved by Rust deserialization (Serde ignores unknown fields on the Provision enum). The Rust `verify-text` command works at the `serde_json::Value` level to read and write these fields without modifying the typed Provision variants.
+- **TAS false positive elimination** — removed containment matching that produced 1,618 false matches (e.g., 902 provisions incorrectly mapped to Senate Legal Counsel account `000-0171` via "Salaries and Expenses" substring). Replaced with agency-scoped disambiguation.
+- **Provision index mismatch in LLM TAS prompt** — the prompt previously used batch-local `[0]` labels that the LLM could confuse with the provision's actual index. Fixed to use `provision_index=N` labels matching the real provision indices.
+
 ## [5.1.0] — 2026-03-20
 
 ### Breaking Changes

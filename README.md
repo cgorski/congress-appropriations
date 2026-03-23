@@ -2,15 +2,76 @@
 
 [![Documentation](https://img.shields.io/badge/docs-mdbook-blue)](https://cgorski.github.io/congress-appropriations/) [![Crates.io](https://img.shields.io/crates/v/congress-appropriations)](https://crates.io/crates/congress-appropriations) [![CI](https://github.com/cgorski/congress-appropriations/actions/workflows/ci.yml/badge.svg)](https://github.com/cgorski/congress-appropriations/actions/workflows/ci.yml)
 
-A command-line tool that downloads U.S. federal appropriations bills from Congress.gov, extracts every spending provision into structured JSON using Claude Opus 4.6, and checks each dollar amount against the source text.
+A command-line tool that downloads U.S. federal appropriations bills from Congress.gov, extracts every spending provision into structured JSON using Claude Opus 4.6, verifies each dollar amount against the source text, and links accounts across fiscal years using Treasury Account Symbols.
 
 > 📖 **[Read the full documentation →](https://cgorski.github.io/congress-appropriations/)**
->
-> The documentation book includes tutorials, how-to guides, detailed explanations of the extraction pipeline and verification system, a complete CLI reference, and contributor guides.
 
-The goal: make the ~1,500 pages of annual appropriations bills searchable, sortable, and machine-readable — so you can quickly answer questions like "how much did Congress appropriate for VA Compensation and Pensions?" or "which programs got cut in the continuing resolution?"
+### What's in the dataset
 
-**Pre-processed data available:** The [`data/`](data/) directory includes completed extractions for fourteen enacted appropriations bills across the 118th and 119th Congresses (FY2024–FY2026), covering all twelve appropriations subcommittees. 11,136 provisions, $8.9 trillion in budget authority, pre-enriched metadata, and pre-computed embeddings. No API keys required to query these.
+| | |
+|---|---|
+| **Bills** | 32 enacted appropriations bills across 4 congresses (116th–119th) |
+| **Fiscal years** | FY2019 through FY2026 — 8 years of continuous coverage |
+| **Provisions** | 34,568 extracted spending provisions |
+| **Budget authority** | $21.5 trillion |
+| **Accounts tracked** | 1,051 unique federal budget accounts (by Treasury Account Symbol) |
+| **Cross-bill links** | 937 accounts traced across multiple bills and fiscal years |
+| **Source traceability** | 100% — every provision points to its exact byte position in the enrolled bill |
+| **Dollar verification** | 99.995% — every dollar amount string confirmed present in source text |
+| **Account resolution** | 99.4% of appropriation provisions mapped to a Federal Account Symbol |
+
+### What you can do with it
+
+Track any federal budget account across fiscal years:
+
+```bash
+congress-approp trace 070-0400 --dir data
+```
+
+```text
+TAS 070-0400: Operations and Support, United States Secret Service, Homeland Security
+  Agency: Department of Homeland Security
+
+┌──────┬──────────────────────┬────────────────┬──────────────────────────────────────────────┐
+│ FY   ┆ Budget Authority ($) ┆ Bill(s)        ┆ Account Name(s)                              │
+╞══════╪══════════════════════╪════════════════╪══════════════════════════════════════════════╡
+│ 2020 ┆        2,336,401,000 ┆ H.R. 1158      ┆ United States Secret Service—Operations an…  │
+│ 2021 ┆        2,373,109,000 ┆ H.R. 133       ┆ United States Secret Service—Operations an…  │
+│ 2022 ┆        2,554,729,000 ┆ H.R. 2471      ┆ Operations and Support                       │
+│ 2023 ┆        2,734,267,000 ┆ H.R. 2617      ┆ Operations and Support                       │
+│ 2024 ┆        3,007,982,000 ┆ H.R. 2882      ┆ Operations and Support                       │
+│ 2025 ┆          231,000,000 ┆ H.R. 9747 (CR) ┆ United States Secret Service—Operations an…  │
+└──────┴──────────────────────┴────────────────┴──────────────────────────────────────────────┘
+```
+
+Search by meaning — zero keyword overlap required:
+
+```bash
+congress-approp search --dir data --semantic "school lunch programs for kids" --top 3
+```
+
+```text
+┌──────┬───────────────────┬───────────────┬──────────────────────────┬────────────────┐
+│ Sim  ┆ Bill              ┆ Type          ┆ Description / Account    ┆     Amount ($) │
+╞══════╪═══════════════════╪═══════════════╪══════════════════════════╪════════════════╡
+│ 0.52 ┆ H.R. 1865 (116th) ┆ appropriation ┆ Child Nutrition Programs ┆ 23,615,098,000 │
+│ 0.51 ┆ H.R. 4366 (118th) ┆ appropriation ┆ Child Nutrition Programs ┆ 33,266,226,000 │
+│ 0.51 ┆ H.R. 2471 (117th) ┆ appropriation ┆ Child Nutrition Programs ┆ 26,883,922,000 │
+└──────┴───────────────────┴───────────────┴──────────────────────────┴────────────────┘
+```
+
+Compare across fiscal years with Treasury Account Symbol matching:
+
+```bash
+congress-approp compare --base-fy 2024 --current-fy 2026 --subcommittee thud \
+    --dir data --use-authorities
+```
+
+**Pre-processed data available:** The [`data/`](data/) directory contains the complete dataset — 32 bills, fully extracted, verified, enriched, TAS-resolved, and embedded. No API keys required to query. Install the tool, clone the repo, and start asking questions.
+
+### Scope
+
+This tool covers **discretionary appropriations** — the spending Congress votes on annually through the twelve appropriations bills, plus supplementals and continuing resolutions. That is roughly 26% of total federal spending. It does not cover mandatory spending (Social Security, Medicare, Medicaid) or net interest on the debt. The dollar amounts represent **budget authority** (what Congress authorizes), not outlays (what the Treasury disburses).
 
 ## Quick Start — Try It Now
 
@@ -91,32 +152,84 @@ The `enrich` command also classifies each budget authority provision as current-
 
 ### Included Bills
 
-**118th Congress (FY2024/FY2025):**
+**116th Congress (FY2019–FY2021) — 11 bills:**
 
-| Directory | Bill | Type | Provisions | Budget Auth |
-|-----------|------|------|-----------|------------|
-| `data/118-hr4366/` | H.R. 4366 | FY2024 omnibus (MilCon-VA, Ag, CJS, E&W, Interior, THUD) | 2,364 | $846B |
-| `data/118-hr5860/` | H.R. 5860 | FY2024 initial CR + 13 anomalies | 130 | $16B |
-| `data/118-hr9468/` | H.R. 9468 | VA supplemental | 7 | $2.9B |
-| `data/118-hr815/` | H.R. 815 | Ukraine/Israel/Taiwan supplemental | 303 | $95B |
-| `data/118-hr2872/` | H.R. 2872 | Further CR (FY2024) | 31 | $0 |
-| `data/118-hr6363/` | H.R. 6363 | Further CR + extensions | 74 | ~$0 |
-| `data/118-hr7463/` | H.R. 7463 | CR extension | 10 | $0 |
-| `data/118-hr9747/` | H.R. 9747 | CR + extensions (FY2025) | 114 | $383M |
-| `data/118-s870/` | S. 870 | Fire Admin authorization | 49 | $0 |
+| Directory | Bill | Type | Provisions |
+|-----------|------|------|-----------|
+| `data/116-hr133/` | H.R. 133 | FY2021 omnibus (all 12 subcommittees) | 6,739 |
+| `data/116-hr1158/` | H.R. 1158 | FY2020 minibus (Defense, CJS, FinServ, Homeland) | 1,519 |
+| `data/116-hr1865/` | H.R. 1865 | FY2020 omnibus (8 subcommittees) | 3,338 |
+| | 8 additional CRs and supplementals | | 577 |
 
-**119th Congress (FY2025/FY2026):**
+**117th Congress (FY2022–FY2023) — 7 bills:**
 
-| Directory | Bill | Type | Provisions | Budget Auth |
-|-----------|------|------|-----------|------------|
-| `data/119-hr1968/` | H.R. 1968 | Full-year CR with appropriations (FY2025) | 526 | $1,786B |
-| `data/119-hr5371/` | H.R. 5371 | Minibus: CR + Ag + LegBranch + MilCon-VA | 1,048 | $681B |
-| `data/119-hr6938/` | H.R. 6938 | Minibus: CJS + Energy-Water + Interior | 1,061 | $196B |
-| `data/119-hr7148/` | H.R. 7148 | Omnibus: Defense + Labor-HHS + THUD + FinServ + State | 2,837 | $2,788B |
+| Directory | Bill | Type | Provisions |
+|-----------|------|------|-----------|
+| `data/117-hr2471/` | H.R. 2471 | FY2022 omnibus | 5,063 |
+| `data/117-hr2617/` | H.R. 2617 | FY2023 omnibus | 5,910 |
+| | 5 additional CRs and supplementals | | 391 |
 
-**Totals:** 11,136 provisions, $8.9 trillion in budget authority, 0 unverifiable dollar amounts. All twelve appropriations subcommittees are covered for FY2026.
+**118th Congress (FY2024–FY2025) — 10 bills:**
 
-Each directory contains the source XML, extracted provisions, verification report, bill metadata (`bill_meta.json` from `enrich`), and pre-computed embeddings. All query commands (`search`, `summary`, `compare`, `audit`, `relate`) work against these directories. Embedding vectors (`vectors.bin`) are included in the git repository but excluded from the crates.io package — run `congress-approp embed --dir data` to regenerate them if you installed via `cargo install`.
+| Directory | Bill | Type | Provisions |
+|-----------|------|------|-----------|
+| `data/118-hr4366/` | H.R. 4366 | FY2024 omnibus (MilCon-VA, Ag, CJS, E&W, Interior, THUD) | 2,323 |
+| `data/118-hr2882/` | H.R. 2882 | FY2024 omnibus (Defense, FinServ, Homeland, Labor-HHS, LegBranch, State) | 2,608 |
+| `data/118-hr815/` | H.R. 815 | Ukraine/Israel/Taiwan supplemental | 306 |
+| | 7 additional CRs and supplementals | | 427 |
+
+**119th Congress (FY2025–FY2026) — 4 bills:**
+
+| Directory | Bill | Type | Provisions |
+|-----------|------|------|-----------|
+| `data/119-hr7148/` | H.R. 7148 | Omnibus: Defense + Labor-HHS + THUD + FinServ + State | 2,774 |
+| `data/119-hr5371/` | H.R. 5371 | Minibus: CR + Ag + LegBranch + MilCon-VA | 1,051 |
+| `data/119-hr6938/` | H.R. 6938 | Minibus: CJS + Energy-Water + Interior | 1,028 |
+| `data/119-hr1968/` | H.R. 1968 | Full-year CR with appropriations (FY2025) | 514 |
+
+**Totals:** 32 bills, 34,568 provisions, $21.5 trillion in budget authority across FY2019–FY2026. 1,051 accounts resolved to Treasury Account Symbols with 937 linked across multiple bills.
+
+Each bill directory contains the enrolled XML, extracted provisions (`extraction.json`), verification report, extraction metadata, bill metadata, TAS mapping, embeddings, and clean source text. Every provision carries a `source_span` pointing to its exact byte position in the enrolled bill.
+
+## How It Works
+
+```text
+Congress.gov   XML Parser    Claude Opus    Verification    TAS Resolution    Query
+     │              │               │               │               │            │
+     ▼              ▼               ▼               ▼               ▼            ▼
+┌──────────┐  ┌──────────┐  ┌─────────────┐  ┌──────────┐  ┌──────────┐  ┌──────────┐
+│ Download │─▶│ Parse    │─▶│ LLM extract │─▶│ Verify   │─▶│ Resolve  │─▶│ Trace    │
+│ bill XML │  │ XML      │  │ (parallel)  │  │ + repair │  │ to TAS   │  │ Compare  │
+└──────────┘  └──────────┘  └─────────────┘  └──────────┘  └──────────┘  │ Search   │
+                                                                         └──────────┘
+```
+
+1. **Download** — Fetch enrolled bill XML from Congress.gov.
+2. **Extract** — Send bill text to Claude Opus 4.6 for structured extraction. Every appropriation, rescission, CR anomaly, rider, and directive is captured as typed JSON.
+3. **Verify + Repair** — Deterministically check every dollar amount and text excerpt against the source. Repair any LLM copying errors so every provision has an exact byte-range source span. 100% traceability.
+4. **Enrich** — Classify by fiscal year, subcommittee jurisdiction, and advance/current-year timing. No API key needed.
+5. **Resolve TAS** — Map each appropriation to its Federal Account Symbol using the FAST Book reference + Claude Opus. 99.4% resolution rate. Each account gets a stable government-assigned identifier that persists through renames.
+6. **Build Authorities** — Aggregate TAS mappings into an account registry. Track name variants and detect rename events across fiscal years.
+7. **Query** — Search, compare, trace, and audit across all bills.
+
+### Per-bill output files
+
+| File | Produced by | Content |
+|------|-----------|---------|
+| `BILLS-*.xml` | download | Enrolled bill XML from Congress.gov (source of truth) |
+| `extraction.json` | extract | Structured provisions with source_span byte positions |
+| `verification.json` | extract | Dollar amount + raw text verification against source |
+| `metadata.json` | extract | Provenance: model, timestamps, chunk completion |
+| `bill_meta.json` | enrich | Fiscal year, subcommittee, advance classification |
+| `tas_mapping.json` | resolve-tas | FAS code per top-level appropriation provision |
+| `embeddings.json` + `vectors.bin` | embed | OpenAI embedding vectors for semantic search |
+
+### Cross-bill output files
+
+| File | Produced by | Content |
+|------|-----------|---------|
+| `fas_reference.json` | bundled | 2,768 FAS codes from the FAST Book (Treasury reference data) |
+| `authorities.json` | authority build | 1,051 account authorities with provisions, name variants, events |
 
 ## How Federal Appropriations Work
 
@@ -161,24 +274,7 @@ Each Congress lasts two years. The **118th Congress** covered **2023–2024**. T
 >
 > **Budget Authority** — The legal authority Congress grants to agencies to enter into obligations (contracts, grants, salaries). Distinct from outlays, which are the actual cash disbursements.
 
-## How It Works
 
-```text
-Congress.gov   XML Parser    Claude Opus 4.6   Verification      Query
-     │              │               │               │               │
-     ▼              ▼               ▼               ▼               ▼
-┌──────────┐  ┌──────────┐  ┌─────────────┐  ┌──────────┐  ┌──────────┐
-│ Download │─▶│ Parse    │─▶│ LLM extract │─▶│ Verify   │─▶│ Search   │
-│ bill XML │  │ XML      │  │ (parallel)  │  │ amounts  │  │ Compare  │
-└──────────┘  └──────────┘  └─────────────┘  └──────────┘  └──────────┘
- BILLS-*.xml   clean text   extraction.json  verification.json
-```
-
-1. **Download** — Fetch enrolled bill XML from Congress.gov (structured, semantic markup).
-2. **Parse** — Extract clean text from XML using `roxmltree` in pure Rust. The XML provides exact structural boundaries for divisions, titles, and sections.
-3. **Extract** — Send bill text to Claude Opus 4.6 with adaptive thinking. Large bills are automatically split into chunks and extracted in parallel. Every provision — appropriations, rescissions, CR anomalies, riders, directives — is captured as structured JSON.
-4. **Verify** — Deterministically check every dollar amount and text excerpt against the source. No LLM involved. Pure string matching with tiered fallback (exact → normalized → spaceless).
-5. **Query** — Search, summarize, compare, and verify across all extracted bills using built-in subcommands.
 
 ## Download and Extract Your Own Bills
 

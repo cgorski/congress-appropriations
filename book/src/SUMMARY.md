@@ -38,9 +38,13 @@
 - [Enrich Bills with Metadata](./how-to/enrich-data.md)
 - [Adjust for Inflation](./how-to/inflation-adjustment.md)
 - [Resolve Agency and Account Name Differences](./how-to/entity-resolution.md)
+- [Resolve Treasury Account Symbols](./how-to/tas-resolution.md)
+- [Verify Extraction Data](./how-to/verify-data.md)
+- [Run the Complete Pipeline](./how-to/full-pipeline.md)
 
 # Explanation
 
+- [The Authority System](./explanation/authority-system.md)
 - [The Extraction Pipeline](./explanation/pipeline.md)
 - [How Verification Works](./explanation/verification.md)
 - [How Semantic Search Works](./explanation/semantic-search.md)
