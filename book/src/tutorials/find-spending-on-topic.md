@@ -4,7 +4,7 @@
 >
 > **You will learn:** Three ways to find spending provisions — by account name, by keyword, and by semantic meaning — and when to use each one.
 
-Imagine your editor asks: *"How much did Congress give the VA in the FY2024 omnibus?"* Or a constituent writes: *"How much federal money goes to school lunch programs?"* This tutorial walks through how to answer questions like these, starting with the simplest approach and building to the most powerful.
+This tutorial demonstrates three methods for finding spending provisions — by account name, by keyword, and by semantic meaning — and when each is appropriate.
 
 ## Start with the Agency Rollup
 
@@ -143,7 +143,7 @@ congress-approp search --dir data --semantic "school lunch programs for kids" --
 5 provisions found
 ```
 
-The query "school lunch programs for kids" has **zero keyword overlap** with "Child Nutrition Programs" — yet it's the top result at 0.51 similarity. The embeddings understand that these concepts are about the same thing.
+The query "school lunch programs for kids" shares no keywords with "Child Nutrition Programs", but semantic search matches them by meaning. The similarity score of 0.51 reflects the conceptual relationship between the query and the provision text.
 
 ### More semantic search examples
 

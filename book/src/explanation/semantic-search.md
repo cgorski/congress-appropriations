@@ -102,7 +102,7 @@ In experiments on this project's data, cosine similarity, Euclidean distance, an
 
 ### What works well
 
-**Layperson → bureaucratic translation.** The embedding model understands that "school lunch programs for kids" and "Child Nutrition Programs" mean the same thing because it was trained on vast amounts of text that connects these concepts. This is the killer feature for non-specialist users.
+**Layperson → bureaucratic translation.** The embedding model understands that "school lunch programs for kids" and "Child Nutrition Programs" mean the same thing because it was trained on vast amounts of text that connects these concepts. This is particularly useful when the user does not know the official program name.
 
 **Cross-bill matching.** The same program in different bills — even with different naming conventions — produces similar vectors:
 

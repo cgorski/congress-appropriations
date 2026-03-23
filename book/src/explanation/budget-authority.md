@@ -1,6 +1,6 @@
 # Budget Authority Calculation
 
-The budget authority number is the most important output of this tool — it's what journalists cite, what staffers track, and what analysts compare year over year. This chapter explains exactly how it's computed, what's included, what's excluded, and why.
+The budget authority number is the primary fiscal output of this tool. This chapter explains exactly how it's computed, what's included, what's excluded, and why.
 
 ## The Formula
 

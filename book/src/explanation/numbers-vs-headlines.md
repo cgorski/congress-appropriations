@@ -114,7 +114,7 @@ Some external sources report gross BA, some report net BA, and some report net B
 
 ### CBO cost estimates
 
-The Congressional Budget Office publishes cost estimates for most appropriations bills. These are the gold standard for budget scoring. To compare:
+The Congressional Budget Office publishes cost estimates for most appropriations bills. These are the authoritative source for budget scoring. To compare:
 
 1. Find the CBO cost estimate for the specific bill (e.g., H.R. 4366)
 2. Look at the "discretionary" budget authority line

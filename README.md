@@ -44,7 +44,7 @@ TAS 070-0400: Operations and Support, United States Secret Service, Homeland Sec
 └──────┴──────────────────────┴────────────────┴──────────────────────────────────────────────┘
 ```
 
-Search by meaning — zero keyword overlap required:
+Semantic search:
 
 ```bash
 congress-approp search --dir data --semantic "school lunch programs for kids" --top 3
@@ -67,7 +67,7 @@ congress-approp compare --base-fy 2024 --current-fy 2026 --subcommittee thud \
     --dir data --use-authorities
 ```
 
-**Pre-processed data available:** The [`data/`](data/) directory contains the complete dataset — 32 bills, fully extracted, verified, enriched, TAS-resolved, and embedded. No API keys required to query. Install the tool, clone the repo, and start asking questions.
+The [`data/`](data/) directory contains the complete pre-processed dataset. No API keys required to query.
 
 ### Scope
 
@@ -85,17 +85,17 @@ cargo install --path .
 
 This places the `congress-approp` binary on your PATH. You need **Rust 1.93+** ([install via rustup](https://rustup.rs/)). After modifying the source, run `cargo install --path .` again to rebuild.
 
-### Explore the Example Data (No API Keys Required)
+### Querying the included data
 
-The `data/` directory contains pre-extracted data from fourteen bills, with pre-computed embeddings for semantic search and pre-enriched metadata for fiscal year and subcommittee filtering. Try these commands right away:
+The `data/` directory contains 32 pre-extracted bills with embeddings and metadata:
 
 ```bash
 # See what bills are available and their budget authority totals
 congress-approp summary --dir data
 
 # Semantic search — find provisions by meaning, not just keywords.
-# "school lunch programs for kids" has zero keyword overlap with the result,
-# but semantic search finds it instantly:
+# Semantic search matches by meaning, not keywords:
+
 congress-approp search --dir data --semantic "school lunch programs for kids" --top 5
 ```
 
@@ -197,7 +197,7 @@ Each bill directory contains the enrolled XML, extracted provisions (`extraction
 
 > 📖 **[Full cookbook with 10+ recipes, Python examples, and interactive visualizations →](https://cgorski.github.io/congress-appropriations/tutorials/cookbook.html)**
 
-Quick taste — these all work immediately with `data/`, no API keys:
+The following commands work with the included `data/` directory and require no API keys:
 
 ```bash
 # Track any account across all fiscal years (by FAS code or name search)
@@ -214,7 +214,7 @@ congress-approp search --dir data --type cr_substitution
 congress-approp summary --dir data --fy 2026 --subcommittee milcon-va --show-advance
 ```
 
-The cookbook includes recipes for journalists (track programs, find cuts, verify sources), staffers (subcommittee scorecards, CR impact, inflation), and data scientists (load JSON in Python/pandas, CLI→CSV export, source span verification). Charts and interactive treemaps are included — no setup required to view them.
+The cookbook includes worked examples for account tracking, fiscal year comparisons, inflation adjustment, Python/pandas integration, and data export. Generated charts and an interactive treemap are embedded in the page.
 
 ## How It Works
 
@@ -541,7 +541,7 @@ Compares appropriation accounts between any two directories. Matches by `(agency
 congress-approp audit --dir data
 ```
 
-The audit table shows verification metrics for all 14 bills — Verified (unique attribution), Ambiguous (multiple positions), NotFound, and raw text match tiers (Exact, Normalized, Spaceless, NoMatch). Across all 11,136 provisions: **0 NotFound** amounts.
+The audit table shows per-bill verification metrics — Verified (unique attribution), Ambiguous (multiple positions), NotFound, and raw text match tiers (Exact, Normalized, Spaceless, NoMatch). Across all 11,136 provisions: **0 NotFound** amounts.
 
 ```text
 Column Guide:
@@ -561,7 +561,7 @@ Key:
 
 Use `--verbose` to see each individual problematic provision.
 
-**The key metric: across 11,136 provisions from fourteen bills, every extracted dollar amount was found in the source bill text** (NotFound = 0 for every bill). Verification confirms amounts exist in the bill, not that they are attributed to the correct provision — for 95.5% of provisions, the raw text excerpt also matches verbatim, providing strong attribution confidence. The tool may be incomplete on large bills (Coverage < 100%), but what it does extract checks out against the source.
+Across the full dataset, 99.995% of extracted dollar amounts are confirmed present in the source text (1 not found in 18,584). Use `audit --verbose` to inspect individual provisions. Verification confirms amounts exist in the bill, not that they are attributed to the correct provision — for 95.5% of provisions, the raw text excerpt also matches verbatim, providing strong attribution confidence. The tool may be incomplete on large bills (Coverage < 100%), but what it does extract checks out against the source.
 
 ## Export Data
 

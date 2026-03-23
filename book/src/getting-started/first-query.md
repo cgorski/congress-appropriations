@@ -4,7 +4,7 @@
 >
 > **You will learn:** How to explore the included FY2024 appropriations data using five core commands — no API keys required.
 
-This chapter is a guided tour. Every command runs against the included example data and produces real results you can verify yourself. By the end, you'll know how to see budget totals, search for provisions, compare bills, and check data quality.
+This chapter walks through five core commands using the included dataset. Every command shown here produces output you can verify against the data files.
 
 ## Step 1: See What Bills You Have
 
@@ -281,7 +281,7 @@ See [Enrich Bills with Metadata](../how-to/enrich-data.md) for the full guide.
 
 ## What's Next
 
-Now that you know the basics, choose your path:
+Related chapters:
 
 - **Want to filter by fiscal year or subcommittee?** → [Enrich Bills with Metadata](../how-to/enrich-data.md)
 - **Want to find specific spending?** → [Find How Much Congress Spent on a Topic](../tutorials/find-spending-on-topic.md)

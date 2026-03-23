@@ -102,4 +102,4 @@ cargo build --release
 
 ## Next Steps
 
-You're installed. Head to [Your First Query](./first-query.md) to start exploring the data.
+Next: [Your First Query](./first-query.md).

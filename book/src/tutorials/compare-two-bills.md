@@ -84,7 +84,7 @@ This filters both sides to only show accounts from the Department of Veterans Af
 
 ## When Compare Shines: Same-Type Comparisons
 
-The compare command is most powerful when comparing bills of the same type:
+The compare command is most useful when comparing bills of the same type:
 
 - **FY2023 omnibus → FY2024 omnibus:** See which programs gained or lost funding year over year
 - **House version → Senate version:** Track differences during the conference process

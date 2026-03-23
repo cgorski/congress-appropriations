@@ -342,7 +342,7 @@ See [Enrich Bills with Metadata](../how-to/enrich-data.md) for the full guide.
 
 ## Next Steps
 
-You now know how to read every type of output the tool produces. Time to put it to use:
+Related chapters:
 
 - **[Enrich Bills with Metadata](../how-to/enrich-data.md)** — enable FY filtering, subcommittee scoping, and advance splits
 - **[Find How Much Congress Spent on a Topic](../tutorials/find-spending-on-topic.md)** — your first real research task

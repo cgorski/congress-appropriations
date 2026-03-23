@@ -29,7 +29,7 @@ See [Generate Embeddings](../how-to/generate-embeddings.md) for details.
 
 ## Your First Semantic Search
 
-Let's start with the headline example — searching for a concept using everyday language that has zero keyword overlap with the actual provision:
+The following example searches for a concept using everyday language that shares no keywords with the matching provision:
 
 ```bash
 congress-approp search --dir data --semantic "school lunch programs for kids" --top 5
@@ -247,7 +247,7 @@ Despite the different names, `--similar` will match these at approximately 0.78 
 
 ## When Semantic Search Doesn't Work
 
-Semantic search is powerful but not universal. Here are situations where other approaches work better:
+Semantic search has limitations. Here are situations where other approaches work better:
 
 ### Exact account name lookups
 

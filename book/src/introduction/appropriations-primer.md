@@ -1,6 +1,6 @@
 # How Federal Appropriations Work
 
-This chapter is a crash course in federal appropriations for anyone who isn't already steeped in the budget process. If you already know what a continuing resolution anomaly is, feel free to skip ahead to the [tutorials](../tutorials/find-spending-on-topic.md). If terms like "budget authority" and "enrolled bill" are new to you, spend ten minutes here — it will make everything else in this book click.
+This chapter covers the essentials of federal appropriations — fiscal years, bill types, provision structure, and key terminology. Readers already familiar with the appropriations process can skip to the [tutorials](../tutorials/find-spending-on-topic.md).
 
 ## The Federal Budget in 60 Seconds
 

@@ -19,12 +19,12 @@ None of these let you ask structured questions like "show me every rescission ov
 - **Downloads enrolled bill XML** from Congress.gov via its official API — the authoritative, machine-readable source
 - **Extracts every spending provision** into structured JSON using Claude, capturing account names, dollar amounts, agencies, availability periods, provision types, section references, and more
 - **Verifies every dollar amount** against the source text using deterministic string matching — no LLM in the verification loop
-- **Generates semantic embeddings** for meaning-based search, so you can find "Child Nutrition Programs" by searching for "school lunch programs for kids" even with zero keyword overlap
+- **Generates semantic embeddings** for meaning-based search, enabling search by meaning rather than exact keywords
 - **Provides CLI query tools** to search, compare, summarize, and audit provisions across any number of extracted bills
 
 ## The Trust Model
 
-LLM extraction is powerful but not infallible. This tool is designed around a simple principle: **the LLM extracts once; deterministic code verifies everything.**
+LLM extraction is not infallible. This tool is designed around a simple principle: **the LLM extracts once; deterministic code verifies everything.**
 
 The verification pipeline runs after extraction and checks every claim the LLM made against the source bill text. No language model is involved in verification — it's pure string matching with tiered fallback (exact → normalized → spaceless). The result across the included dataset:
 

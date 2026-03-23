@@ -205,7 +205,7 @@ See [verification.json Fields](../reference/verification-json.md) for the comple
 
 ## What Verification Cannot Check
 
-Verification is powerful but has clear boundaries:
+Verification has clear boundaries:
 
 1. **Classification correctness.** Verification cannot tell you whether a provision classified as "rider" should actually be a "directive." That's LLM judgment, not a string-matching question.
 

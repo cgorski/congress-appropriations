@@ -182,7 +182,7 @@ congress-approp search --dir data/118-hr9468 --type appropriation --format json
 
 ### Five jq One-Liners Every Analyst Needs
 
-If you have [`jq`](https://jqlang.github.io/jq/) installed (a lightweight JSON processor), you can do powerful filtering and aggregation directly from the command line:
+If you have [`jq`](https://jqlang.github.io/jq/) installed (a lightweight JSON processor), you can do filtering and aggregation directly from the command line:
 
 **1. Total budget authority across all appropriations:**
 
