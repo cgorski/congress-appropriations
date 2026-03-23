@@ -1286,7 +1286,6 @@ mod tests {
                 flagged_issues: vec![],
             },
             chunk_map: vec![],
-
         };
 
         let nature = classify_bill_nature(&extraction, &[]);

@@ -124,10 +124,7 @@ pub struct AuthorityEvent {
 #[serde(tag = "type", rename_all = "snake_case")]
 pub enum AuthorityEventType {
     /// Congress renamed this account.
-    Rename {
-        from: String,
-        to: String,
-    },
+    Rename { from: String, to: String },
 }
 
 /// Reference to a specific provision in a specific bill.
@@ -206,7 +203,11 @@ pub fn build_authorities(dir: &Path, fas_reference: &FasReference) -> Result<Aut
                 .get("bill")
                 .and_then(|b| b.get("fiscal_years"))
                 .and_then(|v| v.as_array())
-                .map(|arr| arr.iter().filter_map(|v| v.as_u64().map(|n| n as u32)).collect())
+                .map(|arr| {
+                    arr.iter()
+                        .filter_map(|v| v.as_u64().map(|n| n as u32))
+                        .collect()
+                })
                 .unwrap_or_default();
             bill_fiscal_years.insert(bill_dir_name.clone(), fys);
 
@@ -247,8 +248,10 @@ pub fn build_authorities(dir: &Path, fas_reference: &FasReference) -> Result<Aut
                 continue;
             };
 
-            by_fas.entry(fas_code.clone()).or_default().push(
-                AuthorityProvisionRef {
+            by_fas
+                .entry(fas_code.clone())
+                .or_default()
+                .push(AuthorityProvisionRef {
                     bill_dir: bill_dir_name.clone(),
                     bill_identifier: bill_id.clone(),
                     provision_index: mapping.provision_index,
@@ -257,8 +260,7 @@ pub fn build_authorities(dir: &Path, fas_reference: &FasReference) -> Result<Aut
                     account_name: mapping.account_name.clone(),
                     confidence: mapping.confidence,
                     method: mapping.method,
-                },
-            );
+                });
         }
     }
 
@@ -282,11 +284,7 @@ pub fn build_authorities(dir: &Path, fas_reference: &FasReference) -> Result<Aut
                 (fallback, String::new())
             });
 
-        let agency_code = fas_code
-            .split('-')
-            .next()
-            .unwrap_or("")
-            .to_string();
+        let agency_code = fas_code.split('-').next().unwrap_or("").to_string();
 
         // Collect name variants
         let name_variants = collect_name_variants(provisions);
@@ -330,10 +328,7 @@ pub fn build_authorities(dir: &Path, fas_reference: &FasReference) -> Result<Aut
         .iter()
         .filter(|a| a.name_variants.len() > 1)
         .count();
-    let authorities_in_multiple_bills = authorities
-        .iter()
-        .filter(|a| a.bill_count > 1)
-        .count();
+    let authorities_in_multiple_bills = authorities.iter().filter(|a| a.bill_count > 1).count();
 
     let ref_hash = tas::fas_reference_hash(&dir.join("fas_reference.json"))
         .unwrap_or_else(|_| "unknown".to_string());
@@ -385,7 +380,9 @@ fn collect_name_variants(provisions: &[AuthorityProvisionRef]) -> Vec<NameVarian
 fn normalize_variant_name(name: &str) -> String {
     let lower = name.to_lowercase();
     // Strip em-dash prefix (e.g., "USSS—Operations" → "operations")
-    let parts: Vec<&str> = lower.split(&['\u{2014}', '\u{2013}', '—', '–'][..]).collect();
+    let parts: Vec<&str> = lower
+        .split(&['\u{2014}', '\u{2013}', '—', '–'][..])
+        .collect();
     let stripped = if parts.len() > 1 {
         parts.last().unwrap_or(&"").trim()
     } else {
@@ -420,7 +417,10 @@ fn classify_variants_and_detect_events(
     let mut events = Vec::new();
 
     // Step 1: Collect normalized names for comparison
-    let normalized: Vec<String> = classified.iter().map(|v| normalize_variant_name(&v.name)).collect();
+    let normalized: Vec<String> = classified
+        .iter()
+        .map(|v| normalize_variant_name(&v.name))
+        .collect();
     let unique_normalized: BTreeSet<&str> = normalized.iter().map(|s| s.as_str()).collect();
 
     // Step 2: If all normalized names are the same, classify as case/prefix variants
@@ -694,8 +694,7 @@ pub fn load_authorities(dir: &Path) -> Result<Option<AuthorityRegistry>> {
 pub fn save_authorities(dir: &Path, registry: &AuthorityRegistry) -> Result<()> {
     let path = dir.join("authorities.json");
     let json = serde_json::to_string_pretty(registry)?;
-    std::fs::write(&path, json)
-        .with_context(|| format!("Failed to write {}", path.display()))?;
+    std::fs::write(&path, json).with_context(|| format!("Failed to write {}", path.display()))?;
     Ok(())
 }
 
@@ -734,9 +733,30 @@ mod tests {
             agency_name: "DHS".to_string(),
             name_variants: vec![],
             provisions: vec![
-                make_provision("116-hr1158", "H.R. 1158", 42, "USSS Ops", 2_336_401_000, &[2020]),
-                make_provision("116-hr133", "H.R. 133", 87, "USSS Ops", 2_373_109_000, &[2021]),
-                make_provision("118-hr2882", "H.R. 2882", 15, "Ops and Support", 3_007_982_000, &[2024]),
+                make_provision(
+                    "116-hr1158",
+                    "H.R. 1158",
+                    42,
+                    "USSS Ops",
+                    2_336_401_000,
+                    &[2020],
+                ),
+                make_provision(
+                    "116-hr133",
+                    "H.R. 133",
+                    87,
+                    "USSS Ops",
+                    2_373_109_000,
+                    &[2021],
+                ),
+                make_provision(
+                    "118-hr2882",
+                    "H.R. 2882",
+                    15,
+                    "Ops and Support",
+                    3_007_982_000,
+                    &[2024],
+                ),
             ],
             bill_count: 3,
             fiscal_years: vec![2020, 2021, 2024],
@@ -762,8 +782,22 @@ mod tests {
             agency_name: "DHS".to_string(),
             name_variants: vec![],
             provisions: vec![
-                make_provision("118-hr4366", "H.R. 4366", 100, "DRF", 16_000_000_000, &[2024]),
-                make_provision("118-hr9468", "H.R. 9468", 5, "DRF Supplemental", 2_000_000_000, &[2024]),
+                make_provision(
+                    "118-hr4366",
+                    "H.R. 4366",
+                    100,
+                    "DRF",
+                    16_000_000_000,
+                    &[2024],
+                ),
+                make_provision(
+                    "118-hr9468",
+                    "H.R. 9468",
+                    5,
+                    "DRF Supplemental",
+                    2_000_000_000,
+                    &[2024],
+                ),
             ],
             bill_count: 2,
             fiscal_years: vec![2024],
@@ -781,8 +815,22 @@ mod tests {
     #[test]
     fn test_name_variants_detected() {
         let provisions = vec![
-            make_provision("116-hr1158", "H.R. 1158", 0, "United States Secret Service—Operations and Support", 1, &[2020]),
-            make_provision("118-hr2882", "H.R. 2882", 0, "Operations and Support", 1, &[2024]),
+            make_provision(
+                "116-hr1158",
+                "H.R. 1158",
+                0,
+                "United States Secret Service—Operations and Support",
+                1,
+                &[2020],
+            ),
+            make_provision(
+                "118-hr2882",
+                "H.R. 2882",
+                0,
+                "Operations and Support",
+                1,
+                &[2024],
+            ),
         ];
 
         let variants = collect_name_variants(&provisions);
@@ -796,8 +844,22 @@ mod tests {
     #[test]
     fn test_name_variants_same_name_one_variant() {
         let provisions = vec![
-            make_provision("116-hr1158", "H.R. 1158", 0, "Salaries and Expenses", 1, &[2020]),
-            make_provision("116-hr133", "H.R. 133", 0, "Salaries and Expenses", 2, &[2021]),
+            make_provision(
+                "116-hr1158",
+                "H.R. 1158",
+                0,
+                "Salaries and Expenses",
+                1,
+                &[2020],
+            ),
+            make_provision(
+                "116-hr133",
+                "H.R. 133",
+                0,
+                "Salaries and Expenses",
+                2,
+                &[2021],
+            ),
         ];
 
         let variants = collect_name_variants(&provisions);
@@ -824,14 +886,20 @@ mod tests {
         let bill_fys: HashMap<String, Vec<u32>> = [
             ("116-hr1158".to_string(), vec![2020]),
             ("118-hr2882".to_string(), vec![2024]),
-        ].into_iter().collect();
+        ]
+        .into_iter()
+        .collect();
 
         let (classified, events) = classify_variants_and_detect_events(&variants, &bill_fys);
         assert_eq!(classified.len(), 2);
         // Both normalize to "operations and support" — so prefix variant, not rename
-        assert!(events.is_empty(), "em-dash prefix difference should not be a rename event");
-        let has_prefix = classified.iter().any(|v|
-            v.classification == Some(VariantClassification::PrefixVariant));
+        assert!(
+            events.is_empty(),
+            "em-dash prefix difference should not be a rename event"
+        );
+        let has_prefix = classified
+            .iter()
+            .any(|v| v.classification == Some(VariantClassification::PrefixVariant));
         assert!(has_prefix, "should detect prefix variant");
     }
 
@@ -854,7 +922,9 @@ mod tests {
         let bill_fys: HashMap<String, Vec<u32>> = [
             ("117-hr2471".to_string(), vec![2021]),
             ("119-hr1968".to_string(), vec![2025]),
-        ].into_iter().collect();
+        ]
+        .into_iter()
+        .collect();
 
         let (classified, events) = classify_variants_and_detect_events(&variants, &bill_fys);
         assert_eq!(events.len(), 1, "should detect one rename event");
@@ -865,8 +935,9 @@ mod tests {
                 assert_eq!(to, "Members' Representational Allowances");
             }
         }
-        let has_name_change = classified.iter().any(|v|
-            v.classification == Some(VariantClassification::NameChange));
+        let has_name_change = classified
+            .iter()
+            .any(|v| v.classification == Some(VariantClassification::NameChange));
         assert!(has_name_change);
     }
 
@@ -889,12 +960,18 @@ mod tests {
         let bill_fys: HashMap<String, Vec<u32>> = [
             ("116-hr133".to_string(), vec![2021]),
             ("117-hr2471".to_string(), vec![2022]),
-        ].into_iter().collect();
+        ]
+        .into_iter()
+        .collect();
 
         let (classified, events) = classify_variants_and_detect_events(&variants, &bill_fys);
-        assert!(events.is_empty(), "case-only difference should not be an event");
-        let has_case = classified.iter().any(|v|
-            v.classification == Some(VariantClassification::CaseVariant));
+        assert!(
+            events.is_empty(),
+            "case-only difference should not be an event"
+        );
+        let has_case = classified
+            .iter()
+            .any(|v| v.classification == Some(VariantClassification::CaseVariant));
         assert!(has_case, "should detect case variant");
     }
 

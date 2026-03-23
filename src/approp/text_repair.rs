@@ -40,9 +40,9 @@
 //! ```
 
 use crate::approp::ontology::{TextMatchTier, TextSpan};
+use serde_json::Value;
 use std::path::Path;
 use tracing::{debug, warn};
-use serde_json::Value;
 
 // ─── Public report types ─────────────────────────────────────────────────────
 
@@ -355,8 +355,7 @@ pub fn locate_raw_text(
     }
 
     // ── Tier 1: Prefix match ─────────────────────────────────────────────
-    if let Some((corrected, start, tier)) = try_prefix_match(raw_text, source, target_len, 80, 15)
-    {
+    if let Some((corrected, start, tier)) = try_prefix_match(raw_text, source, target_len, 80, 15) {
         let span = TextSpan {
             start,
             end: start + corrected.len(),
@@ -464,7 +463,10 @@ pub fn verify_and_repair_bill_json(
 ) -> VerifyTextReport {
     let mut report = VerifyTextReport::default();
 
-    let provisions = match extraction_value.get_mut("provisions").and_then(|v| v.as_array_mut()) {
+    let provisions = match extraction_value
+        .get_mut("provisions")
+        .and_then(|v| v.as_array_mut())
+    {
         Some(arr) => arr,
         None => return report,
     };
@@ -568,7 +570,8 @@ mod tests {
 
     #[test]
     fn test_prefix_repair_clause_vs_subsection() {
-        let source = "SEC. 104. Section 3 of the Act is amended\u{2014} (1) in subsection (b)\u{2014}";
+        let source =
+            "SEC. 104. Section 3 of the Act is amended\u{2014} (1) in subsection (b)\u{2014}";
         let raw = "SEC. 104. Section 3 of the Act is amended\u{2014} (1) on clause (b)\u{2014}";
         let (norm, map) = build_position_map(source);
         let (corrected, span, tier) = locate_raw_text(raw, source, "test.txt", &norm, &map);
@@ -588,7 +591,8 @@ mod tests {
     #[test]
     fn test_substring_repair_generic_prefix() {
         let source = "blah blah (a) Subtitle A of title IV of the Homeland Security Act more text here and there and so on and so forth extending to a reasonable length";
-        let raw = "(a) Subtitle A of title IV of the Homeland Security Act of 2002 is amended by adding";
+        let raw =
+            "(a) Subtitle A of title IV of the Homeland Security Act of 2002 is amended by adding";
         // The prefix "(a) " is too common, but "Subtitle A of title IV" is unique
         let (norm, map) = build_position_map(source);
         let (corrected, span, _tier) = locate_raw_text(raw, source, "test.txt", &norm, &map);
@@ -642,7 +646,8 @@ mod tests {
     #[test]
     fn test_unfindable_text() {
         let source = "The quick brown fox jumps over the lazy dog.";
-        let raw = "Completely unrelated text that is nowhere in the source document at all whatsoever.";
+        let raw =
+            "Completely unrelated text that is nowhere in the source document at all whatsoever.";
         let (norm, map) = build_position_map(source);
         let (corrected, span, _) = locate_raw_text(raw, source, "test.txt", &norm, &map);
         assert!(corrected.is_none());

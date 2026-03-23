@@ -154,12 +154,7 @@ impl FasReference {
 
 /// Extract the short title: everything before the first comma, lowercased.
 fn short_title(title: &str) -> String {
-    title
-        .split(',')
-        .next()
-        .unwrap_or("")
-        .trim()
-        .to_lowercase()
+    title.split(',').next().unwrap_or("").trim().to_lowercase()
 }
 
 /// Load the FAS reference from a JSON file.
@@ -175,8 +170,8 @@ pub fn load_fas_reference(path: &Path) -> Result<FasReference> {
 
 /// Compute SHA-256 hash of the FAS reference file (for staleness tracking).
 pub fn fas_reference_hash(path: &Path) -> Result<String> {
-    let bytes = std::fs::read(path)
-        .with_context(|| format!("Failed to read {}", path.display()))?;
+    let bytes =
+        std::fs::read(path).with_context(|| format!("Failed to read {}", path.display()))?;
     let digest = Sha256::digest(&bytes);
     Ok(format!("{:x}", digest))
 }
@@ -311,7 +306,9 @@ fn try_lookup_with_disambiguation(
 ///
 /// `"United States Secret Service—Operations and Support"` → `"operations and support"`
 fn strip_emdash_prefix(name: &str) -> String {
-    let parts: Vec<&str> = name.split(&['\u{2014}', '\u{2013}', '—', '–'][..]).collect();
+    let parts: Vec<&str> = name
+        .split(&['\u{2014}', '\u{2013}', '—', '–'][..])
+        .collect();
     if parts.len() > 1 {
         parts.last().unwrap_or(&"").trim().to_string()
     } else {
@@ -432,14 +429,20 @@ pub struct ProvisionForTas {
 pub fn extract_provisions_for_tas(extraction_value: &serde_json::Value) -> Vec<ProvisionForTas> {
     let mut result = Vec::new();
 
-    let provisions = match extraction_value.get("provisions").and_then(|v| v.as_array()) {
+    let provisions = match extraction_value
+        .get("provisions")
+        .and_then(|v| v.as_array())
+    {
         Some(arr) => arr,
         None => return result,
     };
 
     for (i, p) in provisions.iter().enumerate() {
         // Must be an appropriation
-        let ptype = p.get("provision_type").and_then(|v| v.as_str()).unwrap_or("");
+        let ptype = p
+            .get("provision_type")
+            .and_then(|v| v.as_str())
+            .unwrap_or("");
         if ptype != "appropriation" {
             continue;
         }
@@ -461,10 +464,7 @@ pub fn extract_provisions_for_tas(extraction_value: &serde_json::Value) -> Vec<P
         }
 
         // Must have an account name
-        let account_name = p
-            .get("account_name")
-            .and_then(|v| v.as_str())
-            .unwrap_or("");
+        let account_name = p.get("account_name").and_then(|v| v.as_str()).unwrap_or("");
         if account_name.is_empty() {
             continue;
         }
@@ -544,7 +544,10 @@ static AGENCY_NAME_TO_CODE: &[(&str, &str)] = &[
     ("centers for disease control and prevention", "075"),
     ("food and drug administration", "075"),
     ("health resources and services administration", "075"),
-    ("substance abuse and mental health services administration", "075"),
+    (
+        "substance abuse and mental health services administration",
+        "075",
+    ),
     ("indian health service", "075"),
     ("administration for children and families", "075"),
     ("centers for medicare and medicaid services", "075"),
@@ -760,8 +763,7 @@ pub fn load_tas_mapping(dir: &Path) -> Result<Option<TasMappingFile>> {
 pub fn save_tas_mapping(dir: &Path, mapping: &TasMappingFile) -> Result<()> {
     let path = dir.join("tas_mapping.json");
     let json = serde_json::to_string_pretty(mapping)?;
-    std::fs::write(&path, json)
-        .with_context(|| format!("Failed to write {}", path.display()))?;
+    std::fs::write(&path, json).with_context(|| format!("Failed to write {}", path.display()))?;
     Ok(())
 }
 
@@ -928,7 +930,12 @@ pub fn apply_llm_results(
 mod tests {
     use super::*;
 
-    fn make_fas_account(code: &str, agency_code: &str, agency_name: &str, title: &str) -> FasAccount {
+    fn make_fas_account(
+        code: &str,
+        agency_code: &str,
+        agency_name: &str,
+        title: &str,
+    ) -> FasAccount {
         FasAccount {
             fas_code: code.to_string(),
             agency_code: agency_code.to_string(),
@@ -949,19 +956,43 @@ mod tests {
 
     fn make_test_reference() -> FasReference {
         let accounts = vec![
-            make_fas_account("070-0400", "070", "Department of Homeland Security",
-                "Operations and Support, United States Secret Service, Homeland Security"),
-            make_fas_account("070-0530", "070", "Department of Homeland Security",
-                "Operations and Support, U.S. Customs and Border Protection, Homeland Security"),
-            make_fas_account("021-2020", "021", "Department of Defense - ARMY",
-                "Operation and Maintenance, Army"),
-            make_fas_account("017-1804", "017", "Department of Defense - NAVY",
-                "Operation and Maintenance, Navy"),
+            make_fas_account(
+                "070-0400",
+                "070",
+                "Department of Homeland Security",
+                "Operations and Support, United States Secret Service, Homeland Security",
+            ),
+            make_fas_account(
+                "070-0530",
+                "070",
+                "Department of Homeland Security",
+                "Operations and Support, U.S. Customs and Border Protection, Homeland Security",
+            ),
+            make_fas_account(
+                "021-2020",
+                "021",
+                "Department of Defense - ARMY",
+                "Operation and Maintenance, Army",
+            ),
+            make_fas_account(
+                "017-1804",
+                "017",
+                "Department of Defense - NAVY",
+                "Operation and Maintenance, Navy",
+            ),
             // Two agencies both have "Salaries and Expenses"
-            make_fas_account("015-0100", "015", "Department of Justice",
-                "Salaries and Expenses, General Legal Activities, Justice"),
-            make_fas_account("020-0100", "020", "Department of the Treasury",
-                "Salaries and Expenses, Departmental Offices, Treasury"),
+            make_fas_account(
+                "015-0100",
+                "015",
+                "Department of Justice",
+                "Salaries and Expenses, General Legal Activities, Justice",
+            ),
+            make_fas_account(
+                "020-0100",
+                "020",
+                "Department of the Treasury",
+                "Salaries and Expenses, Departmental Offices, Treasury",
+            ),
         ];
         FasReference::build_lookups(&accounts, &[])
     }
@@ -973,14 +1004,18 @@ mod tests {
         // This is NOT unique (Army + Navy both have it) so without agency it's ambiguous
         let result = match_deterministic("Operation and Maintenance, Army", None, &reference);
         // Should be None without agency — ambiguous
-        assert!(result.is_none(), "ambiguous name without agency should not match");
+        assert!(
+            result.is_none(),
+            "ambiguous name without agency should not match"
+        );
     }
 
     #[test]
     fn test_match_with_agency_disambiguation() {
         let reference = make_test_reference();
         // With agency code, "Operation and Maintenance" disambiguates to Army
-        let result = match_deterministic("Operation and Maintenance, Army", Some("021"), &reference);
+        let result =
+            match_deterministic("Operation and Maintenance, Army", Some("021"), &reference);
         assert!(result.is_some(), "should match with agency disambiguation");
         let m = result.unwrap();
         assert_eq!(m.fas_code, "021-2020");
@@ -998,7 +1033,10 @@ mod tests {
             &reference,
         );
         // Suffix "operations and support" has 2 candidates in agency 070 — ambiguous
-        assert!(result.is_none(), "ambiguous within same agency should not match");
+        assert!(
+            result.is_none(),
+            "ambiguous within same agency should not match"
+        );
     }
 
     #[test]
@@ -1017,7 +1055,10 @@ mod tests {
         let reference = make_test_reference();
         // Without agency, "Salaries and Expenses" is ambiguous (DOJ + Treasury)
         let result = match_deterministic("Salaries and Expenses", None, &reference);
-        assert!(result.is_none(), "ambiguous without agency should return None");
+        assert!(
+            result.is_none(),
+            "ambiguous without agency should return None"
+        );
     }
 
     #[test]
@@ -1054,10 +1095,7 @@ mod tests {
             strip_emdash_prefix("united states secret service\u{2014}operations and support"),
             "operations and support"
         );
-        assert_eq!(
-            strip_emdash_prefix("no dash here"),
-            "no dash here"
-        );
+        assert_eq!(strip_emdash_prefix("no dash here"), "no dash here");
     }
 
     #[test]
@@ -1093,7 +1131,10 @@ mod tests {
     fn test_agency_name_to_code() {
         assert_eq!(agency_name_to_code("Department of Justice"), Some("015"));
         assert_eq!(agency_name_to_code("Department of the Army"), Some("021"));
-        assert_eq!(agency_name_to_code("Federal Bureau of Investigation"), Some("015"));
+        assert_eq!(
+            agency_name_to_code("Federal Bureau of Investigation"),
+            Some("015")
+        );
         assert_eq!(agency_name_to_code("Coast Guard"), Some("070"));
         assert_eq!(agency_name_to_code("Totally Unknown Agency"), None);
         assert_eq!(agency_name_to_code(""), None);
@@ -1103,33 +1144,54 @@ mod tests {
     fn test_agency_code_dod_branch_from_account() {
         // "Department of Defense" + account name with service branch → branch-specific code
         assert_eq!(
-            agency_name_to_code_with_account("Department of Defense", "Operation and Maintenance, Army"),
+            agency_name_to_code_with_account(
+                "Department of Defense",
+                "Operation and Maintenance, Army"
+            ),
             Some("021")
         );
         assert_eq!(
-            agency_name_to_code_with_account("Department of Defense", "Operation and Maintenance, Navy"),
+            agency_name_to_code_with_account(
+                "Department of Defense",
+                "Operation and Maintenance, Navy"
+            ),
             Some("017")
         );
         assert_eq!(
-            agency_name_to_code_with_account("Department of Defense", "Operation and Maintenance, Air Force"),
+            agency_name_to_code_with_account(
+                "Department of Defense",
+                "Operation and Maintenance, Air Force"
+            ),
             Some("057")
         );
         assert_eq!(
-            agency_name_to_code_with_account("Department of Defense", "Operation and Maintenance, Army National Guard"),
+            agency_name_to_code_with_account(
+                "Department of Defense",
+                "Operation and Maintenance, Army National Guard"
+            ),
             Some("021")
         );
         assert_eq!(
-            agency_name_to_code_with_account("Department of Defense", "Operation and Maintenance, Marine Corps"),
+            agency_name_to_code_with_account(
+                "Department of Defense",
+                "Operation and Maintenance, Marine Corps"
+            ),
             Some("017")
         );
         // No branch qualifier → DOD umbrella
         assert_eq!(
-            agency_name_to_code_with_account("Department of Defense", "Operation and Maintenance, Defense-Wide"),
+            agency_name_to_code_with_account(
+                "Department of Defense",
+                "Operation and Maintenance, Defense-Wide"
+            ),
             Some("097")
         );
         // Non-DOD agency ignores account name
         assert_eq!(
-            agency_name_to_code_with_account("Department of Justice", "Salaries and Expenses, Army something"),
+            agency_name_to_code_with_account(
+                "Department of Justice",
+                "Salaries and Expenses, Army something"
+            ),
             Some("015")
         );
     }

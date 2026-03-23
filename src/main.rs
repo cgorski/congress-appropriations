@@ -356,7 +356,6 @@ enum AuthorityCommands {
         #[arg(long, default_value = "table")]
         format: String,
     },
-
 }
 
 #[derive(Subcommand)]
@@ -678,11 +677,7 @@ async fn main() -> Result<()> {
             .await
         }
         Commands::Authority { action } => handle_authority(action),
-        Commands::Trace {
-            query,
-            dir,
-            format,
-        } => handle_trace(&query, &dir, &format),
+        Commands::Trace { query, dir, format } => handle_trace(&query, &dir, &format),
         Commands::VerifyText {
             dir,
             repair,
@@ -840,8 +835,10 @@ async fn handle_resolve_tas(
                     .collect();
 
                 // Group by agency code for focused prompts
-                let mut by_agency: std::collections::HashMap<String, Vec<&tas::UnmatchedProvision>> =
-                    std::collections::HashMap::new();
+                let mut by_agency: std::collections::HashMap<
+                    String,
+                    Vec<&tas::UnmatchedProvision>,
+                > = std::collections::HashMap::new();
                 for p in &unmatched_provs {
                     let code = tas::agency_name_to_code(&p.agency)
                         .unwrap_or("unknown")
@@ -877,8 +874,7 @@ async fn handle_resolve_tas(
                             })
                             .collect();
 
-                        let prompt =
-                            tas::build_llm_prompt(&batch_provs, &agency_fas, &bill_id);
+                        let prompt = tas::build_llm_prompt(&batch_provs, &agency_fas, &bill_id);
 
                         let request = MessageBuilder::new(model_name)
                             .system(tas::TAS_SYSTEM_PROMPT)
@@ -891,9 +887,7 @@ async fn handle_resolve_tas(
                         let response = match client.send_message(&request).await {
                             Ok(resp) => resp,
                             Err(e) => {
-                                eprintln!(
-                                    "    LLM call failed for agency {agency_code}: {e}"
-                                );
+                                eprintln!("    LLM call failed for agency {agency_code}: {e}");
                                 continue;
                             }
                         };
@@ -912,8 +906,7 @@ async fn handle_resolve_tas(
 
                         eprintln!(
                             "    agency={agency_code}: {} tokens in, {} out",
-                            response.usage.input_tokens,
-                            response.usage.output_tokens,
+                            response.usage.input_tokens, response.usage.output_tokens,
                         );
 
                         match tas::parse_llm_response(&response_text) {
@@ -922,11 +915,7 @@ async fn handle_resolve_tas(
                                     .iter()
                                     .filter(|m| m.confidence != tas::TasConfidence::Unmatched)
                                     .count();
-                                tas::apply_llm_results(
-                                    &mut mappings,
-                                    &llm_results,
-                                    &reference,
-                                );
+                                tas::apply_llm_results(&mut mappings, &llm_results, &reference);
                                 let count_after = mappings
                                     .iter()
                                     .filter(|m| m.confidence != tas::TasConfidence::Unmatched)
@@ -943,9 +932,7 @@ async fn handle_resolve_tas(
                 }
 
                 if total_llm_resolved > 0 {
-                    eprintln!(
-                        "    LLM resolved {total_llm_resolved} additional provisions"
-                    );
+                    eprintln!("    LLM resolved {total_llm_resolved} additional provisions");
                 }
             }
         }
@@ -1048,8 +1035,9 @@ fn handle_authority(action: AuthorityCommands) -> Result<()> {
             format,
         } => {
             let dir_path = std::path::Path::new(&dir);
-            let registry = authority::load_authorities(dir_path)?
-                .ok_or_else(|| anyhow::anyhow!("No authorities.json found. Run: authority build --dir {dir}"))?;
+            let registry = authority::load_authorities(dir_path)?.ok_or_else(|| {
+                anyhow::anyhow!("No authorities.json found. Run: authority build --dir {dir}")
+            })?;
 
             let filtered: Vec<&authority::AccountAuthority> = if let Some(ref code) = agency {
                 registry
@@ -1111,8 +1099,9 @@ fn handle_trace(query: &str, dir: &str, format: &str) -> Result<()> {
     use congress_appropriations::approp::authority;
 
     let dir_path = std::path::Path::new(dir);
-    let registry = authority::load_authorities(dir_path)?
-        .ok_or_else(|| anyhow::anyhow!("No authorities.json found. Run: authority build --dir {dir}"))?;
+    let registry = authority::load_authorities(dir_path)?.ok_or_else(|| {
+        anyhow::anyhow!("No authorities.json found. Run: authority build --dir {dir}")
+    })?;
 
     // Try exact FAS code match first, then search by name
     let auth = authority::get_authority(&registry, query).or_else(|| {
@@ -1152,7 +1141,9 @@ fn handle_trace(query: &str, dir: &str, format: &str) -> Result<()> {
         if bill_classifications.contains_key(&prov.bill_dir) {
             continue;
         }
-        let bm_path = std::path::Path::new(dir).join(&prov.bill_dir).join("bill_meta.json");
+        let bm_path = std::path::Path::new(dir)
+            .join(&prov.bill_dir)
+            .join("bill_meta.json");
         if let Ok(text) = std::fs::read_to_string(&bm_path)
             && let Ok(val) = serde_json::from_str::<serde_json::Value>(&text)
         {
@@ -1223,8 +1214,7 @@ fn handle_trace(query: &str, dir: &str, format: &str) -> Result<()> {
 
                 table.add_row(vec![
                     Cell::new(entry.fiscal_year),
-                    Cell::new(format_dollars(entry.dollars))
-                        .set_alignment(CellAlignment::Right),
+                    Cell::new(format_dollars(entry.dollars)).set_alignment(CellAlignment::Right),
                     Cell::new(labeled_bills.join(", ")),
                     Cell::new(truncate(&entry.account_names.join(" / "), 45)),
                 ]);
@@ -1236,7 +1226,10 @@ fn handle_trace(query: &str, dir: &str, format: &str) -> Result<()> {
             println!("\n  Events:");
             for event in &auth.events {
                 match &event.event_type {
-                    congress_appropriations::approp::authority::AuthorityEventType::Rename { from, to } => {
+                    congress_appropriations::approp::authority::AuthorityEventType::Rename {
+                        from,
+                        to,
+                    } => {
                         println!(
                             "    ⟹  FY{}: renamed from \"{}\" to \"{}\"",
                             event.fiscal_year,
@@ -1258,7 +1251,12 @@ fn handle_trace(query: &str, dir: &str, format: &str) -> Result<()> {
                     congress_appropriations::approp::authority::VariantClassification::NameChange => " [renamed]",
                     congress_appropriations::approp::authority::VariantClassification::InconsistentExtraction => " [inconsistent]",
                 }).unwrap_or("");
-                println!("    \"{}\" ({}){}", truncate(&v.name, 50), v.bills.join(", "), cls_label);
+                println!(
+                    "    \"{}\" ({}){}",
+                    truncate(&v.name, 50),
+                    v.bills.join(", "),
+                    cls_label
+                );
             }
         }
 
@@ -1330,7 +1328,12 @@ fn handle_verify_text(dir: &str, repair: bool, bill: Option<&str>, format: &str)
         let report =
             text_repair::verify_and_repair_bill_json(&mut ext_value, &source, &source_file, repair);
 
-        if repair && (report.repaired_prefix > 0 || report.repaired_substring > 0 || report.repaired_normalized > 0 || report.spans_added > 0) {
+        if repair
+            && (report.repaired_prefix > 0
+                || report.repaired_substring > 0
+                || report.repaired_normalized > 0
+                || report.spans_added > 0)
+        {
             // Backup original
             let backup_path = ext_path.with_extension("json.pre-repair");
             if !backup_path.exists() {
@@ -1349,7 +1352,11 @@ fn handle_verify_text(dir: &str, repair: bool, bill: Option<&str>, format: &str)
         grand_total.unverified += report.unverified;
         grand_total.spans_added += report.spans_added;
 
-        if report.unverified > 0 || report.repaired_prefix > 0 || report.repaired_substring > 0 || report.repaired_normalized > 0 {
+        if report.unverified > 0
+            || report.repaired_prefix > 0
+            || report.repaired_substring > 0
+            || report.repaired_normalized > 0
+        {
             bill_reports.push((bill_id, report));
         }
     }
@@ -1373,7 +1380,8 @@ fn handle_verify_text(dir: &str, repair: bool, bill: Option<&str>, format: &str)
         // Table output
         if !bill_reports.is_empty() {
             for (bill_id, report) in &bill_reports {
-                let repaired = report.repaired_prefix + report.repaired_substring + report.repaired_normalized;
+                let repaired =
+                    report.repaired_prefix + report.repaired_substring + report.repaired_normalized;
                 if repaired > 0 || report.unverified > 0 {
                     eprintln!(
                         "  {bill_id:15} {repaired:4} repaired, {} unverified",
@@ -1395,7 +1403,9 @@ fn handle_verify_text(dir: &str, repair: bool, bill: Option<&str>, format: &str)
             "{} provisions: {} exact, {} repaired ({} prefix, {} substring, {} normalized), {} unverified",
             grand_total.total,
             grand_total.exact,
-            grand_total.repaired_prefix + grand_total.repaired_substring + grand_total.repaired_normalized,
+            grand_total.repaired_prefix
+                + grand_total.repaired_substring
+                + grand_total.repaired_normalized,
             grand_total.repaired_prefix,
             grand_total.repaired_substring,
             grand_total.repaired_normalized,
@@ -4708,28 +4718,44 @@ fn handle_compare(
             std::collections::HashMap::new();
 
         for bill in &base_filtered {
-            let bill_dir_name = bill.dir.file_name().map(|n| n.to_string_lossy().to_string()).unwrap_or_default();
+            let bill_dir_name = bill
+                .dir
+                .file_name()
+                .map(|n| n.to_string_lossy().to_string())
+                .unwrap_or_default();
             let tm_path = data_path.join(&bill_dir_name).join("tas_mapping.json");
             if let Ok(text) = std::fs::read_to_string(&tm_path)
-                && let Ok(tm) = serde_json::from_str::<congress_appropriations::approp::tas::TasMappingFile>(&text)
+                && let Ok(tm) = serde_json::from_str::<
+                    congress_appropriations::approp::tas::TasMappingFile,
+                >(&text)
             {
                 for m in &tm.mappings {
                     if let Some(ref fas) = m.fas_code {
-                        let entry = base_fas.entry(fas.clone()).or_insert((0, m.account_name.clone()));
+                        let entry = base_fas
+                            .entry(fas.clone())
+                            .or_insert((0, m.account_name.clone()));
                         entry.0 += m.dollars.unwrap_or(0);
                     }
                 }
             }
         }
         for bill in &current_filtered {
-            let bill_dir_name = bill.dir.file_name().map(|n| n.to_string_lossy().to_string()).unwrap_or_default();
+            let bill_dir_name = bill
+                .dir
+                .file_name()
+                .map(|n| n.to_string_lossy().to_string())
+                .unwrap_or_default();
             let tm_path = data_path.join(&bill_dir_name).join("tas_mapping.json");
             if let Ok(text) = std::fs::read_to_string(&tm_path)
-                && let Ok(tm) = serde_json::from_str::<congress_appropriations::approp::tas::TasMappingFile>(&text)
+                && let Ok(tm) = serde_json::from_str::<
+                    congress_appropriations::approp::tas::TasMappingFile,
+                >(&text)
             {
                 for m in &tm.mappings {
                     if let Some(ref fas) = m.fas_code {
-                        let entry = current_fas.entry(fas.clone()).or_insert((0, m.account_name.clone()));
+                        let entry = current_fas
+                            .entry(fas.clone())
+                            .or_insert((0, m.account_name.clone()));
                         entry.0 += m.dollars.unwrap_or(0);
                     }
                 }
@@ -4743,15 +4769,16 @@ fn handle_compare(
             if row.status == "only in base" {
                 for (fas, (base_dollars, _)) in &base_fas {
                     if let Some((cur_dollars, _)) = current_fas.get(fas)
-                        && *base_dollars == row.base_dollars && row.current_dollars == 0
+                        && *base_dollars == row.base_dollars
+                        && row.current_dollars == 0
                     {
-                            row.current_dollars = *cur_dollars;
-                            row.delta = row.current_dollars - row.base_dollars;
-                            row.delta_pct = if row.base_dollars != 0 {
-                                Some((row.delta as f64 / row.base_dollars as f64) * 100.0)
-                            } else {
-                                None
-                            };
+                        row.current_dollars = *cur_dollars;
+                        row.delta = row.current_dollars - row.base_dollars;
+                        row.delta_pct = if row.base_dollars != 0 {
+                            Some((row.delta as f64 / row.base_dollars as f64) * 100.0)
+                        } else {
+                            None
+                        };
                         row.status = format!("matched (TAS {fas})");
                         row.normalized = true;
                         authority_rescued += 1;
@@ -4761,15 +4788,16 @@ fn handle_compare(
             } else if row.status == "only in current" {
                 for (fas, (cur_dollars, _)) in &current_fas {
                     if let Some((base_dollars, _)) = base_fas.get(fas)
-                        && *cur_dollars == row.current_dollars && row.base_dollars == 0
+                        && *cur_dollars == row.current_dollars
+                        && row.base_dollars == 0
                     {
-                            row.base_dollars = *base_dollars;
-                            row.delta = row.current_dollars - row.base_dollars;
-                            row.delta_pct = if row.base_dollars != 0 {
-                                Some((row.delta as f64 / row.base_dollars as f64) * 100.0)
-                            } else {
-                                None
-                            };
+                        row.base_dollars = *base_dollars;
+                        row.delta = row.current_dollars - row.base_dollars;
+                        row.delta_pct = if row.base_dollars != 0 {
+                            Some((row.delta as f64 / row.base_dollars as f64) * 100.0)
+                        } else {
+                            None
+                        };
                         row.status = format!("matched (TAS {fas})");
                         row.normalized = true;
                         authority_rescued += 1;

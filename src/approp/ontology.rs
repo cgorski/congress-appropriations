@@ -803,8 +803,6 @@ impl BillExtraction {
     }
 }
 
-
-
 // ─── Bill-Level Output ───────────────────────────────────────────────────────
 
 /// Unified output from a single extraction call.
@@ -884,8 +882,6 @@ pub struct ExtractionSummary {
     #[serde(default)]
     pub flagged_issues: Vec<String>,
 }
-
-
 
 // ─── Extraction Metadata ─────────────────────────────────────────────────────
 

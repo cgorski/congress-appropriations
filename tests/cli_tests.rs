@@ -1077,7 +1077,8 @@ fn relate_table_output() {
     // Hashes are deterministic but depend on provision indices which change
     // across re-extractions. Just verify that 8-char hex hashes are present.
     let has_hash = stdout.lines().any(|line| {
-        line.split_whitespace().any(|word| word.len() == 8 && word.chars().all(|c| c.is_ascii_hexdigit()))
+        line.split_whitespace()
+            .any(|word| word.len() == 8 && word.chars().all(|c| c.is_ascii_hexdigit()))
     });
     assert!(
         has_hash,
